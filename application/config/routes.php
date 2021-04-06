@@ -1,0 +1,96 @@
+<?php
+defined('BASEPATH') OR exit('No direct script access allowed');
+
+/*
+| -------------------------------------------------------------------------
+| URI ROUTING
+| -------------------------------------------------------------------------
+| This file lets you re-map URI requests to specific controller functions.
+|
+| Typically there is a one-to-one relationship between a URL string
+| and its corresponding controller class/method. The segments in a
+| URL normally follow this pattern:
+|
+|	example.com/class/method/id/
+|
+| In some instances, however, you may want to remap this relationship
+| so that a different class/function is called than the one
+| corresponding to the URL.
+|
+| Please see the user guide for complete details:
+|
+|	https://codeigniter.com/user_guide/general/routing.html
+|
+| -------------------------------------------------------------------------
+| RESERVED ROUTES
+| -------------------------------------------------------------------------
+|
+| There are three reserved routes:
+|
+|	$route['default_controller'] = 'welcome';
+|
+| This route indicates which controller class should be loaded if the
+| URI contains no data. In the above example, the "welcome" class
+| would be loaded.
+|
+|	$route['404_override'] = 'errors/page_missing';
+|
+| This route will tell the Router which controller/method to use if those
+| provided in the URL cannot be matched to a valid route.
+|
+|	$route['translate_uri_dashes'] = FALSE;
+|
+| This is not exactly a route, but allows you to automatically route
+| controller and method names that contain dashes. '-' isn't a valid
+| class or method name character, so it requires translation.
+| When you set this option to TRUE, it will replace ALL dashes in the
+| controller and method URI segments.
+|
+| Examples:	my-controller/index	-> my_controller/index
+|		my-controller/my-method	-> my_controller/my_method
+*/
+$route['default_controller'] = 'welcome';
+
+// setting route for admin
+$route['admin'] = 'admin/auth';
+
+$route['admin/dashboard2'] = 'admin/dashboard/index2';
+
+$route['adminlte'] = 'admin/auth';
+$route['adminlte/(:any)'] = 'admin/adminlte/$1';
+
+$route['admin/list'] = 'admin/customers/customer_list';
+$route['admin/manage'] = 'admin/customers/customer_manage';
+$route['admin/search'] = 'admin/customers/customer_search';
+$route['admin/status'] = 'admin/customers/status_report';
+$route['admin/summary'] = 'admin/customers/summary_report';
+$route['admin/add'] = 'admin/customers/customer_add';
+$route['admin/shipment'] = 'admin/customers/shipment';
+
+$route['admin/address_book'] = 'admin/customers/address_book';
+$route['admin/address_book_add'] = 'admin/customers/address_book_add';
+$route['admin/address_book_import'] = 'admin/customers/address_book_import';
+$route['admin/address_book_export'] = 'admin/customers/address_book_export';
+$route['admin/history'] = 'admin/customers/history';
+$route['admin/settings'] = 'admin/customers/setting';
+
+$route['admin/booking'] = 'admin/customers/booking';
+$route['admin/help'] = 'admin/customers/help';
+
+$route['admin/order_supply'] = 'admin/customers/order_supply';
+$route['admin/quote'] = 'admin/customers/quote';
+
+$route['admin/user'] = 'admin/users/user_manage';
+
+$route['admin/surcharge'] = 'admin/rates/surcharge_list';
+$route['admin/rate'] = 'admin/rates/rate_sheet';
+$route['admin/import'] = 'admin/rates/import_rate';
+$route['admin/manage_sheet'] = 'admin/rates/manage_cover';
+$route['admin/set_cost'] = 'admin/rates/set_cost';
+
+$route['admin/carrier_list'] = 'admin/carriers/carrier_list';
+
+$route['admin/country_list'] = 'admin/carriers/country_list';
+
+$route['404_override'] = '';
+$route['translate_uri_dashes'] = FALSE;
