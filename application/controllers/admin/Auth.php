@@ -11,7 +11,7 @@
 		public function index(){
 			if($this->session->has_userdata('is_admin_login'))
 			{
-				redirect('admin/dashboard');
+				redirect('admin/add');
 			}
 			else{
 				redirect('admin/auth/login');
