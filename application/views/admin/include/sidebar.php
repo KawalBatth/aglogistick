@@ -36,17 +36,22 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
           <ul class="treeview-menu">
             <li><a href="#">Customers <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i> </span></a>
                 <ul class="treeview-menu">
-                    <li><a href="<?= base_url('admin/add'); ?>">Add Customer<i class="fa fa-external-link fa-fw sws pst"></i></a>
-                    <li><a href="<?= base_url('admin/manage'); ?>">Manage Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                    <li><a href="<?= base_url('admin/search'); ?>">Search Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                    <li><a href="<?= base_url('admin/list'); ?>">Customer List <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('customer/add'); ?>">Add Customer<i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('customer/manage'); ?>">Manage Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('customer/search'); ?>">Search Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('customer/list'); ?>">Customer List <i class="fa fa-external-link fa-fw sws pst"></i></a>
                 </ul>
             </li>
-            <li><a href="#">Users <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
-                <ul class="treeview-menu">
+			<?php if($this->session->userdata('user_id')=='')
+			{
+				?>
+				<ul class="treeview-menu">
                       <li><a href="<?= base_url('admin/user'); ?>">Manage Users <i class="fa fa-external-link fa-fw sws pst"></i></a>
                       <li><a href="<?= base_url('admin/users/add'); ?>"><i class="fa fa-external-link fa-fw sws pst"></i> Add User</a></li>
                 </ul>
+			<?php 
+			}?>
+                
             </li>
           </ul>
         </li>

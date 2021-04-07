@@ -59,20 +59,21 @@ $route['admin/dashboard2'] = 'admin/dashboard/index2';
 $route['adminlte'] = 'admin/auth';
 $route['adminlte/(:any)'] = 'admin/adminlte/$1';
 
-$route['admin/list'] = 'admin/customers/customer_list';
-$route['admin/manage'] = 'admin/customers/customer_manage';
-$route['admin/search'] = 'admin/customers/customer_search';
-$route['admin/status'] = 'admin/customers/status_report';
-$route['admin/summary'] = 'admin/customers/summary_report';
-$route['admin/add'] = 'admin/customers/customer_add';
-$route['admin/shipment'] = 'admin/customers/shipment';
+$route['customer/list'] = 'customer/customers/customer_list';
+$route['login/process'] = 'customer/login/process';
+$route['customer/manage'] = 'customer/customers/customer_manage';
+$route['customer/search'] = 'customer/customers/customer_search';
+$route['customer/status'] = 'customer/customers/status_report';
+$route['customer/summary'] = 'customer/customers/summary_report';
+$route['customer/add'] = 'customer/customers/customer_add';
+$route['customer/shipment'] = 'customer/customers/shipment';
 
-$route['admin/address_book'] = 'admin/customers/address_book';
-$route['admin/address_book_add'] = 'admin/customers/address_book_add';
-$route['admin/address_book_import'] = 'admin/customers/address_book_import';
-$route['admin/address_book_export'] = 'admin/customers/address_book_export';
-$route['admin/history'] = 'admin/customers/history';
-$route['admin/settings'] = 'admin/customers/setting';
+$route['customer/address_book'] = 'customer/customers/address_book';
+$route['customer/address_book_add'] = 'customer/customers/address_book_add';
+$route['customer/address_book_import'] = 'customer/customers/address_book_import';
+$route['customer/address_book_export'] = 'customer/customers/address_book_export';
+$route['customer/history'] = 'customer/customers/history';
+$route['customer/settings'] = 'customer/customers/setting';
 
 $route['admin/booking'] = 'admin/customers/booking';
 $route['admin/help'] = 'admin/customers/help';
@@ -81,6 +82,7 @@ $route['admin/order_supply'] = 'admin/customers/order_supply';
 $route['admin/quote'] = 'admin/customers/quote';
 
 $route['admin/user'] = 'admin/users/user_manage';
+$route['customer/login'] = 'customer/login';
 
 $route['admin/surcharge_list'] = 'admin/rates/surcharge_list';
 $route['admin/rate'] = 'admin/rates/rate_sheet';
