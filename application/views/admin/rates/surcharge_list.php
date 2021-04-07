@@ -7,14 +7,14 @@
                             <div class="portlet-body" style="padding: 0px;">
                                 <div class="tab-content responsive">
                                     <div id="Overview-tab" class="tab-pane fade in active">
-                                        <p>
+                                        <!--p>
                                             <b>Note:</b>
 											<br>
 											- This is the Accessorial information used for invoices and airbill imports.
 											<br>
 											Double-click the entry to modify its value.
 											<br>
-                                        </p>
+                                        </p-->
 
 <div class="surcharge-form" id="surchargeForm">
 <form>
@@ -26,8 +26,7 @@
   <table id="piece-table">
   
   <tr id="carrier-dt1">
-  <td width="2%" style="padding-top: 8px"><span id="piece-order1" class="order-number"> 1<span>
-                                                                </td>
+ 
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Name</label>
@@ -55,6 +54,7 @@
    <button class="btn s33" type="button" onclick="addSurcharge()"> + </button>
   <div class="quote-button">
   <button type="submit" name="submit" class="btn s33">Save</button>
+  <button type="button" class="btn s33 cancel" onclick="closeForm()">Close</button>
   </div>
 </form>
 
@@ -79,31 +79,7 @@
                                                         </thead>
                                                         <tbody>
                                                         <!-- Multiple filter -->
-                                                        <tr id="surcharge-list-multiple-filter">
-                                                            <td><input type="text" name="code" value="" id="code" class="form-control" onkeyup="searchSurchargeByKeyUp()"></td>
-                                                            <td><input type="text" name="modifiedDate" value="" id="modifiedDate" class="form-control form_datetime" onchange="doSearch()" data-date-format="dd MM yyyy"></td>
-                                                            <td><select name="type" id="type" class="form-control" onchange="doSearch()">
-    <option value=""></option>
-    <option value="1">Fixed</option>
-    <option value="2">Percent of Base Charge</option>
-    <option value="3">Percent of Surcharge</option>
-
-
-</select>
-
-</td>
-                                                            <td><input type="text" name="description" value="" id="description" class="form-control" onkeyup="searchSurchargeByKeyUp()"></td>
-                                                            <td><input type="text" name="carrierName" value="" id="carrierName" class="form-control" onkeyup="searchSurchargeByKeyUp()"></td>
-                                                            <td><select name="quotable" id="quotable" class="form-control" onchange="doSearch()">
-    <option value=""></option>
-    <option value="0">No</option>
-    <option value="1">Yes</option>
-
-
-</select>
-
-</td>
-                                                        </tr>
+                                                
                                                         
                                                           <tr data-accessorialid="169" class="on-click" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
                                                                     <td>1</td>

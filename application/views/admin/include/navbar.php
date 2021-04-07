@@ -374,7 +374,7 @@ h3.new_surcharge {
 }
 
 input#carrier_name {
-    width: 20%;
+    width: 32%;
 }
 
 
