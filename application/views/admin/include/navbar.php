@@ -281,6 +281,15 @@ body {font-family: Arial, Helvetica, sans-serif;}
     margin-right: 15px;
 }
 
+.clicks {
+    color: #666 !important;
+    text-decoration: underline;
+}
+
+u{
+    color: #b5121b;
+}
+
 .div_more_detail{
     display:none;
 }
@@ -291,27 +300,31 @@ h3.quote_title {
     margin-top: 7px;
 }
 
-div#carierAdd {
-    width: 21%;
-    padding: 0px 19px;
-}
-
-.carierAdd{
-    display:none;
-}
 /* The popup form - hidden by default */
 .form-popup {
-  display: none;
+    display: none;
     position: fixed;
-    bottom: 315px;
-    width: 22%;
-    right: 534px;
+    bottom: 350px;
+    width: 30%;
+    right: 508px;
+    font-size: 6px;
     z-index: 101;
     background: #ffffff;
     border: 4px solid #e5e5e5;
     padding: 0px;
 }
 
+.popup-form{
+    display: none;
+    position: fixed;
+    bottom: 350px;
+    width: 22%;
+    right: 700px;
+    z-index: 101;
+    background: #ffffff;
+    border: 4px solid #e5e5e5;
+    padding: 0px;
+}
 /* Add styles to the form container */
 .form-container {
   max-width: 300px;
@@ -346,6 +359,10 @@ div#carierAdd {
   opacity: 0.8;
 }
 
+h3.new_surcharge {
+    color: black;
+    font-weight: 500;
+}
 /* Add a red background color to the cancel button */
 .form-container .cancel {
   background-color: red;
@@ -354,6 +371,30 @@ div#carierAdd {
 /* Add some hover effects to buttons */
 .form-container .btn:hover, .open-button:hover {
   opacity: 1;
+}
+
+input#carrier_name {
+    width: 20%;
+}
+
+
+
+.col-lg-12.text-right {
+    margin-top: 25px;
+    background: none !important;
+}
+
+.surcharge-form{
+    display: none;
+    position: fixed;
+    bottom: 300px;
+    width: 30%;
+    right: 500px;
+    min-height: 40%;
+    z-index: 101;
+    background: #ffffff;
+    border: 4px solid #e5e5e5;
+    padding: 13px;
 }
 
 
@@ -367,8 +408,10 @@ img.logo_img {
   <header class="main-header">
     <!-- Logo -->
     <a href="<?= base_url('admin');?>" class="logo">
-      <!-- mini logo for sidebar mini 50x50 pixels -->
-      <img src="<?= base_url() ?>public/dist/img/AGL.png" class="logo_img" alt="User Image">
+      <mini logo for sidebar mini 50x50 pixels -->
+      <!--img src="<?= base_url() ?>public/dist/img/AGL.png" class="logo_img" alt="User Image"-->
+      <span><b> AGL <b></span>
+      <span><b> Specialised <b></span>
       <!-- logo for regular state and mobile devices -->
      
     </a>
@@ -390,7 +433,7 @@ img.logo_img {
           <!-- Control Sidebar Toggle Button -->
         
      
-        <ul id="nav">
+        <!--ul id="nav">
        <li><a href="#"><i class="fa fa-key fa-fw"></i><span> Account</span></a>
           <ul class="sub-menu">
                 <li><a href="#">Customers »</a>
@@ -414,9 +457,9 @@ img.logo_img {
             <li><a href="#">Customer »</a>
                     <ul>
                         <li><a href="<?= base_url('admin/status'); ?>">Customer Status Report<i class="fa fa-external-link fa-fw sws pst"></i></a>
-                        <li><a href="<?= base_url('admin/summary'); ?>">Customer Summary Report <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                        <li><a href="<?= base_url('admin/summary'); ?>">Customer Summary Report <i class="fa fa-external-link fa-fw sws pst"></i></a-->
                         <!--li><a href="#">Activation Report <i class="fa fa-external-link fa-fw sws pst"></i></a-->
-                     </ul>
+                     <!--/ul>
              </li>
                   
             </ul>
@@ -440,7 +483,7 @@ img.logo_img {
                     </li>
             </ul>
         </li>
-    </ul>
+    </ul-->
   
     <!--label name="search" class="search_tab">Search</label><input type="search" name="search" class="search"-->
 

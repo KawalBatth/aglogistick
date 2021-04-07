@@ -82,7 +82,7 @@ $route['admin/quote'] = 'admin/customers/quote';
 
 $route['admin/user'] = 'admin/users/user_manage';
 
-$route['admin/surcharge'] = 'admin/rates/surcharge_list';
+$route['admin/surcharge_list'] = 'admin/rates/surcharge_list';
 $route['admin/rate'] = 'admin/rates/rate_sheet';
 $route['admin/import'] = 'admin/rates/import_rate';
 $route['admin/manage_sheet'] = 'admin/rates/manage_cover';

@@ -41,15 +41,15 @@
 
 
 <ul id="manage_customer_tab_nav" class="nav nav-tabs responsive">
-    <li class="" style="margin-left: 10px;"><a href="#account-setup-tab" data-toggle="tab">Account Setup</a></li>
+    <li class="active" style="margin-left: 10px;"><a href="#account-setup-tab" data-toggle="tab">Account Setup</a></li>
     <li class=""><a href="#address-tab" data-toggle="tab">Address</a></li>
     <li class=""><a href="#base-rates-tab" data-toggle="tab">Base Rates</a></li>
-        <li class="active"><a href="#notes-tab" data-toggle="tab">Notes</a></li>
+        <li class=""><a href="#notes-tab" data-toggle="tab">Notes</a></li>
 </ul>
 <form id="add_customer_form">
     <div id="manage_customer_tab_content" class="tab-content responsive">
         <!-- Account setup tab -->
-        <div id="account-setup-tab" class="tab-pane fade">
+        <div id="account-setup-tab" class="tab-pane fade active in">
             <div class="row">
                 <div class="portlet-body b12 b11">
                     <div class="row">
@@ -11424,7 +11424,7 @@
         </div>
 
         <!-- Note tab -->
-        <div id="notes-tab" class="tab-pane fade active in">
+        <div id="notes-tab" class="tab-pane fade">
             <b>Notes</b>
 
             <p>

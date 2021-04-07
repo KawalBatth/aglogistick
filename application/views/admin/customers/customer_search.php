@@ -101,24 +101,39 @@
                                    
                                     <div id="search-customers-list">
                                         <div>
-                                            <table class="table table-hover table-bordered" id="customer_search">
+                                            <table class="table table-hover table-bordered" id="customer-list-table">
                                                 <thead>
                                                 <tr>
-                                                    <th sort-field="customer_code" style="cursor: pointer;">Customer # <i class="fa fa-sort-up"></i></th>
-                                                    <th sort-field="customer_name" style="cursor: pointer;">Customer Name <i class="fa fa-sort"></i></th>
-                                                    <th sort-field="webship_group_name" style="cursor: pointer;">Web Freight Group <i class="fa fa-sort"></i></th>
-                                                    <th sort-field="sales_rep_name" style="cursor: pointer;">Sales Rep <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="customer_name" style="cursor: pointer;">Name <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_contact_name" style="cursor: pointer;">Attn <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_address1" style="cursor: pointer;">Addr 1 <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_address2" style="cursor: pointer;">Addr 2 <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_city" style="cursor: pointer;">City <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_country" style="cursor: pointer;">Country <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_postal_code" style="cursor: pointer;">Postal Code <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_phone" style="cursor: pointer;">Phone <i class="fa fa-sort"></i></th>
-                                                    <th data-group="address-detail" sort-field="address_email" style="cursor: pointer;">Email <i class="fa fa-sort"></i></th>
-                                                
-                                                </tr>
+                                                    <th>Customer #</th>
+                                                    <th>Customer Name</th>
+                                                    <th>Web Freight Group</th>
+                                                    <th>Sales Rep</th>
+                                                    <th data-group="address-detail">Name</th>
+                                                    <th data-group="address-detail">Attn</th>
+                                                    <th data-group="address-detail">Addr 1</th>
+                                                    <th data-group="address-detail">Addr 2</th>
+                                                    <th data-group="address-detail">City</th>
+                                                    <th data-group="address-detail">Country</th>
+                                                    <th data-group="address-detail">Postal Code</th>
+                                                    <th data-group="address-detail">Phone</th>
+                                                    <th data-group="address-detail">Email</th>
+                                                    <th data-group="billing-detail">Billing Name</th>
+                                                    <th data-group="billing-detail">Billing Attn</th>
+                                                    <th data-group="billing-detail">Billing Addr 1</th>
+                                                    <th data-group="billing-detail">Billing Addr 2</th>
+                                                    <th data-group="billing-detail">Billing City</th>
+                                                    <th data-group="billing-detail">Billing Country</th>
+                                                    <th data-group="billing-detail">Billing Postal Code</th>
+                                                    <th data-group="billing-detail">Billing Phone</th>
+                                                    <th data-group="billing-detail">Billing Email</th>
+                                                    <th data-group="dhl-cost-basis">DHL Acct #</th>
+                                                    <th data-group="dhl-cost-basis">Inbound Acct #</th>
+                                                    <th data-group="invoicing-option">Inv Terms</th>
+                                                    <th data-group="invoicing-option">Email Invoice?</th>
+                                                    <th data-group="dates">Submitted</th>
+                                                    <th data-group="dates">Activated</th>
+                                                    
+                                                  </tr>
                                                 </thead>
                                                 <tbody>
                                                 <tr>
@@ -126,16 +141,8 @@
                                                     <td></td>
                                                     <td></td>
                                                     <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-                                                    <td></td>
-
+                                                    
+                                                   
                                                 </tr>
                                                 </tbody>
                                             </table>
@@ -169,9 +176,118 @@
                                 </div>
                             </div>
                         </div>
+                        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
+  <script>
+   $(document).ready(function() {
+   // $('#customer-list-table').DataTable( {
+   /// } );
+//});
+</script>
 <script>
-  $(document).ready(function() {
-    $('#customer_search').DataTable();
-} );
+ 
+$("input[type='checkbox'][data-group]").each(function () {
+            if ($(this).is(":checked")) {
+                showColumns($(this).attr("data-group"), true);
+            } else {
+                showColumns($(this).attr("data-group"), false);
+            }
+        });
+        var fieldList = ["customer_code", "customer_name", "webship_group_name", "sales_rep_name", "customer_name", "address_contact_name", "address_address1", "address_address2", "address_city", "address_country", "address_postal_code", "address_phone", "address_email", "billing_customer_name", "billing_contact_name", "billing_address1", "billing_address2", "billing_city", "billing_country", "billing_postal_code", "billing_phone", "billing_email", "dhl_international_account", "dhl_inbound_account", "invoice_days", "email_invoice", "create_date", "activate_date"];
+        $("#customer-list-table").tablesorter({
+            sortFieldId: "order_field",
+            sortTypeId: "order_type",
+            fieldList: fieldList,
+            callback: doSearch
+        });
+    
+  
+    function showColumns(group, show) {
+        if (show) {
+            $("#search-customers-list [data-group='" + group + "']").show();
+            $("#column-flags-form input[type='hidden'][data-group='" + group + "']").val("true");
+        } else {
+            $("#search-customers-list [data-group='" + group + "']").hide();
+            $("#column-flags-form input[type='hidden'][data-group='" + group + "']").val("false");
+        }
+    }
+
+    function onCheckboxToggle(obj) {
+        var group = obj.attr("data-group");
+        var show = obj.is(":checked");
+        showColumns(group, show);
+    }
+
+
+
+    function doSearch(pageSize, page) {
+        var p = typeof(page) != "undefined" ? page : "1";
+        var ps = typeof(pageSize) != "undefined" ? pageSize : $("#pageSize").val();
+        var data = $("#search-customer-form").serialize();
+        data = data + "&page=" + p;
+        data = data + "&pageSize=" + ps;
+        data = data + "&" + $("#order-form").serialize();
+        loadingDialog.dialog("open");
+        $.post("search_customers_search.ix?reqType=json", data, function (res) {
+            loadingDialog.dialog("close");
+            if (res.errorCode == "SUCCESS") {
+                $("#search-customers-list").html(res.content);
+            } else {
+                alertDialog.html(res.errorMsg);
+                alertDialog.dialog("open");
+            }
+        }).fail(function () {
+            loadingDialog.dialog("close");
+            alertDialog.html('System internal error, please contact administrator.');
+            alertDialog.dialog("open");
+        });
+    }
+
+    function onGoClick() {
+        var pageSize = $("select[name='pageSize'] option:selected").val();
+        doSearch(pageSize, 1);
+    }
+
+    function changePage(page) {
+        var pageSize = $("select[name='pageSize'] option:selected").val();
+        doSearch(pageSize, page);
+    }
+
+    function exportClick(option) {
+        var data = $("#search-customer-form").serialize() + "&" + $("#column-flags-form").serialize() + "&" + $("#order-form").serialize();
+        $('#selected-option').val(option);
+        switch (option) {
+            case 'option':
+                $("#export-option").val("Option");
+
+                break;
+            case 'export':
+                $("#export-option").val("Export");
+                var url = "search_customers_export.ix?" + data;
+                window.open(url);
+                break;
+        }
+
+    }
+
+    function getSaleRepsList() {
+        var data = $("select#franchiseCode option:selected").val();
+        loadingDialog.dialog("open");
+        $.post("search_customers_sale_rep_list.ix?reqType=json", "franchiseCode=" + data, function (res) {
+            loadingDialog.dialog("close");
+            if (res.errorCode == "SUCCESS") {
+                $("#sale-rep-list-result").html(res.content);
+            } else {
+                alertDialog.html(res.errorMsg);
+                alertDialog.dialog("open");
+            }
+        }).fail(function () {
+            loadingDialog.dialog("close");
+            alertDialog.html('System internal error, please contact administrator.');
+            alertDialog.dialog("open");
+        });
+    }
+
+
 </script>

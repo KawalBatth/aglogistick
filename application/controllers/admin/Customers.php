@@ -44,6 +44,76 @@
 			$data['view'] = 'admin/customers/customer_add';
 			$this->load->view('admin/layout', $data);
 		}
+
+		public function shipment()
+		{
+			$data['view'] = 'admin/customers/shipment';
+			$this->load->view('admin/layout', $data);
+		}
+
+		public function address_book()
+		{
+			$data['view'] = 'admin/customers/address_book';
+			$this->load->view('admin/layout', $data);
+		}
+
+		public function address_book_add()
+		{
+			$data['view'] = 'admin/customers/address_book_add';
+			$this->load->view('admin/layout', $data);
+		}
+
+		public function address_book_import()
+		{
+			$data['view'] = 'admin/customers/address_book_import';
+			$this->load->view('admin/layout', $data);
+		}
+
+		public function address_book_export()
+		{
+			$data['view'] = 'admin/customers/address_book_export';
+			$this->load->view('admin/layout', $data);
+		}
+
+		public function history()
+		{
+			$data['view'] = 'admin/customers/history';
+			$this->load->view('admin/layout', $data);
+		}
+
+		public function quote()
+		{
+			$data['view'] = 'admin/customers/quote';
+			$this->load->view('admin/layout', $data);
+		}
+
+		
+		public function setting()
+		{
+			$data['view'] = 'admin/customers/setting';
+			$this->load->view('admin/layout', $data);
+		}
+
+			
+		public function order_supply()
+		{
+			$data['view'] = 'admin/customers/order_supply';
+			$this->load->view('admin/layout', $data);
+		}
+
+		public function help()
+		{
+			$data['view'] = 'admin/customers/help';
+			$this->load->view('admin/layout', $data);
+		}
+
+        public function booking()
+		{
+			$data['view'] = 'admin/customers/booking';
+			$this->load->view('admin/layout', $data);
+		}
+	
+	
 	}
 
 ?>	

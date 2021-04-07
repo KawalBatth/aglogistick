@@ -9,7 +9,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
       <!-- Sidebar user panel -->
       <div class="user-panel">
         <div class="pull-left image">
-          <img src="<?= base_url() ?>public/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image">
+          <!--img src="<?= base_url() ?>public/dist/img/user2-160x160.jpg" class="img-circle" alt="User Image"-->
         </div>
         <div class="pull-left info">
           <p><?= ucwords($this->session->userdata('name')); ?></p>
@@ -17,7 +17,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
         </div>
       </div>
       <!-- search form -->
-      <form action="#" method="get" class="sidebar-form">
+      <!--form action="#" method="get" class="sidebar-form">
         <div class="input-group">
           <input type="text" name="q" class="form-control" placeholder="Search...">
               <span class="input-group-btn">
@@ -25,54 +25,76 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
                 </button>
               </span>
         </div>
-      </form>
+      </form-->
       <!-- /.search form -->
       <!-- sidebar menu: : style can be found in sidebar.less -->
       <ul class="sidebar-menu">
-        <li id="dashboard" class="treeview">
-          <a href="#">
-            <i class="fa fa-dashboard"></i> <span>Dashboard</span>
-            <span class="pull-right-container">
-              <i class="fa fa-angle-left pull-right"></i>
-            </span>
+        <li id="account" class="treeview">
+          <a href="#"><i class="fa fa-key fa-fw"></i> <span>Account</span>
+               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i> </span>
           </a>
           <ul class="treeview-menu">
-            <li id="dashboard1"><a href="<?= base_url('admin/dashboard'); ?>"><i class="fa fa-circle-o"></i> Dashboard</a></li>
-            <li id="dashboard2"><a href="<?= base_url('admin/dashboard2/'); ?>"><i class="fa fa-circle-o"></i> Dashboard V2</a></li>
+            <li><a href="#">Customers <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i> </span></a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= base_url('admin/add'); ?>">Add Customer<i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('admin/manage'); ?>">Manage Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('admin/search'); ?>">Search Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('admin/list'); ?>">Customer List <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                </ul>
+            </li>
+            <li><a href="#">Users <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                      <li><a href="<?= base_url('admin/user'); ?>">Manage Users <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                      <li><a href="<?= base_url('admin/users/add'); ?>"><i class="fa fa-external-link fa-fw sws pst"></i> Add User</a></li>
+                </ul>
+            </li>
           </ul>
         </li>
       </ul>
 
-      <ul class="sidebar-menu">
-        <li id="users" class="treeview">
-            <a href="#">
-              <i class="fa fa-dashboard"></i> <span>Users</span>
-              <span class="pull-right-container">
-                <i class="fa fa-angle-left pull-right"></i>
-              </span>
-            </a>
-            <ul class="treeview-menu">
-              <li id="add_user"><a href="<?= base_url('admin/users/add'); ?>"><i class="fa fa-circle-o"></i> Add User</a></li>
-              <li id="view_users" class=""><a href="<?= base_url('admin/users'); ?>"><i class="fa fa-circle-o"></i> View Users</a></li>
-            </ul>
-          </li>
-          <li id="adminlte" class="treeview">
-          <a href="#">
-            <i class="fa fa-files-o"></i>
-            <span>Layout Options</span>
-            <span class="pull-right-container">
-              <span class="label label-primary pull-right">4</span>
-            </span>
+      <!--ul class="sidebar-menu">
+        <li id="reports" class="treeview">
+          <a href="#"><i class="fa fa-file-text-o fa-fw"></i><span>Reports</span>
+               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i> </span>
           </a>
           <ul class="treeview-menu">
-            <li><a href="<?= base_url('adminlte/top_nav'); ?>"><i class="fa fa-circle-o"></i> Top Navigation</a></li>
-            <li><a href="<?= base_url('adminlte/boxed'); ?>"><i class="fa fa-circle-o"></i> Boxed</a></li>
-            <li><a href="<?= base_url('adminlte/fixed'); ?>"><i class="fa fa-circle-o"></i> Fixed</a></li>
-            <li><a href="<?= base_url('adminlte/collapsed_sidebar'); ?>/"><i class="fa fa-circle-o"></i> Collapsed Sidebar</a></li>
+            <li><a href="#">Customer <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i> </span></a>
+                <ul class="treeview-menu">
+                   <li><a href="<?= base_url('admin/status'); ?>">Status Report<i class="fa fa-external-link fa-fw sws pst"></i></a>
+                   <li><a href="<?= base_url('admin/summary'); ?>">Summary Report <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                </ul>
+            </li>
           </ul>
         </li>
+      </ul-->
 
-         <li id="widgets">
+
+      <ul class="sidebar-menu">
+        <li id="admin" class="treeview">
+           <a href="#"><i class="fa fa-user fa-fw"></i>Admin
+               <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i> </span>
+           </a>
+          <ul class="treeview-menu">
+            <li><a href="#">Rates and Fees <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i> </span></a>
+                <ul class="treeview-menu">
+                      <li><a href="<?= base_url('admin/surcharge_list'); ?>">Surcharge List <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                      <li><a href="<?= base_url('admin/import'); ?>">Import rates & costs <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                      <li><a href="<?= base_url('admin/rate'); ?>">Rate sheets <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                      <!--li><a href="<?= base_url('admin/manage_sheet'); ?>">Manage Cover sheets <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                      <li><a href="<?= base_url('admin/set_cost'); ?>">Set List Rates <i class="fa fa-external-link fa-fw sws pst"></i></a-->
+                </ul>
+            </li>
+            <!--li><a href="#">Carriers <span class="pull-right-container"><i class="fa fa-angle-left pull-right"></i></span></a>
+                <ul class="treeview-menu">
+                    <li><a href="<?= base_url('admin/carrier_list'); ?>">Carrier List <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <li><a href="<?= base_url('admin/country_list'); ?>">Country List <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                </ul>
+            </li-->
+          </ul>
+        </li>
+      </ul>
+
+         <!--li id="widgets">
           <a href="<?= base_url('adminlte/widgets'); ?>">
             <i class="fa fa-th"></i> <span>Widgets</span>
             <span class="pull-right-container">
@@ -228,7 +250,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
       </ul>
 
 
-    </section>
+    </section-->
     <!-- /.sidebar -->
   </aside>
 
