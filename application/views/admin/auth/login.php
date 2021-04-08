@@ -34,7 +34,7 @@
                     <div class="caption">
                         <h3 class="title">Admin Login </h3>
                     </div>
-                    <?php echo form_open(base_url('admin/auth/login'), 'class="login-form" '); ?>
+                    <?php echo form_open(base_url('admin/auth/login'), 'class="login-form" '); ?> 
                         <div class="input-group">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Email" >
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" >

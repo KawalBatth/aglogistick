@@ -17,11 +17,11 @@
                                         </p>
 
 <div class="surcharge-form" id="surchargeForm">
-<form>
+<?php echo form_open(base_url('admin/add_surcharge'), 'class="surcharges-form" '); ?>
 <h3 class="new_surcharge">Add Carrier Surcharges</h3>
   <div class="form-group">
     <label for="exampleInputEmail1">Carrier Name</label>
-    <input type="text" class="form-control carrier_name" id="carrier_name" aria-describedby="emailHelp" placeholder="Carrier Name">
+    <input type="text" class="form-control carrier_name" id="carrier_name" name="carrier_name" aria-describedby="emailHelp" placeholder="Carrier Name">
   </div>
   <table id="piece-table">
   
@@ -30,20 +30,20 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Name</label>
-    <input type="text" name="carriertPage.pieces[0].name" class="form-control dimL" id="surcharge_name" placeholder="Surcharge Name">
+    <input type="text" class="form-control dimL" id="surcharge_name" name="surcharge_name[]" placeholder="Surcharge Name">
   </div>
   </td>
   <b>
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Price</label>
-    <input type="number" name="carriertPage.pieces[0].price" class="form-control weight" id="surcharge_price" placeholder="Surcharge Price">
+    <input type="number"  class="form-control weight" id="surcharge_price" name="surcharge_price[]" placeholder="Surcharge Price">
   </div>
   </td>
  <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Description</label>
-    <input type="text" class="form-control dimS" id="surcharge_desc" name="carriertPage.pieces[0].desc" placeholder="Description">
+    <input type="text" class="form-control dimS" id="surcharge_desc"  placeholder="Description" name="s_description[]">
   </div>
   </td>
   
@@ -79,26 +79,19 @@
                                                         </thead>
                                                         <tbody>
                                                         <!-- Multiple filter -->
-                                                        
-                                                          <tr data-accessorialid="169" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
-                                                                    <td>1</td>
-                                                                    <td>Star Track</td>
-                                                                    <td>DG Surcharge</td>
-                                                                    <td>12.67</td>
-                                                                    <td>Dangerous Surcharge</td>
-                                                                    <td>12-03-21</td>
-                                                                </tr>
-                                                            
-                                                            <tr data-accessorialid="494" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
-                                                                    <td>2</td>
-                                                                    <td>StarTrack</td>
-                                                                    <td>Fuel Surcharge</td>
-                                                                    <td>13.59</td>
-                                                                    <td>Fuel Surcharge</td>
-                                                                    <td>12-94-21</td>
-                                                                </tr>
-                                                            
-                                                        
+                                                        <?php for($i=0;$i<count($surcharge_list);$i++)
+														{
+															?>
+                                                          <tr data-accessorialid="<?php echo $surcharge_list[$i]['carrier_id'];?>" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
+                                                                    <td><?php echo $surcharge_list[$i]['carrier_id'];?></td>
+																	<td><?php echo $surcharge_list[$i]['carrier_name'];?></td>
+																	<td><?php echo $surcharge_list[$i]['surcharge_name'];?></td>
+																	<td><?php echo $surcharge_list[$i]['surcharge_price'];?></td>
+																	<td><?php echo $surcharge_list[$i]['s_description'];?></td>
+																	<td><?php echo $surcharge_list[$i]['last_modified'];?></td>
+                                                                    
+                                                              </tr>
+														<?php }?>
                                                         </tbody>
                                                     </table>
                                                     
@@ -144,10 +137,10 @@ var order = $('#piece-table tbody tr').length;
    var addPieceContent = $("#carrier-dt" + index).clone();
    addPieceContent.attr('id', 'carrier-dt' + order);
    addPieceContent.find(".order-number").html(order);
-   addPieceContent.find(".weight").attr('name', 'carriertPage.pieces[' + index + '].price');
+   addPieceContent.find(".weight").attr('name', 'surcharge_price[]');
    addPieceContent.find(".dimensionList").attr('onchange', 'changeDimensionList($(this).val(),' + index + ')');
-   addPieceContent.find(".dimL").attr('name', 'carriertPage.pieces[' + index + '].name');
-   addPieceContent.find(".dimS").attr('name', 'carriertPage.pieces[' + index + '].desc');
+   addPieceContent.find(".dimL").attr('name', 'surcharge_name[]');
+   addPieceContent.find(".dimS").attr('name', 's_description[]');
    addPieceContent.find('#remove').show();
    $('#piece-table tbody tr:last').after(addPieceContent);
 }

@@ -20,7 +20,7 @@
 			$this->db->where('id', $id);
 			$this->db->update('ci_users', $data);
 			return true;
-		}
+		}	
 		public function add_user($data){
 			$this->db->insert('ci_users', $data);
 			

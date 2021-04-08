@@ -1,14 +1,16 @@
 <?php
 	defined('BASEPATH') OR exit('No direct script access allowed');
 
-	class Rates extends MY_Controller {
+	class Rates extends CI_Controller {
 		public function __construct(){
 			parent::__construct();
+			$this->load->model('admin/auth_model', 'auth_model');
 
 		}
 
 		public function surcharge_list()
 		{
+			$data['surcharge_list'] =  $this->auth_model->get_surcharges();
 			$data['view'] = 'admin/rates/surcharge_list';
 			$this->load->view('admin/layout', $data);
 		}

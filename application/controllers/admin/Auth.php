@@ -64,7 +64,7 @@
 				}
 				else{
 					$data = array(
-						'password' => password_hash($this->input->post('password'), PASSWORD_BCRYPT)
+						'password' => md5($this->input->post('password'))
 					);
 					$result = $this->auth_model->change_pwd($data, $id);
 					if($result){
