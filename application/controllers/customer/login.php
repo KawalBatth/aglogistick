@@ -12,7 +12,7 @@ class Login extends CI_Controller
 		public function index(){
 			if($this->session->has_userdata('is_user_login'))
 			{
-				redirect('customers/setting');
+				redirect('customers/shipment');
 			}
 			else{
 				//redirect('customer/login');
@@ -44,7 +44,7 @@ class Login extends CI_Controller
 						 	'is_user_login' => TRUE
 						);
 						$this->session->set_userdata($admin_data);
-						redirect(base_url('customer/settings'), 'refresh');
+						redirect(base_url('customer/shipment'), 'refresh');
 					}
 					else{
 						$data['msg'] = 'Invalid Email or Password!';
@@ -64,7 +64,7 @@ class Login extends CI_Controller
 				$this->form_validation->set_rules('confirm_pwd', 'Confirm Password', 'trim|required|matches[password]');
 				if ($this->form_validation->run() == FALSE) {
 					$data['view'] = 'customers/settings';
-					$this->load->view('admin/layout', $data);
+					$this->load->view('customers/layout', $data);
 				}
 				else{
 					$data = array(
@@ -73,21 +73,21 @@ class Login extends CI_Controller
 					$result = $this->auth_model->change_pwd($data, $id);
 					if($result){
 						$this->session->set_flashdata('msg', 'Password has been changed successfully!');
-						redirect(base_url('customers/settings'));
+						redirect(base_url('customers/add'));
 					}
 				}
 			}
 			else{
 				$data['view'] = 'customers/settings';
-				$this->load->view('admin/layout', $data);
+				$this->load->view('customers/layout', $data);
 			}
 		}
-    public function logout()  
+    /*public function logout()  
     {  
         //removing session  
         $this->session->unset_userdata('user');  
         redirect("Login");  
-    }  
+    }  */
   
 }  
 ?>  

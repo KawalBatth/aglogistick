@@ -1328,13 +1328,13 @@
                                                     <div class="col-lg-12">
                                                         <div class="text-left pal pdt10" style="margin-bottom: 50px; margin-top: 102px; text-align: right;">
                                                             
-                                                           <a href="<?= base_url('admin/shipment'); ?>" class="btn s33 s44"> New Shipment</a>
+                                                           <a href="<?= base_url('customer/shipment'); ?>" class="btn s33 s44"> New Shipment</a>
                                                             
                                                                 <button class="btn s33" type="button" onclick="openForm()">
                                                                     Quote
                                                                 </button>
                                                            
-                                                                <a href="<?= base_url('admin/booking'); ?>" class="btn s33 s44">  Continue Booking</a>
+                                                                <a href="<?= base_url('customer/booking'); ?>" class="btn s33 s44">  Continue Booking</a>
                                                                
                                                             
                                                         </div>

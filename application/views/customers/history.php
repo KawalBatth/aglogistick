@@ -133,7 +133,7 @@
                                                             <table class="table table-hover table-bordered mg0 datatable1" id="datatable1">
                                                                 <thead>
                                                                 <tr>
-                                                                    <th></th>
+                                                                  
                                                                     <th>Carrier</th>
                                                                     <th>Voided</th>
                                                                     <th>Tracking#</th>

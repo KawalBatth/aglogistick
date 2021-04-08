@@ -17,66 +17,37 @@
 													- Double-click the entry to modify its value.
                                                 </p>
                                             </div>
-                                            
-                                               
-                                                <div class="form-popup" id="carierAdd">
-                                 
-               <form id="carrier-form" name="carrier-form" action="/crm-admin/carrier_list_add.ix" method="post">
-    <div class="form-group">
-    <h3> Add New Carrier</h3>
-        <p class="">
-            Carrier Name
-            :<span class="s30">*</span>
-        </p>
-        
-        
-            <input type="text" name="carrier.serviceName" value="" id="carrier-form_carrier_serviceName" class="form-control">
-            <span class="text-danger"></span>
-        
-    </div>
-    <div class="form-group">
-        <p class="car_type">
-            Carrier Type
-            :<span class="s30">*</span>
-        </p>
-        <div class="carrier_type">
-        <label class="radio-inline inter">
-            <input class="b15" type="radio" value="0" name="carrier.carrierType">
-            International
-        </label>
-        <label class="radio-inline dome">
-            <input class="b15" type="radio" value="1" name="carrier.carrierType">
-            Domestic
-        </label>
-        <label class="radio-inline b14">
-            <input class="b15" type="radio" value="2" name="carrier.carrierType">
-            Both
-        </label>
-        <span class="text-danger"></span>
-        </div>
-    </div>
-    <div class="form-group">
-        <label class="radio-inline b14">
-            <input type="checkbox" name="carrier.inactive" value="0">
-            Active
-        </label>
-    </div>
-    <div class="form-group">
-        <label class="radio-inline b14">
-            <input type="checkbox" name="carrier.nonCentralized" value="1">
-            Non Centralized
-        </label>
-    </div>
-    <input type="hidden" name="carrier.serviceId" value="" id="carrier-form_carrier_serviceId">
-    <input type="hidden" name="page" value="1" id="carrier-form_page">
-    <input type="hidden" name="pageSize" value="" id="carrier-form_pageSize">
-    <div class="quote-button">
-<button type="button" class="btn s33 save" onclick="save()">Save</button>
-    <button type="button" class="btn s33 cancel" onclick="closeForm()">Cancel</button>
-    </div>
-</form>
+                                            <div class="col-lg-12">
+                                                <form id="carrier_list_search_form">
+                                                    <input type="hidden" name="page" value="1" id="carrier_list_page">
+                                                    <input type="hidden" name="orderType" value="0" id="carrier_list_order_type">
+                                                    <input type="hidden" name="orderField" value="service_id" id="carrier_list_order_field">
+                                                    <table class="table mg0">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th class="s42">
+                                                                <table class="s36">
+                                                                    <tbody>
+                                                                    <tr>
+                                                                        <td>Show</td>
+                                                                        <td><select name="pageSize" id="carrier_list_page_size" class="form-control" onchange="changePageSize()">
+    <option value="25">25</option>
+    <option value="50">50</option>
+    <option value="100">100</option>
 
-</div>
+
+</select>
+
+</td>
+                                                                        <td>Entries</td>
+                                                                    </tr>
+                                                                    </tbody>
+                                                                </table>
+                                                            </th>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </form>
                                                 <div id="carrier-list-div">
                                                     <table class="table table-bordered mg0 table-pointer" id="carrier-list-table">
                                                         <thead>
@@ -110,7 +81,31 @@
                                                                 </tr>
                                                             </tbody>
                                                     </table>
-                                                    
+                                                    <div class="dataTables_paginate records">
+                                                        <div class="row">
+                                                            <div class="col-xs-4 text-left">
+                                                                <b>Showing 1
+                                                                    to 25
+                                                                    of 54
+                                                                    entries</b>
+                                                            </div>
+                                                            <div class="col-xs-8">
+                                                                
+                                                                    <a class="paginate_button previous disabled">Previous</a>
+                                                                
+                                                                
+																<span> 
+                                                                    
+                                                                        <a class="paginate_button current">1</a>
+                                                                    
+                                                                </span>
+                                                                
+                                                                
+                                                                    <a class="paginate_button next" href="javascript:changePage(2)">Next</a>
+                                                                
+                                                            </div>
+                                                        </div>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -121,7 +116,7 @@
                                                 <button class="btn s37" id="btnView" disabled="disabled" onclick="viewService()">
                                                     View Service
                                                 </button>
-                                                <button id="add-carriers-link" class="btn s37" type="button" onclick="openCarrier()">
+                                                <button id="add-carriers-link" class="btn s37" type="button" onclick="showAddDialog()">
                                                     New Carriers
                                                 </button>
                                                 <button class="btn s37" id="btnDelete" disabled="disabled" onclick="deleteCarrier()">
@@ -133,19 +128,3 @@
                                 </div>
                             </div>
                         </div>
-
-                        <script>
-function openCarrier() {
-  document.getElementById("carierAdd").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("carierAdd").style.display = "none";
-}
-
-
-  $(document).ready(function() {
-    $('#carrier-list-table').DataTable();
-} );
-</script>
-</script>

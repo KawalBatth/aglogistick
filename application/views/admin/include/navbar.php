@@ -302,12 +302,11 @@ h3.quote_title {
 
 /* The popup form - hidden by default */
 .form-popup {
-    display: none;
+  display: none;
     position: fixed;
     bottom: 350px;
-    width: 30%;
-    right: 508px;
-    font-size: 6px;
+    width: 22%;
+    right: 700px;
     z-index: 101;
     background: #ffffff;
     border: 4px solid #e5e5e5;
@@ -374,34 +373,58 @@ h3.new_surcharge {
 }
 
 input#carrier_name {
-    width: 32%;
-}
-
-
-
-.col-lg-12.text-right {
-    margin-top: 25px;
-    background: none !important;
+    width: 20%;
 }
 
 .surcharge-form{
     display: none;
     position: fixed;
-    bottom: 300px;
-    width: 30%;
-    right: 500px;
-    min-height: 40%;
+    /* bottom: 500px; */
+    width: 31%;
+    right: 370px;
     z-index: 101;
     background: #ffffff;
     border: 4px solid #e5e5e5;
     padding: 13px;
 }
 
+p.user_name {
+    color: #fff;
+    font-size: 15px;
+    margin-top: 18px;
+}
+
+.pull-right{
+    margin-right:115px;
+}
+
+i.fa.fa-circle.text-success {
+    margin-left: 12px;
+    font-size: 10px;
+}
 
 img.logo_img {
-    width: 229px;
-    margin-left: -14px;
-    height: 72px;
+    width: 0;
+    float: right;
+    width: 2%;
+    height: -21%;
+    margin-top: 20px;
+    margin-right: -131px;
+    background: aliceblue;
+}
+
+.box-header{
+    background: #3c8dbc;
+}
+
+.btn-info {
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+}
+
+h3.title {
+    margin-left: -22px;
+    margin-top: 10px;
 }
 
     </style>
@@ -422,6 +445,14 @@ img.logo_img {
         <span class="sr-only">Toggle navigation</span>
       </a>
 
+      <div class="pull-right info">
+          <p class="user_name"><?= ucwords($this->session->userdata('name')); ?>
+         <i class="fa fa-circle text-success"></i> </p>
+        </div>
+        <div style="text-align: center;">
+                <a href="<?php echo base_url('admin/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
+            </div>
+      </div>
       <div class="navbar-custom-manu">
         <ul class="nav navbar-nav">
              <!-- Messages: style can be found in dropdown.less-->

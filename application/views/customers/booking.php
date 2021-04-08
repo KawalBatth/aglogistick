@@ -63,7 +63,7 @@
                                         <div class="col-md-12 pd0">
                                             <div class="col-md-12">
                                                 <h4 class="s34">
-                                                    <u><span style="cursor: pointer;" class="clicks a_more_detail" onclick="showhide()">More Details:</span></u>
+                                                    <span style="cursor: pointer;" class="clicks a_more_detail" onclick="showhide()">More Details:</span>
                                                 </h4>
                                             </div>
                                             <div id="newpost" class="col-md-6 sd1 div_more_detail">

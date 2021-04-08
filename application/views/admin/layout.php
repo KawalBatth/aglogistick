@@ -65,7 +65,7 @@
 				<!--main content end-->
 				<!--footer start-->
 				<footer class="main-footer">
-					<strong>Copyright © 2017 <a href="#">Codeglamour</a></strong> All rights
+				<strong>2017 <a href="<?php echo base_url('admin/add'); ?>"> © AGL Technology. </a></strong> All rights
 					reserved.
 				</footer>
 				<!--footer end-->

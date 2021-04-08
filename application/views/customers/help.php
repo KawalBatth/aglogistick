@@ -10,11 +10,11 @@
                                 <div class="form-body pal">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <p style="display: block;">
+                                            <p class="help_info">
                                                 For information about your account or AGL Web Freight, please contact you local AGL office:
                                             </p><br>
 
-                                            <p style="display: block;">
+                                            <p class="help_contact">
                                                 Customer Service<br>
                                                 08 94793399<br>
                                                 webfreight@agllogistics.com

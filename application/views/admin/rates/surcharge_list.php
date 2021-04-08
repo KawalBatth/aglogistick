@@ -7,14 +7,14 @@
                             <div class="portlet-body" style="padding: 0px;">
                                 <div class="tab-content responsive">
                                     <div id="Overview-tab" class="tab-pane fade in active">
-                                        <!--p>
+                                        <p>
                                             <b>Note:</b>
 											<br>
 											- This is the Accessorial information used for invoices and airbill imports.
 											<br>
 											Double-click the entry to modify its value.
 											<br>
-                                        </p-->
+                                        </p>
 
 <div class="surcharge-form" id="surchargeForm">
 <form>
@@ -26,7 +26,7 @@
   <table id="piece-table">
   
   <tr id="carrier-dt1">
- 
+  
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Name</label>
@@ -54,7 +54,7 @@
    <button class="btn s33" type="button" onclick="addSurcharge()"> + </button>
   <div class="quote-button">
   <button type="submit" name="submit" class="btn s33">Save</button>
-  <button type="button" class="btn s33 cancel" onclick="closeForm()">Close</button>
+  <button type="button" class="btn s33 cancel" onclick="closeForm()">Cancel</button>
   </div>
 </form>
 
@@ -79,9 +79,8 @@
                                                         </thead>
                                                         <tbody>
                                                         <!-- Multiple filter -->
-                                                
                                                         
-                                                          <tr data-accessorialid="169" class="on-click" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
+                                                          <tr data-accessorialid="169" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
                                                                     <td>1</td>
                                                                     <td>Star Track</td>
                                                                     <td>DG Surcharge</td>
@@ -90,7 +89,7 @@
                                                                     <td>12-03-21</td>
                                                                 </tr>
                                                             
-                                                            <tr data-accessorialid="494" class="on-click" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
+                                                            <tr data-accessorialid="494" ondblclick="showAccessorial($(this).attr('data-accessorialId'))">
                                                                     <td>2</td>
                                                                     <td>StarTrack</td>
                                                                     <td>Fuel Surcharge</td>
@@ -113,7 +112,7 @@
                                                     <button class="btn s37" onclick="showAddDialog()">
                                                        Add New Carrier Surcharge
                                                     </button>
-                                                    <button class="btn s37" id="btnView" disabled="disabled">
+                                                    <button class="btn s37" id="btnView" onclick="showEditPage()" disabled="disabled">
                                                         Edit Surcharge Detail
                                                     </button>
 
@@ -124,9 +123,7 @@
                                 </div>
                             </div>
                         </div>
-
-
- <script>
+                        <script>
   $(document).ready(function() {
     $('#surcharge-list-table').DataTable();
 } );
@@ -163,19 +160,4 @@ function removePiece($this)
     });
                                                                 
 }
-
-$('tr.on-click')
-     .click(function(event) {
-                 
-$('tr.on-click').not(this).removeClass('selected-row');
-$(this).toggleClass('selected-row'); 
-
- var wasSelected = $(this).hasClass('selected-row');
-  
- if (wasSelected) {
-    $('#btnView').removeClass("disabled");
-  } else {
-    $('#btnView').addClass("disabled");
-  }
-})
 </script>

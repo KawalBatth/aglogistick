@@ -40,7 +40,7 @@
 						 	'is_admin_login' => TRUE
 						);
 						$this->session->set_userdata($admin_data);
-						redirect(base_url('admin/dashboard'), 'refresh');
+						redirect(base_url('admin/add'), 'refresh');
 					}
 					else{
 						$data['msg'] = 'Invalid Email or Password!';

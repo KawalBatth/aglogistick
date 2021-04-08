@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-          <title><?=isset($title)?$title:'User Management System' ?></title>
+          <title><?=isset($title)?$title:'AGL Specialised Logistic' ?></title>
           <!-- Tell the browser to be responsive to screen width -->
           <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
           <!-- Bootstrap 3.3.6 -->
@@ -20,7 +20,7 @@
             
             <div class="col-md-4 col-md-offset-4 text-center">
                 <div class="login-title">
-                    <h3><span>AdminLTE</span>USER MANAGEMENT SYSTEM</h3>
+                <h3><span> AGL Specialised Logistic</span></h3>
                 </div>
                 <?php if(isset($msg) || validation_errors() !== ''): ?>
                 <div class="alert alert-warning alert-dismissible">
@@ -32,13 +32,13 @@
                 <?php endif; ?>
                 <div class="form-box">
                     <div class="caption">
-                        <h4>Sign in to start your session</h4>
+                        <h3 class="title">Admin Login </h3>
                     </div>
                     <?php echo form_open(base_url('admin/auth/login'), 'class="login-form" '); ?>
                         <div class="input-group">
                             <input type="email" name="email" id="email" class="form-control" placeholder="Email" >
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" >
-                            <input type="submit" name="submit" id="submit" class="form-control" value="Submit">
+                            <input type="submit" name="submit" id="submit" class="form-control" value="Log In">
                         </div>
                     <?php echo form_close(); ?>
                 </div>

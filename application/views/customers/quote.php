@@ -27,7 +27,7 @@
                                                                 </button>
                                                             </td>
                                                             <td>
-                                                                <button class="btn s33" type="button" disabled="disabled" id="btn-view-detail" onclick="viewDetail()">
+                                                                <button class="btn s33" type="button" disabled="disabled" id="btn-view-detail" onclick="openDetail()">
                                                                     View Details
                                                                 </button>
                                                             </td>
@@ -39,9 +39,7 @@
                                                 <br>
                                             </p>
 
-                                            <div class="row" id="div-quote-job-table">
-
-<div>
+                                         
     <table class="table table-hover table-bordered mg0" id="quote-job-table">
         <thead>
         <tr>
@@ -104,6 +102,21 @@
                 viewDetail();
             });
         });
+
+        function viewDetail() {
+        var quoteId = $("#selectedId").val();
+        loadDetailDialog("quote_job_view_detail.ix?reqType=json", {
+            "quoteId": quoteId
+        }, "Quote/Job detail", "Close", "view-detail-dialog");
+    }
+
+    function openDetail() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
     </script>
 </div>
 </div>

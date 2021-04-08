@@ -1,61 +1,42 @@
-<section class="content">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="box">
-        <div class="box-header with-border">
-          <h3 class="box-title">Change Password</h3>
-        </div>
-        <!-- /.box-header -->
-        <!-- form start -->
-        <div class="box-body my-form-body">
-          <?php if(validation_errors() !== ''): ?>
-              <div class="alert alert-warning alert-dismissible">
-                  <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                  <h4><i class="icon fa fa-warning"></i> Alert!</h4>
-                  <?= validation_errors();?>
-              </div>
-            <?php endif; ?>
-           
-            <?php echo form_open(base_url('admin/auth/change_pwd'), 'class="form-horizontal"');  ?> 
-			 <p style="color: red">
+<div class="portlet box">
+            <div class="portlet-header">
+                <div class="caption w4">
+                    Password
+                </div>
+            </div>
+            <div class="portlet-body">
+                <form id="frmChangePassword">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="alert alert-success" role="alert" style="display: none">
+                                <i class="fa fa-check fa-fw"></i><span></span>
+                            </div>
+                            <p style="color: red">
                                 <b>Note:</b>
 																<br>
 																- Password should contain minimum 8 characters, with at least one letter and one number.
                             </p>
 
                             <div class="form-group">
-                                <label class="col-sm-3 control-label" for="inputName">Old Password</label> 
-								<div class="col-sm-8">
-									<input type="text" name="password" class="form-control" id="password" placeholder="">
-								</div>
-						
+                                <label class="control-label" for="inputName">Old Password</label> <input name="user.oldPassword" value="" type="password" placeholder="" class="form-control old_pass" data-placement="top" maxlength="25"> <span class="s30"></span>
                             </div>
-              <div class="form-group">
-                <label for="password" class="col-sm-3 control-label">New Password</label>
-
-                <div class="col-sm-8">
-                  <input type="text" name="password" class="form-control" id="password" placeholder="">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <label for="confirm_pwd" class="col-sm-3 control-label">Confirm Password</label>
-
-                <div class="col-sm-8">
-                  <input type="text" name="confirm_pwd" class="form-control" id="confirm_pwd" placeholder="">
-                </div>
-              </div>
-
-              <div class="form-group">
-                <div class="col-md-11">
-                  <input type="submit" name="submit" value="Change Password" class="btn btn-info pull-right">
-                </div>
-              </div>
-            <?php echo form_close( ); ?>
-          </div>
-          <!-- /.box-body -->
-      </div>
-    </div>
-  </div>  
-
-</section> 
+                            <div class="form-group">
+                                <label class="control-label" for="inputName">New Password</label> <input name="user.newPassword" value="" type="password" placeholder="" class="form-control alloptions old_pass" data-placement="top" maxlength="25"> <span class="s30"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputName">Confirm New</label> <input name="user.confirmPassword" value="" type="password" placeholder="" class="form-control alloptions old_pass" data-placement="top" maxlength="25"> <span class="s30"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" text-right pal pdt10">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button class="btn s33 s44" type="button" onclick="doChangePass()">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
