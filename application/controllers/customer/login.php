@@ -70,7 +70,7 @@ class Login extends CI_Controller
 					$data = array(
 						'password' => md5($this->input->post('password'))
 					);
-					$result = $this->auth_model->change_pwd($data, $id);
+					$result = $this->user_model->change_pwd($data, $id);
 					if($result){
 						$this->session->set_flashdata('msg', 'Password has been changed successfully!');
 						redirect(base_url('customers/add'));
