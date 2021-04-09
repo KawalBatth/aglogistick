@@ -1107,7 +1107,7 @@
                                         <button class="btn s33 " type="submit">
                                             Save
                                         </button>
-                                        <a href="<?= base_url('customer/address_book'); ?>" class="btn s33 ">Cancel</a>
+                                        <a href="<?= base_url('admin/address_book'); ?>" class="btn s33 ">Cancel</a>
                                     </div>
                                 </div>
                                 <div class="chat-form s11"></div>

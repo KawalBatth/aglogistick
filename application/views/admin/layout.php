@@ -89,7 +89,7 @@
 
     <script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/vendor/bootstrap_datetime_picker.js"></script>
 
-    <script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/bootstrap_webship.js"></script>
+    <!--script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/bootstrap_webship.js"></script-->
 	<!-- page script -->
 	<script type="text/javascript">
 	  $(".flash-msg").fadeTo(2000, 500).slideUp(500, function(){

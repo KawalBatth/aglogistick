@@ -77,14 +77,14 @@
                                 <div class=" text-right pal pdt10">
                                     <div class="row">
                                         <div class="col-lg-10 text-left">
-                                            <a href="<?= base_url('customer/address_book_add'); ?>" class="btn s33 s44">Add</a>
+                                            <a href="<?= base_url('admin/address_book_add'); ?>" class="btn s33 s44">Add</a>
                                             <button class="btn s33 s44" disabled="disabled" id="btnEdit" onclick="doEdit()">
                                                 Edit
                                             </button>
                                             <button class="btn s33 s44" disabled="disabled" id="btnRemove" onclick="doRemove()">
                                                 Remove
                                             </button>
-                                            <a href="<?= base_url('customer/address_book_import'); ?>" class="btn s33 s44">Import</a>
+                                            <a href="<?= base_url('admin/address_book_import'); ?>" class="btn s33 s44">Import</a>
                                             <button class="btn s33 s44" type="button" onClick="window.location.reload()">
                                               Refresh
                                             </button>

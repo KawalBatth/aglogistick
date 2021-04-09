@@ -18,6 +18,15 @@
          width: 1.28571429em;
          margin-left: 10px;
         }
+		
+		.pdt10 {
+        padding-top: 10px !important;
+        margin-top: 40px;
+        }
+		
+		.col-lg-12.text-right {
+    margin-top: 12px;
+}
 
         #nav li a {
             display: block;
@@ -373,15 +382,21 @@ h3.new_surcharge {
 }
 
 input#carrier_name {
-    width: 20%;
+    width: 40%;
+}
+
+input#addRowBtn {
+    float: right;
+    margin-right: 58px;
+    margin-top: 19px;
 }
 
 .surcharge-form{
     display: none;
     position: fixed;
-    /* bottom: 500px; */
-    width: 31%;
-    right: 370px;
+    bottom: 278px;
+    width: 27%;
+    right: 700px;
     z-index: 101;
     background: #ffffff;
     border: 4px solid #e5e5e5;
@@ -408,8 +423,8 @@ img.logo_img {
     float: right;
     width: 2%;
     height: -21%;
-    margin-top: 20px;
-    margin-right: -131px;
+    margin-top: 11px;
+    margin-right: -145px;
     background: aliceblue;
 }
 
@@ -426,6 +441,77 @@ h3.title {
     margin-left: -22px;
     margin-top: 10px;
 }
+
+h5#exampleModalLabel {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    font-family: emoji;
+    margin-bottom: -24px;
+}
+
+h5#editModalLabel {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    font-family: auto;
+    margin-bottom: -10px;
+    background: #3c8dbc;
+}
+
+.modal-header{
+    background: #3c8dbc;
+}
+
+label {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+
+input.form-control.car_name {
+    width: 45%;
+}
+
+.selected-row {
+  background: #a3837f;
+  color: #3c8dbc;
+  transition: 0.3s all ease-out;
+}
+td:last-child{
+    color:#333;
+}
+
+.modal-header .close{
+    opacity: 1;
+    color: #fff;
+}
+.on-click, .btn {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn {
+  padding: 5px 20px;
+  background: #3c8dbc;
+  color: #fff;
+  text-shadow: none;
+}
+
+.btn:hover {
+  background: #3c8dbc;
+  color: #fff;
+  transition: 0.3s all ease-out;
+}
+
+.buttons-row {
+  margin: 20px 10px;
+}
+
+
 
     </style>
   <header class="main-header">

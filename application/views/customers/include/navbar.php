@@ -88,11 +88,6 @@
     border-radius: 3px;
 }
 
-p{
-    font-size: 14px;
-}
-
-
 p.surcharge-info {
     margin-top: 17px;
     margin-bottom: 18px;
@@ -258,7 +253,15 @@ input.form-control.old_pass {
     width: 372px;
 }
 
+p.help_info {
+    font-size: 14px;
+    margin-left: 382px;
+}
 
+.help_contact {
+    font-size: 14px;
+    margin-left: 631px;
+}
 
 body {font-family: Arial, Helvetica, sans-serif;}
 * {box-sizing: border-box;}
@@ -391,7 +394,7 @@ input#carrier_name {
 }
 
 h3.title {
-    margin-top: -3px !important;
+    margin-top: 10px;
     margin-left: -11px;
 }
 
@@ -415,10 +418,12 @@ img.logo_img {
     float: right;
     width: 2%;
     height: -21%;
-    margin-top: 15px;
-    margin-right: -139px;
+    margin-top: 11px;
+    margin-right: -155px;
     background: aliceblue;
 }
+
+
 
 
     </style>
