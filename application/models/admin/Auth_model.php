@@ -21,6 +21,12 @@
 		$this->db->insert('carriers',$carrier);
 		return $insert_id = $this->db->insert_id();
 	}
+	public function update_surcharge_data($data,$surcharges_id)
+	{
+		$this->db->where('id', $surcharges_id);
+		$this->db->update('surcharges_list', $data);		
+		return true;
+	}
 	public function add_surcharge_data($surgcharge)
 	{
 		
