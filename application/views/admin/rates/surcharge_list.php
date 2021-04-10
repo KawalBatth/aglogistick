@@ -149,35 +149,7 @@
 </div>
 
 
-<!-- Add Carrier Modal -->
-<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
- 
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="editModalLabel">Add New Carrier</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form>
-  <?php echo form_open(base_url('admin/add_carrier'), 'class="surcharges-form" '); ?>
-      <div class="modal-body">
-    
-  <div class="form-group">
-    <label for="exampleInputName">Carrier Name</label>
-    <input type="text" name="carrier_name" class="form-control car_name">
-  </div>
- 
-</div>
-</form>
-      <div class="modal-footer">
-         <button type="submit" name="submit" class="btn">Add</button>
-        <button type="button" class="btn" data-dismiss="modal">Close</button>
-     
-      </div>
-    </div>
-  </div>
+
 </div>
 
                                   <div class="row">
@@ -199,21 +171,22 @@
                                                       <tbody>
                                                         <!-- Multiple filter -->
                                                          <?php for($i=0;$i<count($surcharge_list);$i++)
-													 	  {  
-                                $s_type=$surcharge_list[$i]['surcharge_type'];
-                                if($s_type==0)
-                                {
-                                    $surcharge_type="Fixed";
-                                }
-                                if($s_type==1)
-                                {
-                                    $surcharge_type="Percent of Base Charge";
-                                }  
-                                if($s_type==2)
-                                {
-                                    $surcharge_type="Percent of Surcharge";
-                                }
-															?>
+                              												 	  {  
+                                                            
+                                                            $s_type=$surcharge_list[$i]['surcharge_type'];
+                                                            if($s_type==0)
+                                                            {
+                                                                $surcharge_type="Fixed";
+                                                            }
+                                                            if($s_type==1)
+                                                            {
+                                                                $surcharge_type="Percent of Base Charge";
+                                                            }  
+                                                            if($s_type==2)
+                                                            {
+                                                                $surcharge_type="Percent of Surcharge";
+                                                            }
+                            															?>
 
                                                           <tr class="on-click" data-accessorialid="<?php echo $surcharge_list[$i]['id'];?>">
                                                        
@@ -254,7 +227,35 @@
                             </div>
                         </div>
                  
-                      
+                 <!-- Add Carrier Modal -->
+<div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+ 
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="editModalLabel">Add New Carrier</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      
+  <?php echo form_open(base_url('admin/add_carrier'), 'class="surcharges-form" '); ?>
+      <div class="modal-body">
+    
+  <div class="form-group">
+    <label for="exampleInputName">Carrier Name</label>
+    <input type="text" name="carrier_name" class="form-control car_name">
+  </div>
+ 
+</div>
+
+      <div class="modal-footer">
+         <button type="submit" name="submit" class="btn">Add</button>
+        <button type="button" class="btn" data-dismiss="modal">Close</button>
+</form>     
+      </div>
+    </div>
+  </div>     
 <script>
     //To show datatable
     $(document).ready(function() 

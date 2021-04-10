@@ -13,10 +13,10 @@
        
 		public function add_carrier()
 		{
-			$postdata = $this->input->post();
+			
 			$carrier['carrier_name'] = $this->input->post('carrier_name');
 			
-			$carrier_id = $this->auth_model->add_carrier($carrier);
+			$this->auth_model->add_carrier($carrier);
 		
 	       redirect(base_url('admin/surcharge_list'), 'refresh');
 			

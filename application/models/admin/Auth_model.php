@@ -37,7 +37,7 @@
 	{
 		$this->db->select('a.*,b.*');
 		$this->db->from('carriers a');
-		$this->db->join('surcharges_list b', 'a.id = b.carrier_id', 'left'); 
+		$this->db->join('surcharges_list b', 'a.id = b.carrier_id', 'inner'); 
 		return $query = $this->db->get()->result_array();
 		
 	}
