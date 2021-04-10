@@ -21,7 +21,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <?php //echo form_open(base_url('admin/add_surcharge'), 'class="surcharges-form" '); ?>
+     
       <div class="modal-body">
      
   <div class="form-group">
@@ -43,23 +43,23 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Name</label>
-    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name[]" placeholder="Surcharge Name">
+    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name" placeholder="Surcharge Name">
   </div>
   </td>
   <td>
   <div class="form-group">
     <label for="exampleInputEmail1">Type</label>
-      <select name="s_description[]" id="types">
-        <option value="">Fixed</option>
-        <option value="DHL">Percent of Base Charge</option>
-        <option value="Star Track">Percent of Surcharge</option>
+      <select name="surcharge_type" id="types">
+        <option value="0">Fixed</option>
+        <option value="1">Percent of Base Charge</option>
+        <option value="2">Percent of Surcharge</option>
    </select>
   </div>
   </td>
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Price</label>
-    <input type="number"  class="form-control weight" id="surcharge_price" required name="surcharge_price[]" placeholder="Surcharge Price">
+    <input type="number"  class="form-control weight" id="surcharge_price" required name="surcharge_price" placeholder="Surcharge Price">
   </div>
   </td> 
   </tr>
@@ -72,6 +72,7 @@
         <button type="button" class="btn" data-dismiss="modal">Close</button>
      
       </div>
+	  </form>
     </div>
   </div>
 </div>
@@ -199,7 +200,7 @@
 																	<td><?php echo $surcharge_list[$i]['carrier_name'];?></td>
 																	<td><?php echo $surcharge_list[$i]['surcharge_name'];?></td>
 																	<td><?php echo $surcharge_list[$i]['surcharge_price'];?></td>
-																	<td><?php echo $surcharge_list[$i]['s_description'];?></td>
+																	<td><?php echo $surcharge_list[$i]['surcharge_type'];?></td>
 																	<td><?php echo $surcharge_list[$i]['last_modified'];?></td>
                                 <td>  <a href="<?= base_url('admin/carriers/delSurcharge/'.$surcharge_list[$i]['id']); ?>" class="btn">Delete</a></td>
                                                                  

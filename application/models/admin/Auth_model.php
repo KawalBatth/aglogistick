@@ -21,23 +21,10 @@
 		$this->db->insert('carriers',$carrier);
 		return $insert_id = $this->db->insert_id();
 	}
-	public function add_surcharge_data($surgcharge,$carrier_id)
+	public function add_surcharge_data($surgcharge)
 	{
 		
-		$carrier= array('carrier_id'=>$carrier_id);
-		$i=0;
-		$this->db->insert('surcharges_list',$carrier);
-		$date = date('Y/m/d H:i:s');
-		for($i=0;$i<count($surgcharge['surcharge_name']);$i++)
-		{
-			$this->db->set('surcharge_name', $surgcharge['surcharge_name'][$i]);
-			$this->db->set('surcharge_price', $surgcharge['surcharge_price'][$i]);
-			$this->db->set('s_description', $surgcharge['s_description'][$i]);
-			$this->db->set('last_modified', $date);
-			$this->db->where('carrier_id', $carrier_id);
-			$this->db->update('surcharges_list');
-			
-		}
+		$this->db->insert('surcharges_list',$surgcharge);
 		return true;
 	}
 	public function get_surcharges()

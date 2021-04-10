@@ -25,16 +25,18 @@
 		public function add_surcharge()
 		{
 			$postdata = $this->input->post();
-			$carrier['id'] = $this->input->post('id');
-			
-		$carrier_id = $this->auth_model->add_carrier($carrier);
+			echo $carrierid = $this->input->post('carriers');
+			die;
+			//$carrier_id = $this->auth_model->add_carrier($carrier);
 			$surgcharge = array(
+			'carrier_id'=>$carrierid,
 			'surcharge_name' => $this->input->post('surcharge_name'),
 			'surcharge_price' => $this->input->post('surcharge_price'),
-			's_description' => $this->input->post('s_description')
+			'surcharge_type' => $this->input->post('surcharge_type'),
+			'last_modified'=>$date = date('Y/m/d H:i:s')
 			);
 			
-			$surcharge = $this->auth_model->add_surcharge_data($surgcharge,$carrier_id);
+			$surcharge = $this->auth_model->add_surcharge_data($surgcharge);
 			
 			redirect(base_url('admin/surcharge_list'), 'refresh');
 			
