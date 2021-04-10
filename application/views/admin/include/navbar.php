@@ -25,7 +25,7 @@
         }
 		
 		.col-lg-12.text-right {
-    margin-top: 12px;
+    margin-top: 15px;
 }
 
         #nav li a {

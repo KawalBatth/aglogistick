@@ -73,6 +73,8 @@ $route['admin/import'] = 'admin/rates/import_rate';
 $route['admin/manage_sheet'] = 'admin/rates/manage_cover';
 $route['admin/add_surcharge'] = 'admin/carriers/add_surcharge';
 
+$route['admin/add_carrier'] = 'admin/carriers/add_carrier';
+
 //$route['admin/shipment'] = 'admin/customers/shipment';
 
 //$route['admin/address_book'] = 'admin/customers/address_book';

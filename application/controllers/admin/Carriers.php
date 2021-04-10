@@ -10,17 +10,24 @@
 
 		}
 
-        public function carrier_list()
-		{
-			$data['view'] = 'admin/carriers/carrier_list';
-			$this->load->view('admin/layout', $data);
-		}
-		public function add_surcharge()
+       
+		public function add_carrier()
 		{
 			$postdata = $this->input->post();
 			$carrier['carrier_name'] = $this->input->post('carrier_name');
 			
 			$carrier_id = $this->auth_model->add_carrier($carrier);
+		
+	       redirect(base_url('admin/surcharge_list'), 'refresh');
+			
+			
+		}
+		public function add_surcharge()
+		{
+			$postdata = $this->input->post();
+			$carrier['id'] = $this->input->post('id');
+			
+		$carrier_id = $this->auth_model->add_carrier($carrier);
 			$surgcharge = array(
 			'surcharge_name' => $this->input->post('surcharge_name'),
 			'surcharge_price' => $this->input->post('surcharge_price'),
@@ -34,10 +41,10 @@
 			
 		}
 
-        public function country_list()
-		{
-			$data['view'] = 'admin/carriers/country_list';
-			$this->load->view('admin/layout', $data);
+        public function delSurcharge($id = 0){
+			$this->db->delete('surcharges_list', array('id' => $id));
+			$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
+			redirect(base_url('admin/surcharge_list'));
 		}
 
 	}

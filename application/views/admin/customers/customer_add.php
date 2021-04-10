@@ -2,6 +2,306 @@
                         <div class="portlet box">
                             <div class="portlet-header">
                                 <div class="caption" id="manage-customer-title">Add New Customer</div>
+                                  <!-- Button trigger modal -->
+
+                                  
+<!-- Road Express Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Road Express
+       
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Destination</th>
+                <th class="text-right">Min</th>
+                <th class="text-right">Base</th>
+                <th class="text-right">Per Kg</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+
+<!-- fixed 1 kg Modal -->
+<div class="modal fade" id="premiumModal" tabindex="-1" role="dialog" aria-labelledby="premiumModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Fixed Price Premium 1kg
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Weight</th>
+                <th class="text-right">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>1.0</td>
+            <td></td>
+           
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+
+<!-- fixed 1 kg Modal -->
+<div class="modal fade" id="fixed3Modal" tabindex="-1" role="dialog" aria-labelledby="fixed3ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Fixed Price Premium 3kg
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Weight</th>
+                <th class="text-right">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>3.0</td>
+            <td></td>
+           
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+
+<!-- fixed 5 kg Modal -->
+<div class="modal fade" id="fixed5Modal" tabindex="-1" role="dialog" aria-labelledby="fixed5ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Fixed Price Premium 5kg
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Weight</th>
+                <th class="text-right">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>5.0</td>
+            <td></td>
+           
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+<!-- fixed 10 kg Modal -->
+<div class="modal fade" id="fixed10Modal" tabindex="-1" role="dialog" aria-labelledby="fixed10ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Fixed Price Premium 10kg
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Weight</th>
+                <th class="text-right">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>10.0</td>
+            <td></td>
+           
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+
+<!-- fixed 10 kg Modal -->
+<div class="modal fade" id="fixed20Modal" tabindex="-1" role="dialog" aria-labelledby="fixed20ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Fixed Price Premium 20kg
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Weight</th>
+                <th class="text-right">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>20.0</td>
+            <td></td>
+           
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+<!-- Road Express Modal -->
+<div class="modal fade" id="overModal" tabindex="-1" role="dialog" aria-labelledby="overModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close"> 
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Overnight
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Destination</th>
+                <th class="text-right">Min</th>
+                <th class="text-right">Base</th>
+                <th class="text-right">Per Kg</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
                                 <div class="col-lg-8 flr">
                                     <div class="form-group flr mgb">
                                         <table class="s36">
@@ -6349,7 +6649,7 @@
                                             </div>
                                         
                                             <div>
-                                                
+                                
                                                     
                                                     <!-- Customer base rate -->
                                                     <div class="form-group base-rate-row" data-baserate="108_0_0" data-weight="0.00">
@@ -7330,12 +7630,13 @@
                                                                 </div>
                                                                 <div class="pull-left c32a">%</div>
                                                                 <div class="pull-left c32a">
-                                                                    <a href="javascript:void(0)" onclick="viewRateSheet('10000198',
-                                                                           228,
-                                                                           -1,
-                                                                           0,
-                                                                           72)" class="b19" data-sheet-id="532" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                         <a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal">
+  View
+</a>
                                                                 </div>
+                                                               
+                                                                <div class="pull-left c32a">
+                        
                                                                 <div class="pull-left c32a">
                                                                     
                                                                         <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
@@ -8043,7 +8344,7 @@
                                                             <div class="well well-sm pull-left c33" style="width: 100%">
                                                                 <div class="pull-left c32" style="padding: 5px; width: 250px;">
                                                                     
-                                                                        <span class="br-display-name">Premium Air Freight</span>
+                                                                        <span class="br-display-name">Overnight</span>
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32">
@@ -8080,11 +8381,9 @@
                                                                 </div>
                                                                 <div class="pull-left c32a">%</div>
                                                                 <div class="pull-left c32a">
-                                                                    <a href="javascript:void(0)" onclick="viewRateSheet('10000198',
-                                                                           229,
-                                                                           -1,
-                                                                           0,
-                                                                           72)" class="b19" data-sheet-id="530" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                                                <a href="#" class="over_night" data-toggle="modal" data-target="#overModal">
+  View
+</a>
                                                                 </div>
                                                                 <div class="pull-left c32a">
                                                                     
@@ -8956,11 +9255,9 @@
                                                                 </div>
                                                                 <div class="pull-left c32a">%</div>
                                                                 <div class="pull-left c32a">
-                                                                    <a href="javascript:void(0)" onclick="viewRateSheet('10000198',
-                                                                           230,
-                                                                           -1,
-                                                                           0,
-                                                                           72)" class="b19" data-sheet-id="339" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                                                <a href="#" class="fixed1" data-toggle="modal" data-target="#premiumModal">
+  View
+</a>
                                                                 </div>
                                                                 <div class="pull-left c32a">
                                                                     
@@ -9046,11 +9343,9 @@
                                                                 </div>
                                                                 <div class="pull-left c32a">%</div>
                                                                 <div class="pull-left c32a">
-                                                                    <a href="javascript:void(0)" onclick="viewRateSheet('10000198',
-                                                                           231,
-                                                                           -1,
-                                                                           0,
-                                                                           72)" class="b19" data-sheet-id="341" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                                                <a href="#" class="fixed3" data-toggle="modal" data-target="#fixed3Modal">
+  View
+</a>
                                                                 </div>
                                                                 <div class="pull-left c32a">
                                                                     
@@ -9136,11 +9431,9 @@
                                                                 </div>
                                                                 <div class="pull-left c32a">%</div>
                                                                 <div class="pull-left c32a">
-                                                                    <a href="javascript:void(0)" onclick="viewRateSheet('10000198',
-                                                                           232,
-                                                                           -1,
-                                                                           0,
-                                                                           72)" class="b19" data-sheet-id="342" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                                                <a href="#" class="fixed5" data-toggle="modal" data-target="#fixed5Modal">
+  View
+</a>
                                                                 </div>
                                                                 <div class="pull-left c32a">
                                                                     
@@ -9226,11 +9519,9 @@
                                                                 </div>
                                                                 <div class="pull-left c32a">%</div>
                                                                 <div class="pull-left c32a">
-                                                                    <a href="javascript:void(0)" onclick="viewRateSheet('10000198',
-                                                                           234,
-                                                                           -1,
-                                                                           0,
-                                                                           72)" class="b19" data-sheet-id="338" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                                                <a href="#" class="fixed10" data-toggle="modal" data-target="#fixed10Modal">
+  View
+</a>
                                                                 </div>
                                                                 <div class="pull-left c32a">
                                                                     
@@ -9316,11 +9607,9 @@
                                                                 </div>
                                                                 <div class="pull-left c32a">%</div>
                                                                 <div class="pull-left c32a">
-                                                                    <a href="javascript:void(0)" onclick="viewRateSheet('10000198',
-                                                                           235,
-                                                                           -1,
-                                                                           0,
-                                                                           72)" class="b19" data-sheet-id="340" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                                                <a href="#" class="fixed20" data-toggle="modal" data-target="#fixed20Modal">
+  View
+</a>
                                                                 </div>
                                                                 <div class="pull-left c32a">
                                                                     
@@ -9363,1910 +9652,10 @@
                                     </div>
                                 </div>
                             </div>
-                            <!-- Others -->
-                            <div id="cust_base_rates_others_tab" class="tab-pane fade in">
-                                <div class="row">
-                                    <div class="portlet-body b12 b11">
-                                        <!-- Service Type List -->
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Hi-Trans
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[83].rateType" id="saveCustBaseRate_customerBaseRates_83__rateType" class="form-control" data-index="83">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
+                           
 
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[83].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_83__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="83">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_83__baserateDescription" data-index="83">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_83__weight" data-index="83">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_83__shipmentTypeId" data-index="83">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_83__customerCode" data-index="83">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].content" value="0" id="saveCustBaseRate_customerBaseRates_83__content" data-index="83">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].bound" value="0" id="saveCustBaseRate_customerBaseRates_83__bound" data-index="83">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].carrierId" value="16" id="saveCustBaseRate_customerBaseRates_83__carrierId" data-index="83">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[83].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_83__zoneCheck" data-index="83">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Couriers Please
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[84].rateType" id="saveCustBaseRate_customerBaseRates_84__rateType" class="form-control" data-index="84">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[84].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_84__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="84">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_84__baserateDescription" data-index="84">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_84__weight" data-index="84">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_84__shipmentTypeId" data-index="84">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_84__customerCode" data-index="84">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].content" value="0" id="saveCustBaseRate_customerBaseRates_84__content" data-index="84">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].bound" value="0" id="saveCustBaseRate_customerBaseRates_84__bound" data-index="84">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].carrierId" value="17" id="saveCustBaseRate_customerBaseRates_84__carrierId" data-index="84">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[84].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_84__zoneCheck" data-index="84">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Direct Couriers
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[85].rateType" id="saveCustBaseRate_customerBaseRates_85__rateType" class="form-control" data-index="85">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[85].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_85__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="85">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_85__baserateDescription" data-index="85">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_85__weight" data-index="85">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_85__shipmentTypeId" data-index="85">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_85__customerCode" data-index="85">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].content" value="0" id="saveCustBaseRate_customerBaseRates_85__content" data-index="85">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].bound" value="0" id="saveCustBaseRate_customerBaseRates_85__bound" data-index="85">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].carrierId" value="18" id="saveCustBaseRate_customerBaseRates_85__carrierId" data-index="85">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[85].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_85__zoneCheck" data-index="85">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Capital Transport
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[86].rateType" id="saveCustBaseRate_customerBaseRates_86__rateType" class="form-control" data-index="86">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[86].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_86__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="86">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_86__baserateDescription" data-index="86">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_86__weight" data-index="86">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_86__shipmentTypeId" data-index="86">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_86__customerCode" data-index="86">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].content" value="0" id="saveCustBaseRate_customerBaseRates_86__content" data-index="86">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].bound" value="0" id="saveCustBaseRate_customerBaseRates_86__bound" data-index="86">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].carrierId" value="19" id="saveCustBaseRate_customerBaseRates_86__carrierId" data-index="86">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[86].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_86__zoneCheck" data-index="86">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Fastway
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[87].rateType" id="saveCustBaseRate_customerBaseRates_87__rateType" class="form-control" data-index="87">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[87].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_87__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="87">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_87__baserateDescription" data-index="87">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_87__weight" data-index="87">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_87__shipmentTypeId" data-index="87">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_87__customerCode" data-index="87">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].content" value="0" id="saveCustBaseRate_customerBaseRates_87__content" data-index="87">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].bound" value="0" id="saveCustBaseRate_customerBaseRates_87__bound" data-index="87">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].carrierId" value="20" id="saveCustBaseRate_customerBaseRates_87__carrierId" data-index="87">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[87].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_87__zoneCheck" data-index="87">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Global Freight Solutions
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[88].rateType" id="saveCustBaseRate_customerBaseRates_88__rateType" class="form-control" data-index="88">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[88].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_88__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="88">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_88__baserateDescription" data-index="88">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_88__weight" data-index="88">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_88__shipmentTypeId" data-index="88">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_88__customerCode" data-index="88">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].content" value="0" id="saveCustBaseRate_customerBaseRates_88__content" data-index="88">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].bound" value="0" id="saveCustBaseRate_customerBaseRates_88__bound" data-index="88">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].carrierId" value="23" id="saveCustBaseRate_customerBaseRates_88__carrierId" data-index="88">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[88].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_88__zoneCheck" data-index="88">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                AGL USA
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[89].rateType" id="saveCustBaseRate_customerBaseRates_89__rateType" class="form-control" data-index="89">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[89].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_89__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="89">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_89__baserateDescription" data-index="89">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_89__weight" data-index="89">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_89__shipmentTypeId" data-index="89">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_89__customerCode" data-index="89">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].content" value="0" id="saveCustBaseRate_customerBaseRates_89__content" data-index="89">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].bound" value="0" id="saveCustBaseRate_customerBaseRates_89__bound" data-index="89">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].carrierId" value="24" id="saveCustBaseRate_customerBaseRates_89__carrierId" data-index="89">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[89].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_89__zoneCheck" data-index="89">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                IJS Global
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[90].rateType" id="saveCustBaseRate_customerBaseRates_90__rateType" class="form-control" data-index="90">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[90].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_90__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="90">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_90__baserateDescription" data-index="90">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_90__weight" data-index="90">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_90__shipmentTypeId" data-index="90">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_90__customerCode" data-index="90">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].content" value="0" id="saveCustBaseRate_customerBaseRates_90__content" data-index="90">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].bound" value="0" id="saveCustBaseRate_customerBaseRates_90__bound" data-index="90">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].carrierId" value="25" id="saveCustBaseRate_customerBaseRates_90__carrierId" data-index="90">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[90].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_90__zoneCheck" data-index="90">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Followmont Transport
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[91].rateType" id="saveCustBaseRate_customerBaseRates_91__rateType" class="form-control" data-index="91">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[91].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_91__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="91">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_91__baserateDescription" data-index="91">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_91__weight" data-index="91">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_91__shipmentTypeId" data-index="91">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_91__customerCode" data-index="91">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].content" value="0" id="saveCustBaseRate_customerBaseRates_91__content" data-index="91">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].bound" value="0" id="saveCustBaseRate_customerBaseRates_91__bound" data-index="91">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].carrierId" value="26" id="saveCustBaseRate_customerBaseRates_91__carrierId" data-index="91">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[91].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_91__zoneCheck" data-index="91">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Cope Transport
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[92].rateType" id="saveCustBaseRate_customerBaseRates_92__rateType" class="form-control" data-index="92">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[92].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_92__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="92">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_92__baserateDescription" data-index="92">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_92__weight" data-index="92">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_92__shipmentTypeId" data-index="92">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_92__customerCode" data-index="92">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].content" value="0" id="saveCustBaseRate_customerBaseRates_92__content" data-index="92">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].bound" value="0" id="saveCustBaseRate_customerBaseRates_92__bound" data-index="92">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].carrierId" value="27" id="saveCustBaseRate_customerBaseRates_92__carrierId" data-index="92">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[92].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_92__zoneCheck" data-index="92">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Border Express
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[93].rateType" id="saveCustBaseRate_customerBaseRates_93__rateType" class="form-control" data-index="93">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[93].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_93__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="93">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_93__baserateDescription" data-index="93">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_93__weight" data-index="93">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_93__shipmentTypeId" data-index="93">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_93__customerCode" data-index="93">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].content" value="0" id="saveCustBaseRate_customerBaseRates_93__content" data-index="93">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].bound" value="0" id="saveCustBaseRate_customerBaseRates_93__bound" data-index="93">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].carrierId" value="28" id="saveCustBaseRate_customerBaseRates_93__carrierId" data-index="93">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[93].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_93__zoneCheck" data-index="93">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Hunter Express
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[94].rateType" id="saveCustBaseRate_customerBaseRates_94__rateType" class="form-control" data-index="94">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[94].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_94__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="94">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_94__baserateDescription" data-index="94">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_94__weight" data-index="94">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_94__shipmentTypeId" data-index="94">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_94__customerCode" data-index="94">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].content" value="0" id="saveCustBaseRate_customerBaseRates_94__content" data-index="94">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].bound" value="0" id="saveCustBaseRate_customerBaseRates_94__bound" data-index="94">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].carrierId" value="29" id="saveCustBaseRate_customerBaseRates_94__carrierId" data-index="94">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[94].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_94__zoneCheck" data-index="94">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Mainfreight Distribution
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[95].rateType" id="saveCustBaseRate_customerBaseRates_95__rateType" class="form-control" data-index="95">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[95].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_95__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="95">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_95__baserateDescription" data-index="95">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_95__weight" data-index="95">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_95__shipmentTypeId" data-index="95">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_95__customerCode" data-index="95">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].content" value="0" id="saveCustBaseRate_customerBaseRates_95__content" data-index="95">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].bound" value="0" id="saveCustBaseRate_customerBaseRates_95__bound" data-index="95">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].carrierId" value="30" id="saveCustBaseRate_customerBaseRates_95__carrierId" data-index="95">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[95].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_95__zoneCheck" data-index="95">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                AGL UK
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[96].rateType" id="saveCustBaseRate_customerBaseRates_96__rateType" class="form-control" data-index="96">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[96].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_96__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="96">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_96__baserateDescription" data-index="96">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_96__weight" data-index="96">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_96__shipmentTypeId" data-index="96">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_96__customerCode" data-index="96">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].content" value="0" id="saveCustBaseRate_customerBaseRates_96__content" data-index="96">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].bound" value="0" id="saveCustBaseRate_customerBaseRates_96__bound" data-index="96">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].carrierId" value="31" id="saveCustBaseRate_customerBaseRates_96__carrierId" data-index="96">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[96].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_96__zoneCheck" data-index="96">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                AGL India
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[97].rateType" id="saveCustBaseRate_customerBaseRates_97__rateType" class="form-control" data-index="97">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[97].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_97__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="97">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_97__baserateDescription" data-index="97">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_97__weight" data-index="97">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_97__shipmentTypeId" data-index="97">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_97__customerCode" data-index="97">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].content" value="0" id="saveCustBaseRate_customerBaseRates_97__content" data-index="97">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].bound" value="0" id="saveCustBaseRate_customerBaseRates_97__bound" data-index="97">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].carrierId" value="32" id="saveCustBaseRate_customerBaseRates_97__carrierId" data-index="97">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[97].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_97__zoneCheck" data-index="97">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                AGL Malaysia
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[98].rateType" id="saveCustBaseRate_customerBaseRates_98__rateType" class="form-control" data-index="98">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[98].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_98__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="98">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_98__baserateDescription" data-index="98">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_98__weight" data-index="98">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_98__shipmentTypeId" data-index="98">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_98__customerCode" data-index="98">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].content" value="0" id="saveCustBaseRate_customerBaseRates_98__content" data-index="98">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].bound" value="0" id="saveCustBaseRate_customerBaseRates_98__bound" data-index="98">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].carrierId" value="33" id="saveCustBaseRate_customerBaseRates_98__carrierId" data-index="98">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[98].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_98__zoneCheck" data-index="98">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                South West Express
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[99].rateType" id="saveCustBaseRate_customerBaseRates_99__rateType" class="form-control" data-index="99">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[99].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_99__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="99">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_99__baserateDescription" data-index="99">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_99__weight" data-index="99">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_99__shipmentTypeId" data-index="99">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_99__customerCode" data-index="99">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].content" value="0" id="saveCustBaseRate_customerBaseRates_99__content" data-index="99">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].bound" value="0" id="saveCustBaseRate_customerBaseRates_99__bound" data-index="99">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].carrierId" value="34" id="saveCustBaseRate_customerBaseRates_99__carrierId" data-index="99">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[99].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_99__zoneCheck" data-index="99">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                WA Freight Group
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[100].rateType" id="saveCustBaseRate_customerBaseRates_100__rateType" class="form-control" data-index="100">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[100].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_100__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="100">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_100__baserateDescription" data-index="100">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_100__weight" data-index="100">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_100__shipmentTypeId" data-index="100">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_100__customerCode" data-index="100">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].content" value="0" id="saveCustBaseRate_customerBaseRates_100__content" data-index="100">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].bound" value="0" id="saveCustBaseRate_customerBaseRates_100__bound" data-index="100">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].carrierId" value="35" id="saveCustBaseRate_customerBaseRates_100__carrierId" data-index="100">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[100].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_100__zoneCheck" data-index="100">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Northline
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[101].rateType" id="saveCustBaseRate_customerBaseRates_101__rateType" class="form-control" data-index="101">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[101].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_101__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="101">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_101__baserateDescription" data-index="101">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_101__weight" data-index="101">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_101__shipmentTypeId" data-index="101">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_101__customerCode" data-index="101">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].content" value="0" id="saveCustBaseRate_customerBaseRates_101__content" data-index="101">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].bound" value="0" id="saveCustBaseRate_customerBaseRates_101__bound" data-index="101">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].carrierId" value="36" id="saveCustBaseRate_customerBaseRates_101__carrierId" data-index="101">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[101].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_101__zoneCheck" data-index="101">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Australian National Couriers
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[102].rateType" id="saveCustBaseRate_customerBaseRates_102__rateType" class="form-control" data-index="102">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[102].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_102__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="102">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_102__baserateDescription" data-index="102">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_102__weight" data-index="102">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_102__shipmentTypeId" data-index="102">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_102__customerCode" data-index="102">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].content" value="0" id="saveCustBaseRate_customerBaseRates_102__content" data-index="102">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].bound" value="0" id="saveCustBaseRate_customerBaseRates_102__bound" data-index="102">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].carrierId" value="42" id="saveCustBaseRate_customerBaseRates_102__carrierId" data-index="102">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[102].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_102__zoneCheck" data-index="102">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Evolution World Cargo
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[103].rateType" id="saveCustBaseRate_customerBaseRates_103__rateType" class="form-control" data-index="103">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[103].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_103__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="103">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_103__baserateDescription" data-index="103">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_103__weight" data-index="103">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_103__shipmentTypeId" data-index="103">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_103__customerCode" data-index="103">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].content" value="0" id="saveCustBaseRate_customerBaseRates_103__content" data-index="103">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].bound" value="0" id="saveCustBaseRate_customerBaseRates_103__bound" data-index="103">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].carrierId" value="43" id="saveCustBaseRate_customerBaseRates_103__carrierId" data-index="103">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[103].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_103__zoneCheck" data-index="103">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Sadleirs Logistics
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[104].rateType" id="saveCustBaseRate_customerBaseRates_104__rateType" class="form-control" data-index="104">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[104].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_104__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="104">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_104__baserateDescription" data-index="104">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_104__weight" data-index="104">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_104__shipmentTypeId" data-index="104">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_104__customerCode" data-index="104">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].content" value="0" id="saveCustBaseRate_customerBaseRates_104__content" data-index="104">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].bound" value="0" id="saveCustBaseRate_customerBaseRates_104__bound" data-index="104">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].carrierId" value="44" id="saveCustBaseRate_customerBaseRates_104__carrierId" data-index="104">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[104].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_104__zoneCheck" data-index="104">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Sub60
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[105].rateType" id="saveCustBaseRate_customerBaseRates_105__rateType" class="form-control" data-index="105">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[105].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_105__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="105">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_105__baserateDescription" data-index="105">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_105__weight" data-index="105">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_105__shipmentTypeId" data-index="105">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_105__customerCode" data-index="105">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].content" value="0" id="saveCustBaseRate_customerBaseRates_105__content" data-index="105">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].bound" value="0" id="saveCustBaseRate_customerBaseRates_105__bound" data-index="105">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].carrierId" value="45" id="saveCustBaseRate_customerBaseRates_105__carrierId" data-index="105">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[105].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_105__zoneCheck" data-index="105">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                UPS
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[106].rateType" id="saveCustBaseRate_customerBaseRates_106__rateType" class="form-control" data-index="106">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[106].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_106__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="106">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_106__baserateDescription" data-index="106">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_106__weight" data-index="106">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_106__shipmentTypeId" data-index="106">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_106__customerCode" data-index="106">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].content" value="0" id="saveCustBaseRate_customerBaseRates_106__content" data-index="106">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].bound" value="0" id="saveCustBaseRate_customerBaseRates_106__bound" data-index="106">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].carrierId" value="46" id="saveCustBaseRate_customerBaseRates_106__carrierId" data-index="106">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[106].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_106__zoneCheck" data-index="106">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Unrecognized Carrier
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[107].rateType" id="saveCustBaseRate_customerBaseRates_107__rateType" class="form-control" data-index="107">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[107].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_107__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="107">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_107__baserateDescription" data-index="107">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_107__weight" data-index="107">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_107__shipmentTypeId" data-index="107">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_107__customerCode" data-index="107">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].content" value="0" id="saveCustBaseRate_customerBaseRates_107__content" data-index="107">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].bound" value="0" id="saveCustBaseRate_customerBaseRates_107__bound" data-index="107">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].carrierId" value="53" id="saveCustBaseRate_customerBaseRates_107__carrierId" data-index="107">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[107].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_107__zoneCheck" data-index="107">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Australia Post
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[108].rateType" id="saveCustBaseRate_customerBaseRates_108__rateType" class="form-control" data-index="108">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[108].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_108__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="108">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_108__baserateDescription" data-index="108">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_108__weight" data-index="108">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_108__shipmentTypeId" data-index="108">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_108__customerCode" data-index="108">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].content" value="0" id="saveCustBaseRate_customerBaseRates_108__content" data-index="108">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].bound" value="0" id="saveCustBaseRate_customerBaseRates_108__bound" data-index="108">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].carrierId" value="61" id="saveCustBaseRate_customerBaseRates_108__carrierId" data-index="108">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[108].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_108__zoneCheck" data-index="108">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Test Carrier
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[109].rateType" id="saveCustBaseRate_customerBaseRates_109__rateType" class="form-control" data-index="109">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[109].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_109__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="109">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_109__baserateDescription" data-index="109">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_109__weight" data-index="109">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_109__shipmentTypeId" data-index="109">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_109__customerCode" data-index="109">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].content" value="0" id="saveCustBaseRate_customerBaseRates_109__content" data-index="109">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].bound" value="0" id="saveCustBaseRate_customerBaseRates_109__bound" data-index="109">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].carrierId" value="62" id="saveCustBaseRate_customerBaseRates_109__carrierId" data-index="109">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[109].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_109__zoneCheck" data-index="109">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Nathan-Test
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[110].rateType" id="saveCustBaseRate_customerBaseRates_110__rateType" class="form-control" data-index="110">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[110].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_110__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="110">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_110__baserateDescription" data-index="110">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_110__weight" data-index="110">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_110__shipmentTypeId" data-index="110">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_110__customerCode" data-index="110">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].content" value="0" id="saveCustBaseRate_customerBaseRates_110__content" data-index="110">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].bound" value="0" id="saveCustBaseRate_customerBaseRates_110__bound" data-index="110">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].carrierId" value="63" id="saveCustBaseRate_customerBaseRates_110__carrierId" data-index="110">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[110].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_110__zoneCheck" data-index="110">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                AGL Singapore
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[111].rateType" id="saveCustBaseRate_customerBaseRates_111__rateType" class="form-control" data-index="111">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[111].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_111__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="111">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_111__baserateDescription" data-index="111">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_111__weight" data-index="111">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_111__shipmentTypeId" data-index="111">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_111__customerCode" data-index="111">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].content" value="0" id="saveCustBaseRate_customerBaseRates_111__content" data-index="111">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].bound" value="0" id="saveCustBaseRate_customerBaseRates_111__bound" data-index="111">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].carrierId" value="64" id="saveCustBaseRate_customerBaseRates_111__carrierId" data-index="111">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[111].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_111__zoneCheck" data-index="111">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Evans International Freight Consolidators
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[112].rateType" id="saveCustBaseRate_customerBaseRates_112__rateType" class="form-control" data-index="112">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[112].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_112__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="112">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_112__baserateDescription" data-index="112">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_112__weight" data-index="112">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_112__shipmentTypeId" data-index="112">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_112__customerCode" data-index="112">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].content" value="0" id="saveCustBaseRate_customerBaseRates_112__content" data-index="112">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].bound" value="0" id="saveCustBaseRate_customerBaseRates_112__bound" data-index="112">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].carrierId" value="65" id="saveCustBaseRate_customerBaseRates_112__carrierId" data-index="112">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[112].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_112__zoneCheck" data-index="112">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                ASAP Couriers
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[113].rateType" id="saveCustBaseRate_customerBaseRates_113__rateType" class="form-control" data-index="113">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[113].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_113__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="113">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_113__baserateDescription" data-index="113">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_113__weight" data-index="113">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_113__shipmentTypeId" data-index="113">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_113__customerCode" data-index="113">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].content" value="0" id="saveCustBaseRate_customerBaseRates_113__content" data-index="113">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].bound" value="0" id="saveCustBaseRate_customerBaseRates_113__bound" data-index="113">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].carrierId" value="66" id="saveCustBaseRate_customerBaseRates_113__carrierId" data-index="113">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[113].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_113__zoneCheck" data-index="113">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                ABC
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[114].rateType" id="saveCustBaseRate_customerBaseRates_114__rateType" class="form-control" data-index="114">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[114].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_114__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="114">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_114__baserateDescription" data-index="114">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_114__weight" data-index="114">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_114__shipmentTypeId" data-index="114">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_114__customerCode" data-index="114">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].content" value="0" id="saveCustBaseRate_customerBaseRates_114__content" data-index="114">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].bound" value="0" id="saveCustBaseRate_customerBaseRates_114__bound" data-index="114">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].carrierId" value="67" id="saveCustBaseRate_customerBaseRates_114__carrierId" data-index="114">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[114].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_114__zoneCheck" data-index="114">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                AGL Australia
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[115].rateType" id="saveCustBaseRate_customerBaseRates_115__rateType" class="form-control" data-index="115">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[115].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_115__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="115">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_115__baserateDescription" data-index="115">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_115__weight" data-index="115">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_115__shipmentTypeId" data-index="115">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_115__customerCode" data-index="115">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].content" value="0" id="saveCustBaseRate_customerBaseRates_115__content" data-index="115">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].bound" value="0" id="saveCustBaseRate_customerBaseRates_115__bound" data-index="115">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].carrierId" value="68" id="saveCustBaseRate_customerBaseRates_115__carrierId" data-index="115">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[115].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_115__zoneCheck" data-index="115">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                PFM
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[116].rateType" id="saveCustBaseRate_customerBaseRates_116__rateType" class="form-control" data-index="116">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[116].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_116__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="116">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_116__baserateDescription" data-index="116">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_116__weight" data-index="116">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_116__shipmentTypeId" data-index="116">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_116__customerCode" data-index="116">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].content" value="0" id="saveCustBaseRate_customerBaseRates_116__content" data-index="116">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].bound" value="0" id="saveCustBaseRate_customerBaseRates_116__bound" data-index="116">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].carrierId" value="69" id="saveCustBaseRate_customerBaseRates_116__carrierId" data-index="116">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[116].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_116__zoneCheck" data-index="116">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                DHL Global Mail
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[117].rateType" id="saveCustBaseRate_customerBaseRates_117__rateType" class="form-control" data-index="117">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[117].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_117__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="117">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_117__baserateDescription" data-index="117">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_117__weight" data-index="117">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_117__shipmentTypeId" data-index="117">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_117__customerCode" data-index="117">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].content" value="0" id="saveCustBaseRate_customerBaseRates_117__content" data-index="117">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].bound" value="0" id="saveCustBaseRate_customerBaseRates_117__bound" data-index="117">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].carrierId" value="70" id="saveCustBaseRate_customerBaseRates_117__carrierId" data-index="117">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[117].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_117__zoneCheck" data-index="117">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                AGL Aus
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[118].rateType" id="saveCustBaseRate_customerBaseRates_118__rateType" class="form-control" data-index="118">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[118].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_118__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="118">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_118__baserateDescription" data-index="118">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_118__weight" data-index="118">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_118__shipmentTypeId" data-index="118">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_118__customerCode" data-index="118">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].content" value="0" id="saveCustBaseRate_customerBaseRates_118__content" data-index="118">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].bound" value="0" id="saveCustBaseRate_customerBaseRates_118__bound" data-index="118">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].carrierId" value="71" id="saveCustBaseRate_customerBaseRates_118__carrierId" data-index="118">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[118].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_118__zoneCheck" data-index="118">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Bonds Transport Group
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[119].rateType" id="saveCustBaseRate_customerBaseRates_119__rateType" class="form-control" data-index="119">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[119].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_119__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="119">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_119__baserateDescription" data-index="119">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_119__weight" data-index="119">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_119__shipmentTypeId" data-index="119">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_119__customerCode" data-index="119">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].content" value="0" id="saveCustBaseRate_customerBaseRates_119__content" data-index="119">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].bound" value="0" id="saveCustBaseRate_customerBaseRates_119__bound" data-index="119">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].carrierId" value="73" id="saveCustBaseRate_customerBaseRates_119__carrierId" data-index="119">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[119].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_119__zoneCheck" data-index="119">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                Testing123
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[120].rateType" id="saveCustBaseRate_customerBaseRates_120__rateType" class="form-control" data-index="120">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[120].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_120__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="120">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_120__baserateDescription" data-index="120">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_120__weight" data-index="120">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_120__shipmentTypeId" data-index="120">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_120__customerCode" data-index="120">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].content" value="0" id="saveCustBaseRate_customerBaseRates_120__content" data-index="120">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].bound" value="0" id="saveCustBaseRate_customerBaseRates_120__bound" data-index="120">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].carrierId" value="74" id="saveCustBaseRate_customerBaseRates_120__carrierId" data-index="120">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[120].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_120__zoneCheck" data-index="120">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                DHL EXPRESS
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[121].rateType" id="saveCustBaseRate_customerBaseRates_121__rateType" class="form-control" data-index="121">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[121].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_121__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="121">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_121__baserateDescription" data-index="121">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_121__weight" data-index="121">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_121__shipmentTypeId" data-index="121">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_121__customerCode" data-index="121">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].content" value="0" id="saveCustBaseRate_customerBaseRates_121__content" data-index="121">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].bound" value="0" id="saveCustBaseRate_customerBaseRates_121__bound" data-index="121">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].carrierId" value="401" id="saveCustBaseRate_customerBaseRates_121__carrierId" data-index="121">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[121].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_121__zoneCheck" data-index="121">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                TOLL PRIORITY
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[122].rateType" id="saveCustBaseRate_customerBaseRates_122__rateType" class="form-control" data-index="122">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[122].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_122__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="122">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_122__baserateDescription" data-index="122">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_122__weight" data-index="122">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_122__shipmentTypeId" data-index="122">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_122__customerCode" data-index="122">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].content" value="0" id="saveCustBaseRate_customerBaseRates_122__content" data-index="122">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].bound" value="0" id="saveCustBaseRate_customerBaseRates_122__bound" data-index="122">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].carrierId" value="403" id="saveCustBaseRate_customerBaseRates_122__carrierId" data-index="122">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[122].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_122__zoneCheck" data-index="122">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                TOLL IPEC-EAST
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[123].rateType" id="saveCustBaseRate_customerBaseRates_123__rateType" class="form-control" data-index="123">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[123].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_123__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="123">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_123__baserateDescription" data-index="123">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_123__weight" data-index="123">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_123__shipmentTypeId" data-index="123">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_123__customerCode" data-index="123">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].content" value="0" id="saveCustBaseRate_customerBaseRates_123__content" data-index="123">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].bound" value="0" id="saveCustBaseRate_customerBaseRates_123__bound" data-index="123">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].carrierId" value="404" id="saveCustBaseRate_customerBaseRates_123__carrierId" data-index="123">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[123].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_123__zoneCheck" data-index="123">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                TOLL IPEC-WA
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[124].rateType" id="saveCustBaseRate_customerBaseRates_124__rateType" class="form-control" data-index="124">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[124].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_124__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="124">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_124__baserateDescription" data-index="124">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_124__weight" data-index="124">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_124__shipmentTypeId" data-index="124">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_124__customerCode" data-index="124">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].content" value="0" id="saveCustBaseRate_customerBaseRates_124__content" data-index="124">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].bound" value="0" id="saveCustBaseRate_customerBaseRates_124__bound" data-index="124">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].carrierId" value="405" id="saveCustBaseRate_customerBaseRates_124__carrierId" data-index="124">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[124].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_124__zoneCheck" data-index="124">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                TOLL EXPRESS/NQX
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[125].rateType" id="saveCustBaseRate_customerBaseRates_125__rateType" class="form-control" data-index="125">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[125].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_125__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="125">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_125__baserateDescription" data-index="125">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_125__weight" data-index="125">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_125__shipmentTypeId" data-index="125">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_125__customerCode" data-index="125">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].content" value="0" id="saveCustBaseRate_customerBaseRates_125__content" data-index="125">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].bound" value="0" id="saveCustBaseRate_customerBaseRates_125__bound" data-index="125">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].carrierId" value="406" id="saveCustBaseRate_customerBaseRates_125__carrierId" data-index="125">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[125].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_125__zoneCheck" data-index="125">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                STARTRACK-MAIN ACCOUNT
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[126].rateType" id="saveCustBaseRate_customerBaseRates_126__rateType" class="form-control" data-index="126">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[126].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_126__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="126">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_126__baserateDescription" data-index="126">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_126__weight" data-index="126">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_126__shipmentTypeId" data-index="126">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_126__customerCode" data-index="126">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].content" value="0" id="saveCustBaseRate_customerBaseRates_126__content" data-index="126">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].bound" value="0" id="saveCustBaseRate_customerBaseRates_126__bound" data-index="126">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].carrierId" value="407" id="saveCustBaseRate_customerBaseRates_126__carrierId" data-index="126">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[126].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_126__zoneCheck" data-index="126">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                            <div>
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="0_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                STARTRACK-VECTOR
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveCustBaseRate.customerBaseRates[127].rateType" id="saveCustBaseRate_customerBaseRates_127__rateType" class="form-control" data-index="127">
-    <option value="1" selected="selected">% Markup</option>
-    <option value="2">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveCustBaseRate.customerBaseRates[127].rate" maxlength="25" value="0.00" id="saveCustBaseRate_customerBaseRates_127__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="127">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-0-0-0">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].baserateDescription" value="" id="saveCustBaseRate_customerBaseRates_127__baserateDescription" data-index="127">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].weight" value="0.00" id="saveCustBaseRate_customerBaseRates_127__weight" data-index="127">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].shipmentTypeId" value="0" id="saveCustBaseRate_customerBaseRates_127__shipmentTypeId" data-index="127">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].customerCode" value="10000198" id="saveCustBaseRate_customerBaseRates_127__customerCode" data-index="127">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].content" value="0" id="saveCustBaseRate_customerBaseRates_127__content" data-index="127">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].bound" value="0" id="saveCustBaseRate_customerBaseRates_127__bound" data-index="127">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].carrierId" value="408" id="saveCustBaseRate_customerBaseRates_127__carrierId" data-index="127">
-                                                        <input type="hidden" name="saveCustBaseRate.customerBaseRates[127].zoneCheck" value="false" id="saveCustBaseRate_customerBaseRates_127__zoneCheck" data-index="127">
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+                                                          
+                     
 
         <!-- Invoice options tab -->
         <div id="invoice-options-tab" class="tab-pane fade">
@@ -11460,7 +9849,7 @@
 <div id="add-weight-dialog" title="Add Weight Break" style="display: none;"></div>
 <div id="view_rate_sheet_dialog" title="View Rate Sheet" style="display: none;"></div>
 <div id="msg-dialog" title="Message"></div>
-<script src="https://webfreight.agllogistics.com:443/crm-admin/script/xms/vendor/jquery.fileDownload.js"></script>
+<!--script src="https://webfreight.agllogistics.com:443/crm-admin/script/xms/vendor/jquery.fileDownload.js"></script-->
 <script type="text/javascript">
     $(document).ready(function () {
         enableDisableBillingAddress();
