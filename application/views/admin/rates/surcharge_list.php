@@ -15,13 +15,15 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-      <?php echo form_open(base_url('admin/add_surcharge'), 'class="surcharges-form" '); ?>
+   
         <h5 class="modal-title" id="exampleModalLabel">Add Carrier Surcharges</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
       <?php //echo form_open(base_url('admin/add_surcharge'), 'class="surcharges-form" '); ?>
+      <form>
+      <?php echo form_open(base_url('admin/add_surcharge'), 'class="surcharges-form" '); ?>
       <div class="modal-body">
      
   <div class="form-group">
@@ -43,13 +45,13 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Name</label>
-    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name[]" placeholder="Surcharge Name">
+    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name" placeholder="Surcharge Name">
   </div>
   </td>
   <td>
   <div class="form-group">
     <label for="exampleInputEmail1">Type</label>
-      <select name="s_description[]" id="types">
+      <select name="service_type" id="types">
         <option value="">Fixed</option>
         <option value="DHL">Percent of Base Charge</option>
         <option value="Star Track">Percent of Surcharge</option>
@@ -59,7 +61,7 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Price</label>
-    <input type="number"  class="form-control weight" id="surcharge_price" required name="surcharge_price[]" placeholder="Surcharge Price">
+    <input type="number"  class="form-control weight" id="surcharge_price" required name="surcharge_price" placeholder="Surcharge Price">
   </div>
   </td> 
   </tr>
@@ -67,11 +69,13 @@
  
 
       </div>
+      </form>
       <div class="modal-footer">
          <button type="submit" name="submit" class="btn">Save</button>
         <button type="button" class="btn" data-dismiss="modal">Close</button>
      
       </div>
+   
     </div>
   </div>
 </div>
@@ -94,7 +98,7 @@
   <div class="form-group">
   
   <label for="exampleInputEmail1">Carrier Name</label>
-    <select name="carriers" id="carriers">
+    <select name="carrier_name" id="carriers">
         <option value="">Select a carrier</option>
         <option value="Star Track">Star Track</option>
         
@@ -109,13 +113,13 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Name</label>
-    <input type="text" class="form-control surcharge_name" value="">
+    <input type="text" class="form-control" value="">
   </div>
   </td>
   <td>
   <div class="form-group">
     <label for="exampleInputEmail1">Type</label>
-      <select name="types" id="types">
+      <select name="s_description" id="types">
         <option value="">Fixed</option>
         <option value="DHL">Percent of Base Charge</option>
         <option value="Star Track">Percent of Surcharge</option>
@@ -125,7 +129,7 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Price</label>
-    <input type="number"  class="form-control prices" id="surcharge_prices" value="">
+    <input type="number"  class="form-control prices" id="" value="">
   </div>
   </td>
   </tr>
@@ -146,7 +150,7 @@
 <!-- Add Carrier Modal -->
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-  <?php echo form_open(base_url('admin/add_carrier'), 'class="surcharges" '); ?>
+ 
     <div class="modal-content">
       <div class="modal-header">
         <h5 class="modal-title" id="editModalLabel">Add New Carrier</h5>
@@ -154,7 +158,8 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      
+      <form>
+  <?php echo form_open(base_url('admin/add_carrier'), 'class="surcharges-form" '); ?>
       <div class="modal-body">
     
   <div class="form-group">
@@ -163,6 +168,7 @@
   </div>
  
 </div>
+</form>
       <div class="modal-footer">
          <button type="submit" name="submit" class="btn">Add</button>
         <button type="button" class="btn" data-dismiss="modal">Close</button>
