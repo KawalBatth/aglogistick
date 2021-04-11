@@ -66,7 +66,6 @@ $route['admin/status'] = 'admin/customers/status_report';
 $route['admin/summary'] = 'admin/customers/summary_report';
 $route['admin/add'] = 'admin/customers/customer_add';
 $route['admin/user'] = 'admin/users/user_manage';
-
 $route['admin/surcharge_list'] = 'admin/rates/surcharge_list';
 $route['admin/rate'] = 'admin/rates/rate_sheet';
 $route['admin/import'] = 'admin/rates/import_rate';

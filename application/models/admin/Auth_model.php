@@ -50,10 +50,22 @@
 		public function get_carrier()
 		{
 			$this->db->select('*');
-		$this->db->from('carriers');
-		return $query = $this->db->get()->result_array();
+			$this->db->from('carriers');
+			return $query = $this->db->get()->result_array();
+		 
 		}
-
+	public function save_customer($customers)
+	{
+		$this->db->insert('customer',$customers);
+		return true;
 	}
+
+	public function get_customer_id()
+	{
+
+		$last = $this->db->order_by('id',"desc")->limit(1)->get('customer')->row();
+		return $last->customer_id+1;
+	}
+}
 
 ?>

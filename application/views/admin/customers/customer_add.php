@@ -1,3 +1,50 @@
+<div id="loading-dialog" title="Loading...">
+    <div class="cs22">
+        
+        <div class="cssload-container">
+            <div class="cssload-loading">
+                <i></i><i></i><i></i><i></i>
+            </div>
+        </div>
+        <span><strong>Please wait ...</strong></span>
+    </div>
+</div>
+<div id="alert-dialog" title="Error"></div>
+<div id="message-dialog" title="Message"></div>
+<script type="text/javascript">
+    // init common dialog
+    var loadingDialog = $("#loading-dialog").dialog({
+        modal: true,
+        autoOpen: false,
+        width: "500px",
+        height: "auto",
+        dialogClass: "no-close",
+        closeOnEscape: false,
+        show: {
+            effect: "fade",
+            duration: 500
+        }
+    });
+    var alertDialog = $("#alert-dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+    var messageDialog = $("#message-dialog").dialog({
+        autoOpen: false,
+        show: {
+            effect: "fade",
+            duration: 300
+        },
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+</script>
+<div>
 <div class="col-lg-12">
                         <div class="portlet box">
                             <div class="portlet-header">
@@ -346,7 +393,7 @@
     <li class=""><a href="#base-rates-tab" data-toggle="tab">Base Rates</a></li>
         <li class=""><a href="#notes-tab" data-toggle="tab">Notes</a></li>
 </ul>
-<form id="add_customer_form">
+  <?php echo form_open(base_url('admin/add_customer'), 'class="add_customer_form" id="add_customer_form"'); ?>
     <div id="manage_customer_tab_content" class="tab-content responsive">
         <!-- Account setup tab -->
         <div id="account-setup-tab" class="tab-pane fade active in">
@@ -354,16 +401,16 @@
                 <div class="portlet-body b12 b11">
                     <div class="row">
                         <div class="col-lg-4">
-                            <input type="hidden" name="customer.franchiseCode" value="100" id="customer_franchiseCode">
-                            <input type="hidden" name="customer.srno" value="197" id="customer_srno">
-                            <input type="hidden" name="customer.dhlDomesticAccount" value="" id="customer_dhlDomesticAccount">
-                            <input type="hidden" name="customer.dhlInternationalAccount" value="" id="customer_dhlInternationalAccount">
-                            <input type="hidden" name="customer.dhlInboundAccount" value="" id="customer_dhlInboundAccount">
-                            <input type="hidden" name="customer.aaeAccount" value="" id="customer_aaeAccount">
-                            <input type="hidden" name="customer.fedexAccount" value="" id="customer_fedexAccount">
-                            <input type="hidden" name="customer.ukMailAccount" value="" id="customer_ukMailAccount">
-                            <input type="hidden" name="customer.upsAccount" value="" id="customer_upsAccount">
-                            <input type="hidden" name="customer.tollIpecAccount" value="" id="customer_tollIpecAccount">
+                            <input type="hidden" name="franchiseCode" value="100" id="customer_franchiseCode">
+                            <input type="hidden" name="srno" value="197" id="customer_srno">
+                            <input type="hidden" name="dhlDomesticAccount" value="" id="customer_dhlDomesticAccount">
+                            <input type="hidden" name="dhlInternationalAccount" value="" id="customer_dhlInternationalAccount">
+                            <input type="hidden" name="dhlInboundAccount" value="" id="customer_dhlInboundAccount">
+                            <input type="hidden" name="aaeAccount" value="" id="customer_aaeAccount">
+                            <input type="hidden" name="fedexAccount" value="" id="customer_fedexAccount">
+                            <input type="hidden" name="ukMailAccount" value="" id="customer_ukMailAccount">
+                            <input type="hidden" name="upsAccount" value="" id="customer_upsAccount">
+                            <input type="hidden" name="tollIpecAccount" value="" id="customer_tollIpecAccount">
                             <input type="hidden" name="profileId" value="1" id="profileId">
                             <table class="table" style="font-size: 11px;">
                                 <tbody><tr>
@@ -375,11 +422,11 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Customer #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.customerCode" value="10000198" readonly="readonly" id="customer_customerCode" class="form-control"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="customerCode" value="<?php echo $customer_id;?>" readonly="readonly" id="customer_customerCode" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">Inactive?:</td>
-                                    <td class="td2" colspan="2"><input type="checkbox" name="customer.inActive" value="true" id="customer_inActive"><input type="hidden" id="__checkbox_customer_inActive" name="__checkbox_customer.inActive" value="true"></td>
+                                    <td class="td2" colspan="2"><input type="checkbox" name="inActive" value="true" id="customer_inActive"><input type="hidden" id="__checkbox_customer_inActive" name="__checkbox_inActive" value="true"></td>
                                 </tr>
                             </tbody></table>
                         </div>
@@ -394,22 +441,22 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Previous Carrier:</td>
-                                    <td class="td2" colspan="2"><select name="customer.previousCarrier" id="customer_previousCarrier" class="form-control">
-    <option value="0" selected="selected"></option>
-    <option value="1">DHL</option>
-    <option value="52">Toll Priority</option>
-    <option value="59">Toll Ipec</option>
-    <option value="72">Startrack</option>
-    <option value="400">UPS Express</option>
+                                    <td class="td2" colspan="2"><select name="previousCarrier" id="customer_previousCarrier" class="form-control">
+                              <option value="0" selected="selected"></option>
+                              <option value="1">DHL</option>
+                              <option value="52">Toll Priority</option>
+                              <option value="59">Toll Ipec</option>
+                              <option value="72">Startrack</option>
+                              <option value="400">UPS Express</option>
 
 
-</select>
+                                    </select>
 
-</td>
-                                </tr>
+                                    </td>
+                                  </tr>
                                 <tr>
                                     <td class="td1">Customer Group:</td>
-                                    <td class="td2" colspan="2"><select name="customer.groupId" id="customer_groupId" class="form-control">
+                                    <td class="td2" colspan="2"><select name="groupId" id="customer_groupId" class="form-control">
     <option value="0" selected="selected"></option>
     <option value="2">Gold</option>
     <option value="4">Lead</option>
@@ -423,7 +470,7 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Web Freight Group:</td>
-                                    <td class="td2"><select name="customer.webshipGroupId" id="customer_webshipGroupId" class="form-control">
+                                    <td class="td2"><select name="webshipGroupId" id="customer_webshipGroupId" class="form-control">
     <option value="0" selected="selected"></option>
     <option value="0" selected="selected">Default</option>
 
@@ -434,7 +481,7 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Industry:</td>
-                                    <td class="td2" colspan="2"><select name="customer.industryId" id="customer_industryId" class="form-control">
+                                    <td class="td2" colspan="2"><select name="industryId" id="customer_industryId" class="form-control">
     <option value="0" selected="selected"></option>
     <option value="6">Accounting</option>
     <option value="8">Advertising</option>
@@ -449,7 +496,7 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Area:</td>
-                                    <td class="td2" colspan="2"><select name="customer.areaId" id="customer_areaId" class="form-control">
+                                    <td class="td2" colspan="2"><select name="areaId" id="customer_areaId" class="form-control">
     <option value="0" selected="selected"></option>
     <option value="2">Area 1</option>
     <option value="1">Default Area</option>
@@ -461,7 +508,7 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Sales Rep:</td>
-                                    <td class="td2" colspan="2"><select name="customer.salesRepId" id="customer_salesRepId" class="form-control">
+                                    <td class="td2" colspan="2"><select name="salesRepId" id="customer_salesRepId" class="form-control">
     <option value="0" selected="selected"></option>
     <option value="1">AGL</option>
     <option value="388">AGL</option>
@@ -483,7 +530,7 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Collector:</td>
-                                    <td class="td2" colspan="2"><select name="customer.collectorId" id="customer_collectorId" class="form-control">
+                                    <td class="td2" colspan="2"><select name="collectorId" id="customer_collectorId" class="form-control">
     <option value="0" selected="selected"></option>
 
 
@@ -493,11 +540,11 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Business Registration #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.registrationId" value="0" id="customer_registrationId" class="form-control"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="registrationId" value="0" id="customer_registrationId" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">GST #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.gstId" value="0" id="customer_gstId" class="form-control" onkeypress="return formartNumber(event,this,false);"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="gstId" value="0" id="customer_gstId" class="form-control" onkeypress="return formartNumber(event,this,false);"></td>
                                 </tr>
                             </tbody></table>
                         </div>
@@ -512,36 +559,36 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">DHL Account #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.dhlAccount" value="3p" id="customer_dhlAccount" class="form-control"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="dhlAccount" value="3p" id="customer_dhlAccount" class="form-control"></td>
                                 </tr>
                                
                                 <tr>
                                     <td class="td1">Toll Priority Account #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.tollPriorityAccount" value="3p" id="customer_tollPriorityAccount" class=" form-control"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="tollPriorityAccount" value="3p" id="customer_tollPriorityAccount" class=" form-control"></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">Startrack Account #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.startrackAccount" value="" id="customer_startrackAccount" class=" form-control"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="startrackAccount" value="" id="customer_startrackAccount" class=" form-control"></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">Startrack Dispatch ID #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.dispatchId" value="" id="customer_dispatchId" class=" form-control"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="dispatchId" value="" id="customer_dispatchId" class=" form-control"></td>
                                 </tr>
                                <tr>
                                     <td class="td1">Other Account #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customer.otherAccount" value="" id="customer_otherAccount" class=" form-control"></td>
+                                    <td class="td2" colspan="2"><input type="text" name="otherAccount" value="" id="customer_otherAccount" class=" form-control"></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">Booking Email Notification:</td>
-                                    <td class="td2" colspan="2"><input type="checkbox" name="customer.bookingEmailNotification" value="true" id="customer_bookingEmailNotification"><input type="hidden" id="__checkbox_customer_bookingEmailNotification" name="__checkbox_customer.bookingEmailNotification" value="true"></td>
+                                    <td class="td2" colspan="2"><input type="checkbox" name="bookingEmailNotification" value="true" id="customer_bookingEmailNotification"><input type="hidden" id="__checkbox_customer_bookingEmailNotification" name="__checkbox_bookingEmailNotification" value="true"></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">Rejection Notes:</td>
-                                    <td class="td2" colspan="2"><textarea name="customer.rejectionNote" cols="" rows="" id="customer_rejectionNote" class="form-control"></textarea></td>
+                                    <td class="td2" colspan="2"><textarea name="rejectionNote" cols="" rows="" id="customer_rejectionNote" class="form-control"></textarea></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">Enable AGL Warranty:</td>
-                                    <td class="td2" colspan="2"><input type="checkbox" name="customer.enableSi" value="true" id="customer_enableSi"><input type="hidden" id="__checkbox_customer_enableSi" name="__checkbox_customer.enableSi" value="true"></td>
+                                    <td class="td2" colspan="2"><input type="checkbox" name="enableSi" value="true" id="customer_enableSi"><input type="hidden" id="__checkbox_customer_enableSi" name="__checkbox_enableSi" value="true"></td>
                                 </tr>
                             </tbody></table>
                         </div>
@@ -552,7 +599,7 @@
 
         <!-- Address tab -->
         <div id="address-tab" class="tab-pane fade">
-        <div class="row">
+            <div class="row">
                 <div class="col-lg-4">
                     <table class="table" style="font-size: 11px;">
                         <tbody><tr>
@@ -564,31 +611,31 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.customerName" value="" id="address_address_customerName" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="customerName" value="" id="address_address_customerName" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.contactName" value="" id="address_address_contactName" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="contactName" value="" id="address_address_contactName" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.contactTitle" value="" id="address_address_contactTitle" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="contactTitle" value="" id="address_address_contactTitle" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.address1" value="" id="address_address_address1" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="address1" value="" id="address_address_address1" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.address2" value="" id="address_address_address2" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="address2" value="" id="address_address_address2" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.city" value="" id="address_address_city" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="city" value="" id="address_address_city" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><select name="address.address.country" id="address_address_country" class="form-control uppercase" data-group="address">
+                            <td class="td2" colspan="2"><select name="country" id="address_address_country" class="form-control uppercase" data-group="address">
     <option value="0">country</option>
     <option value="1">Afghanistan</option>
     <option value="2">Albania</option>
@@ -870,19 +917,19 @@
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.postalCode" value="" id="address_address_postalCode" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="postalCode" value="" id="address_address_postalCode" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">State Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.stateCode" value="" id="address_address_stateCode" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="stateCode" value="" id="address_address_stateCode" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.fax" value="" id="address_address_fax" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="fax" value="" id="address_address_fax" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td2" colspan="2"><span> Eg: first@email.com; second@email.com
@@ -890,15 +937,15 @@
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.email" value="" id="address_address_email" class="form-control" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="email" value="" id="address_address_email" class="form-control" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.mobile" value="" id="address_address_mobile" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="mobile" value="" id="address_address_mobile" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Alt Contact Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.alternatePhone" value="" id="address_address_alternatePhone" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="alternatePhone" value="" id="address_address_alternatePhone" class="form-control uppercase" data-group="address"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -913,37 +960,37 @@
                             <td colspan="" style="border-top: 0px !important">
                                 <div class="b21">
                                     <span class="b20">Same As Customer Address </span>
-                                    <input type="checkbox" name="address.billingAddress.billingSameWithCustomer" value="true" checked="checked" id="billing-same-with-customer-checkbox" onchange="sameWithCustomerCheckBoxChange()"><input type="hidden" id="__checkbox_billing-same-with-customer-checkbox" name="__checkbox_address.billingAddress.billingSameWithCustomer" value="true">
+                                    <input type="checkbox" name="billingSameWithCustomer" value="true" checked="checked" id="billing-same-with-customer-checkbox" onchange="sameWithCustomerCheckBoxChange()"><input type="hidden" id="__checkbox_billing-same-with-customer-checkbox" name="__checkbox_billingSameWithCustomer" value="true">
                                 </div>
                             </td>
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingCustomerName" value="" id="address_billingAddress_billingCustomerName" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingCustomerName" value="" id="address_billingAddress_billingCustomerName" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingContactName" value="" id="address_billingAddress_billingContactName" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingContactName" value="" id="address_billingAddress_billingContactName" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingContactTitle" value="" id="address_billingAddress_billingContactTitle" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingContactTitle" value="" id="address_billingAddress_billingContactTitle" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingAddress1" value="" id="address_billingAddress_billingAddress1" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingAddress1" value="" id="address_billingAddress_billingAddress1" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingAddress2" value="" id="address_billingAddress_billingAddress2" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingAddress2" value="" id="address_billingAddress_billingAddress2" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingCity" value="" id="address_billingAddress_billingCity" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingCity" value="" id="address_billingAddress_billingCity" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><select name="address.billingAddress.billingCountry" id="address_billingAddress_billingCountry" class="form-control uppercase" data-group="billing-address" readonly="readonly">
+                            <td class="td2" colspan="2"><select name="billingCountry" id="address_billingAddress_billingCountry" class="form-control uppercase" data-group="billing-address" readonly="readonly">
     <option value="0">country</option>
     <option value="1">Afghanistan</option>
     <option value="2">Albania</option>
@@ -1225,19 +1272,19 @@
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingPostalCode" value="" id="address_billingAddress_billingPostalCode" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingPostalCode" value="" id="address_billingAddress_billingPostalCode" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">State Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingStateCode" value="" id="address_billingAddress_billingStateCode" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingStateCode" value="" id="address_billingAddress_billingStateCode" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingPhone" value="" id="address_billingAddress_billingPhone" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingPhone" value="" id="address_billingAddress_billingPhone" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingFax" value="" id="address_billingAddress_billingFax" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingFax" value="" id="address_billingAddress_billingFax" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td2" colspan="2"><span> Eg: first@email.com; second@email.com
@@ -1245,15 +1292,15 @@
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingEmail" value="" id="address_billingAddress_billingEmail" class="form-control" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingEmail" value="" id="address_billingAddress_billingEmail" class="form-control" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingMobile" value="" id="address_billingAddress_billingMobile" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingMobile" value="" id="address_billingAddress_billingMobile" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Alt Contact Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.billingAddress.billingAlternatePhone" value="" id="address_billingAddress_billingAlternatePhone" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingAlternatePhone" value="" id="address_billingAddress_billingAlternatePhone" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -1268,55 +1315,80 @@
                         </tr>
                         <tr>
                             <td class="td1">Owner:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.owner" value="" id="address_address_owner" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="owner" value="" id="address_address_owner" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.ownerPhone" value="" id="address_address_ownerPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="ownerPhone" value="" id="address_address_ownerPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.ownerEmail" value="" id="address_address_ownerEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="ownerEmail" value="" id="address_address_ownerEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">AP Contact:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.apContact" value="" id="address_address_apContact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="apContact" value="" id="address_address_apContact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.apPhone" value="" id="address_address_apPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="apPhone" value="" id="address_address_apPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.apEmail" value="" id="address_address_apEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="apEmail" value="" id="address_address_apEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other Contact:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.otherContact" value="" id="address_address_otherContact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="otherContact" value="" id="address_address_otherContact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.otherPhone" value="" id="address_address_otherPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="otherPhone" value="" id="address_address_otherPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.otherEmail" value="" id="address_address_otherEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="otherEmail" value="" id="address_address_otherEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other 2 Contact :</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.other2Contact" value="" id="address_address_other2Contact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="other2Contact" value="" id="address_address_other2Contact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other 2 Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.other2Phone" value="" id="address_address_other2Phone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="other2Phone" value="" id="address_address_other2Phone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="address.address.other2Email" value="" id="address_address_other2Email" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="other2Email" value="" id="address_address_other2Email" class="form-control"></td>
                         </tr>
                     </tbody></table>
+                    <div class="pal form-actions">
+        <table class="s36" align="right">
+            <tbody>
+            <tr>
+                <td height="10"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn s37" type="reset">
+                        Reset
+                    </button>
+                </td>
+                <td>
+                    <button class="btn s37" type="button" onclick="saveNewCustomer()">
+                        Save
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+                  </form>
+
                 </div>
             </div>
+        </div>
+
         <!-- Base rates tab -->
         <div id="base-rates-tab" class="tab-pane fade">
             <div class="row">
@@ -1347,7 +1419,7 @@
                                             </tr>
                                             <tr>
                                                 <td>* Minimum Customer Base Charge Margin</td>
-                                                <td width="60"><input type="text" name="customer.minimunBaseCharge" value="0.00" id="minimum_base_charge" class="form-control"></td>
+                                                <td width="60"><input type="text" name="minimunBaseCharge" value="0.00" id="minimum_base_charge" class="form-control"></td>
                                                 <td>%</td>
                                             </tr>
                                             </tbody>
@@ -9385,7 +9457,7 @@
                         </tr>
                         <tr>
                             <td class="td1">Invoice Sorting</td>
-                            <td colspan="2" class="td2"><select name="customer.invoiceSorting" id="customer_invoiceSorting" class="form-control">
+                            <td colspan="2" class="td2"><select name="invoiceSorting" id="customer_invoiceSorting" class="form-control">
     <option value="0" selected="selected">Sort by ship date</option>
     <option value="1">Sort by reference code</option>
     <option value="2">Sort by Freight</option>
@@ -9398,7 +9470,7 @@
                         </tr>
                         <tr>
                             <td class="td1">Invoice Terms</td>
-                            <td colspan="2" class="td2"><select name="customer.invoiceTerms" id="customer_invoiceTerms" class="form-control">
+                            <td colspan="2" class="td2"><select name="invoiceTerms" id="customer_invoiceTerms" class="form-control">
     <option value="0">7 days</option>
     <option value="1">10 days</option>
     <option value="2">12 days</option>
@@ -9415,7 +9487,7 @@
                         </tr>
                         <tr>
                             <td class="td1">Invoice to Customer</td>
-                            <td colspan="2" class="td2"><select name="customer.invoiceToCustomerId" id="customer_invoiceToCustomerId" class="form-control">
+                            <td colspan="2" class="td2"><select name="invoiceToCustomerId" id="customer_invoiceToCustomerId" class="form-control">
     <option value="0" selected="selected"></option>
     <option value="10000018">10000018</option>
     <option value="10000019">10000019</option>
@@ -9425,7 +9497,7 @@
                         </tr>
                         <tr>
                             <td class="td1">Pickup Fee</td>
-                            <td colspan="2" class="td2"><select name="customer.pickupFee" id="customer_pickupFee" class="form-control">
+                            <td colspan="2" class="td2"><select name="pickupFee" id="customer_pickupFee" class="form-control">
     <option value="0" selected="selected"></option>
     <option value="1">On Demand</option>
     <option value="2">Regular Stop</option>
@@ -9438,16 +9510,16 @@
                         </tr>
                         <tr>
                             <td class="td1">Invoice Late Fee % (e.g. 10)</td>
-                            <td width="60" class="td2"><input type="text" name="customer.invoiceLateFee" value="0.00" id="customer_invoiceLateFee" class="form-control" onkeypress="return formartNumber(event,this,true);"></td>
+                            <td width="60" class="td2"><input type="text" name="invoiceLateFee" value="0.00" id="customer_invoiceLateFee" class="form-control" onkeypress="return formartNumber(event,this,true);"></td>
                             <td class="td2">%</td>
                         </tr>
                         <tr>
                             <td class="td1">Download .CSV Invoice</td>
-                            <td colspan="2" class="td2"><input type="checkbox" name="customer.downloadCsvInvoice" value="true" id="customer_downloadCsvInvoice"><input type="hidden" id="__checkbox_customer_downloadCsvInvoice" name="__checkbox_customer.downloadCsvInvoice" value="true"></td>
+                            <td colspan="2" class="td2"><input type="checkbox" name="downloadCsvInvoice" value="true" id="customer_downloadCsvInvoice"><input type="hidden" id="__checkbox_customer_downloadCsvInvoice" name="__checkbox_downloadCsvInvoice" value="true"></td>
                         </tr>
                         <tr>
                             <td class="td1">*E-mail Invoice</td>
-                            <td colspan="2" class="td2"><input type="checkbox" name="customer.emailInvoice" value="true" checked="checked" id="customer_emailInvoice"><input type="hidden" id="__checkbox_customer_emailInvoice" name="__checkbox_customer.emailInvoice" value="true"></td>
+                            <td colspan="2" class="td2"><input type="checkbox" name="emailInvoice" value="true" checked="checked" id="customer_emailInvoice"><input type="hidden" id="__checkbox_customer_emailInvoice" name="__checkbox_emailInvoice" value="true"></td>
                         </tr>
                         <tr>
                             <td colspan="3">* = Requires valid e-mail listed in Billing Address under Address tab.</td>
@@ -9599,7 +9671,7 @@
             var addressName = $(obj).attr("name");
             var lastName = addressName.substring(addressName.lastIndexOf(".") + 1);
             lastName = lastName.charAt(0).toUpperCase() + lastName.slice(1);
-            var billingAddressName = "address.billingAddress.billing" + lastName;
+            var billingAddressName = "billing" + lastName;
             $("input[name='" + billingAddressName + "'], select[name='" + billingAddressName + "']").val($(obj).val());
         }
     }
@@ -9727,8 +9799,8 @@
             alertDialog.html("System internal error, please contact administrator.");
             alertDialog.dialog("open");
         });
-        console.log("saveManageCustomer.saveCustBaseRate.customerBaseRates[" + index + "]");
-        console.log("saveManageCustomer.saveCustBaseRate.customerBaseRates[" + (index + 1) + "]");
+        console.log("saveManagesaveCustBaseRate.customerBaseRates[" + index + "]");
+        console.log("saveManagesaveCustBaseRate.customerBaseRates[" + (index + 1) + "]");
         console.log("shipmentId: " + shipmentId + "| content: " + content + "| bound: " + bound + "| current weight: " + currentWeight + "| next weight: " + nextWeight);
     }
 
@@ -9836,37 +9908,50 @@
     }
 
     function saveNewCustomer() {
-        loadingDialog.dialog("open");
-        var data = $("#add_customer_form").serialize();
-        $.post("add_customer_save.ix?reqType=json", data, function (res) {
-            loadingDialog.dialog("close");
-            if (res.errorCode == "SUCCESS") {
-                // Define message dialog.
-                var buttons = {};
-                buttons["OK"] = function () {
-                    window.location.href = "manage_customers.ix?customerCode=" + $("input[name='customer.customerCode']").val();
-                };
-                var msgDialog = $("#msg-dialog").dialog({
-                    modal: true,
-                    autoOpen: false,
-                    buttons: buttons,
-                    width: '320',
-                    height: '180'
-                });
-                msgDialog.html("Saved successfully.");
-                msgDialog.dialog("open");
-            } else if (res.errorCode == "FIELD_ERROR") {
-                alertDialog.html(res.content);
-                alertDialog.dialog("open");
-            } else {
-                alertDialog.html(res.errorMsg);
-                alertDialog.dialog("open");
-            }
-        }).fail(function () {
-            loadingDialog.dialog("close");
-            alertDialog.html("System internal error, please contact administrator.");
-            alertDialog.dialog("open");
-        });
+        //loadingDialog.dialog("open");
+        var formdata = $("#add_customer_form").serialize();
+        console.log(formdata);
+         $.ajax({
+               url: 'customers/add_customer',
+               type: 'POST',
+               data:formdata,
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+              console.log(res);          
+               }
+            });
+        
+        // $.post("add_customer_save.ix?reqType=json", data, function (res) {
+        //     loadingDialog.dialog("close");
+        //     if (res.errorCode == "SUCCESS") {
+        //         // Define message dialog.
+        //         var buttons = {};
+        //         buttons["OK"] = function () {
+        //             window.location.href = "manage_customers.ix?customerCode=" + $("input[name='customerCode']").val();
+        //         };
+        //         var msgDialog = $("#msg-dialog").dialog({
+        //             modal: true,
+        //             autoOpen: false,
+        //             buttons: buttons,
+        //             width: '320',
+        //             height: '180'
+        //         });
+        //         msgDialog.html("Saved successfully.");
+        //         msgDialog.dialog("open");
+        //     } else if (res.errorCode == "FIELD_ERROR") {
+        //         alertDialog.html(res.content);
+        //         alertDialog.dialog("open");
+        //     } else {
+        //         alertDialog.html(res.errorMsg);
+        //         alertDialog.dialog("open");
+        //     }
+        // }).fail(function () {
+        //     loadingDialog.dialog("close");
+        //     alertDialog.html("System internal error, please contact administrator.");
+        //     alertDialog.dialog("open");
+        // });
     }
 
     function printRateSheetCheckAll(obj) {
