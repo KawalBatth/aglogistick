@@ -47,6 +47,13 @@
 			return true;
 		}
 
+		public function get_carrier()
+		{
+			$this->db->select('*');
+		$this->db->from('carriers');
+		return $query = $this->db->get()->result_array();
+		}
+
 	}
 
 ?>

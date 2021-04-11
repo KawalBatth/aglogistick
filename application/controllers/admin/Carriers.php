@@ -7,6 +7,7 @@
 			parent::__construct();
 			$this->load->model('admin/user_model', 'user_model');
 			$this->load->model('admin/auth_model', 'auth_model');
+			
 
 		}
 
@@ -17,6 +18,8 @@
 			$carrier['carrier_name'] = $this->input->post('carrier_name');
 			
 			$this->auth_model->add_carrier($carrier);
+
+			$this->session->set_flashdata('msg', 'Carrier is Added Successfully!');
 		
 	       redirect(base_url('admin/surcharge_list'), 'refresh');
 			
@@ -35,7 +38,7 @@
 			);
 			
 			$surcharge = $this->auth_model->add_surcharge_data($surgcharge);
-			
+			$this->session->set_flashdata('msg', 'Surcharge is Added Successfully!');
 			redirect(base_url('admin/surcharge_list'), 'refresh');
 			
 			
@@ -52,14 +55,16 @@
 			'last_modified'=>$date = date('Y/m/d H:i:s')
 			);
 			$surcharge = $this->auth_model->update_surcharge_data($surgcharge,$surcharge_id);
+			$this->session->set_flashdata('msg', 'Surcharge is Edited Successfully!');
 			redirect(base_url('admin/surcharge_list'), 'refresh');
 
 		}
 
         public function delSurcharge($id = 0){
 			$this->db->delete('surcharges_list', array('id' => $id));
-			$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
-			redirect(base_url('admin/surcharge_list'));
+			//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
+			redirect(base_url('admin/surcharge_list'), 'refresh');
+			
 		}
 
 	}

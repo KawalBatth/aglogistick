@@ -28,6 +28,14 @@
     margin-top: 15px;
 }
 
+button.btn.ref {
+    margin-right: 280px;
+    margin-left: -352px;
+}
+
+button.btn.btn-primary.add_car {
+    margin-right: 358px;
+}
         #nav li a {
             display: block;
             padding: 0;

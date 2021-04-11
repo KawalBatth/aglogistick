@@ -3,7 +3,14 @@
                                 <div class="caption">
                                     Surcharge List
                                 </div>
+                               
                             </div>
+                            
+                            <?php if($this->session->flashdata('msg')){?>
+   <div class="alert alert-success">      
+    <?php echo $this->session->flashdata('msg')?>
+ </div>
+ <?php } ?>
                             <div class="portlet-body" style="padding: 0px;">
                                 <div class="tab-content responsive">
                                     <div id="Overview-tab" class="tab-pane fade in active">
@@ -31,13 +38,13 @@
   <label for="exampleInputEmail1">Carrier Name</label>
   
     <select name="carriers" id="carriers">
-    <?php for($i=0;$i<count($surcharge_list);$i++){?>
-        <option value="<?php echo $surcharge_list[$i]['carrier_id'];?>"><?php echo $surcharge_list[$i]['carrier_name'];?></option>
+    <?php for($i=0;$i<count($carrier_list);$i++){?>
+        <option value="<?php echo $carrier_list[$i]['id'];?>"><?php echo $carrier_list[$i]['carrier_name'];?></option>
         <?php }?>
 </select>
 
   </div>
-  <input type="button" id="addRowBtn" value="+">
+  <!--input type="button" id="addRowBtn" value="+"-->
   <table id="dataTable">
   
   <tr id="carrier-dt1">
@@ -50,7 +57,7 @@
   </td>
   <td>
   <div class="form-group">
-    <label for="exampleInputEmail1">Type</label>
+    <label for="exampleInputEmail1" class="sur_types">Type</label>
 
       <select name="surcharge_type" id="types">
         <option value="0">Fixed</option>
@@ -62,7 +69,7 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Price</label>
-    <input type="number"  class="form-control weight" id="surcharge_price" required name="surcharge_price" placeholder="Surcharge Price">
+    <input type="text"  class="form-control" id="surcharge_price" required name="surcharge_price" placeholder="Surcharge Price">
   </div>
   </td> 
   </tr>
@@ -159,11 +166,11 @@
                                                     <thead>
                                                         <tr>
                                                      
-                                                            <th sort-field="code" style="cursor: pointer;">Carrier ID <i class="fa fa-sort-up"></i></th>
+                                                            <th sort-field="code" style="cursor: pointer;"> ID <i class="fa fa-sort-up"></i></th>
                                                             <th sort-field="modified_date" style="cursor: pointer;">Carrier Name <i class="fa fa-sort"></i></th>
                                                             <th sort-field="typeid" style="cursor: pointer;">Surcharge Name <i class="fa fa-sort"></i></th>
                                                             <th sort-field="service_name" style="cursor: pointer;">Surcharge Price <i class="fa fa-sort"></i></th>
-                                                            <th sort-field="description" style="cursor: pointer;">Surcharge Description <i class="fa fa-sort"></i></th>
+                                                            <th sort-field="description" style="cursor: pointer;">Surcharge Type <i class="fa fa-sort"></i></th>
                                                             <th sort-field="isquotable" style="cursor: pointer;">Last modified <i class="fa fa-sort"></i></th>
                                                             <th>Action</th>
                                                         </tr>
@@ -190,13 +197,13 @@
 
                                                           <tr class="on-click" data-accessorialid="<?php echo $surcharge_list[$i]['id'];?>">
                                                        
-                                                                    <td><?php echo $surcharge_list[$i]['carrier_id'];?></td>
+                                                                    <td><?php echo $surcharge_list[$i]['id'];?></td>
 																	<td><?php echo $surcharge_list[$i]['carrier_name'];?></td>
 																	<td><?php echo $surcharge_list[$i]['surcharge_name'];?></td>
 																	<td><?php echo $surcharge_list[$i]['surcharge_price'];?></td>
 																	<td><?php echo $surcharge_type;?></td>
 																	<td><?php echo $surcharge_list[$i]['last_modified'];?></td>
-                                <td>  <a href="<?= base_url('admin/carriers/delSurcharge/'.$surcharge_list[$i]['id']); ?>" class="btn">Delete</a></td>
+                                <td>  <button type="button" class="btn btn-danger remove"> Delete</button> </td>
                                                                  
                                                           </tr>
 														<?php }?>
@@ -211,8 +218,8 @@
                                         <div class="row">
                                        
                                           <div class="col-lg-12 text-right">
-                                          <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addModal">Add New Carrier</button>
-                                                <button class="btn" type="button" onClick="window.location.reload()">
+                                          <button type="button" class="btn btn-primary add_car" data-toggle="modal" data-target="#addModal">Add New Carrier</button>
+                                                <button class="btn ref" type="button" onClick="window.location.reload()">
                                               Refresh
                                             </button>
                                              <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New Surcharge</button>
@@ -244,7 +251,7 @@
     
   <div class="form-group">
     <label for="exampleInputName">Carrier Name</label>
-    <input type="text" name="carrier_name" class="form-control car_name">
+    <input type="text" name="carrier_name" required class="form-control car_name">
   </div>
  
 </div>
@@ -256,6 +263,7 @@
       </div>
     </div>
   </div>     
+
 <script>
     //To show datatable
     $(document).ready(function() 
@@ -265,14 +273,14 @@
 
 
     //To add and delete dynamic row in add surcharges Modal
-    var tbl = $("#dataTable");
+   /* var tbl = $("#dataTable");
     $("#addRowBtn").click(function(){
         $("<tr><td><input type='text' class='form-control dimL' id='surcharge_name' name='surcharge_name[]' required placeholder='Surcharge Name'></td><td><select name='types' id='types'><option value=''>Fixed</option><option value='DHL'>Percent of Base Charge</option><option value='Star Track'>Percent of Surcharge</option></select></td><td><input type='number' class='form-control weight' required id='surcharge_price' name='surcharge_price[]' placeholder='Surcharge Price'></td><br><td><button class='delRowBtn'>-</button></td></tr>").appendTo(tbl);        
     });
         
     $(document.body).delegate(".delRowBtn", "click", function(){
         $(this).closest("tr").remove();        
-    }); 
+    }); */
 
 
 //To enable and disable edit surcharge button
@@ -316,6 +324,25 @@ function editsurcharge()
     
 }
 
+$(".remove").click(function(){
+        var id = $(this).parents("tr").attr("data-accessorialid");
+        if(confirm('Are you sure to remove this record ?'))
+        {
+            $.ajax({
+
+              url: 'carriers/delSurcharge/'+id,
+               type: 'DELETE',
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(data) {
+                    $("#"+id).remove();
+                    alert("Record removed successfully");  
+                   window.location.reload();
+               }
+            });
+        }
+    });
 
 
 </script>

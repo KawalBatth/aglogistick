@@ -11,6 +11,7 @@
 		public function surcharge_list()
 		{
 			$data['surcharge_list'] =  $this->auth_model->get_surcharges();
+			$data['carrier_list'] =  $this->auth_model->get_carrier();
 			$data['view'] = 'admin/rates/surcharge_list';
 			$this->load->view('admin/layout', $data);
 		}

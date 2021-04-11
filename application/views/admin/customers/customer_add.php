@@ -552,7 +552,7 @@
 
         <!-- Address tab -->
         <div id="address-tab" class="tab-pane fade">
-            <div class="row">
+        <div class="row">
                 <div class="col-lg-4">
                     <table class="table" style="font-size: 11px;">
                         <tbody><tr>
@@ -1317,8 +1317,6 @@
                     </tbody></table>
                 </div>
             </div>
-        </div>
-
         <!-- Base rates tab -->
         <div id="base-rates-tab" class="tab-pane fade">
             <div class="row">
