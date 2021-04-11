@@ -32,6 +32,8 @@
 		public function customer_add()
 		{
 			$data['customer_id'] =$this->auth_model->get_customer_id();
+			$data['customers'] =$this->auth_model->get_customer();
+			
 			$data['view'] = 'admin/customers/customer_add';
 			$this->load->view('admin/layout', $data);
 		}
@@ -86,43 +88,43 @@
 				'address'=>$address1." ".$address2,
 				'city'=>$city,
 				'country'=>$country,
-				'postalCode'=>$postalCode,
-				'stateCode'=>$stateCode,
+				'postal_code'=>$postalCode,
+				'state_code'=>$stateCode,
 				'phone'=>$phone,
 				'fax'=>$fax,
 				'email'=>$email,
 				'mobile'=>$mobile,
-				'alternatePhone'=>$alternatePhone,
-                'billingCustomerName'=>$billingCustomerName,
-				'billingContactName'=>$billingContactName,
-				'billingContactTitle'=>$billingContactTitle,
-				'billingAddress1'=>$billingAddress1,
-				'billingAddress2'=>$billingAddress2,
-				'billingCity'=>$billingCity,
-				'billingCountry'=>$billingCountry,
-				'billingPostalCode'=>$billingPostalCode,
-				'billingStateCode'=>$billingStateCode,
-				'billingPhone'=>$billingPhone,
-				'billingFax'=>$billingFax,
-				'billingEmail'=>$billingEmail,
-				'billingMobile'=>$billingMobile,
-				'billingAlternatePhone'=>$billingAlternatePhone,
+				'alt_contact'=>$alternatePhone,
+                'billing_customer_name'=>$billingCustomerName,
+				'billing_contact_name'=>$billingContactName,
+				'billing_contact_title'=>$billingContactTitle,
+				'billing_address'=>$billingAddress1,
+				'billing_address2'=>$billingAddress2,
+				'billing_city'=>$billingCity,
+				'billing_country'=>$billingCountry,
+				'billing_postal_code'=>$billingPostalCode,
+				'billing_state_code'=>$billingStateCode,
+				'billing_phone'=>$billingPhone,
+				'billing_fax'=>$billingFax,
+				'billing_email'=>$billingEmail,
+				'billing_mobile'=>$billingMobile,
+				'billing_alt_contact'=>$billingAlternatePhone,
 				'owner'=>$owner,
-				'ownerPhone'=>$ownerPhone,
-				'ownerEmail'=>$ownerEmail,
-				'apContact'=>$apContact,
-				'apPhone'=>$apPhone,
-				'apEmail'=>$apEmail,
-				'otherContact'=>$otherContact,
-				'otherPhone'=>$otherPhone,
-				'otherEmail'=>$otherEmail,
-				'other2Contact'=>$other2Contact,
-				'other2Phone'=>$other2Phone,
-				'other2Email'=>$other2Email,
+				'other_phone'=>$ownerPhone,
+				'other_email'=>$ownerEmail,
+				'other_contact'=>$apContact,
+				'other_phone1'=>$apPhone,
+				'other_email1'=>$apEmail,
+				'other_contact1'=>$otherContact,
+				'other_phone2'=>$otherPhone,
+				'other_email2'=>$otherEmail,
+				'other_contact2'=>$other2Contact,
+				'other_phone3'=>$other2Phone,
+				'other_email3'=>$other2Email,
 			);
 			
 			$this->auth_model->save_customer($dataforsave);			
-			die;
+			
 		}
 
 		

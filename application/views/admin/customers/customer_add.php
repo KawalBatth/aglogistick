@@ -372,7 +372,11 @@
                                                 <select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
                                     <option value="-1">Select a Customer</option>
                                     <option value="add">Add a Customer</option>
-    <option value="10000018">10000 - Kawal- Test</option>
+                                    <?php for($i=0;$i<count($customers);$i++)
+                                    {
+                            echo '<option value="'.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';                                       
+                                    }?>
+            
 </select>
 
 </td>
@@ -422,7 +426,12 @@
                                 </tr>
                                 <tr>
                                     <td class="td1">Customer #:</td>
-                                    <td class="td2" colspan="2"><input type="text" name="customerCode" value="<?php echo $customer_id;?>" readonly="readonly" id="customer_customerCode" class="form-control"></td>
+                                    <?php if(!isset($customer_id))
+                                    {
+                                        $cid= '10000001';
+                                    }
+                                    else {$cid = $customer_id;}?>
+                                    <td class="td2" colspan="2"><input type="text" name="customerCode" value="<?php echo $cid;?>" readonly="readonly" id="customer_customerCode" class="form-control"></td>
                                 </tr>
                                 <tr>
                                     <td class="td1">Inactive?:</td>

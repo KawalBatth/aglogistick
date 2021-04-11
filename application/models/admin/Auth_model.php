@@ -59,11 +59,19 @@
 		$this->db->insert('customer',$customers);
 		return true;
 	}
+		public function get_customer()
+	{
+			$this->db->select('customer_id,customerName');
+			$this->db->from('customer');
+			return $query = $this->db->get()->result_array();
+
+	}
 
 	public function get_customer_id()
 	{
 
 		$last = $this->db->order_by('id',"desc")->limit(1)->get('customer')->row();
+		if($last)
 		return $last->customer_id+1;
 	}
 }

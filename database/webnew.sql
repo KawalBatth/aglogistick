@@ -79,18 +79,18 @@ INSERT INTO `ci_users` (`id`, `username`, `firstname`, `lastname`, `email`, `mob
 --
 
 CREATE TABLE `customer` (
-  `id` int(200) NOT NULL,
-  `customer_id` int(200) NOT NULL,
-  `contact_name` varchar(250) NOT NULL,
+  `id` int(200) NULL,
+  `customer_id` int(200) NULL,
+  `contact_name` varchar(250) NULL,
   `contact_title` varchar(250) NOT NULL,
   `address` longtext NOT NULL,
   `city` varchar(50) NOT NULL,
-  `country` varchar(50) NOT NULL,
+  `	` varchar(50) NOT NULL,
   `postal_code` int(50) NOT NULL,
   `state_code` int(50) NOT NULL,
   `phone` int(50) NOT NULL,
   `fax` int(50) NOT NULL,
-  `email` varchar(250) NOT NULL,
+  `email` varchar(250) NOT NULL,http://localhost/phpmyadmin/tbl_structure.php?db=webnew&table=customer&goto=tbl_structure.php&back=tbl_structure.php&field=billing_alt_contact&change_column=1
   `mobile` int(50) NOT NULL,
   `alt_contact` int(50) NOT NULL,
   `billing_customer_name` varchar(150) NOT NULL,
@@ -2218,7 +2218,7 @@ ALTER TABLE `surcharges_list`
 
 --
 -- Constraints for table `rates`
---
+--	
 ALTER TABLE `rates`
   ADD CONSTRAINT `fk_ServiceType` FOREIGN KEY (`service_type`) REFERENCES `star_services` (`id`);
 
