@@ -1,3 +1,53 @@
+<?php $submit_id = $_GET['id'];
+//echo $submit_id; 
+?>
+
+<!-- Road Express Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Road Express
+       
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th>Destination</th>
+                <th class="text-right">Min</th>
+                <th class="text-right">Base</th>
+                <th class="text-right">Per Kg</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td></td>
+            <td></td>
+            <td></td>
+            <td></td>
+            </tr>
+         </tbody>
+         </table>
+</div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+
 <div class="page-content">
     <div id="tab-general">
         <div class="row mbl">
@@ -144,192 +194,14 @@
                                                         Search
                                                     </button>
                                                 </td>
-                                                <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="onCustomerCodeChange()">
+                                                
+    <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
     <option value="-1">Select a Customer</option>
-    <option value="0">Add a Customer</option>
-    <option value="10000018">10000018 - AUSTAL - CH ROBINSON</option>
-    <option value="10000019">10000019 - TEST</option>
-    <option value="10000020">10000020 - AGL SPECIALISED LOGISTICS</option>
-    <option value="10000021">10000021 - CH ROBINSON</option>
-    <option value="10000022">10000022 - CENTURION GARAGE DOORS</option>
-    <option value="10000023">10000023 - TIELINE RESEARCH</option>
-    <option value="10000024">10000024 - SHOPRIDER AUSTRALIA</option>
-    <option value="10000025">10000025 - STI ENGINEERING PTY LTD</option>
-    <option value="10000026">10000026 - PERTH MAP CENTRE</option>
-    <option value="10000027">10000027 - KUEHNE &amp; NAGEL</option>
-    <option value="10000028">10000028 - WRAYS</option>
-    <option value="10000029">10000029 - DEMO -AGL SPECIALSED LOGISTICS</option>
-    <option value="10000030">10000030 - SEA CORPORATION</option>
-    <option value="10000031">10000031 - SODASHI PTY LTD</option>
-    <option value="10000032">10000032 - MRX TECHNOLOGIES</option>
-    <option value="10000033">10000033 - WEST COAST SEAPLANES PTY LTD</option>
-    <option value="10000034">10000034 - VIP FREIGHT PTY LTD</option>
-    <option value="10000035">10000035 - WESTERN LADDERS PTY LTD</option>
-    <option value="10000036">10000036 - SADLEIRS GLOBAL LOGISTICS</option>
-    <option value="10000037">10000037 - ACE LOGISTICS SOLUTIONS</option>
-    <option value="10000038">10000038 - PAPERBARK ESSENTIAL OILS</option>
-    <option value="10000039">10000039 - AYRES COMPOSITE PANELS PTY LTD</option>
-    <option value="10000040">10000040 - PANCONTINENTAL OIL &amp; GAS NL</option>
-    <option value="10000041">10000041 - MATHEWS INDUSTRIAL PRODUCTS</option>
-    <option value="10000042">10000042 - HEINIGER AUSTRALIA P/L</option>
-    <option value="10000043">10000043 - MINEARC SYSTEMS</option>
-    <option value="10000044">10000044 - FASTWAVE COMMUNICATIONS</option>
-    <option value="10000045">10000045 - VECTOR AEROSPACE AUSTRALIA PTY LTD</option>
-    <option value="10000046">10000046 - CENTAMIN EGYPT PTY LTD</option>
-    <option value="10000047">10000047 - OMNITRONICS PTY LTD</option>
-    <option value="10000048">10000048 - HARRISTECH</option>
-    <option value="10000049">10000049 - MAINFREIGHT INTERNATIONAL PTY LTD</option>
-    <option value="10000050">10000050 - SINGAPORE AIRLINES LIMITED</option>
-    <option value="10000051">10000051 - SUSTAINABLE FARMING SOLUTIONS</option>
-    <option value="10000052">10000052 - BLACK &amp; WHITE CABS (WA) PTY LTD</option>
-    <option value="10000053">10000053 - MIZCO PTY LTD</option>
-    <option value="10000054">10000054 - PERMA COMPOSITES PTY LTD</option>
-    <option value="10000055">10000055 - NL-TEC PTY LTD</option>
-    <option value="10000056">10000056 - CALENERGY RESOURCES (AUSTRALIA) LTD</option>
-    <option value="10000057">10000057 - DSV AIR &amp; SEA PTY LTD</option>
-    <option value="10000058">10000058 - PERDAMAN GLOBAL SERVICES PTY LTD</option>
-    <option value="10000059">10000059 - BGC CEMENT</option>
-    <option value="10000060">10000060 - DOWNING TEAL PTY LTD</option>
-    <option value="10000061">10000061 - MOXI PTY LTD</option>
-    <option value="10000062">10000062 - SPOK AUS PTY LTD</option>
-    <option value="10000063">10000063 - SPRINTEX LIMITED</option>
-    <option value="10000064">10000064 - PETER SCANLAN WOOLS</option>
-    <option value="10000065">10000065 - DIRECT COURIERS PERTH PTY LTD</option>
-    <option value="10000066">10000066 - PASCOES PTY LTD</option>
-    <option value="10000067">10000067 - BREWMART BREWING SUPPLIES</option>
-    <option value="10000068">10000068 - EMINENCE MIGRATION SERVICES</option>
-    <option value="10000069">10000069 - DOF SUBSEA AUSTRALIA PTY LTD</option>
-    <option value="10000070">10000070 - BRUNEL ENERGY PTY LTD</option>
-    <option value="10000071">10000071 - CHEMICALS DIRECT PTY LTD</option>
-    <option value="10000072">10000072 - BUSINESS EVENTS PERTH</option>
-    <option value="10000073">10000073 - SIGMA DELTA TECHNOLOGIES P/L</option>
-    <option value="10000074">10000074 - KINGSPAN ENVIRONMENTAL PTY LTD</option>
-    <option value="10000075">10000075 - BAYWEST NOMINEES PTY LTD</option>
-    <option value="10000076">10000076 - 3 BEARS PTY LTD</option>
-    <option value="10000077">10000077 - INNOVAERO PTY LTD</option>
-    <option value="10000078">10000078 - INDIGENART</option>
-    <option value="10000079">10000079 - CEDAR WOODS PROPERTIES LTD</option>
-    <option value="10000080">10000080 - KINGSROSE MINING LIMITED</option>
-    <option value="10000081">10000081 - SNC LAVALIN AUST P/L - BRISBANE</option>
-    <option value="10000082">10000082 - SIGN ON GROUP PTY LTD</option>
-    <option value="10000083">10000083 - ITT BLAKERS PTY LTD</option>
-    <option value="10000084">10000084 - 2020 VENTURES PTY LTD</option>
-    <option value="10000085">10000085 - FUGRO AUSTRALIA MARINE PTY LTD</option>
-    <option value="10000086">10000086 - REMOTE CONTROL TECHNOLOGIES PTY LTD</option>
-    <option value="10000087">10000087 - HINTERLAND AVIATION PTY LTD</option>
-    <option value="10000088">10000088 - DEPENDABLE LAUNDRY SOLUTIONS</option>
-    <option value="10000089">10000089 - AJ BAKER &amp; SONS PTY LTD</option>
-    <option value="10000090">10000090 - PREMIAIR AVIATION MAINTENANCE PTY LTD</option>
-    <option value="10000091">10000091 - SCHENKER AUSTRALIA PTY LTD</option>
-    <option value="10000092">10000092 - STOCKBRANDS CO PTY LTD</option>
-    <option value="10000093">10000093 - PTB GROUP LTD T/AS PACIFIC TURBINE BRISBANE</option>
-    <option value="10000094">10000094 - CH ROBINSON WW (AU) PTY LTD-BRISBANE</option>
-    <option value="10000095">10000095 - KUEHNE &amp; NAGEL PTY LTD-BRISBANE</option>
-    <option value="10000096">10000096 - SCHENKER AUSTRALIA PTY LTD-BRISBANE</option>
-    <option value="10000097">10000097 - CH ROBINSON WW (AU) PTY LTD-MELBOURNE</option>
-    <option value="10000098">10000098 - KUEHNE &amp; NAGEL PTY LTD-ADELAIDE</option>
-    <option value="10000099">10000099 - BUNBURY INDUSTRIAL CONTROLS</option>
-    <option value="10000100">10000100 - CH ROBINSON WW (AU) PTY LTD-ADELAIDE</option>
-    <option value="10000101">10000101 - FILTERFAB PTY LTD</option>
-    <option value="10000102">10000102 - GRAPE EXPECTATION VINTNERS PTY LTD</option>
-    <option value="10000103">10000103 - NAVIGATOR LOGISTICS PTY LTD</option>
-    <option value="10000104">10000104 - TRIANGLE ENERGY (OPERATIONS) PTY LTD</option>
-    <option value="10000105">10000105 - SCANTEK PTY LTD</option>
-    <option value="10000106">10000106 - FERRIER HODGSON</option>
-    <option value="10000107">10000107 - EUROFLEX AUSTRALIA PTY LTD</option>
-    <option value="10000108">10000108 - EXPLORATION DATA SERVICES</option>
-    <option value="10000109">10000109 - ADMEDUS (AUSTRALIA) PTY LTD</option>
-    <option value="10000110">10000110 - ADVANCED PUMP TECHNOLOGIES PTY LTD</option>
-    <option value="10000111">10000111 - ASPERMONT LIMITED</option>
-    <option value="10000112">10000112 - AUSTRALIAN INSTITUTE MANAGEMENT</option>
-    <option value="10000113">10000113 - AUSTWIDE CONSUMER PRODUCTS PTY LTD</option>
-    <option value="10000114">10000114 - BERNADINI PTY LTD T/AS LSA OILS</option>
-    <option value="10000115">10000115 - BH FINE FOODS PTY LTD</option>
-    <option value="10000116">10000116 - BSM PROJECTILES PTY LTD (T/AS COMPRI TUBE)</option>
-    <option value="10000117">10000117 - BUTMAC PTY LTD T/AS KTM SPORTMOTORCYCLES</option>
-    <option value="10000118">10000118 - CARGOPORT PTY LTD</option>
-    <option value="10000119">10000119 - COMRAIL PTY LTD</option>
-    <option value="10000120">10000120 - CROMMELIN CHEMICALS</option>
-    <option value="10000121">10000121 - DATAMINE AUSTRALIA PTY LTD</option>
-    <option value="10000122">10000122 - DAVRIC AUSTRALIA PTY LTD</option>
-    <option value="10000123">10000123 - ECO PALLETS PTY LTD</option>
-    <option value="10000124">10000124 - ELECTRO MECHANICAL REPAIR WA</option>
-    <option value="10000125">10000125 - FRACHT AUSTRALIA (WA) PTY LTD</option>
-    <option value="10000126">10000126 - GOLDEN BORONIA</option>
-    <option value="10000127">10000127 - GOLJA HAINES + FRIEND</option>
-    <option value="10000128">10000128 - GUARDIAN TACTILE SYSTEMS PTY LTD</option>
-    <option value="10000129">10000129 - HARTLEYS LTD</option>
-    <option value="10000130">10000130 - HYATT REGENCY PERTH</option>
-    <option value="10000131">10000131 - HYLOGGING SYSTEMS PTY LTD</option>
-    <option value="10000132">10000132 - JLV INDUSTRIES PTY LTD</option>
-    <option value="10000133">10000133 - MAMMOTH EQUIPMENT &amp; EXHAUSTS</option>
-    <option value="10000134">10000134 - MIDLAND BRICK</option>
-    <option value="10000135">10000135 - NESSCO GROUP</option>
-    <option value="10000136">10000136 - NORWEST ENERGY NL</option>
-    <option value="10000137">10000137 - PERTH AMBASSADOR HOTEL</option>
-    <option value="10000138">10000138 - PERTH INTERNATIONAL COLLEGE OF ENGLISH</option>
-    <option value="10000139">10000139 - PREMIUM PLASTICS</option>
-    <option value="10000140">10000140 - PROBELOGIC PTY LTD</option>
-    <option value="10000141">10000141 - QTA SERVICES</option>
-    <option value="10000142">10000142 - ROYAL FLYING DOCTOR SERVICE WESTERN OPERATIONS</option>
-    <option value="10000143">10000143 - SAPURAKENCANA PETROLEUM (AUST) PTY LTD</option>
-    <option value="10000144">10000144 - STARBELLA NOMINEES P/L T/AS SIGN HERE SIGNS</option>
-    <option value="10000145">10000145 - STC PARTNERS</option>
-    <option value="10000146">10000146 - TA TA FOR NOW TRAVEL</option>
-    <option value="10000147">10000147 - TANG CORPORATION PTY LTD</option>
-    <option value="10000148">10000148 - XLI</option>
-    <option value="10000149">10000149 - SPOK AUS -DO NOT USE</option>
-    <option value="10000150">10000150 - WESTERN ADVANCE PTY LTD</option>
-    <option value="10000151">10000151 - AGILITY PROJECT LOGISTICS PTY LTD</option>
-    <option value="10000152">10000152 - TRANS GLOBAL PROJECTS PTY LTD</option>
-    <option value="10000153">10000153 - DOF MANAGEMENT AUSTRALIA</option>
-    <option value="10000154">10000154 - TRANSITAINER WA PTY LTD</option>
-    <option value="10000155">10000155 - KINGSPAN INSULATION PTY LTD</option>
-    <option value="10000156">10000156 - SDA WA PTY LTD</option>
-    <option value="10000157">10000157 - AMPAC TECHNOLOGIES PTY LTD</option>
-    <option value="10000158">10000158 - AIRLAND LOGISTICS PTY LTD</option>
-    <option value="10000159">10000159 - WESTERN AIRMOTIVE PTY LTD</option>
-    <option value="10000160">10000160 - MT ROMANCE AUSTRALIA PTY LTD</option>
-    <option value="10000161">10000161 - CORSAIRE AVIATION MAINTENANCE</option>
-    <option value="10000162">10000162 - PROSPECT</option>
-    <option value="10000163">10000163 - LEEDERVILLE CAMERAS</option>
-    <option value="10000164">10000164 - CRANE WORLDWIDE LOGISTICS (AUST) PTY LTD</option>
-    <option value="10000165">10000165 - SAVAL CONSULTING PTY LTD</option>
-    <option value="10000166">10000166 - BEAVER GLOBAL PTY LTD</option>
-    <option value="10000167">10000167 - BEAVER PROCESS EQUIPMENT (OPERATIONS) PTY LTD</option>
-    <option value="10000168">10000168 - TIGERS INTERNATIONAL SOLUTIONS</option>
-    <option value="10000169">10000169 - AMI SALES</option>
-    <option value="10000170">10000170 - FOR-DE GROUP PTY LTD</option>
-    <option value="10000171">10000171 - K-ONE FLUID POWER PTY LTD</option>
-    <option value="10000172">10000172 - COSMOPOLITAN MINERALS LTD</option>
-    <option value="10000173">10000173 - ALLIGHTSYKES PTY LTD</option>
-    <option value="10000174">10000174 - CT FREIGHT PTY LTD</option>
-    <option value="10000175">10000175 - CROMMELINS OPERATIONS PTY LTD</option>
-    <option value="10000176">10000176 - SCHENKER AUSTRALIA PTY LTD-FR8FWD</option>
-    <option value="10000177">10000177 - RGD CORPORATION PTY LTD</option>
-    <option value="10000178">10000178 - VALMEC SERVICES PTY LTD</option>
-    <option value="10000179">10000179 - DELLA VITA PTY LTD</option>
-    <option value="10000180">10000180 - KAW ENGINEERING PTY LTD</option>
-    <option value="10000181">10000181 - AVTECH AVIATION MAINTENANCE PTY LTD</option>
-    <option value="10000182">10000182 - PRINT AND SIGN</option>
-    <option value="10000183">10000183 - SAF-HOLLAND (AUST) PTY LTD</option>
-    <option value="10000184">10000184 - BULLOCKS INTERNATIONAL PTY LTD</option>
-    <option value="10000185">10000185 - ROY GALVIN + CO PTY LTD</option>
-    <option value="10000186">10000186 - THE BACK and NECK BED SHOP</option>
-    <option value="10000187">10000187 - LYONS AIRCONDTIONING SERVICE (WA) PTY LTD</option>
-    <option value="10000188">10000188 - PINNACLE GRAINS PTY LTD</option>
-    <option value="10000189">10000189 - STRATA CORPORATION PTY LTD</option>
-    <option value="10000190">10000190 - FURNACE TECHNOLOGIES PTY LTD</option>
-    <option value="10000191">10000191 - TRANSIENT CONTROLS AUST</option>
-    <option value="10000192">10000192 - BULK TRANSPORT AUSTRALIA PTY LTD</option>
-    <option value="10000193">10000193 - MGC PHARMACEUTICALS LTD</option>
-    <option value="10000194">10000194 - SAFA COURIERS</option>
-    <option value="10000195">10000195 - SAFETRACK AUSTRALASIA</option>
-    <option value="10000196">10000196 - ALSTO</option>
-    <option value="10000197">10000197 - HOST TEL</option>
-    <option value="10000198">10000198 - REDDY MECHANICAL SOLUTIONS</option>
-
-
+    <?php for($i=0;$i<count($data);$i++)
+                                    {
+                            echo //'<option value="'.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
+                            '<option value="customer_manage?id='.$data[$i]['customer_id'].'">'.$data[$i]['customer_id'].' '.$data[$i]['customerName'].'</option>';                                    
+                                    }?>
 </select>
 
 </td>
@@ -366,27 +238,27 @@
             <div class="row">
                 <div class="col-lg-4">
                     <table class="table" style="font-size: 11px;">
-                        <tbody><tr>
+                    <tbody><tr>
                             <td colspan="3" class="b16 uppercase"><p>
-                                AUSTAL - CH ROBINSON
-                                <input type="hidden" name="saveManageCustomer.accountSetup.address.customerName" value="AUSTAL - CH ROBINSON" id="saveManageCustomer_accountSetup_address_customerName">
+                           <?php echo $data[0]['customerName'];?>
+                                <input type="hidden" name="saveManageCustomer.accountSetup.address.customerName" value="" id="saveManageCustomer_accountSetup_address_customerName">
                                 <br>
-                                4/11 FRICKER ROAD
+                                <?php echo $data[0]['address']; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.address1" value="4/11 FRICKER ROAD" id="saveManageCustomer_accountSetup_address_address1">
                                 <br>
-                                PERTH AIRPORT
+                                <?php echo $data[0]['city']; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.city" value="PERTH AIRPORT" id="saveManageCustomer_accountSetup_address_city">
                                 <br>
-                                6105
+                                <?php echo $data[0]['postal_code']; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.postalCode" value="6105" id="saveManageCustomer_accountSetup_address_postalCode">
                                 <br>
-                                Australia
+                                <?php echo $data[0]['country']; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.countryName" value="Australia" id="saveManageCustomer_accountSetup_countryName">
                                 <br>
-                                0862281339
+                                <?php echo $data[0]['phone']; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.phone" value="0862281339" id="saveManageCustomer_accountSetup_address_phone">
                                 <br>
-                                AustalShips@chrobinson.com
+                                <?php echo $data[0]['email']; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.email" value="AustalShips@chrobinson.com" id="saveManageCustomer_accountSetup_address_email">
                             </p></td>
                         </tr>
@@ -399,12 +271,13 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer #:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.customerCode" value="10000018" readonly="readonly" id="saveManageCustomer_accountSetup_customerCode" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.customerCode" value="<?php echo $data[0]['customer_id']; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_customerCode" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Submit Date:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.createDate" value="22-09-2017 09:22:35" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.createDate" value="<?php echo $data[0]['created_date']; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
                         </tr>
+                        
                         <tr>
                             <td class="td1">Activation Date:</td>
                             <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.activateDate" value="" readonly="readonly" id="saveManageCustomer_accountSetup_activateDate" class="form-control"></td>
@@ -620,27 +493,27 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.customerName" value="AUSTAL - CH ROBINSON" id="saveManageCustomer_customerAddress_address_customerName" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.customerName" value="<?php echo $data[0]['customerName'];?>" id="saveManageCustomer_customerAddress_address_customerName" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactName" value="STEVE TAURUA" id="saveManageCustomer_customerAddress_address_contactName" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactName" value="<?php echo $data[0]['contact_name'];?>" id="saveManageCustomer_customerAddress_address_contactName" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactTitle" value="CUSTOMER SERVICE" id="saveManageCustomer_customerAddress_address_contactTitle" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactTitle" value="<?php echo $data[0]['contact_title'];?>" id="saveManageCustomer_customerAddress_address_contactTitle" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address1" value="4/11 FRICKER ROAD" id="saveManageCustomer_customerAddress_address_address1" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address1" value="<?php echo $data[0]['address'];?>" id="saveManageCustomer_customerAddress_address_address1" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address2" value="" id="saveManageCustomer_customerAddress_address_address2" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address2" value="<?php echo $data[0]['address'];?>" id="saveManageCustomer_customerAddress_address_address2" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.city" value="PERTH AIRPORT" id="saveManageCustomer_customerAddress_address_city" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.city" value="<?php echo $data[0]['city'];?>" id="saveManageCustomer_customerAddress_address_city" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
@@ -926,19 +799,19 @@
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.postalCode" value="6105" id="saveManageCustomer_customerAddress_address_postalCode" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.postalCode" value="<?php echo $data[0]['postal_code'];?>" id="saveManageCustomer_customerAddress_address_postalCode" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">State Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.stateCode" value="WA" id="saveManageCustomer_customerAddress_address_stateCode" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.stateCode" value="<?php echo $data[0]['state_code'];?>" id="saveManageCustomer_customerAddress_address_stateCode" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.phone" value="0862281339" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" pattern="08\d{8}" name="saveManageCustomer.customerAddress.address.phone" value="<?php echo $data[0]['phone'];?>" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.fax" value="" id="saveManageCustomer_customerAddress_address_fax" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.fax" value="<?php echo $data[0]['fax'];?>" id="saveManageCustomer_customerAddress_address_fax" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td2" colspan="2"><span> Eg: first@email.com; second@email.com
@@ -946,15 +819,15 @@
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.email" value="AustalShips@chrobinson.com" id="saveManageCustomer_customerAddress_address_email" class="form-control" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.email" value="<?php echo $data[0]['email'];?>" id="saveManageCustomer_customerAddress_address_email" class="form-control" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.mobile" value="0894771011" id="saveManageCustomer_customerAddress_address_mobile" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.mobile" value="<?php echo $data[0]['mobile'];?>" id="saveManageCustomer_customerAddress_address_mobile" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Alt Contact Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.alternatePhone" value="0894771011" id="saveManageCustomer_customerAddress_address_alternatePhone" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.alternatePhone" value="<?php echo $data[0]['alt_contact'];?>" id="saveManageCustomer_customerAddress_address_alternatePhone" class="form-control uppercase" group="address"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -975,27 +848,27 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCustomerName" value="AUSTAL - CH ROBINSON" id="saveManageCustomer_customerAddress_billingAddress_billingCustomerName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                         <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCustomerName" value="<?php echo $data[0]['billing_customer_name'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingCustomerName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactName" value="STEVE TAURUA" id="saveManageCustomer_customerAddress_billingAddress_billingContactName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactName" value="<?php echo $data[0]['billing_contact_name'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactTitle" value="CUSTOMER SERVICE" id="saveManageCustomer_customerAddress_billingAddress_billingContactTitle" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactTitle" value="<?php echo $data[0]['billing_contact_title'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactTitle" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress1" value="4/11 FRICKER ROAD" id="saveManageCustomer_customerAddress_billingAddress_billingAddress1" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress1" value="<?php echo $data[0]['billing_address'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress1" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress2" value="" id="saveManageCustomer_customerAddress_billingAddress_billingAddress2" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress2" value="<?php echo $data[0]['billing_address2'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress2" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCity" value="PERTH AIRPORT" id="saveManageCustomer_customerAddress_billingAddress_billingCity" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCity" value="<?php echo $data[0]['billing_city'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingCity" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
@@ -1281,19 +1154,19 @@
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPostalCode" value="6105" id="saveManageCustomer_customerAddress_billingAddress_billingPostalCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                        <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPostalCode" value="<?php echo $data[0]['billing_postal_code'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingPostalCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">State Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingStateCode" value="WA" id="saveManageCustomer_customerAddress_billingAddress_billingStateCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                        <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingStateCode" value="<?php echo $data[0]['billing_state_code'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingStateCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPhone" value="0862281339" id="saveManageCustomer_customerAddress_billingAddress_billingPhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPhone" value="<?php echo $data[0]['billing_phone'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingPhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingFax" value="" id="saveManageCustomer_customerAddress_billingAddress_billingFax" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingFax" value="<?php echo $data[0]['billing_fax'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingFax" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td2" colspan="2"><span> Eg: first@email.com; second@email.com
@@ -1301,15 +1174,15 @@
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingEmail" value="AustalShips@chrobinson.com" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingEmail" value="<?php echo $data[0]['billing_email'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingMobile" value="0894771011" id="saveManageCustomer_customerAddress_billingAddress_billingMobile" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingMobile" value="<?php echo $data[0]['billing_mobile'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingMobile" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Alt Contact Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAlternatePhone" value="0894771011" id="saveManageCustomer_customerAddress_billingAddress_billingAlternatePhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAlternatePhone" value="<?php echo $data[0]['billing_alt_contact'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingAlternatePhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -1324,51 +1197,51 @@
                         </tr>
                         <tr>
                             <td class="td1">Owner:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.owner" value="" id="saveManageCustomer_customerAddress_address_owner" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.owner" value="<?php echo $data[0]['owner'];?>" id="saveManageCustomer_customerAddress_address_owner" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerPhone" value="0894771011" id="saveManageCustomer_customerAddress_address_ownerPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerPhone" value="<?php echo $data[0]['other_phone'];?>" id="saveManageCustomer_customerAddress_address_ownerPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerEmail" value="" id="saveManageCustomer_customerAddress_address_ownerEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerEmail" value="<?php echo $data[0]['other_email'];?>" id="saveManageCustomer_customerAddress_address_ownerEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">AP Contact:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apContact" value="" id="saveManageCustomer_customerAddress_address_apContact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apContact" value="<?php echo $data[0]['other_contact'];?>" id="saveManageCustomer_customerAddress_address_apContact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apPhone" value="0894771011" id="saveManageCustomer_customerAddress_address_apPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apPhone" value="<?php echo $data[0]['other_phone1'];?>" id="saveManageCustomer_customerAddress_address_apPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apEmail" value="" id="saveManageCustomer_customerAddress_address_apEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apEmail" value="<?php echo $data[0]['other_email1'];?>" id="saveManageCustomer_customerAddress_address_apEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other Contact:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherContact" value="" id="saveManageCustomer_customerAddress_address_otherContact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherContact" value="<?php echo $data[0]['other_contact1'];?>" id="saveManageCustomer_customerAddress_address_otherContact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherPhone" value="0894771011" id="saveManageCustomer_customerAddress_address_otherPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherPhone" value="<?php echo $data[0]['other_phone2'];?>" id="saveManageCustomer_customerAddress_address_otherPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherEmail" value="" id="saveManageCustomer_customerAddress_address_otherEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherEmail" value="<?php echo $data[0]['other_email2'];?>" id="saveManageCustomer_customerAddress_address_otherEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other 2 Contact :</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Contact" value="" id="saveManageCustomer_customerAddress_address_other2Contact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Contact" value="<?php echo $data[0]['other_contact2'];?>" id="saveManageCustomer_customerAddress_address_other2Contact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other 2 Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Phone" value="0894771011" id="saveManageCustomer_customerAddress_address_other2Phone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Phone" value="<?php echo $data[0]['other_phone3'];?>" id="saveManageCustomer_customerAddress_address_other2Phone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Email" value="" id="saveManageCustomer_customerAddress_address_other2Email" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Email" value="<?php echo $data[0]['other_email3'];?>" id="saveManageCustomer_customerAddress_address_other2Email" class="form-control"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -1455,39 +1328,17 @@
             <div class="portlet-body b12 b11">
                 <div class="portlet-body b22" style="padding: 0px;">
                     <ul id="cust_base_rate_tabs_nav" class="nav nav-tabs responsive">
-                        <li class="active" style="margin-left: 10px;"><a href="#cust_base_rates_general_tab" data-toggle="tab">General</a></li>
+                        <!--li class="active" style="margin-left: 10px;"><a href="#cust_base_rates_general_tab" data-toggle="tab">General</a></li>
                         <li><a href="#cust_base_rates_dhl_tab" data-toggle="tab" class="tb3">DHL</a></li>
                        
                         <li><a href="#cust_base_rates_toll_priority_tab" data-toggle="tab" class="tb3">Toll Priority</a></li>
-                        <li><a href="#cust_base_rates_toll_ipec_tab" data-toggle="tab" class="tb3">Toll Ipec</a></li>
+                        <li><a href="#cust_base_rates_toll_ipec_tab" data-toggle="tab" class="tb3">Toll Ipec</a></li-->
                         <li><a href="#cust_base_rates_star_track_tab" data-toggle="tab" class="tb3">Star Track</a></li>
-                        <li><a href="#cust_base_rates_ups_tab" data-toggle="tab" class="tb3">UPS</a></li>
-                        <li><a href="#cust_base_rates_others_tab" data-toggle="tab" class="tb3">Others</a></li>
+                        <!--li><a href="#cust_base_rates_ups_tab" data-toggle="tab" class="tb3">UPS</a></li>
+                        <li><a href="#cust_base_rates_others_tab" data-toggle="tab" class="tb3">Others</a></li-->
                     </ul>
                     <div id="cust_base_rates_tab_content" class="tab-content responsive">
-                        <div id="cust_base_rates_general_tab" class="tab-pane fade in tb2 active">
-                            <div class="row">
-                                <div class="portlet-body b12 b11">
-                                    <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerCode">
-                                    <table class="s36">
-                                        <tbody>
-                                        <tr>
-                                            <td>* = May override other settings</td>
-                                            <td class="caption b17" colspan="2">Base Rates</td>
-                                        </tr>
-                                        <tr>
-                                            <td colspan="3" height="5"></td>
-                                        </tr>
-                                        <tr>
-                                            <td>* Minimum Customer Base Charge Margin</td>
-                                            <td width="60"><input type="text" name="saveManageCustomer.saveCustBaseRate.minimunBaseCharge" value="0.00" id="minimum_base_charge" class="form-control"></td>
-                                            <td>%</td>
-                                        </tr>
-                                        </tbody>
-                                    </table>
-                                </div>
-                            </div>
-                        </div>
+                        
                         
                         <div id="cust_base_rates_dhl_tab" class="tab-pane fade in">
                             <div class="row">
@@ -6940,376 +6791,89 @@
                                             <tbody><tr>
                                                 <td>Origin</td>
                                                 <td><select name="" id="starTrackColumnName" class="form-control">
-    <option value="PER">PERTH - PER</option>
-    <option value="AC1">A10 - AC1</option>
-    <option value="ADL">A10 - ADL</option>
-    <option value="BRS">A10 - BRS</option>
-    <option value="MEL">A10 - MEL</option>
-    <option value="PER">A10 - PER</option>
-    <option value="QC1">A10 - QC1</option>
-    <option value="RKH">A10 - RKH</option>
-    <option value="SYD">A10 - SYD</option>
-    <option value="WC1">A10 - WC1</option>
-    <option value="AC2">AC1 - AC2</option>
-    <option value="AC3">AC1 - AC3</option>
-    <option value="AC4">AC1 - AC4</option>
-    <option value="AC5">AC1 - AC5</option>
-    <option value="AC6">AC1 - AC6</option>
-    <option value="AC7">AC1 - AC7</option>
-    <option value="AC8">AC1 - AC8</option>
-    <option value="AC9">AC1 - AC9</option>
-    <option value="ALB">AC1 - ALB</option>
-    <option value="CBR">AC1 - CBR</option>
-    <option value="DAR">AC1 - DAR</option>
-    <option value="DUB">AC1 - DUB</option>
-    <option value="GLD">AC1 - GLD</option>
-    <option value="HC1">AC1 - HC1</option>
-    <option value="HC2">AC1 - HC2</option>
-    <option value="HOB">AC1 - HOB</option>
-    <option value="LC1">AC1 - LC1</option>
-    <option value="LC2">AC1 - LC2</option>
-    <option value="LC3">AC1 - LC3</option>
-    <option value="LCN">AC1 - LCN</option>
-    <option value="NC1">AC1 - NC1</option>
-    <option value="NC2">AC1 - NC2</option>
-    <option value="NC3">AC1 - NC3</option>
-    <option value="NC4">AC1 - NC4</option>
-    <option value="NC5">AC1 - NC5</option>
-    <option value="NC6">AC1 - NC6</option>
-    <option value="NCL">AC1 - NCL</option>
-    <option value="QC2">AC1 - QC2</option>
-    <option value="QC3">AC1 - QC3</option>
-    <option value="QC4">AC1 - QC4</option>
-    <option value="QC5">AC1 - QC5</option>
-    <option value="QC6">AC1 - QC6</option>
-    <option value="QC7">AC1 - QC7</option>
-    <option value="QC8">AC1 - QC8</option>
-    <option value="QC9">AC1 - QC9</option>
-    <option value="VC1">AC1 - VC1</option>
-    <option value="VC2">AC1 - VC2</option>
-    <option value="VC3">AC1 - VC3</option>
-    <option value="WC2">AC1 - WC2</option>
-    <option value="WC3">AC1 - WC3</option>
-    <option value="WC4">AC1 - WC4</option>
-    <option value="WC5">AC1 - WC5</option>
-    <option value="WC6">AC1 - WC6</option>
-    <option value="WC7">AC1 - WC7</option>
-    <option value="WC8">AC1 - WC8</option>
-    <option value="WC9">AC1 - WC9</option>
-    <option value="WOL">AC1 - WOL</option>
-    <option value="ARM">AC2 - ARM</option>
-    <option value="BNA">AC2 - BNA</option>
-    <option value="COB">AC2 - COB</option>
-    <option value="COF">AC2 - COF</option>
-    <option value="GLE">AC2 - GLE</option>
-    <option value="GRA">AC2 - GRA</option>
-    <option value="GRI">AC2 - GRI</option>
-    <option value="INV">AC2 - INV</option>
-    <option value="LIS">AC2 - LIS</option>
-    <option value="MOR">AC2 - MOR</option>
-    <option value="NAR">AC2 - NAR</option>
-    <option value="NNN">AC2 - NNN</option>
-    <option value="PTM">AC2 - PTM</option>
-    <option value="TAR">AC2 - TAR</option>
-    <option value="WAG">AC2 - WAG</option>
-    <option value="ADL">ADELAIDE - ADL</option>
-    <option value="ABY">ADL - ABY</option>
-    <option value="ADH">ADL - ADH</option>
-    <option value="ATH">ADL - ATH</option>
-    <option value="AUG">ADL - AUG</option>
-    <option value="AYR">ADL - AYR</option>
-    <option value="BAR">ADL - BAR</option>
-    <option value="BAT">ADL - BAT</option>
-    <option value="BAY">ADL - BAY</option>
-    <option value="BDG">ADL - BDG</option>
-    <option value="BEG">ADL - BEG</option>
-    <option value="BGW">ADL - BGW</option>
-    <option value="BNY">ADL - BNY</option>
-    <option value="BOR">ADL - BOR</option>
-    <option value="BOU">ADL - BOU</option>
-    <option value="BOW">ADL - BOW</option>
-    <option value="BOY">ADL - BOY</option>
-    <option value="BRK">ADL - BRK</option>
-    <option value="BRO">ADL - BRO</option>
-    <option value="BRU">ADL - BRU</option>
-    <option value="BTN">ADL - BTN</option>
-    <option value="BUL">ADL - BUL</option>
-    <option value="BUN">ADL - BUN</option>
-    <option value="BUS">ADL - BUS</option>
-    <option value="BWB">ADL - BWB</option>
-    <option value="CAR">ADL - CAR</option>
-    <option value="CHA">ADL - CHA</option>
-    <option value="COL">ADL - COL</option>
-    <option value="COO">ADL - COO</option>
-    <option value="COP">ADL - COP</option>
-    <option value="COR">ADL - COR</option>
-    <option value="CRN">ADL - CRN</option>
-    <option value="CUE">ADL - CUE</option>
-    <option value="CUN">ADL - CUN</option>
-    <option value="DAL">ADL - DAL</option>
-    <option value="DAM">ADL - DAM</option>
-    <option value="DBY">ADL - DBY</option>
-    <option value="DER">ADL - DER</option>
-    <option value="DHM">ADL - DHM</option>
-    <option value="DMK">ADL - DMK</option>
-    <option value="DNY">ADL - DNY</option>
-    <option value="DON">ADL - DON</option>
-    <option value="DOW">ADL - DOW</option>
-    <option value="ECE">ADL - ECE</option>
-    <option value="EMR">ADL - EMR</option>
-    <option value="ESP">ADL - ESP</option>
-    <option value="EXM">ADL - EXM</option>
-    <option value="FIT">ADL - FIT</option>
-    <option value="GER">ADL - GER</option>
-    <option value="GLA">ADL - GLA</option>
-    <option value="GOS">ADL - GOS</option>
-    <option value="GOU">ADL - GOU</option>
-    <option value="GUN">ADL - GUN</option>
-    <option value="GYM">ADL - GYM</option>
-    <option value="HAL">ADL - HAL</option>
-    <option value="HAR">ADL - HAR</option>
-    <option value="HAW">ADL - HAW</option>
-    <option value="HBY">ADL - HBY</option>
-    <option value="HOP">ADL - HOP</option>
-    <option value="HVY">ADL - HVY</option>
-    <option value="HYD">ADL - HYD</option>
-    <option value="INF">ADL - INF</option>
-    <option value="ING">ADL - ING</option>
-    <option value="ISA">ADL - ISA</option>
-    <option value="JIG">ADL - JIG</option>
-    <option value="JUR">ADL - JUR</option>
-    <option value="KAL">ADL - KAL</option>
-    <option value="KAM">ADL - KAM</option>
-    <option value="KAR">ADL - KAR</option>
-    <option value="KEL">ADL - KEL</option>
-    <option value="KGY">ADL - KGY</option>
-    <option value="KTB">ADL - KTB</option>
-    <option value="KTN">ADL - KTN</option>
-    <option value="KUL">ADL - KUL</option>
-    <option value="KUN">ADL - KUN</option>
-    <option value="LAV">ADL - LAV</option>
-    <option value="LAW">ADL - LAW</option>
-    <option value="LEI">ADL - LEI</option>
-    <option value="LEO">ADL - LEO</option>
-    <option value="LKG">ADL - LKG</option>
-    <option value="LNS">ADL - LNS</option>
-    <option value="LON">ADL - LON</option>
-    <option value="LTH">ADL - LTH</option>
-    <option value="MAC">ADL - MAC</option>
-    <option value="MAN">ADL - MAN</option>
-    <option value="MAR">ADL - MAR</option>
-    <option value="MBB">ADL - MBB</option>
-    <option value="MBR">ADL - MBR</option>
-    <option value="MCT">ADL - MCT</option>
-    <option value="MEE">ADL - MEE</option>
-    <option value="MER">ADL - MER</option>
-    <option value="MGR">ADL - MGR</option>
-    <option value="MIL">ADL - MIL</option>
-    <option value="MJP">ADL - MJP</option>
-    <option value="MNO">ADL - MNO</option>
-    <option value="MON">ADL - MON</option>
-    <option value="MRA">ADL - MRA</option>
-    <option value="MSM">ADL - MSM</option>
-    <option value="MTG">ADL - MTG</option>
-    <option value="MTM">ADL - MTM</option>
-    <option value="MUR">ADL - MUR</option>
-    <option value="NCT">ADL - NCT</option>
-    <option value="NHM">ADL - NHM</option>
-    <option value="NMN">ADL - NMN</option>
-    <option value="NMT">ADL - NMT</option>
-    <option value="NOR">ADL - NOR</option>
-    <option value="NOW">ADL - NOW</option>
-    <option value="NRG">ADL - NRG</option>
-    <option value="NUL">ADL - NUL</option>
-    <option value="OAK">ADL - OAK</option>
-    <option value="ONS">ADL - ONS</option>
-    <option value="ORG">ADL - ORG</option>
-    <option value="PAN">ADL - PAN</option>
-    <option value="PAR">ADL - PAR</option>
-    <option value="PBD">ADL - PBD</option>
-    <option value="PCH">ADL - PCH</option>
-    <option value="PDG">ADL - PDG</option>
-    <option value="PEM">ADL - PEM</option>
-    <option value="PEN">ADL - PEN</option>
-    <option value="PIC">ADL - PIC</option>
-    <option value="PIN">ADL - PIN</option>
-    <option value="PLM">ADL - PLM</option>
-    <option value="PRO">ADL - PRO</option>
-    <option value="PTA">ADL - PTA</option>
-    <option value="PTH">ADL - PTH</option>
-    <option value="PTL">ADL - PTL</option>
-    <option value="PTP">ADL - PTP</option>
-    <option value="Q10">ADL - Q10</option>
-    <option value="QUO">ADL - QUO</option>
-    <option value="RAV">ADL - RAV</option>
-    <option value="RBN">ADL - RBN</option>
-    <option value="RIV">ADL - RIV</option>
-    <option value="ROC">ADL - ROC</option>
-    <option value="ROE">ADL - ROE</option>
-    <option value="ROM">ADL - ROM</option>
-    <option value="ROX">ADL - ROX</option>
-    <option value="SOU">ADL - SOU</option>
-    <option value="SSC">ADL - SSC</option>
-    <option value="TAM">ADL - TAM</option>
-    <option value="TOM">ADL - TOM</option>
-    <option value="TVL">ADL - TVL</option>
-    <option value="TWB">ADL - TWB</option>
-    <option value="UYP">ADL - UYP</option>
-    <option value="VHB">ADL - VHB</option>
-    <option value="WAL">ADL - WAL</option>
-    <option value="WAY">ADL - WAY</option>
-    <option value="WCK">ADL - WCK</option>
-    <option value="WCO">ADL - WCO</option>
-    <option value="WEI">ADL - WEI</option>
-    <option value="WHI">ADL - WHI</option>
-    <option value="WHY">ADL - WHY</option>
-    <option value="WIC">ADL - WIC</option>
-    <option value="WIL">ADL - WIL</option>
-    <option value="WYN">ADL - WYN</option>
-    <option value="YKP">ADL - YKP</option>
-    <option value="YRB">ADL - YRB</option>
-    <option value="ABY">ALBANY - ABY</option>
-    <option value="ALB">ALBURY - ALB</option>
-    <option value="ABY">ALBURYANY - ABY</option>
-    <option value="ASP">ALICE SPRINGS - ASP</option>
-    <option value="ATH">ATH - ATH</option>
-    <option value="AYR">AYR - AYR</option>
-    <option value="BNA">BALLINA - BNA</option>
-    <option value="BOW">BOW - BOW</option>
-    <option value="BRS">BRISBANE - BRS</option>
-    <option value="BRO">BROOME - BRO</option>
-    <option value="BUN">BUNDABERG - BUN</option>
-    <option value="BNY">BUNDABERGBURY - BNY</option>
-    <option value="BUS">BUSSELTON - BUS</option>
-    <option value="BWB">BWB - BWB</option>
-    <option value="CRN">CAIRNS - CRN</option>
-    <option value="CBR">CANBERRA - CBR</option>
-    <option value="PRO">CANNONVALE                     - PRO</option>
-    <option value="CHA">CHA - CHA</option>
-    <option value="COF">COFFS HARBOUR - COF</option>
-    <option value="DAR">DARWIN - DAR</option>
-    <option value="D10">DARWIN ZONE 10 - D10</option>
-    <option value="DER">DERBY WA - DER</option>
-    <option value="ESP">ESPERENCE - ESP</option>
-    <option value="GER">GERALDTON - GER</option>
-    <option value="GLA">GLADSTONE - GLA</option>
-    <option value="GLD">GOLD COAST - GLD</option>
-    <option value="GOS">GOSFORD - GOS</option>
-    <option value="GRA">GRAFTON - GRA</option>
-    <option value="MAR">GREGORY RIVER                  - MAR</option>
-    <option value="PRO">GREGORY RIVER                  - PRO</option>
-    <option value="GYM">GYMPIE - GYM</option>
-    <option value="HOB">HOBART - HOB</option>
-    <option value="HC1">HOBART ZONE 1 - HC1</option>
-    <option value="HC1">HOBART ZONE 2 - HC1</option>
-    <option value="HC2">HOBART ZONE 2 - HC2</option>
-    <option value="INF">INF - INF</option>
-    <option value="ING">ING - ING</option>
-    <option value="KAL">KALGOORLIE - KAL</option>
-    <option value="KAR">KARRATHA - KAR</option>
-    <option value="LCN">LAUNCESTON - LCN</option>
-    <option value="LC1">LAUNCESTON COUNTRY ZONE 1 - LC1</option>
-    <option value="LC2">LAUNCESTON COUNTRY ZONE 2 - LC2</option>
-    <option value="LC3">LAUNCESTON COUNTRY ZONE 3 - LC3</option>
-    <option value="LC1">LAUNCESTON ZONE 1 - LC1</option>
-    <option value="LC2">LAUNCESTON ZONE 2 - LC2</option>
-    <option value="LC3">LAUNCESTON ZONE 3 - LC3</option>
-    <option value="LIS">LISMORE - LIS</option>
-    <option value="MAC">MACKAY - MAC</option>
-    <option value="MAR">MARYBOROUGH - MAR</option>
-    <option value="MEL">MELBOURNE - MEL</option>
-    <option value="MAR">MOUNT STEADMAN                 - MAR</option>
-    <option value="ISA">MT ISA - ISA</option>
-    <option value="MUS">MUS - MUS</option>
-    <option value="NAM">NAM - NAM</option>
-    <option value="RHM">NAVAL BASE - RHM</option>
-    <option value="NCL">NEWCASTLE - NCL</option>
-    <option value="NOW">NOWRA - NOW</option>
-    <option value="NC1">NSW ZONE 1 - NC1</option>
-    <option value="NC2">NSW ZONE 2 - NC2</option>
-    <option value="NC3">NSW ZONE 3 - NC3</option>
-    <option value="NC4">NSW ZONE 4 - NC4</option>
-    <option value="NC5">NSW ZONE 5 - NC5</option>
-    <option value="NC6">NSW ZONE 6 - NC6</option>
-    <option value="PDG">PDG - PDG</option>
-    <option value="ASP">PER - ASP</option>
-    <option value="D10">PER - D10</option>
-    <option value="PRO">PRO - PRO</option>
-    <option value="Q10">Q10 - Q10</option>
-    <option value="QC1">QLD ZONE 1 - QC1</option>
-    <option value="QC2">QLD ZONE 2 - QC2</option>
-    <option value="QC3">QLD ZONE 3 - QC3</option>
-    <option value="QC4">QLD ZONE 4 - QC4</option>
-    <option value="QC5">QLD ZONE 5 - QC5</option>
-    <option value="QC6">QLD ZONE 6 - QC6</option>
-    <option value="QC7">QLD ZONE 7 - QC7</option>
-    <option value="QC8">QLD ZONE 8 - QC8</option>
-    <option value="QC9">QLD ZONE 9 - QC9</option>
-    <option value="QC1">QUEENSLAND ZONE 1 - QC1</option>
-    <option value="QC2">QUEENSLAND ZONE 2 - QC2</option>
-    <option value="QC3">QUEENSLAND ZONE 3 - QC3</option>
-    <option value="QC4">QUEENSLAND ZONE 4 - QC4</option>
-    <option value="QC5">QUEENSLAND ZONE 5 - QC5</option>
-    <option value="QC6">QUEENSLAND ZONE 6 - QC6</option>
-    <option value="QC7">QUEENSLAND ZONE 7 - QC7</option>
-    <option value="QC8">QUEENSLAND ZONE 8 - QC8</option>
-    <option value="QC9">QUEENSLAND ZONE 9 - QC9</option>
-    <option value="ROC">ROCKHAMPTON - ROC</option>
-    <option value="RHM">ROCKINGHAM - RHM</option>
-    <option value="RKH">ROCKINGHAM - RKH</option>
-    <option value="ROM">ROM - ROM</option>
-    <option value="AC1">SA ZONE 1 - AC1</option>
-    <option value="AC2">SA ZONE 2 - AC2</option>
-    <option value="AC3">SA ZONE 3 - AC3</option>
-    <option value="AC4">SA ZONE 4 - AC4</option>
-    <option value="AC5">SA ZONE 5 - AC5</option>
-    <option value="AC6">SA ZONE 6 - AC6</option>
-    <option value="AC7">SA ZONE 7 - AC7</option>
-    <option value="SC7">SA ZONE 7 - SC7</option>
-    <option value="AC8">SA ZONE 8 - AC8</option>
-    <option value="AC9">SA ZONE 9 - AC9</option>
-    <option value="AC1">SOUTH AUST ZONE 1 - AC1</option>
-    <option value="AC2">SOUTH AUST ZONE 2 - AC2</option>
-    <option value="AC3">SOUTH AUST ZONE 3 - AC3</option>
-    <option value="AC4">SOUTH AUST ZONE 4 - AC4</option>
-    <option value="AC5">SOUTH AUST ZONE 5 - AC5</option>
-    <option value="AC6">SOUTH AUST ZONE 6 - AC6</option>
-    <option value="AC7">SOUTH AUST ZONE 7 - AC7</option>
-    <option value="AC8">SOUTH AUST ZONE 8 - AC8</option>
-    <option value="AC9">SOUTH AUST ZONE 9 - AC9</option>
-    <option value="SSC">SUNSHINE COAST - SSC</option>
-    <option value="SYD">SYDNEY - SYD</option>
-    <option value="TAM">TAMWORTH - TAM</option>
-    <option value="L10">TASMANIA ZONE 10 - L10</option>
-    <option value="TWB">TOOWOOMBA - TWB</option>
-    <option value="TVL">TOWNSVILLE - TVL</option>
-    <option value="VC1">VIC ZONE 1 - VC1</option>
-    <option value="VC2">VIC ZONE 2 - VC2</option>
-    <option value="VC3">VIC ZONE 3 - VC3</option>
-    <option value="VC1">VICTORIA ZONE 1 - VC1</option>
-    <option value="VC2">VICTORIA ZONE 2 - VC2</option>
-    <option value="VC3">VICTORIA ZONE 3 - VC3</option>
-    <option value="WC1">WA ZONE 1 - WC1</option>
-    <option value="WC2">WA ZONE 2 - WC2</option>
-    <option value="WC3">WA ZONE 3 - WC3</option>
-    <option value="WC4">WA ZONE 4 - WC4</option>
-    <option value="WC5">WA ZONE 5 - WC5</option>
-    <option value="WC6">WA ZONE 6 - WC6</option>
-    <option value="WC7">WA ZONE 7 - WC7</option>
-    <option value="WC8">WA ZONE 8 - WC8</option>
-    <option value="WC9">WA ZONE 9 - WC9</option>
-    <option value="WAG">WAGGA WAGGA - WAG</option>
-    <option value="WAR">WAR - WAR</option>
-    <option value="WC1">WEST AUST ZONE 1 - WC1</option>
-    <option value="WC2">WEST AUST ZONE 2 - WC2</option>
-    <option value="WC3">WEST AUST ZONE 3 - WC3</option>
-    <option value="WC4">WEST AUST ZONE 4 - WC4</option>
-    <option value="WC5">WEST AUST ZONE 5 - WC5</option>
-    <option value="WC6">WEST AUST ZONE 6 - WC6</option>
-    <option value="WC7">WEST AUST ZONE 7 - WC7</option>
-    <option value="WC8">WEST AUST ZONE 8 - WC8</option>
-    <option value="WC9">WEST AUST ZONE 9 - WC9</option>
-    <option value="WOL">WOLLONGONG - WOL</option>
+<option value="A10">A10</option>
+<option value="ABY">ABY	</option>
+<option value="AC1">AC1	</option>
+<option value="AC2">AC2	</option>
+<option value="AC3">AC3	</option>
+<option value="AC4">	AC4	</option>
+<option value="AC5">	AC5	</option>
+<option value="AC6">	AC6	</option>
+<option value="AC7">	AC7	</option>
+<option value="AC8">	AC8	</option>
+<option value="AC9">	AC9	</option>
+<option value="ADL">	ADL	</option>
+<option value="ALB">	ALB	</option>
+<option value="BNA">	BNA	</option>
+<option value="BRO">	BRO	</option>
+<option value="BRS">	BRS	</option>
+<option value="BUN">	BUN	</option>
+<option value="CBR">	CBR	</option>
+<option value="COF">	COF	</option>
+<option value="CRN">	CRN	</option>
+<option value="D10">	D10	</option>
+<option value="DAR">	DAR	</option>
+<option value="DC4">	DC4	</option>
+<option value="DC6">	DC6	</option>
+<option value="DC7">	DC7	</option>
+<option value="ESP">	ESP	</option>
+<option value="GLA">	GLA	</option>
+<option value="GLD">	GLD	</option>
+<option value="GYM">	GYM	</option>
+<option value="HC1">	HC1	</option>
+<option value="HC2">	HC2	</option>
+<option value="HOB">	HOB	</option>
+<option value="KAR">	KAR	</option>
+<option value="L10">	L10	</option>
+<option value="LC1">	LC1	</option>
+<option value="LC2">	LC2	</option>
+<option value="LC3">	LC3	</option>
+<option value="LCN">	LCN	</option>
+<option value="LIS">	LIS	</option>
+<option value="MAC">	MAC	</option>
+<option value="MAR">	MAR	</option>
+<option value="MEL">	MEL	</option>
+<option value="N10">	N10	</option>
+<option value="NC1">	NC1	</option>
+<option value="NC2">	NC2	</option>
+<option value="NC3">	NC3	</option>
+<option value="NC4">	NC4	</option>
+<option value="NC5">	NC5	</option>
+<option value="NC6">	NC6	</option>
+<option value="NCL">	NCL	</option>
+<option value="PER">	PER	</option>
+<option value="PRO">	PRO	</option>
+<option value="Q10">	Q10	</option>
+<option value="QC1">	QC1	</option>
+<option value="QC2">	QC2	</option>
+<option value="QC3">	QC3	</option>
+<option value="QC4">	QC4	</option>
+<option value="QC5">	QC5	</option>
+<option value="QC6">	QC6	</option>
+<option value="QC7">	QC7	</option>
+<option value="QC8">	QC8	</option>
+<option value="QC9">	QC9	</option>
+<option value="RHM">	RHM	</option>
+<option value="RKH">	RKH	</option>
+<option value="ROC">	ROC	</option>
+<option value="SSC">	SSC	</option>
+<option value="SYD">	SYD	</option>
+<option value="TAM">	TAM	</option>
+<option value="TVL">	TVL	</option>
+<option value="TWB">	TWB	</option>
+<option value="VC1">	VC1	</option>
+<option value="VC2">	VC2	</option>
+<option value="VC3">	VC3	</option>
+<option value="WC1">	WC1	</option>
+<option value="WC2">	WC2	</option>
+<option value="WC3">	WC3	</option>
+<option value="WC4">	WC4	</option>
+<option value="WC5">	WC5	</option>
+<option value="WC6">	WC6	</option>
+<option value="WC7">	WC7	</option>
+<option value="WC8">	WC8	</option>
+<option value="WC9">	WC9	</option>
+<option value="WOL">	WOL	</option>
 
 
 </select>
@@ -7393,7 +6957,9 @@
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
                                                             <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',228,-1,0,72)" class="b19" data-sheet-id="532" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
+                                                            <a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal">
+  View
+</a>
                                                             </div>
                                                             <div class="pull-left c32a">
                                                                 
@@ -10395,57 +9961,21 @@
         </p>
     </div>
     <div class="col-lg-12">
-        <table class="table mg0">
-            <tbody>
-            <tr>
-                <th class="s42">
-                    <form id="customer_markup_form">
-                        <input type="hidden" name="orderField" value="description" id="customer_markup_order_field">
-                        <input type="hidden" name="orderType" value="0" id="customer_markup_order_type">
-                        <input type="hidden" name="page" value="1" id="customer_markup_page">
-                        <table class="s36">
-                            <tbody>
-                            <tr>
-                                <td>Show</td>
-                                <td><select name="pageSize" id="customer_markup_page_size" class="form-control" style="height: 22px; padding-top: 1px;" onchange="getMarkups(1)">
-    <option value="25" selected="selected">25</option>
-    <option value="50">50</option>
-    <option value="100">100</option>
-
-
-</select>
-
-</td>
-                                <td>Entries</td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </form>
-                </th>
-            </tr>
-            </tbody>
-        </table>
+        
         <div id="markups-list-result">
             <table class="table table-bordered mg0" id="customer_markup_table">
                 <thead>
                 <tr>
-                    <th sort-field="description" style="cursor: pointer;">Description <i class="fa fa-sort-up"></i></th>
-                    <th sort-field="code" style="cursor: pointer;">Id <i class="fa fa-sort"></i></th>
-                    <th sort-field="typename" style="cursor: pointer;">Markup Type <i class="fa fa-sort"></i></th>
-                    <th sort-field="amount" style="cursor: pointer;">Amount <i class="fa fa-sort"></i></th>
-                    <th sort-field="service_name" style="cursor: pointer;">Carrier <i class="fa fa-sort"></i></th>
-                    <th sort-field="modified_date" style="cursor: pointer;">Last Modified <i class="fa fa-sort"></i></th>
+                    <th>Description </th>
+                    <th>Id </th>
+                    <th>Markup Type </th>
+                    <th>Amount </th>
+                    <th>Carrier </th>
+                    <th>Last Modified </th>
                 </tr>
                 </thead>
                 <tbody>
-                <tr id="markup-filter">
-                    <td><input type="text" name="description" value="" id="description" class="form-control s50" onkeyup="searchOnKeypress()"></td>
-                    <td><input type="text" name="code" value="" id="code" class="form-control s50" onkeyup="searchOnKeypress()"></td>
-                    <td><input type="text" name="typeName" value="" id="typeName" class="form-control s50" onkeyup="searchOnKeypress()"></td>
-                    <td><input type="text" name="amount" value="" id="amount" class="form-control s50" onkeyup="searchOnKeypress()"></td>
-                    <td><input type="text" name="serviceName" value="" id="serviceName" class="form-control s50" onkeyup="searchOnKeypress()"></td>
-                    <td><input class="form-control s50"></td>
-                </tr>
+            
                 
                     
                         <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="597">
@@ -10465,268 +9995,9 @@
                             <td>DHL</td>
                             <td>01-07-2014</td>
                         </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="417">
-                            <td>Account Opening Fee</td>
-                            <td>ACCOUNT OPENING FEE</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>Toll Priority</td>
-                            <td>02-04-2014</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="594">
-                            <td>AD-HOC DISCOUNT BY SALES</td>
-                            <td>110</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>Startrack</td>
-                            <td>09-11-2016</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="1">
-                            <td>AD-HOC DISCOUNT BY SALES</td>
-                            <td>8</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>10-02-2011</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="603">
-                            <td>AD-HOC DISCOUNT BY SALES</td>
-                            <td>AD-HOC DISCOUNT BY SALES</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>Toll Ipec</td>
-                            <td>29-11-2016</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="667">
-                            <td>Additional Charges </td>
-                            <td>Additional Charges </td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>Startrack</td>
-                            <td>21-05-2017</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="678">
-                            <td>Additional Handling Surcharge</td>
-                            <td>AHS</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>UPS Express</td>
-                            <td>15-06-2017</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="404">
-                            <td>ADDRESS CORRECTION - INTERNATIONAL</td>
-                            <td>MA</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>26-01-2014</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="2">
-                            <td>ADMINISTRATION CHARGES</td>
-                            <td>CCC</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>01-11-2010</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="183">
-                            <td>After Hours - 5:30pm - 6:30pm</td>
-                            <td>AFT</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>28-05-2012</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="280">
-                            <td>After Hours - 6:30pm - 7:30pm</td>
-                            <td>AFT</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>17-10-2012</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="551">
-                            <td>agl Warranty Domestic</td>
-                            <td>agl Warranty Domestic</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>Startrack</td>
-                            <td>01-01-2015</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="550">
-                            <td>agl Warranty Domestic</td>
-                            <td>agl Warranty Domestic</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>Toll Ipec</td>
-                            <td>01-01-2015</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="661">
-                            <td>agl Warranty Domestic</td>
-                            <td>agl Warranty Domestic</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>02-05-2017</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="549">
-                            <td>agl Warranty Domestic</td>
-                            <td>agl Warranty Domestic</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>Toll Priority</td>
-                            <td>01-01-2015</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="545">
-                            <td>agl Warranty International</td>
-                            <td>agl Warranty International</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>01-01-2015</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="682">
-                            <td>agl Warranty International</td>
-                            <td>IWI</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>UPS Express</td>
-                            <td>15-06-2017</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="3">
-                            <td>AIR FREIGHT COLLECT</td>
-                            <td>AIRF</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>01-11-2010</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="242">
-                            <td>AUST GOVT CHARGES</td>
-                            <td>AGC DHL</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>30-07-2012</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="4">
-                            <td>BG LOG.SERV&amp;SP.PU/</td>
-                            <td>L</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>01-11-2010</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="408">
-                            <td>BIO/PHYTO CONTROLS</td>
-                            <td>WI</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>09-02-2014</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="401">
-                            <td>BOND/GUARANTEE</td>
-                            <td>WN</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>22-12-2013</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="470">
-                            <td>BONDED STORAGE</td>
-                            <td>WK</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>17-01-2015</td>
-                        </tr>
-                    
-                        <tr style="cursor: pointer;" ondblclick="editMarkup($(this))" accessorial-id="591">
-                            <td>BONDED TRANSIT DOC</td>
-                            <td>WL</td>
-                            <td>Fixed</td>
-                            <td>0.0</td>
-                            <td>DHL</td>
-                            <td>02-11-2016</td>
-                        </tr>
-                    
-                
-                
-                </tbody>
+                     </tbody>
             </table>
-            <div class="dataTables_paginate records">
-                <div class="row">
-                    <div class="col-xs-4 text-left">
-                        <b>Showing 1
-                            to 25 of 572 entries</b>
-                    </div>
-                    <div class="col-xs-8">
-                        
-                            <a class="paginate_button previous disabled">Previous</a>
-                        
-                        
-						<span> 
-                            
-                                <a class="paginate_button current">1</a>
-                            
-                            
-                        
-                            
-                            
-                                <a class="paginate_button" href="javascript:getMarkups(2);">2</a>
-                            
-                        
-                            
-                            
-                                <a class="paginate_button" href="javascript:getMarkups(3);">3</a>
-                            
-                        
-                            
-                            
-                                <a class="paginate_button" href="javascript:getMarkups(4);">4</a>
-                            
-                        
-                            
-                            
-                                <a class="paginate_button" href="javascript:getMarkups(5);">5</a>
-                            
-                        
-                            
-                            
-                                <a class="paginate_button" href="javascript:getMarkups(6);">6</a>
-                            
-                        
-						</span>
-                        
-                        
-                            <a class="paginate_button next" href="javascript:getMarkups(2)">Next</a>
-                        
-                    </div>
-                </div>
-            </div>
+           
         </div>
     </div>
 </div>
@@ -10875,41 +10146,14 @@
                                                     <td>Set Web Freight Admin</td>
                                                 </tr>
                                             </tbody></table>
-                                            <p>
-                                                <b>Note:</b> <br> -
-                                                Web Freight accounts may not be deleted. To disable access to an account, simply change the password.
-                                            </p>
+                                          
                                         </form>
                                     </div>
                                 </div>
                                 <div class="col-lg-12">
-                                    <table class="table mg0">
-                                        <tbody><tr>
-                                            <th class="s42">
-                                                <div class="form-group fll mgb">
-                                                    <table class="s36">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td>Show</td>
-                                                            <td><select name="pageSize" id="webship_pageSize" class="form-control" style="height: 22px; padding-top: 1px; width: 55px;" onchange="getWebships(1)">
-    <option value="25">25</option>
-    <option value="50">50</option>
-    <option value="100">100</option>
-
-
-</select>
-
-</td>
-                                                            <td>Entries</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </th>
-                                        </tr>
-                                    </tbody></table>
+                                    
                                     <div id="webship-list-result">
-                                        <table class="table table-bordered table-hover mg0">
+                                        <table class="table table-bordered table-hover mg0" id="webfreight_table">
                                             <thead>
                                             <tr>
                                                 <th>WebFreightID</th>
@@ -10958,32 +10202,7 @@
                                             
                                             </tbody>
                                         </table>
-                                        <div class="dataTables_paginate records">
-                                            <div class="row">
-                                                <div class="col-xs-4 text-left">
-                                                    <b>Showing 1 to
-                                                        4 of 4
-                                                        entries</b>
-                                                </div>
-                                                <div class="col-xs-8">
-                                                    
-                                                        <a class="paginate_button previous disabled">Previous</a>
-                                                    
-                                                    
-													<span> 
-                                                        
-                                                            <a class="paginate_button current">1</a>
-                                                        
-                                                        
-                                                    
-													</span>
-                                                    
-                                                        <a class="paginate_button next disabled">Next</a>
-                                                    
-                                                    
-                                                </div>
-                                            </div>
-                                        </div>
+                                       
                                     </div>
                                     <table style="margin-top:15px;">
                                         <tbody><tr>
@@ -11252,6 +10471,18 @@
 
 
 <script type="text/javascript">
+
+$(document).ready(function() 
+   {
+      $('#webfreight_table').DataTable();
+   });
+
+   $(document).ready(function() 
+   {
+      $('#customer_markup_table').DataTable();
+   });
+
+
     var webshipId = "";
 
     $(document).ready(function () {

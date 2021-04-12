@@ -349,7 +349,7 @@
     </div>
   </div>
 </div>              
-                                <div class="col-lg-8 flr">
+                             <div class="col-lg-8 flr">
                                     <div class="form-group flr mgb">
                                         <table class="s36">
                                             <tbody>
@@ -357,25 +357,27 @@
                                                 <td>Search</td>
                                                 <td><input id="searchText" name="searchText" class="form-control b20" type="text"></td>
                                                 <td><select name="franchiseCode" id="franchiseCode" class="form-control" onchange="onFranchiseChange()">
-    <option value="100">100 - AGL Logistics</option>
-    <option value="101">101 - Gms-test</option>
+                         <option value="100">100 - AGL Logistics</option>
+                        <option value="101">101 - Gms-test</option>
 
 
-</select>
+                  </select>
 
-</td>
+                                   </td>
                                                 <td>
                                                     <button class="btn s37" type="button" onclick="onGoClick()">
                                                         Search
                                                     </button>
                                                 </td>
-                                                <select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
+                                            <td>    <select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
                                     <option value="-1">Select a Customer</option>
                                     <option value="add">Add a Customer</option>
                                     <?php for($i=0;$i<count($customers);$i++)
                                     {
-                            echo '<option value="'.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';                                       
-                                    }?>
+                                    echo  '<option value="customers/customer_manage?id='.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
+                        
+                                    //'<option value="customers/customer_manage?id='.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';                                      
+                                             }?>
             
 </select>
 

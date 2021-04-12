@@ -24,9 +24,16 @@
 
 		public function customer_manage()
 		{
+			$data['data']=$this->auth_model->get_customer();
 			$data['view'] = 'admin/customers/customer_manage';
 			$this->load->view('admin/layout', $data);
 		}
+
+		/*public function customer_manage()
+		{
+			$data['view'] = 'admin/customers/customer_manage';
+			$this->load->view('admin/layout', $data);
+		}*/
 
 		
 		public function customer_add()
