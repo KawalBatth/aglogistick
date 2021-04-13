@@ -16,6 +16,21 @@
 				
 			}
 		}
+		public function user_login($data){
+			$query = $this->db->get_where('user', array('user_name' => $data['name']));
+			if ($query->num_rows() == 0){
+				return false;
+			}
+			else{
+				//Compare the password attempt with the password we have stored.
+				$result = $query->row_array();
+			    $validPassword = base64_encode($data['password'])== $result['password'];
+			    if($validPassword){
+			        return $result = $query->row_array();
+			    }
+				
+			}
+		}
 		public function change_pwd($data, $id){
 			$this->db->where('id', $id);
 			$this->db->update('ci_users', $data);

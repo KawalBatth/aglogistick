@@ -59,6 +59,11 @@
 		$this->db->insert('customer',$customers);
 		return true;
 	}
+	public function save_user($user)
+	{
+		$this->db->insert('user',$user);
+		return true;
+	}
 		
 	/*public function get_customer()
 	{
@@ -72,6 +77,20 @@
 	{
 			$this->db->select('*');
 			$this->db->from('customer');
+			return $query = $this->db->get()->result_array();			
+	}
+	public function getemail($id)
+	{
+			$this->db->select('email');
+			$query = $this->db->get_where('customer', array('customer_id' => $id));
+			$result = $query->row_array();
+			
+			return $result['email'];
+	}
+	public function get_users()
+	{
+			$this->db->select('*');
+			$this->db->from('user');
 			return $query = $this->db->get()->result_array();
 
 			

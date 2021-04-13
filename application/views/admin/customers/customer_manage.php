@@ -1,4 +1,6 @@
 <?php $submit_id = $_GET['id'];
+$customer_data= get_customer($submit_id);
+
 //echo $submit_id; 
 ?>
 
@@ -72,9 +74,10 @@
         </button>
       </div>
       <div class="modal-body">
-      <form id="webship-form">
-    <input type="hidden" name="webship.webshipId" value="16721" id="webship_webshipId">
-    <input type="hidden" name="webship.customerCode" value="10000018" id="webship_customerCode">
+      
+    <?php echo form_open(base_url('admin/add_user'), 'class="webship-form" id="webship-form"'); ?>
+    <input type="hidden" name="webshipId" value="16721" id="webship_webshipId">
+    <input type="hidden" name="customerCode" value="<?php echo $submit_id;?>" id="customerCode">
     <div class="form-group">
         
         
@@ -85,35 +88,36 @@
             <b>NOTE:</b><br> <span class="s30">Password should contains minimum 8 characters with at least one alphabet and one number.</span>
         </p>
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="webship.name" maxlength="25" value="Cheryl" id="webship_name" class="form-control alloptions">
+        <input type="text" name="username" maxlength="25" value="" id="webship_name" class="form-control alloptions">
     </div>
     <div class="form-group">
-        <label>Password:<span class="s30">*</span></label> <input name="webship.password" type="password" value="Do2best/" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" value="" class="form-control alloptions" maxlength="25">
     </div>
     <div class="form-group">
-        <label>Language:</label> <select name="webship.language" class="form-control alloptions">
-        <option value="0">English</option>
+        <label>Language:</label> <select name="language" class="form-control alloptions">
+        <option value="english">English</option>
     </select>
     </div>
     <div class="form-group">
         <table class="s36">
             <tbody><tr>
-                <td width="25"><input type="checkbox" name="webship.allowExportAddressBook" value="true" id="webship_allowExportAddressBook"><input type="hidden" id="__checkbox_webship_allowExportAddressBook" name="__checkbox_webship.allowExportAddressBook" value="true"></td>
+                <td width="25"><input type="checkbox" name="allowExportAddressBook" value="true" id="webship_allowExportAddressBook"><input type="hidden" id="__checkbox_webship_allowExportAddressBook" name="allowExportAddressBook" value="true"></td>
                 <td>Allow Address Book Export</td>
             </tr>
             <tr>
-                <td width="25"><input type="checkbox" name="webship.isRequireChangePassword" value="true" id="webship_isRequireChangePassword"><input type="hidden" id="__checkbox_webship_isRequireChangePassword" name="__checkbox_webship.isRequireChangePassword" value="true"></td>
+                <td width="25"><input type="checkbox" name="isRequireChangePassword" value="true" id="webship_isRequireChangePassword"><input type="hidden" id="__checkbox_webship_isRequireChangePassword" name="isRequireChangePassword" value="true"></td>
                 <td>Force Password Change</td>
             </tr>
         </tbody></table>
     </div>
-</form>
+
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary">Save</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -240,25 +244,25 @@
                     <table class="table" style="font-size: 11px;">
                     <tbody><tr>
                             <td colspan="3" class="b16 uppercase"><p>
-                           <?php echo $data[0]['customerName'];?>
+                           <?php echo $customer_data->customerName;?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.customerName" value="" id="saveManageCustomer_accountSetup_address_customerName">
                                 <br>
-                                <?php echo $data[0]['address']; ?>
+                                <?php echo $customer_data->address; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.address1" value="4/11 FRICKER ROAD" id="saveManageCustomer_accountSetup_address_address1">
                                 <br>
-                                <?php echo $data[0]['city']; ?>
+                                <?php echo $customer_data->city; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.city" value="PERTH AIRPORT" id="saveManageCustomer_accountSetup_address_city">
                                 <br>
-                                <?php echo $data[0]['postal_code']; ?>
+                                <?php echo $customer_data->postal_code; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.postalCode" value="6105" id="saveManageCustomer_accountSetup_address_postalCode">
                                 <br>
-                                <?php echo $data[0]['country']; ?>
+                                <?php echo $customer_data->country; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.countryName" value="Australia" id="saveManageCustomer_accountSetup_countryName">
                                 <br>
-                                <?php echo $data[0]['phone']; ?>
+                                <?php echo $customer_data->phone; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.phone" value="0862281339" id="saveManageCustomer_accountSetup_address_phone">
                                 <br>
-                                <?php echo $data[0]['email']; ?>
+                                <?php echo $customer_data->email; ?>
                                 <input type="hidden" name="saveManageCustomer.accountSetup.address.email" value="AustalShips@chrobinson.com" id="saveManageCustomer_accountSetup_address_email">
                             </p></td>
                         </tr>
@@ -271,11 +275,11 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer #:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.customerCode" value="<?php echo $data[0]['customer_id']; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_customerCode" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.customerCode" value="<?php echo $customer_data->customer_id; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_customerCode" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Submit Date:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.createDate" value="<?php echo $data[0]['created_date']; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.accountSetup.createDate" value="<?php echo $customer_data->created_date; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
                         </tr>
                         
                         <tr>
@@ -493,27 +497,27 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.customerName" value="<?php echo $data[0]['customerName'];?>" id="saveManageCustomer_customerAddress_address_customerName" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.customerName" value="<?php echo $customer_data->customerName;?>" id="saveManageCustomer_customerAddress_address_customerName" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactName" value="<?php echo $data[0]['contact_name'];?>" id="saveManageCustomer_customerAddress_address_contactName" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactName" value="<?php echo $customer_data->contact_name;?>" id="saveManageCustomer_customerAddress_address_contactName" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactTitle" value="<?php echo $data[0]['contact_title'];?>" id="saveManageCustomer_customerAddress_address_contactTitle" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.contactTitle" value="<?php echo $customer_data->contact_title;?>" id="saveManageCustomer_customerAddress_address_contactTitle" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address1" value="<?php echo $data[0]['address'];?>" id="saveManageCustomer_customerAddress_address_address1" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address1" value="<?php echo $customer_data->address;?>" id="saveManageCustomer_customerAddress_address_address1" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address2" value="<?php echo $data[0]['address'];?>" id="saveManageCustomer_customerAddress_address_address2" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.address2" value="<?php echo $customer_data->address;?>" id="saveManageCustomer_customerAddress_address_address2" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.city" value="<?php echo $data[0]['city'];?>" id="saveManageCustomer_customerAddress_address_city" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.city" value="<?php echo $customer_data->city;?>" id="saveManageCustomer_customerAddress_address_city" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
@@ -799,19 +803,19 @@
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.postalCode" value="<?php echo $data[0]['postal_code'];?>" id="saveManageCustomer_customerAddress_address_postalCode" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.postalCode" value="<?php echo $customer_data->postal_code;?>" id="saveManageCustomer_customerAddress_address_postalCode" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">State Code:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.stateCode" value="<?php echo $data[0]['state_code'];?>" id="saveManageCustomer_customerAddress_address_stateCode" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.stateCode" value="<?php echo $customer_data->state_code;?>" id="saveManageCustomer_customerAddress_address_stateCode" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" pattern="08\d{8}" name="saveManageCustomer.customerAddress.address.phone" value="<?php echo $data[0]['phone'];?>" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" pattern="08\d{8}" name="saveManageCustomer.customerAddress.address.phone" value="<?php echo $customer_data->phone;?>" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.fax" value="<?php echo $data[0]['fax'];?>" id="saveManageCustomer_customerAddress_address_fax" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.fax" value="<?php echo $customer_data->fax;?>" id="saveManageCustomer_customerAddress_address_fax" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td2" colspan="2"><span> Eg: first@email.com; second@email.com
@@ -819,15 +823,15 @@
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.email" value="<?php echo $data[0]['email'];?>" id="saveManageCustomer_customerAddress_address_email" class="form-control" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.email" value="<?php echo $customer_data->email;?>" id="saveManageCustomer_customerAddress_address_email" class="form-control" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.mobile" value="<?php echo $data[0]['mobile'];?>" id="saveManageCustomer_customerAddress_address_mobile" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.mobile" value="<?php echo $customer_data->mobile;?>" id="saveManageCustomer_customerAddress_address_mobile" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Alt Contact Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.alternatePhone" value="<?php echo $data[0]['alt_contact'];?>" id="saveManageCustomer_customerAddress_address_alternatePhone" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.alternatePhone" value="<?php echo $customer_data->alt_contact;?>" id="saveManageCustomer_customerAddress_address_alternatePhone" class="form-control uppercase" group="address"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -848,27 +852,27 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                         <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCustomerName" value="<?php echo $data[0]['billing_customer_name'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingCustomerName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                         <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCustomerName" value="<?php echo $customer_data->billing_customer_name;?>" id="saveManageCustomer_customerAddress_billingAddress_billingCustomerName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactName" value="<?php echo $data[0]['billing_contact_name'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactName" value="<?php echo $customer_data->billing_contact_name;?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactTitle" value="<?php echo $data[0]['billing_contact_title'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactTitle" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingContactTitle" value="<?php echo $customer_data->billing_contact_title;?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactTitle" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress1" value="<?php echo $data[0]['billing_address'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress1" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress1" value="<?php echo $customer_data->billing_address;?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress1" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress2" value="<?php echo $data[0]['billing_address2'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress2" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAddress2" value="<?php echo $customer_data->billing_address2;?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress2" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCity" value="<?php echo $data[0]['billing_city'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingCity" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingCity" value="<?php echo $customer_data->billing_city;?>" id="saveManageCustomer_customerAddress_billingAddress_billingCity" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
@@ -1154,19 +1158,19 @@
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
-                        <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPostalCode" value="<?php echo $data[0]['billing_postal_code'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingPostalCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                        <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPostalCode" value="<?php echo $customer_data->billing_postal_code;?>" id="saveManageCustomer_customerAddress_billingAddress_billingPostalCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">State Code:</td>
-                        <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingStateCode" value="<?php echo $data[0]['billing_state_code'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingStateCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                        <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingStateCode" value="<?php echo $customer_data->billing_state_code;?>" id="saveManageCustomer_customerAddress_billingAddress_billingStateCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPhone" value="<?php echo $data[0]['billing_phone'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingPhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingPhone" value="<?php echo $customer_data->billing_phone;?>" id="saveManageCustomer_customerAddress_billingAddress_billingPhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingFax" value="<?php echo $data[0]['billing_fax'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingFax" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingFax" value="<?php echo $customer_data->billing_fax;?>" id="saveManageCustomer_customerAddress_billingAddress_billingFax" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td2" colspan="2"><span> Eg: first@email.com; second@email.com
@@ -1174,15 +1178,15 @@
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingEmail" value="<?php echo $data[0]['billing_email'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingEmail" value="<?php echo $customer_data->billing_email;?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingMobile" value="<?php echo $data[0]['billing_mobile'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingMobile" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingMobile" value="<?php echo $customer_data->billing_mobile;?>" id="saveManageCustomer_customerAddress_billingAddress_billingMobile" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Alt Contact Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAlternatePhone" value="<?php echo $data[0]['billing_alt_contact'];?>" id="saveManageCustomer_customerAddress_billingAddress_billingAlternatePhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.billingAddress.billingAlternatePhone" value="<?php echo $customer_data->billing_alt_contact;?>" id="saveManageCustomer_customerAddress_billingAddress_billingAlternatePhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -1197,51 +1201,51 @@
                         </tr>
                         <tr>
                             <td class="td1">Owner:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.owner" value="<?php echo $data[0]['owner'];?>" id="saveManageCustomer_customerAddress_address_owner" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.owner" value="<?php echo $customer_data->owner;?>" id="saveManageCustomer_customerAddress_address_owner" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerPhone" value="<?php echo $data[0]['other_phone'];?>" id="saveManageCustomer_customerAddress_address_ownerPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerPhone" value="<?php echo $customer_data->other_phone;?>" id="saveManageCustomer_customerAddress_address_ownerPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerEmail" value="<?php echo $data[0]['other_email'];?>" id="saveManageCustomer_customerAddress_address_ownerEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.ownerEmail" value="<?php echo $customer_data->other_email;?>" id="saveManageCustomer_customerAddress_address_ownerEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">AP Contact:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apContact" value="<?php echo $data[0]['other_contact'];?>" id="saveManageCustomer_customerAddress_address_apContact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apContact" value="<?php echo $customer_data->other_contact;?>" id="saveManageCustomer_customerAddress_address_apContact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apPhone" value="<?php echo $data[0]['other_phone1'];?>" id="saveManageCustomer_customerAddress_address_apPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apPhone" value="<?php echo $customer_data->other_phone1;?>" id="saveManageCustomer_customerAddress_address_apPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apEmail" value="<?php echo $data[0]['other_email1'];?>" id="saveManageCustomer_customerAddress_address_apEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.apEmail" value="<?php echo $customer_data->other_email1;?>" id="saveManageCustomer_customerAddress_address_apEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other Contact:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherContact" value="<?php echo $data[0]['other_contact1'];?>" id="saveManageCustomer_customerAddress_address_otherContact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherContact" value="<?php echo $customer_data->other_contact1;?>" id="saveManageCustomer_customerAddress_address_otherContact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherPhone" value="<?php echo $data[0]['other_phone2'];?>" id="saveManageCustomer_customerAddress_address_otherPhone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherPhone" value="<?php echo $customer_data->other_phone2;?>" id="saveManageCustomer_customerAddress_address_otherPhone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherEmail" value="<?php echo $data[0]['other_email2'];?>" id="saveManageCustomer_customerAddress_address_otherEmail" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.otherEmail" value="<?php echo $customer_data->other_email2;?>" id="saveManageCustomer_customerAddress_address_otherEmail" class="form-control"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other 2 Contact :</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Contact" value="<?php echo $data[0]['other_contact2'];?>" id="saveManageCustomer_customerAddress_address_other2Contact" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Contact" value="<?php echo $customer_data->other_contact2;?>" id="saveManageCustomer_customerAddress_address_other2Contact" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Other 2 Phone:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Phone" value="<?php echo $data[0]['other_phone3'];?>" id="saveManageCustomer_customerAddress_address_other2Phone" class="form-control uppercase"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Phone" value="<?php echo $customer_data->other_phone3;?>" id="saveManageCustomer_customerAddress_address_other2Phone" class="form-control uppercase"></td>
                         </tr>
                         <tr>
                             <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Email" value="<?php echo $data[0]['other_email3'];?>" id="saveManageCustomer_customerAddress_address_other2Email" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="saveManageCustomer.customerAddress.address.other2Email" value="<?php echo $customer_data->other_email3;?>" id="saveManageCustomer_customerAddress_address_other2Email" class="form-control"></td>
                         </tr>
                     </tbody></table>
                 </div>
@@ -10164,39 +10168,19 @@
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            
-                                                
+                                            <?php for($i=0;$i<count($users);$i++)
+                                            {?>
+                                              
                                                     <tr webship-id="16594" style="cursor: pointer;">
-                                                        <td>16594</td>
-                                                        <td>10000018</td>
-                                                        <td>10000018</td>
-                                                        <td>austal2018</td>
-                                                        <td>22-09-2017 09:22:35</td>
+                                                        <td><?php echo $users[$i]['webshipId'];?></td>
+                                                        <td><?php echo $users[$i]['customer_id'];?></td>
+                                                        <td><?php echo $users[$i]['user_name'];?></td>
+                                                        <td><?php echo base64_decode($users[$i]['password']);?></td>
+                                                        <td><?php echo $users[$i]['created_date'];?></td>
                                                     </tr>
-                                                
-                                                    <tr webship-id="16721" style="cursor: pointer;">
-                                                        <td>16721</td>
-                                                        <td>10000018</td>
-                                                        <td>Cheryl</td>
-                                                        <td>Do2best/</td>
-                                                        <td>17-07-2018 07:18:22</td>
-                                                    </tr>
-                                                
-                                                    <tr webship-id="16785" style="cursor: pointer;">
-                                                        <td>16785</td>
-                                                        <td>10000018</td>
-                                                        <td>Joanne Tidy</td>
-                                                        <td>Lukesh65</td>
-                                                        <td>15-11-2018 14:31:01</td>
-                                                    </tr>
-                                                
-                                                    <tr webship-id="16803" style="cursor: pointer;">
-                                                        <td>16803</td>
-                                                        <td>10000018</td>
-                                                        <td>Andrew Brown</td>
-                                                        <td>Galant69</td>
-                                                        <td>05-07-2019 11:11:52</td>
-                                                    </tr>
+                                                    <?php 
+                                            }
+                                                ?>
                                                 
                                             
                                             

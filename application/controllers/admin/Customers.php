@@ -6,6 +6,19 @@
 			parent::__construct();
 			$this->load->model('admin/user_model', 'user_model');
 			$this->load->model('admin/auth_model', 'auth_model');
+			$this->load->helper('customer'); 
+			$this->load->library('email');
+			$config['composer_autoload'] = FALSE;
+			$config = array();
+			$config['protocol'] = 'smtp';
+			$config['smtp_host'] = 'ssl://smtp.googlemail.com';
+			$config['smtp_user'] = 'xxx';
+			$config['smtp_pass'] = 'xxx';
+			$config['smtp_port'] = 25;
+			$this->email->initialize($config);
+			$this->email->set_newline("\r\n");
+ 
+
 
 		}
 
@@ -20,11 +33,12 @@
 			$data['all_users'] =  $this->user_model->get_all_users();
 			$data['view'] = 'admin/customers/customer_list';
 			$this->load->view('admin/layout', $data);
-		}
+		} 
 
 		public function customer_manage()
 		{
 			$data['data']=$this->auth_model->get_customer();
+			$data['users'] =  $this->auth_model->get_users();
 			$data['view'] = 'admin/customers/customer_manage';
 			$this->load->view('admin/layout', $data);
 		}
@@ -43,6 +57,45 @@
 			
 			$data['view'] = 'admin/customers/customer_add';
 			$this->load->view('admin/layout', $data);
+		}
+		public function add_user()
+		{
+			
+			$customerCode = $this->input->post('customerCode');	
+			
+
+			$username = $this->input->post('username');	
+			$webshipId = $this->input->post('webshipId');	
+			$userpassword = $this->input->post('userpassword');	
+			$language = $this->input->post('language');	
+			$allowExportAddressBook = $this->input->post('allowExportAddressBook');	
+			$isRequireChangePassword = $this->input->post('isRequireChangePassword');	
+
+			$array = array(
+				'webshipId' =>$webshipId,
+				'customer_id' =>$customerCode,
+				'user_name'=>$username,
+				'password'=>base64_encode($userpassword),
+				'language'=>$language,
+				'allowExportAddressBook'=>$allowExportAddressBook,
+				'isRequireChangePassword'=>$isRequireChangePassword
+			 );
+			$this->auth_model->save_user($array);
+			redirect('admin/customers/customer_manage?id='.$customerCode);
+
+
+			
+			// $customeremail= $this->auth_model->getemail($customerCode);			
+			// $this->email->from('pankajsaharan9@gmail.com', 'AGL Specialised Logistic');
+			// $this->email->to('pankajsaharan052@gmail.com');
+			// $this->email->subject('A new user addedd');
+			// $this->email->message('A new user adedd for '.$customerCode.'<br/> User Name: '.$username. ' Password: '.$userpassword);
+			// if($this->email->send())
+   //          $this->session->set_flashdata("email_sent","Congragulation Email Send Successfully.");
+   //      	else
+   //          $this->session->set_flashdata("email_sent","You have encountered an error");
+
+
 		}
 		public function add_customer()
 		{

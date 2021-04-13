@@ -61,6 +61,7 @@ $route['adminlte/(:any)'] = 'admin/adminlte/$1';
 
 $route['admin/list'] = 'admin/customers/customer_list';
 $route['admin/manage'] = 'admin/customers/customer_manage';
+$route['admin/add_user'] = 'admin/customers/add_user';
 $route['admin/search'] = 'admin/customers/customer_search';
 $route['admin/status'] = 'admin/customers/status_report';
 $route['admin/summary'] = 'admin/customers/summary_report';
@@ -96,6 +97,8 @@ $route['customer/settings'] = 'customer/customers/setting';
 $route['customer/login'] = 'customer/login';
 $route['customer/booking'] = 'customer/customers/booking';
 $route['customer/help'] = 'customer/customers/help';
+$route['user/login'] = 'user';
+$route['user/login/process'] = 'user/process';
 
 //$route['admin/order_supply'] = 'admin/customers/order_supply';
 $route['customer/quote'] = 'customer/customers/quote';
