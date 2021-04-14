@@ -58,6 +58,28 @@
 			$data['view'] = 'admin/customers/customer_add';
 			$this->load->view('admin/layout', $data);
 		}
+
+		public function update_user()
+        {
+            $user_id = $this->input->post('user_id');
+            $customerId = $this->input->post('customerId'); 
+            //$carrierid = $this->input->post('carrier_id');
+            $user = array(
+            'customer_id'=>$customerId,
+            'user_name' => $this->input->post('username'),
+            'password' => $this->input->post('userpassword'),
+            'language' => $this->input->post('language'),
+            'allowExportAddressBook' => $this->input->post('allowExportAddressBook'),
+            'isRequireChangePassword' => $this->input->post('isRequireChangePassword'),
+            'created_date'=>$date = date('Y/m/d H:i:s')
+        );
+            $user = $this->user_model->update_user_data($user,$user_id);
+            $this->session->set_flashdata('msg', 'User is Edited Successfully!');
+           // redirect('admin/customers/customer_manage?id='.$customerCode, 'refresh');
+           redirect(base_url('admin/customers/customer_manage'));
+
+        }
+
 		public function add_user()
 		{
 			
@@ -65,14 +87,14 @@
 			
 
 			$username = $this->input->post('username');	
-			$webshipId = $this->input->post('webshipId');	
+			//$webshipId = $this->input->post('webshipId');	
 			$userpassword = $this->input->post('userpassword');	
 			$language = $this->input->post('language');	
 			$allowExportAddressBook = $this->input->post('allowExportAddressBook');	
 			$isRequireChangePassword = $this->input->post('isRequireChangePassword');	
 
 			$array = array(
-				'webshipId' =>$webshipId,
+				//'webshipId' =>$webshipId,
 				'customer_id' =>$customerCode,
 				'user_name'=>$username,
 				'password'=>base64_encode($userpassword),

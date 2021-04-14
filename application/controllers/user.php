@@ -81,6 +81,8 @@ class User extends CI_Controller
 				$this->load->view('customers/layout', $data);
 			}
 		}
+
+		
     /*public function logout()  
     {  
         //removing session  

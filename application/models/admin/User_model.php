@@ -36,6 +36,14 @@
 			$this->db->update('ci_users', $data);
 			return true;
 		}	
+
+		public function update_user_data($data,$user_id)
+        {
+        $this->db->where('id', $user_id);
+        $this->db->update('user', $data);       
+        return true;
+     }
+	 
 		public function add_user($data){
 			$this->db->insert('ci_users', $data);
 			

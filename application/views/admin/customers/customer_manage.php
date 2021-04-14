@@ -1,8 +1,108 @@
 <?php $submit_id = $_GET['id'];
 $customer_data= get_customer($submit_id);
-
 //echo $submit_id; 
+
 ?>
+<html>
+<body>
+<!-- Add notes for customer modal -->
+<div class="modal fade" id="notesModal" tabindex="-1" role="dialog" aria-labelledby="notesModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add a Note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="note-form">
+      <div class="modal-body">
+    
+
+    <table>
+        <tbody><tr>
+            <td colspan="3">  </td>
+        </tr>
+        <tr>
+            <td>Customer #:</td>
+            <td><?php echo $customer_data->customer_id; ?></td>
+        </tr>
+        <tr>
+            <td colspan="3">Note: <span style="color: red">*</span><br> <textarea name="note.note" cols="60" required rows="10" id="note_note" class="form-control"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 5px;"></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="note.check" value="true" id="note_check"><input type="hidden" id="__checkbox_note_check" name="__checkbox_note.check" value="true"> Follow Up Date: <span style="color: red">*</span></td>
+            <td>
+                <div class="form-group input-group" style="width: 150px; margin-bottom: 0px;">
+			
+                <input type="date" id="start" required name="followUpDate" data-date-format="dd MM yyyy">
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- Add notes for customer modal -->
+<div class="modal fade" id="editNotesModal" tabindex="-1" role="dialog" aria-labelledby="editNotesModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Edit Note</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form id="note-form">
+      <div class="modal-body">
+    
+
+    <table>
+        <tbody><tr>
+            <td colspan="3">  </td>
+        </tr>
+        <tr>
+            <td>Customer #:</td>
+            <td><?php echo $customer_data->customer_id; ?></td>
+        </tr>
+        <tr>
+            <td colspan="3">Note: <span style="color: red">*</span><br> <textarea name="note.note" cols="60" required rows="10" id="note_note" class="form-control"></textarea></td>
+        </tr>
+        <tr>
+            <td colspan="3" style="height: 5px;"></td>
+        </tr>
+        <tr>
+            <td><input type="checkbox" name="note.check" value="true" id="note_check"><input type="hidden" id="__checkbox_note_check" name="__checkbox_note.check" value="true"> Follow Up Date: <span style="color: red">*</span></td>
+            <td>
+                <div class="form-group input-group" style="width: 150px; margin-bottom: 0px;">
+			
+                <input type="date" id="start" required name="followUpDate" data-date-format="dd MM yyyy">
+                </div>
+            </td>
+        </tr>
+    </tbody></table>
+</form>
+      </div>
+      <div class="modal-footer">
+      <button type="button" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- Road Express Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -76,7 +176,6 @@ $customer_data= get_customer($submit_id);
       <div class="modal-body">
       
     <?php echo form_open(base_url('admin/add_user'), 'class="webship-form" id="webship-form"'); ?>
-    <input type="hidden" name="webshipId" value="16721" id="webship_webshipId">
     <input type="hidden" name="customerCode" value="<?php echo $submit_id;?>" id="customerCode">
     <div class="form-group">
         
@@ -88,10 +187,10 @@ $customer_data= get_customer($submit_id);
             <b>NOTE:</b><br> <span class="s30">Password should contains minimum 8 characters with at least one alphabet and one number.</span>
         </p>
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="username" maxlength="25" value="" id="webship_name" class="form-control alloptions">
+        <input type="text" name="username" maxlength="25" value="" id="webship_name" required class="form-control alloptions">
     </div>
     <div class="form-group">
-        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" value="" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" value="" class="form-control alloptions" maxlength="25">
     </div>
     <div class="form-group">
         <label>Language:</label> <select name="language" class="form-control alloptions">
@@ -132,10 +231,11 @@ $customer_data= get_customer($submit_id);
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
+      <?php echo form_open(base_url('admin/update_user'), 'class="update_user-form" '); ?>
       <div class="modal-body">
       <form id="webship-form">
-    <input type="hidden" name="webship.webshipId" value="16721" id="webship_webshipId">
-    <input type="hidden" name="webship.customerCode" value="10000018" id="webship_customerCode">
+      <input type="hidden" name="customerId" value="<?php echo $submit_id;?>" id="customerId">
+      <input type="hidden" name="user_id" value="" id="user_id">
     <div class="form-group">
         
         
@@ -146,24 +246,24 @@ $customer_data= get_customer($submit_id);
             <b>NOTE:</b><br> <span class="s30">Password should contains minimum 8 characters with at least one alphabet and one number.</span>
         </p>
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="webship.name" maxlength="25" value="Cheryl" id="webship_name" class="form-control alloptions">
+        <input type="text" name="username" maxlength="25" value="" id="username" class="form-control alloptions">
     </div>
     <div class="form-group">
-        <label>Password:<span class="s30">*</span></label> <input name="webship.password" type="password" value="Do2best/" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" value="" id="userpassword" class="form-control alloptions" maxlength="25">
     </div>
     <div class="form-group">
-        <label>Language:</label> <select name="webship.language" class="form-control alloptions">
+        <label>Language:</label> <select name="language" id="language" value="" class="form-control alloptions">
         <option value="0">English</option>
     </select>
     </div>
     <div class="form-group">
         <table class="s36">
             <tbody><tr>
-                <td width="25"><input type="checkbox" name="webship.allowExportAddressBook" value="true" id="webship_allowExportAddressBook"><input type="hidden" id="__checkbox_webship_allowExportAddressBook" name="__checkbox_webship.allowExportAddressBook" value="true"></td>
+                <td width="25"><input type="checkbox" name="allowExportAddressBook" value="" id="allowExportAddressBook"></td>
                 <td>Allow Address Book Export</td>
             </tr>
             <tr>
-                <td width="25"><input type="checkbox" name="webship.isRequireChangePassword" value="true" id="webship_isRequireChangePassword"><input type="hidden" id="__checkbox_webship_isRequireChangePassword" name="__checkbox_webship.isRequireChangePassword" value="true"></td>
+                <td width="25"><input type="checkbox" name="isRequireChangePassword" value="" id="isRequireChangePassword"></td>
                 <td>Force Password Change</td>
             </tr>
         </tbody></table>
@@ -171,7 +271,7 @@ $customer_data= get_customer($submit_id);
 </form>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Save</button>
+      <button type="button" class="btn btn-primary">Update</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         
       </div>
@@ -225,10 +325,8 @@ $customer_data= get_customer($submit_id);
     <li class=""><a href="#address-tab" data-toggle="tab">Address</a></li>
     <li class=""><a href="#base-rates-tab" data-toggle="tab">Base Rates</a></li>
     <li class=""><a href="#markups-tab" data-toggle="tab">Markups</a></li>
-    
     <li class=""><a href="#webship-tab" data-toggle="tab">Web Freight</a></li>
     <li><a href="#notes-tab" data-toggle="tab">Notes</a></li>
-    <li><a href="#history-tab" data-toggle="tab">History</a></li>
     <li><a href="#webship-history-tab" data-toggle="tab">Web Freight History</a></li>
 </ul>
 <div id="manage_customer_tab_content" class="tab-content responsive">
@@ -1352,21 +1450,7 @@ $customer_data= get_customer($submit_id);
                                         <table class="s36">
                                             <tbody><tr>
                                                 <td>Print Rate Sheets</td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheetCheckAll($(this))">
-                                                        Check All
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheetCheckNone($(this))">
-                                                        Check None
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheet($(this))">
-                                                        Print Checked Rate Sheets
-                                                    </button>
-                                                </td>
+                                                
                                                 <td><input type="checkbox" data-type="pdf-format" onchange="rateSheetFormatChange($(this))"></td>
                                                 <td>Pdf</td>
                                                 <td><input type="checkbox" data-type="excel-format" onchange="rateSheetFormatChange($(this))"></td>
@@ -6786,7 +6870,7 @@ $customer_data= get_customer($submit_id);
                             </div>
                         </div>
                         <!-- Star Track -->
-                        <div id="cust_base_rates_star_track_tab" class="tab-pane fade in">
+                        <div id="cust_base_rates_star_track_tab" class="tab-pane fade active in">
                             <div class="row">
                                 <div data-type="print-rate-sheet" class="portlet-body b12 b11">
                                     <!-- Orgin -->
@@ -6795,89 +6879,89 @@ $customer_data= get_customer($submit_id);
                                             <tbody><tr>
                                                 <td>Origin</td>
                                                 <td><select name="" id="starTrackColumnName" class="form-control">
-<option value="A10">A10</option>
-<option value="ABY">ABY	</option>
-<option value="AC1">AC1	</option>
-<option value="AC2">AC2	</option>
-<option value="AC3">AC3	</option>
-<option value="AC4">	AC4	</option>
-<option value="AC5">	AC5	</option>
-<option value="AC6">	AC6	</option>
-<option value="AC7">	AC7	</option>
-<option value="AC8">	AC8	</option>
-<option value="AC9">	AC9	</option>
-<option value="ADL">	ADL	</option>
-<option value="ALB">	ALB	</option>
-<option value="BNA">	BNA	</option>
-<option value="BRO">	BRO	</option>
-<option value="BRS">	BRS	</option>
-<option value="BUN">	BUN	</option>
-<option value="CBR">	CBR	</option>
-<option value="COF">	COF	</option>
-<option value="CRN">	CRN	</option>
-<option value="D10">	D10	</option>
-<option value="DAR">	DAR	</option>
-<option value="DC4">	DC4	</option>
-<option value="DC6">	DC6	</option>
-<option value="DC7">	DC7	</option>
-<option value="ESP">	ESP	</option>
-<option value="GLA">	GLA	</option>
-<option value="GLD">	GLD	</option>
-<option value="GYM">	GYM	</option>
-<option value="HC1">	HC1	</option>
-<option value="HC2">	HC2	</option>
-<option value="HOB">	HOB	</option>
-<option value="KAR">	KAR	</option>
-<option value="L10">	L10	</option>
-<option value="LC1">	LC1	</option>
-<option value="LC2">	LC2	</option>
-<option value="LC3">	LC3	</option>
-<option value="LCN">	LCN	</option>
-<option value="LIS">	LIS	</option>
-<option value="MAC">	MAC	</option>
-<option value="MAR">	MAR	</option>
-<option value="MEL">	MEL	</option>
-<option value="N10">	N10	</option>
-<option value="NC1">	NC1	</option>
-<option value="NC2">	NC2	</option>
-<option value="NC3">	NC3	</option>
-<option value="NC4">	NC4	</option>
-<option value="NC5">	NC5	</option>
-<option value="NC6">	NC6	</option>
-<option value="NCL">	NCL	</option>
-<option value="PER">	PER	</option>
-<option value="PRO">	PRO	</option>
-<option value="Q10">	Q10	</option>
-<option value="QC1">	QC1	</option>
-<option value="QC2">	QC2	</option>
-<option value="QC3">	QC3	</option>
-<option value="QC4">	QC4	</option>
-<option value="QC5">	QC5	</option>
-<option value="QC6">	QC6	</option>
-<option value="QC7">	QC7	</option>
-<option value="QC8">	QC8	</option>
-<option value="QC9">	QC9	</option>
-<option value="RHM">	RHM	</option>
-<option value="RKH">	RKH	</option>
-<option value="ROC">	ROC	</option>
-<option value="SSC">	SSC	</option>
-<option value="SYD">	SYD	</option>
-<option value="TAM">	TAM	</option>
-<option value="TVL">	TVL	</option>
-<option value="TWB">	TWB	</option>
-<option value="VC1">	VC1	</option>
-<option value="VC2">	VC2	</option>
-<option value="VC3">	VC3	</option>
-<option value="WC1">	WC1	</option>
-<option value="WC2">	WC2	</option>
-<option value="WC3">	WC3	</option>
-<option value="WC4">	WC4	</option>
-<option value="WC5">	WC5	</option>
-<option value="WC6">	WC6	</option>
-<option value="WC7">	WC7	</option>
-<option value="WC8">	WC8	</option>
-<option value="WC9">	WC9	</option>
-<option value="WOL">	WOL	</option>
+<option value="A10">A10</option>
+<option value="ABY">ABY	</option>
+<option value="AC1">AC1	</option>
+<option value="AC2">AC2	</option>
+<option value="AC3">AC3	</option>
+<option value="AC4">	AC4	</option>
+<option value="AC5">	AC5	</option>
+<option value="AC6">	AC6	</option>
+<option value="AC7">	AC7	</option>
+<option value="AC8">	AC8	</option>
+<option value="AC9">	AC9	</option>
+<option value="ADL">	ADL	</option>
+<option value="ALB">	ALB	</option>
+<option value="BNA">	BNA	</option>
+<option value="BRO">	BRO	</option>
+<option value="BRS">	BRS	</option>
+<option value="BUN">	BUN	</option>
+<option value="CBR">	CBR	</option>
+<option value="COF">	COF	</option>
+<option value="CRN">	CRN	</option>
+<option value="D10">	D10	</option>
+<option value="DAR">	DAR	</option>
+<option value="DC4">	DC4	</option>
+<option value="DC6">	DC6	</option>
+<option value="DC7">	DC7	</option>
+<option value="ESP">	ESP	</option>
+<option value="GLA">	GLA	</option>
+<option value="GLD">	GLD	</option>
+<option value="GYM">	GYM	</option>
+<option value="HC1">	HC1	</option>
+<option value="HC2">	HC2	</option>
+<option value="HOB">	HOB	</option>
+<option value="KAR">	KAR	</option>
+<option value="L10">	L10	</option>
+<option value="LC1">	LC1	</option>
+<option value="LC2">	LC2	</option>
+<option value="LC3">	LC3	</option>
+<option value="LCN">	LCN	</option>
+<option value="LIS">	LIS	</option>
+<option value="MAC">	MAC	</option>
+<option value="MAR">	MAR	</option>
+<option value="MEL">	MEL	</option>
+<option value="N10">	N10	</option>
+<option value="NC1">	NC1	</option>
+<option value="NC2">	NC2	</option>
+<option value="NC3">	NC3	</option>
+<option value="NC4">	NC4	</option>
+<option value="NC5">	NC5	</option>
+<option value="NC6">	NC6	</option>
+<option value="NCL">	NCL	</option>
+<option value="PER">	PER	</option>
+<option value="PRO">	PRO	</option>
+<option value="Q10">	Q10	</option>
+<option value="QC1">	QC1	</option>
+<option value="QC2">	QC2	</option>
+<option value="QC3">	QC3	</option>
+<option value="QC4">	QC4	</option>
+<option value="QC5">	QC5	</option>
+<option value="QC6">	QC6	</option>
+<option value="QC7">	QC7	</option>
+<option value="QC8">	QC8	</option>
+<option value="QC9">	QC9	</option>
+<option value="RHM">	RHM	</option>
+<option value="RKH">	RKH	</option>
+<option value="ROC">	ROC	</option>
+<option value="SSC">	SSC	</option>
+<option value="SYD">	SYD	</option>
+<option value="TAM">	TAM	</option>
+<option value="TVL">	TVL	</option>
+<option value="TWB">	TWB	</option>
+<option value="VC1">	VC1	</option>
+<option value="VC2">	VC2	</option>
+<option value="VC3">	VC3	</option>
+<option value="WC1">	WC1	</option>
+<option value="WC2">	WC2	</option>
+<option value="WC3">	WC3	</option>
+<option value="WC4">	WC4	</option>
+<option value="WC5">	WC5	</option>
+<option value="WC6">	WC6	</option>
+<option value="WC7">	WC7	</option>
+<option value="WC8">	WC8	</option>
+<option value="WC9">	WC9	</option>
+<option value="WOL">	WOL	</option>
 
 
 </select>
@@ -6890,22 +6974,12 @@ $customer_data= get_customer($submit_id);
                                     <div class="form-group">
                                         <table class="s36">
                                             <tbody><tr>
-                                                <td>Print Rate Sheets</td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheetCheckAll($(this))">
-                                                        Check All
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheetCheckNone($(this))">
-                                                        Check None
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheet($(this))">
-                                                        Print Checked Rate Sheets
-                                                    </button>
-                                                </td>
+                                             
+                                               
+                                                 <td><input type="radio" class="TLO" name="radio1" id="all" />Check All</td>
+                                                   <td> <input type="radio" class="TLO" name="radio1" id="none" />Uncheck All</td>
+                                               
+                                             
                                                 <td><input type="checkbox" data-type="pdf-format" onchange="rateSheetFormatChange($(this))"></td>
                                                 <td>Pdf</td>
                                                 <td><input type="checkbox" data-type="excel-format" onchange="rateSheetFormatChange($(this))"></td>
@@ -6929,7 +7003,7 @@ $customer_data= get_customer($submit_id);
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="228" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="228" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -7677,7 +7751,7 @@ $customer_data= get_customer($submit_id);
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="229" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="229" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -8549,7 +8623,7 @@ $customer_data= get_customer($submit_id);
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="230" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="230" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -8635,7 +8709,7 @@ $customer_data= get_customer($submit_id);
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="231" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="231" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -8721,7 +8795,7 @@ $customer_data= get_customer($submit_id);
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="232" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="232" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -8807,7 +8881,7 @@ $customer_data= get_customer($submit_id);
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="234" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="234" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -8893,7 +8967,7 @@ $customer_data= get_customer($submit_id);
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="235" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="235" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -9815,19 +9889,7 @@ $customer_data= get_customer($submit_id);
         return request;
     }
 
-    function printRateSheetCheckAll(obj) {
-        var topDiv = $(obj).closest("div[data-type='print-rate-sheet']");
-        $(topDiv).find("input[data-type='print-rate-sheet-checkbox']").each(function () {
-            $(this).attr("checked", true);
-        });
-    }
 
-    function printRateSheetCheckNone(obj) {
-        var topDiv = $(obj).closest("div[data-type='print-rate-sheet']");
-        $(topDiv).find("input[data-type='print-rate-sheet-checkbox']").each(function () {
-            $(this).attr("checked", false);
-        });
-    }
 
     function printRateSheet(obj) {
         var topDiv = $(obj).closest("div[data-type='print-rate-sheet']");
@@ -9951,10 +10013,6 @@ $customer_data= get_customer($submit_id);
 
 
 
-
-
-<script src="https://webfreight.agllogistics.com:443/crm-admin/script/xms/customer/dato.tablesorter.js"></script>
-
 <div class="row">
     <div class="col-lg-12">
         <p>
@@ -10010,6 +10068,13 @@ $customer_data= get_customer($submit_id);
 
 
 <script type="text/javascript">
+ $(document).on('click', '#customer_notes_list_table tbody tr', function(e) {
+    $('#customer_notes_list_table tbody tr').removeClass('selected-row');
+    $(this).toggleClass('selected-row'); 
+    $("#editNote").prop('disabled', false);
+});
+
+
     var editMarkupDialog = $("#edit-markup-dialog").dialog({
         autoOpen: false,
         width: 400,
@@ -10160,8 +10225,7 @@ $customer_data= get_customer($submit_id);
                                         <table class="table table-bordered table-hover mg0" id="webfreight_table">
                                             <thead>
                                             <tr>
-                                                <th>WebFreightID</th>
-                                                <th>CustomerID</th>
+                                               <th>CustomerID</th>
                                                 <th>Alt User Name</th>
                                                 <th>Password</th>
                                                 <th>Created Date</th>
@@ -10169,16 +10233,16 @@ $customer_data= get_customer($submit_id);
                                             </thead>
                                             <tbody>
                                             <?php for($i=0;$i<count($users);$i++)
-                                            {?>
+                                            {
+                                                if($users[$i]['customer_id'] == $customer_data->customer_id){?>
                                               
-                                                    <tr webship-id="16594" style="cursor: pointer;">
-                                                        <td><?php echo $users[$i]['webshipId'];?></td>
-                                                        <td><?php echo $users[$i]['customer_id'];?></td>
-                                                        <td><?php echo $users[$i]['user_name'];?></td>
+                                              <tr class="on-click" data-accessorialid="<?php echo $users[$i]['id'];?>">
+                                                        <td><?php echo $customer_data->customer_id; ?></td>
+                                                         <td><?php echo $users[$i]['user_name'];?></td>
                                                         <td><?php echo base64_decode($users[$i]['password']);?></td>
                                                         <td><?php echo $users[$i]['created_date'];?></td>
                                                     </tr>
-                                                    <?php 
+                                                    <?php }
                                             }
                                                 ?>
                                                 
@@ -10198,9 +10262,8 @@ $customer_data= get_customer($submit_id);
                                             <td>&nbsp;</td>
                                             <td>&nbsp;</td>
                                             <td>
-                                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editModal">
-  Edit User
-</button>
+                                          
+                                            <button type="button" class="btn" onclick="edituser()" id="edit" disabled>Edit User</button>
                                             </td>
                                         </tr>
                                     </tbody></table>
@@ -10456,18 +10519,67 @@ $customer_data= get_customer($submit_id);
 
 <script type="text/javascript">
 
-$(document).ready(function() 
-   {
+  $(document).ready(function() {
       $('#webfreight_table').DataTable();
    });
 
-   $(document).ready(function() 
-   {
+  $(document).ready(function() {
       $('#customer_markup_table').DataTable();
    });
 
+  $(document).ready(function() {
+      $('#customer_notes_list_table').DataTable();
+   });
 
-    var webshipId = "";
+
+   $(document).ready(function() 
+   {
+      $('#datatable1').DataTable();
+   });
+
+   $('#all').on('change', function (){
+        $('.country').prop('checked', $(this).is(':checked'));
+    });
+  $('#none').on('change', function () {
+  $('.country').prop('checked', !$(this).is(':checked'));
+    });
+
+    $(document).on('click', '#webfreight_table tbody tr', function(e) {
+    $('#webfreight_table tbody tr').removeClass('selected-row');
+    $(this).toggleClass('selected-row'); 
+    $("#edit").prop('disabled', false);
+});
+
+function edituser()
+{
+
+    $('#editModal').modal('show');
+    var user_id = $('.selected-row').attr('data-accessorialid');
+    var customerId = $('.selected-row td:eq(0)').html();
+    var username = $('.selected-row td:eq(1)').html();
+    var userpassword = $('.selected-row td:eq(2)').html();
+    var language = $('.selected-row td:eq(3)').html();
+    var allowExportAddressBook = $('.selected-row td:eq(4)').html();
+    var isRequireChangePassword = $('.selected-row td:eq(5)').html();
+    $('#editModal #language option').each(function()
+    {
+        if($(this).html()==language)
+        {
+            $(this).prop('selected',true);
+        } 
+    }); 
+    
+     $('#editModal #username').val(username);
+     $('#editModal #userpassword').val(userpassword);
+     $('#editModal #allowExportAddressBook').val(allowExportAddressBook);
+     $('#editModal #isRequireChangePassword').val(isRequireChangePassword);
+     $('#editModal #user_id').val(user_id);
+     $('#editModal #customerId').val(customerCode);
+}
+
+
+
+    /*var webshipId = "";
 
     $(document).ready(function () {
         $("#webship-list-result tr[webship-id]").click(function () {
@@ -10652,13 +10764,395 @@ $(document).ready(function()
         } else {
             loadWebshipDialog("");
         }
-    }
+    }*/
 
 
 </script></div>
+<div id="notes-tab" class="tab-pane fade">
+   
+   <div class="portlet-body b12 b11">
+       <div class="form-group flr ">
+           <table class="s36 ">
+               <tbody><tr>
+                   <td>
+                       <button class="btn s37 del" type="button" onclick="deleteNote()">
+                           Delete
+                       </button>
+                   </td>
+                   <td>
+                   <button class="btn s37 edit" type="button" id="editNote" disabled  data-toggle="modal" data-target="#editNotesModal">Edit </button>
+                   </td>
+                 
+                 <td>  <button type="button" class="btn s37 add" data-toggle="modal" data-target="#notesModal">
+ Add
+</button></td>
+                
+               </tr>
+           </tbody></table>
+       </div>
+       <table class="" style="font-size: 11px;">
+           <tbody>
+           <tr>
+               <td style="border-top: 0px !important" colspan="">
+                   <div class="caption b17">
+                       Notes
+                   </div>
+               </td>
+           </tr>
+           </tbody>
+       </table>
+      
+       <div id="notes-list-result">
+           <table class="table table-bordered mg0" id="customer_notes_list_table">
+               <thead>
+               <tr>
+                   <th>Last Modified</th>
+                   <th>User </th>
+                   <th>Account</th>
+                   <th>Note </th>
+               </tr>
+               </thead>
+               <tbody>
+               
+               
+                   <tr>
+                       <td>11/04/2021</td>
+                       <td>Test</td>
+                       <td>Test</td>
+                       <td>Created on date 5...</td>
+                   </tr>
+               
+               </tbody>
+           </table>
+         
+       </div>
+   </div>
+       </div>
     <div id="notes-tab" class="tab-pane fade"></div>
-    <div id="history-tab" class="tab-pane fade"></div>
-    <div id="webship-history-tab" class="tab-pane fade"></div>
+   
+    <div id="webship-history-tab" class="tab-pane fade"> <form>
+    <div id="tab-general">
+        <div class="row mbl">
+            <div class="col-lg-12">
+                <div class="col-md-12">
+                    <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;"></div>
+                </div>
+            </div>
+            <div class="col-lg-12">
+                <div class="row">
+                    <div class="col-lg-12">
+                        <div class="portlet box">
+                            <div class="portlet-header">
+                                <div class="caption">
+                                    History
+                                </div>
+                                <div class="tools">
+                                    <i class="fa fa-chevron-up"></i><i class="fa fa-times"></i>
+                                </div>
+                            </div>
+                            <div class="portlet-body">
+                                <div class="panel-body pan">
+                                    <div class="form-body pal">
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="col-lg-12 pd0">
+                                                    <div class="form-group mgb">
+                                                        <table class="s36">
+                                                            <tbody><tr>
+                                                                <td><select name="filterModel.totalDate" id="sel_total_date" class="form-control">
+    <option value="1">Show Today Only</option>
+    <option value="2" selected="selected">Show Last 30 Days</option>
+    <option value="3">Show Last 60 Days</option>
+    <option value="4">Show Last 90 Days</option>
+    <option value="5">Show Range</option>
+    <option value="6">Show All</option>
+
+
+</select>
+
+</td>
+                                                                
+                                                                <td>
+                                                                   
+                                                                    <button name="create_excel" id="create_excel" class="btn s33">  
+                                                                        Export to Excel
+                                                                    </button>
+                                                                </td>
+                                                                <td>
+                                                                   
+                                                                    <input type="button" id="exportBtn" class="btn s33" value="Export to PDF" />
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 pd0" style="margin-top: 5px; display: none;" id="div_range_date">
+                                                    <div class="form-group mgb">
+                                                        <table class="s36">
+                                                            <tbody><tr>
+                                                                <td><label> From :
+                                                                </label></td>
+                                                                <td>
+                                                                    <div class="form-group input-group mg0">
+																		<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
+																		</span> <input class="form-control form_datetime" id="txtFromDate" type="text" name="filterModel.fromDate" data-date-format="dd MM yyyy">
+                                                                    </div>
+                                                                </td>
+                                                                <td><label> To :
+                                                                </label></td>
+                                                                <td>
+                                                                    <div class="form-group input-group mg0">
+																		<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
+																		</span> <input class="form-control form_datetime" id="txtToDate" name="filterModel.toDate" type="text" data-date-format="dd MM yyyy">
+                                                                    </div>
+                                                                </td>
+                                                            </tr>
+                                                        </tbody></table>
+                                                    </div>
+                                                </div>
+
+                                                <div class="col-lg-12 pd0" style="margin-top: 5px;">
+                                                    <div class="form-group mgb">
+                                                        <table class="s36">
+                                                            <tbody><tr>
+                                                                <td><label> Search :
+                                                                </label></td>
+                                                                <td><select name="" id="sel_list_search">
+    <option value="filterModel.connoteNumber">Connote Number</option>
+    <option value="filterModel.reciverCity">Receiver City</option>
+    <option value="filterModel.reciverName">Receiver Name</option>
+    <option value="filterModel.senderName">Sender Name</option>
+    <option value="filterModel.senderCity">Sender City</option>
+
+
+</select>
+
+</td>
+                                                             
+                                                               
+                                                                 </tr>
+                                                        </tbody></table>
+                                                    </div>
+                                                </div>
+                                                <div class="col-lg-12 " id="button_actions" style="margin-top: 10px">
+
+                                                    <button class="btn s33 s44" type="button" onclick="javascript:reshipHistory();" disabled="disabled">
+                                                        Re-Ship Same Package
+                                                    </button>
+                                                        
+                                                    <button class="btn s33 s44" type="button" id="btnViewAirbill" onclick="javascript:viewAirbill();" disabled="disabled">
+                                                        View Airbill
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" id="btnViewThermalLabel" onclick="javascript:viewThermalLabel()" disabled="disabled">
+                                                        Thermal Label
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" id="btnviewmanifest" onclick="javascript:viewManifest()" disabled="disabled">
+                                                        View Manifest
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" id="btn_viewcommercial" onclick="javascript:viewCommercialInvoice()" disabled="disabled">
+                                                        View Commercial Invoice
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" onclick="javascript:viewPackingList()" id="btn_packing_list" disabled="disabled">
+                                                        View Packing List
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" onclick="viewTntConnote()" id="btn_tnt_connote" style="display: none" disabled="disabled">
+                                                        Consignment Note
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" id="btnSendAirbill" onclick="javascript:sendAirbill();" disabled="disabled">
+                                                        Send Airbill
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" id="btn_schedule_collection" onclick="javascript:scheduleCollection();" disabled="disabled">
+                                                        Schedule Collection
+                                                    </button>
+                                                    <button disabled="disabled" class="btn s33 s44" type="button" id="btn_mo_schedule_collection" onclick="javascript:moScheduleCollection();">
+                                                        Modify Schedule Collection
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" id="btn_ca_schedule_collection" onclick="javascript:caScheduleCollection();" disabled="disabled">
+                                                        Cancel Collection
+                                                    </button>
+
+                                                        
+                                                    <button class="btn s33 s44" type="button" onclick="javascript:trackAirbill();" disabled="disabled">
+                                                        Track
+                                                    </button>
+                                                        
+                                                    <button class="btn s33 s44" type="button" id="btn_void" onclick="javascript:voidAirbill();" disabled="disabled">
+                                                        Void
+                                                    </button>
+                                                    <button class="btn s33 s44" type="button" onclick="javascript:showNote();" disabled="disabled">
+                                                        View Note
+                                                    </button>
+                                                        
+
+                                                    <!-- Note -->
+
+                                                    <!-- End AddNote -->
+                                                </div>
+                                           
+                                                <div id="div_history_data">
+                                                    <input type="hidden" name="" value="" id="hid_shipment_id">
+                                                    <input type="hidden" id="hid_history_records" value="25">
+
+                                                    <div>
+                                                        
+                                                            <table class="table table-hover table-bordered mg0 datatable1" id="datatable1">
+                                                                <thead>
+                                                                <tr>
+                                                                    <th></th>
+                                                                    <th>Carrier</th>
+                                                                    <th>Voided</th>
+                                                                    <th>Tracking#</th>
+                                                                    <th>Date</th>
+                                                                    <th>Time Stamp</th>
+                                                                    <th>Ship Date</th>
+                                                                    <th>Pieces</th>
+                                                                    <th>Service</th>
+                                                                    <th class="col_hidden th_package" style="display: none;">Package</th>
+                                                                    <th>Weight</th>
+                                                                    <th class="col_hidden th_dimensions" style="display: none;">
+                                                                        Dimension</th>
+                                                                    <th>Quoted</th>
+                                                                    <th>Insured Amount</th>
+                                                                    <th>Scheduled</th>
+                                                                    <th>Scheduled collection timestamp</th>
+                                                                    <th>Collection Information</th>
+                                                                    <th class="col_hidden th_shipment_reference" style="display: none;">
+                                                                        Reference</th>
+                                                                    <th class="col_hidden th_billing_party" style="display: none;">
+                                                                        Billing Party</th>
+                                                                    <th class="col_hidden th_sender_company" style="display: none;">
+                                                                        Sender Company</th>
+                                                                    <th class="col_hidden th_sender_contact" style="display: none;">
+                                                                        Sender Contact</th>
+                                                                    <th class="col_hidden th_sender_location" style="display: none;">
+                                                                        Sender Location</th>
+                                                                    <th class="col_hidden th_receiver_company" style="display: none;">
+                                                                        Receiver Company</th>
+                                                                    <th class="col_hidden th_receiver_contact" style="display: none;">
+                                                                        Receiver Contact</th>
+                                                                    <th>Destination</th>
+                                                                    <th>Dest. Country</th>
+                                                                </tr>
+                                                                </thead>
+                                                                <tbody>
+                                                                
+                                                                    <tr class="tr_no_record">
+                                                                        <td>
+                                                                            <input type="checkbox" name="chk_multivoid[]" value="25722" id="form_history_chk_multivoid__" class="chk_multivoid chk_multivoid_NO" style="display: none;"><input type="hidden" id="__checkbox_form_history_chk_multivoid__" name="__checkbox_chk_multivoid[]" value="25722">
+                                                                            <input type="hidden" name="" value="0" id="is_void">
+                                                                         </td>
+
+                                                                        <td>Startrack <input type="hidden" name="" value="25722" id="shipmentId">
+                                                                            <input type="hidden" name="" value="1" id="commercialInvoiceId">
+                                                                            <input type="hidden" name="" value="13219" id="schedule_collection_id">
+                                                                            <input type="hidden" name="" value="72" id="service_id"> <input type="hidden" name="" value="1" id="packingList"></td>
+                                                                        <td class="td_void_status">NO</td>
+                                                                        <td id="td_airbillNumber">95AZ00020470</td>
+                                                                        <td>13-04-2021</td>
+                                                                        <td>14:09:48</td>
+                                                                        <td>13-04-2021</td>
+                                                                        <td>1</td>
+                                                                        <td>Premium Air Freight</td>
+                                                                        <td class="col_hidden th_package" style="display: none;">Customer packaging</td>
+                                                                        <td>6.00 kg(s)</td>
+                                                                        <td class="col_hidden th_dimensions" style="display: none;">32 X 32 X 20 cm</td>
+                                                                        <td>
+                                                                            150.66
+                                                                         </td>
+                                                                        <td></td>
+                                                                        <td class="td_schedule">YES</td>
+                                                                        <td>13-04-2021 14:30:00</td>
+                                                                        <td>9787511</td>
+                                                                        <td class="col_hidden th_shipment_reference" style="display: none;">
+                                                                            84005-MMN-044</td>
+                                                                        <td class="col_hidden th_billing_party" style="display: none;">
+                                                                            S</td>
+                                                                        <td class="col_hidden th_sender_company" style="display: none;">
+                                                                            CEVA LOGISTICS </td>
+                                                                        <td class="col_hidden th_sender_contact" style="display: none;">
+                                                                            DAVID ROBERTS</td>
+                                                                        <td class="col_hidden th_sender_location" style="display: none;">
+                                                                            HAZELMERE, 6055</td>
+                                                                        <td class="col_hidden th_receiver_company" style="display: none;">
+                                                                            BHP SOUTH FLANK PROJECT</td>
+                                                                        <td class="col_hidden th_receiver_contact" style="display: none;">
+                                                                            ZIGGY / MICHAEL</td>
+                                                                        <td>NEWMAN, 6753</td>
+                                                                        <td>Australia</td>
+                                                                    </tr>
+                                                                 </tbody>
+                                                            </table>
+                                                        
+                                                        
+                                                    </div>
+                                                </div>
+                                                <button class="btn s33 s44 multivoid" type="button" onclick="javascript:proceedToVoid();" style="display: none;">
+                                                    Proceed to Void
+                                                </button>
+                                                <button class="btn s33 s44 multivoid" type="button" onclick="javascript:proceedToUpate();" style="display: none;">
+                                                    Proceed to Update
+                                                </button>
+                                                <button class="btn s33 s44 multivoid" type="button" id="cancel_multivoid" style="display: none;">
+                                                    Cancel
+                                                </button>
+
+                                                <div id="div_proceed_tovoid"></div>
+                                                <div id="div_proceed_tovoid_result"></div>
+                                                <div id="div_proceed_toupdate"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-actions text-right pal pdt10">
+                                        <div class="row">
+                                            <div class="col-lg-2">
+                                                <div class="form-group text-left s100">
+                                                    <div class="form-group">
+                                                        <div class="checkbox">
+                                                            <label> <input type="checkbox" id="chk_show_option" onclick="javascript:showOption();"> &nbsp;
+                                                                Show Report Options
+                                                            </label>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-lg-12" id="div_list_chk_option" style="display: none;">
+                                                <div class="form-group text-left s99">
+                                                    <div class="form-group">
+                                                        <label class="checkbox-inline"> <input type="checkbox" class="cb1" id="chk_option_all" onclick="javascript:optionShowAll();">
+                                                            &nbsp; All
+                                                        </label> <label class="checkbox-inline"> <input type="checkbox" name="th_package" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Package Type
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_dimensions" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Dimensions
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_shipment_reference" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Shipment Reference
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_billing_party" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Billing Party
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_company" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Sender Company
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_contact" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Sender Contact
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_location" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Sender Localtion
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_receiver_company" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Receiver Company
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_receiver_contact" class="cb1" onclick="javascript:optionShowCol();">
+                                                        &nbsp; Receiver Contact
+                                                    </label>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</form></div>
 </div>
 <div class="pal form-actions">
     <table class="s36" align="right">
@@ -10668,9 +11162,9 @@ $(document).ready(function()
         </tr>
         <tr>
             <td>
-                <button class="btn s37" type="button" onclick="doReset()">
-                    Reset
-                </button>
+            <button class="btn s37" type="reset">
+                        Reset
+                    </button>
             </td>
             <td>
                 <button class="btn s37" type="button" onclick="doSaveCustomer()">
@@ -10681,7 +11175,7 @@ $(document).ready(function()
         </tbody>
     </table>
 </div>
-<script type="text/javascript">
+<!--script type="text/javascript">
     $('#manage_customer_tab_nav a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var activeTab = $('ul#manage_customer_tab_nav li.active a').attr('href');
         var customerCode = $("#customerCode option:selected").val();
@@ -10697,7 +11191,8 @@ $(document).ready(function()
     loadTabContent(customerCode, activeTab);
 
 
-</script></div>
+</script-->
+</div>
                         </div>
                     </div>
                 </div>
@@ -10705,3 +11200,32 @@ $(document).ready(function()
         </div>
     </div>
 </div>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
+<script>
+  $("body").on("click", "#exportBtn", function () {
+            html2canvas($('#datatable1')[0], {
+                onrendered: function (canvas) {
+                    var data = canvas.toDataURL();
+                    var docDefinition = {
+                        content: [{
+                            image: data,
+                            width: 500
+                        }]
+                    };
+                    pdfMake.createPdf(docDefinition).download("web_freight_history.pdf");
+                }
+            });
+        });
+
+        $(document).ready(function(){  
+      $('#create_excel').click(function(){  
+           var excel_data = $('#datatable1').html();  
+           var page = "rates/import_rate?data=" + excel_data;  
+           window.location = page;  
+      });  
+ });  
+</script>
+</body>
+</html>

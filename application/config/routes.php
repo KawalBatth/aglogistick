@@ -76,6 +76,8 @@ $route['admin/update_surcharge'] = 'admin/carriers/update_surcharge';
 
 $route['admin/add_carrier'] = 'admin/carriers/add_carrier';
 
+$route['admin/update_user'] = 'admin/customers/update_user';
+
 //$route['admin/shipment'] = 'admin/customers/shipment';
 
 //$route['admin/address_book'] = 'admin/customers/address_book';

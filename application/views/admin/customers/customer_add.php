@@ -354,7 +354,7 @@
                                         <table class="s36">
                                             <tbody>
                                             <tr>
-                                                <td>Search</td>
+                                                <!--td>Search</td>
                                                 <td><input id="searchText" name="searchText" class="form-control b20" type="text"></td>
                                                 <td><select name="franchiseCode" id="franchiseCode" class="form-control" onchange="onFranchiseChange()">
                          <option value="100">100 - AGL Logistics</option>
@@ -368,7 +368,7 @@
                                                     <button class="btn s37" type="button" onclick="onGoClick()">
                                                         Search
                                                     </button>
-                                                </td>
+                                                </td-->
                                             <td>    <select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
                                     <option value="-1">Select a Customer</option>
                                     <option value="add">Add a Customer</option>
@@ -1399,7 +1399,14 @@
                 </div>
             </div>
         </div>
+        <div id="notes-tab" class="tab-pane fade in">
+           
 
+            
+                Type text in the box below for the initial note on this account.
+         
+            <textarea name="note.note" cols="100" rows="5" id="note_note"></textarea>
+        </div>
         <!-- Base rates tab -->
         <div id="base-rates-tab" class="tab-pane fade">
             <div class="row">
@@ -5673,6 +5680,7 @@
                                                                 </div>
                                                             </div>
                                                         </div>
+                                                       
                                                         <!-- Customer base rate detail -->
                                                         <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
                                                             <ul class="c36" style="width: 14324px; overflow: hidden;">
@@ -9607,45 +9615,14 @@
                 </div>
             </div>
         </div>
+       
 
         <!-- Note tab -->
-        <div id="notes-tab" class="tab-pane fade">
-           
-            <p>
-            <b>Notes:</b>
-
-            </p>
-            <textarea name="note.note" cols="100" rows="5" id="note_note"></textarea>
-        </div>
+        
     </div>
-    <div class="pal form-actions">
-        <table class="s36" align="right">
-            <tbody>
-            <tr>
-                <td height="10"></td>
-            </tr>
-            <tr>
-                <td>
-                    <button class="btn s37" type="reset">
-                        Reset
-                    </button>
-                </td>
-                <td>
-                    <button class="btn s37" type="button" onclick="saveNewCustomer()">
-                        Save
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
+    
 </form>
 
-<div id="add-weight-break-comp" style="display: none;"></div>
-<div id="add-weight-dialog" title="Add Weight Break" style="display: none;"></div>
-<div id="view_rate_sheet_dialog" title="View Rate Sheet" style="display: none;"></div>
-<div id="msg-dialog" title="Message"></div>
-<!--script src="https://webfreight.agllogistics.com:443/crm-admin/script/xms/vendor/jquery.fileDownload.js"></script-->
 <script type="text/javascript">
     $(document).ready(function () {
         enableDisableBillingAddress();
@@ -10097,3 +10074,4 @@
 </script></div>
                         </div>
                     </div>
+                    
