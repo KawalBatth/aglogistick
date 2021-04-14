@@ -60,6 +60,7 @@ $route['adminlte'] = 'admin/auth';
 $route['adminlte/(:any)'] = 'admin/adminlte/$1';
 
 $route['admin/list'] = 'admin/customers/customer_list';
+$route['admin/customer_manage'] = 'admin/customers/customer_manage';
 $route['admin/manage'] = 'admin/customers/customer_manage';
 $route['admin/add_user'] = 'admin/customers/add_user';
 $route['admin/search'] = 'admin/customers/customer_search';

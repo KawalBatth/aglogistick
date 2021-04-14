@@ -622,11 +622,11 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="customerName" value="" id="address_address_customerName" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="customerName" value="" id="address_address_customerName" class="form-control uppercase" data-group="address" required="required"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="contactName" value="" id="address_address_contactName" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="contactName" value="" id="address_address_contactName" class="form-control uppercase" data-group="address" required="required"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
@@ -9897,7 +9897,26 @@
 
     function saveNewCustomer() {
         //loadingDialog.dialog("open");
+
         var formdata = $("#add_customer_form").serialize();
+        var isfromsubmit = false;
+        var html='';
+        $('#add_customer_form input').each(function()
+        {
+                if($(this).prop('required' ) && $(this).val()==''){
+                  alertDialog.dialog("open");  
+                  html +=$(this).parent().parent().find('.td1').html()+' Required <br/>';
+                  isfromsubmit = false;
+                  alertDialog.html(html);               
+                }
+                else 
+                {
+                  alertDialog.dialog("close"); 
+                  isfromsubmit = true;
+                }
+        });
+        if(isfromsubmit ==true)
+        {
         console.log(formdata);
          $.ajax({
                url: 'customers/add_customer',
@@ -9910,7 +9929,7 @@
               console.log(res);          
                }
             });
-        
+        }
         // $.post("add_customer_save.ix?reqType=json", data, function (res) {
         //     loadingDialog.dialog("close");
         //     if (res.errorCode == "SUCCESS") {

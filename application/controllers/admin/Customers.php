@@ -121,7 +121,9 @@
 		}
 		public function add_customer()
 		{
+
 			$customerCode = $this->input->post('customerCode');
+			$customerCodeexists = $this->auth_model->check_customer($customerCode);
 			$customerName = $this->input->post('customerName');
 			$contactName = $this->input->post('contactName');
 			$contactTitle = $this->input->post('contactTitle');
@@ -204,8 +206,12 @@
 				'other_phone3'=>$other2Phone,
 				'other_email3'=>$other2Email,
 			);
+			if($customerCodeexists==true)
+			{
+				$this->auth_model->update_customer($dataforsave,$customerCode);			
+			}
+			else {$this->auth_model->save_customer($dataforsave);			}
 			
-			$this->auth_model->save_customer($dataforsave);			
 			
 		}
 

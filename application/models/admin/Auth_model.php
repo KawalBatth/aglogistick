@@ -87,6 +87,18 @@
 			
 			return $result['email'];
 	}
+	public function check_customer($id)
+	{
+
+		$query = $this->db->get_where('customer', array('customer_id' => $id));
+		$result = $query->row_array();
+		if(empty($result))
+		{
+			return false;
+		}
+		else {return true;}
+
+	}
 	public function get_users()
 	{
 			$this->db->select('*');
@@ -102,6 +114,13 @@
 		$last = $this->db->order_by('id',"desc")->limit(1)->get('customer')->row();
 		if($last)
 		return $last->customer_id+1;
+	}
+	public function update_customer($data,$id)
+	{
+
+		$this->db->where('customer_id', $id);
+		$this->db->update('customer', $data);
+		return true;
 	}
 }
 
