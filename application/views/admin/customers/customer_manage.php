@@ -11219,9 +11219,9 @@ function edituser()
         $(document).ready(function(){  
       $('#create_excel').click(function(){  
             //history_tabel
-            $("#datatable1").table2excel({
-            exclude: ".noExl",
-            name: "Results"
+          $("#datatable1").table2excel({
+              exclude: ".noExl",
+              name: "Results"
         });
            // var excel_data = $('#datatable1').html();  
            // var page = "rates/import_rate?data=" + excel_data;  
