@@ -72,10 +72,10 @@
 			return true;
 		}
 
-		public function checkOldPassword($oldPassword)
+		public function checkOldPassword($user_id, $oldPassword)
 {
-    $this->db->where('id',$this->session->userdata('id'));
-    $this->db->where('password',$this->input->post('oldPassword'));
+    $this->db->where('id', $user_id);
+    $this->db->where('password', $oldPassword);
     $query=$this->db->get('user');
     if($query->num_rows>0)
     {
