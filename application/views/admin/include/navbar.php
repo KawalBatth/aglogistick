@@ -520,6 +520,10 @@ td:last-child{
 }
 
 
+.login-form input[type=text], .login-form input[type=password]{
+    margin-top: 10px !important;
+}
+
 
     </style>
   <header class="main-header">

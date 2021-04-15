@@ -1,3 +1,5 @@
+
+
 <section class="content">
   <div class="row">
     <div class="col-md-12">
@@ -13,6 +15,7 @@
                   <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
                   <h4><i class="icon fa fa-warning"></i> Alert!</h4>
                   <?= validation_errors();?>
+                  <?= isset($msg)? $msg: ''; ?>
               </div>
             <?php endif; ?>
            

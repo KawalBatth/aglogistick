@@ -72,6 +72,38 @@
 			return true;
 		}
 
+		public function checkOldPassword($oldPassword)
+{
+    $this->db->where('id',$this->session->userdata('id'));
+    $this->db->where('password',$this->input->post('oldPassword'));
+    $query=$this->db->get('user');
+    if($query->num_rows>0)
+    {
+        return true;
+    }else{
+        $this->form_validation->set_message('checkOldPassword', 'wrong old password.');
+        return false;
+    }
+
+	/*public function Update_User_Data($user_id, $data)
+	{
+		$this->db->set($data);
+		$this->db->where('id', $user_id);
+		$this->db->update('user');
+		if($this->db->affected_rows() > 0)
+			return true;
+		else
+			return false;
+	}*/
+}
+
+public function set_message($data, $id){
+	$this->db->where('id', $id);
+	$this->db->update('user', $data);
+	return true;
+}
+
+
 	}
 
 ?>

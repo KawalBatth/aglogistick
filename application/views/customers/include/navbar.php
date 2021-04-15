@@ -393,6 +393,10 @@ input#carrier_name {
     padding: 13px;
 }
 
+button.btn.s33.s44.save {
+    float: left;
+}
+
 h3.title {
     margin-top: 10px;
     margin-left: -11px;
@@ -444,7 +448,7 @@ img.logo_img {
         <span class="sr-only">Toggle navigation</span>
       </a>
       <div class="pull-right info">
-          <p class="user_name"><?= ucwords($this->session->userdata('name')); ?>
+          <p class="user_name"><?= ucwords($this->session->userdata('user_name')); ?>
          <i class="fa fa-circle text-success"></i></p>
         </div>
         <div class="logout">

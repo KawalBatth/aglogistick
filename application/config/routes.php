@@ -79,6 +79,8 @@ $route['admin/add_carrier'] = 'admin/carriers/add_carrier';
 
 $route['admin/update_user'] = 'admin/customers/update_user';
 
+$route['customer/change_password'] = 'customer/customers/change_password';
+
 //$route['admin/shipment'] = 'admin/customers/shipment';
 
 //$route['admin/address_book'] = 'admin/customers/address_book';

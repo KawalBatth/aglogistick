@@ -1,3 +1,4 @@
+
 <div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -31,11 +32,13 @@
                                 <div class="panel-body pan">
                                     <div class="form-body pal">
                                         <div class="row">
+                                       
                                             <div class="col-md-6">
+                                            <?php echo form_open(base_url('customer/country_list'), 'class="get_shipment-form" '); ?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="AGL SPECIALISED LOGISTICS" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="AGL SPECIALISED LOGISTICS" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
                                                     <div id="sender-address-by-company-search-result"></div>
                                                 </div>
                                             </div>
@@ -43,14 +46,14 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.phone" maxlength="25" value="08 94793399" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
+                                                    <input type="text" name="shipmentPage.senderAddress.phone" maxlength="25" pattern="08\d{8}" value="08 94793399" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" required data-placement="top" data-original-title="TOOLTIP:Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="DESPATCH" id="shipment-info-form_shipmentPage_senderAddress_contactName" class="form-control alloptions" onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
+                                                    <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="DESPATCH" id="shipment-info-form_shipmentPage_senderAddress_contactName" class="form-control alloptions" required onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
                                                     <div id="sender-address-by-contact-search-result"></div>
                                                 </div>
                                             </div>
@@ -67,9 +70,12 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Country <span class="s30"> *</span>
                                                     </label>
-                                                    <select name="shipmentPage.senderAddress.country" id="shipmentPage_senderAddress_country" class="form-control" onchange="changeCountry('sender')">
-    <option value="0">Please select a country.</option>
-    <option value="2">Albania</option>
+                                                    <select name="shipmentPage.senderAddress.country" required id="shipmentPage_senderAddress_country" class="form-control">
+   
+    <?php //for($i=0;$i<count($all_countries);$i++){?>
+        <!--option value="<?php // echo $all_countries[$i]['id'];?>"><?php //echo $all_countries[$i]['country_name'];?></option-->
+        <?php// }?>
+        <option value="2">Albania</option>
     <option value="3">Algeria</option>
     <option value="4">American Samoa</option>
     <option value="5">Andorra</option>
@@ -336,8 +342,8 @@
     <option value="234">Zambia</option>
     <option value="235">Zimbabwe</option>
 
-
 </select>
+
 
 
                                                 </div>
@@ -346,7 +352,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.address" maxlength="35" value="U1 / 11 FRICKER ROAD" id="shipment-info-form_shipmentPage_senderAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
+                                                    <input type="text" name="shipmentPage.senderAddress.address" maxlength="35" required value="U1 / 11 FRICKER ROAD" id="shipment-info-form_shipmentPage_senderAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -446,7 +452,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_companyName" class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
                                                     <div id="receiver-address-by-company-search-result"></div>
                                                 </div>
                                             </div>
@@ -454,14 +460,14 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.phone" maxlength="25" value="" id="shipment-info-form_shipmentPage_receiverAddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
+                                         <input type="text" name="shipmentPage.receiverAddress.phone" maxlength="25" value="" pattern="08\d{8}" id="shipment-info-form_shipmentPage_receiverAddress_phone" required class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_contactName" class="form-control alloptions" ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
+                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_contactName" class="form-control alloptions" required ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
                                                     <div id="receiver-address-by-contact-search-result"></div>
                                                 </div>
                                             </div>
@@ -760,7 +766,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.address" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
+                                                    <input type="text" name="shipmentPage.receiverAddress.address" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_address" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -799,7 +805,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_city" class="form-control alloptions" onkeyup="searchCity(false,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_city" class="form-control alloptions" required onkeyup="searchCity(false,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -870,12 +876,8 @@
                                                     <div class="form-group col-lg-6" id="change-country-div">
                                                         <label class="control-label" for="inputName"> Carrier <span class="s30"> *</span>
                                                         </label>
-                                                        <select name="shipmentPage.serviceId" id="shipmentPage_serviceId" class="form-control" onchange="changeService($(this).val())">
+                                                        <select name="shipmentPage.serviceId" id="shipmentPage_serviceId" required class="form-control">
     <option value="72" selected="selected">Startrack</option>
-    <option value="52">Toll Priority</option>
-    <option value="59">Toll Ipec</option>
-
-
 </select>
 
 
@@ -883,7 +885,7 @@
                                                     <div class="form-group col-lg-6" id="change-service-div">
                                                         <label class="control-label" for="inputName"> Service Type <span class="s30"> *</span>
                                                         </label>
-                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" class="form-control" onchange="changeShipmentType($(this).val())">
+                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control" onchange="changeShipmentType($(this).val())">
     <option value="229">Premium Air Freight</option>
     <option value="228">Road Express</option>
     <option value="230">Fixed Price Premium 1kg</option>
@@ -919,7 +921,7 @@
                                                         
                                                         
                                                             <br>
-                                                            <label class="radio-inline document"> <input type="radio" value="DOX" name="shipmentPage.contentType" disabled="disabled" onclick="resetAddPiece($(this).val())"> &nbsp;
+                                                            <label class="radio-inline document"> <input type="radio" value="DOX" required name="shipmentPage.contentType" disabled="disabled" onclick="resetAddPiece($(this).val())"> &nbsp;
                                                                 Documents
                                                             </label>
                                                             <label class="radio-inline parcel"> <input type="radio" value="WPX" name="shipmentPage.contentType" checked="checked" onclick="resetAddPiece($(this).val())">
@@ -932,7 +934,7 @@
                                                             <label class="control-label" for="inputName">
                                                                 Weight Unit
                                                             </label>
-                                                            <select name="shipmentPage.weightUnit" id="sel-weight-unit" class="form-control" onchange="changeWeightUnit($(this).val())">
+                                                            <select name="shipmentPage.weightUnit" id="sel-weight-unit" class="form-control">
     <option value="KG">KG</option>
 
 
@@ -946,7 +948,7 @@
                                                             <label class="control-label" for="inputName">
                                                                 Dimension Unit
                                                             </label>
-                                                            <select name="shipmentPage.dimensionUnit" id="sel-dim-unit" class="form-control" onchange="changeDimUnit($(this).val())">
+                                                            <select name="shipmentPage.dimensionUnit" id="sel-dim-unit" class="form-control">
     <option value="CM">CM</option>
 
 
@@ -960,22 +962,9 @@
                                                             <label class="control-label" for="inputName">
                                                                 Currency
                                                             </label>
-                                                            <select name="shipmentPage.currencyCode" id="shipment-info-form_shipmentPage_currencyCode" class="form-control" onchange="changeCurrency($(this).val())">
-    <option value="TWD">Taiwan New Dollars</option>
-    <option value="SGD">Singapore Dollars</option>
-    <option value="GBP">British Pounds</option>
-    <option value="CNY">Chinese Yuan (Ren Min Bi)</option>
-    <option value="USD">US Dollars</option>
-    <option value="JPY">Japanese Yen</option>
+                                                            <select name="shipmentPage.currencyCode" id="shipment-info-form_shipmentPage_currencyCode" class="form-control">
+   
     <option value="AUD" selected="selected">Australian Dollars</option>
-    <option value="HKD">Hong Kong Dollars</option>
-    <option value="EUR">Euro</option>
-    <option value="MYR">Malaysia Ringgits</option>
-    <option value="ZAR">South African rand</option>
-    <option value="CAD">Canadian Dollars</option>
-    <option value="NZD">New Zealand Dollars</option>
-    <option value="CHF">Swiss Francs</option>
-
 
 </select>
 
@@ -1022,24 +1011,24 @@
                                                             <tr id="piece-dt1">
                                                                 <td width="2%" style="padding-top: 8px" id="piece-order1" class="order-number">1
                                                                 </td>
-                                                                <td width="10%"><input type="text" name="shipmentPage.pieces[0].weight" maxlength="6" value="" id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return formartNumber(event,this,false);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Weight"></td>
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces[0].weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" onfocus="this.value=''"></td>
                                                                 <td width="40%">
                                                                     <div class="row mg0">
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input name="shipmentPage.pieces[0].dimensionL" value="" class="form-control alloptions dimL" onkeypress="return formartNumber(event,this,false);" maxlength="4">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionL" required value="" class="form-control alloptions dimL" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                 </div>
+                                                                        <div class="col-lg-4 pd1">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionW" value="" required class="form-control alloptions dimW" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                         </div>
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input name="shipmentPage.pieces[0].dimensionW" value="" class="form-control alloptions dimW" onkeypress="return formartNumber(event,this,false);" maxlength="4">
-                                                                        </div>
-                                                                        <div class="col-lg-4 pd1">
-                                                                            <input name="shipmentPage.pieces[0].dimensionH" value="" class="form-control alloptions dimH" onkeypress="return formartNumber(event,this,false);" maxlength="4">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionH" value="" required class="form-control alloptions dimH" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                         </div>
                                                                     </div>
                                                                 </td>
-                                                                <td width="25%" style="display:none">
-                                                                    <input type="text" name="shipmentPage.pieces[0].customValue" maxlength="10" value="0.00" id="shipment-info-form_shipmentPage_pieces_0__customValue" class="form-control alloptions customValue" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Shipment value"></td>
+                                                                <!--td width="25%" style="display:none">
+                                                                    <input type="text" name="shipmentPage.pieces[0].customValue" maxlength="10" value="0.00" id="shipment-info-form_shipmentPage_pieces_0__customValue" class="form-control alloptions customValue" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Shipment value"></td-->
                                                                 
-                                                                    <td class="quantity"><input type="text" name="shipmentPage.pieces[0].quantity" value="1" id="shipment-info-form_shipmentPage_pieces_0__quantity" class="form-control quantity" onkeypress="return formartNumber(event,this,false);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Quantity"></td>
+                                                                    <td class="quantity"><input type="text" name="shipmentPage.pieces[0].quantity" value="1" id="shipment-info-form_shipmentPage_pieces_0__quantity" class="form-control quantity" required onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="10" min="1" onfocus="this.value=''"></td>
                                                                 
                                                                 
                                                                 <td width="3%" style="padding-top: 9px"><i id="remove" class="fa fa-times-circle-o s10" style="font-size: 18px; display: none;" onclick="removePiece($(this))"></i>
@@ -1047,18 +1036,13 @@
                                                             </tr>
                                                             
                                                                 <input type="hidden" name="shipmentPage.isAddPiece" value="true" id="shipment-info-form_shipmentPage_isAddPiece">
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            
-                                                            </tbody>
+                                                             </tbody>
                                                         </table>
                                                         
                                                         
                                                             
                                                                 <button class="btn s33" type="button" onclick="addPiece()">
-                                                                    Add Piece
+                                                                   +
                                                                 </button>
                                                             
                                                         
@@ -1291,10 +1275,9 @@
             $("#divAglWarranty").find("input[name='shipmentPage.addCons[2].value']").val(0);
         }
     });
+
     function showServiceAddConDetails(id) {
-    	
-    	
-    	var isChecked = $("#service_cons_" + id).is(':checked');
+    	 var isChecked = $("#service_cons_" + id).is(':checked');
         if (isChecked) {
         var extraTask =	$("input[name='shipmentPage.addCons["+id+"].addConName']").val();
        // alert(""+extraTask);
@@ -1324,6 +1307,35 @@
             $("#service_cons_" + id + "_add").hide();
         }
     }
+
+
+  function maxLengthCheck(object) {
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+  }
+    
+  function isNumeric (evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode (key);
+    var regex = /[0-9]/;
+    if ( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+
+      
+  function isNum (evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode (key);
+    var regex = /[0-9]|\./;
+    if ( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
 </script></div>
                                                     <div class="col-lg-12">
                                                         <div class="text-left pal pdt10" style="margin-bottom: 50px; margin-top: 102px; text-align: right;">
@@ -1525,7 +1537,9 @@ function onChangeServiceType(isReturn) {
             $('input[name="' + nameCheck + '"]').val(0);
         }
     }
+
+    $(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
     </script>
 
-  
-  

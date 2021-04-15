@@ -36,12 +36,13 @@
                     </div>
                     <?php echo form_open(base_url('admin/auth/login'), 'class="login-form" '); ?>
                         <div class="input-group">
-                            <input type="email" name="email" id="email" class="form-control" placeholder="Email" >
+                            <input type="email" name="email" id="email" class="form-control email" placeholder="Email" >
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" >
                             <input type="submit" name="submit" id="submit" class="form-control" value="Log In">
                         </div>
                     <?php echo form_close(); ?>
                 </div>
+               <p> Forgot your password?<a href="<?php echo base_url('admin/auth/change_pwd'); ?>" >Click here to reset it.</a></p> 
             </div>
         </div>
     </div>
