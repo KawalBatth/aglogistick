@@ -9,42 +9,7 @@
         <span><strong>Please wait ...</strong></span>
     </div>
 </div>
-<div id="alert-dialog" title="Error"></div>
-<div id="message-dialog" title="Message"></div>
-<script type="text/javascript">
-    // init common dialog
-    var loadingDialog = $("#loading-dialog").dialog({
-        modal: true,
-        autoOpen: false,
-        width: "500px",
-        height: "auto",
-        dialogClass: "no-close",
-        closeOnEscape: false,
-        show: {
-            effect: "fade",
-            duration: 500
-        }
-    });
-    var alertDialog = $("#alert-dialog").dialog({
-        autoOpen: false,
-        modal: true,
-        close: function (e) {
-            $("#message-dialog").html("");
-        }
-    });
-    var messageDialog = $("#message-dialog").dialog({
-        autoOpen: false,
-        show: {
-            effect: "fade",
-            duration: 300
-        },
-        modal: true,
-        close: function (e) {
-            $("#message-dialog").html("");
-        }
-    });
-</script>
-<div>
+
 <div class="col-lg-12">
                         <div class="portlet box">
                             <div class="portlet-header">
@@ -396,7 +361,8 @@
     <li class=""><a href="#base-rates-tab" data-toggle="tab">Base Rates</a></li>
         <li class=""><a href="#notes-tab" data-toggle="tab">Notes</a></li>
 </ul>
-  <?php echo form_open(base_url('admin/add_customer'), 'class="add_customer_form" id="add_customer_form"'); ?>
+  <?php //echo form_open(base_url('admin/add_customer'), 'class="add_customer_form" id="add_customer_form"'); ?>
+  <form id="add_customer_form">
     <div id="manage_customer_tab_content" class="tab-content responsive">
         <!-- Account setup tab -->
         <div id="account-setup-tab" class="tab-pane fade active in">
@@ -9619,7 +9585,42 @@
     </div>
     
 </form>
-
+<div id="alert-dialog" title=""></div>
+<div id="message-dialog" title="Message"></div>
+<script type="text/javascript">
+    // init common dialog
+    var loadingDialog = $("#loading-dialog").dialog({
+        modal: true,
+        autoOpen: false,
+        width: "500px",
+        height: "auto",
+        dialogClass: "no-close",
+        closeOnEscape: false,
+        show: {
+            effect: "fade",
+            duration: 500
+        }
+    });
+    var alertDialog = $("#alert-dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+    var messageDialog = $("#message-dialog").dialog({
+        autoOpen: false,
+        show: {
+            effect: "fade",
+            duration: 300
+        },
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+</script>
+<div>
 <script type="text/javascript">
     $(document).ready(function () {
         enableDisableBillingAddress();
@@ -9893,29 +9894,30 @@
     }
 
     function saveNewCustomer() {
+      
         //loadingDialog.dialog("open");
 
         var formdata = $("#add_customer_form").serialize();
         var isfromsubmit = false;
+        var isfromsubmitvalue = true;
         var html='';
         $('#add_customer_form input').each(function()
         {
-                if($(this).prop('required' ) && $(this).val()==''){
-                  alertDialog.dialog("open");  
-                  html +=$(this).parent().parent().find('.td1').html()+' Required <br/>';
-                  isfromsubmit = false;
-                  alertDialog.html(html);               
-                }
-                else 
+
+                if($(this).prop('required'))
                 {
-                  alertDialog.dialog("close"); 
-                  isfromsubmit = true;
+                      alertDialog.dialog("open");  
+                      html +=$(this).parent().parent().find('.td1').html()+' Required <br/>';
+                      isfromsubmit = false;
+                      alertDialog.html(html);               
                 }
+               
         });
-        if(isfromsubmit ==true)
+        if(isfromsubmit==true)
         {
-        console.log(formdata);
-         $.ajax({
+
+          alertDialog.dialog("close");  
+          $.ajax({
                url: 'customers/add_customer',
                type: 'POST',
                data:formdata,

@@ -78,6 +78,7 @@ $route['admin/update_surcharge'] = 'admin/carriers/update_surcharge';
 $route['admin/add_carrier'] = 'admin/carriers/add_carrier';
 
 $route['admin/update_user'] = 'admin/customers/update_user';
+$route['admin/get_c_user_by_id'] = 'admin/customers/get_c_user_by_id';
 
 $route['customer/change_password'] = 'customer/customers/change_password';
 
@@ -101,6 +102,7 @@ $route['customer/history'] = 'customer/customers/history';
 $route['customer/settings'] = 'customer/customers/setting';
 $route['customer/login'] = 'customer/login';
 $route['customer/booking'] = 'customer/customers/booking';
+$route['customer/get_postcode'] = 'customer/customers/get_postcode';
 $route['customer/help'] = 'customer/customers/help';
 $route['user/login'] = 'user';
 $route['user/login/process'] = 'user/process';

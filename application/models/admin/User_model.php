@@ -63,6 +63,12 @@
 
 		public function get_user_by_id($id){
 			$query = $this->db->get_where('ci_users', array('id' => $id));
+
+			return $result = $query->row_array();
+		}
+		public function get_c_user_by_id($id){
+			
+			$query = $this->db->get_where('user', array('id' => $id));
 			return $result = $query->row_array();
 		}
 
@@ -71,35 +77,46 @@
 			$this->db->update('ci_users', $data);
 			return true;
 		}
+		public function get_address($keyword)
+		{
+			return $return = $this->db->select('*')->from('recent_postcode')->where("suburb LIKE '%$keyword%'")->get()->result_array();
+
+
+
+		}
 
 		public function checkOldPassword($user_id, $oldPassword)
-{
-    $this->db->where('id', $user_id);
-    $this->db->where('password', $oldPassword);
-    $query=$this->db->get('user');
-    if($query->num_rows>0)
-    {
-        return true;
-    }else{
-        $this->form_validation->set_message('checkOldPassword', 'wrong old password.');
-        return false;
-    }
+		{
+		    $this->db->where('id', $user_id);
+		    $this->db->where('password',base64_encode($oldPassword));
+		    $query=$this->db->get('user');
+		    $result = $query->row_array();
+		    
 
-	/*public function Update_User_Data($user_id, $data)
-	{
-		$this->db->set($data);
-		$this->db->where('id', $user_id);
-		$this->db->update('user');
-		if($this->db->affected_rows() > 0)
-			return true;
-		else
-			return false;
-	}*/
-}
+		    if($result)
+		    {
+		        return true;
+		    }else{
+		        //$this->form_validation->set_message('checkOldPassword', 'wrong old password.');
+		        return false;
+		    }
 
-public function set_message($data, $id){
+			
+		}
+		/*public function Update_User_Data($user_id, $data)
+			{
+				$this->db->set($data);
+				$this->db->where('id', $user_id);
+				$this->db->update('user');
+				if($this->db->affected_rows() > 0)
+					return true;
+				else
+					return false;
+			}*/
+
+public function set_message($id,$data){
 	$this->db->where('id', $id);
-	$this->db->update('user', $data);
+	$this->db->update('user',$data);
 	return true;
 }
 

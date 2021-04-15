@@ -34,7 +34,7 @@
                                         <div class="row">
                                        
                                             <div class="col-md-6">
-                                            <?php echo form_open(base_url('customer/country_list'), 'class="get_shipment-form" '); ?>
+                                            <?php //echo form_open(base_url('customer/country_list'), 'class="get_shipment-form" '); ?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
@@ -805,7 +805,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_city" class="form-control alloptions" required onkeyup="searchCity(false,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="" id="receiverAddress_city" class="form-control alloptions" required  data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City"  autocomplete="off">
+                                                        <div id="suggesstion-box"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -1541,5 +1542,62 @@ function onChangeServiceType(isReturn) {
     $(document).ready(function(){
   $('[data-toggle="tooltip"]').tooltip();   
 });
+
+
+
+
+$(document).ready(function(){
+    var list ='<ul id="country-list">';
+    $("#receiverAddress_city").keyup(function(){
+        $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/get_postcode');?>",
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#suggesstion-box").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6" data-cityname="'+v.suburb+'">'+v.suburb+'</div>';
+                list +='<div class="col-xs-3" data-postalcode="'+v.postcode+'">'+v.postcode+'</div>';
+                list +='<div class="col-xs-3" data-statecode="'+v.state+'">'+v.state+'</div>';
+                list +='</div></li>';
+        });
+            list +='<ul id="country-list" style="width:100%;">';
+            $("#suggesstion-box").html(list);
+            
+        }
+        });
+    });
+});
+function onListClick(obj, isSender) {
+    $("#suggesstion-box").hide();
+    var cityName = $(obj).find("div[data-cityName]").html();
+    cityName = cityName.trim();
+    var postalCode = $(obj).find("div[data-postalCode]").html();
+    postalCode = postalCode.trim();
+    var stateCode = $(obj).find("div[data-stateCode]").html();
+    stateCode = stateCode.trim();
+    if (isSender) {
+        $("input[name='shipmentPage.senderAddress.city']").val(cityName);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(postalCode);
+        $("input[name='shipmentPage.senderAddress.state']").val(stateCode);
+    } else {
+        $("input[name='shipmentPage.receiverAddress.city']").val(cityName);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(postalCode);
+        $("input[name='shipmentPage.receiverAddress.state']").val(stateCode);
+    }
+}
+
     </script>
 
+<style>
+#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
+#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+</style>

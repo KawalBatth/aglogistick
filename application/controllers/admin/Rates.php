@@ -29,7 +29,7 @@
   }
 		public function import_rate()
 		{
-			
+
  
 
   // filename for download
@@ -38,17 +38,17 @@
   header("Content-Disposition: attachment; filename=\"$filename\"");
   header("Content-Type: application/vnd.ms-excel");
 
-  $flag = false;
-  $result = pg_query("SELECT * FROM table ORDER BY field") or die('Query failed!');
-  while(false !== ($row = pg_fetch_assoc($result))) {
-    if(!$flag) {
+ 		 $flag = false;
+ 			 $result = pg_query("SELECT * FROM table ORDER BY field") or die('Query failed!');
+ 			 while(false !== ($row = pg_fetch_assoc($result))) {
+    		if(!$flag) {
       // display field/column names as first row
-      echo implode("\t", array_keys($row)) . "\r\n";
-      $flag = true;
-    }
-    array_walk($row, __NAMESPACE__ . '\cleanData');
-    echo implode("\t", array_values($row)) . "\r\n";
-  }
+    		  echo implode("\t", array_keys($row)) . "\r\n";
+     			 $flag = true;
+		    }
+ 			   array_walk($row, __NAMESPACE__ . '\cleanData');
+ 	   echo implode("\t", array_values($row)) . "\r\n";
+  		}
 			$data['view'] = 'admin/rates/import_rate';
 			$this->load->view('admin/layout', $data);
 		}

@@ -30,7 +30,7 @@
                             <p style="color: red">
                                 <b>Note:</b> <br> - Password should contain minimum 8 characters, with at least one letter and one number.
                             </p>
-
+<!--pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"-->
                             <div class="form-group">
                                 <label class="control-label" for="inputName">Old Password</label> 
                                 <input name="oldPassword" value="" type="password" placeholder="Enter the old password" class="form-control old_pass" data-placement="top"> <span class="s30"></span>
@@ -38,12 +38,12 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputName">New Password</label>
-                                 <input name="newPassword" value="" type="password" placeholder="Enter the new password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" class="form-control alloptions old_pass" data-placement="top" id="newPassword"> <span class="s30"></span>
+                                 <input name="newPassword" value="" type="password" placeholder="Enter the new password"  class="form-control alloptions old_pass" data-placement="top" id="newPassword"> <span class="s30"></span>
                                  <?php echo form_error('newPassword', '<div class="error">', '</div>')?>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputName">Confirm New</label>
-                                 <input name="confirmPassword" value="" type="password" placeholder="Re-enter the new password" pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" class="form-control alloptions old_pass" data-placement="top" id="confirmPassword"> <span class="s30"></span>
+                                 <input name="confirmPassword" value="" type="password" placeholder="Re-enter the new password"  class="form-control alloptions old_pass" data-placement="top" id="confirmPassword"> <span class="s30"></span>
                                  <?php echo form_error('confirmPassword', '<div class="error">', '</div>')?>
                             </div>
                         </div>

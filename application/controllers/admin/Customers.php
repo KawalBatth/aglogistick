@@ -58,7 +58,8 @@
 			$data['view'] = 'admin/customers/customer_add';
 			$this->load->view('admin/layout', $data);
 		}
-
+		
+		
 		public function update_user()
         {
             $user_id = $this->input->post('user_id');
@@ -67,19 +68,25 @@
             $user = array(
             'customer_id'=>$customerId,
             'user_name' => $this->input->post('username'),
-            'password' => $this->input->post('userpassword'),
+            'password' => base64_encode($this->input->post('userpassword')),
             'language' => $this->input->post('language'),
             'allowExportAddressBook' => $this->input->post('allowExportAddressBook'),
             'isRequireChangePassword' => $this->input->post('isRequireChangePassword'),
-            'created_date'=>$date = date('Y/m/d H:i:s')
         );
             $user = $this->user_model->update_user_data($user,$user_id);
             $this->session->set_flashdata('msg', 'User is Edited Successfully!');
            // redirect('admin/customers/customer_manage?id='.$customerCode, 'refresh');
-           redirect(base_url('admin/customers/customer_manage'));
+           //redirect(base_url('admin/customers/customer_manage'));
+            redirect('admin/customers/customer_manage?id='.$customerId);
 
         }
+public function get_c_user_by_id()
+		{
+			$user_id = $this->input->post('user_id');	
+			$data['user'] = $this->user_model->get_c_user_by_id($user_id);
+			echo json_encode($data['user']);
 
+		}
 		public function add_user()
 		{
 			
@@ -90,8 +97,16 @@
 			//$webshipId = $this->input->post('webshipId');	
 			$userpassword = $this->input->post('userpassword');	
 			$language = $this->input->post('language');	
+			$allowExport=0;
+			$isRequire=0;
 			$allowExportAddressBook = $this->input->post('allowExportAddressBook');	
+			if (isset($allowExportAddressBook)) {
+				$allowExport=1;
+			}
 			$isRequireChangePassword = $this->input->post('isRequireChangePassword');	
+			if (isset($isRequireChangePassword)) {
+				$isRequire=1;
+			}
 
 			$array = array(
 				//'webshipId' =>$webshipId,
@@ -99,8 +114,8 @@
 				'user_name'=>$username,
 				'password'=>base64_encode($userpassword),
 				'language'=>$language,
-				'allowExportAddressBook'=>$allowExportAddressBook,
-				'isRequireChangePassword'=>$isRequireChangePassword
+				'allowExportAddressBook'=>$allowExport,
+				'isRequireChangePassword'=>$isRequire
 			 );
 			$this->auth_model->save_user($array);
 			redirect('admin/customers/customer_manage?id='.$customerCode);
@@ -210,7 +225,7 @@
 			{
 				$this->auth_model->update_customer($dataforsave,$customerCode);			
 			}
-			else {$this->auth_model->save_customer($dataforsave);			}
+			else {$this->auth_model->save_customer($dataforsave);}
 			
 			
 		}

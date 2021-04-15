@@ -2,6 +2,13 @@
 if(isset($submit_id))
 {
   @$customer_data= get_customer($submit_id);
+  
+   foreach($customer_data as $key=>$value)
+        { 
+          if (!$value) 
+            $customer_data->$key = '';
+        }
+        
 }
 //echo $submit_id; 
 
@@ -233,11 +240,12 @@ if(isset($submit_id))
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form>
+      
       <div class="modal-body">
-      <form id="webship-form">
+        <?php echo form_open(base_url('admin/update_user'), 'id="update_user_form" '); ?>
       <input type="hidden" name="customerId" value="<?php echo $submit_id;?>" id="customerId">
-      <input type="hidden" name="user_id" value="" id="user_id">
+      <input type="hidden" name="webshipId" value="" id="webshipId">      
+      
     <div class="form-group">
         
         
@@ -251,32 +259,33 @@ if(isset($submit_id))
         <input type="text" name="username" maxlength="25" value="" id="username" class="form-control alloptions">
     </div>
     <div class="form-group">
-        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" value="" id="userpassword" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="text" value="" id="userpassword" class="form-control alloptions" maxlength="25">
     </div>
     <div class="form-group">
-        <label>Language:</label> <select name="language" id="language" value="" class="form-control alloptions">
-        <option value="0">English</option>
+        <label>Language:</label> <select name="language" id="language" class="form-control alloptions">
+        <option value="english">English</option>
     </select>
     </div>
     <div class="form-group">
         <table class="s36">
             <tbody><tr>
-                <td width="25"><input type="checkbox" name="allowExportAddressBook" value="" id="allowExportAddressBook"></td>
+                <td width="25"><input type="checkbox" name="allowExportAddressBook"  id="allowExportAddressBook"></td>
                 <td>Allow Address Book Export</td>
             </tr>
             <tr>
-                <td width="25"><input type="checkbox" name="isRequireChangePassword" value="" id="isRequireChangePassword"></td>
+                <td width="25"><input type="checkbox" name="isRequireChangePassword" id="isRequireChangePassword"></td>
                 <td>Force Password Change</td>
             </tr>
         </tbody></table>
     </div>
-      </form>
+      
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Update</button>
+      <button type="submit" class="btn btn-primary">Update</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
         
       </div>
+      </form>
     </div>
   </div>
 </div>
@@ -2537,7 +2546,7 @@ if(isset($submit_id))
                                     <!-- Print Rate Sheet -->
                                     <div class="form-group">
                                         <table class="s36">
-                                            <tbody><tr>
+                                             <tbody><tr>
                                                 <td>Print Rate Sheets</td>
                                                 <td>
                                                     <button class="btn s37" type="button" onclick="printRateSheetCheckAll($(this))">
@@ -10539,27 +10548,41 @@ function edituser()
 {
 
     $('#editModal').modal('show');
-    var user_id = $('.selected-row').attr('data-accessorialid');
-    var customerId = $('.selected-row td:eq(0)').html();
-    var username = $('.selected-row td:eq(1)').html();
-    var userpassword = $('.selected-row td:eq(2)').html();
-    var language = $('.selected-row td:eq(3)').html();
-    var allowExportAddressBook = $('.selected-row td:eq(4)').html();
-    var isRequireChangePassword = $('.selected-row td:eq(5)').html();
-    $('#editModal #language option').each(function()
-    {
-        if($(this).html()==language)
-        {
-            $(this).prop('selected',true);
-        } 
-    }); 
+    var user_id = $('.selected-row').attr('data-accessorialid');    
+
+    $.ajax({
+               url: '<?php echo base_url('admin/get_c_user_by_id')?>',
+               type: 'POST',
+               data:{user_id:user_id},
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+                console.log(res);          
+                var data= JSON.parse(res);
+                var username = data.user_name;
+                var webshipId = data.webshipId;
+                var userpassword = atob(data.password);
+                var language = data.language;
+                var allowExportAddressBook = data.allowExportAddressBook;
+                var isRequireChangePassword = data.isRequireChangePassword;
+                $('#editModal #language option').each(function()
+                {
+                    if($(this).html()==language)
+                    {
+                        $(this).prop('selected',true);
+                    } 
+                }); 
+                
+                 $('#editModal #username').val(username);
+                 $('#editModal #webshipId').val(webshipId);
+                 $('#editModal #userpassword').val(userpassword);
+                 $('#editModal #allowExportAddressBook').val(allowExportAddressBook);
+                 $('#editModal #isRequireChangePassword').val(isRequireChangePassword);
+                 $('#editModal #user_id').val(user_id);     
+               }
+            });
     
-     $('#editModal #username').val(username);
-     $('#editModal #userpassword').val(userpassword);
-     $('#editModal #allowExportAddressBook').val(allowExportAddressBook);
-     $('#editModal #isRequireChangePassword').val(isRequireChangePassword);
-     $('#editModal #user_id').val(user_id);
-     $('#editModal #customerId').val(customerCode);
 }
 
 
