@@ -1548,12 +1548,18 @@ function onChangeServiceType(isReturn) {
 
 $(document).ready(function(){
     var list ='<ul id="country-list">';
+
     $("#receiverAddress_city").keyup(function(){
+        
+        $("#suggesstion-box").html('');
+        if($(this).val().length>2)
+        {
         $.ajax({
         type: "POST",
         url: "<?php echo base_url('customer/get_postcode');?>",
         data:'keyword='+$(this).val(),
         beforeSend: function(){
+
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
         },
         success: function(data){
@@ -1569,10 +1575,17 @@ $(document).ready(function(){
                 list +='</div></li>';
         });
             list +='<ul id="country-list" style="width:100%;">';
-            $("#suggesstion-box").html(list);
+            
             
         }
         });
+        $("#suggesstion-box").html(list);
+        list='<ul id="country-list">';
+        }
+        else {
+            $("#suggesstion-box").hide();
+            list ='';
+        }
     });
 });
 function onListClick(obj, isSender) {

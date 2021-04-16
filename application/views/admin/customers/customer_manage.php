@@ -245,6 +245,8 @@ if(isset($submit_id))
         <?php echo form_open(base_url('admin/update_user'), 'id="update_user_form" '); ?>
       <input type="hidden" name="customerId" value="<?php echo $submit_id;?>" id="customerId">
       <input type="hidden" name="webshipId" value="" id="webshipId">      
+      <input type="hidden" name="user_id" value="" id="user_id">      
+      
       
     <div class="form-group">
         
@@ -269,11 +271,11 @@ if(isset($submit_id))
     <div class="form-group">
         <table class="s36">
             <tbody><tr>
-                <td width="25"><input type="checkbox" name="allowExportAddressBook"  id="allowExportAddressBook"></td>
+                <td width="25"><input type="checkbox" name="allowExportAddressBook"  id="allowExportAddressBook" value=""></td>
                 <td>Allow Address Book Export</td>
             </tr>
             <tr>
-                <td width="25"><input type="checkbox" name="isRequireChangePassword" id="isRequireChangePassword"></td>
+                <td width="25"><input type="checkbox" name="isRequireChangePassword" id="isRequireChangePassword"  value=""></td>
                 <td>Force Password Change</td>
             </tr>
         </tbody></table>
@@ -10549,7 +10551,6 @@ function edituser()
 
     $('#editModal').modal('show');
     var user_id = $('.selected-row').attr('data-accessorialid');    
-
     $.ajax({
                url: '<?php echo base_url('admin/get_c_user_by_id')?>',
                type: 'POST',
@@ -10561,6 +10562,7 @@ function edituser()
                 console.log(res);          
                 var data= JSON.parse(res);
                 var username = data.user_name;
+                var userid = data.id;
                 var webshipId = data.webshipId;
                 var userpassword = atob(data.password);
                 var language = data.language;
@@ -10579,7 +10581,7 @@ function edituser()
                  $('#editModal #userpassword').val(userpassword);
                  $('#editModal #allowExportAddressBook').val(allowExportAddressBook);
                  $('#editModal #isRequireChangePassword').val(isRequireChangePassword);
-                 $('#editModal #user_id').val(user_id);     
+                 $('#editModal #user_id').val(userid);     
                }
             });
     

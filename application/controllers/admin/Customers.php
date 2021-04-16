@@ -64,19 +64,23 @@
         {
             $user_id = $this->input->post('user_id');
             $customerId = $this->input->post('customerId'); 
+            $webshipId = $this->input->post('webshipId');
             //$carrierid = $this->input->post('carrier_id');
             $user = array(
+
             'customer_id'=>$customerId,
+            'webshipId'=>$webshipId,
             'user_name' => $this->input->post('username'),
             'password' => base64_encode($this->input->post('userpassword')),
             'language' => $this->input->post('language'),
             'allowExportAddressBook' => $this->input->post('allowExportAddressBook'),
             'isRequireChangePassword' => $this->input->post('isRequireChangePassword'),
         );
+            
             $user = $this->user_model->update_user_data($user,$user_id);
             $this->session->set_flashdata('msg', 'User is Edited Successfully!');
-           // redirect('admin/customers/customer_manage?id='.$customerCode, 'refresh');
-           //redirect(base_url('admin/customers/customer_manage'));
+           	// redirect('admin/customers/customer_manage?id='.$customerCode, 'refresh');
+           	//redirect(base_url('admin/customers/customer_manage'));
             redirect('admin/customers/customer_manage?id='.$customerId);
 
         }

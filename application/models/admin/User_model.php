@@ -22,7 +22,7 @@
 				return false;
 			}
 			else{
-				//Compare the password attempt with the password we have stored.
+
 				$result = $query->row_array();
 			    $validPassword = base64_encode($data['password'])== $result['password'];
 			    if($validPassword){
@@ -79,6 +79,7 @@
 		}
 		public function get_address($keyword)
 		{
+			$this->db->limit(5);
 			return $return = $this->db->select('*')->from('recent_postcode')->where("suburb LIKE '%$keyword%'")->get()->result_array();
 
 
@@ -87,20 +88,16 @@
 
 		public function checkOldPassword($user_id, $oldPassword)
 		{
-		    $this->db->where('id', $user_id);
-		    $this->db->where('password',base64_encode($oldPassword));
+		    $this->db->where(array('id' =>$user_id,'password'=> base64_encode($oldPassword)));
 		    $query=$this->db->get('user');
-		    $result = $query->row_array();
-		    
-
-		    if($result)
-		    {
-		        return true;
-		    }else{
-		        //$this->form_validation->set_message('checkOldPassword', 'wrong old password.');
-		        return false;
-		    }
-
+			$row  = $query->row_array();
+			if(empty($row))
+			{
+				return false;
+			}
+			else {
+				return true;
+			}
 			
 		}
 		/*public function Update_User_Data($user_id, $data)

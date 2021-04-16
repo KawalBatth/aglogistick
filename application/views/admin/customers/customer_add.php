@@ -9898,13 +9898,13 @@
         //loadingDialog.dialog("open");
 
         var formdata = $("#add_customer_form").serialize();
-        var isfromsubmit = false;
+        var isfromsubmit = true;
         var isfromsubmitvalue = true;
         var html='';
         $('#add_customer_form input').each(function()
         {
 
-                if($(this).prop('required'))
+                if($(this).prop('required') && $(this).val()=='')
                 {
                       alertDialog.dialog("open");  
                       html +=$(this).parent().parent().find('.td1').html()+' Required <br/>';
@@ -9915,7 +9915,6 @@
         });
         if(isfromsubmit==true)
         {
-
           alertDialog.dialog("close");  
           $.ajax({
                url: 'customers/add_customer',
@@ -9925,7 +9924,7 @@
                   alert('Something is wrong');
                },
                success: function(res) {
-              console.log(res);          
+               window.location.href = "customer_manage?id=" + $("input[name='customerCode']").val();
                }
             });
         }

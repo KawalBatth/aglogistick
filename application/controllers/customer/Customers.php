@@ -88,7 +88,6 @@
 				$this->load->view('customer/settings');
 				
 			}else{
-	
 				// Update Data
 				$data = array(
 					'password' => base64_encode($this->input->post('newPassword')),
@@ -99,15 +98,22 @@
 
 				$result = $this->user_model->checkOldPassword($this->session->userdata('customer_user_id'),$this->input->post('oldPassword'));				
 				if($result > 0 AND $result === true ){
+						$this->session->set_flashdata('success_msg', 'User Password Changed.');
+						$results = $this->user_model->set_message($this->session->userdata('customer_user_id'), $data);
 					// updata user data
-					$results = $this->user_model->set_message($this->session->userdata('customer_user_id'), $data);
-					if($results > 0){
-						$this->session->set_flashdata('success_msg', 'User Password Change.');
+					// $results = $this->user_model->set_message($this->session->userdata('customer_user_id'), $data);
+					// if($results > 0){
+					// 	$this->session->set_flashdata('success_msg', 'User Password Change.');
+					// 	return redirect('customer/settings');
+					// }else{
+					// 	$this->session->set_flashdata('error_msg', '<b>Error: </b>User Password not Change.');
+					// 	return redirect('customer/settings');
+					// }
+					return redirect('customer/settings');
+				}
+				else {
+					$this->session->set_flashdata('error_msg', '<b>Error: </b>Old password is incorrect.');
 						return redirect('customer/settings');
-					}else{
-						$this->session->set_flashdata('error_msg', '<b>Error: </b>User Password not Change.');
-						return redirect('customer/settings');
-					}
 				}
 			}
 				
