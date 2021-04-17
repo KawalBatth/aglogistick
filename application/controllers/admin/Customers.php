@@ -84,19 +84,20 @@
             redirect('admin/customers/customer_manage?id='.$customerId);
 
         }
-public function get_c_user_by_id()
+
+         public function get_c_user_by_id()
 		{
 			$user_id = $this->input->post('user_id');	
 			$data['user'] = $this->user_model->get_c_user_by_id($user_id);
 			echo json_encode($data['user']);
 
 		}
+		
+		
 		public function add_user()
 		{
 			
 			$customerCode = $this->input->post('customerCode');	
-			
-
 			$username = $this->input->post('username');	
 			//$webshipId = $this->input->post('webshipId');	
 			$userpassword = $this->input->post('userpassword');	
@@ -111,6 +112,7 @@ public function get_c_user_by_id()
 			if (isset($isRequireChangePassword)) {
 				$isRequire=1;
 			}
+
 
 			$array = array(
 				//'webshipId' =>$webshipId,
@@ -137,7 +139,14 @@ public function get_c_user_by_id()
    //          $this->session->set_flashdata("email_sent","You have encountered an error");
 
 
-		}
+}
+
+public function delUser($id = 0){
+	$this->db->delete('user', array('id' => $id));
+	//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
+	redirect(base_url('admin/manage'), 'refresh');
+	
+}
 		public function add_customer()
 		{
 
@@ -234,6 +243,51 @@ public function get_c_user_by_id()
 			
 		}
 
+
+		 public function delNote($id = 0){
+			$this->db->delete('user_notes', array('id' => $id));
+			//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
+			redirect(base_url('admin/manage'), 'refresh');
+			
+		}
+		
+
+		public function add_notes()
+		{
+			
+			$customerCode = $this->input->post('customerCode');	
+			$note = $this->input->post('note');	
+			$followUpDate = $this->input->post('followUpDate');	
+			/*$userfile = $this->input->post('userfile');	
+			$config['upload_path']          = './public/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 100;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+
+                $this->load->library('upload', $config);*/
+
+			$array = array(
+			    'customer_id' =>$customerCode,
+				'user_notes'=>$note,
+			    'follow_up_date'=>$followUpDate,
+				//'image'=>$userfile,
+				'modified_at' => date('Y-m-d : h:m:s'),
+			 );
+			$this->user_model->save_notes($array);
+			redirect('admin/customers/customer_manage?id='.$customerCode);
+
+
+		}
+
+
+		public function fetch_notes()
+		{
+			$data['user_note'] =  $this->user_model->get_all_notes();
+			$data['view'] = 'admin/manage';
+			$this->load->view('admin/layout', $data);
+		
+		} 
 		
 
 	

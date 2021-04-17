@@ -1,5 +1,5 @@
 <style>
-        #nav {
+ #nav {
             list-style: none inside;
             margin: 0;
             padding: 0;
@@ -25,16 +25,17 @@
         }
 		
 		.col-lg-12.text-right {
-    margin-top: 15px;
+            margin-top: 15px;
+            margin-bottom: -33px;
 }
 
 button.btn.ref {
-    margin-right: 280px;
-    margin-left: -352px;
+    margin-right: 1337px;
+    margin-left: -772px;
 }
 
 button.btn.btn-primary.add_car {
-    margin-right: 358px;
+    margin-right: 775px;
 }
         #nav li a {
             display: block;
@@ -393,6 +394,20 @@ input#carrier_name {
     width: 40%;
 }
 
+.form-group.text-bottom.s99 {
+    float: left;
+    margin-left: 40px;
+    padding: -1px 7px;
+}
+
+input#email {
+    margin-bottom: 10px !important;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+    float: right;
+}
+
 input#addRowBtn {
     float: right;
     margin-right: 58px;
@@ -455,7 +470,13 @@ h5#exampleModalLabel {
     color: #fff;
     font-weight: 600;
     font-family: emoji;
-    margin-bottom: -24px;
+    margin-bottom: -11px;
+}
+
+select#editcarriers {
+    margin-top: 13px;
+    margin-left: 48px;
+    width: 34%;
 }
 
 h5#editModalLabel {
@@ -482,7 +503,6 @@ input.form-control.car_name {
 }
 
 .selected-row {
-  background: #a3837f;
   color: #3c8dbc;
   transition: 0.3s all ease-out;
 }
@@ -493,6 +513,7 @@ td:last-child{
 .modal-header .close{
     opacity: 1;
     color: #fff;
+    margin-top: -12px;
 }
 .on-click, .btn {
   cursor: pointer;
@@ -515,14 +536,87 @@ td:last-child{
   transition: 0.3s all ease-out;
 }
 
+img.del {
+    width: 11%;
+}
+
+input#surcharge_name {
+    margin-top: -24px;
+    margin-left: 132px;
+    width: 60%;
+}
+input#surcharge_price {
+    margin-top: -21px;
+    margin-left: 133px;
+}
+
+select#carriers {
+    margin-left: 52px;
+    width: 34%;
+}
+
+select#types {
+    margin-left: 101px;
+    width: 59%;
+}
+
+input#surcharge_price {
+    margin-top: -21px;
+    margin-left: 130px;
+    width: 60%;
+}
+
+label.add_carrier {
+    margin-top: 25px;
+}
+
+input#carrier_name {
+    margin-left: 112px;
+    width: 40%;
+    margin-top: -19px;
+}
 .buttons-row {
   margin: 20px 10px;
 }
 
-
-.login-form input[type=text], .login-form input[type=password]{
-    margin-top: 10px !important;
+button.btn.btn-primary.add_sur {
+    margin-right: 194px;
+    margin-top: -56px;
 }
+
+button#EditButton {
+    margin-top: -55px;
+    margin-right: 268px;
+    margin-left: -194px;
+}
+
+button#create_excel {
+    margin-top: -95px;
+    margin-right: 13px;
+}
+
+input#btnExport {
+    margin-top: -95px;
+    margin-right: 9px;
+    margin-left: -14px;
+}
+
+
+select#customerCode {
+    width: 104%;
+    margin-right: 154px;
+}
+
+p.username {
+    color: red;
+    font-size: 12px;
+}
+
+p.password {
+    color: red;
+    font-size: 12px;
+}
+
 
 
     </style>

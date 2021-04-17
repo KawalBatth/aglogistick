@@ -25,10 +25,11 @@ if(isset($submit_id))
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <form>
+    
       <div class="modal-body">
     
-
+      <?php echo form_open(base_url('admin/add_notes'), 'class="notes-form" id="notes-form"'); ?>
+    <input type="hidden" name="customerCode" value="<?php echo $submit_id;?>" id="customerCode">
     <table>
         <tbody><tr>
             <td colspan="3">  </td>
@@ -38,7 +39,7 @@ if(isset($submit_id))
             <td><?php echo @$customer_data->customer_id; ?></td>
         </tr>
         <tr>
-            <td colspan="3">Note: <span style="color: red">*</span><br> <textarea name="note.note" cols="60" required rows="10" id="note_note" class="form-control"></textarea></td>
+            <td colspan="3">Note: <span style="color: red">*</span><br> <textarea name="note" cols="60" required rows="10" id="note_note" class="form-control"></textarea></td>
         </tr>
         <tr>
             <td colspan="3" style="height: 5px;"></td>
@@ -49,15 +50,16 @@ if(isset($submit_id))
                 <div class="form-group input-group" style="width: 150px; margin-bottom: 0px;">
 			
                 <input type="date" id="start" required name="followUpDate" data-date-format="dd MM yyyy">
+                <input type='file' name='userfile' size='20' />
                 </div>
             </td>
         </tr>
     </tbody></table>
       </div>
       <div class="modal-footer">
-      <button type="button" class="btn btn-primary">Save</button>
+      <button type="submit" class="btn btn-primary">Save</button>
       <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-      
+</form>
       </div>
     </div>
   </div>
@@ -87,13 +89,13 @@ if(isset($submit_id))
             <td><?php echo @$customer_data->customer_id; ?></td>
         </tr>
         <tr>
-            <td colspan="3">Note: <span style="color: red">*</span><br> <textarea name="note.note" cols="60" required rows="10" id="note_note" class="form-control"></textarea></td>
+            <td colspan="3">Note: <span style="color: red">*</span><br> <textarea name="note" cols="60" required rows="10" id="note_note" class="form-control"></textarea></td>
         </tr>
         <tr>
             <td colspan="3" style="height: 5px;"></td>
         </tr>
         <tr>
-            <td><input type="checkbox" name="note.check" value="true" id="note_check"><input type="hidden" id="__checkbox_note_check" name="__checkbox_note.check" value="true"> Follow Up Date: <span style="color: red">*</span></td>
+            <td><input type="checkbox" name="check" value="true" id="note_check"><input type="hidden" id="__checkbox_note_check" name="__checkbox_note.check" value="true"> Follow Up Date: <span style="color: red">*</span></td>
             <td>
                 <div class="form-group input-group" style="width: 150px; margin-bottom: 0px;">
 			
@@ -192,14 +194,14 @@ if(isset($submit_id))
         
     </div>
     <div class="form-group">
-        <p>
-            <b>NOTE:</b><br> <span class="s30">Password should contains minimum 8 characters with at least one alphabet and one number.</span>
-        </p>
+      
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="username" maxlength="25" value="" id="webship_name" required class="form-control alloptions">
+        <input type="text" name="username" maxlength="25" value="" id="webship_name" pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$" required class="form-control alloptions">
+       <p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p>
     </div>
     <div class="form-group">
-        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" required pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$" value="" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" required pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" value="" class="form-control alloptions" maxlength="25">
+        <p class="password">Note: Password should contains minimum 8 characters with at least 1 alphabet and 1 number.</p>
     </div>
     <div class="form-group">
         <label>Language:</label> <select name="language" class="form-control alloptions">
@@ -245,8 +247,7 @@ if(isset($submit_id))
         <?php echo form_open(base_url('admin/update_user'), 'id="update_user_form" '); ?>
       <input type="hidden" name="customerId" value="<?php echo $submit_id;?>" id="customerId">
       <input type="hidden" name="webshipId" value="" id="webshipId">      
-      <input type="hidden" name="user_id" value="" id="user_id">      
-      
+      <input type="hidden" name="user_id" value="" id="user_id">     
       
     <div class="form-group">
         
@@ -254,14 +255,14 @@ if(isset($submit_id))
         
     </div>
     <div class="form-group">
-        <p>
-            <b>NOTE:</b><br> <span class="s30">Password should contains minimum 8 characters with at least one alphabet and one number.</span>
-        </p>
+        
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="username" maxlength="25" value="" id="username" class="form-control alloptions">
+        <input type="text" name="username" maxlength="25" value="" id="username" pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$" class="form-control alloptions">
+        <p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p>
     </div>
     <div class="form-group">
-        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="text" value="" id="userpassword" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" type="text" value="" id="userpassword" class="form-control alloptions" maxlength="25">
+    <p class="password">Note: Password should contains minimum 8 characters with at least 1 alphabet and 1 number.</p>
     </div>
     <div class="form-group">
         <label>Language:</label> <select name="language" id="language" class="form-control alloptions">
@@ -271,11 +272,11 @@ if(isset($submit_id))
     <div class="form-group">
         <table class="s36">
             <tbody><tr>
-                <td width="25"><input type="checkbox" name="allowExportAddressBook"  id="allowExportAddressBook" value=""></td>
+                <td width="25"><input type="checkbox" name="allowExportAddressBook"  id="allowExportAddressBook"></td>
                 <td>Allow Address Book Export</td>
             </tr>
             <tr>
-                <td width="25"><input type="checkbox" name="isRequireChangePassword" id="isRequireChangePassword"  value=""></td>
+                <td width="25"><input type="checkbox" name="isRequireChangePassword" id="isRequireChangePassword"></td>
                 <td>Force Password Change</td>
             </tr>
         </tbody></table>
@@ -296,21 +297,7 @@ if(isset($submit_id))
                                         <table class="s36">
                                             <tbody>
                                             <tr>
-                                                <td>Search</td>
-                                                <td><input id="searchText" name="searchText" class="form-control b20" type="text"></td>
-                                                <td><select name="franchiseCode" id="franchiseCode" class="form-control" onchange="onFranchiseChange()">
-    <option value="100">100 - AGL Logistics</option>
-    <option value="101">101 - Gms-test</option>
-
-
-</select>
-
-</td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="onGoClick()">
-                                                        Search
-                                                    </button>
-                                                </td>
+                                        
                                                 
     <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
     <option value="-1">Select a Customer</option>
@@ -626,281 +613,8 @@ if(isset($submit_id))
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><select name="country" id="saveManageCustomer_customerAddress_address_country" class="form-control uppercase" group="address">
-    <option value="0">country</option>
-    <option value="1">Afghanistan</option>
-    <option value="2">Albania</option>
-    <option value="3">Algeria</option>
-    <option value="4">American Samoa</option>
-    <option value="5">Andorra</option>
-    <option value="6">Angola</option>
-    <option value="7">Anguilla</option>
-    <option value="8">Antigua</option>
-    <option value="236">Antigua and Barbuda</option>
-    <option value="237">ARE</option>
-    <option value="9">Argentina</option>
-    <option value="10">Armenia</option>
-    <option value="11">Aruba</option>
+    <option value="0">Select a country</option>
     <option value="12" selected="selected">Australia</option>
-    <option value="13">Austria</option>
-    <option value="14">Azerbaijan</option>
-    <option value="238">Azores EU</option>
-    <option value="15">Bahamas</option>
-    <option value="16">Bahrain</option>
-    <option value="17">Bangladesh</option>
-    <option value="18">Barbados</option>
-    <option value="19">Belarus</option>
-    <option value="20">Belgium</option>
-    <option value="21">Belize</option>
-    <option value="22">Benin</option>
-    <option value="23">Bermuda</option>
-    <option value="24">Bhutan</option>
-    <option value="25">Bolivia</option>
-    <option value="26">Bonaire</option>
-    <option value="239">Bonaire,Saba &amp; Sint Eustatius</option>
-    <option value="27">Bosnia and Herzegovina</option>
-    <option value="28">Botswana</option>
-    <option value="29">BQN</option>
-    <option value="30">Brazil</option>
-    <option value="31">Brunei</option>
-    <option value="32">Bulgaria</option>
-    <option value="33">Burkina Faso</option>
-    <option value="34">Burundi</option>
-    <option value="35">Cambodia</option>
-    <option value="36">Cameroon</option>
-    <option value="37">Canada</option>
-    <option value="38">Canary Islands, The</option>
-    <option value="39">Cape Verde</option>
-    <option value="40">Cayman Islands</option>
-    <option value="41">Central African Republic</option>
-    <option value="240">Ceuta</option>
-    <option value="42">Chad</option>
-    <option value="43">Chile</option>
-    <option value="44">China</option>
-    <option value="45">Christmas Island</option>
-    <option value="46">Cocos Island</option>
-    <option value="47">Colombia</option>
-    <option value="48">Comoros</option>
-    <option value="49">Congo, The Democratic Republic of</option>
-    <option value="50">Congo, The Republic of</option>
-    <option value="241">Congo,The Democratic Republic</option>
-    <option value="51">Cook Islands</option>
-    <option value="52">Costa Rica</option>
-    <option value="53">Cote d'lvoire</option>
-    <option value="54">Croatia</option>
-    <option value="55">Cuba</option>
-    <option value="56">Curacao</option>
-    <option value="57">Cyprus</option>
-    <option value="58">Czech Republic, The</option>
-    <option value="59">Denmark</option>
-    <option value="60">Djibouti</option>
-    <option value="61">Dominica</option>
-    <option value="62">Dominican Republic</option>
-    <option value="63">East Timor</option>
-    <option value="64">Ecuador</option>
-    <option value="65">Egypt</option>
-    <option value="66">El Salvador</option>
-    <option value="242">England EU</option>
-    <option value="67">Eritrea</option>
-    <option value="68">Estonia</option>
-    <option value="69">Ethiopia</option>
-    <option value="243">FAJ</option>
-    <option value="70">Falkland Islands</option>
-    <option value="71">Faroe Islands</option>
-    <option value="72">Fiji</option>
-    <option value="73">Finland</option>
-    <option value="74">France</option>
-    <option value="75">French Guyana</option>
-    <option value="244">French Polynesia</option>
-    <option value="245">French Polynesia</option>
-    <option value="76">Gabon</option>
-    <option value="77">Gambia</option>
-    <option value="246">Gaza (West Bank)</option>
-    <option value="78">Georgia</option>
-    <option value="79">Germany</option>
-    <option value="80">Ghana</option>
-    <option value="81">Gibraltar</option>
-    <option value="82">Greece</option>
-    <option value="83">Greenland</option>
-    <option value="84">Grenada</option>
-    <option value="85">Guadeloupe</option>
-    <option value="86">Guam</option>
-    <option value="87">Guatemala</option>
-    <option value="88">Guernsey</option>
-    <option value="89">Guinea Republic</option>
-    <option value="90">Guinea-Bissau</option>
-    <option value="91">Guinea-Equatorial</option>
-    <option value="92">Guyana (British)</option>
-    <option value="93">Haiti</option>
-    <option value="94">Honduras</option>
-    <option value="95">Hong Kong</option>
-    <option value="96">Hungary</option>
-    <option value="97">Iceland</option>
-    <option value="98">India</option>
-    <option value="99">Indonesia</option>
-    <option value="100">Iran (Islamic Republic of)</option>
-    <option value="101">Iraq</option>
-    <option value="102">Ireland, Republic Of</option>
-    <option value="103">Israel</option>
-    <option value="104">Italy</option>
-    <option value="247">Ivory Coast</option>
-    <option value="105">Jamaica</option>
-    <option value="106">Japan</option>
-    <option value="107">Jersey</option>
-    <option value="108">Jordan</option>
-    <option value="109">Kazakhstan</option>
-    <option value="110">Kenya</option>
-    <option value="111">Kiribati</option>
-    <option value="112">Korea, Republic Of</option>
-    <option value="113">Korea, The D.P.R of</option>
-    <option value="114">Kosovo</option>
-    <option value="115">Kuwait</option>
-    <option value="116">Kyrgyzstan</option>
-    <option value="117">Lao P. D. R.</option>
-    <option value="118">Latvia</option>
-    <option value="119">Lebanon</option>
-    <option value="120">Lesotho</option>
-    <option value="121">Liberia</option>
-    <option value="122">Libya</option>
-    <option value="123">Liechtenstein</option>
-    <option value="124">Lithuania</option>
-    <option value="125">Luxembourg</option>
-    <option value="126">Macau</option>
-    <option value="127">Macedonia, Republic of</option>
-    <option value="128">Madagascar</option>
-    <option value="248">Madeira EU</option>
-    <option value="129">Malawi</option>
-    <option value="130">Malaysia</option>
-    <option value="131">Maldives</option>
-    <option value="132">Mali</option>
-    <option value="133">Malta</option>
-    <option value="134">Marshall Islands</option>
-    <option value="135">Martinique</option>
-    <option value="136">Mauritania</option>
-    <option value="137">Mauritius</option>
-    <option value="138">Mayotte</option>
-    <option value="249">Melilla</option>
-    <option value="139">Mexico</option>
-    <option value="250">Micronesia, Federated States of</option>
-    <option value="140">Moldova, Republic Of</option>
-    <option value="141">Monaco</option>
-    <option value="142">Mongolia</option>
-    <option value="143">Montenegro, Republic of</option>
-    <option value="144">Montserrat</option>
-    <option value="145">Morocco</option>
-    <option value="146">Mozambique</option>
-    <option value="147">Myanmar</option>
-    <option value="148">Namibia</option>
-    <option value="149">Nauru, Republic Of</option>
-    <option value="150">Nepal</option>
-    <option value="251">Netherlands Antilles</option>
-    <option value="151">Netherlands, The</option>
-    <option value="152">Nevis</option>
-    <option value="153">New Caledonia</option>
-    <option value="154">New Zealand</option>
-    <option value="155">Nicaragua</option>
-    <option value="156">Niger</option>
-    <option value="157">Nigeria</option>
-    <option value="158">Niue</option>
-    <option value="159">Norfolk Island</option>
-    <option value="252">Northern Ireland EU</option>
-    <option value="253">Northern Ireland EU</option>
-    <option value="254">Northern Mariana Islands</option>
-    <option value="160">Norway</option>
-    <option value="255">NRR</option>
-    <option value="161">Oman</option>
-    <option value="162">Pakistan</option>
-    <option value="163">Palau</option>
-    <option value="256">Palestine Authority</option>
-    <option value="257">Palestinian National Authority</option>
-    <option value="164">Panama</option>
-    <option value="165">Papua New Guinea</option>
-    <option value="166">Paraguay</option>
-    <option value="167">Peru</option>
-    <option value="168">Philippines, The</option>
-    <option value="169">Poland</option>
-    <option value="170">Portugal</option>
-    <option value="258">PSE</option>
-    <option value="171">Puerto Rico</option>
-    <option value="172">Qatar</option>
-    <option value="173">Reunion, Island Of</option>
-    <option value="174">Romania</option>
-    <option value="259">Rota ( Northern Mariana Islands)</option>
-    <option value="175">Russian Federation, The</option>
-    <option value="176">Rwanda</option>
-    <option value="177">Saipan</option>
-    <option value="178">Samoa</option>
-    <option value="179">San Marino</option>
-    <option value="180">Sao Tome and Principe</option>
-    <option value="181">Saudi Arabia</option>
-    <option value="260">Scotland EU</option>
-    <option value="182">Senegal</option>
-    <option value="183">Serbia And Montenegro</option>
-    <option value="184">Serbia, Republic of</option>
-    <option value="185">Seychelles</option>
-    <option value="186">Sierra Leone</option>
-    <option value="187">Singapore</option>
-    <option value="261">Sint Maarten</option>
-    <option value="262">SJU</option>
-    <option value="188">Slovakia</option>
-    <option value="189">Slovenia</option>
-    <option value="190">Solomon Islands</option>
-    <option value="191">Somalia</option>
-    <option value="192">Somaliland, Rep of (North Somalia)</option>
-    <option value="193">South Africa</option>
-    <option value="194">Spain</option>
-    <option value="195">Sri Lanka</option>
-    <option value="196">St Barthelemy</option>
-    <option value="263">St Kitts and Nevis</option>
-    <option value="264">St Lucia</option>
-    <option value="265">St Martin</option>
-    <option value="266">St Pierre &amp; Miquelon</option>
-    <option value="197">St. Eustatius</option>
-    <option value="198">St. Kitts</option>
-    <option value="199">St. Lucia</option>
-    <option value="200">St. Maarten</option>
-    <option value="201">St. Vincent</option>
-    <option value="267">St. Vincent and the Grenadines</option>
-    <option value="268">St.Barthelemy</option>
-    <option value="202">Sudan</option>
-    <option value="203">Suriname</option>
-    <option value="204">Swaziland</option>
-    <option value="205">Sweden</option>
-    <option value="206">Switzerland</option>
-    <option value="207">Syria</option>
-    <option value="208">Tahiti</option>
-    <option value="209">Taiwan</option>
-    <option value="210">Tajikistan</option>
-    <option value="211">Tanzania</option>
-    <option value="212">Thailand</option>
-    <option value="269">Tinian (Northern Mariana Islands)</option>
-    <option value="213">Togo</option>
-    <option value="214">Tonga</option>
-    <option value="215">Trinidad and Tobago</option>
-    <option value="216">Tunisia</option>
-    <option value="217">Turkey</option>
-    <option value="218">Turkmenistan</option>
-    <option value="219">Turks and Caicos Islands</option>
-    <option value="220">Tuvalu</option>
-    <option value="221">Uganda</option>
-    <option value="222">Ukraine</option>
-    <option value="223">United Arab Emirates</option>
-    <option value="224">United Kingdom</option>
-    <option value="225">United States of America</option>
-    <option value="226">Uruguay</option>
-    <option value="227">Uzbekistan</option>
-    <option value="228">Vanuatu</option>
-    <option value="229">Venezuela</option>
-    <option value="230">Vietnam</option>
-    <option value="231">Virgin Islands (British)</option>
-    <option value="232">Virgin Islands (US)</option>
-    <option value="270">Wales EU</option>
-    <option value="271">Wallis and Futuna Islands</option>
-    <option value="233">Yemen, Republic of</option>
-    <option value="272">Zaire</option>
-    <option value="234">Zambia</option>
-    <option value="235">Zimbabwe</option>
-
-
 </select>
 
 </td>
@@ -981,281 +695,8 @@ if(isset($submit_id))
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><select name="billingCountry" id="saveManageCustomer_customerAddress_billingAddress_billingCountry" class="form-control uppercase" group="billing-address" readonly="readonly">
-    <option value="0">country</option>
-    <option value="1">Afghanistan</option>
-    <option value="2">Albania</option>
-    <option value="3">Algeria</option>
-    <option value="4">American Samoa</option>
-    <option value="5">Andorra</option>
-    <option value="6">Angola</option>
-    <option value="7">Anguilla</option>
-    <option value="8">Antigua</option>
-    <option value="236">Antigua and Barbuda</option>
-    <option value="237">ARE</option>
-    <option value="9">Argentina</option>
-    <option value="10">Armenia</option>
-    <option value="11">Aruba</option>
+    <option value="0">Select a country</option>
     <option value="12" selected="selected">Australia</option>
-    <option value="13">Austria</option>
-    <option value="14">Azerbaijan</option>
-    <option value="238">Azores EU</option>
-    <option value="15">Bahamas</option>
-    <option value="16">Bahrain</option>
-    <option value="17">Bangladesh</option>
-    <option value="18">Barbados</option>
-    <option value="19">Belarus</option>
-    <option value="20">Belgium</option>
-    <option value="21">Belize</option>
-    <option value="22">Benin</option>
-    <option value="23">Bermuda</option>
-    <option value="24">Bhutan</option>
-    <option value="25">Bolivia</option>
-    <option value="26">Bonaire</option>
-    <option value="239">Bonaire,Saba &amp; Sint Eustatius</option>
-    <option value="27">Bosnia and Herzegovina</option>
-    <option value="28">Botswana</option>
-    <option value="29">BQN</option>
-    <option value="30">Brazil</option>
-    <option value="31">Brunei</option>
-    <option value="32">Bulgaria</option>
-    <option value="33">Burkina Faso</option>
-    <option value="34">Burundi</option>
-    <option value="35">Cambodia</option>
-    <option value="36">Cameroon</option>
-    <option value="37">Canada</option>
-    <option value="38">Canary Islands, The</option>
-    <option value="39">Cape Verde</option>
-    <option value="40">Cayman Islands</option>
-    <option value="41">Central African Republic</option>
-    <option value="240">Ceuta</option>
-    <option value="42">Chad</option>
-    <option value="43">Chile</option>
-    <option value="44">China</option>
-    <option value="45">Christmas Island</option>
-    <option value="46">Cocos Island</option>
-    <option value="47">Colombia</option>
-    <option value="48">Comoros</option>
-    <option value="49">Congo, The Democratic Republic of</option>
-    <option value="50">Congo, The Republic of</option>
-    <option value="241">Congo,The Democratic Republic</option>
-    <option value="51">Cook Islands</option>
-    <option value="52">Costa Rica</option>
-    <option value="53">Cote d'lvoire</option>
-    <option value="54">Croatia</option>
-    <option value="55">Cuba</option>
-    <option value="56">Curacao</option>
-    <option value="57">Cyprus</option>
-    <option value="58">Czech Republic, The</option>
-    <option value="59">Denmark</option>
-    <option value="60">Djibouti</option>
-    <option value="61">Dominica</option>
-    <option value="62">Dominican Republic</option>
-    <option value="63">East Timor</option>
-    <option value="64">Ecuador</option>
-    <option value="65">Egypt</option>
-    <option value="66">El Salvador</option>
-    <option value="242">England EU</option>
-    <option value="67">Eritrea</option>
-    <option value="68">Estonia</option>
-    <option value="69">Ethiopia</option>
-    <option value="243">FAJ</option>
-    <option value="70">Falkland Islands</option>
-    <option value="71">Faroe Islands</option>
-    <option value="72">Fiji</option>
-    <option value="73">Finland</option>
-    <option value="74">France</option>
-    <option value="75">French Guyana</option>
-    <option value="244">French Polynesia</option>
-    <option value="245">French Polynesia</option>
-    <option value="76">Gabon</option>
-    <option value="77">Gambia</option>
-    <option value="246">Gaza (West Bank)</option>
-    <option value="78">Georgia</option>
-    <option value="79">Germany</option>
-    <option value="80">Ghana</option>
-    <option value="81">Gibraltar</option>
-    <option value="82">Greece</option>
-    <option value="83">Greenland</option>
-    <option value="84">Grenada</option>
-    <option value="85">Guadeloupe</option>
-    <option value="86">Guam</option>
-    <option value="87">Guatemala</option>
-    <option value="88">Guernsey</option>
-    <option value="89">Guinea Republic</option>
-    <option value="90">Guinea-Bissau</option>
-    <option value="91">Guinea-Equatorial</option>
-    <option value="92">Guyana (British)</option>
-    <option value="93">Haiti</option>
-    <option value="94">Honduras</option>
-    <option value="95">Hong Kong</option>
-    <option value="96">Hungary</option>
-    <option value="97">Iceland</option>
-    <option value="98">India</option>
-    <option value="99">Indonesia</option>
-    <option value="100">Iran (Islamic Republic of)</option>
-    <option value="101">Iraq</option>
-    <option value="102">Ireland, Republic Of</option>
-    <option value="103">Israel</option>
-    <option value="104">Italy</option>
-    <option value="247">Ivory Coast</option>
-    <option value="105">Jamaica</option>
-    <option value="106">Japan</option>
-    <option value="107">Jersey</option>
-    <option value="108">Jordan</option>
-    <option value="109">Kazakhstan</option>
-    <option value="110">Kenya</option>
-    <option value="111">Kiribati</option>
-    <option value="112">Korea, Republic Of</option>
-    <option value="113">Korea, The D.P.R of</option>
-    <option value="114">Kosovo</option>
-    <option value="115">Kuwait</option>
-    <option value="116">Kyrgyzstan</option>
-    <option value="117">Lao P. D. R.</option>
-    <option value="118">Latvia</option>
-    <option value="119">Lebanon</option>
-    <option value="120">Lesotho</option>
-    <option value="121">Liberia</option>
-    <option value="122">Libya</option>
-    <option value="123">Liechtenstein</option>
-    <option value="124">Lithuania</option>
-    <option value="125">Luxembourg</option>
-    <option value="126">Macau</option>
-    <option value="127">Macedonia, Republic of</option>
-    <option value="128">Madagascar</option>
-    <option value="248">Madeira EU</option>
-    <option value="129">Malawi</option>
-    <option value="130">Malaysia</option>
-    <option value="131">Maldives</option>
-    <option value="132">Mali</option>
-    <option value="133">Malta</option>
-    <option value="134">Marshall Islands</option>
-    <option value="135">Martinique</option>
-    <option value="136">Mauritania</option>
-    <option value="137">Mauritius</option>
-    <option value="138">Mayotte</option>
-    <option value="249">Melilla</option>
-    <option value="139">Mexico</option>
-    <option value="250">Micronesia, Federated States of</option>
-    <option value="140">Moldova, Republic Of</option>
-    <option value="141">Monaco</option>
-    <option value="142">Mongolia</option>
-    <option value="143">Montenegro, Republic of</option>
-    <option value="144">Montserrat</option>
-    <option value="145">Morocco</option>
-    <option value="146">Mozambique</option>
-    <option value="147">Myanmar</option>
-    <option value="148">Namibia</option>
-    <option value="149">Nauru, Republic Of</option>
-    <option value="150">Nepal</option>
-    <option value="251">Netherlands Antilles</option>
-    <option value="151">Netherlands, The</option>
-    <option value="152">Nevis</option>
-    <option value="153">New Caledonia</option>
-    <option value="154">New Zealand</option>
-    <option value="155">Nicaragua</option>
-    <option value="156">Niger</option>
-    <option value="157">Nigeria</option>
-    <option value="158">Niue</option>
-    <option value="159">Norfolk Island</option>
-    <option value="252">Northern Ireland EU</option>
-    <option value="253">Northern Ireland EU</option>
-    <option value="254">Northern Mariana Islands</option>
-    <option value="160">Norway</option>
-    <option value="255">NRR</option>
-    <option value="161">Oman</option>
-    <option value="162">Pakistan</option>
-    <option value="163">Palau</option>
-    <option value="256">Palestine Authority</option>
-    <option value="257">Palestinian National Authority</option>
-    <option value="164">Panama</option>
-    <option value="165">Papua New Guinea</option>
-    <option value="166">Paraguay</option>
-    <option value="167">Peru</option>
-    <option value="168">Philippines, The</option>
-    <option value="169">Poland</option>
-    <option value="170">Portugal</option>
-    <option value="258">PSE</option>
-    <option value="171">Puerto Rico</option>
-    <option value="172">Qatar</option>
-    <option value="173">Reunion, Island Of</option>
-    <option value="174">Romania</option>
-    <option value="259">Rota ( Northern Mariana Islands)</option>
-    <option value="175">Russian Federation, The</option>
-    <option value="176">Rwanda</option>
-    <option value="177">Saipan</option>
-    <option value="178">Samoa</option>
-    <option value="179">San Marino</option>
-    <option value="180">Sao Tome and Principe</option>
-    <option value="181">Saudi Arabia</option>
-    <option value="260">Scotland EU</option>
-    <option value="182">Senegal</option>
-    <option value="183">Serbia And Montenegro</option>
-    <option value="184">Serbia, Republic of</option>
-    <option value="185">Seychelles</option>
-    <option value="186">Sierra Leone</option>
-    <option value="187">Singapore</option>
-    <option value="261">Sint Maarten</option>
-    <option value="262">SJU</option>
-    <option value="188">Slovakia</option>
-    <option value="189">Slovenia</option>
-    <option value="190">Solomon Islands</option>
-    <option value="191">Somalia</option>
-    <option value="192">Somaliland, Rep of (North Somalia)</option>
-    <option value="193">South Africa</option>
-    <option value="194">Spain</option>
-    <option value="195">Sri Lanka</option>
-    <option value="196">St Barthelemy</option>
-    <option value="263">St Kitts and Nevis</option>
-    <option value="264">St Lucia</option>
-    <option value="265">St Martin</option>
-    <option value="266">St Pierre &amp; Miquelon</option>
-    <option value="197">St. Eustatius</option>
-    <option value="198">St. Kitts</option>
-    <option value="199">St. Lucia</option>
-    <option value="200">St. Maarten</option>
-    <option value="201">St. Vincent</option>
-    <option value="267">St. Vincent and the Grenadines</option>
-    <option value="268">St.Barthelemy</option>
-    <option value="202">Sudan</option>
-    <option value="203">Suriname</option>
-    <option value="204">Swaziland</option>
-    <option value="205">Sweden</option>
-    <option value="206">Switzerland</option>
-    <option value="207">Syria</option>
-    <option value="208">Tahiti</option>
-    <option value="209">Taiwan</option>
-    <option value="210">Tajikistan</option>
-    <option value="211">Tanzania</option>
-    <option value="212">Thailand</option>
-    <option value="269">Tinian (Northern Mariana Islands)</option>
-    <option value="213">Togo</option>
-    <option value="214">Tonga</option>
-    <option value="215">Trinidad and Tobago</option>
-    <option value="216">Tunisia</option>
-    <option value="217">Turkey</option>
-    <option value="218">Turkmenistan</option>
-    <option value="219">Turks and Caicos Islands</option>
-    <option value="220">Tuvalu</option>
-    <option value="221">Uganda</option>
-    <option value="222">Ukraine</option>
-    <option value="223">United Arab Emirates</option>
-    <option value="224">United Kingdom</option>
-    <option value="225">United States of America</option>
-    <option value="226">Uruguay</option>
-    <option value="227">Uzbekistan</option>
-    <option value="228">Vanuatu</option>
-    <option value="229">Venezuela</option>
-    <option value="230">Vietnam</option>
-    <option value="231">Virgin Islands (British)</option>
-    <option value="232">Virgin Islands (US)</option>
-    <option value="270">Wales EU</option>
-    <option value="271">Wallis and Futuna Islands</option>
-    <option value="233">Yemen, Republic of</option>
-    <option value="272">Zaire</option>
-    <option value="234">Zambia</option>
-    <option value="235">Zimbabwe</option>
-
-
 </select>
 
 </td>
@@ -6884,88 +6325,90 @@ if(isset($submit_id))
                                                 <td>Origin</td>
                                                 <td><select name="" id="starTrackColumnName" class="form-control">
 <option value="A10">A10</option>
-<option value="ABY">ABY	</option>
-<option value="AC1">AC1	</option>
-<option value="AC2">AC2	</option>
-<option value="AC3">AC3	</option>
-<option value="AC4">	AC4	</option>
-<option value="AC5">	AC5	</option>
-<option value="AC6">	AC6	</option>
-<option value="AC7">	AC7	</option>
-<option value="AC8">	AC8	</option>
-<option value="AC9">	AC9	</option>
-<option value="ADL">	ADL	</option>
-<option value="ALB">	ALB	</option>
-<option value="BNA">	BNA	</option>
-<option value="BRO">	BRO	</option>
-<option value="BRS">	BRS	</option>
-<option value="BUN">	BUN	</option>
-<option value="CBR">	CBR	</option>
-<option value="COF">	COF	</option>
-<option value="CRN">	CRN	</option>
-<option value="D10">	D10	</option>
-<option value="DAR">	DAR	</option>
-<option value="DC4">	DC4	</option>
-<option value="DC6">	DC6	</option>
-<option value="DC7">	DC7	</option>
-<option value="ESP">	ESP	</option>
-<option value="GLA">	GLA	</option>
-<option value="GLD">	GLD	</option>
-<option value="GYM">	GYM	</option>
-<option value="HC1">	HC1	</option>
-<option value="HC2">	HC2	</option>
-<option value="HOB">	HOB	</option>
-<option value="KAR">	KAR	</option>
-<option value="L10">	L10	</option>
-<option value="LC1">	LC1	</option>
-<option value="LC2">	LC2	</option>
-<option value="LC3">	LC3	</option>
-<option value="LCN">	LCN	</option>
-<option value="LIS">	LIS	</option>
-<option value="MAC">	MAC	</option>
-<option value="MAR">	MAR	</option>
-<option value="MEL">	MEL	</option>
-<option value="N10">	N10	</option>
-<option value="NC1">	NC1	</option>
-<option value="NC2">	NC2	</option>
-<option value="NC3">	NC3	</option>
-<option value="NC4">	NC4	</option>
-<option value="NC5">	NC5	</option>
-<option value="NC6">	NC6	</option>
-<option value="NCL">	NCL	</option>
-<option value="PER">	PER	</option>
-<option value="PRO">	PRO	</option>
-<option value="Q10">	Q10	</option>
-<option value="QC1">	QC1	</option>
-<option value="QC2">	QC2	</option>
-<option value="QC3">	QC3	</option>
-<option value="QC4">	QC4	</option>
-<option value="QC5">	QC5	</option>
-<option value="QC6">	QC6	</option>
-<option value="QC7">	QC7	</option>
-<option value="QC8">	QC8	</option>
-<option value="QC9">	QC9	</option>
-<option value="RHM">	RHM	</option>
-<option value="RKH">	RKH	</option>
-<option value="ROC">	ROC	</option>
-<option value="SSC">	SSC	</option>
-<option value="SYD">	SYD	</option>
-<option value="TAM">	TAM	</option>
-<option value="TVL">	TVL	</option>
-<option value="TWB">	TWB	</option>
-<option value="VC1">	VC1	</option>
-<option value="VC2">	VC2	</option>
-<option value="VC3">	VC3	</option>
-<option value="WC1">	WC1	</option>
-<option value="WC2">	WC2	</option>
-<option value="WC3">	WC3	</option>
-<option value="WC4">	WC4	</option>
-<option value="WC5">	WC5	</option>
-<option value="WC6">	WC6	</option>
-<option value="WC7">	WC7	</option>
-<option value="WC8">	WC8	</option>
-<option value="WC9">	WC9	</option>
-<option value="WOL">	WOL	</option>
+<option value="ABY">ALBANY - ABY</option>
+<option value="AC1">SA ZONE 1 - AC1</option>
+<option value="AC2">SA ZONE 2 - AC2</option>
+<option value="AC3">SA ZONE 3 - AC3</option>
+<option value="AC4">SA ZONE 4 - AC4</option>
+<option value="AC5">SA ZONE 5 - AC5</option>
+<option value="AC6">SA ZONE 6 - AC6</option>
+<option value="AC7">SA ZONE 7 - AC7</option>
+<option value="SC7">SA ZONE 7 - SC7</option>
+<option value="AC8">SA ZONE 8 - AC8</option>
+<option value="AC9">SA ZONE 9 - AC9</option>
+<option value="ADL">ADELAIDE - ADL</option>
+<option value="ALB">ALBURY - ALB</option>
+<option value="ASP">ALICE SPRINGS - ASP</option>
+<option value="BNA">BALLINA - BNA</option>
+<option value="BRO">BROOME - BRO</option>
+<option value="BRS">BRISBANE - BRS</option>
+<option value="BUN">BUNDABERG - BUN</option>
+<option value="CBR">CANBERRA - CBR</option>
+<option value="COF">COFFS HARBOUR - COF</option>
+<option value="CRN">CAIRNS - CRN</option>
+<option value="D10">DARWIN ZONE 10 - D10</option>
+<option value="DAR">DARWIN - DAR</option>
+<option value="DC4">DARWIN ZONE 4 - DC4</option>
+<option value="DC6">DARWIN ZONE 6 - DC6	</option>
+<option value="DC7">DARWIN ZONE 7 - DC7	</option>
+<option value="ESP">ESPERENCE - ESP	</option>
+<option value="GLA">GLADSTONE - GLA	</option>
+<option value="GLD">GOLD COAST - GLD</option>
+<option value="GYM">GYMPIE - GYM</option>
+<option value="HC1">HOBART ZONE 1 - HC1	</option>
+<option value="HC2">HOBART ZONE 2 - HC2	</option>
+<option value="HOB">HOBART - HOB</option>
+<option value="KAR">KARRATHA - KAR</option>
+<option value="L10">L10	</option>
+<option value="LC1">LAUNCESTON ZONE 1 - LC1	</option>
+<option value="LC2">LAUNCESTON ZONE 2 - LC2	</option>
+<option value="LC3">LAUNCESTON ZONE 3 - LC3	</option>
+<option value="LCN">LAUNCESTON - LCN</option>
+<option value="LIS">LISMORE - LIS</option>
+<option value="MAC">MACKAY - MAC</option>
+<option value="MAR">MARYBOROUGH - MAR</option>
+<option value="MEL">MELBOURNE - MEL</option>
+<option value="N10">N10	</option>
+<option value="NC1">NSW ZONE 1 - NC1</option>
+<option value="NC2">NSW ZONE 2 - NC2</option>
+<option value="NC3">NSW ZONE 3 - NC3</option>
+<option value="NC4">NSW ZONE 4 - NC4</option>
+<option value="NC5">NSW ZONE 5 - NC5</option>
+<option value="NC6">NSW ZONE 6 - NC6</option>
+<option value="NCL">NEWCASTLE - NCL	</option>
+<option value="PER">PERTH - PER	</option>
+<option value="PRO">GREGORY RIVER - PRO	</option>
+<option value="Q10">Q10	</option>
+<option value="QC1">QUEENSLAND ZONE 1 - QC1	</option>
+<option value="QC2">QUEENSLAND ZONE 2 - QC2	</option>
+<option value="QC3">QUEENSLAND ZONE 3 - QC3	</option>
+<option value="QC4">QUEENSLAND ZONE 4 - QC4	</option>
+<option value="QC5">QUEENSLAND ZONE 5 - QC5	</option>
+<option value="QC6">QUEENSLAND ZONE 6 - QC6	</option>
+<option value="QC7">QUEENSLAND ZONE 7 - QC7	</option>
+<option value="QC8">QUEENSLAND ZONE 8 - QC8	</option>
+<option value="QC9">QUEENSLAND ZONE 9 - QC9	</option>
+<option value="RHM">ROCKINGHAM - RHM</option>
+<option value="RKH">ROCKINGHAM - RKH</option>
+<option value="ROC">ROCKHAMPTON - ROC</option>
+<option value="SSC">SUNSHINE COAST - SSC</option>
+<option value="SYD">SYDNEY - SYD</option>
+<option value="TAM">TAMWORTH - TAM</option>
+<option value="TVL">TOWNSVILLE - TVL</option>
+<option value="TWB">TOOWOOMBA - TWB</option>
+<option value="VC1">VICTORIA ZONE 1 - VC1</option>
+<option value="VC2">VICTORIA ZONE 2 - VC2</option>
+<option value="VC3">VICTORIA ZONE 3 - VC3</option>
+<option value="WC1">WA ZONE 1 - WC1</option>
+<option value="WC2">WA ZONE 2 - WC2</option>
+<option value="WC3">WA ZONE 3 - WC3</option>
+<option value="WC4">WA ZONE 4 - WC4</option>
+<option value="WC5">WA ZONE 5 - WC5</option>
+<option value="WC6">WA ZONE 6 - WC6</option>
+<option value="WC7">WA ZONE 7 - WC7</option>
+<option value="WC8">WA ZONE 8 - WC8</option>
+<option value="WC9">WA ZONE 9 - WC9</option>
+<option value="WOL">WOLLONGONG - WOL</option>
 
 
 </select>
@@ -10022,8 +9465,7 @@ if(isset($submit_id))
         <p>
             <b>Note :</b> <br>
             - Double-click a setting to modify its value.
-            <br>
-            - Any change to the values below will take effect immediately.
+          
         </p>
     </div>
     <div class="col-lg-12">
@@ -10225,18 +9667,23 @@ if(isset($submit_id))
                                                 <th>Alt User Name</th>
                                                 <th>Password</th>
                                                 <th>Created Date</th>
+                                                <th>Action</th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php for($i=0;$i<count($users);$i++)
                                             {
+                                                $date = $users[$i]['created_date']; 
+                                                $start= date('d-m-Y h:i:s', strtotime($date));
+
                                                 if($users[$i]['customer_id'] == @$customer_data->customer_id){?>
                                               
                                               <tr class="on-click" data-accessorialid="<?php echo $users[$i]['id'];?>">
                                                         <td><?php echo @$customer_data->customer_id; ?></td>
                                                          <td><?php echo $users[$i]['user_name'];?></td>
                                                         <td><?php echo base64_decode($users[$i]['password']);?></td>
-                                                        <td><?php echo $users[$i]['created_date'];?></td>
+                                                        <td><?php echo $start; ?></td>
+                                                        <td><button type="button" class="btn remove"> Delete</button> </td>
                                                     </tr>
                                                     <?php }
                                             }
@@ -10275,112 +9722,13 @@ if(isset($submit_id))
                                 <form id="frmSaveWebshipSettings">
                                     
                                         
-                                            <table class="s36 b24">
-                                                <tbody><tr>
-                                                    <td>
-                                                        <button type="button" class="fa fa-chevron-circle-right s10 b3" data-toggle="collapse" data-target="#sv-1"></button>
-                                                    </td>
-                                                    <td><input type="checkbox" name="saveManageCustomer.webship.services[0].checked" value="true" checked="checked" id="sv-1-checkbox" onclick="onServiceCheck('#sv-1',this)"><input type="hidden" id="__checkbox_sv-1-checkbox" name="__checkbox_saveManageCustomer.webship.services[0].checked" value="true"></td>
-                                                    <td>DHL</td>
-                                                </tr>
-                                            </tbody></table>
-                                            <div id="sv-1" class="collapse">
-                                                
-                                                    <table class="s36 b25">
-                                                        
-                                                            <tbody><tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[0].shipmentTypes[0].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_0__shipmentTypes_0__checked" onclick="onShipmentTypeCheck('#sv-1',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_0__shipmentTypes_0__checked" name="__checkbox_saveManageCustomer.webship.services[0].shipmentTypes[0].checked" value="true"></td>
-                                                                <td>DHL Worldwide Express <input type="hidden" name="saveManageCustomer.webship.services[0].shipmentTypes[0].customerCode" value="10000018" id="saveManageCustomer_webship_services_0__shipmentTypes_0__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[0].shipmentTypes[0].userType" value="0" id="saveManageCustomer_webship_services_0__shipmentTypes_0__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[0].shipmentTypes[0].serviceId" value="1" id="saveManageCustomer_webship_services_0__shipmentTypes_0__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[0].shipmentTypes[0].shipmentTypeId" value="1" id="saveManageCustomer_webship_services_0__shipmentTypes_0__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                    </tbody></table>
-                                                
-                                            </div>
+                                            
                                         
-                                            <table class="s36 b24">
-                                                <tbody><tr>
-                                                    <td>
-                                                        <button type="button" class="fa fa-chevron-circle-right s10 b3" data-toggle="collapse" data-target="#sv-52"></button>
-                                                    </td>
-                                                    <td><input type="checkbox" name="saveManageCustomer.webship.services[1].checked" value="true" checked="checked" id="sv-52-checkbox" onclick="onServiceCheck('#sv-52',this)"><input type="hidden" id="__checkbox_sv-52-checkbox" name="__checkbox_saveManageCustomer.webship.services[1].checked" value="true"></td>
-                                                    <td>Toll Priority</td>
-                                                </tr>
-                                            </tbody></table>
-                                            <div id="sv-52" class="collapse">
-                                                
-                                                    <table class="s36 b25">
-                                                        
-                                                            <tbody><tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[1].shipmentTypes[0].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_1__shipmentTypes_0__checked" onclick="onShipmentTypeCheck('#sv-52',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_1__shipmentTypes_0__checked" name="__checkbox_saveManageCustomer.webship.services[1].shipmentTypes[0].checked" value="true"></td>
-                                                                <td>Parcels Overnight <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[0].customerCode" value="10000018" id="saveManageCustomer_webship_services_1__shipmentTypes_0__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[0].userType" value="0" id="saveManageCustomer_webship_services_1__shipmentTypes_0__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[0].serviceId" value="52" id="saveManageCustomer_webship_services_1__shipmentTypes_0__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[0].shipmentTypeId" value="172" id="saveManageCustomer_webship_services_1__shipmentTypes_0__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                            <tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[1].shipmentTypes[1].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_1__shipmentTypes_1__checked" onclick="onShipmentTypeCheck('#sv-52',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_1__shipmentTypes_1__checked" name="__checkbox_saveManageCustomer.webship.services[1].shipmentTypes[1].checked" value="true"></td>
-                                                                <td>Parcels OffPeak <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[1].customerCode" value="10000018" id="saveManageCustomer_webship_services_1__shipmentTypes_1__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[1].userType" value="0" id="saveManageCustomer_webship_services_1__shipmentTypes_1__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[1].serviceId" value="52" id="saveManageCustomer_webship_services_1__shipmentTypes_1__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[1].shipmentTypeId" value="173" id="saveManageCustomer_webship_services_1__shipmentTypes_1__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                            <tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[1].shipmentTypes[2].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_1__shipmentTypes_2__checked" onclick="onShipmentTypeCheck('#sv-52',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_1__shipmentTypes_2__checked" name="__checkbox_saveManageCustomer.webship.services[1].shipmentTypes[2].checked" value="true"></td>
-                                                                <td>Auswide 1kg Satchel <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[2].customerCode" value="10000018" id="saveManageCustomer_webship_services_1__shipmentTypes_2__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[2].userType" value="0" id="saveManageCustomer_webship_services_1__shipmentTypes_2__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[2].serviceId" value="52" id="saveManageCustomer_webship_services_1__shipmentTypes_2__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[2].shipmentTypeId" value="175" id="saveManageCustomer_webship_services_1__shipmentTypes_2__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                            <tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[1].shipmentTypes[3].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_1__shipmentTypes_3__checked" onclick="onShipmentTypeCheck('#sv-52',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_1__shipmentTypes_3__checked" name="__checkbox_saveManageCustomer.webship.services[1].shipmentTypes[3].checked" value="true"></td>
-                                                                <td>Auswide 3kg Satchel <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[3].customerCode" value="10000018" id="saveManageCustomer_webship_services_1__shipmentTypes_3__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[3].userType" value="0" id="saveManageCustomer_webship_services_1__shipmentTypes_3__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[3].serviceId" value="52" id="saveManageCustomer_webship_services_1__shipmentTypes_3__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[3].shipmentTypeId" value="176" id="saveManageCustomer_webship_services_1__shipmentTypes_3__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                            <tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[1].shipmentTypes[4].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_1__shipmentTypes_4__checked" onclick="onShipmentTypeCheck('#sv-52',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_1__shipmentTypes_4__checked" name="__checkbox_saveManageCustomer.webship.services[1].shipmentTypes[4].checked" value="true"></td>
-                                                                <td>Auswide 5kg Satchel <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[4].customerCode" value="10000018" id="saveManageCustomer_webship_services_1__shipmentTypes_4__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[4].userType" value="0" id="saveManageCustomer_webship_services_1__shipmentTypes_4__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[4].serviceId" value="52" id="saveManageCustomer_webship_services_1__shipmentTypes_4__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[1].shipmentTypes[4].shipmentTypeId" value="177" id="saveManageCustomer_webship_services_1__shipmentTypes_4__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                    </tbody></table>
-                                                
-                                            </div>
+                                            
+                                            
                                         
-                                            <table class="s36 b24">
-                                                <tbody><tr>
-                                                    <td>
-                                                        <button type="button" class="fa fa-chevron-circle-right s10 b3" data-toggle="collapse" data-target="#sv-59"></button>
-                                                    </td>
-                                                    <td><input type="checkbox" name="saveManageCustomer.webship.services[2].checked" value="true" checked="checked" id="sv-59-checkbox" onclick="onServiceCheck('#sv-59',this)"><input type="hidden" id="__checkbox_sv-59-checkbox" name="__checkbox_saveManageCustomer.webship.services[2].checked" value="true"></td>
-                                                    <td>Toll Ipec</td>
-                                                </tr>
-                                            </tbody></table>
-                                            <div id="sv-59" class="collapse">
-                                                
-                                                    <table class="s36 b25">
-                                                        
-                                                            <tbody><tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[2].shipmentTypes[0].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_2__shipmentTypes_0__checked" onclick="onShipmentTypeCheck('#sv-59',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_2__shipmentTypes_0__checked" name="__checkbox_saveManageCustomer.webship.services[2].shipmentTypes[0].checked" value="true"></td>
-                                                                <td>ROAD EXPRESS <input type="hidden" name="saveManageCustomer.webship.services[2].shipmentTypes[0].customerCode" value="10000018" id="saveManageCustomer_webship_services_2__shipmentTypes_0__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[2].shipmentTypes[0].userType" value="0" id="saveManageCustomer_webship_services_2__shipmentTypes_0__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[2].shipmentTypes[0].serviceId" value="59" id="saveManageCustomer_webship_services_2__shipmentTypes_0__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[2].shipmentTypes[0].shipmentTypeId" value="216" id="saveManageCustomer_webship_services_2__shipmentTypes_0__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                    </tbody></table>
-                                                
-                                            </div>
+                                            
+                                            
                                         
                                             <table class="s36 b24">
                                                 <tbody><tr>
@@ -10455,30 +9803,8 @@ if(isset($submit_id))
                                                 
                                             </div>
                                         
-                                            <table class="s36 b24">
-                                                <tbody><tr>
-                                                    <td>
-                                                        <button type="button" class="fa fa-chevron-circle-right s10 b3" data-toggle="collapse" data-target="#sv-400"></button>
-                                                    </td>
-                                                    <td><input type="checkbox" name="saveManageCustomer.webship.services[4].checked" value="true" checked="checked" id="sv-400-checkbox" onclick="onServiceCheck('#sv-400',this)"><input type="hidden" id="__checkbox_sv-400-checkbox" name="__checkbox_saveManageCustomer.webship.services[4].checked" value="true"></td>
-                                                    <td>UPS Express</td>
-                                                </tr>
-                                            </tbody></table>
-                                            <div id="sv-400" class="collapse">
-                                                
-                                                    <table class="s36 b25">
-                                                        
-                                                            <tbody><tr>
-                                                                <td><input type="checkbox" name="saveManageCustomer.webship.services[4].shipmentTypes[0].checked" value="true" checked="checked" id="saveManageCustomer_webship_services_4__shipmentTypes_0__checked" onclick="onShipmentTypeCheck('#sv-400',this)"><input type="hidden" id="__checkbox_saveManageCustomer_webship_services_4__shipmentTypes_0__checked" name="__checkbox_saveManageCustomer.webship.services[4].shipmentTypes[0].checked" value="true"></td>
-                                                                <td>Express Saver <input type="hidden" name="saveManageCustomer.webship.services[4].shipmentTypes[0].customerCode" value="10000018" id="saveManageCustomer_webship_services_4__shipmentTypes_0__customerCode">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[4].shipmentTypes[0].userType" value="0" id="saveManageCustomer_webship_services_4__shipmentTypes_0__userType">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[4].shipmentTypes[0].serviceId" value="400" id="saveManageCustomer_webship_services_4__shipmentTypes_0__serviceId">
-                                                                    <input type="hidden" name="saveManageCustomer.webship.services[4].shipmentTypes[0].shipmentTypeId" value="250" id="saveManageCustomer_webship_services_4__shipmentTypes_0__shipmentTypeId"></td>
-                                                            </tr>
-                                                        
-                                                    </tbody></table>
-                                                
-                                            </div>
+                                           
+                                            
                                         
                                     
                                 
@@ -10488,18 +9814,21 @@ if(isset($submit_id))
                 </div>
                 
                 <div id="webship-customer-profile-tab" class="tab-pane fade in">
+                
                     <div class="row">
+                    <?php echo form_open_multipart('admin/do_upload');?>
+                    
                         <div class="portlet-body b12 b11">
                             <div class="form-group">
                                
 								    
 									<input type="hidden" name="file_path" value="" id="file_path"> 
-									<input type="file" name="userImage" value="" id="profile_image_upload" class="w10">
-									
-									
-                               
+									<!--input type="file" name="userImage" value="" id="profile_image_upload" class="w10"-->
+                                    <input type='file' name='userfile' size='20' />
+                                    <input type='submit' name='submit' value='upload' />
                             </div>
                         </div>
+                        <?php echo "</form>"?>
                     </div>
                 </div>
                 
@@ -10515,7 +9844,7 @@ if(isset($submit_id))
 
 <script type="text/javascript">
 
-  $(document).ready(function() {
+$(document).ready(function() {
       $('#webfreight_table').DataTable();
    });
 
@@ -10545,6 +9874,50 @@ if(isset($submit_id))
     $(this).toggleClass('selected-row'); 
     $("#edit").prop('disabled', false);
 });
+
+
+$(".remove").click(function(){
+        var id = $(this).parents("tr").attr("data-accessorialid");
+        if(confirm('Are you sure to remove this record ?'))
+        {
+            $.ajax({
+
+              url: 'delUser/'+id,
+               type: 'DELETE',
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(data) {
+                    $("#"+id).remove();
+                    alert("Record removed successfully");  
+                    window.location.reload();
+                   
+               }
+            });
+        }
+    });
+
+
+    $(".del").click(function(){
+        var note_id = $(this).parents("tr").attr("data-accessorialid");
+        if(confirm('Are you sure to remove this record ?'))
+        {
+            $.ajax({
+
+              url: 'delNote/'+note_id,
+               type: 'DELETE',
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(data) {
+                    $("#"+note_id).remove();
+                    alert("Record removed successfully");  
+                   window.location.reload();
+               }
+            });
+        }
+    });
+
 
 function edituser()
 {
@@ -10586,6 +9959,7 @@ function edituser()
             });
     
 }
+
 
 
 
@@ -10784,11 +10158,7 @@ function edituser()
        <div class="form-group flr ">
            <table class="s36 ">
                <tbody><tr>
-                   <td>
-                       <button class="btn s37 del" type="button" onclick="deleteNote()">
-                           Delete
-                       </button>
-                   </td>
+                 
                    <td>
                    <button class="btn s37 edit" type="button" id="editNote" disabled  data-toggle="modal" data-target="#editNotesModal">Edit </button>
                    </td>
@@ -10804,9 +10174,7 @@ function edituser()
            <tbody>
            <tr>
                <td style="border-top: 0px !important" colspan="">
-                   <div class="caption b17">
-                       Notes
-                   </div>
+                   
                </td>
            </tr>
            </tbody>
@@ -10820,17 +10188,35 @@ function edituser()
                    <th>User </th>
                    <th>Account</th>
                    <th>Note </th>
+                   <th>Action </th>
                </tr>
                </thead>
                <tbody>
                
                
-                   <tr>
-                       <td>11/04/2021</td>
-                       <td>Test</td>
-                       <td>Test</td>
-                       <td>Created on date 5...</td>
-                   </tr>
+                  
+               <?php for($i=0;$i<count($user_note);$i++)
+                                            {
+                                                //$date = $user_note[$i]['created_date']; 
+                                                //$start= date('d-m-Y h:i:s', strtotime($date));
+
+                                                if($user_note[$i]['customer_id'] == @$customer_data->customer_id){?>
+                                              
+                                              <tr class="on-click" data-accessorialid="<?php echo $users[$i]['id'];?>">
+                                                        <td><?php echo @$customer_data->customer_id; ?></td>
+                                                         <td><?php echo $user_note[$i]['modified_at'];?></td>
+                                                        <td><?php echo $user_note[$i]['customer_id'];?></td>
+                                                        <td><?php echo $user_note[$i]['user_notes']; ?></td>
+                                                        
+                                                     
+                   <td><button type="button" class="btn del"> Delete</button> </td>
+                 
+                                                    </tr>
+                                                 <?php }
+                                           }
+                                           
+                                                ?>
+                 
                
                </tbody>
            </table>
@@ -10840,7 +10226,8 @@ function edituser()
        </div>
     <div id="notes-tab" class="tab-pane fade"></div>
    
-    <div id="webship-history-tab" class="tab-pane fade"> <form>
+    <div id="webship-history-tab" class="tab-pane fade">
+         <form>
     <div id="tab-general">
         <div class="row mbl">
             <div class="col-lg-12">
@@ -11009,7 +10396,7 @@ function edituser()
                                                             <table class="table table-hover table-bordered mg0 datatable1" id="datatable1">
                                                                 <thead>
                                                                 <tr>
-                                                                    <th></th>
+                                                                    
                                                                     <th>Carrier</th>
                                                                     <th>Voided</th>
                                                                     <th>Tracking#</th>
@@ -11048,10 +10435,7 @@ function edituser()
                                                                 <tbody>
                                                                 
                                                                     <tr class="tr_no_record">
-                                                                        <td>
-                                                                            <input type="checkbox" name="chk_multivoid[]" value="25722" id="form_history_chk_multivoid__" class="chk_multivoid chk_multivoid_NO" style="display: none;"><input type="hidden" id="__checkbox_form_history_chk_multivoid__" name="__checkbox_chk_multivoid[]" value="25722">
-                                                                            <input type="hidden" name="" value="0" id="is_void">
-                                                                         </td>
+                                                                        
 
                                                                         <td>Startrack <input type="hidden" name="" value="25722" id="shipmentId">
                                                                             <input type="hidden" name="" value="1" id="commercialInvoiceId">
@@ -11127,29 +10511,36 @@ function edituser()
                                                 </div>
                                             </div>
                                             <div class="col-lg-12" id="div_list_chk_option" style="display: none;">
-                                                <div class="form-group text-left s99">
-                                                    <div class="form-group">
-                                                        <label class="checkbox-inline"> <input type="checkbox" class="cb1" id="chk_option_all" onclick="javascript:optionShowAll();">
-                                                            &nbsp; All
-                                                        </label> <label class="checkbox-inline"> <input type="checkbox" name="th_package" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Package Type
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_dimensions" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Dimensions
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_shipment_reference" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Shipment Reference
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_billing_party" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Billing Party
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_company" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Sender Company
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_contact" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Sender Contact
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_location" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Sender Localtion
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_receiver_company" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Receiver Company
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_receiver_contact" class="cb1" onclick="javascript:optionShowCol();">
-                                                        &nbsp; Receiver Contact
-                                                    </label>
+                                                <div class="form-group text-bottom s99 ">
+                                                    <div class="form-group check_inline">
+                                                    <input type="checkbox" class="cb1" id="chk_option_all" onclick="javascript:optionShowAll();">   
+                                                    <label class="checkbox-inline"> All</label> 
+                                                         
+                                                    <input type="checkbox" name="th_package" class="cb1" onclick="javascript:optionShowCol();">      
+                                                     <label class="checkbox-inline"> &nbsp; Package Type </label> 
+                                                     
+                                                    <input type="checkbox" name="th_dimensions" class="cb1" onclick="javascript:optionShowCol();"> 
+                                                     <label class="checkbox-inline">  &nbsp; Dimensions </label> 
+
+                                                  <input type="checkbox" name="th_shipment_reference" class="cb1" onclick="javascript:optionShowCol();">
+                                                  <label class="checkbox-inline"> &nbsp; Shipment Reference</label>
+
+                                                    <input type="checkbox" name="th_billing_party" class="cb1" onclick="javascript:optionShowCol();">
+                                                    <label class="checkbox-inline">  &nbsp; Billing Party</label>
+
+                                                   <input type="checkbox" name="th_sender_company" class="cb1" onclick="javascript:optionShowCol();">
+                                                    <label class="checkbox-inline">    &nbsp; Sender Company</label>
+
+                                                    <input type="checkbox" name="th_sender_contact" class="cb1" onclick="javascript:optionShowCol();">
+                                                    <label class="checkbox-inline">  &nbsp; Sender Contact </label>
+
+                                                    <input type="checkbox" name="th_sender_location" class="cb1" onclick="javascript:optionShowCol();">
+                                                    <label class="checkbox-inline">  &nbsp; Sender Localtion </label> 
+
+                                                    <input type="checkbox" name="th_receiver_company" class="cb1" onclick="javascript:optionShowCol();">        <label class="checkbox-inline"> &nbsp; Receiver Company </label>
+
+                                                    <input type="checkbox" name="th_receiver_contact" class="cb1" onclick="javascript:optionShowCol();">  <label class="checkbox-inline"> 
+                                                        &nbsp; Receiver Contact </label>
                                                     </div>
                                                 </div>
                                             </div>
@@ -11196,23 +10587,97 @@ function edituser()
     </table>
 </div>
 </form>
-<!--script type="text/javascript">
-    $('#manage_customer_tab_nav a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
-        var activeTab = $('ul#manage_customer_tab_nav li.active a').attr('href');
-        var customerCode = $("#customerCode option:selected").val();
-        if (customerCode != 0 && customerCode != -1) {
-            loadTabContent(customerCode, activeTab);
+<script type="text/javascript">
+   function showOption() {
+        if ($("#chk_show_option").is(":checked")) {
+            $("#div_list_chk_option").slideDown();
+        } else {
+            $("#div_list_chk_option").slideUp();
         }
-    });
+    }
 
-    var activeTab = '#account-setup-tab';
-    var customerCode = '10000018';
-    $("#manage_customer_tab_nav li a[href='" + activeTab + "']").parent().addClass("active");
-    $(activeTab).addClass("in active");
-    loadTabContent(customerCode, activeTab);
+    function optionShowAll() {
+        if ($("#chk_option_all").is(":checked")) {
+            $("#div_list_chk_option").find("input").attr('checked', true);
+            $(".col_hidden").show("slow");
+        } else {
+            $("#div_list_chk_option").find("input").attr('checked', false);
+            $(".col_hidden").hide("slow");
+        }
+        columnOption = '';
+        $("#div_list_chk_option").find("input").each(function () {
+            var nameColumn = $(this).attr("name");
+            if (!$(this).is(":checked")) {
+                columnOption += nameColumn+',';
+            }
+        });
+    }
 
+    function viewThermalLabel() {
+        var shipment_id = $("#hid_shipment_id").val();
+        var win = window.open("view_thermal_label.ix?shipmentId=" + shipment_id, '_blank');
+        win.focus();
+    }
 
-</script-->
+    function updateCollectionNo() {
+        doPostDataNonError('history_search.ix?reqType=json', 'form_history', '', 'div_history_data');
+    }
+
+    function trackAirbill() {
+        var shipment_id = $("#hid_shipment_id").val();
+        var win = window.open("history_tracking.ix?shipmentId=" + shipment_id, '_blank');
+        win.focus();
+    }
+
+    function optionShowCol() {
+        columnOption = '';
+        $("#div_list_chk_option").find("input").each(function () {
+            var index = $("#div_list_chk_option").find("input").index(this) - 1;
+            var nameColumn = $(this).attr("name");
+            var colToHide = $(".datatable1").find("." + nameColumn);
+            if ($(this).is(":checked")) {
+                $(this).attr('checked', true);
+                colToHide.show("slow");
+            } else {
+                $(this).attr('checked', false);
+                colToHide.hide("slow");
+                columnOption += nameColumn+',';
+            }
+        });
+    }
+
+    function proceedToVoid() {
+        var a = document.getElementsByName('chk_multivoid[]');
+        var len = a.length;
+        var list_sm = "0";
+        var totalSm = 0;
+        for (i = 0; i < len; i++) {
+            if (a[i].checked == true) {
+                list_sm = list_sm + "|" + a[i].value;
+                totalSm = totalSm + 1
+            }
+        }
+        var data = {
+            'listShipmentId': list_sm
+        };
+        if (totalSm > 0) {
+            var messageVoid = "Are You Sure Want To Void Total " + totalSm;
+            loadConfirmDialog("history_proceed_to_void.ix?reqType=json", data, messageVoid, "div_proceed_tovoid", updateCollectionNo(), "OK", "Cancel", "Proceed To Void");
+        } else {
+            alert("Please select shipment(s) to void.");
+        }
+
+    }
+
+ 
+
+   
+
+    
+
+    
+
+</script>
 </div>
                         </div>
                     </div>
@@ -11259,7 +10724,7 @@ function edituser()
             var formdata = $("#update_customer_form").serialize();
         console.log(formdata);
          $.ajax({
-               url: 'customers/add_customer',
+               url: 'add_customer',
                type: 'POST',
                data:formdata,
                error: function() {

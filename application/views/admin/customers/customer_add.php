@@ -9,7 +9,6 @@
         <span><strong>Please wait ...</strong></span>
     </div>
 </div>
-
 <div class="col-lg-12">
                         <div class="portlet box">
                             <div class="portlet-header">
@@ -25,7 +24,10 @@
         <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
-        </button7="caption b17 text-center">
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
         Rate sheet for: Road Express
        
     </div>
@@ -311,26 +313,13 @@
     </div>
   </div>
 </div>              
-                             <div class="col-lg-8 flr">
+                                <div class="col-lg-8 flr">
                                     <div class="form-group flr mgb">
                                         <table class="s36">
                                             <tbody>
                                             <tr>
-                                                <!--td>Search</td>
-                                                <td><input id="searchText" name="searchText" class="form-control b20" type="text"></td>
-                                                <td><select name="franchiseCode" id="franchiseCode" class="form-control" onchange="onFranchiseChange()">
-                         <option value="100">100 - AGL Logistics</option>
-                        <option value="101">101 - Gms-test</option>
-
-
-                  </select>
-
-                                   </td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="onGoClick()">
-                                                        Search
-                                                    </button>
-                                                </td-->
+                                               
+                                              
                                             <td>    <select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
                                     <option value="-1">Select a Customer</option>
                                     <option value="add">Add a Customer</option>
@@ -486,18 +475,6 @@
     <option value="0" selected="selected"></option>
     <option value="1">AGL</option>
     <option value="388">AGL</option>
-    <option value="403">Debbie</option>
-    <option value="390">GMS test</option>
-    <option value="405">Kawal</option>
-    <option value="395">Lynne</option>
-    <option value="402">Nancy Yeo</option>
-    <option value="404">Rhonda</option>
-    <option value="397">sue</option>
-    <option value="379">Sujeet</option>
-    <option value="401">Vince</option>
-    <option value="396">Wayne</option>
-
-
 </select>
 
 </td>
@@ -570,7 +547,13 @@
                 </div>
             </div>
         </div>
-
+        <div id="notes-tab" class="tab-pane fade">
+          
+             <p>
+                Type text in the box below for the initial note on this account.
+            </p>
+            <textarea name="note.note" cols="100" rows="5" id="note_note"></textarea>
+        </div>
         <!-- Address tab -->
         <div id="address-tab" class="tab-pane fade">
             <div class="row">
@@ -585,11 +568,11 @@
                         </tr>
                         <tr>
                             <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="customerName" value="" id="address_address_customerName" class="form-control uppercase" data-group="address" required="required"></td>
+                            <td class="td2" colspan="2"><input type="text" name="customerName" required="required" value="" id="address_address_customerName" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="contactName" value="" id="address_address_contactName" class="form-control uppercase" data-group="address" required="required"></td>
+                            <td class="td2" colspan="2"><input type="text" name="contactName" required="required" value="" id="address_address_contactName" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
@@ -597,7 +580,7 @@
                         </tr>
                         <tr>
                             <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address1" value="" id="address_address_address1" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="address1" required="required" value="" id="address_address_address1" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
@@ -605,12 +588,12 @@
                         </tr>
                         <tr>
                             <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="city" value="" id="address_address_city" class="form-control uppercase" data-group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="city" value="" required="required" id="address_address_city" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><select name="country" id="address_address_country" class="form-control uppercase" data-group="address">
-    <option value="0">country</option>
+                            <td class="td2" colspan="2"><select name="country" id="address_address_country" required="required" class="form-control uppercase" data-group="address">
+    <option value="0">Select a country</option>
     <option value="1">Afghanistan</option>
     <option value="2">Albania</option>
     <option value="3">Algeria</option>
@@ -899,7 +882,8 @@
                         </tr>
                         <tr>
                             <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td>
+                            <!--td class="td2" colspan="2"><input type="text" name="phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td-->
+                         <td>   <input type="tel" name="phone" value="" pattern="08\d{8}" id="address_address_phone" required="required" class="form-control uppercase" data-group="address" maxlength="10"> </td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
@@ -910,8 +894,8 @@
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="email" value="" id="address_address_email" class="form-control" data-group="address"></td>
+                            <td class="td1">Email:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="email" name="email" value="" required="required" id="address_address_email" class="form-control" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
@@ -965,7 +949,7 @@
                         <tr>
                             <td class="td1">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><select name="billingCountry" id="address_billingAddress_billingCountry" class="form-control uppercase" data-group="billing-address" readonly="readonly">
-    <option value="0">country</option>
+    <option value="0">Select a country</option>
     <option value="1">Afghanistan</option>
     <option value="2">Albania</option>
     <option value="3">Algeria</option>
@@ -1336,40 +1320,13 @@
                             <td class="td2" colspan="2"><input type="text" name="other2Email" value="" id="address_address_other2Email" class="form-control"></td>
                         </tr>
                     </tbody></table>
-                    <div class="pal form-actions">
-        <table class="s36" align="right">
-            <tbody>
-            <tr>
-                <td height="10"></td>
-            </tr>
-            <tr>
-                <td>
-                    <button class="btn s37" type="reset">
-                        Reset
-                    </button>
-                </td>
-                <td>
-                    <button class="btn s37" type="button" onclick="saveNewCustomer()">
-                        Save
-                    </button>
-                </td>
-            </tr>
-            </tbody>
-        </table>
-    </div>
-                  </form>
+                    
 
                 </div>
             </div>
+                                </form>
         </div>
-        <div id="notes-tab" class="tab-pane fade in">
-           
 
-            
-                Type text in the box below for the initial note on this account.
-         
-            <textarea name="note.note" cols="100" rows="5" id="note_note"></textarea>
-        </div>
         <!-- Base rates tab -->
         <div id="base-rates-tab" class="tab-pane fade">
             <div class="row">
@@ -4383,7 +4340,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="18" data-content="-1" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="18" data-content="-1" data-bound="0" class="contry" data-serviceid="3" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -4467,7 +4424,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="20" data-content="-1" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" class="contry" data-customercode="10000198" data-shipmenttypeid="20" data-content="-1" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -4551,7 +4508,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="147" data-content="-1" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" class="contry" type="checkbox" data-customercode="10000198" data-shipmenttypeid="147" data-content="-1" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -4635,7 +4592,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="19" data-content="-1" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="19" data-content="-1" class="contry" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -4719,7 +4676,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="21" data-content="-1" data-bound="0" data-serviceid="3" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="21" data-content="-1" data-bound="0" class="contry" data-serviceid="3" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -5643,7 +5600,6 @@
                                                                 </div>
                                                             </div>
                                                         </div>
-                                                       
                                                         <!-- Customer base rate detail -->
                                                         <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
                                                             <ul class="c36" style="width: 14324px; overflow: hidden;">
@@ -7230,92 +7186,91 @@
                                                     <td>Origin</td>
                                                     <td><select name="" id="starTrackColumnName" class="form-control">
                                                     <option value="HOB">	A10		</option>
-<option value="ABY">	ABY		</option>
-<option value="AC1">	AC1		</option>
-<option value="AC2">	AC2		</option>
-<option value="AC3">	AC3		</option>
-<option value="AC4">	AC4		</option>
-<option value="AC5">	AC5		</option>
-<option value="AC6">	AC6		</option>
-<option value="AC7">	AC7		</option>
-<option value="AC8">	AC8		</option>
-<option value="AC9">	AC9		</option>
-<option value="ADL">	ADL		</option>
-<option value="ALB">	ALB		</option>
-<option value="BNA">	BNA		</option>
-<option value="BRO">	BRO		</option>   
-
-<option value="BRS">	BRS		</option>
-<option value="BUN">	BUN		</option>
-<option value="CBR">	CBR		</option>
-<option value="COF">	COF		</option>
-<option value="CRN">	CRN		</option>
-<option value="D10">	D10		</option>
-<option value="DAR">	DAR		</option>
-<option value="DC4">	DC4		</option>
-<option value="DC6">	DC6		</option>
-<option value="DC7">	DC7		</option>
-<option value="ESP">	ESP		</option>
-<option value="GLA">	GLA		</option>
-<option value="GLD">	GLD		</option>
-<option value="GYM">	GYM		</option>
-<option value="HC1">	HC1		</option>
-<option value="HC2">	HC2		</option>
-<option value="HOB">	HOB		</option>
-<option value="KAR">	KAR		</option>
-<option value="L10">	L10		</option>
-<option value="LC1">	LC1		</option>
-<option value="LC2">	LC2		</option>
-<option value="LC3">	LC3		</option>
-<option value="LCN">	LCN		</option>
-<option value="LIS">	LIS		</option>
-<option value="MAC">	MAC		</option>
-<option value="MAR">	MAR		</option>
-<option value="MEL">	MEL		</option>
-<option value="N10">	N10		</option>
-<option value="NC1">	NC1		</option>
-<option value="NC2">	NC2		</option>
-<option value="NC3">	NC3		</option>
-<option value="NC4">	NC4		</option>
-<option value="NC5">	NC5		</option>
-<option value="NC6">	NC6		</option>
-<option value="NCL">	NCL		</option>
-<option value="PER">	PER		</option>
-<option value="HOB">	PRO		</option>
-<option value="HOB">	Q10		</option>
-<option value="HOB">	QC1		</option>
-<option value="HOB">	QC2		</option>
-<option value="HOB">	QC3		</option>
-<option value="HOB">	QC4		</option>
-<option value="HOB">	QC5		</option>
-<option value="HOB">	QC6		</option>
-<option value="HOB">	QC7		</option>
-<option value="HOB">	QC8		</option>
-<option value="HOB">	QC9		</option>
-<option value="HOB">	RHM		</option>
-<option value="HOB">	RKH		</option>
-<option value="HOB">	ROC		</option>
-<option value="HOB">	SSC		</option>
-<option value="HOB">	SYD		</option>
-<option value="HOB">	TAM		</option>
-<option value="HOB">	TVL		</option>
-<option value="HOB">	TWB		</option>
-<option value="HOB">	VC1		</option>
-<option value="HOB">	VC2		</option>
-<option value="HOB">	VC3		</option>
-<option value="HOB">	WC1		</option>
-<option value="HOB">	WC2		</option>
-<option value="HOB">	WC3		</option>
-<option value="WC4">	WC4		</option>
-<option value="WC5">	WC5		</option>
-<option value="WC6">	WC6		</option>
-<option value="WC7">	WC7		</option>
-<option value="WC8">	WC8		</option>
-<option value="WC9">	WC9		</option>
-<option value="WOL">	WOL		</option>
-
-
-
+                                                    <option value="A10">A10</option>
+<option value="ABY">ALBANY - ABY</option>
+<option value="AC1">SA ZONE 1 - AC1</option>
+<option value="AC2">SA ZONE 2 - AC2</option>
+<option value="AC3">SA ZONE 3 - AC3</option>
+<option value="AC4">SA ZONE 4 - AC4</option>
+<option value="AC5">SA ZONE 5 - AC5</option>
+<option value="AC6">SA ZONE 6 - AC6</option>
+<option value="AC7">SA ZONE 7 - AC7</option>
+<option value="SC7">SA ZONE 7 - SC7</option>
+<option value="AC8">SA ZONE 8 - AC8</option>
+<option value="AC9">SA ZONE 9 - AC9</option>
+<option value="ADL">ADELAIDE - ADL</option>
+<option value="ALB">ALBURY - ALB</option>
+<option value="ASP">ALICE SPRINGS - ASP</option>
+<option value="BNA">BALLINA - BNA</option>
+<option value="BRO">BROOME - BRO</option>
+<option value="BRS">BRISBANE - BRS</option>
+<option value="BUN">BUNDABERG - BUN</option>
+<option value="CBR">CANBERRA - CBR</option>
+<option value="COF">COFFS HARBOUR - COF</option>
+<option value="CRN">CAIRNS - CRN</option>
+<option value="D10">DARWIN ZONE 10 - D10</option>
+<option value="DAR">DARWIN - DAR</option>
+<option value="DC4">DARWIN ZONE 4 - DC4</option>
+<option value="DC6">DARWIN ZONE 6 - DC6	</option>
+<option value="DC7">DARWIN ZONE 7 - DC7	</option>
+<option value="ESP">ESPERENCE - ESP	</option>
+<option value="GLA">GLADSTONE - GLA	</option>
+<option value="GLD">GOLD COAST - GLD</option>
+<option value="GYM">GYMPIE - GYM</option>
+<option value="HC1">HOBART ZONE 1 - HC1	</option>
+<option value="HC2">HOBART ZONE 2 - HC2	</option>
+<option value="HOB">HOBART - HOB</option>
+<option value="KAR">KARRATHA - KAR</option>
+<option value="L10">L10	</option>
+<option value="LC1">LAUNCESTON ZONE 1 - LC1	</option>
+<option value="LC2">LAUNCESTON ZONE 2 - LC2	</option>
+<option value="LC3">LAUNCESTON ZONE 3 - LC3	</option>
+<option value="LCN">LAUNCESTON - LCN</option>
+<option value="LIS">LISMORE - LIS</option>
+<option value="MAC">MACKAY - MAC</option>
+<option value="MAR">MARYBOROUGH - MAR</option>
+<option value="MEL">MELBOURNE - MEL</option>
+<option value="N10">N10	</option>
+<option value="NC1">NSW ZONE 1 - NC1</option>
+<option value="NC2">NSW ZONE 2 - NC2</option>
+<option value="NC3">NSW ZONE 3 - NC3</option>
+<option value="NC4">NSW ZONE 4 - NC4</option>
+<option value="NC5">NSW ZONE 5 - NC5</option>
+<option value="NC6">NSW ZONE 6 - NC6</option>
+<option value="NCL">NEWCASTLE - NCL	</option>
+<option value="PER">PERTH - PER	</option>
+<option value="PRO">GREGORY RIVER - PRO	</option>
+<option value="Q10">Q10	</option>
+<option value="QC1">QUEENSLAND ZONE 1 - QC1	</option>
+<option value="QC2">QUEENSLAND ZONE 2 - QC2	</option>
+<option value="QC3">QUEENSLAND ZONE 3 - QC3	</option>
+<option value="QC4">QUEENSLAND ZONE 4 - QC4	</option>
+<option value="QC5">QUEENSLAND ZONE 5 - QC5	</option>
+<option value="QC6">QUEENSLAND ZONE 6 - QC6	</option>
+<option value="QC7">QUEENSLAND ZONE 7 - QC7	</option>
+<option value="QC8">QUEENSLAND ZONE 8 - QC8	</option>
+<option value="QC9">QUEENSLAND ZONE 9 - QC9	</option>
+<option value="RHM">ROCKINGHAM - RHM</option>
+<option value="RKH">ROCKINGHAM - RKH</option>
+<option value="ROC">ROCKHAMPTON - ROC</option>
+<option value="SSC">SUNSHINE COAST - SSC</option>
+<option value="SYD">SYDNEY - SYD</option>
+<option value="TAM">TAMWORTH - TAM</option>
+<option value="TVL">TOWNSVILLE - TVL</option>
+<option value="TWB">TOOWOOMBA - TWB</option>
+<option value="VC1">VICTORIA ZONE 1 - VC1</option>
+<option value="VC2">VICTORIA ZONE 2 - VC2</option>
+<option value="VC3">VICTORIA ZONE 3 - VC3</option>
+<option value="WC1">WA ZONE 1 - WC1</option>
+<option value="WC2">WA ZONE 2 - WC2</option>
+<option value="WC3">WA ZONE 3 - WC3</option>
+<option value="WC4">WA ZONE 4 - WC4</option>
+<option value="WC5">WA ZONE 5 - WC5</option>
+<option value="WC6">WA ZONE 6 - WC6</option>
+<option value="WC7">WA ZONE 7 - WC7</option>
+<option value="WC8">WA ZONE 8 - WC8</option>
+<option value="WC9">WA ZONE 9 - WC9</option>
+<option value="WOL">WOLLONGONG - WOL</option>
 </select>
 
 </td>
@@ -7326,22 +7281,10 @@
                                         <div class="form-group">
                                             <table class="s36">
                                                 <tbody><tr>
-                                                    <td>Print Rate Sheets</td>
-                                                    <td>
-                                                        <button class="btn s37" type="button" onclick="printRateSheetCheckAll($(this))">
-                                                            Check All
-                                                        </button>
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn s37" type="button" onclick="printRateSheetCheckNone($(this))">
-                                                            Check None
-                                                        </button>
-                                                    </td>
-                                                    <td>
-                                                        <button class="btn s37" type="button" onclick="printRateSheet($(this))">
-                                                            Print Checked Rate Sheets
-                                                        </button>
-                                                    </td>
+                                                 
+                                                    <td><input type="radio" class="TLO" name="radio1" id="all" />Check All</td>
+                                                   <td> <input type="radio" class="TLO" name="radio1" id="none" />Uncheck All</td>
+                                                  
                                                     <td><input type="checkbox" data-type="pdf-format" onchange="rateSheetFormatChange($(this))"></td>
                                                     <td>Pdf</td>
                                                     <td><input type="checkbox" data-type="excel-format" onchange="rateSheetFormatChange($(this))"></td>
@@ -7365,7 +7308,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="228" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000198" data-shipmenttypeid="228" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -8116,7 +8059,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="229" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" class="country" type="checkbox" data-customercode="10000198" data-shipmenttypeid="229" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -8990,7 +8933,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="230" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000198" data-shipmenttypeid="230" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -9078,7 +9021,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="231" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" class="country" type="checkbox" data-customercode="10000198" data-shipmenttypeid="231" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -9166,7 +9109,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="232" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" class="country" type="checkbox" data-customercode="10000198" data-shipmenttypeid="232" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -9254,7 +9197,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="234" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000198" data-shipmenttypeid="234" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -9342,7 +9285,7 @@
                                                                 </div>
                                                                 <div class="pull-left c32">
                                                                     
-                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000198" data-shipmenttypeid="235" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                        <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000198" data-shipmenttypeid="235" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                     
                                                                 </div>
                                                                 <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -9423,6 +9366,8 @@
 
                                                           
                      
+
+
 
         <!-- Invoice options tab -->
         <div id="invoice-options-tab" class="tab-pane fade">
@@ -9574,18 +9519,19 @@
                                 </div>
                             </div>
                         </div>
+                        
                     </div>
                 </div>
-            </div>
-        </div>
-       
+                </div>
+                </div>
+              
 
-        <!-- Note tab -->
-        
-    </div>
-    
-</form>
-<div id="alert-dialog" title=""></div>
+               
+            </div>
+          
+        </div>
+     </form>
+	 <div id="alert-dialog" title=""></div>
 <div id="message-dialog" title="Message"></div>
 <script type="text/javascript">
     // init common dialog
@@ -9620,8 +9566,15 @@
         }
     });
 </script>
-<div>
 <script type="text/javascript">
+
+  $('#all').on('change', function (){
+        $('.country').prop('checked', $(this).is(':checked'));
+    });
+  $('#none').on('change', function () {
+  $('.country').prop('checked', !$(this).is(':checked'));
+    });
+
     $(document).ready(function () {
         enableDisableBillingAddress();
         // Bind on keyup event handler to the inputs that it's group is address
@@ -10088,7 +10041,29 @@
             }
         }
     }
-</script></div>
+</script>
+</div>
+</div>
                         </div>
                     </div>
-                    
+                    <div class="pal form-actions">
+        <table class="s36" align="right">
+            <tbody>
+            <tr>
+                <td height="10"></td>
+            </tr>
+            <tr>
+                <td>
+                    <button class="btn s37" type="reset">
+                        Reset
+                    </button>
+                </td>
+                <td>
+                    <button class="btn s37" type="button" onclick="saveNewCustomer()">
+                        Save
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>

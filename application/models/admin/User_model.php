@@ -117,6 +117,19 @@ public function set_message($id,$data){
 	return true;
 }
 
+public function save_notes($notes)
+	{
+		$this->db->insert('user_notes',$notes);
+		return true;
+	}
+
+
+ public function get_all_notes()
+ {
+	$query = $this->db->get('user_notes');
+	return $result = $query->result_array();
+  }
+
 
 	}
 

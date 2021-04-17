@@ -33,18 +33,18 @@
 <!--pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"-->
                             <div class="form-group">
                                 <label class="control-label" for="inputName">Old Password</label> 
-                                <input name="oldPassword" value="" type="password" placeholder="Enter the old password" class="form-control old_pass" data-placement="top"> <span class="s30"></span>
+                                <input name="oldPassword" value="" type="password" placeholder="Enter the old password" class="form-control old_pass" required="required"> <span class="s30"></span>
                                 <?php echo form_error('oldPassword', '<div class="error">', '</div>')?>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputName">New Password</label>
-                                 <input name="newPassword" value="" type="password" placeholder="Enter the new password"  class="form-control alloptions old_pass" data-placement="top" id="newPassword"> <span class="s30"></span>
+                                 <input name="newPassword" value="" type="password" placeholder="Enter the new password"  class="form-control alloptions old_pass" id="newPassword" required="required"> <span class="s30"></span>
                                  <?php echo form_error('newPassword', '<div class="error">', '</div>')?>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputName">Confirm New</label>
-                                 <input name="confirmPassword" value="" type="password" placeholder="Re-enter the new password"  class="form-control alloptions old_pass" data-placement="top" id="confirmPassword"> <span class="s30"></span>
-                                 <?php echo form_error('confirmPassword', '<div class="error">', '</div>')?>
+                                 <input name="confirmPassword" value="" type="password" required placeholder="Re-enter the new password" class="form-control alloptions old_pass" onkeypress="chkPwd(this)" id="confirmPassword" required="required">
+                                 <span id="err"></span>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,11 @@
                 </form>
             </div>
         </div>
-<!--script>
+        <script>
+
+// To disappear a Falsh message
+var timeout = 2000; // in miliseconds (3*1000)
+$('.alert').delay(timeout).fadeOut(300);
 
 function chkPwd(a)
     {
@@ -74,4 +78,4 @@ function chkPwd(a)
         }   
     }
 
-</script-->
+</script>

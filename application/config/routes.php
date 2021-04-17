@@ -107,6 +107,8 @@ $route['customer/help'] = 'customer/customers/help';
 $route['user/login'] = 'user';
 $route['user/login/process'] = 'user/process';
 
+$route['admin/add_notes'] = 'admin/customers/add_notes';
+
 //$route['admin/order_supply'] = 'admin/customers/order_supply';
 $route['customer/quote'] = 'customer/customers/quote';
 
