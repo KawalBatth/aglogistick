@@ -9570,6 +9570,11 @@
 <script type="text/javascript">
 
 
+    $('.uppercase').keyup(function() {
+        this.value = this.value.toUpperCase();
+    });
+
+
   $('#all').on('change', function (){
         $('.country').prop('checked', $(this).is(':checked'));
     });

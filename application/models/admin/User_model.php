@@ -129,7 +129,15 @@ public function save_notes($notes)
 	$query = $this->db->get('user_notes');
 	return $result = $query->result_array();
   }
-
+  
+public function fetch_customer($id)
+	{
+			$this->db->select('*');
+			$this->db->from('customer');
+			$this->db->where('customer_id', $id);
+			$query = $this->db->get();
+            return $query->result();			
+	}
 
 	}
 

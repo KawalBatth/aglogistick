@@ -65,7 +65,7 @@
         {
             $user_id = $this->input->post('user_id');
             $customerId = $this->input->post('customerId'); 
-            $webshipId = $this->input->post('webshipId');
+            //$webshipId = $this->input->post('webshipId');
             //$carrierid = $this->input->post('carrier_id');
             $allowExport=0;
 			$isRequire=0;
@@ -80,7 +80,7 @@
             $user = array(
 
             'customer_id'=>$customerId,
-            'webshipId'=>$webshipId,
+            //'webshipId'=>$webshipId,
             'user_name' => $this->input->post('username'),
             'password' => base64_encode($this->input->post('userpassword')),
             'language' => $this->input->post('language'),
@@ -110,7 +110,7 @@
 			
 			$customerCode = $this->input->post('customerCode');	
 			$username = $this->input->post('username');	
-			$webshipId = $this->input->post('webshipId');	
+			//$webshipId = $this->input->post('webshipId');	
 			$userpassword = $this->input->post('userpassword');	
 			$language = $this->input->post('language');	
 			$allowExport=0;
@@ -126,7 +126,7 @@
 
 
 			$array = array(
-				'webshipId' =>$webshipId,
+				//'webshipId' =>$webshipId,
 				'customer_id' =>$customerCode,
 				'user_name'=>$username,
 				'password'=>base64_encode($userpassword),
@@ -297,7 +297,6 @@ public function delUser($id = 0){
                 $config['max_size']             = 100;
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
-
                 $this->load->library('upload', $config);*/
 
 			$array = array(

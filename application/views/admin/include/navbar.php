@@ -627,6 +627,10 @@ input::placeholder {
     text-transform: none;
 }
 
+/*input.uppercase {
+    text-transform: uppercase;
+}*/
+
 input#saveManageCustomer_customerAddress_address_email {
     text-transform: lowercase;
 }

@@ -87,7 +87,6 @@
 			$this->db->select('customer_id,customerName');
 			$this->db->from('customer');
 			return $query = $this->db->get()->result_array();
-
 	}*/
 
 	public function get_customer()
