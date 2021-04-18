@@ -298,9 +298,9 @@ if(isset($submit_id))
                                             <tbody>
                                             <tr>
                                         
-                                                
-    <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
+    <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
     <option value="-1">Select a Customer</option>
+    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option> 
     <?php for($i=0;$i<count($data);$i++)
                                     {
                             echo //'<option value="'.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
@@ -340,7 +340,8 @@ if(isset($submit_id))
                 <div class="col-lg-4">
                     <table class="table" style="font-size: 11px;">
                     <tbody><tr>
-                            <td colspan="3" class="b16 uppercase"><p>
+                            <td colspan="3" class="b16 uppercase">
+                            <p class="customer_info">
                            <?php echo @$customer_data->customerName;?>
                                 <input type="hidden" name="customerName" value="<?php echo @$customer_data->customerName;?>" id="saveManageCustomer_accountSetup_address_customerName">
                                 <br>
@@ -376,7 +377,10 @@ if(isset($submit_id))
                         </tr>
                         <tr>
                             <td class="td1">Submit Date:</td>
-                            <td class="td2" colspan="2"><input type="text" name="createDate" value="<?php echo @$customer_data->created_date; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="createDate" value="<?php 
+                            $date = @$customer_data->created_date;
+                            $submit= date('d-m-Y h:i:s', strtotime($date));
+                            echo $submit; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
                         </tr>
                         
                         <tr>
