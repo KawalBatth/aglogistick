@@ -10,6 +10,7 @@
 
 		public function shipment()
 		{
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customers/layout', $data);
 		}
@@ -120,7 +121,9 @@
 		}
 	public function get_customers()
 		{
-			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('username'));
+			print_r($this->session->userdata);
+			echo $this->session->userdata('customer_user_id');
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customer/layout', $data);
 		}

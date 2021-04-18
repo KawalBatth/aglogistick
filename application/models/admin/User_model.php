@@ -133,10 +133,11 @@ public function save_notes($notes)
 public function fetch_customer($id)
 	{
 			$this->db->select('*');
-			$this->db->from('customer');
-			$this->db->where('customer_id', $id);
+			$this->db->from('user');
+			$this->db->join('customer', 'customer.customer_id = user.customer_id');
+			$this->db->where('user.id', $id);
 			$query = $this->db->get();
-            return $query->result();			
+            return $query->row();			
 	}
 
 	}
