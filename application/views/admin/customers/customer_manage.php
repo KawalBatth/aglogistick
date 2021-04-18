@@ -8218,7 +8218,9 @@ function edituser()
       {
           $('#exampleModal .table tbody').html('');
           $('#exampleModal .caption').html('Rate Sheet for: '+name);
-          
+          var rows ='';
+          var x=0;
+          var result='';
           var zone =  $('#starTrackColumnName option:selected').val();
            $.ajax({
                url: 'get_rates',
@@ -8228,13 +8230,15 @@ function edituser()
                   alert('Something is wrong');
                },
                success: function(res) {
-              console.log(res);          
                 var data= JSON.parse(res);              
-                console.log(data);
-                var result= data.rates[0];
-                console.log(result);
-                var rows ='<tr><td>'+result.destination+'</td><td>'+result.minimum+'</td><td>'+result.basic_charge+'</td><td>'+result.per_kg+'</td></tr>';
+                console.log(data);    
+                jQuery.each(data, function( i, val ) {
+                  result = val;
+                  rows +='<tr><td>'+val.destination+'</td><td>'+val.minimum+'</td><td>'+val.basic_charge+'</td><td>'+val.per_kg+'</td></tr>';                  
+                });
                 $('#exampleModal .table tbody').html(rows);
+                
+                
                }
 
             });

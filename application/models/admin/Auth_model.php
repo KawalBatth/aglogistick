@@ -67,7 +67,6 @@
 			$this->db->select('*');
 			$this->db->from('rates');
 			$this->db->where(array('service_type'=>$id,'origin'=>$zone));
-			echo $str = $this->db->last_query();
 			return $query = $this->db->get()->result_array();
 
 		}

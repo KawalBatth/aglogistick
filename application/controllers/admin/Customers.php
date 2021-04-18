@@ -155,7 +155,7 @@ public function get_rates()
 {
 		$zone = $this->input->post('zone');	
 		$id = $this->input->post('service_type');	
-		$data['rates'] =  $this->auth_model->get_rates($zone,$id);
+		$data=  $this->auth_model->get_rates($zone,$id);
 		echo json_encode($data);
 }
 public function delUser($id = 0){
@@ -256,7 +256,8 @@ public function delUser($id = 0){
 			{
 				$this->auth_model->update_customer($dataforsave,$customerCode);			
 			}
-			else {$this->auth_model->save_customer($dataforsave);
+			else {
+				$this->auth_model->save_customer($dataforsave);
 				$number = substr($customerCode, -3);
     			$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     			$pwd= substr(str_shuffle($chars),0,4);
