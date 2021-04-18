@@ -32,16 +32,14 @@
                 <?php endif; ?>
                 <div class="form-box">
                     <div class="caption">
-                        <h3 CLASS="title">User Log In </h>
+                        <h3 CLASS="title">Customer Log In </h>
                     </div>
-                    <?php //echo form_open(base_url('login/process'), 'class="login-form" '); ?>
                     <?php echo form_open(base_url('login/process'), 'class="login-form" '); ?>
                         <div class="input-group">
                             <!--input type="email" name="email" id="email" class="form-control" placeholder="Email" -->
                             <input type="text" name="name" id="name" class="form-control" placeholder="Name" >
                             <input type="password" name="password" id="password" class="form-control" placeholder="Password" >
                             <input type="submit" name="submit" id="submit" class="form-control" value="Log In">
-                            
                         </div>
                     <?php echo form_close(); ?>
                 </div>

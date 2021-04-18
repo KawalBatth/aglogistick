@@ -11,7 +11,7 @@
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <p class="help_info">
-                                                For information about your account or AGL Web Freight, please contact you local AGL office:
+                                                For information about your account or AGL Web Freight, please contact your local AGL office:
                                             </p><br>
 
                                             <p class="help_contact">

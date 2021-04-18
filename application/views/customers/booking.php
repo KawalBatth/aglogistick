@@ -160,13 +160,13 @@
                                                 </label>
                                                 
                                                 
-                                                    <input type="text" name="shipmentRequestModel.contentDetail.description" maxlength="30" value="" id="form_booking_shipmentRequestModel_contentDetail_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Please limit content descriptions to 30 characters.">
+                                                    <input type="text" name="shipmentRequestModel.contentDetail.description" required maxlength="30" value="" id="form_booking_shipmentRequestModel_contentDetail_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Please limit content descriptions to 30 characters.">
                                                 
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="inputName"> Billing/Customer Reference <span class="s30"> *</span>
                                                 </label>
-                                                <input type="text" name="shipmentRequestModel.shipmentReference" value="" id="form_booking_shipmentRequestModel_shipmentReference" class="form-control">
+                                                <input type="text" name="shipmentRequestModel.shipmentReference" value="" required id="form_booking_shipmentRequestModel_shipmentReference" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="inputName"> Special Delivery Instructions
@@ -176,7 +176,7 @@
 											<div class="form-group">
 												<label class="control-label" for="inputName"> Collection Reference No. <span class="s30"> *</span>
 												</label>
-												<input type="text" name="shipmentRequestModel.collectionReference" value="" id="form_booking_shipmentRequestModel_collectionReference" class="form-control">
+												<input type="text" name="shipmentRequestModel.collectionReference" required value="" id="form_booking_shipmentRequestModel_collectionReference" class="form-control">
 											</div>
                                         </div>
                                     </div>
@@ -407,10 +407,10 @@
     </div>
 </div>
                                 <div class="text-right pal pdt10">
-                                    <button class="btn s33 " type="button" onclick="backToShipment()">
+                                <a href="<?php echo base_url('customer/shipment'); ?>" class="back"> <button class="btn s33" type="button">
                                         Back
-                                    </button>
-                                    <button class="btn s33 " type="button" onclick="doShip()">
+                               </a>     </button>
+                                    <button class="btn s33" type="button" onclick="doShip()">
                                         Ship
                                     </button>
                                 </div>

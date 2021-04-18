@@ -1,4 +1,3 @@
-
 <div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -831,6 +830,8 @@
         <input type="text" name="shipmentPage.receiverAddress.state" value="" id="shipmentPage_receiverAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
     
     
+    
+    
    <!--  previous code  -->
    
     
@@ -1545,7 +1546,6 @@ function onChangeServiceType(isReturn) {
 
 
 
-
 $(document).ready(function(){
     var list ='<ul id="country-list">';
 
@@ -1569,9 +1569,9 @@ $(document).ready(function(){
             $.each(result, function(k, v) {
                 //console.log(k + ' is ' + v);
                 list +='<li onclick="onListClick($(this),false);"><div class="row">';
-                list +='<div class="col-xs-6" data-cityname="'+v.suburb+'">'+v.suburb+'</div>';
-                list +='<div class="col-xs-3" data-postalcode="'+v.postcode+'">'+v.postcode+'</div>';
-                list +='<div class="col-xs-3" data-statecode="'+v.state+'">'+v.state+'</div>';
+                list +='<div class="col-xs-6 suburb" data-cityname="'+v.suburb+'">'+v.suburb+'</div>';
+                list +='<div class="col-xs-3 postcode" data-postalcode="'+v.postcode+'">'+v.postcode+'</div>';
+                list +='<div class="col-xs-3 state" data-statecode="'+v.state+'">'+v.state+'</div>';
                 list +='</div></li>';
         });
             list +='<ul id="country-list" style="width:100%;">';
@@ -1610,7 +1610,28 @@ function onListClick(obj, isSender) {
     </script>
 
 <style>
-#country-list{float:left;list-style:none;margin-top:-3px;padding:0;width:190px;position: absolute;}
-#country-list li{padding: 10px; background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list {
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 480px;
+    position: absolute;
+}
+#country-list li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
 #country-list li:hover{background:#ece3d2;cursor: pointer;}
+.col-xs-6.suburb {
+    margin-left: 13px;
+    margin-top: 9px;
+}
+.col-xs-3.postcode {
+    margin-left: -92px;
+}
+.col-xs-3.state {
+    margin-left: 77px;
+}
+.col-xs-3{
+margin-top: 0px !important;
+}
 </style>
+

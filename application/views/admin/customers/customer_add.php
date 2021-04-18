@@ -9531,7 +9531,7 @@
           
         </div>
      </form>
-	 <div id="alert-dialog" title=""></div>
+	 <div id="alert-dialog" title="Error"></div>
 <div id="message-dialog" title="Message"></div>
 <script type="text/javascript">
     // init common dialog

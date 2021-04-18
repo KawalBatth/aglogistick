@@ -253,14 +253,33 @@ input.form-control.old_pass {
     width: 372px;
 }
 
-p.help_info {
+p.note {
+    color: red;
     font-size: 14px;
-    margin-left: 382px;
+    border-left:none;
+}
+
+button.btn.s33.s44.save {
+    float: left;
+    margin-top: 26px;
+    margin-left: -5px;
+}
+
+p.help_info {
+    font-size: 16px;
+    margin-left: 367px;
+    color: #333;
+}
+
+label.control-label {
+    color: #333;
+    font-size: 13px;
 }
 
 .help_contact {
-    font-size: 14px;
+    font-size: 16px;
     margin-left: 631px;
+    color: #333;
 }
 
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -393,10 +412,6 @@ input#carrier_name {
     padding: 13px;
 }
 
-button.btn.s33.s44.save {
-    float: left;
-}
-
 h3.title {
     margin-top: 10px;
     margin-left: -11px;
@@ -427,7 +442,9 @@ img.logo_img {
     background: aliceblue;
 }
 
-
+a.back {
+    color: #fff;
+}
 
 
     </style>
@@ -448,7 +465,7 @@ img.logo_img {
         <span class="sr-only">Toggle navigation</span>
       </a>
       <div class="pull-right info">
-          <p class="user_name"><?= ucwords($this->session->userdata('user_name')); ?>
+      <p class="user_name"><?= ucwords($this->session->userdata('user_name')); ?>
          <i class="fa fa-circle text-success"></i></p>
         </div>
         <div class="logout">
