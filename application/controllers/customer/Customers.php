@@ -120,7 +120,7 @@
 		}
 	public function get_customers()
 		{
-			$data['customer']=$this->user_model->fetch_customer($this->session->userdata('username'));
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('username'));
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customer/layout', $data);
 		}
