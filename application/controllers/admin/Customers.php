@@ -39,6 +39,7 @@
 		{
 			$data['data']=$this->auth_model->get_customer();
 			$data['users'] =  $this->auth_model->get_users();
+			$data['services'] =  $this->auth_model->get_services();
 			$data['view'] = 'admin/customers/customer_manage';
 			$this->load->view('admin/layout', $data);
 		}
@@ -66,6 +67,16 @@
             $customerId = $this->input->post('customerId'); 
             $webshipId = $this->input->post('webshipId');
             //$carrierid = $this->input->post('carrier_id');
+            $allowExport=0;
+			$isRequire=0;
+            $allowExportAddressBook = $this->input->post('allowExportAddressBook');	
+			if (isset($allowExportAddressBook)) {
+				$allowExport=1;
+			}
+			$isRequireChangePassword = $this->input->post('isRequireChangePassword');	
+			if (isset($isRequireChangePassword)) {
+				$isRequire=1;
+			}
             $user = array(
 
             'customer_id'=>$customerId,
@@ -73,8 +84,8 @@
             'user_name' => $this->input->post('username'),
             'password' => base64_encode($this->input->post('userpassword')),
             'language' => $this->input->post('language'),
-            'allowExportAddressBook' => $this->input->post('allowExportAddressBook'),
-            'isRequireChangePassword' => $this->input->post('isRequireChangePassword'),
+            'allowExportAddressBook' => $allowExport,
+            'isRequireChangePassword' => $isRequire,
         );
             
             $user = $this->user_model->update_user_data($user,$user_id);
@@ -99,7 +110,7 @@
 			
 			$customerCode = $this->input->post('customerCode');	
 			$username = $this->input->post('username');	
-			//$webshipId = $this->input->post('webshipId');	
+			$webshipId = $this->input->post('webshipId');	
 			$userpassword = $this->input->post('userpassword');	
 			$language = $this->input->post('language');	
 			$allowExport=0;
@@ -115,7 +126,7 @@
 
 
 			$array = array(
-				//'webshipId' =>$webshipId,
+				'webshipId' =>$webshipId,
 				'customer_id' =>$customerCode,
 				'user_name'=>$username,
 				'password'=>base64_encode($userpassword),
@@ -140,8 +151,15 @@
 
 
 }
-
+public function get_rates()
+{
+		$zone = $this->input->post('zone');	
+		$id = $this->input->post('service_type');	
+		$data['rates'] =  $this->auth_model->get_rates($zone,$id);
+		echo json_encode($data);
+}
 public function delUser($id = 0){
+
 	$this->db->delete('user', array('id' => $id));
 	//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
 	redirect(base_url('admin/manage'), 'refresh');
@@ -238,7 +256,21 @@ public function delUser($id = 0){
 			{
 				$this->auth_model->update_customer($dataforsave,$customerCode);			
 			}
-			else {$this->auth_model->save_customer($dataforsave);}
+			else {$this->auth_model->save_customer($dataforsave);
+				$number = substr($customerCode, -3);
+    			$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+    			$pwd= substr(str_shuffle($chars),0,4);
+				$array = array(
+				//'webshipId' =>$webshipId,
+				'customer_id' =>$customerCode,
+				'user_name'=>'AGL'.$number,
+				'password'=>base64_encode($pwd),
+				'language'=>'english',
+				'allowExportAddressBook'=>'0',
+				'isRequireChangePassword'=>'0'
+			 );
+			$this->auth_model->save_user($array);
+			}
 			
 			
 		}

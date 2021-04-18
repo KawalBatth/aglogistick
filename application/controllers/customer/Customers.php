@@ -5,7 +5,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->model('admin/user_model', 'user_model');
-		
+			$this->load->helper('customer'); 
 		}
 
 		public function shipment()

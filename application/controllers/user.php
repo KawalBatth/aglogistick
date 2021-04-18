@@ -37,13 +37,21 @@ class User extends CI_Controller
 					);
 					$result = $this->user_model->user_login($data);
 					if ($result == TRUE) {
-						$admin_data = array(
-							'customer_user_id' => $result['id'],
-						 	'user_name' => $result['user_name'],
-						 	'is_customer_user_login' => TRUE
-						);
-						$this->session->set_userdata($admin_data);
-						redirect(base_url('customer/shipment'), 'refresh');
+
+						$forcepassword =$result['isRequireChangePassword'];
+						if($forcepassword==1)
+						{
+							redirect(base_url('customer/settings'), 'refresh');
+						}
+						else {
+								$admin_data = array(
+								'customer_user_id' => $result['id'],
+						 		'user_name' => $result['user_name'],
+						 		'is_customer_user_login' => TRUE
+							);
+							$this->session->set_userdata($admin_data);
+							redirect(base_url('customer/shipment'), 'refresh');
+						}
 					}
 					else{
 						$data['msg'] = 'Invalid Name or Password!';
@@ -83,12 +91,12 @@ class User extends CI_Controller
 		}
 
 		
-    /*public function logout()  
+    public function logout()  
     {  
         //removing session  
-        $this->session->unset_userdata('user');  
+        $this->session->unset_userdata('customer_user_id');  
         redirect("Login");  
-    }  */
+    }  
   
 }  
 ?>  

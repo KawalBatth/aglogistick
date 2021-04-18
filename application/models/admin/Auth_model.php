@@ -54,6 +54,24 @@
 			return $query = $this->db->get()->result_array();
 		 
 		}
+		public function get_services()
+		{
+			
+			$this->db->select('*');
+			$this->db->from('star_services');
+			return $query = $this->db->get()->result_array();
+		 
+		}
+		public function get_rates($zone,$id)
+		{
+			$this->db->select('*');
+			$this->db->from('rates');
+			$this->db->where(array('service_type'=>$id,'origin'=>$zone));
+			echo $str = $this->db->last_query();
+			return $query = $this->db->get()->result_array();
+
+		}
+		
 	public function save_customer($customers)
 	{
 		$this->db->insert('customer',$customers);

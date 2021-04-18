@@ -8,3 +8,12 @@ function get_customer($id)
     $query = $ci->db->query($sql);
  	return $row = $query->row();
 }
+
+function get_ratess($id)
+{
+	$ci=& get_instance();
+    $ci->load->database();
+    $sql = "select * from rates where service_type=".$id; 
+    $query = $ci->db->query($sql);
+ 	return $row = $query->result_array();	
+}
