@@ -403,7 +403,9 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="PERTH AIRPORT" id="shipment-info-form_shipmentPage_senderAddress_city" class="form-control alloptions" onkeyup="searchCity(true,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="PERTH AIRPORT" id="senderAddress_city" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City" autocomplete="off">
+                                                    <div id="suggesstion-box1"></div>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -823,22 +825,19 @@
 
 
 
-<label class="control-label" for="inputName"> State/Province</label>
+                                                    <label class="control-label" for="inputName"> State/Province</label>
 
 
     
-        <input type="text" name="shipmentPage.receiverAddress.state" value="" id="shipmentPage_receiverAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
+                                                   <input type="text" name="shipmentPage.receiverAddress.state" value="" id="shipmentPage_receiverAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
     
     
     
     
-   <!--  previous code  -->
-   
-    
-   <!--  code by shahabuddin -->
+ 
     
     
-</div>
+                                                    </div>
                                             </div>
                                             <div class="col-md-12" id="receiver-city-search"></div>
                                         </div>
@@ -1545,7 +1544,6 @@ function onChangeServiceType(isReturn) {
 });
 
 
-
 $(document).ready(function(){
     var list ='<ul id="country-list">';
 
@@ -1588,6 +1586,8 @@ $(document).ready(function(){
         }
     });
 });
+
+
 function onListClick(obj, isSender) {
     $("#suggesstion-box").hide();
     var cityName = $(obj).find("div[data-cityName]").html();
@@ -1597,9 +1597,9 @@ function onListClick(obj, isSender) {
     var stateCode = $(obj).find("div[data-stateCode]").html();
     stateCode = stateCode.trim();
     if (isSender) {
-        $("input[name='shipmentPage.senderAddress.city']").val(cityName);
-        $("input[name='shipmentPage.senderAddress.postalCode']").val(postalCode);
-        $("input[name='shipmentPage.senderAddress.state']").val(stateCode);
+        $("input[name='shipmentPage.senderAddress.city']").val(cityName1);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(postalCode1);
+        $("input[name='shipmentPage.senderAddress.state']").val(stateCode1);
     } else {
         $("input[name='shipmentPage.receiverAddress.city']").val(cityName);
         $("input[name='shipmentPage.receiverAddress.postalCode']").val(postalCode);
@@ -1607,9 +1607,83 @@ function onListClick(obj, isSender) {
     }
 }
 
+function onListClick1(obj, isReceiver) {
+    $("#suggesstion-box1").hide();
+    var cityName1 = $(obj).find("div[data-cityName1]").html();
+    cityName1 = cityName1.trim();
+    var postalCode1 = $(obj).find("div[data-postalCode1]").html();
+    postalCode1 = postalCode1.trim();
+    var stateCode1 = $(obj).find("div[data-stateCode1]").html();
+    stateCode1 = stateCode1.trim();
+    if (isReceiver) {
+        $("input[name='shipmentPage.receiverAddress.city']").val(cityName);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(postalCode);
+        $("input[name='shipmentPage.receiverAddress.state']").val(stateCode);
+      
+    } else {
+        $("input[name='shipmentPage.senderAddress.city']").val(cityName1);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(postalCode1);
+        $("input[name='shipmentPage.senderAddress.state']").val(stateCode1);
+    }
+}
+
+$(document).ready(function(){
+    var list ='<ul id="country-list1">';
+
+    $("#senderAddress_city").keyup(function(){
+        
+        $("#suggesstion-box1").html('');
+        if($(this).val().length>2)
+        {
+        $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/get_postcode');?>",
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#suggesstion-box1").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick1($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 suburb" data-cityname1="'+v.suburb+'">'+v.suburb+'</div>';
+                list +='<div class="col-xs-3 postcode" data-postalcode1="'+v.postcode+'">'+v.postcode+'</div>';
+                list +='<div class="col-xs-3 state" data-statecode1="'+v.state+'">'+v.state+'</div>';
+                list +='</div></li>';
+        });
+            list +='<ul id="country-list1" style="width:100%;">';
+            
+            
+        }
+        });
+        $("#suggesstion-box1").html(list);
+        list='<ul id="country-list1">';
+        }
+        else {
+            $("#suggesstion-box1").hide();
+            list ='';
+        }
+    });
+});
+
+
     </script>
 
 <style>
+
+#country-list1 {
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 480px;
+    position: absolute;
+    z-index: 9;
+}
 #country-list {
     float: left;
     list-style: none;
@@ -1617,9 +1691,21 @@ function onListClick(obj, isSender) {
     padding: 0px;
     width: 480px;
     position: absolute;
+
+   /* border: 1px solid #e5e5e5;
+    margin-top: 1px;
+    padding-left: 5px;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+  
+    max-height: 300px;
+    overflow: auto;*/
 }
 #country-list li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
 #country-list li:hover{background:#ece3d2;cursor: pointer;}
+#country-list1 li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list1 li:hover{background:#ece3d2;cursor: pointer;}
 .col-xs-6.suburb {
     margin-left: 13px;
     margin-top: 9px;

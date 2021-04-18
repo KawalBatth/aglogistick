@@ -617,7 +617,37 @@ p.password {
     font-size: 12px;
 }
 
+input {
+    text-transform: uppercase;
+}
+input:-ms-input-placeholder {
+    text-transform: none;
+}
+input::placeholder {
+    text-transform: none;
+}
 
+input#saveManageCustomer_customerAddress_address_email {
+    text-transform: lowercase;
+}
+
+input#address_billingAddress_billingEmail {
+    text-transform: lowercase;
+}
+
+input#address_address_email {
+    text-transform: lowercase;
+}
+
+td.b16.uppercase {
+    text-transform: uppercase;
+}
+
+p.customer_info {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+}
 
     </style>
   <header class="main-header">

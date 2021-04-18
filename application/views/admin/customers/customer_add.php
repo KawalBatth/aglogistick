@@ -320,12 +320,13 @@
                                             <tr>
                                                
                                               
-                                            <td>    <select name="customerCode" id="customerCode" class="form-control" onchange="location = this.options[this.selectedIndex].value;">
+                                            <td>    
+                                            <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                                     <option value="-1">Select a Customer</option>
-                                    <option value="add">Add a Customer</option>
+                                    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option>
                                     <?php for($i=0;$i<count($customers);$i++)
                                     {
-                                    echo  '<option value="customers/customer_manage?id='.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
+                                    echo  '<option value="customer_manage?id='.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
                         
                                     //'<option value="customers/customer_manage?id='.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';                                      
                                              }?>
@@ -9567,6 +9568,7 @@
     });
 </script>
 <script type="text/javascript">
+
 
   $('#all').on('change', function (){
         $('.country').prop('checked', $(this).is(':checked'));
