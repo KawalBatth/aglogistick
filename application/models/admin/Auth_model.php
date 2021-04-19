@@ -62,6 +62,7 @@
 			return $query = $this->db->get()->result_array();
 		 
 		}
+		
 		public function get_rates($zone,$id)
 		{
 			$this->db->select('*');

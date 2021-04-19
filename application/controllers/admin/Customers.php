@@ -163,6 +163,7 @@
 
 
 }
+
 public function get_rates()
 {
 
@@ -171,6 +172,7 @@ public function get_rates()
 		$data=  $this->auth_model->get_rates($zone,$id);
 		echo json_encode($data);
 }
+
 public function delUser($id = 0){
 
 	$this->db->delete('user', array('id' => $id));
