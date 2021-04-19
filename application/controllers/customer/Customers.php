@@ -151,6 +151,98 @@
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customer/layout', $data);
 		}
+
+		public function add_shipment()
+		{
+
+			$senderCompanyName = $this->input->post('senderCompanyName');
+			$senderAddressPhone = $this->input->post('senderAddressPhone');
+			$senderAddressContact = $this->input->post('senderAddressContact');
+			$senderAddressEmail = $this->input->post('senderAddressEmail');
+			$senderAddressCountry = $this->input->post('senderAddressCountry');
+			$senderAddress = $this->input->post('senderAddress');
+			$senderaddress2 = $this->input->post('senderaddress2');
+			$senderAddress3 = $this->input->post('senderAddress3');
+			$isSaveSenderAddressBook = $this->input->post('isSaveSenderAddressBook');
+			$residentialPickup = $this->input->post('residentialPickup');
+			$senderAlternateUserName = $this->input->post('senderAlternateUserName');
+			$senderAddressCity = $this->input->post('senderAddressCity');
+			$senderPostalCode = $this->input->post('senderPostalCode');
+			$senderState = $this->input->post('senderState');
+			$receivercompanyName = $this->input->post('receivercompanyName');
+			$receiverPhone = $this->input->post('receiverPhone');
+			$receivercontactName = $this->input->post('receivercontactName');
+			$receiverEmail = $this->input->post('receiverEmail');
+			$receiverCountry = $this->input->post('receiverCountry');
+			$receiverAddress = $this->input->post('receiverAddress');
+			$receiverAddress2 = $this->input->post('receiverAddress2');
+			$receiverAddress3 = $this->input->post('receiverAddress3');
+			$isSaveRecipientAddressBook = $this->input->post('isSaveRecipientAddressBook');
+			$residentialDelivery = $this->input->post('residentialDelivery');
+			$receiverAddressCity = $this->input->post('receiverAddressCity');
+			$receiverpostalCode = $this->input->post('receiverpostalCode');
+			$receiverState = $this->input->post('receiverState');
+			$ShippingDate = $this->input->post('ShippingDate');
+			$serviceId = $this->input->post('serviceId');
+            $shipmentTypeId = $this->input->post('shipmentTypeId');
+			$packageId = $this->input->post('packageId');
+			$contentType = $this->input->post('contentType');
+			$weightUnit = $this->input->post('weightUnit');
+			$dimensionUnit = $this->input->post('dimensionUnit');
+			$currencyCode = $this->input->post('currencyCode');
+			$weight = $this->input->post('weight');
+			$dimensionL = $this->input->post('dimensionL');
+			$dimensionW = $this->input->post('dimensionW');
+			$dimensionH = $this->input->post('dimensionH');
+			$quantity = $this->input->post('quantity');
+			$addCons = $this->input->post('addCons');
+			$shipmentauthority = $this->input->post('shipmentauthority');	
+			
+			$saveData = array(
+				'sender_company'=>$senderCompanyName,
+				'sender_phone'=>$senderAddressPhone,
+				'sender_contact_name'=>$senderAddressContact,
+				'sender_email'=>$senderAddressEmail,
+				'sender_country'=>$senderAddressCountry,
+				'sender_address'=>$senderAddress ." ".$$senderaddress2 ." ".$senderAddress3,
+				'sender_save_address_book'=>$isSaveSenderAddressBook,
+			    'sender_residence'=>$residentialPickup,
+				'sender_alt_name'=>$senderAlternateUserName,
+				'sender_city'=>$senderAddressCity,
+				'sender_postal_code'=>$senderPostalCode,
+				'sender_state'=>$senderState,
+				'receiver_company'=>$receivercompanyName,
+				'receiver_phone'=>$receiverPhone,
+                'receiver_email'=>$receiverEmail,
+				'receiver_country'=>$receiverCountry,
+				'receiver_address'=>$receiverAddress,
+				'receiver_address1'=>$receiverAddress2,
+				'receiver_address2'=>$receiverAddress3,
+				'receiver_save_address'=>$isSaveRecipientAddressBook,
+				'receiver_residence'=>$residentialDelivery,
+				'receiver_city'=>$receiverAddressCity,
+				'receiver_postal_code'=>$receiverpostalCode,
+				'receiver_state'=>$receiverState,
+				'shipping_date'=>$ShippingDate,
+				'service_type'=>$serviceId,
+				'carrier_name'=>$shipmentTypeId,
+				'package_type'=>$packageId,
+				'contents'=>$contentType,
+				'weight_unit'=>$weightUnit,
+				'dimension_unit'=>$dimensionUnit,
+				'currency'=>$currencyCode,
+				'weight'=>$weight,
+				'length'=>$dimensionL,
+				'width'=>$dimensionW,
+				'height'=>$dimensionH,
+				'quantity'=>$quantity,
+				'dangerous_goods'=>$addCons,
+				'authorized_to_leave'=>$shipmentauthority
+
+			);
+
+				$this->user_model->save_shipment($saveData);
+			}
 	
 	}
 

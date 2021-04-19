@@ -274,7 +274,7 @@
                         <div class="form-group input-group">
 							<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
 							</span>
-                            <input type="text" name="shipmentRequestModel.scheduleCollection.pickupDate" value="" readonly="readonly" id="form_booking_shipmentRequestModel_scheduleCollection_pickupDate" class="form-control form_datetime schedule-time" data-date-format="dd MM yyyy">
+                            <input type="date" name="shipmentRequestModel.scheduleCollection.pickupDate" value="" readonly="readonly" id="form_booking_shipmentRequestModel_scheduleCollection_pickupDate" class="form-control form_datetime schedule-time" data-date-format="dd MM yyyy">
                         </div>
                     </div>
                     <div class="col-lg-6">
@@ -421,11 +421,365 @@
                 </div>
             </div>
         </div>
-<script>
-function showhide() {
-  var div = document.getElementById("newpost");
-  div.classList.toggle('div_more_detail'); 
-  var div = document.getElementById("newpost1");
-  div.classList.toggle('div_more_detail'); 
-}
+        </form>
+        <div id="result_booking" title="Booking Result"></div>
+<div id="webship_booking_send_airbill_dialog" title="Send Airbill"></div>
+
+
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('.schedule-time').datetimepicker({
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: 'dd-mm-yyyy'
+        });
+        $(".schedule-time").datetimepicker("update", $("#shipment-date-input").val());
+        setdefaulttime();
+        onScheduleCollectionChange();
+    });
+
+    function onScheduleCollectionChange() {
+        var scheduleCollectionType = $("#ws-schedule-collection-select option:selected").val();
+        if (scheduleCollectionType == 1) {
+            $("#ws-schedule-collection-div").show();
+        } else {
+            $("#ws-schedule-collection-div").hide();
+        }
+    }
+
+
 </script>
+<script type="text/javascript">
+    function changeCollectionType(type) {
+        var data = {
+            'shipmentRequestModelGson': $("#shipmentRequestModelGson").val(),
+            scheduleCollectionsType: type
+        };
+        doPostDataByParameters("get-schedule-collection-input.ix?reqType=json", data, "", "schedule-collection-input", true);
+    }
+    $(document).ready(function () {
+        $(".div_more_detail").hide();
+        $(".civ_generate").hide();
+        $("#pickup-date").datetimepicker({
+            weekStart: 1,
+            todayBtn: 1,
+            autoclose: 1,
+            todayHighlight: 1,
+            startView: 2,
+            minView: 2,
+            forceParse: 0,
+            format: 'dd-mm-yyyy'
+        });
+        $("#pickup-date").datetimepicker("update", new Date());
+        $("[data-toggle='tooltip'], [data-hover='tooltip']").tooltip();
+        $('input.alloptions').maxlength({
+            alwaysShow: true,
+            threshold: 10,
+            warningClass: "label label-success w5",
+            limitReachedClass: "label label-danger w5",
+            separator: '/',
+
+        });
+    });
+    function doShip() {
+        var captionList = [];
+        captionList.push('View Waybill');
+        captionList.push('Thermal Label');
+        captionList.push('');
+        captionList.push('');
+        if ($("#ws-schedule-collection-select option:selected").val() != "1") {
+            captionList.push('Schedule Collection');
+        } else {
+            captionList.push('');
+        }
+        captionList.push('Send Airbill');
+        captionList.push('New Shipment');
+        captionList.push('Re-Ship Same Package');
+        captionList.push('');
+        captionList.push('');
+        captionList.push('View Manifest');
+        var actionPost = "webship_do_ship.ix?reqType=json";
+        loadDialogResultBooking(actionPost, captionList);
+    }
+    $(".a_more_detail").click(function () {
+        $(".div_more_detail").toggle("slow");
+    });
+
+
+</script></div>
+
+<div id="session_time_out_dialog" title="Message"></div>
+<script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/pages/webship.js"></script>
+<script src="https://webfreight.agllogistics.com:443/crm-webship/script/common/common.js"></script>
+<script type="text/javascript">
+    var defaultCurrencyCode = "AUD";
+    $(document).ready(function () {
+        loadAdditionalConfig();
+        loadState('sender');
+        loadState('receiver');
+    });
+    $('body').click(function () {
+        $('.sss1').hide();
+    });
+    function createNewShipment() {
+        window.location.reload();
+    }
+    function getQuote() {
+        $(".nonStandardPackage input[type=checkbox]").each(function() {
+            $(this).val(this.checked);
+        });
+        loadDialogQuoteWithSessionTimeout("webship_get_quote.ix?reqType=json", "webship_save_quote.ix?reqType=json", "get-quote-dialog", "shipment-info-form", "saveQuoteLog", "Save quote", "Ok", "session_time_out_dialog",
+                "Ok");
+
+        var senderId = $("select[name='shipmentPage.senderAddress.country']").val();
+        var receiverId = $("select[name='shipmentPage.receiverAddress.country']").val();
+        if (senderId != 12 &&  receiverId != 12) {
+            $('.ui-dialog-buttonset button:contains("Save quote")').button().hide();
+        }
+    }
+    function changeCurrency(code) {
+        if (code != defaultCurrencyCode) {
+            $(".fw0:contains('Insurance')").find("input[type='checkbox']").attr("disabled", "disabled");
+        } else {
+            $(".fw0:contains('Insurance')").find("input[type='checkbox']").attr("disabled", false);
+        }
+    }
+    function changeDimensionList(val, no) {
+        if (val > 0) {
+            var data = {
+                "dimensionId": val
+            };
+            $.post("webship_change_dimension_type.ix?reqType=json", data, function (res) {
+                if (res.errorCode == "SUCCESS") {
+                    var json = res.content.trim();
+                    var obj = JSON.parse(json);
+                    $("input[name='shipmentPage.pieces[" + no + "].dimensionL']").val(obj.l);
+                    $("input[name='shipmentPage.pieces[" + no + "].dimensionW']").val(obj.w);
+                    $("input[name='shipmentPage.pieces[" + no + "].dimensionH']").val(obj.h);
+                } else {
+                    alertDialog.html(res.errorMsg);
+                    alertDialog.dialog("open");
+                }
+            }).fail(function () {
+                alertDialog.html('System internal error, please contact administrator.');
+                alertDialog.dialog("open");
+            });
+        } else {
+            $("input[name='shipmentPage.pieces[" + no + "].dimensionL']").val("");
+            $("input[name='shipmentPage.pieces[" + no + "].dimensionW']").val("");
+            $("input[name='shipmentPage.pieces[" + no + "].dimensionH']").val("");
+        }
+    }
+
+    // Prepare for return service
+
+    function onChangeServiceType(isReturn) {
+        var defaultAddressJs = JSON.parse($("#defaultAddressJson").val());
+        if (isReturn) {
+            $("#chkThirdParty").prop("checked", false);
+            if ($("#chkReturnService").prop("checked")) {
+                $("input[name='shipmentPage.senderAddress.companyName']").val("");
+                $("input[name='shipmentPage.senderAddress.contactName']").val("");
+                $("input[name='shipmentPage.senderAddress.phone']").val("");
+                $("input[name='shipmentPage.senderAddress.email']").val("");
+                $("select[name='shipmentPage.senderAddress.country']").val("");
+                $("input[name='shipmentPage.senderAddress.address']").val("");
+                $("input[name='shipmentPage.senderAddress.address2']").val("");
+                $("input[name='shipmentPage.senderAddress.address3']").val("");
+                $("input[name='shipmentPage.senderAddress.city']").val("");
+                $("input[name='shipmentPage.senderAddress.postalCode']").val("");
+                $("input[name='shipmentPage.senderAddress.state']").val("");
+
+                $("input[name='shipmentPage.receiverAddress.companyName']").val(defaultAddressJs["companyName"]);
+                $("input[name='shipmentPage.receiverAddress.contactName']").val(defaultAddressJs["contactName"]);
+                $("input[name='shipmentPage.receiverAddress.phone']").val(defaultAddressJs["phone"]);
+                $("input[name='shipmentPage.receiverAddress.email']").val(defaultAddressJs["email"]);
+                $("select[name='shipmentPage.receiverAddress.country']").val(defaultAddressJs["country"]);
+                $("input[name='shipmentPage.receiverAddress.address']").val(defaultAddressJs["address"]);
+                $("input[name='shipmentPage.receiverAddress.address2']").val(defaultAddressJs["address2"]);
+                $("input[name='shipmentPage.receiverAddress.address3']").val(defaultAddressJs["address3"]);
+                $("input[name='shipmentPage.receiverAddress.city']").val(defaultAddressJs["city"]);
+                $("input[name='shipmentPage.receiverAddress.postalCode']").val(defaultAddressJs["postalCode"]);
+                $("input[name='shipmentPage.receiverAddress.state']").val(defaultAddressJs["state"]);
+            } else {
+                $("input[name='shipmentPage.receiverAddress.companyName']").val("");
+                $("input[name='shipmentPage.receiverAddress.contactName']").val("");
+                $("input[name='shipmentPage.receiverAddress.phone']").val("");
+                $("input[name='shipmentPage.receiverAddress.email']").val("");
+                $("select[name='shipmentPage.receiverAddress.country']").val("");
+                $("input[name='shipmentPage.receiverAddress.address']").val("");
+                $("input[name='shipmentPage.receiverAddress.address2']").val("");
+                $("input[name='shipmentPage.receiverAddress.address3']").val("");
+                $("input[name='shipmentPage.receiverAddress.city']").val("");
+                $("input[name='shipmentPage.receiverAddress.postalCode']").val("");
+                $("input[name='shipmentPage.receiverAddress.state']").val("");
+
+                $("input[name='shipmentPage.senderAddress.companyName']").val(defaultAddressJs["companyName"]);
+                $("input[name='shipmentPage.senderAddress.contactName']").val(defaultAddressJs["contactName"]);
+                $("input[name='shipmentPage.senderAddress.phone']").val(defaultAddressJs["phone"]);
+                $("input[name='shipmentPage.senderAddress.email']").val(defaultAddressJs["email"]);
+                $("select[name='shipmentPage.senderAddress.country']").val(defaultAddressJs["country"]);
+                $("input[name='shipmentPage.senderAddress.address']").val(defaultAddressJs["address"]);
+                $("input[name='shipmentPage.senderAddress.address2']").val(defaultAddressJs["address2"]);
+                $("input[name='shipmentPage.senderAddress.address3']").val(defaultAddressJs["address3"]);
+                $("input[name='shipmentPage.senderAddress.city']").val(defaultAddressJs["city"]);
+                $("input[name='shipmentPage.senderAddress.postalCode']").val(defaultAddressJs["postalCode"]);
+                $("input[name='shipmentPage.senderAddress.state']").val(defaultAddressJs["state"]);
+            }
+        } else {
+            if ($("#chkThirdParty").prop("checked")) {
+                $("#chkReturnService").prop("checked", false);
+                $("input[name='shipmentPage.senderAddress.companyName']").val("");
+                $("input[name='shipmentPage.senderAddress.contactName']").val("");
+                $("input[name='shipmentPage.senderAddress.phone']").val("");
+                $("input[name='shipmentPage.senderAddress.email']").val("");
+                $("select[name='shipmentPage.senderAddress.country']").val("");
+                $("input[name='shipmentPage.senderAddress.address']").val("");
+                $("input[name='shipmentPage.senderAddress.address2']").val("");
+                $("input[name='shipmentPage.senderAddress.address3']").val("");
+                $("input[name='shipmentPage.senderAddress.city']").val("");
+                $("input[name='shipmentPage.senderAddress.postalCode']").val("");
+                $("input[name='shipmentPage.senderAddress.state']").val("");
+
+                $("input[name='shipmentPage.receiverAddress.companyName']").val("");
+                $("input[name='shipmentPage.receiverAddress.contactName']").val("");
+                $("input[name='shipmentPage.receiverAddress.phone']").val("");
+                $("input[name='shipmentPage.receiverAddress.email']").val("");
+                $("select[name='shipmentPage.receiverAddress.country']").val("");
+                $("input[name='shipmentPage.receiverAddress.address']").val("");
+                $("input[name='shipmentPage.receiverAddress.address2']").val("");
+                $("input[name='shipmentPage.receiverAddress.address3']").val("");
+                $("input[name='shipmentPage.receiverAddress.city']").val("");
+                $("input[name='shipmentPage.receiverAddress.postalCode']").val("");
+                $("input[name='shipmentPage.receiverAddress.state']").val("");
+            } else {
+                $("input[name='shipmentPage.receiverAddress.companyName']").val("");
+                $("input[name='shipmentPage.receiverAddress.contactName']").val("");
+                $("input[name='shipmentPage.receiverAddress.phone']").val("");
+                $("input[name='shipmentPage.receiverAddress.email']").val("");
+                $("select[name='shipmentPage.receiverAddress.country']").val("");
+                $("input[name='shipmentPage.receiverAddress.address']").val("");
+                $("input[name='shipmentPage.receiverAddress.address2']").val("");
+                $("input[name='shipmentPage.receiverAddress.address3']").val("");
+                $("input[name='shipmentPage.receiverAddress.city']").val("");
+                $("input[name='shipmentPage.receiverAddress.postalCode']").val("");
+                $("input[name='shipmentPage.receiverAddress.state']").val("");
+
+                $("input[name='shipmentPage.senderAddress.companyName']").val(defaultAddressJs["companyName"]);
+                $("input[name='shipmentPage.senderAddress.contactName']").val(defaultAddressJs["contactName"]);
+                $("input[name='shipmentPage.senderAddress.phone']").val(defaultAddressJs["phone"]);
+                $("input[name='shipmentPage.senderAddress.email']").val(defaultAddressJs["email"]);
+                $("select[name='shipmentPage.senderAddress.country']").val(defaultAddressJs["country"]);
+                $("input[name='shipmentPage.senderAddress.address']").val(defaultAddressJs["address"]);
+                $("input[name='shipmentPage.senderAddress.address2']").val(defaultAddressJs["address2"]);
+                $("input[name='shipmentPage.senderAddress.address3']").val(defaultAddressJs["address3"]);
+                $("input[name='shipmentPage.senderAddress.city']").val(defaultAddressJs["city"]);
+                $("input[name='shipmentPage.senderAddress.postalCode']").val(defaultAddressJs["postalCode"]);
+                $("input[name='shipmentPage.senderAddress.state']").val(defaultAddressJs["state"]);
+            }
+        }
+    }
+    function setdefaulttime() {
+        var nowdate = new Date();
+        var nh = nowdate.getHours();
+        var nm = nowdate.getMinutes();
+        $('#sel-pickup-nolater').val("17:30:00");
+        if (nh < 6) {
+            $('#sel-pickup-time').val("09:00:00");
+        } else if (nh < 18) {
+            var nhstr = nh;
+            if (nh < 10)
+                nhstr = "0" + nh;
+            if (nm == 0) {
+                $('#sel-pickup-time').val(nhstr + ":00:00");
+            } else if (nm <= 30) {
+                $('#sel-pickup-time').val(nhstr + ":30:00");
+            } else {
+                nh = nh + 1;
+                nhstr = nh;
+                if (nh < 10)
+                    nhstr = "0" + nh;
+                if (nh == 18)
+                    $('#sel-pickup-time').val("17:30:00");
+                else
+                    $('#sel-pickup-time').val(nhstr + ":00:00");
+            }
+        } else {
+            $('#sel-pickup-time').val("17:30:00");
+        }
+    }
+    function setRequireLabel(labelId, isRequired) {
+        if (isRequired) {
+            $("#" + labelId + " span.s30").remove();
+            $("#" + labelId).append("<span class=\"s30\"> *</span>");
+        } else {
+            $("#" + labelId + " span.s30").remove();
+        }
+
+    }
+    function checkSavaAddressBook(nameCheck) {
+        if ($('input[name="' + nameCheck + '"]').is(":checked")) {
+            $('input[name="' + nameCheck + '"]').val(1);
+        } else {
+            $('input[name="' + nameCheck + '"]').val(0);
+        }
+    }
+
+</script>
+            </div>
+            <div id="footer">
+                <div class="copyright">
+                    <a href="">2017 © AGL Technology. All Rights reserved. </a>
+                </div>
+            </div>
+            
+            
+            <script type="text/javascript">
+                var loadingDialog = $("#loading-dialog").dialog({
+                    autoOpen: false,
+                    modal: true,
+                    dialogClass: "no-close",
+                    show: {
+                        effect: 'fade',
+                        duration: 300
+                    }
+                });
+                var alertDialog = $("#alert-dialog").dialog({
+                    modal: true,
+                    autoOpen: false,
+                    maxHeight: 800,
+                    minWidth: 400,
+                    buttons: {
+                        'Close': function () {
+                            $(this).dialog("close");
+                        }
+                    }
+                });
+
+                function doLoginAs() {
+                    var name = $("#txtLoginAsName").val();
+                    var data = {
+                        "name": name
+                    };
+                    $.post("quick_search_login_as.ix?reqType=json", data, function (res) {
+                        if (res.errorCode == "SUCCESS") {
+                            loginAsDialog.html(res.content);
+                            loginAsDialog.dialog("open");
+                        } else {
+                            alertDialog.html(res.errorMsg);
+                            alertDialog.dialog("open");
+                        }
+                    }).fail(function () {
+                        alertDialog.html('System internal error, please contact administrator.');
+                        alertDialog.dialog("open");
+                    });
+                }
+            </script>
+            <!--END FOOTER-->
+        </div>

@@ -140,6 +140,11 @@ public function fetch_customer($id)
             return $query->row();			
 	}
 
+	public function save_shipment($shipment)
+	{
+		$this->db->insert('shipment',$shipment);
+		return true;
 	}
 
+}
 ?>
