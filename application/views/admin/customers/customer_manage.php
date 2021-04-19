@@ -1212,7 +1212,7 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].rate" maxlength="25" value="40.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="2">
+                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="2">
                                                                 
                                                                 
                                                             </div>
@@ -1239,55 +1239,55 @@ if(isset($submit_id))
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="1" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="1" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="2" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[1].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="2" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[1].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="3" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[2].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="3" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[2].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="4" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[3].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="4" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[3].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="5" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[4].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="5" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[4].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="6" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[5].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="6" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[5].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="7" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[6].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="7" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[6].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="8" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[7].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="8" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[7].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="9" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[8].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="9" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[8].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
@@ -1346,7 +1346,7 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].rate" maxlength="25" value="40.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="3">
+                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="3">
                                                                 
                                                                 
                                                             </div>
@@ -1373,55 +1373,55 @@ if(isset($submit_id))
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="1" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="1" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="2" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[1].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="2" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[1].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="3" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[2].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="3" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[2].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="4" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[3].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="4" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[3].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="5" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[4].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="5" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[4].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="6" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[5].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="6" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[5].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="7" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[6].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="7" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[6].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="8" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[7].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="8" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[7].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="9" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[8].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="40.00" data-group="zone-rate">
+                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="9" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[8].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             
@@ -5365,7 +5365,7 @@ if(isset($submit_id))
 
                                                             </div>
                                                             <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].rate" maxlength="25" value="40.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="52">
+                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="52">
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
                                                         </div>
@@ -5447,7 +5447,7 @@ if(isset($submit_id))
 
                                                             </div>
                                                             <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].rate" maxlength="25" value="40.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="54">
+                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="54">
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
                                                         </div>
@@ -5488,7 +5488,7 @@ if(isset($submit_id))
 
                                                             </div>
                                                             <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].rate" maxlength="25" value="40.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="55">
+                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="55">
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
                                                         </div>
@@ -6488,7 +6488,7 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].rate" maxlength="25" value="40.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
+                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
                                                                 
                                                                 
                                                             </div>
@@ -6514,8 +6514,676 @@ if(isset($submit_id))
                                                             <li class="pull-left c35" style="padding: 5px;">
                                                                 By Zone:
                                                             </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="A10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="ABY" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[1].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="AC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[2].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="AC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[3].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="AC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[4].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="AC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[5].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="AC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[6].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="AC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[7].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="AC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[8].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[9].zone" class="form-control alloptions text-center" maxlength="25" value="AC8" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[9].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[10].zone" class="form-control alloptions text-center" maxlength="25" value="AC9" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[10].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[11].zone" class="form-control alloptions text-center" maxlength="25" value="ADL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[11].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[12].zone" class="form-control alloptions text-center" maxlength="25" value="ALB" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[12].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[13].zone" class="form-control alloptions text-center" maxlength="25" value="ASP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[13].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[14].zone" class="form-control alloptions text-center" maxlength="25" value="AYR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[14].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[15].zone" class="form-control alloptions text-center" maxlength="25" value="BNA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[15].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[16].zone" class="form-control alloptions text-center" maxlength="25" value="BOR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[16].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[17].zone" class="form-control alloptions text-center" maxlength="25" value="BOT" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[17].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[18].zone" class="form-control alloptions text-center" maxlength="25" value="BRK" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[18].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[19].zone" class="form-control alloptions text-center" maxlength="25" value="BRO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[19].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[20].zone" class="form-control alloptions text-center" maxlength="25" value="BRS" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[20].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[21].zone" class="form-control alloptions text-center" maxlength="25" value="BUN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[21].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[22].zone" class="form-control alloptions text-center" maxlength="25" value="CBR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[22].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[23].zone" class="form-control alloptions text-center" maxlength="25" value="COF" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[23].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[24].zone" class="form-control alloptions text-center" maxlength="25" value="CRN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[24].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[25].zone" class="form-control alloptions text-center" maxlength="25" value="CUE" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[25].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[26].zone" class="form-control alloptions text-center" maxlength="25" value="D10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[26].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[27].zone" class="form-control alloptions text-center" maxlength="25" value="DAR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[27].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[28].zone" class="form-control alloptions text-center" maxlength="25" value="DC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[28].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[29].zone" class="form-control alloptions text-center" maxlength="25" value="DC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[29].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[30].zone" class="form-control alloptions text-center" maxlength="25" value="DC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[30].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[31].zone" class="form-control alloptions text-center" maxlength="25" value="DER" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[31].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[32].zone" class="form-control alloptions text-center" maxlength="25" value="GER" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[32].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[33].zone" class="form-control alloptions text-center" maxlength="25" value="GLA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[33].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[34].zone" class="form-control alloptions text-center" maxlength="25" value="GLD" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[34].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[35].zone" class="form-control alloptions text-center" maxlength="25" value="GOS" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[35].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[36].zone" class="form-control alloptions text-center" maxlength="25" value="GYM" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[36].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[37].zone" class="form-control alloptions text-center" maxlength="25" value="HC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[37].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[38].zone" class="form-control alloptions text-center" maxlength="25" value="HC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[38].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[39].zone" class="form-control alloptions text-center" maxlength="25" value="HOB" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[39].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[40].zone" class="form-control alloptions text-center" maxlength="25" value="ISA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[40].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[41].zone" class="form-control alloptions text-center" maxlength="25" value="KAL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[41].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[42].zone" class="form-control alloptions text-center" maxlength="25" value="KAR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[42].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[43].zone" class="form-control alloptions text-center" maxlength="25" value="L10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[43].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[44].zone" class="form-control alloptions text-center" maxlength="25" value="LC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[44].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[45].zone" class="form-control alloptions text-center" maxlength="25" value="LC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[45].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[46].zone" class="form-control alloptions text-center" maxlength="25" value="LC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[46].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[47].zone" class="form-control alloptions text-center" maxlength="25" value="LCN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[47].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[48].zone" class="form-control alloptions text-center" maxlength="25" value="LIS" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[48].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[49].zone" class="form-control alloptions text-center" maxlength="25" value="MAC" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[49].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[50].zone" class="form-control alloptions text-center" maxlength="25" value="MAR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[50].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[51].zone" class="form-control alloptions text-center" maxlength="25" value="MCT" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[51].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[52].zone" class="form-control alloptions text-center" maxlength="25" value="MEE" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[52].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[53].zone" class="form-control alloptions text-center" maxlength="25" value="MEL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[53].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[54].zone" class="form-control alloptions text-center" maxlength="25" value="MNO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[54].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[55].zone" class="form-control alloptions text-center" maxlength="25" value="MON" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[55].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[56].zone" class="form-control alloptions text-center" maxlength="25" value="MOR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[56].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[57].zone" class="form-control alloptions text-center" maxlength="25" value="MRP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[57].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[58].zone" class="form-control alloptions text-center" maxlength="25" value="MSE" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[58].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[59].zone" class="form-control alloptions text-center" maxlength="25" value="MTG" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[59].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[60].zone" class="form-control alloptions text-center" maxlength="25" value="MTM" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[60].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[61].zone" class="form-control alloptions text-center" maxlength="25" value="N10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[61].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[62].zone" class="form-control alloptions text-center" maxlength="25" value="NC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[62].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[63].zone" class="form-control alloptions text-center" maxlength="25" value="NC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[63].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[64].zone" class="form-control alloptions text-center" maxlength="25" value="NC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[64].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[65].zone" class="form-control alloptions text-center" maxlength="25" value="NC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[65].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[66].zone" class="form-control alloptions text-center" maxlength="25" value="NC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[66].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[67].zone" class="form-control alloptions text-center" maxlength="25" value="NC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[67].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[68].zone" class="form-control alloptions text-center" maxlength="25" value="NCL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[68].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[69].zone" class="form-control alloptions text-center" maxlength="25" value="NCT" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[69].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[70].zone" class="form-control alloptions text-center" maxlength="25" value="PEN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[70].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[71].zone" class="form-control alloptions text-center" maxlength="25" value="PER" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[71].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[72].zone" class="form-control alloptions text-center" maxlength="25" value="PRO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[72].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[73].zone" class="form-control alloptions text-center" maxlength="25" value="PTA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[73].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[74].zone" class="form-control alloptions text-center" maxlength="25" value="PTH" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[74].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[75].zone" class="form-control alloptions text-center" maxlength="25" value="PTL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[75].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[76].zone" class="form-control alloptions text-center" maxlength="25" value="PTP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[76].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[77].zone" class="form-control alloptions text-center" maxlength="25" value="Q10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[77].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[78].zone" class="form-control alloptions text-center" maxlength="25" value="QC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[78].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[79].zone" class="form-control alloptions text-center" maxlength="25" value="QC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[79].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[80].zone" class="form-control alloptions text-center" maxlength="25" value="QC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[80].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[81].zone" class="form-control alloptions text-center" maxlength="25" value="QC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[81].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[82].zone" class="form-control alloptions text-center" maxlength="25" value="QC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[82].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[83].zone" class="form-control alloptions text-center" maxlength="25" value="QC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[83].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[84].zone" class="form-control alloptions text-center" maxlength="25" value="QC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[84].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[85].zone" class="form-control alloptions text-center" maxlength="25" value="QC8" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[85].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[86].zone" class="form-control alloptions text-center" maxlength="25" value="QC9" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[86].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[87].zone" class="form-control alloptions text-center" maxlength="25" value="RIV" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[87].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[88].zone" class="form-control alloptions text-center" maxlength="25" value="ROC" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[88].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[89].zone" class="form-control alloptions text-center" maxlength="25" value="ROX" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[89].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[90].zone" class="form-control alloptions text-center" maxlength="25" value="SSC" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[90].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[91].zone" class="form-control alloptions text-center" maxlength="25" value="SYD" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[91].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[92].zone" class="form-control alloptions text-center" maxlength="25" value="TAM" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[92].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[93].zone" class="form-control alloptions text-center" maxlength="25" value="TVL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[93].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[94].zone" class="form-control alloptions text-center" maxlength="25" value="TWB" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[94].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[95].zone" class="form-control alloptions text-center" maxlength="25" value="VC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[95].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[96].zone" class="form-control alloptions text-center" maxlength="25" value="VC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[96].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[97].zone" class="form-control alloptions text-center" maxlength="25" value="VC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[97].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[98].zone" class="form-control alloptions text-center" maxlength="25" value="WC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[98].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[99].zone" class="form-control alloptions text-center" maxlength="25" value="WC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[99].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[100].zone" class="form-control alloptions text-center" maxlength="25" value="WC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[100].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[101].zone" class="form-control alloptions text-center" maxlength="25" value="WC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[101].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[102].zone" class="form-control alloptions text-center" maxlength="25" value="WC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[102].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[103].zone" class="form-control alloptions text-center" maxlength="25" value="WC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[103].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[104].zone" class="form-control alloptions text-center" maxlength="25" value="WC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[104].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[105].zone" class="form-control alloptions text-center" maxlength="25" value="WC8" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[105].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[106].zone" class="form-control alloptions text-center" maxlength="25" value="WC9" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[106].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[107].zone" class="form-control alloptions text-center" maxlength="25" value="WCO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[107].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[108].zone" class="form-control alloptions text-center" maxlength="25" value="WHY" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[108].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[109].zone" class="form-control alloptions text-center" maxlength="25" value="WOL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[109].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                                <li>
+                                                                    <div class="pull-left c34" data-group="zone">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[110].zone" class="form-control alloptions text-center" maxlength="25" value="YKP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[110].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                    </div>
+                                                                </li>
+                                                            
+                                                        <
                                                             <?php
-                                                            $get_rates = get_ratess($value['id']);
+                                                           /* $get_rates = get_ratess($value['id']);
                                                             foreach ($get_rates as $key => $value) 
                                                             {                                                              
                                                             ?>
@@ -6525,7 +7193,7 @@ if(isset($submit_id))
                                                                     </div>
                                                                 </li>
                                                             <?php                                                            
-                                                             }                                                              
+                                                             }  */                                                            
                                                             ?>
                                                                 
                                                             
