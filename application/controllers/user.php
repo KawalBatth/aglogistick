@@ -10,7 +10,7 @@ class User extends CI_Controller
 		}
 
 		public function index(){
-			if($this->session->has_userdata('is_user_login'))
+			if($this->session->has_userdata('is_customer_user_login'))
 			{
 				redirect('customers/shipment');
 			}
@@ -93,9 +93,11 @@ class User extends CI_Controller
 		
     public function logout()  
     {  
-        //removing session  
+        
         $this->session->unset_userdata('customer_user_id');  
-        redirect("Login");  
+        $this->session->unset_userdata('user_name');  
+        $this->session->unset_userdata('is_customer_user_login');  
+        redirect('user/login');
     }  
   
 }  

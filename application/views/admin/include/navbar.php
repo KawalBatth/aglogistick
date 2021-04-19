@@ -675,9 +675,22 @@ p.customer_info {
           <p class="user_name"><?= ucwords($this->session->userdata('name')); ?>
          <i class="fa fa-circle text-success"></i> </p>
         </div>
+       <?php  
+      if($this->session->has_userdata('is_admin_login'))
+      {
+        ?>
         <div style="text-align: center;">
                 <a href="<?php echo base_url('admin/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
             </div>
+        <?php 
+      }
+      else 
+      {
+        ?>
+        <div style="text-align: center;">
+                <a href="<?php echo base_url('user/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
+            </div>
+      <?php }?>
       </div>
       <div class="navbar-custom-manu">
         <ul class="nav navbar-nav">

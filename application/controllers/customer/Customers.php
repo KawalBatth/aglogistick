@@ -10,15 +10,23 @@
 
 		public function shipment()
 		{
-			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			$data['view'] = 'customers/shipment';
-			$this->load->view('customers/layout', $data);
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$data['view'] = 'customers/shipment';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
 		public function address_book()
 		{
-			$data['view'] = 'customers/address_book';
-			$this->load->view('customers/layout', $data);
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+				$data['view'] = 'customers/address_book';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
 		public function address_book_add()
@@ -41,28 +49,45 @@
 
 		public function history()
 		{
-			$data['view'] = 'customers/history';
-			$this->load->view('customers/layout', $data);
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+				$data['view'] = 'customers/history';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
 		public function quote()
 		{
-			$data['view'] = 'customers/quote';
-			$this->load->view('customers/layout', $data);
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+				$data['view'] = 'customers/quote';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
+
 		}
 
 		
 		public function setting()
 		{
-			$data['view'] = 'customers/setting';
-			$this->load->view('customers/layout', $data);
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+				$data['view'] = 'customers/setting';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
 			
 		public function help()
 		{
-			$data['view'] = 'customers/help';
-			$this->load->view('customers/layout', $data);
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+				$data['view'] = 'customers/help';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
         public function booking()
@@ -121,8 +146,7 @@
 		}
 	public function get_customers()
 		{
-			print_r($this->session->userdata);
-			echo $this->session->userdata('customer_user_id');
+			$this->session->userdata('customer_user_id');
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customer/layout', $data);

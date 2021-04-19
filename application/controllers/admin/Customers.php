@@ -37,11 +37,17 @@
 
 		public function customer_manage()
 		{
-			$data['data']=$this->auth_model->get_customer();
-			$data['users'] =  $this->auth_model->get_users();
-			$data['services'] =  $this->auth_model->get_services();
-			$data['view'] = 'admin/customers/customer_manage';
-			$this->load->view('admin/layout', $data);
+			if($this->session->has_userdata('is_admin_login'))
+			{
+		
+				$data['data']=$this->auth_model->get_customer();
+				$data['users'] =  $this->auth_model->get_users();
+				$data['services'] =  $this->auth_model->get_services();
+				$data['view'] = 'admin/customers/customer_manage';
+				$this->load->view('admin/layout', $data);
+			}		
+			else {	redirect('admin/auth/login');}
+		
 		}
 
 		/*public function customer_manage()
@@ -53,11 +59,17 @@
 		
 		public function customer_add()
 		{
-			$data['customer_id'] =$this->auth_model->get_customer_id();
-			$data['customers'] =$this->auth_model->get_customer();
-			
-			$data['view'] = 'admin/customers/customer_add';
-			$this->load->view('admin/layout', $data);
+			if($this->session->has_userdata('is_admin_login'))
+			{
+
+				$data['customer_id'] =$this->auth_model->get_customer_id();
+				$data['customers'] =$this->auth_model->get_customer();
+				$data['view'] = 'admin/customers/customer_add';
+				$this->load->view('admin/layout', $data);
+			}
+			else {
+					redirect('admin/auth/login');
+			}
 		}
 		
 		
@@ -153,6 +165,7 @@
 }
 public function get_rates()
 {
+
 		$zone = $this->input->post('zone');	
 		$id = $this->input->post('service_type');	
 		$data=  $this->auth_model->get_rates($zone,$id);
@@ -315,6 +328,7 @@ public function delUser($id = 0){
 
 		public function fetch_notes()
 		{
+			
 			$data['user_note'] =  $this->user_model->get_all_notes();
 			$data['view'] = 'admin/manage';
 			$this->load->view('admin/layout', $data);

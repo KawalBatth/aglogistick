@@ -882,7 +882,7 @@
                             <td class="td2" colspan="2"><input type="text" name="stateCode" value="" id="address_address_stateCode" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Phone:<span class="s30">*</span></td>
+                            <td class="td1">Address Phone:<span class="s30">*</span></td>
                             <!--td class="td2" colspan="2"><input type="text" name="phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td-->
                          <td>   <input type="tel" name="phone" value="" pattern="08\d{8}" id="address_address_phone" required="required" class="form-control uppercase" data-group="address" maxlength="10"> </td>
                         </tr>
@@ -900,7 +900,7 @@
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
-                            <td class="td2" colspan="2"><input type="text" name="mobile" value="" id="address_address_mobile" class="form-control uppercase" data-group="address"></td>
+                            <td class="td12" colspan="2"><input type="text" name="mobile" value="" id="address_address_mobile" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Alt Contact Phone:</td>
