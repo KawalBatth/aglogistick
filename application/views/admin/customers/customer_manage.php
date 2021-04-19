@@ -293,13 +293,15 @@ if(isset($submit_id))
                                             <tbody>
                                             <tr>
                                         
-    <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+    <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="location = this.value;">
     <option value="-1">Select a Customer</option>
     <option value="http://localhost/agllogistic/admin/add">Add a Customer</option> 
     <?php for($i=0;$i<count($data);$i++)
                                     {
                             echo //'<option value="'.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
-                            '<option value="customer_manage?id='.$data[$i]['customer_id'].'">'.$data[$i]['customer_id'].' '.$data[$i]['customerName'].'</option>';                                    
+                            '<option value="customer_manage?id='.$data[$i]['customer_id']. '">'.$data[$i]['customer_id'].' '.$data[$i]['customerName'].'</option>';  
+
+                            //echo "<option value=\"$i\" ".($rowsperpage == $i ? 'selected="selected"' : '').">$i</option>";                                  
                                     }?>
 </select>
 
@@ -8246,6 +8248,10 @@ function edituser()
           
           //$('#exampleModal').modal('show');
       }
+
+     
+
+
 </script>
 </body>
 </html>
