@@ -1377,14 +1377,6 @@
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/common/common.js"></script>
 
 <script>
-function openForm() {
-  document.getElementById("myForm").style.display = "block";
-}
-
-function closeForm() {
-  document.getElementById("myForm").style.display = "none";
-}
-
 
 function onChangeServiceType(isReturn) {
         var defaultAddressJs = JSON.parse($("#defaultAddressJson").val());
@@ -1624,8 +1616,84 @@ function onListClick1(obj, isReceiver) {
         $("input[name='shipmentPage.senderAddress.city']").val(cityName1);
         $("input[name='shipmentPage.senderAddress.postalCode']").val(postalCode1);
         $("input[name='shipmentPage.senderAddress.state']").val(stateCode1);
+
     }
 }
+
+function openForm() {
+
+    document.getElementById("myForm").style.display = "block";
+    var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
+    var stateCode1 = $("input[name='shipmentPage.senderAddress.state']").val();
+    var postalCode = $("input[name='shipmentPage.receiverAddress.postalCode']").val();
+    var stateCode = $("input[name='shipmentPage.receiverAddress.state']").val();
+    $('#saveQuoteLog table tbody').html('');
+    var html = '';
+     $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/get_calculate');?>",
+        data:{sender_postcode:sender_postcode,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode},
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);            
+            html +='<tr>';
+                    html +='<td class="td1">Base Charge</td>';
+                    html +='<td class="td2">$ 273.82</td>';
+            html +='</tr>';        
+            html +='<tr>';
+                html +='<td class="td1">Security Surcharge</td>';
+                html +='<td class="td2">$ 10.54</td>';
+            html +='</tr>';
+            html +='<tr>';
+                html +='<td class="td1">Fuel Surcharge</td>';
+                html +='<td class="td2">$ 36.97</td>';
+            html +='</tr>';
+            html +='<tr>';
+                html +='<td class="td1">GST</td>';
+                html +='<td class="td2">$ 32.14</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
+                html +='</tr>';
+            html +='<tr>';
+                    html +='<td class="td1">Total weight</td>';
+                    html +='<td class="td2">22.00kg(s)</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td class="td1">Weight type</td>';
+                    html +='<td class="td2">Actual</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td class="td1"><b>Total Charge</b></td>';
+                    html +='<td class="td2">$ 353.47</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2">';
+                    html +='<p>Quote is an estimate. Additional fees may apply.</p>';
+                    html +='</td>';
+            html +='</tr>';
+        }
+    });
+     $('#saveQuoteLog table tbody').html(html);
+
+    
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+
 
 $(document).ready(function(){
     var list ='<ul id="country-list1">';
@@ -1650,7 +1718,7 @@ $(document).ready(function(){
             $.each(result, function(k, v) {
                 //console.log(k + ' is ' + v);
                 list +='<li onclick="onListClick1($(this),false);"><div class="row">';
-                list +='<div class="col-xs-6 suburb" data-cityname1="'+v.suburb+'">'+v.suburb+'</div>';
+                list +='<div class="col-xs-6 suburb" data data-cityname1="'+v.suburb+'">'+v.suburb+'</div>';
                 list +='<div class="col-xs-3 postcode" data-postalcode1="'+v.postcode+'">'+v.postcode+'</div>';
                 list +='<div class="col-xs-3 state" data-statecode1="'+v.state+'">'+v.state+'</div>';
                 list +='</div></li>';

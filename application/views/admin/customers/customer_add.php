@@ -9594,7 +9594,16 @@
                 if($(this).prop('required') && $(this).val()=='')
                 {
                       alertDialog.dialog("open");  
-                      html +=$(this).parent().parent().find('.td1').html()+' Required <br/>';
+                      
+
+                      
+                      if(!$(this).parent().parent().find('.td1').attr('data-label'))
+                      {
+                          html +=$(this).parent().parent().find('.td1').html()+' Required <br/>';  
+                      }
+                      else {
+                        html +=$(this).parent().parent().find('.td1').attr('data-label')+' Required <br/>';
+                      }
                       isfromsubmit = false;
                       alertDialog.html(html);               
                 }
