@@ -1,3 +1,4 @@
+<?php echo '<pre>'; print_r($this->session->all_userdata());exit; ?>
 <div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -33,13 +34,20 @@
                                         <div class="row">
                                        
                                             <div class="col-md-6">
-                                            <?php //echo form_open(base_url('customer/country_list'), 'class="get_shipment-form" '); ?>
+                                            <?php 
+                                             // foreach($customer as $row){ 
+                                            //echo form_open(base_url('customer/country_list'), 'class="get_shipment-form" '); ?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
+
                                                     <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+
+                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php //echo $customer->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+
                                                     <div id="sender-address-by-company-search-result"></div>
                                                 </div>
+                                              <?php  // }?>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
@@ -1775,14 +1783,14 @@ $(document).ready(function(){
 #country-list1 li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
 #country-list1 li:hover{background:#ece3d2;cursor: pointer;}
 .col-xs-6.suburb {
-    margin-left: 13px;
+    margin-left: 9px;
     margin-top: 9px;
 }
 .col-xs-3.postcode {
-    margin-left: -92px;
+    margin-left: -104px;
 }
 .col-xs-3.state {
-    margin-left: 77px;
+    margin-left: 65px;
 }
 .col-xs-3{
 margin-top: 0px !important;
