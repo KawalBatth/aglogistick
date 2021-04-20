@@ -144,6 +144,7 @@
 			}
 				
 		}
+
 	public function get_customers()
 		{
 			$this->session->userdata('customer_user_id');
@@ -243,6 +244,15 @@
 
 				$this->user_model->save_shipment($saveData);
 			}
+
+
+		public function get_customers()
+		{
+			$data['customer']=$this->user_model->fetch_customer($this->session->userdata('username'));
+			$data['view'] = 'customers/shipment';
+			$this->load->view('customer/layout', $data);
+		}
+	
 	
 	}
 
