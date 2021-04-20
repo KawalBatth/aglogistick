@@ -177,6 +177,19 @@ public function fetch_customer($id)
 		return $query = $this->db->get()->result_array();
 			
 	}
+	public function get_base_rate($getsenderzone,$get_rcv_zone)
+	{
+		$this->db->select('*');
+		$this->db->from('rates');
+		$this->db->where(array('origin'=>$getsenderzone,'destination'=>$get_rcv_zone));
+		$query = $this->db->get();
+        if($query->num_rows() > 0)
+        {
+        	$data = $query->row()->basic_charge;					
+        	return $data;
+        }
+        else {return $data ='';}
+	}
 
 	
 

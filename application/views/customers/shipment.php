@@ -1626,15 +1626,17 @@ function openForm() {
             console.log(result);            
             html +='<tr>';
                     html +='<td class="td1">Base Charge</td>';
-                    html +='<td class="td2">$ 00.00</td>';
+                    html +='<td class="td2">$ '+result.base_charge+'</td>';
             html +='</tr>';        
             
-            
-            $.each(result, function(k, v) {
-                html +='<tr>';
-                html +='<td class="td1">'+v.surcharge_name+'</td>';
-                html +='<td class="td2">$ '+v.surcharge_price+'</td>';
-                html +='</tr>';
+            $.each(result.charges, function(k, v) {
+                if(v)
+                {
+                    html +='<tr>';
+                    html +='<td class="td1">'+v.surcharge_name+'</td>';
+                    html +='<td class="td2">$ '+v.surcharge_price+'</td>';
+                    html +='</tr>';
+                }
             });
             html +='<tr>';
                 html +='<td class="td1">GST</td>';

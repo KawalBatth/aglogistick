@@ -75,8 +75,8 @@
 		{
 			$sender_city = $this->input->post('sender_city');
 			$sender_postcode = $this->input->post('sender_postcode');
-			$sender_state =  $this->input->post('stateCode1');
-			$rc_postcode= $this->input->post('postalCode');
+			$sender_state =  $this->input->post('sender_state');
+			$rc_postcode= $this->input->post('rc_postcode');
 			$rc_statecode= $this->input->post('stateCode');
 			$rcv_city= $this->input->post('rcv_city');
 			$serviceId= $this->input->post('serviceId');
@@ -84,7 +84,10 @@
 			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId);
-			echo json_encode($get_surcharge);
+			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
+			$result['charges'] = $get_surcharge;
+			$result['base_charge']= $get_base_rate;
+			echo json_encode($result);
 			
 		}
 		public function setting()
