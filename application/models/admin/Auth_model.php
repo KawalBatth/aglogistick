@@ -41,6 +41,7 @@
 		return $query = $this->db->get()->result_array();
 		
 	}
+	
 		public function change_pwd($data, $id){
 			$this->db->where('id', $id);
 			$this->db->update('ci_users', $data);
@@ -51,6 +52,7 @@
 		{
 			$this->db->select('*');
 			$this->db->from('carriers');
+			$this->db->order_by('id',"asc");
 			return $query = $this->db->get()->result_array();
 		 
 		}

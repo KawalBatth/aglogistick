@@ -5,6 +5,7 @@
 		public function __construct(){
 			parent::__construct();
 			$this->load->model('admin/user_model', 'user_model');
+			$this->load->model('admin/auth_model', 'auth_model');
 			$this->load->helper('customer'); 
 		}
 
@@ -13,6 +14,8 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$data['carriers']=$this->auth_model->get_carrier();
+				$data['services']=$this->auth_model->get_services();
 				$data['view'] = 'customers/shipment';
 				$this->load->view('customers/layout', $data);
 			}
@@ -68,7 +71,22 @@
 
 		}
 
-		
+		public function get_calculate()
+		{
+			$sender_city = $this->input->post('sender_city');
+			$sender_postcode = $this->input->post('sender_postcode');
+			$sender_state =  $this->input->post('stateCode1');
+			$rc_postcode= $this->input->post('postalCode');
+			$rc_statecode= $this->input->post('stateCode');
+			$rcv_city= $this->input->post('rcv_city');
+			$serviceId= $this->input->post('serviceId');
+			$service_type_Id= $this->input->post('service_type_Id');
+			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
+			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
+			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId);
+			echo json_encode($get_surcharge);
+			
+		}
 		public function setting()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
@@ -246,13 +264,7 @@
 			}
 
 
-		public function get_customers()
-		{
-			$data['customer']=$this->user_model->fetch_customer($this->session->userdata('username'));
-			$data['view'] = 'customers/shipment';
-			$this->load->view('customer/layout', $data);
-		}
-	
+		
 	
 	}
 

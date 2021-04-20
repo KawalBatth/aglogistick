@@ -1,4 +1,3 @@
-<?php echo '<pre>'; print_r($this->session->all_userdata());exit; ?>
 <div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -42,9 +41,7 @@
                                                     </label>
 
                                                     <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
-
-                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php //echo $customer->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
-
+                                                    
                                                     <div id="sender-address-by-company-search-result"></div>
                                                 </div>
                                               <?php  // }?>
@@ -885,26 +882,33 @@
                                                     <div class="form-group col-lg-6" id="change-country-div">
                                                         <label class="control-label" for="inputName"> Carrier <span class="s30"> *</span>
                                                         </label>
+                                                        
                                                         <select name="shipmentPage.serviceId" id="shipmentPage_serviceId" required class="form-control">
-    <option value="72" selected="selected">Startrack</option>
-</select>
+                                                            <option value="" selected="selected">Select Carrier</option>
+                                                            <?php for($c=0;$c<count($carriers);$c++) 
+                                                            {                                                                
+                                                                ?>  
+                                                                <option value="<?php echo $carriers[$c]['id'];?>"><?php echo $carriers[$c]['carrier_name'];?></option>
+                                                            <?php
+                                                            }?>                                                            
+                                                        </select>
 
 
                                                     </div>
                                                     <div class="form-group col-lg-6" id="change-service-div">
                                                         <label class="control-label" for="inputName"> Service Type <span class="s30"> *</span>
                                                         </label>
-                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control" onchange="changeShipmentType($(this).val())">
-    <option value="229">Premium Air Freight</option>
-    <option value="228">Road Express</option>
-    <option value="230">Fixed Price Premium 1kg</option>
-    <option value="231">Fixed Price Premium 3kg</option>
-    <option value="232">Fixed Price Premium 5kg</option>
-    <option value="234">Fixed Price Premium 10kg</option>
-    <option value="235">Fixed Price Premium 20kg</option>
+                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control">
+                                                            <option value="" selected="selected">Select Service Type</option>
+    
+                                                                <?php for($c=0;$c<count($services);$c++) 
+                                                            {                                                                
+                                                                ?>  
+                                                                <option value="<?php echo $services[$c]['id'];?>" ><?php echo $services[$c]['service_name'];?></option>
+                                                            <?php
+                                                            }?>  
 
-
-</select>
+                                                        </select>
 
 
                                                     </div>
@@ -1206,54 +1210,7 @@
 <hr>
     <table class="table">
    
-        <tbody><tr>
-            <td class="td1">Base Charge</td>
-            <td class="td2">$ 273.82</td>
-        </tr>
-        
-            <tr>
-                <td class="td1">Security Surcharge</td>
-                <td class="td2">$ 10.54</td>
-            </tr>
-        
-            <tr>
-                <td class="td1">Fuel Surcharge</td>
-                <td class="td2">$ 36.97</td>
-            </tr>
-        
-            <tr>
-                <td class="td1">GST</td>
-                <td class="td2">$ 32.14</td>
-            </tr>
-        
-        <tr>
-            <td colspan="2" style="background: #686BB1;padding: 1px;"></td>
-        </tr>
-        <tr>
-            <td class="td1">Total weight</td>
-            <td class="td2">22.00kg(s)</td>
-        </tr>
-        <tr>
-            <td class="td1">Weight type</td>
-            <td class="td2">Actual</td>
-        </tr>
-        <tr>
-            <td colspan="2" style="background: #005786;padding: 1px;"></td>
-        </tr>
-        <tr>
-            <td class="td1"><b>Total Charge</b></td>
-            <td class="td2">$ 353.47</td>
-        </tr>
-        <tr>
-            <td colspan="2" style="background: #005786;padding: 1px;"></td>
-        </tr>
-        
-        <tr>
-            <td colspan="2">
-                <p>Quote is an estimate. Additional fees may apply.</p>
-            </td>
-        </tr>
-    </tbody></table>
+        <tbody></table>
 <div class="quote-button">
 <button type="button" class="btn s33 save" onclick="save()">Save quote</button>
     <button type="button" class="btn s33 cancel" onclick="closeForm()">Ok</button>
@@ -1632,15 +1589,34 @@ function openForm() {
 
     document.getElementById("myForm").style.display = "block";
     var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
+    var sender_city= $("input[name='shipmentPage.senderAddress.city']").val();
     var stateCode1 = $("input[name='shipmentPage.senderAddress.state']").val();
     var postalCode = $("input[name='shipmentPage.receiverAddress.postalCode']").val();
     var stateCode = $("input[name='shipmentPage.receiverAddress.state']").val();
+    var serviceId = $("select[name='shipmentPage.serviceId']").val();
+    var rcv_city= $("input[name='shipmentPage.receiverAddress.city']").val();
+    var service_type_Id = $("select[name='shipmentPage.shipmentTypeId']").val();
+    var weight =[];
+    var length =[];
+    $('#piece-table input[name*="shipmentPage.pieces"]').each(function(i)
+    {
+        var wh= $("input[name='shipmentPage.pieces["+i+"].weight']").val();
+        if(wh)
+        weight.push(wh);
+        var ln= $("input[name='shipmentPage.pieces["+i+"].dimensionL']").val();
+        if(ln)
+        length.push(ln);
+    });
+    console.log(weight);
+    console.log(length);
+
     $('#saveQuoteLog table tbody').html('');
     var html = '';
+
      $.ajax({
         type: "POST",
         url: "<?php echo base_url('customer/get_calculate');?>",
-        data:{sender_postcode:sender_postcode,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode},
+        data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id},
         beforeSend: function(){
 
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
@@ -1650,23 +1626,23 @@ function openForm() {
             console.log(result);            
             html +='<tr>';
                     html +='<td class="td1">Base Charge</td>';
-                    html +='<td class="td2">$ 273.82</td>';
+                    html +='<td class="td2">$ 00.00</td>';
             html +='</tr>';        
-            html +='<tr>';
-                html +='<td class="td1">Security Surcharge</td>';
-                html +='<td class="td2">$ 10.54</td>';
-            html +='</tr>';
-            html +='<tr>';
-                html +='<td class="td1">Fuel Surcharge</td>';
-                html +='<td class="td2">$ 36.97</td>';
-            html +='</tr>';
+            
+            
+            $.each(result, function(k, v) {
+                html +='<tr>';
+                html +='<td class="td1">'+v.surcharge_name+'</td>';
+                html +='<td class="td2">$ '+v.surcharge_price+'</td>';
+                html +='</tr>';
+            });
             html +='<tr>';
                 html +='<td class="td1">GST</td>';
                 html +='<td class="td2">$ 32.14</td>';
             html +='</tr>';
             html +='<tr>';
-                    html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
-                html +='</tr>';
+                html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
+            html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1">Total weight</td>';
                     html +='<td class="td2">22.00kg(s)</td>';
@@ -1690,9 +1666,13 @@ function openForm() {
                     html +='<p>Quote is an estimate. Additional fees may apply.</p>';
                     html +='</td>';
             html +='</tr>';
+            $('#myForm table tbody').html(html);
         }
+        
     });
-     $('#saveQuoteLog table tbody').html(html);
+
+    
+
 
     
 }

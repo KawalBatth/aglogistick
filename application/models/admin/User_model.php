@@ -147,7 +147,36 @@ public function fetch_customer($id)
 	}
 
 
+	public function get_sender_zone($sender_state,$sender_postcode)
+	{
+		$this->db->select('sender_zone');
+		$this->db->from('sender_zone');
+		$this->db->where(array('sender_suburb'=>$sender_state,'sender_postcode'=>$sender_postcode));
+		$query = $this->db->get();
+        return $query->row()->sender_zone;				
+	}
+	public function get_rcv_zone($rc_statecode,$rc_postcode)
+	{
+		$this->db->select('receiver_zone');
+		$this->db->from('receiver_zone');
+		$this->db->where(array('receiver_suburb'=>$rc_statecode,'receiver_postcode'=>$rc_postcode));
+		$query = $this->db->get();
+        if($query->num_rows() > 0)
+        {
+        	$data = $query->row()->receiver_zone;					
+        	return $data;
+        }
+        else {return $data ='';}
 
+	}
+	public function get_surchargebyid($id)
+	{
+		$this->db->select('*');
+		$this->db->from('surcharges_list');
+		$this->db->where('carrier_id', $id);	
+		return $query = $this->db->get()->result_array();
+			
+	}
 
 	
 
