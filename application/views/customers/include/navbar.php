@@ -474,6 +474,10 @@ label.control-label.ready {
     width: 96%;
     font-size: 11px;
 }
+
+.modal-content {
+    width: 135%;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->

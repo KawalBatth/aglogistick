@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <?php 
 echo "<pre>";
 print_r($result);
@@ -20,6 +21,8 @@ echo "</pre>";
                     });
                 </script>
  
+=======
+>>>>>>> 5755138e55225551c9696506cc2790d4b5337471
 <!--BEGIN TITLE & BREADCRUMB PAGE-->
 <div id="shipment-div" style="display: none;">
     <div class="row mbl">
@@ -986,7 +989,8 @@ echo "</pre>";
 
                                                         <div class="form-group input-group">
 															<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
-															</span> <input class="form-control form_datetime" type="text" data-date-format="dd MM yyyy" id="shipment-date-input" name="shipmentPage.shipmentDate" readonly="readonly">
+                                                            </span><input type='date' id='date' class="form-control date form_datetime" value='<?php echo date('Y-m-d');?>' readonly="readonly">
+															
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1164,7 +1168,7 @@ echo "</pre>";
             
                 <tr id="piece-dt1">
                     <td width="2%" style="padding-top: 8px" id="piece-order1" class="order-number">1</td>
-                    <td width="10%"><input type="text" name="shipmentPage.pieces[0].weight" maxlength="6" value="67" id="shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Shipment weight"></td>
+                    <td width="10%"><input type="text" name="shipmentPage.pieces[0].weight" maxlength="6" value="" id="shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Shipment weight"></td>
                     <td width="15%"><select name="" id="sel-dimension-list" class="form-control alloptions dimensionList" onchange="changeDimensionList($(this).val(),0)">
     <option value="0"></option>
     <option value="1">test</option>
@@ -1203,49 +1207,6 @@ echo "</pre>";
                     
                     
                     <td width="3%" style="padding-top: 9px"><i id="remove" class="fa fa-times-circle-o s10" style="font-size: 18px;  display: none; " onclick="removePiece($(this))"></i></td>
-                </tr>
-            
-                <tr id="piece-dt2">
-                    <td width="2%" style="padding-top: 8px" id="piece-order2" class="order-number">2</td>
-                    <td width="10%"><input type="text" name="shipmentPage.pieces[1].weight" maxlength="6" value="67" id="shipmentPage_pieces_1__weight" class="form-control alloptions weight" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Shipment weight"></td>
-                    <td width="15%"><select name="" id="sel-dimension-list" class="form-control alloptions dimensionList" onchange="changeDimensionList($(this).val(),1)">
-    <option value="0"></option>
-    <option value="1">test</option>
-    <option value="24">wigets</option>
-
-
-</select>
-
-</td>
-                    <td width="40%">
-                        <div class="row mg0">
-                            <div class="col-lg-4 pd1">
-                                
-                                
-                                    <input type="text" name="shipmentPage.pieces[1].dimensionL" maxlength="4" value="" id="shipmentPage_pieces_1__dimensionL" class="form-control alloptions dimL" onkeypress="return formartNumber(event,this,false);">
-                                
-                            </div>
-                            <div class="col-lg-4 pd1">
-                                
-                                
-                                    <input type="text" name="shipmentPage.pieces[1].dimensionW" maxlength="4" value="" id="shipmentPage_pieces_1__dimensionW" class="form-control alloptions dimW" onkeypress="return formartNumber(event,this,false);">
-                                
-                            </div>
-                            <div class="col-lg-4 pd1">
-                                
-                                
-                                    <input type="text" name="shipmentPage.pieces[1].dimensionH" maxlength="4" value="" id="shipmentPage_pieces_1__dimensionH" class="form-control alloptions dimH" onkeypress="return formartNumber(event,this,false);">
-                                
-                            </div>
-                        </div>
-                    </td>
-                    <td width="25%" style="display:none;">
-                        <input type="text" name="shipmentPage.pieces[1].customValue" maxlength="10" value="0.00" id="shipmentPage_pieces_1__customValue" class="form-control alloptions customValue" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Shipment value"></td>
-                    
-                        <td class="quantity"><input type="text" name="shipmentPage.pieces[1].quantity" value="1" id="shipmentPage_pieces_1__quantity" class="form-control quantity" onkeypress="return formartNumber(event,this,false);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Quantity"></td>
-                    
-                    
-                    <td width="3%" style="padding-top: 9px"><i id="remove" class="fa fa-times-circle-o s10" style="font-size: 18px; " onclick="removePiece($(this))"></i></td>
                 </tr>
             
         
@@ -1516,7 +1477,7 @@ echo "</pre>";
 
 
 <form id="form_booking" name="form_booking" action="/crm-webship/webship_continue_booking.ix" method="post">
-    <input type="hidden" name="shipmentRequestModelGson" value="{&quot;shipmentInfo&quot;:{&quot;senderAddress&quot;:{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;0894793399&quot;,&quot;contactName&quot;:&quot;WAYNE ENNIS&quot;,&quot;email&quot;:&quot;wayne@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;UNIT 1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;PERTH AIRPORT&quot;,&quot;address3&quot;:&quot;&quot;,&quot;alternateUserName&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH airport&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;},&quot;receiverAddress&quot;:{&quot;companyName&quot;:&quot;toll&quot;,&quot;phone&quot;:&quot;0876567865&quot;,&quot;contactName&quot;:&quot;test&quot;,&quot;email&quot;:&quot;&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;67&quot;,&quot;address2&quot;:&quot;&quot;,&quot;address3&quot;:&quot;&quot;,&quot;city&quot;:&quot;MELBOURNE&quot;,&quot;postalCode&quot;:&quot;8001&quot;,&quot;state&quot;:&quot;&quot;},&quot;serviceId&quot;:&quot;72&quot;,&quot;shipmentTypeId&quot;:&quot;229&quot;,&quot;contentType&quot;:&quot;WPX&quot;,&quot;pieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;56.00&quot;,&quot;dimensionH&quot;:&quot;56.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;quantity&quot;:&quot;1&quot;},{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;56.00&quot;,&quot;dimensionW&quot;:&quot;56.00&quot;,&quot;dimensionH&quot;:&quot;56.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;bound&quot;:&quot;15&quot;,&quot;isAddPiece&quot;:&quot;true&quot;,&quot;addCons&quot;:[{&quot;addConName&quot;:&quot;Dangerous Goods&quot;,&quot;addConCode&quot;:&quot;dangerousgoods&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;UN Number (4Digits)&quot;,&quot;addConDetailCode&quot;:&quot;unnumber&quot;,&quot;value&quot;:&quot;&quot;},{&quot;addConDetailName&quot;:&quot;Packing Group&quot;,&quot;addConDetailCode&quot;:&quot;packinggroup&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;addConDetailName&quot;:&quot;I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&quot;,&quot;addConDetailCode&quot;:&quot;msda&quot;}]},{&quot;addConName&quot;:&quot;Authorized to Leave (ATL)&quot;,&quot;addConCode&quot;:&quot;atl&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;Where to leave&quot;,&quot;addConDetailCode&quot;:&quot;atltoleave&quot;,&quot;value&quot;:&quot;&quot;}]},{&quot;addConName&quot;:&quot;agl Warranty&quot;,&quot;addConCode&quot;:&quot;aglWarranty&quot;,&quot;value&quot;:&quot;0&quot;}],&quot;shipperAccount&quot;:&quot;963374666&quot;,&quot;totalWeight&quot;:&quot;134.0&quot;,&quot;weightType&quot;:&quot;Actual&quot;,&quot;shipmentRequestPieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;56.00&quot;,&quot;dimensionH&quot;:&quot;56.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;deadWeight&quot;:&quot;52.53&quot;,&quot;quantity&quot;:&quot;1&quot;},{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;56.00&quot;,&quot;dimensionW&quot;:&quot;56.00&quot;,&quot;dimensionH&quot;:&quot;56.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;deadWeight&quot;:&quot;43.90&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;dutiesBillTo&quot;:&quot;0&quot;,&quot;dutiesAccount&quot;:&quot;&quot;,&quot;billingParty&quot;:&quot;0&quot;,&quot;packageId&quot;:&quot;3&quot;,&quot;shipmentDate&quot;:&quot;21-04-2021&quot;,&quot;contents&quot;:&quot;1&quot;,&quot;weightUnit&quot;:&quot;KG&quot;,&quot;dimensionUnit&quot;:&quot;CM&quot;,&quot;currencyCode&quot;:&quot;AUD&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;zone&quot;:&quot;&quot;},&quot;quote&quot;:{&quot;baseCharge&quot;:&quot;722.20&quot;,&quot;carrierCharge&quot;:&quot;722.2&quot;,&quot;accessorial&quot;:[{&quot;accessorialId&quot;:&quot;526&quot;,&quot;code&quot;:&quot;Security Surcharge&quot;,&quot;description&quot;:&quot;Security Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;27.80&quot;,&quot;valueCurrency&quot;:&quot;$ 27.80&quot;},{&quot;accessorialId&quot;:&quot;528&quot;,&quot;code&quot;:&quot;Fuel Surcharge&quot;,&quot;description&quot;:&quot;Fuel Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;101.11&quot;,&quot;valueCurrency&quot;:&quot;$ 101.11&quot;},{&quot;code&quot;:&quot;GST&quot;,&quot;description&quot;:&quot;GST&quot;,&quot;value&quot;:&quot;85.12&quot;,&quot;valueCurrency&quot;:&quot;$ 85.12&quot;}],&quot;totalCharge&quot;:&quot;936.23&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;weight&quot;:&quot;134.00 kgs&quot;,&quot;weightType&quot;:&quot;Actual&quot;,&quot;nonStandardCharge&quot;:&quot;0.00&quot;,&quot;manualHandlingSurcharge&quot;:0.0,&quot;insuranceValue&quot;:&quot;0.00&quot;,&quot;baseChargeUnit&quot;:&quot;$ 722.20&quot;,&quot;totalChargeUnit&quot;:&quot;$ 936.23&quot;},&quot;shipmentReference&quot;:&quot;&quot;}" id="shipmentRequestModelGson">
+    <input type="hidden" name="shipmentRequestModelGson" value="{&quot;shipmentInfo&quot;:{&quot;senderAddress&quot;:{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;0894793399&quot;,&quot;contactName&quot;:&quot;WAYNE ENNIS&quot;,&quot;email&quot;:&quot;wayne@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;UNIT 1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;PERTH AIRPORT&quot;,&quot;address3&quot;:&quot;&quot;,&quot;alternateUserName&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH airport&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;},&quot;receiverAddress&quot;:{&quot;companyName&quot;:&quot;toll&quot;,&quot;phone&quot;:&quot;8888888888&quot;,&quot;contactName&quot;:&quot;toll&quot;,&quot;email&quot;:&quot;&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;88&quot;,&quot;address2&quot;:&quot;&quot;,&quot;address3&quot;:&quot;&quot;,&quot;city&quot;:&quot;MELBOURNE&quot;,&quot;postalCode&quot;:&quot;8001&quot;,&quot;state&quot;:&quot;&quot;},&quot;serviceId&quot;:&quot;72&quot;,&quot;shipmentTypeId&quot;:&quot;229&quot;,&quot;contentType&quot;:&quot;WPX&quot;,&quot;pieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;67.00&quot;,&quot;dimensionH&quot;:&quot;67.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;bound&quot;:&quot;15&quot;,&quot;isAddPiece&quot;:&quot;true&quot;,&quot;addCons&quot;:[{&quot;addConName&quot;:&quot;Dangerous Goods&quot;,&quot;addConCode&quot;:&quot;dangerousgoods&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;UN Number (4Digits)&quot;,&quot;addConDetailCode&quot;:&quot;unnumber&quot;,&quot;value&quot;:&quot;&quot;},{&quot;addConDetailName&quot;:&quot;Packing Group&quot;,&quot;addConDetailCode&quot;:&quot;packinggroup&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;addConDetailName&quot;:&quot;I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&quot;,&quot;addConDetailCode&quot;:&quot;msda&quot;}]},{&quot;addConName&quot;:&quot;Authorized to Leave (ATL)&quot;,&quot;addConCode&quot;:&quot;atl&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;Where to leave&quot;,&quot;addConDetailCode&quot;:&quot;atltoleave&quot;,&quot;value&quot;:&quot;&quot;}]},{&quot;addConName&quot;:&quot;agl Warranty&quot;,&quot;addConCode&quot;:&quot;aglWarranty&quot;,&quot;value&quot;:&quot;0&quot;}],&quot;shipperAccount&quot;:&quot;963374666&quot;,&quot;totalWeight&quot;:&quot;76.0&quot;,&quot;weightType&quot;:&quot;Dimensional&quot;,&quot;shipmentRequestPieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;67.00&quot;,&quot;dimensionH&quot;:&quot;67.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;deadWeight&quot;:&quot;75.19&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;dutiesBillTo&quot;:&quot;0&quot;,&quot;dutiesAccount&quot;:&quot;&quot;,&quot;billingParty&quot;:&quot;0&quot;,&quot;packageId&quot;:&quot;3&quot;,&quot;shipmentDate&quot;:&quot;21-04-2021&quot;,&quot;contents&quot;:&quot;1&quot;,&quot;weightUnit&quot;:&quot;KG&quot;,&quot;dimensionUnit&quot;:&quot;CM&quot;,&quot;currencyCode&quot;:&quot;AUD&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;zone&quot;:&quot;&quot;},&quot;quote&quot;:{&quot;baseCharge&quot;:&quot;414.22&quot;,&quot;carrierCharge&quot;:&quot;414.22&quot;,&quot;accessorial&quot;:[{&quot;accessorialId&quot;:&quot;526&quot;,&quot;code&quot;:&quot;Security Surcharge&quot;,&quot;description&quot;:&quot;Security Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;15.95&quot;,&quot;valueCurrency&quot;:&quot;$ 15.95&quot;},{&quot;accessorialId&quot;:&quot;528&quot;,&quot;code&quot;:&quot;Fuel Surcharge&quot;,&quot;description&quot;:&quot;Fuel Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;57.99&quot;,&quot;valueCurrency&quot;:&quot;$ 57.99&quot;},{&quot;code&quot;:&quot;GST&quot;,&quot;description&quot;:&quot;GST&quot;,&quot;value&quot;:&quot;48.82&quot;,&quot;valueCurrency&quot;:&quot;$ 48.82&quot;}],&quot;totalCharge&quot;:&quot;536.98&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;weight&quot;:&quot;76.00 kgs&quot;,&quot;weightType&quot;:&quot;Dimensional&quot;,&quot;nonStandardCharge&quot;:&quot;0.00&quot;,&quot;manualHandlingSurcharge&quot;:0.0,&quot;insuranceValue&quot;:&quot;0.00&quot;,&quot;baseChargeUnit&quot;:&quot;$ 414.22&quot;,&quot;totalChargeUnit&quot;:&quot;$ 536.98&quot;},&quot;shipmentReference&quot;:&quot;&quot;}" id="shipmentRequestModelGson">
     <div class="row mbl">
         <div class="col-lg-12">
             <div class="col-md-12">
@@ -1559,18 +1520,14 @@ echo "</pre>";
                                             <table class="table s99" style="font-size: 13px;">
                                                 <tbody><tr>
                                                     <td class="td1">Weight</td>
-                                                    <td class="td2">134.00 kgs</td>
+                                                    <td class="td2">76.00 kgs</td>
                                                 </tr>
                                                 <tr>
                                                     <td class="td1">Dimensions</td>
                                                     <td class="td2"> 
                                                     
                                                          
-                                                         67.00 x 56.00 x 56.00
-                                                         <br>
-                                                    
-                                                         
-                                                         56.00 x 56.00 x 56.00
+                                                         67.00 x 67.00 x 67.00
                                                          <br>
                                                     
                                                    </td>
@@ -1582,7 +1539,7 @@ echo "</pre>";
                                                 <table class="table s99" style="font-size: 13px;">
                                                     <tbody><tr>
                                                         <td class="td1">Quote</td>
-                                                        <td class="td2">936.23 <br>
+                                                        <td class="td2">536.98 <br>
                                                             <i><u> (Quote is an estimate. Additional fees may apply.)
                                                             </u></i></td>
                                                     </tr>
@@ -1606,27 +1563,27 @@ echo "</pre>";
                                                         </tr>
                                                         <tr>
                                                             <td class="td1 s40 ncl">- Base Charge</td>
-                                                            <td class="td2">722.20</td>
+                                                            <td class="td2">414.22</td>
                                                         </tr>
                                                         
                                                             <tr>
                                                                 <td class="td1 s40 ncl">- Security Surcharge</td>
-                                                                <td class="td2">27.80</td>
+                                                                <td class="td2">15.95</td>
                                                             </tr>
                                                         
                                                             <tr>
                                                                 <td class="td1 s40 ncl">- Fuel Surcharge</td>
-                                                                <td class="td2">101.11</td>
+                                                                <td class="td2">57.99</td>
                                                             </tr>
                                                         
                                                             <tr>
                                                                 <td class="td1 s40 ncl">- GST</td>
-                                                                <td class="td2">85.12</td>
+                                                                <td class="td2">48.82</td>
                                                             </tr>
                                                         
                                                         <tr>
                                                             <td class="td1 s41 ncl">- Total Charge</td>
-                                                            <td class="td2">936.23</td>
+                                                            <td class="td2">536.98</td>
                                                         </tr>
                                                         </tbody>
                                                     </table>
@@ -1653,8 +1610,8 @@ echo "</pre>";
                                                         <td class="td1" style="font-style: italic; text-decoration: underline;">
                                                             Receiver Address:</td>
                                                         <td class="td2">toll
-                                                            test
-                                                            67
+                                                            toll
+                                                            88
                                                             
                                                             
                                                             8001
@@ -1738,7 +1695,7 @@ echo "</pre>";
                 <label class="control-label" for="inputName"> Option <span class="s30">*</span>
                 </label>
                 <select name="shipmentRequestModel.scheduleCollectionSelect" id="ws-schedule-collection-select" class="form-control" onchange="onScheduleCollectionChange()">
-    <option value="0" selected>Select a Collection Option</option>
+    <option value="0">Select a Collection Option</option>
     <option value="1">Book this collection now</option>
     <option value="2">I already have a collection scheduled.</option>
     <option value="3">I will book my collection later.</option>
@@ -1751,7 +1708,7 @@ echo "</pre>";
 
             </div>
         </div>
-        <div id="ws-schedule-collection-div" style="display: block;">
+        <div id="ws-schedule-collection-div" style="display: none;">
             <div class="col-lg-5">
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Company <span class="s30">*</span>
@@ -1797,7 +1754,7 @@ echo "</pre>";
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
-                        <label class="control-label ready" for="inputName"> Ready Time (DD-MM-YYYY)
+                        <label class="control-label" for="inputName"> Ready Time (DD-MM-YYYY)
                         </label>
 
                         <div class="form-group input-group">
@@ -1936,7 +1893,7 @@ echo "</pre>";
     </div>
 </div>
                                 <div class="text-right pal pdt10">
-                                    <button class="btn s33 " type="button" onclick="backToShipment()">
+                                <a href="<?php echo base_url('customer/shipment'); ?>" class="back"> <button class="btn s33" type="button">
                                         Back
                                     </button>
                                     <button class="btn s33 " type="button" onclick="doShip()">
@@ -2266,6 +2223,4 @@ echo "</pre>";
     }
 
 </script>
-      
- 
-        
+            </div>
