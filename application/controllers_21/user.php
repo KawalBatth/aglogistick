@@ -93,10 +93,11 @@ class User extends CI_Controller
 		
     public function logout()  
     {  
-		$this->session->unset_userdata('customer_user_id');  
+        
+        $this->session->unset_userdata('customer_user_id');  
         $this->session->unset_userdata('user_name');  
         $this->session->unset_userdata('is_customer_user_login');  
-        redirect('user/login'); 
+        redirect('user/login');
     }  
   
 }  

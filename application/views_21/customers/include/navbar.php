@@ -446,32 +446,12 @@ a.back {
     color: #fff;
 }
 
-input {
-    text-transform: uppercase;
-}
 
-button.ui-dialog-titlebar-close {
-    float: right;
-}
-
-.ui-widget-content {
-    background: #ffffff;
-    padding: 0px;
-    position: relative;
-    padding: 1.6em;
-  border: 0;
-    margin-top:-178px !important;
-    /* background: none; */
-    overflow: inherit;
-    width: 323px !important;
-}
     </style>
   <header class="main-header">
     <!-- Logo -->
-    <?php //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; ?>
     <a href="<?= base_url('customer/shipment');?>" class="logo">
       <mini logo for sidebar mini 50x50 pixels -->
-      <!--img  src="<?php //echo site_url('public/dist/img/'.$customers->profile_image); ?>" alt="image" /-->
       <!--img src="<?= base_url() ?>public/dist/img/AGL.png" class="logo_img" alt="User Image"-->
       <span><b> AGL <b></span>
       <span><b> Specialised <b></span>

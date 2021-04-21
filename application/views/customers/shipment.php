@@ -1021,45 +1021,52 @@
                                                             </tr>
                                                             </thead>
                                                             <tbody>
-                                                            <tr id="piece-dt1">
-                                                                <td width="2%" style="padding-top: 8px" id="piece-order1" class="order-number">1
-                                                                </td>
-                                                                <td width="10%"><input type="number" name="shipmentPage.pieces[0].weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" onfocus="this.value=''"></td>
+                                                            <tr id="addr" class="calculation visible">
+                                                            <td class="sno">1</td>
+                                                                
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces[0].weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" onfocus="this.value=''"> <input type="hidden" name="total_weight" id="total_weight_input" value=""></td>
                                                                 <td width="40%">
                                                                     <div class="row mg0">
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionL" required value="" class="form-control alloptions dimL" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionL" required value="" class="form-control alloptions dimL length" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                           
                                                                  </div>
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionW" value="" required class="form-control alloptions dimW" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionW" value="" required class="form-control alloptions dimW width" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                         </div>
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionH" value="" required class="form-control alloptions dimH" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionH" value="" required class="form-control alloptions dimH height" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="hidden" name="get_volume" id="get_volume_input" value="">    
+	
                                                                         </div>
                                                                     </div>
+                                                                  
+	
+	         </td>
+
                                                                 </td>
-                                                                <!--td width="25%" style="display:none">
-                                                                    <input type="text" name="shipmentPage.pieces[0].customValue" maxlength="10" value="0.00" id="shipment-info-form_shipmentPage_pieces_0__customValue" class="form-control alloptions customValue" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Shipment value"></td-->
-                                                                
-                                                                    <td class="quantity"><input type="text" name="shipmentPage.pieces[0].quantity" value="1" id="shipment-info-form_shipmentPage_pieces_0__quantity" class="form-control quantity" required onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="10" min="1" onfocus="this.value=''"></td>
-                                                                
+                                                               <td><input type="text" name="shipmentPage.pieces[0].quantity" value="1" id="shipment-info-form_shipmentPage_pieces_0__quantity" class="form-control quantity" required onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="10" min="1" onfocus="this.value=''">
+                                                               <input type="hidden" name="final_total" id="final_total_input" value=""></td>
+                                                                 
+      <td><input type="button" value="&times;" class="del" /></td>
                                                                 
                                                                 <td width="3%" style="padding-top: 9px"><i id="remove" class="fa fa-times-circle-o s10" style="font-size: 18px; display: none;" onclick="removePiece($(this))"></i>
                                                                 </td>
                                                             </tr>
                                                             
                                                                 <input type="hidden" name="shipmentPage.isAddPiece" value="true" id="shipment-info-form_shipmentPage_isAddPiece">
-                                                             </tbody>
+                                                                                     </tbody>
+                                                                                
                                                         </table>
                                                         
-                                                        
-                                                            
-                                                                <button class="btn s33" type="button" onclick="addPiece()">
+                                                       
+                                                        <!--a id="add_row" class="add-box" href="#">+Add Item</a-->
+                                                                <button class="btn s33 add" type="button" onclick="addRow()">
                                                                    +
                                                                 </button>
                                                             
                                                         
-                                                        <script type="text/javascript">
+                                                        <!--script type="text/javascript">
                                                             var order = $('#piece-table tbody tr').length;
                                                             function addPiece() {
                                                                 order++;
@@ -1086,7 +1093,7 @@
                                                                 });
                                                                 order--;
                                                             }
-                                                        </script>
+                                                        </script-->
                                                     </div>
                                                 </div>
                                                 <div class="row">
@@ -1340,7 +1347,7 @@
 <div id="session_time_out_dialog" title="Message"></div>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/pages/webship.js"></script>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/common/common.js"></script>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 
 function onChangeServiceType(isReturn) {
@@ -1729,8 +1736,113 @@ $(document).ready(function(){
 });
 
 
-    </script>
+var numRows = 1, ti = 5;
 
+		function isNumber(n) {
+			return !isNaN(parseFloat(n)) && isFinite(n);
+		}
+
+		function recalc() 
+		{
+			var lt = 0,
+			wt = 0,
+			weight_total = 0,
+			tt = 0;
+			$("#piece-table").find('tr').each(function () {
+				var w = $(this).find('input.weight').val();
+				var q = parseFloat($(this).find('input.quantity').val());
+				//total = w;
+				var l = $(this).find('input.length').val();
+				
+				var p = $(this).find('input.width').val();
+				
+				var h = $(this).find('input.height').val();
+				
+
+				var dateTotal = (l * p * h);
+				dateTotal = parseFloat(dateTotal.toFixed(3));
+				//$(this).find('input.row-total').val(dateTotal ? dateTotal : "0.000");
+				//dateTotal = (dateTotal * q);
+				lt += isNumber(q) ? parseInt(q, 10) : 0;
+				tt += isNumber(dateTotal) ? dateTotal : 0;
+				weight_total += isNumber(w) ? parseInt(w, 10) : 0;
+				
+		    	}); //END .each
+
+		        if(lt <= 0)
+			     {
+				   lt = 'NaN';
+			     }
+
+		     	$("#final_total").html(lt);
+		    	$("#total_weight").html(weight_total.toFixed(2));
+		    	$("#get_volume").html(tt.toFixed(3));
+
+			    $("#final_total_input").val(lt);
+			    $("#total_weight_input").val(weight_total.toFixed(2));
+			    $("#get_volume_input").val(tt.toFixed(3));
+		}
+
+
+       
+		function addRow() 
+		{
+
+    	$('#addr' + numRows).html("<td class='sno'>1</td><td width='10%'><input type='number' name='shipmentPage.pieces[0].weight' maxlength='6' value='' required id='shipment-info-form_shipmentPage_pieces_0__weight' class='form-control alloptions weight' onkeypress='return isNum(event)' oninput='maxLengthCheck(this)' min='1'></td><td width='40%'><div class='row mg0'><div class='col-lg-4 pd1'> <input type='text' name='shipmentPage.pieces["+ numRows+"].dimensionL' required class='form-control alloptions dimL length' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces["+ numRows+"].dimensionW' value='' required class='form-control alloptions dimW width' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces["+ numRows+"].dimensionH' value='' required class='form-control alloptions dimH height' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1' ></div></div></td> <td><input type='text' name='shipmentPage.pieces["+ numRows+"].quantity' value='1' id='shipment-info-form_shipmentPage_pieces_0__quantity' class='form-control quantity' required onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='10' min='1'></td><td><input type='button' value='&times;' class='del'></td>");
+
+        $('#piece-table tr:last').after('<tr id="addr' + (numRows + 1) + '" class="calculation visible"></tr>');
+			numRows++;
+		}
+
+		$(function () {
+			$("#piece-table").on("click", ".calculation", recalc);
+			$("#piece-table").on("keyup blur", ".form-control", recalc);
+			$("#piece-table").on("keyup", ".checkbox:last", function () {
+			  if (!$(this).data("done")) 
+				{ 
+				 	$(this).data("done", true);
+					addRow();
+				}
+			});
+
+		   $("#add_row").on("click",function(e) {
+				   var isValid = true;
+                    $('.num').each(function() {
+             if ($.trim($(this).val()) == '') 
+			    {
+                   isValid = false;
+                  $(this).css({ "border": "1px solid red" });
+               }
+		   else 
+		      {
+               $(this).css({ "border": "" });
+              }
+
+			  $('.num').blur(function () {
+				$(this).css({ "border": "" });
+              });
+           });
+           if (isValid == false) 
+              e.preventDefault();
+           else 
+	     	 addRow()
+         });
+
+         $(document).on("click", ".add, .del", function(){
+        
+        $("td.sno").each(function(index,element){                 
+            $(element).text(index + 1); 
+         });
+     });
+      });
+				
+      $('#piece-table').on('click', '.del', function () {
+			$(this).closest('tr').remove();
+	      });
+         
+
+      
+    </script>
 <style>
 
 #country-list1 {
@@ -1738,7 +1850,7 @@ $(document).ready(function(){
     list-style: none;
     margin-top: -1px;
     padding: 0px;
-    width: 480px;
+    width: 288%;
     position: absolute;
     z-index: 9;
 }
@@ -1747,7 +1859,7 @@ $(document).ready(function(){
     list-style: none;
     margin-top: -1px;
     padding: 0px;
-    width: 480px;
+    width: 288%;
     position: absolute;
 
    /* border: 1px solid #e5e5e5;
@@ -1769,13 +1881,12 @@ $(document).ready(function(){
     margin-top: 9px;
 }
 .col-xs-3.postcode {
-    margin-left: -104px;
+    margin-left: -151px;
 }
 .col-xs-3.state {
-    margin-left: 65px;
+    margin-left: 113px;
 }
 .col-xs-3{
 margin-top: 0px !important;
 }
 </style>
-

@@ -1,5 +1,5 @@
 <style>
-        #nav {
+ #nav {
             list-style: none inside;
             margin: 0;
             padding: 0;
@@ -18,7 +18,25 @@
          width: 1.28571429em;
          margin-left: 10px;
         }
+		
+		.pdt10 {
+        padding-top: 10px !important;
+        margin-top: 40px;
+        }
+		
+		.col-lg-12.text-right {
+            margin-top: 15px;
+            margin-bottom: -33px;
+}
 
+button.btn.ref {
+    margin-right: 1337px;
+    margin-left: -772px;
+}
+
+button.btn.btn-primary.add_car {
+    margin-right: 775px;
+}
         #nav li a {
             display: block;
             padding: 0;
@@ -253,33 +271,9 @@ input.form-control.old_pass {
     width: 372px;
 }
 
-p.note {
-    color: red;
-    font-size: 14px;
-    border-left:none;
-}
-
-button.btn.s33.s44.save {
-    float: left;
-    margin-top: 26px;
-    margin-left: -5px;
-}
-
-p.help_info {
-    font-size: 16px;
-    margin-left: 367px;
-    color: #333;
-}
-
-label.control-label {
-    color: #333;
-    font-size: 13px;
-}
-
-.help_contact {
-    font-size: 16px;
-    margin-left: 631px;
-    color: #333;
+p {
+     color: #333; 
+    font-size: 16px; 
 }
 
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -397,24 +391,39 @@ h3.new_surcharge {
 }
 
 input#carrier_name {
-    width: 20%;
+    width: 40%;
+}
+
+.form-group.text-bottom.s99 {
+    float: left;
+    margin-left: 40px;
+    padding: -1px 7px;
+}
+
+input#email {
+    margin-bottom: 10px !important;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+    float: right;
+}
+
+input#addRowBtn {
+    float: right;
+    margin-right: 58px;
+    margin-top: 19px;
 }
 
 .surcharge-form{
     display: none;
     position: fixed;
-    bottom: 500px;
+    bottom: 278px;
     width: 27%;
     right: 700px;
     z-index: 101;
     background: #ffffff;
     border: 4px solid #e5e5e5;
     padding: 13px;
-}
-
-h3.title {
-    margin-top: 10px;
-    margin-left: -11px;
 }
 
 p.user_name {
@@ -438,40 +447,249 @@ img.logo_img {
     width: 2%;
     height: -21%;
     margin-top: 11px;
-    margin-right: -155px;
+    margin-right: -145px;
     background: aliceblue;
 }
 
-a.back {
-    color: #fff;
+.box-header{
+    background: #3c8dbc;
 }
 
-input {
+.btn-info {
+    background-color: #3c8dbc;
+    border-color: #3c8dbc;
+}
+
+h3.title {
+    margin-left: -22px;
+    margin-top: 10px;
+}
+
+h5#exampleModalLabel {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    font-family: emoji;
+    margin-bottom: -11px;
+}
+
+select#editcarriers {
+    margin-top: 13px;
+    margin-left: 48px;
+    width: 34%;
+}
+
+h5#editModalLabel {
+    font-size: 18px;
+    color: #fff;
+    font-weight: 600;
+    font-family: auto;
+    margin-bottom: -10px;
+    background: #3c8dbc;
+}
+
+.modal-header{
+    background: #3c8dbc;
+}
+
+label {
+    font-weight: 600;
+    font-size: 12px;
+}
+
+
+input.form-control.car_name {
+    width: 45%;
+}
+
+.selected-row {
+  color: #3c8dbc;
+  transition: 0.3s all ease-out;
+}
+td:last-child{
+    color:#333;
+}
+
+.modal-header .close{
+    opacity: 1;
+    color: #fff;
+    margin-top: -12px;
+}
+.on-click, .btn {
+  cursor: pointer;
+}
+
+.btn:focus {
+  outline: none;
+}
+
+.btn {
+  padding: 5px 20px;
+  background: #3c8dbc;
+  color: #fff;
+  text-shadow: none;
+}
+
+.btn:hover {
+  background: #3c8dbc;
+  color: #fff;
+  transition: 0.3s all ease-out;
+}
+
+img.del {
+    width: 11%;
+}
+
+input#surcharge_name {
+    margin-top: -24px;
+    margin-left: 132px;
+    width: 60%;
+}
+input#surcharge_price {
+    margin-top: -21px;
+    margin-left: 133px;
+}
+
+select#carriers {
+    margin-left: 52px;
+    width: 34%;
+}
+
+select#types {
+    margin-left: 101px;
+    width: 59%;
+}
+
+input#surcharge_price {
+    margin-top: -21px;
+    margin-left: 130px;
+    width: 60%;
+}
+
+label.add_carrier {
+    margin-top: 25px;
+}
+
+input#carrier_name {
+    margin-left: 112px;
+    width: 40%;
+    margin-top: -19px;
+}
+.buttons-row {
+  margin: 20px 10px;
+}
+
+button.btn.btn-primary.add_sur {
+    margin-right: 194px;
+    margin-top: -56px;
+}
+
+button#EditButton {
+    margin-top: -55px;
+    margin-right: 268px;
+    margin-left: -194px;
+}
+
+button#create_excel {
+    margin-top: -95px;
+    margin-right: 13px;
+}
+
+input#btnExport {
+    margin-top: -95px;
+    margin-right: 9px;
+    margin-left: -14px;
+}
+
+
+select#customerCode {
+    width: 104%;
+    margin-right: 154px;
+}
+
+p.username {
+    color: red;
+    font-size: 12px;
+}
+
+p.password {
+    color: red;
+    font-size: 12px;
+}
+
+/*input {
+    text-transform: uppercase;
+}
+input:-ms-input-placeholder {
+    text-transform: none;
+}
+input::placeholder {
+    text-transform: none;
+}*/
+
+input.uppercase {
     text-transform: uppercase;
 }
 
-button.ui-dialog-titlebar-close {
-    float: right;
+input#saveManageCustomer_customerAddress_address_email {
+    text-transform: lowercase;
 }
 
+input#address_billingAddress_billingEmail {
+    text-transform: lowercase;
+}
+
+input#address_address_email {
+    text-transform: lowercase;
+}
+
+td.b16.uppercase {
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+select.uppercase{
+    text-transform: uppercase;
+}
+
+p.customer_info {
+    font-size: 13px;
+    font-weight: 500;
+    color: #333;
+}
+
+.ui-widget-header {
+    border-bottom: 1px solid #e5e5e5 !important;
+}
 .ui-widget-content {
     background: #ffffff;
     padding: 0px;
     position: relative;
     padding: 1.6em;
-  border: 0;
+    border: 0;
     margin-top:-178px !important;
     /* background: none; */
     overflow: inherit;
     width: 323px !important;
 }
+
+div#alert-dialog .s30 {
+    display: none;
+}
+
+.modal-content {
+    width: 150%;
+}
+
+td.price {
+    color: #848383;
+}
+
     </style>
   <header class="main-header">
     <!-- Logo -->
-    <?php //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; ?>
-    <a href="<?= base_url('customer/shipment');?>" class="logo">
+    <a href="<?= base_url('admin');?>" class="logo">
       <mini logo for sidebar mini 50x50 pixels -->
-      <!--img  src="<?php //echo site_url('public/dist/img/'.$customers->profile_image); ?>" alt="image" /-->
       <!--img src="<?= base_url() ?>public/dist/img/AGL.png" class="logo_img" alt="User Image"-->
       <span><b> AGL <b></span>
       <span><b> Specialised <b></span>
@@ -484,15 +702,28 @@ button.ui-dialog-titlebar-close {
       <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
         <span class="sr-only">Toggle navigation</span>
       </a>
+
       <div class="pull-right info">
-      <p class="user_name"><?= ucwords($this->session->userdata('user_name')); ?>
-         <i class="fa fa-circle text-success"></i></p>
+          <p class="user_name"><?= ucwords($this->session->userdata('name')); ?>
+         <i class="fa fa-circle text-success"></i> </p>
         </div>
-        <div class="logout">
-                <a href="<?php echo base_url('customer/logout'); ?>"> <img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
+       <?php  
+      if($this->session->has_userdata('is_admin_login'))
+      {
+        ?>
+        <div style="text-align: center;">
+                <a href="<?php echo base_url('admin/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
             </div>
+        <?php 
+      }
+      else 
+      {
+        ?>
+        <div style="text-align: center;">
+                <a href="<?php echo base_url('user/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
+            </div>
+      <?php }?>
       </div>
-     
       <div class="navbar-custom-manu">
         <ul class="nav navbar-nav">
              <!-- Messages: style can be found in dropdown.less-->

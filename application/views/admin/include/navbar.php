@@ -617,7 +617,7 @@ p.password {
     font-size: 12px;
 }
 
-input {
+/*input {
     text-transform: uppercase;
 }
 input:-ms-input-placeholder {
@@ -625,11 +625,11 @@ input:-ms-input-placeholder {
 }
 input::placeholder {
     text-transform: none;
-}
-
-/*input.uppercase {
-    text-transform: uppercase;
 }*/
+
+input.uppercase {
+    text-transform: uppercase;
+}
 
 input#saveManageCustomer_customerAddress_address_email {
     text-transform: lowercase;
@@ -645,6 +645,11 @@ input#address_address_email {
 
 td.b16.uppercase {
     text-transform: uppercase;
+    font-weight: 500;
+}
+
+select.uppercase{
+    text-transform: uppercase;
 }
 
 p.customer_info {
@@ -653,17 +658,50 @@ p.customer_info {
     color: #333;
 }
 
+.ui-widget-header {
+    border-bottom: 1px solid #e5e5e5 !important;
+}
+.ui-widget-content {
+    background: #ffffff;
+    padding: 0px;
+    position: relative;
+    padding: 1.6em;
+    border: 0;
+    /* background: none; */
+    overflow: inherit;
+    width: 323px !important;
+}
+
+div#alert-dialog .s30 {
+    display: none;
+}
+
+.modal-content {
+    width: 150%;
+}
+
+td.price {
+    color: #848383;
+}
+
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable.ui-resizable{
+    margin-top:10px !important;
+}
+
+
+
+
     </style>
+
   <header class="main-header">
     <!-- Logo -->
     <a href="<?= base_url('admin');?>" class="logo">
       <mini logo for sidebar mini 50x50 pixels -->
-      <!--img src="<?= base_url() ?>public/dist/img/AGL.png" class="logo_img" alt="User Image"-->
+      <!--img  src="<?php //echo site_url('public/dist/img/'.$customers->profile_image); ?>" alt="image" /-->
       <span><b> AGL <b></span>
       <span><b> Specialised <b></span>
-      <!-- logo for regular state and mobile devices -->
-     
     </a>
+
     <!-- Header Navbar: style can be found in header.less -->
     <nav class="navbar navbar-static-top">
       <!-- Sidebar toggle button-->
@@ -675,88 +713,22 @@ p.customer_info {
           <p class="user_name"><?= ucwords($this->session->userdata('name')); ?>
          <i class="fa fa-circle text-success"></i> </p>
         </div>
-       <?php  
+        <?php  
       if($this->session->has_userdata('is_admin_login'))
       {
         ?>
         <div style="text-align: center;">
                 <a href="<?php echo base_url('admin/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
             </div>
-        <?php 
+            <?php 
       }
       else 
       {
         ?>
-        <div style="text-align: center;">
+          <div style="text-align: center;">
                 <a href="<?php echo base_url('user/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
             </div>
       <?php }?>
-      </div>
-      <div class="navbar-custom-manu">
-        <ul class="nav navbar-nav">
-             <!-- Messages: style can be found in dropdown.less-->
-         
-         
-         
-          <!-- User Account: style can be found in dropdown.less -->
-          
-          <!-- Control Sidebar Toggle Button -->
-        
-     
-        <!--ul id="nav">
-       <li><a href="#"><i class="fa fa-key fa-fw"></i><span> Account</span></a>
-          <ul class="sub-menu">
-                <li><a href="#">Customers »</a>
-                    <ul>
-                        <li><a href="<?= base_url('admin/manage'); ?>">Manage Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/search'); ?>">Search Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/list'); ?>">Customer List <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                     </ul>
-                </li>
-                    <li><a href="#">Users »</a>
-                       <ul>
-                            <li><a href="<?= base_url('admin/user'); ?>">Manage Users <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/users/add'); ?>"><i class="fa fa-external-link fa-fw sws pst"></i> Add User</a></li>
-                        </ul>
-                    </li>
-            </ul>
-        </li>
-
-        <li><a href="#"><i class="fa fa-file-text-o fa-fw"></i> Reports</a>
-            <ul class="sub-menu">
-            <li><a href="#">Customer »</a>
-                    <ul>
-                        <li><a href="<?= base_url('admin/status'); ?>">Customer Status Report<i class="fa fa-external-link fa-fw sws pst"></i></a>
-                        <li><a href="<?= base_url('admin/summary'); ?>">Customer Summary Report <i class="fa fa-external-link fa-fw sws pst"></i></a-->
-                        <!--li><a href="#">Activation Report <i class="fa fa-external-link fa-fw sws pst"></i></a-->
-                     <!--/ul>
-             </li>
-                  
-            </ul>
-        </li>
-        <li><a href="#"><i class="fa fa-user fa-fw"></i>Admin</a>
-          <ul class="sub-menu">
-                <li><a href="#">Rates and Fees »</a>
-                    <ul>
-                        <li><a href="<?= base_url('admin/surcharge'); ?>">Surcharge List <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/import'); ?>">Import rates & costs <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/rate'); ?>">Rate sheets <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/manage_sheet'); ?>">Manage Cover sheets <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/set_cost'); ?>">Set List Rates <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                     </ul>
-                </li>
-                    <li><a href="#">Carriers »</a>
-                       <ul class="sub-menu">
-                            <li><a href="<?= base_url('admin/carrier_list'); ?>">Carrier List <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                            <li><a href="<?= base_url('admin/country_list'); ?>">Country List <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                        </ul>
-                    </li>
-            </ul>
-        </li>
-    </ul-->
-  
-    <!--label name="search" class="search_tab">Search</label><input type="search" name="search" class="search"-->
-
       </div>
     
     </nav>

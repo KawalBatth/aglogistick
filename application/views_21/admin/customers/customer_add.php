@@ -80,8 +80,8 @@
         <table class="table table-bordered mg0 table-hover">
             <thead>
             <tr>
-                <th class="text-middle">Weight</th>
-                <th class="text-middle">Price</th>
+                <th>Weight</th>
+                <th class="text-right">Price</th>
             </tr>
             </thead>
             <tbody>
@@ -371,11 +371,11 @@
                             </td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Customer Name">Customer Name:<span class="s30">*</span></td>
+                            <td class="td1">Customer Name:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="text" name="customerName" required="required" value="" id="address_address_customerName" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Contact Name">Contact Name:<span class="s30">*</span></td>
+                            <td class="td1">Contact Name:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="text" name="contactName" required="required" value="" id="address_address_contactName" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
@@ -383,7 +383,7 @@
                             <td class="td2" colspan="2"><input type="text" name="contactTitle" value="" id="address_address_contactTitle" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Address">Address:<span class="s30">*</span></td>
+                            <td class="td1">Address:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="text" name="address1" required="required" value="" id="address_address_address1" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
@@ -391,11 +391,11 @@
                             <td class="td2" colspan="2"><input type="text" name="address2" value="" id="address_address_address2" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="City">City:<span class="s30">*</span></td>
+                            <td class="td1">City:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="text" name="city" value="" required="required" id="address_address_city" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Country">Country:<span class="s30">*</span></td>
+                            <td class="td1">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><select name="country" id="address_address_country" required="required" class="form-control uppercase" data-group="address">
     <option value="0">Select a country</option>
     <option value="12">Australia</option>
@@ -412,7 +412,7 @@
                             <td class="td2" colspan="2"><input type="text" name="stateCode" value="" id="address_address_stateCode" class="form-control uppercase" data-group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Phone">Phone:<span class="s30">*</span></td>
+                            <td class="td1">Phone:<span class="s30">*</span></td>
                             <!--td class="td2" colspan="2"><input type="text" name="phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td-->
                          <td>   <input type="tel" name="phone" value="" pattern="08\d{8}" title="Please enter exactly 10 digits" id="address_address_phone" required="required" class="form-control uppercase" data-group="address" maxlength="10"> </td>
                         </tr>
@@ -425,7 +425,7 @@
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Email">Email:<span class="s30">*</span></td>
+                            <td class="td1">Email:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="email" name="email" value="" required="required" id="address_address_email" class="form-control" data-group="address"></td>
                         </tr>
                         <tr>
@@ -466,7 +466,7 @@
                             <td class="td2" colspan="2"><input type="text" name="billingContactTitle" value="" id="address_billingAddress_billingContactTitle" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Billing Address">Address:<span class="s30">*</span></td>
+                            <td class="td1">Address:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="text" required="required" name="billingAddress1" value="" id="address_billingAddress_billingAddress1" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
@@ -946,10 +946,12 @@ foreach($services as $key => $value)
                 });
                 $('#fixed3Modal .table tbody').html(rows);
                 
-              }
+                
+               }
 
             });
-             //$('#fixed3Modal').modal('show');
+            
+           //$('#fixed3Modal').modal('show');
       }
 
     function enableDisableBillingAddress() {
@@ -1141,10 +1143,10 @@ foreach($services as $key => $value)
                     
                     if(!$(this).parent().parent().find('.td1').attr('data-label'))
                     {
-                        html +=$(this).parent().parent().find('.td1').html()+' cannot be empty <br/>';  
+                        html +=$(this).parent().parent().find('.td1').html()+' Required <br/>';  
                     }
                     else {
-                      html +=$(this).parent().parent().find('.td1').attr('data-label')+' cannot be empty <br/>';
+                      html +=$(this).parent().parent().find('.td1').attr('data-label')+' Required <br/>';
                     }
                     isfromsubmit = false;
                     alertDialog.html(html);               
@@ -1166,9 +1168,36 @@ foreach($services as $key => $value)
              }
           });
       }
-    
+      // $.post("add_customer_save.ix?reqType=json", data, function (res) {
+      //     loadingDialog.dialog("close");
+      //     if (res.errorCode == "SUCCESS") {
+      //         // Define message dialog.
+      //         var buttons = {};
+      //         buttons["OK"] = function () {
+      //             window.location.href = "manage_customers.ix?customerCode=" + $("input[name='customerCode']").val();
+      //         };
+      //         var msgDialog = $("#msg-dialog").dialog({
+      //             modal: true,
+      //             autoOpen: false,
+      //             buttons: buttons,
+      //             width: '320',
+      //             height: '180'
+      //         });
+      //         msgDialog.html("Saved successfully.");
+      //         msgDialog.dialog("open");
+      //     } else if (res.errorCode == "FIELD_ERROR") {
+      //         alertDialog.html(res.content);
+      //         alertDialog.dialog("open");
+      //     } else {
+      //         alertDialog.html(res.errorMsg);
+      //         alertDialog.dialog("open");
+      //     }
+      // }).fail(function () {
+      //     loadingDialog.dialog("close");
+      //     alertDialog.html("System internal error, please contact administrator.");
+      //     alertDialog.dialog("open");
+      // });
   }
-
 
     function get_rates(id,name)
       {

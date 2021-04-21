@@ -1,25 +1,4 @@
-
-                
-                <script type="text/javascript">
-                    var loginAsDialog = $("#login-as-dialog").dialog({
-                        modal: true,
-                        autoOpen: false,
-                        width: "600",
-                        height: 'auto',
-                        maxHeight: 800,
-//                        dialogClass: "no-close",
-                        show: {
-                            effect: "fade",
-                            duration: 500
-                        }
-                    });
-                </script>
-        
-
-
-
-<!--BEGIN TITLE & BREADCRUMB PAGE-->
-<div id="shipment-div" style="display: none;">
+<div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
             <div class="col-md-12">
@@ -52,26 +31,33 @@
                                 <div class="panel-body pan">
                                     <div class="form-body pal">
                                         <div class="row">
+                                       
                                             <div class="col-md-6">
+                                            <?php 
+                                             // foreach($customer as $row){ 
+                                            //echo form_open(base_url('customer/country_list'), 'class="get_shipment-form" '); ?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="AGL SPECIALISED LOGISTICS" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+
+                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+                                                    
                                                     <div id="sender-address-by-company-search-result"></div>
                                                 </div>
+                                              <?php  // }?>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.phone" maxlength="25" value="0894793399" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
+                                                    <input type="text" name="shipmentPage.senderAddress.phone" maxlength="25" pattern="08\d{8}" value="08 94793399" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" required data-placement="top" data-original-title="TOOLTIP:Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="WAYNE ENNIS" id="shipment-info-form_shipmentPage_senderAddress_contactName" class="form-control alloptions" onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
+                                                    <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="DESPATCH" id="shipment-info-form_shipmentPage_senderAddress_contactName" class="form-control alloptions" required onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
                                                     <div id="sender-address-by-contact-search-result"></div>
                                                 </div>
                                             </div>
@@ -79,7 +65,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Email Address
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.email" maxlength="50" value="wayne@agllogistics.com" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
+                                                    <input type="text" name="shipmentPage.senderAddress.email" maxlength="50" value="logistics@agllogistics.com" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
                                                 </div>
                                             </div>
                                         </div>
@@ -88,9 +74,12 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Country <span class="s30"> *</span>
                                                     </label>
-                                                    <select name="shipmentPage.senderAddress.country" id="shipmentPage_senderAddress_country" class="form-control" onchange="changeCountry('sender')">
-    <option value="0">Please select a country.</option>
-    <option value="2">Albania</option>
+                                                    <select name="shipmentPage.senderAddress.country" required id="shipmentPage_senderAddress_country" class="form-control">
+   
+    <?php //for($i=0;$i<count($all_countries);$i++){?>
+        <!--option value="<?php // echo $all_countries[$i]['id'];?>"><?php //echo $all_countries[$i]['country_name'];?></option-->
+        <?php// }?>
+        <option value="2">Albania</option>
     <option value="3">Algeria</option>
     <option value="4">American Samoa</option>
     <option value="5">Andorra</option>
@@ -357,8 +346,8 @@
     <option value="234">Zambia</option>
     <option value="235">Zimbabwe</option>
 
-
 </select>
+
 
 
                                                 </div>
@@ -367,14 +356,14 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.address" maxlength="35" value="UNIT 1 / 11 FRICKER ROAD" id="shipment-info-form_shipmentPage_senderAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
+                                                    <input type="text" name="shipmentPage.senderAddress.address" maxlength="35" required value="U1 / 11 FRICKER ROAD" id="shipment-info-form_shipmentPage_senderAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address 2
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.address2" maxlength="35" value="PERTH AIRPORT" id="shipment-info-form_shipmentPage_senderAddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 2">
+                                                    <input type="text" name="shipmentPage.senderAddress.address2" maxlength="35" value="" id="shipment-info-form_shipmentPage_senderAddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 2">
                                                 </div>
                                             </div>
 												 <div class="col-md-6">
@@ -419,7 +408,9 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="PERTH airport" id="shipment-info-form_shipmentPage_senderAddress_city" class="form-control alloptions" onkeyup="searchCity(true,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="PERTH AIRPORT" id="senderAddress_city" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City" autocomplete="off">
+                                                    <div id="suggesstion-box1"></div>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -467,33 +458,23 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_companyName" class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
-                                                    <div id="receiver-address-by-company-search-result">
-
-
-
-
-</div>
+                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+                                                    <div id="receiver-address-by-company-search-result"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.phone" maxlength="25" value="" id="shipment-info-form_shipmentPage_receiverAddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
+                                         <input type="text" name="shipmentPage.receiverAddress.phone" maxlength="25" value="" pattern="08\d{8}" id="shipment-info-form_shipmentPage_receiverAddress_phone" required class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_contactName" class="form-control alloptions" ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
-                                                    <div id="receiver-address-by-contact-search-result">
-
-
-
-
-</div>
+                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_contactName" class="form-control alloptions" required ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
+                                                    <div id="receiver-address-by-contact-search-result"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -791,7 +772,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.address" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
+                                                    <input type="text" name="shipmentPage.receiverAddress.address" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_address" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -830,7 +811,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_city" class="form-control alloptions" onkeyup="searchCity(false,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="" id="receiverAddress_city" class="form-control alloptions" required  data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City"  autocomplete="off">
+                                                        <div id="suggesstion-box"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -848,114 +830,21 @@
 
 
 
-<label class="control-label" for="inputName"> State/Province</label>
+                                                    <label class="control-label" for="inputName"> State/Province</label>
 
 
     
-        <input type="text" name="shipmentPage.receiverAddress.state" value="" id="shipmentPage_receiverAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
+                                                   <input type="text" name="shipmentPage.receiverAddress.state" value="" id="shipmentPage_receiverAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
     
     
-   <!--  previous code  -->
-   
-    
-   <!--  code by shahabuddin -->
     
     
-</div>
+ 
+    
+    
+                                                    </div>
                                             </div>
-                                            <div class="col-md-12" id="receiver-city-search">
-
-
-
-
-    <ul class="sss1" style="display: none;">
-        
-            <li onclick="onCityClick($(this),false)">
-                <div class="row">
-                    <div class="col-xs-6" data-cityname="MELBOURNE">
-                        MELBOURNE
-                    </div>
-                    <div class="col-xs-3" data-postalcode="8001">
-                        8001
-                    </div>
-                    <div class="col-xs-3" data-statecode="">
-                        
-                    </div>
-                </div>
-            </li>
-        
-            <li onclick="onCityClick($(this),false)">
-                <div class="row">
-                    <div class="col-xs-6" data-cityname="MELBOURNE">
-                        MELBOURNE
-                    </div>
-                    <div class="col-xs-3" data-postalcode="3000">
-                        3000
-                    </div>
-                    <div class="col-xs-3" data-statecode="VIC">
-                        VIC
-                    </div>
-                </div>
-            </li>
-        
-            <li onclick="onCityClick($(this),false)">
-                <div class="row">
-                    <div class="col-xs-6" data-cityname="MELBOURNE">
-                        MELBOURNE
-                    </div>
-                    <div class="col-xs-3" data-postalcode="3004">
-                        3004
-                    </div>
-                    <div class="col-xs-3" data-statecode="VIC">
-                        VIC
-                    </div>
-                </div>
-            </li>
-        
-            <li onclick="onCityClick($(this),false)">
-                <div class="row">
-                    <div class="col-xs-6" data-cityname="MELBOURNE AIRPORT">
-                        MELBOURNE AIRPORT
-                    </div>
-                    <div class="col-xs-3" data-postalcode="3045">
-                        3045
-                    </div>
-                    <div class="col-xs-3" data-statecode="VIC">
-                        VIC
-                    </div>
-                </div>
-            </li>
-        
-            <li onclick="onCityClick($(this),false)">
-                <div class="row">
-                    <div class="col-xs-6" data-cityname="MELBOURNE UNIVERSITY">
-                        MELBOURNE UNIVERSITY
-                    </div>
-                    <div class="col-xs-3" data-postalcode="3052">
-                        3052
-                    </div>
-                    <div class="col-xs-3" data-statecode="VIC">
-                        VIC
-                    </div>
-                </div>
-            </li>
-        
-            <li onclick="onCityClick($(this),false)">
-                <div class="row">
-                    <div class="col-xs-6" data-cityname="MELBOURNE WORLD TRADE CENTRE">
-                        MELBOURNE WORLD TRADE CENTRE
-                    </div>
-                    <div class="col-xs-3" data-postalcode="3005">
-                        3005
-                    </div>
-                    <div class="col-xs-3" data-statecode="VIC">
-                        VIC
-                    </div>
-                </div>
-            </li>
-        
-    </ul>
-</div>
+                                            <div class="col-md-12" id="receiver-city-search"></div>
                                         </div>
                                     </div>
                                 </div>
@@ -984,281 +873,222 @@
 
                                                         <div class="form-group input-group">
 															<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
-															</span> <input class="form-control form_datetime" type="text" data-date-format="dd MM yyyy" id="shipment-date-input" name="shipmentPage.shipmentDate" readonly="readonly">
+														
+                                                            </span><input type='date' id='date' class="form-control date form_datetime" value='<?php echo date('Y-m-d');?>' readonly="readonly">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="row">
                                                     <div class="form-group col-lg-6" id="change-country-div">
+                                                        <label class="control-label" for="inputName"> Carrier <span class="s30"> *</span>
+                                                        </label>
+                                                        
+                                                        <select name="shipmentPage.serviceId" id="shipmentPage_serviceId" required class="form-control">
+                                                            <option value="" selected="selected">Select Carrier</option>
+                                                            <?php for($c=0;$c<count($carriers);$c++) 
+                                                            {                                                                
+                                                                ?>  
+                                                                <option value="<?php echo $carriers[$c]['id'];?>"><?php echo $carriers[$c]['carrier_name'];?></option>
+                                                            <?php
+                                                            }?>                                                            
+                                                        </select>
 
 
-<label class="control-label" for="inputName">
-    Carrier
-    <span class="s30"> *</span>
-</label>
-<select name="shipmentPage.serviceId" id="shipmentPage_serviceId" class="form-control" onchange="changeService($(this).val())">
-    <option value="72">Startrack</option>
-    <option value="52">Toll Priority</option>
-    <option value="59">Toll Ipec</option>
-
-
-</select>
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        changeService("72");
-    });
-</script></div>
+                                                    </div>
                                                     <div class="form-group col-lg-6" id="change-service-div">
+                                                        <label class="control-label" for="inputName"> Service Type <span class="s30"> *</span>
+                                                        </label>
+                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control">
+                                                            <option value="" selected="selected">Select Service Type</option>
+    
+                                                                <?php for($c=0;$c<count($services);$c++) 
+                                                            {                                                                
+                                                                ?>  
+                                                                <option value="<?php echo $services[$c]['id'];?>" ><?php echo $services[$c]['service_name'];?></option>
+                                                            <?php
+                                                            }?>  
+
+                                                        </select>
 
 
-<label class="control-label" for="inputName">
-    Service Type
-    <span class="s30"> *</span>
-</label>
-<select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" class="form-control" onchange="changeShipmentType($(this).val())">
-    <option value="229">Premium Air Freight</option>
-    <option value="228">Road Express</option>
-    <option value="230">Fixed Price Premium 1kg</option>
-    <option value="231">Fixed Price Premium 3kg</option>
-    <option value="232">Fixed Price Premium 5kg</option>
-    <option value="234">Fixed Price Premium 10kg</option>
-    <option value="235">Fixed Price Premium 20kg</option>
-
-
-</select>
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        changeShipmentType("", "Customer packaging");
-        loadAdditionalConfig();
-    });
-</script></div>
+                                                    </div>
                                                     <div class="form-group col-lg-12" id="change-shipmenttype-div">
-
-
-<label class="control-label" for="inputName">
-    Package Type
-</label>
-<select name="shipmentPage.packageId" id="shipmentPage_packageId" class="form-control" onchange="changePackage()">
-    <option value="3" selected="selected">Customer packaging</option>
+                                                        <label class="control-label" for="inputName"> Package Type
+                                                        </label>
+                                                        <select name="shipmentPage.packageId" id="shipmentPage_packageId" class="form-control" onchange="changePackage()">
+    <option value="3">Customer packaging</option>
 
 
 </select>
 
 
-<script type="text/javascript">
-    $(document).ready(function () {
-        changePackage("3", "229");
-        loadAdditionalConfig();
-    });
-</script>
-</div>
+                                                        <hr>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="col-lg-12">
                                                 <div class="row" id="change-package-div">
-
-
-
-
-<div class="form-group col-lg-12" id="content-type-radios">
-    <label class="control-label" for="inputName"> Contents <span class="s30"> *</span>
-    </label> <br> <label class="radio-inline"> <input type="radio" value="DOX" name="shipmentPage.contentType" disabled="disabled" onclick="resetAddPiece($(this).val())"> &nbsp; Documents
-</label> <label class="radio-inline"> <input type="radio" value="WPX" name="shipmentPage.contentType" checked="checked" onclick="resetAddPiece($(this).val())"> &nbsp; Parcel
-</label>
-</div>
-<div class="col-md-4">
-    <div class="form-group">
-        <label class="control-label" for="inputName"> Weight Unit
-        </label>
-        <select name="shipmentPage.weightUnit" id="sel-weight-unit" class="form-control" onchange="changeWeightUnit($(this).val())">
+                                                    <div class="form-group col-lg-12 content_type">
+                                                        <label class="control-label" for="inputName"> Contents <span class="s30"> *</span>
+                                                        </label>
+                                                        
+                                                        
+                                                            <br>
+                                                            <label class="radio-inline document"> <input type="radio" value="DOX" required name="shipmentPage.contentType" disabled="disabled" onclick="resetAddPiece($(this).val())"> &nbsp;
+                                                                Documents
+                                                            </label>
+                                                            <label class="radio-inline parcel"> <input type="radio" value="WPX" name="shipmentPage.contentType" checked="checked" onclick="resetAddPiece($(this).val())">
+                                                                &nbsp; Parcel
+                                                            </label>
+                                                        
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label" for="inputName">
+                                                                Weight Unit
+                                                            </label>
+                                                            <select name="shipmentPage.weightUnit" id="sel-weight-unit" class="form-control">
     <option value="KG">KG</option>
 
 
 </select>
 
 
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="form-group">
-        <label class="control-label" for="inputName"> Dimension Unit
-        </label>
-        <select name="shipmentPage.dimensionUnit" id="sel-dim-unit" class="form-control" onchange="changeDimUnit($(this).val())">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label" for="inputName">
+                                                                Dimension Unit
+                                                            </label>
+                                                            <select name="shipmentPage.dimensionUnit" id="sel-dim-unit" class="form-control">
     <option value="CM">CM</option>
 
 
 </select>
 
 
-    </div>
-</div>
-<div class="col-md-4">
-    <div class="form-group">
-        <label class="control-label" for="inputName"> Currency
-        </label>
-        <select name="shipmentPage.currencyCode" id="shipmentPage_currencyCode" class="form-control" onchange="changeCurrency($(this).val())">
-    <option value="TWD">Taiwan New Dollars</option>
-    <option value="SGD">Singapore Dollars</option>
-    <option value="GBP">British Pounds</option>
-    <option value="CNY">Chinese Yuan (Ren Min Bi)</option>
-    <option value="USD">US Dollars</option>
-    <option value="JPY">Japanese Yen</option>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-md-4">
+                                                        <div class="form-group">
+                                                            <label class="control-label" for="inputName">
+                                                                Currency
+                                                            </label>
+                                                            <select name="shipmentPage.currencyCode" id="shipment-info-form_shipmentPage_currencyCode" class="form-control">
+   
     <option value="AUD" selected="selected">Australian Dollars</option>
-    <option value="HKD">Hong Kong Dollars</option>
-    <option value="EUR">Euro</option>
-    <option value="MYR">Malaysia Ringgits</option>
-    <option value="ZAR">South African rand</option>
-    <option value="CAD">Canadian Dollars</option>
-    <option value="NZD">New Zealand Dollars</option>
-    <option value="CHF">Swiss Francs</option>
-
 
 </select>
 
 
-    </div>
-</div>
-<div class="form-group col-lg-12" id="reset-add-piece-div">
-    <table class="s32 table table-striped table-bordered" border="" id="piece-table">
-        
-        
-        <thead>
-        <tr>
-            <th>Row</th>
-            
-                <th id="weight-unit">Weight(kgs)*</th>
-            
-            
-            <th></th>
-            <th style="text-align: center">
-                
-                
-                    
-                        <div id="dimensions-unit">Dimensions(CM)</div>
-                    
-                    
-                    <div style="width: 100%;text-align: center;padding-left: 25px;padding-right: 25px">
-                        <span style="float: left">L*</span>
-                        <span style="float: none">W*</span>
-                        <span style="float: right">H*</span>
-                    </div>
-                
-            </th>
-            
-            
-                <th class="quantity">Quantity*
-                </th>
-            
-            
-            <th></th>
-        </tr>
-        </thead>
-        <tbody>
-        
-            
-                <tr id="piece-dt1">
-                    <td width="2%" style="padding-top: 8px" id="piece-order1" class="order-number">1</td>
-                    <td width="10%"><input type="text" name="shipmentPage.pieces[0].weight" maxlength="6" value="" id="shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Shipment weight"></td>
-                    <td width="15%"><select name="" id="sel-dimension-list" class="form-control alloptions dimensionList" onchange="changeDimensionList($(this).val(),0)">
-    <option value="0"></option>
-    <option value="1">test</option>
-    <option value="24">wigets</option>
-
-
-</select>
-
-</td>
-                    <td width="40%">
-                        <div class="row mg0">
-                            <div class="col-lg-4 pd1">
-                                
-                                
-                                    <input type="text" name="shipmentPage.pieces[0].dimensionL" maxlength="4" value="" id="shipmentPage_pieces_0__dimensionL" class="form-control alloptions dimL" onkeypress="return formartNumber(event,this,false);">
-                                
-                            </div>
-                            <div class="col-lg-4 pd1">
-                                
-                                
-                                    <input type="text" name="shipmentPage.pieces[0].dimensionW" maxlength="4" value="" id="shipmentPage_pieces_0__dimensionW" class="form-control alloptions dimW" onkeypress="return formartNumber(event,this,false);">
-                                
-                            </div>
-                            <div class="col-lg-4 pd1">
-                                
-                                
-                                    <input type="text" name="shipmentPage.pieces[0].dimensionH" maxlength="4" value="" id="shipmentPage_pieces_0__dimensionH" class="form-control alloptions dimH" onkeypress="return formartNumber(event,this,false);">
-                                
-                            </div>
-                        </div>
-                    </td>
-                    <td width="25%" style="display:none;">
-                        <input type="text" name="shipmentPage.pieces[0].customValue" maxlength="10" value="0.00" id="shipmentPage_pieces_0__customValue" class="form-control alloptions customValue" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Shipment value"></td>
-                    
-                        <td class="quantity"><input type="text" name="shipmentPage.pieces[0].quantity" value="1" id="shipmentPage_pieces_0__quantity" class="form-control quantity" onkeypress="return formartNumber(event,this,false);" data-toggle="tooltip" data-placement="top" placeholder="" data-original-title="TOOLTIP:Quantity"></td>
-                    
-                    
-                    <td width="3%" style="padding-top: 9px"><i id="remove" class="fa fa-times-circle-o s10" style="font-size: 18px;  display: none; " onclick="removePiece($(this))"></i></td>
-                </tr>
-            
-        
-        
-        
-            <input type="hidden" name="shipmentPage.isAddPiece" value="true" id="shipmentPage_isAddPiece">
-        
-        
-        
-        </tbody>
-    </table>
-    
-    
-        
-            <button class="btn s33" type="button" onclick="addPiece()">
-                Add Piece
-            </button>
-        
-    
-    <script type="text/javascript">
-        var order = $('#piece-table tbody tr').length;
-        function addPiece() {
-            order++;
-            index = order - 1;
-            var addPieceContent = $("#piece-dt" + index).clone();
-            addPieceContent.attr('id', 'piece-dt' + order);
-            addPieceContent.find(".order-number").html(order);
-            addPieceContent.find(".weight").attr('name', 'shipmentPage.pieces[' + index + '].weight');
-            addPieceContent.find(".dimensionList").attr('onchange', 'changeDimensionList($(this).val(),' + index + ')');
-            addPieceContent.find(".dimL").attr('name', 'shipmentPage.pieces[' + index + '].dimensionL');
-            addPieceContent.find(".dimW").attr('name', 'shipmentPage.pieces[' + index + '].dimensionW');
-            addPieceContent.find(".dimH").attr('name', 'shipmentPage.pieces[' + index + '].dimensionH');
-            addPieceContent.find(".customValue").attr('name', 'shipmentPage.pieces[' + index + '].customValue');
-            addPieceContent.find(".quantity").attr('name', 'shipmentPage.pieces[' + index + '].quantity');
-            addPieceContent.find(".nonStandardPackage").attr('name', 'shipmentPage.pieces[' + index + '].nonStandardPackage');
-            addPieceContent.find('#remove').show();
-            $('#piece-table tbody tr:last').after(addPieceContent);
-        }
-        function removePiece($this) {
-            $this.closest("tr").remove();
-            $('#piece-table tbody tr').each(function (i) {
-                $(this).find(".order-number").html(i + 1);
-            });
-            order--;
-        }
-        $(document).ready(function () {
-            $('input.alloptions').maxlength({
-                alwaysShow: true,
-                threshold: 10,
-                warningClass: "label label-success w5",
-                limitReachedClass: "label label-danger w5",
-                separator: '/',
-
-            });
-        });
-    </script>
-</div>
-</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group col-lg-12" id="reset-add-piece-div">
+                                                        <table class="s32 table table-striped table-bordered" border="" id="piece-table">
+                                                            
+                                                            
+                                                            
+                                                            <thead>
+                                                            <tr>
+                                                                <th>Row</th>
+                                                                
+                                                                    <th id="weight-unit">Weight(kgs)*</th>
+                                                                
+                                                                
+                                                                <th style="text-align: center">
+                                                                    
+                                                                    
+                                                                        
+                                                                            <div id="dimensions-unit">Dimensions(CM)</div>
+                                                                        
+                                                                        
+                                                                        <div style="width: 100%;text-align: center;padding-left: 25px;padding-right: 25px">
+                                                                            <span style="float: left">L*</span>
+                                                                            <span style="float: none">W*</span>
+                                                                            <span style="float: right">H*</span>
+                                                                        </div>
+                                                                    
+                                                                </th>
+                                                                
+                                                                
+                                                                    <th class="quantity">
+                                                                        Quantity*
+                                                                    </th>
+                                                                
+                                                                
+                                                                <th></th>
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody>
+                                                            <tr id="piece-dt1">
+                                                                <td width="2%" style="padding-top: 8px" id="piece-order1" class="order-number">1
+                                                                </td>
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces[0].weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" onfocus="this.value=''"></td>
+                                                                <td width="40%">
+                                                                    <div class="row mg0">
+                                                                        <div class="col-lg-4 pd1">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionL" required value="" class="form-control alloptions dimL" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                 </div>
+                                                                        <div class="col-lg-4 pd1">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionW" value="" required class="form-control alloptions dimW" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                        </div>
+                                                                        <div class="col-lg-4 pd1">
+                                                                            <input type="text" name="shipmentPage.pieces[0].dimensionH" value="" required class="form-control alloptions dimH" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                        </div>
+                                                                    </div>
+                                                                </td>
+                                                                <!--td width="25%" style="display:none">
+                                                                    <input type="text" name="shipmentPage.pieces[0].customValue" maxlength="10" value="0.00" id="shipment-info-form_shipmentPage_pieces_0__customValue" class="form-control alloptions customValue" onkeypress="return formartNumber(event,this,true);" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Shipment value"></td-->
+                                                                
+                                                                    <td class="quantity"><input type="text" name="shipmentPage.pieces[0].quantity" value="1" id="shipment-info-form_shipmentPage_pieces_0__quantity" class="form-control quantity" required onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="10" min="1" onfocus="this.value=''"></td>
+                                                                
+                                                                
+                                                                <td width="3%" style="padding-top: 9px"><i id="remove" class="fa fa-times-circle-o s10" style="font-size: 18px; display: none;" onclick="removePiece($(this))"></i>
+                                                                </td>
+                                                            </tr>
+                                                            
+                                                                <input type="hidden" name="shipmentPage.isAddPiece" value="true" id="shipment-info-form_shipmentPage_isAddPiece">
+                                                             </tbody>
+                                                        </table>
+                                                        
+                                                        
+                                                            
+                                                                <button class="btn s33" type="button" onclick="addPiece()">
+                                                                   +
+                                                                </button>
+                                                            
+                                                        
+                                                        <script type="text/javascript">
+                                                            var order = $('#piece-table tbody tr').length;
+                                                            function addPiece() {
+                                                                order++;
+                                                                index = order - 1;
+                                                                var addPieceContent = $("#piece-dt" + index).clone();
+                                                                addPieceContent.attr('id', 'piece-dt' + order);
+                                                                addPieceContent.find(".order-number").html(order);
+                                                                addPieceContent.find(".weight").attr('name', 'shipmentPage.pieces[' + index + '].weight');
+//                                                                addPieceContent.find(".dimensionList").attr('name', 'dimensionList[' + index + ']');
+                                                                addPieceContent.find(".dimensionList").attr('onchange', 'changeDimensionList($(this).val(),' + index + ')');
+                                                                addPieceContent.find(".dimL").attr('name', 'shipmentPage.pieces[' + index + '].dimensionL');
+                                                                addPieceContent.find(".dimW").attr('name', 'shipmentPage.pieces[' + index + '].dimensionW');
+                                                                addPieceContent.find(".dimH").attr('name', 'shipmentPage.pieces[' + index + '].dimensionH');
+                                                                addPieceContent.find(".customValue").attr('name', 'shipmentPage.pieces[' + index + '].customValue');
+                                                                addPieceContent.find(".quantity").attr('name', 'shipmentPage.pieces[' + index + '].quantity');
+                                                                addPieceContent.find(".nonStandardPackage").attr('name', 'shipmentPage.pieces[' + index + '].nonStandardPackage');
+                                                                addPieceContent.find('#remove').show();
+                                                                $('#piece-table tbody tr:last').after(addPieceContent);
+                                                            }
+                                                            function removePiece($this) {
+                                                                $this.closest("tr").remove();
+                                                                $('#piece-table tbody tr').each(function (i) {
+                                                                    $(this).find(".order-number").html(i + 1);
+                                                                });
+                                                                order--;
+                                                            }
+                                                        </script>
+                                                    </div>
+                                                </div>
                                                 <div class="row">
                                                     <div class="col-lg-12" id="additional-config-div">
 
@@ -1374,6 +1204,19 @@
         
     </div>
     
+<div class="form-popup" id="myForm">
+<form id="saveQuoteLog" name="saveQuoteLog" action="/crm-webship/webship_get_quote.ix" method="post">
+<h3 class="quote_title">Quote</h3>
+<hr>
+    <table class="table">
+   
+        <tbody></table>
+<div class="quote-button">
+<button type="button" class="btn s33 save" onclick="save()">Save quote</button>
+    <button type="button" class="btn s33 cancel" onclick="closeForm()">Ok</button>
+    </div>
+  </form>
+</div>
 
 
 <div class="form-group" id="divAglWarranty" style="display: none;">
@@ -1398,10 +1241,9 @@
             $("#divAglWarranty").find("input[name='shipmentPage.addCons[2].value']").val(0);
         }
     });
+
     function showServiceAddConDetails(id) {
-    	
-    	
-    	var isChecked = $("#service_cons_" + id).is(':checked');
+    	 var isChecked = $("#service_cons_" + id).is(':checked');
         if (isChecked) {
         var extraTask =	$("input[name='shipmentPage.addCons["+id+"].addConName']").val();
        // alert(""+extraTask);
@@ -1431,20 +1273,48 @@
             $("#service_cons_" + id + "_add").hide();
         }
     }
+
+
+  function maxLengthCheck(object) {
+    if (object.value.length > object.maxLength)
+      object.value = object.value.slice(0, object.maxLength)
+  }
+    
+  function isNumeric (evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode (key);
+    var regex = /[0-9]/;
+    if ( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
+
+      
+  function isNum (evt) {
+    var theEvent = evt || window.event;
+    var key = theEvent.keyCode || theEvent.which;
+    key = String.fromCharCode (key);
+    var regex = /[0-9]|\./;
+    if ( !regex.test(key) ) {
+      theEvent.returnValue = false;
+      if(theEvent.preventDefault) theEvent.preventDefault();
+    }
+  }
 </script></div>
                                                     <div class="col-lg-12">
                                                         <div class="text-left pal pdt10" style="margin-bottom: 50px; margin-top: 102px; text-align: right;">
-                                                            <button class="btn s33a" type="button" onclick="createNewShipment()">
-                                                                New Shipment
-                                                            </button>
                                                             
-                                                                <button class="btn s33a" type="button" onclick="getQuote()">
+                                                           <a href="<?= base_url('customer/shipment'); ?>" class="btn s33 s44"> New Shipment</a>
+                                                            
+                                                                <button class="btn s33" type="button" onclick="openForm()">
                                                                     Quote
                                                                 </button>
                                                            
-                                                            <button type="button" class="btn s33a" onclick="continueBooking()">
-                                                                Continue Booking
-                                                            </button>
+                                                                <a href="<?= base_url('customer/booking'); ?>" class="btn s33 s44">  Continue Booking</a>
+                                                               
+                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1464,607 +1334,16 @@
 
     </div>
 </div>
-<input type="hidden" name="defaultAddressJson" value="{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;0894793399&quot;,&quot;contactName&quot;:&quot;WAYNE ENNIS&quot;,&quot;email&quot;:&quot;wayne@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;UNIT 1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;PERTH AIRPORT&quot;,&quot;city&quot;:&quot;PERTH airport&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;}" id="defaultAddressJson">
-<div id="continue-booking-div" style="">
-
-
-
-
-<form id="form_booking" name="form_booking" action="/crm-webship/webship_continue_booking.ix" method="post">
-    <input type="hidden" name="shipmentRequestModelGson" value="{&quot;shipmentInfo&quot;:{&quot;senderAddress&quot;:{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;0894793399&quot;,&quot;contactName&quot;:&quot;WAYNE ENNIS&quot;,&quot;email&quot;:&quot;wayne@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;UNIT 1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;PERTH AIRPORT&quot;,&quot;address3&quot;:&quot;&quot;,&quot;alternateUserName&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH airport&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;},&quot;receiverAddress&quot;:{&quot;companyName&quot;:&quot;toll&quot;,&quot;phone&quot;:&quot;0808808808&quot;,&quot;contactName&quot;:&quot;kawal&quot;,&quot;email&quot;:&quot;&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;80888&quot;,&quot;address2&quot;:&quot;&quot;,&quot;address3&quot;:&quot;&quot;,&quot;city&quot;:&quot;MELBOURNE&quot;,&quot;postalCode&quot;:&quot;8001&quot;,&quot;state&quot;:&quot;&quot;},&quot;serviceId&quot;:&quot;72&quot;,&quot;shipmentTypeId&quot;:&quot;229&quot;,&quot;contentType&quot;:&quot;WPX&quot;,&quot;pieces&quot;:[{&quot;weight&quot;:&quot;33.00&quot;,&quot;dimensionL&quot;:&quot;33.00&quot;,&quot;dimensionW&quot;:&quot;33.00&quot;,&quot;dimensionH&quot;:&quot;33.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;bound&quot;:&quot;15&quot;,&quot;isAddPiece&quot;:&quot;true&quot;,&quot;addCons&quot;:[{&quot;addConName&quot;:&quot;Dangerous Goods&quot;,&quot;addConCode&quot;:&quot;dangerousgoods&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;UN Number (4Digits)&quot;,&quot;addConDetailCode&quot;:&quot;unnumber&quot;,&quot;value&quot;:&quot;&quot;},{&quot;addConDetailName&quot;:&quot;Packing Group&quot;,&quot;addConDetailCode&quot;:&quot;packinggroup&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;addConDetailName&quot;:&quot;I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&quot;,&quot;addConDetailCode&quot;:&quot;msda&quot;}]},{&quot;addConName&quot;:&quot;Authorized to Leave (ATL)&quot;,&quot;addConCode&quot;:&quot;atl&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;Where to leave&quot;,&quot;addConDetailCode&quot;:&quot;atltoleave&quot;,&quot;value&quot;:&quot;&quot;}]},{&quot;addConName&quot;:&quot;agl Warranty&quot;,&quot;addConCode&quot;:&quot;aglWarranty&quot;,&quot;value&quot;:&quot;0&quot;}],&quot;shipperAccount&quot;:&quot;963374666&quot;,&quot;totalWeight&quot;:&quot;33.0&quot;,&quot;weightType&quot;:&quot;Actual&quot;,&quot;shipmentRequestPieces&quot;:[{&quot;weight&quot;:&quot;33.00&quot;,&quot;dimensionL&quot;:&quot;33.00&quot;,&quot;dimensionW&quot;:&quot;33.00&quot;,&quot;dimensionH&quot;:&quot;33.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;deadWeight&quot;:&quot;8.98&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;dutiesBillTo&quot;:&quot;0&quot;,&quot;dutiesAccount&quot;:&quot;&quot;,&quot;billingParty&quot;:&quot;0&quot;,&quot;packageId&quot;:&quot;3&quot;,&quot;shipmentDate&quot;:&quot;21-04-2021&quot;,&quot;contents&quot;:&quot;1&quot;,&quot;weightUnit&quot;:&quot;KG&quot;,&quot;dimensionUnit&quot;:&quot;CM&quot;,&quot;currencyCode&quot;:&quot;AUD&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;zone&quot;:&quot;&quot;},&quot;quote&quot;:{&quot;baseCharge&quot;:&quot;185.89&quot;,&quot;carrierCharge&quot;:&quot;185.89&quot;,&quot;accessorial&quot;:[{&quot;accessorialId&quot;:&quot;526&quot;,&quot;code&quot;:&quot;Security Surcharge&quot;,&quot;description&quot;:&quot;Security Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;7.16&quot;,&quot;valueCurrency&quot;:&quot;$ 7.16&quot;},{&quot;accessorialId&quot;:&quot;528&quot;,&quot;code&quot;:&quot;Fuel Surcharge&quot;,&quot;description&quot;:&quot;Fuel Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;26.02&quot;,&quot;valueCurrency&quot;:&quot;$ 26.02&quot;},{&quot;code&quot;:&quot;GST&quot;,&quot;description&quot;:&quot;GST&quot;,&quot;value&quot;:&quot;21.91&quot;,&quot;valueCurrency&quot;:&quot;$ 21.91&quot;}],&quot;totalCharge&quot;:&quot;240.98&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;weight&quot;:&quot;33.00 kgs&quot;,&quot;weightType&quot;:&quot;Actual&quot;,&quot;nonStandardCharge&quot;:&quot;0.00&quot;,&quot;manualHandlingSurcharge&quot;:0.0,&quot;insuranceValue&quot;:&quot;0.00&quot;,&quot;baseChargeUnit&quot;:&quot;$ 185.89&quot;,&quot;totalChargeUnit&quot;:&quot;$ 240.98&quot;},&quot;shipmentReference&quot;:&quot;&quot;}" id="shipmentRequestModelGson">
-    <div class="row mbl">
-        <div class="col-lg-12">
-            <div class="col-md-12">
-                <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;"></div>
-            </div>
-        </div>
-        <div class="col-lg-12">
-            <div class="row">
-                <div class="col-lg-12">
-                    <div class="portlet box">
-                        <div class="portlet-header">
-                            <div class="caption">
-                                Shipment
-                            </div>
-                            <div class="tools">
-                                <i class="fa fa-chevron-up"></i><i class="fa fa-times"></i>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="panel-body pan">
-                                <div class="form-body pal">
-                                    <div class="row">
-                                        <div class="col-md-4">
-                                            <table class="table s99" style="font-size: 13px; margin-bottom: 0px">
-                                                <tbody><tr>
-                                                    <td class="td1">Carrier Name</td>
-                                                    <td class="td2">Startrack</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td1">Service Type</td>
-                                                    <td class="td2">Premium Air Freight</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td1">Package Type</td>
-                                                    <td class="td2">Customer packaging</td>
-                                                </tr>
-                                            </tbody></table>
-                                        </div>
-                                        <div class="col-md-4">
-                                            <table class="table s99" style="font-size: 13px;">
-                                                <tbody><tr>
-                                                    <td class="td1">Weight</td>
-                                                    <td class="td2">33.00 kgs</td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td1">Dimensions</td>
-                                                    <td class="td2"> 
-                                                    
-                                                         
-                                                         33.00 x 33.00 x 33.00
-                                                         <br>
-                                                    
-                                                   </td>
-                                                </tr>
-                                            </tbody></table>
-                                        </div>
-                                        <div class="col-md-4">
-                                            
-                                                <table class="table s99" style="font-size: 13px;">
-                                                    <tbody><tr>
-                                                        <td class="td1">Quote</td>
-                                                        <td class="td2">240.98 <br>
-                                                            <i><u> (Quote is an estimate. Additional fees may apply.)
-                                                            </u></i></td>
-                                                    </tr>
-                                                </tbody></table>
-                                            
-                                        </div>
-                                        <div class="col-md-12 pd0">
-                                            <div class="col-md-12">
-                                                <h4 class="s34">
-                                                    <u><span style="cursor: pointer;" class="clicks a_more_detail">More Details:</span></u>
-                                                </h4>
-                                            </div>
-                                            <div class="col-md-6 sd1 div_more_detail" style="display: none;">
-                                                
-                                                    <table class="table s99" style="font-size: 13px;">
-                                                        <tbody>
-                                                        <tr>
-                                                            <td class="td1 s39" style="font-style: italic; text-decoration: underline;">
-                                                                Quote Details:</td>
-                                                            <td class="td2"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td1 s40 ncl">- Base Charge</td>
-                                                            <td class="td2">185.89</td>
-                                                        </tr>
-                                                        
-                                                            <tr>
-                                                                <td class="td1 s40 ncl">- Security Surcharge</td>
-                                                                <td class="td2">7.16</td>
-                                                            </tr>
-                                                        
-                                                            <tr>
-                                                                <td class="td1 s40 ncl">- Fuel Surcharge</td>
-                                                                <td class="td2">26.02</td>
-                                                            </tr>
-                                                        
-                                                            <tr>
-                                                                <td class="td1 s40 ncl">- GST</td>
-                                                                <td class="td2">21.91</td>
-                                                            </tr>
-                                                        
-                                                        <tr>
-                                                            <td class="td1 s41 ncl">- Total Charge</td>
-                                                            <td class="td2">240.98</td>
-                                                        </tr>
-                                                        </tbody>
-                                                    </table>
-                                                
-                                            </div>
-                                            <div class="col-md-6 sd1 div_more_detail" style="display: none;">
-                                                <table class="table s99" style="font-size: 13px;">
-                                                    <tbody>
-                                                    <tr>
-                                                        <td class="td1" style="font-style: italic; text-decoration: underline;">
-                                                            Sender Address:</td>
-                                                        <td class="td2">AGL SPECIALISED LOGISTICS
-                                                            WAYNE ENNIS
-                                                            UNIT 1 / 11 FRICKER ROAD
-                                                            PERTH AIRPORT
-                                                            
-                                                            6105
-                                                            PERTH airport</td>
-                                                    </tr>
-                                                    </tbody>
-                                                </table>
-                                                <table class="table s99" style="font-size: 13px; margin-bottom: 0px">
-                                                    <tbody><tr>
-                                                        <td class="td1" style="font-style: italic; text-decoration: underline;">
-                                                            Receiver Address:</td>
-                                                        <td class="td2">toll
-                                                            kawal
-                                                            80888
-                                                            
-                                                            
-                                                            8001
-                                                            MELBOURNE</td>
-                                                    </tr>
-                                                </tbody></table>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-5">
-                    <div class="portlet box">
-                        <div class="portlet-header">
-                            <div class="caption">
-                                Additional Detail
-                            </div>
-                            <div class="tools">
-                                <i class="fa fa-chevron-up"></i><i class="fa fa-times"></i>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="panel-body pan">
-                                <div class="form-body pal">
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="form-group">
-                                                <label class="control-label" for="inputName"> Content Description <span class="s30"> *</span>
-                                                </label>
-                                                
-                                                
-                                                    <input type="text" name="shipmentRequestModel.contentDetail.description" maxlength="30" value="" id="form_booking_shipmentRequestModel_contentDetail_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Please limit content descriptions to 30 characters.">
-                                                
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label" for="inputName"> Billing/Customer Reference <span class="s30"> *</span>
-                                                </label>
-                                                <input type="text" name="shipmentRequestModel.shipmentReference" value="" id="form_booking_shipmentRequestModel_shipmentReference" class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="control-label" for="inputName"> Special Delivery Instructions
-                                                </label>
-                                                <textarea name="shipmentRequestModel.shipmentInfo.specialDelivery" cols="" rows="" id="form_booking_shipmentRequestModel_shipmentInfo_specialDelivery" class="form-control"></textarea>
-                                            </div>
-											<div class="form-group">
-												<label class="control-label" for="inputName"> Collection Reference No. <span class="s30"> *</span>
-												</label>
-												<input type="text" name="shipmentRequestModel.collectionReference" value="" id="form_booking_shipmentRequestModel_collectionReference" class="form-control">
-											</div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-7">
-                    <div class="portlet box">
-                        <div class="portlet-header">
-                            <div class="caption">
-                                Collection Details
-                            </div>
-                            <div class="tools">
-                                <i class="fa fa-chevron-up"></i><i class="fa fa-times"></i>
-                            </div>
-                        </div>
-                        <div class="portlet-body">
-                            <div class="panel-body pan">
-                                
-
-
-
-
-<div class="form-body pal">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="form-group">
-                <label class="control-label" for="inputName"> Option <span class="s30">*</span>
-                </label>
-                <select name="shipmentRequestModel.scheduleCollectionSelect" id="ws-schedule-collection-select" class="form-control" onchange="onScheduleCollectionChange()">
-    <option value="0">Select a Collection Option</option>
-    <option value="1">Book this collection now</option>
-    <option value="2">I already have a collection scheduled.</option>
-    <option value="3">I will book my collection later.</option>
-    <option value="4">I have a daily collection.</option>
-    <option value="5">I am going to drop off my package(s).</option>
-
-
-</select>
-
-
-            </div>
-        </div>
-        <div id="ws-schedule-collection-div" style="display: block;">
-            <div class="col-lg-5">
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Company <span class="s30">*</span>
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.companyName" maxlength="25" value="AGL SPECIALISED LOGISTICS" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_companyName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company name">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Contact Name <span class="s30">*</span>
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.contactName" maxlength="25" value="WAYNE ENNIS" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_contactName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact name">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.address" maxlength="25" value="UNIT 1 / 11 FRICKER ROAD" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 1">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Address 2
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.address2" maxlength="25" value="PERTH AIRPORT" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 2">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> City <span class="s30">*</span>
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.city" maxlength="25" value="PERTH airport" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_city" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
-                </div>
-            </div>
-            <div class="col-lg-7">
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Phone<span class="s30"> *</span>
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.phone" maxlength="25" value="0894793399" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Postal Code
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.postalCode" maxlength="25" value="6105" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_postalCode" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal code">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> State/Province
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.state" maxlength="25" value="WA" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_state" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:State\/Province">
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <label class="control-label" for="inputName"> Ready Time (DD-MM-YYYY)
-                        </label>
-
-                        <div class="form-group input-group">
-							<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
-							</span>
-                            <input type="text" name="shipmentRequestModel.scheduleCollection.pickupDate" value="" readonly="readonly" id="form_booking_shipmentRequestModel_scheduleCollection_pickupDate" class="form-control form_datetime schedule-time" data-date-format="dd MM yyyy">
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <select name="shipmentRequestModel.scheduleCollection.pickupTime" id="sel-pickup-time" class="form-control">
-    <option value="06:00:00">6:00 AM</option>
-    <option value="06:30:00">6:30 AM</option>
-    <option value="07:00:00">7:00 AM</option>
-    <option value="07:30:00">7:30 AM</option>
-    <option value="08:00:00">8:00 AM</option>
-    <option value="08:30:00">8:30 AM</option>
-    <option value="09:00:00">9:00 AM</option>
-    <option value="09:30:00">9:30 AM</option>
-    <option value="10:00:00">10:00 AM</option>
-    <option value="10:30:00">10:30 AM</option>
-    <option value="11:00:00">11:00 AM</option>
-    <option value="11:30:00">11:30 AM</option>
-    <option value="12:00:00">12:00 PM</option>
-    <option value="12:30:00">12:30 PM</option>
-    <option value="13:00:00">1:00 PM</option>
-    <option value="13:30:00">1:30 PM</option>
-    <option value="14:00:00">2:00 PM</option>
-    <option value="14:30:00">2:30 PM</option>
-    <option value="15:00:00">3:00 PM</option>
-    <option value="15:30:00">3:30 PM</option>
-    <option value="16:00:00">4:00 PM</option>
-    <option value="16:30:00">4:30 PM</option>
-    <option value="17:00:00">5:00 PM</option>
-    <option value="17:30:00">5:30 PM</option>
-    <option value="18:00:00">6:00 PM</option>
-    <option value="18:30:00">6:30 PM</option>
-    <option value="19:00:00">7:00 PM</option>
-    <option value="19:30:00">7:30 PM</option>
-    <option value="20:00:00">8:00 PM</option>
-    <option value="20:30:00">8:30 PM</option>
-    <option value="21:00:00">9:00 PM</option>
-    <option value="21:30:00">9:30 PM</option>
-    <option value="22:00:00">10:00 PM</option>
-    <option value="22:30:00">10:30 PM</option>
-    <option value="23:00:00">11:00 PM</option>
-    <option value="23:30:00">11:30 PM</option>
-
-
-</select>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="control-label" for="inputName"> Close Time
-                            </label>
-                            <select name="shipmentRequestModel.scheduleCollection.pickupTimeNoLater" id="sel-pickup-nolater" class="form-control">
-    <option value="06:00:00">6:00 AM</option>
-    <option value="06:30:00">6:30 AM</option>
-    <option value="07:00:00">7:00 AM</option>
-    <option value="07:30:00">7:30 AM</option>
-    <option value="08:00:00">8:00 AM</option>
-    <option value="08:30:00">8:30 AM</option>
-    <option value="09:00:00">9:00 AM</option>
-    <option value="09:30:00">9:30 AM</option>
-    <option value="10:00:00">10:00 AM</option>
-    <option value="10:30:00">10:30 AM</option>
-    <option value="11:00:00">11:00 AM</option>
-    <option value="11:30:00">11:30 AM</option>
-    <option value="12:00:00">12:00 PM</option>
-    <option value="12:30:00">12:30 PM</option>
-    <option value="13:00:00">1:00 PM</option>
-    <option value="13:30:00">1:30 PM</option>
-    <option value="14:00:00">2:00 PM</option>
-    <option value="14:30:00">2:30 PM</option>
-    <option value="15:00:00">3:00 PM</option>
-    <option value="15:30:00">3:30 PM</option>
-    <option value="16:00:00">4:00 PM</option>
-    <option value="16:30:00">4:30 PM</option>
-    <option value="17:00:00">5:00 PM</option>
-    <option value="17:30:00">5:30 PM</option>
-    <option value="18:00:00">6:00 PM</option>
-    <option value="18:30:00">6:30 PM</option>
-    <option value="19:00:00">7:00 PM</option>
-    <option value="19:30:00">7:30 PM</option>
-    <option value="20:00:00">8:00 PM</option>
-    <option value="20:30:00">8:30 PM</option>
-    <option value="21:00:00">9:00 PM</option>
-    <option value="21:30:00">9:30 PM</option>
-    <option value="22:00:00">10:00 PM</option>
-    <option value="22:30:00">10:30 PM</option>
-    <option value="23:00:00">11:00 PM</option>
-    <option value="23:30:00">11:30 PM</option>
-
-
-</select>
-
-
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="control-label" for="inputName"> Pickup Location
-                            </label> <select class="form-control">
-                            <option value="1">Front</option>
-                            <option value="2">Rear</option>
-                            <option value="3">Side</option>
-                        </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Location Code
-                    </label>
-                    <select name="shipmentRequestModel.scheduleCollection.locationCodeId" id="form_booking_shipmentRequestModel_scheduleCollection_locationCodeId" class="form-control">
-    <option value="1">Business</option>
-    <option value="2">Residence</option>
-    <option value="3">Business/Residence</option>
-
-
-</select>
-
-
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Location Description <span class="s30"> *</span>
-                    </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.description" maxlength="25" value="Front Desk" id="form_booking_shipmentRequestModel_scheduleCollection_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Location description">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-                                <div class="text-right pal pdt10">
-                                    <button class="btn s33 " type="button" onclick="backToShipment()">
-                                        Back
-                                    </button>
-                                    <button class="btn s33 " type="button" onclick="doShip()">
-                                        Ship
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="chat-form s11"></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</form>
-
-
-
-
-<div id="result_booking" title="Booking Result"></div>
-<div id="webship_booking_send_airbill_dialog" title="Send Airbill"></div>
-
-
-
-<script type="text/javascript">
-    $(document).ready(function () {
-        $('.schedule-time').datetimepicker({
-            weekStart: 1,
-            todayBtn: 1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            minView: 2,
-            forceParse: 0,
-            format: 'dd-mm-yyyy'
-        });
-        $(".schedule-time").datetimepicker("update", $("#shipment-date-input").val());
-        setdefaulttime();
-        onScheduleCollectionChange();
-    });
-
-    function onScheduleCollectionChange() {
-        var scheduleCollectionType = $("#ws-schedule-collection-select option:selected").val();
-        if (scheduleCollectionType == 1) {
-            $("#ws-schedule-collection-div").show();
-        } else {
-            $("#ws-schedule-collection-div").hide();
-        }
-    }
-
-
-</script>
-<script type="text/javascript">
-    function changeCollectionType(type) {
-        var data = {
-            'shipmentRequestModelGson': $("#shipmentRequestModelGson").val(),
-            scheduleCollectionsType: type
-        };
-        doPostDataByParameters("get-schedule-collection-input.ix?reqType=json", data, "", "schedule-collection-input", true);
-    }
-    $(document).ready(function () {
-        $(".div_more_detail").hide();
-        $(".civ_generate").hide();
-        $("#pickup-date").datetimepicker({
-            weekStart: 1,
-            todayBtn: 1,
-            autoclose: 1,
-            todayHighlight: 1,
-            startView: 2,
-            minView: 2,
-            forceParse: 0,
-            format: 'dd-mm-yyyy'
-        });
-        $("#pickup-date").datetimepicker("update", new Date());
-        $("[data-toggle='tooltip'], [data-hover='tooltip']").tooltip();
-        $('input.alloptions').maxlength({
-            alwaysShow: true,
-            threshold: 10,
-            warningClass: "label label-success w5",
-            limitReachedClass: "label label-danger w5",
-            separator: '/',
-
-        });
-    });
-    function doShip() {
-        var captionList = [];
-        captionList.push('View Waybill');
-        captionList.push('Thermal Label');
-        captionList.push('');
-        captionList.push('');
-        if ($("#ws-schedule-collection-select option:selected").val() != "1") {
-            captionList.push('Schedule Collection');
-        } else {
-            captionList.push('');
-        }
-        captionList.push('Send Airbill');
-        captionList.push('New Shipment');
-        captionList.push('Re-Ship Same Package');
-        captionList.push('');
-        captionList.push('');
-        captionList.push('View Manifest');
-        var actionPost = "webship_do_ship.ix?reqType=json";
-        loadDialogResultBooking(actionPost, captionList);
-    }
-    $(".a_more_detail").click(function () {
-        $(".div_more_detail").toggle("slow");
-    });
-
-
-</script></div>
+<input type="hidden" name="defaultAddressJson" value="{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;08 94793399&quot;,&quot;contactName&quot;:&quot;DESPATCH&quot;,&quot;email&quot;:&quot;logistics@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;U1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH AIRPORT&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;,&quot;residential&quot;:&quot;0&quot;}" id="defaultAddressJson"/>
+<div id="continue-booking-div"></div>
 <div id="get-quote-dialog" title="Quote"></div>
 <div id="session_time_out_dialog" title="Message"></div>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/pages/webship.js"></script>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/common/common.js"></script>
-<script type="text/javascript">
-    var defaultCurrencyCode = "AUD";
-    $(document).ready(function () {
-        loadAdditionalConfig();
-        loadState('sender');
-        loadState('receiver');
-    });
-    $('body').click(function () {
-        $('.sss1').hide();
-    });
-    function createNewShipment() {
-        window.location.reload();
-    }
-    function getQuote() {
-        $(".nonStandardPackage input[type=checkbox]").each(function() {
-            $(this).val(this.checked);
-        });
-        loadDialogQuoteWithSessionTimeout("webship_get_quote.ix?reqType=json", "webship_save_quote.ix?reqType=json", "get-quote-dialog", "shipment-info-form", "saveQuoteLog", "Save quote", "Ok", "session_time_out_dialog",
-                "Ok");
 
-        var senderId = $("select[name='shipmentPage.senderAddress.country']").val();
-        var receiverId = $("select[name='shipmentPage.receiverAddress.country']").val();
-        if (senderId != 12 &&  receiverId != 12) {
-            $('.ui-dialog-buttonset button:contains("Save quote")').button().hide();
-        }
-    }
-    function changeCurrency(code) {
-        if (code != defaultCurrencyCode) {
-            $(".fw0:contains('Insurance')").find("input[type='checkbox']").attr("disabled", "disabled");
-        } else {
-            $(".fw0:contains('Insurance')").find("input[type='checkbox']").attr("disabled", false);
-        }
-    }
-    function changeDimensionList(val, no) {
-        if (val > 0) {
-            var data = {
-                "dimensionId": val
-            };
-            $.post("webship_change_dimension_type.ix?reqType=json", data, function (res) {
-                if (res.errorCode == "SUCCESS") {
-                    var json = res.content.trim();
-                    var obj = JSON.parse(json);
-                    $("input[name='shipmentPage.pieces[" + no + "].dimensionL']").val(obj.l);
-                    $("input[name='shipmentPage.pieces[" + no + "].dimensionW']").val(obj.w);
-                    $("input[name='shipmentPage.pieces[" + no + "].dimensionH']").val(obj.h);
-                } else {
-                    alertDialog.html(res.errorMsg);
-                    alertDialog.dialog("open");
-                }
-            }).fail(function () {
-                alertDialog.html('System internal error, please contact administrator.');
-                alertDialog.dialog("open");
-            });
-        } else {
-            $("input[name='shipmentPage.pieces[" + no + "].dimensionL']").val("");
-            $("input[name='shipmentPage.pieces[" + no + "].dimensionW']").val("");
-            $("input[name='shipmentPage.pieces[" + no + "].dimensionH']").val("");
-        }
-    }
+<script>
 
-    // Prepare for return service
-
-    function onChangeServiceType(isReturn) {
+function onChangeServiceType(isReturn) {
         var defaultAddressJs = JSON.parse($("#defaultAddressJson").val());
         if (isReturn) {
             $("#chkThirdParty").prop("checked", false);
@@ -2170,6 +1449,7 @@
             }
         }
     }
+
     function setdefaulttime() {
         var nowdate = new Date();
         var nh = nowdate.getHours();
@@ -2216,55 +1496,286 @@
         }
     }
 
-</script>
-            </div>
-            <div id="footer">
-                <div class="copyright">
-                    <a href="">2017 © AGL Technology. All Rights reserved. </a>
-                </div>
-            </div>
-            
-            
-            <script type="text/javascript">
-                var loadingDialog = $("#loading-dialog").dialog({
-                    autoOpen: false,
-                    modal: true,
-                    dialogClass: "no-close",
-                    show: {
-                        effect: 'fade',
-                        duration: 300
-                    }
-                });
-                var alertDialog = $("#alert-dialog").dialog({
-                    modal: true,
-                    autoOpen: false,
-                    maxHeight: 800,
-                    minWidth: 400,
-                    buttons: {
-                        'Close': function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                });
+    $(document).ready(function(){
+  $('[data-toggle="tooltip"]').tooltip();   
+});
 
-                function doLoginAs() {
-                    var name = $("#txtLoginAsName").val();
-                    var data = {
-                        "name": name
-                    };
-                    $.post("quick_search_login_as.ix?reqType=json", data, function (res) {
-                        if (res.errorCode == "SUCCESS") {
-                            loginAsDialog.html(res.content);
-                            loginAsDialog.dialog("open");
-                        } else {
-                            alertDialog.html(res.errorMsg);
-                            alertDialog.dialog("open");
-                        }
-                    }).fail(function () {
-                        alertDialog.html('System internal error, please contact administrator.');
-                        alertDialog.dialog("open");
-                    });
+
+$(document).ready(function(){
+    var list ='<ul id="country-list">';
+
+    $("#receiverAddress_city").keyup(function(){
+        
+        $("#suggesstion-box").html('');
+        if($(this).val().length>2)
+        {
+        $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/get_postcode');?>",
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#suggesstion-box").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 suburb" data-cityname="'+v.suburb+'">'+v.suburb+'</div>';
+                list +='<div class="col-xs-3 postcode" data-postalcode="'+v.postcode+'">'+v.postcode+'</div>';
+                list +='<div class="col-xs-3 state" data-statecode="'+v.state+'">'+v.state+'</div>';
+                list +='</div></li>';
+        });
+            list +='<ul id="country-list" style="width:100%;">';
+            
+            
+        }
+        });
+        $("#suggesstion-box").html(list);
+        list='<ul id="country-list">';
+        }
+        else {
+            $("#suggesstion-box").hide();
+            list ='';
+        }
+    });
+});
+
+
+function onListClick(obj, isSender) {
+    $("#suggesstion-box").hide();
+    var cityName = $(obj).find("div[data-cityName]").html();
+    cityName = cityName.trim();
+    var postalCode = $(obj).find("div[data-postalCode]").html();
+    postalCode = postalCode.trim();
+    var stateCode = $(obj).find("div[data-stateCode]").html();
+    stateCode = stateCode.trim();
+    if (isSender) {
+        $("input[name='shipmentPage.senderAddress.city']").val(cityName1);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(postalCode1);
+        $("input[name='shipmentPage.senderAddress.state']").val(stateCode1);
+    } else {
+        $("input[name='shipmentPage.receiverAddress.city']").val(cityName);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(postalCode);
+        $("input[name='shipmentPage.receiverAddress.state']").val(stateCode);
+    }
+}
+
+function onListClick1(obj, isReceiver) {
+    $("#suggesstion-box1").hide();
+    var cityName1 = $(obj).find("div[data-cityName1]").html();
+    cityName1 = cityName1.trim();
+    var postalCode1 = $(obj).find("div[data-postalCode1]").html();
+    postalCode1 = postalCode1.trim();
+    var stateCode1 = $(obj).find("div[data-stateCode1]").html();
+    stateCode1 = stateCode1.trim();
+    if (isReceiver) {
+        $("input[name='shipmentPage.receiverAddress.city']").val(cityName);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(postalCode);
+        $("input[name='shipmentPage.receiverAddress.state']").val(stateCode);
+      
+    } else {
+        $("input[name='shipmentPage.senderAddress.city']").val(cityName1);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(postalCode1);
+        $("input[name='shipmentPage.senderAddress.state']").val(stateCode1);
+
+    }
+}
+
+function openForm() {
+
+    document.getElementById("myForm").style.display = "block";
+    var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
+    var sender_city= $("input[name='shipmentPage.senderAddress.city']").val();
+    var stateCode1 = $("input[name='shipmentPage.senderAddress.state']").val();
+    var postalCode = $("input[name='shipmentPage.receiverAddress.postalCode']").val();
+    var stateCode = $("input[name='shipmentPage.receiverAddress.state']").val();
+    var serviceId = $("select[name='shipmentPage.serviceId']").val();
+    var rcv_city= $("input[name='shipmentPage.receiverAddress.city']").val();
+    var service_type_Id = $("select[name='shipmentPage.shipmentTypeId']").val();
+    var weight =[];
+    var length =[];
+    $('#piece-table input[name*="shipmentPage.pieces"]').each(function(i)
+    {
+        var wh= $("input[name='shipmentPage.pieces["+i+"].weight']").val();
+        if(wh)
+        weight.push(wh);
+        var ln= $("input[name='shipmentPage.pieces["+i+"].dimensionL']").val();
+        if(ln)
+        length.push(ln);
+    });
+    console.log(weight);
+    console.log(length);
+
+    $('#saveQuoteLog table tbody').html('');
+    var html = '';
+
+     $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/get_calculate');?>",
+        data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id},
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);            
+            html +='<tr>';
+                    html +='<td class="td1">Base Charge</td>';
+                    html +='<td class="td2">$ '+result.base_charge+'</td>';
+            html +='</tr>';        
+            
+            $.each(result.charges, function(k, v) {
+                if(v)
+                {
+                    html +='<tr>';
+                    html +='<td class="td1">'+v.surcharge_name+'</td>';
+                    html +='<td class="td2">$ '+v.surcharge_price+'</td>';
+                    html +='</tr>';
                 }
-            </script>
-            <!--END FOOTER-->
-        </div>
+            });
+            html +='<tr>';
+                html +='<td class="td1">GST</td>';
+                html +='<td class="td2">$ 32.14</td>';
+            html +='</tr>';
+            html +='<tr>';
+                html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td class="td1">Total weight</td>';
+                    html +='<td class="td2">22.00kg(s)</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td class="td1">Weight type</td>';
+                    html +='<td class="td2">Actual</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td class="td1"><b>Total Charge</b></td>';
+                    html +='<td class="td2">$ 353.47</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2">';
+                    html +='<p>Quote is an estimate. Additional fees may apply.</p>';
+                    html +='</td>';
+            html +='</tr>';
+            $('#myForm table tbody').html(html);
+        }
+        
+    });
+
+    
+
+
+    
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
+
+
+
+$(document).ready(function(){
+    var list ='<ul id="country-list1">';
+
+    $("#senderAddress_city").keyup(function(){
+        
+        $("#suggesstion-box1").html('');
+        if($(this).val().length>2)
+        {
+        $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/get_postcode');?>",
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#suggesstion-box1").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick1($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 suburb" data data-cityname1="'+v.suburb+'">'+v.suburb+'</div>';
+                list +='<div class="col-xs-3 postcode" data-postalcode1="'+v.postcode+'">'+v.postcode+'</div>';
+                list +='<div class="col-xs-3 state" data-statecode1="'+v.state+'">'+v.state+'</div>';
+                list +='</div></li>';
+        });
+            list +='<ul id="country-list1" style="width:100%;">';
+            
+            
+        }
+        });
+        $("#suggesstion-box1").html(list);
+        list='<ul id="country-list1">';
+        }
+        else {
+            $("#suggesstion-box1").hide();
+            list ='';
+        }
+    });
+});
+
+
+    </script>
+
+<style>
+
+#country-list1 {
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 480px;
+    position: absolute;
+    z-index: 9;
+}
+#country-list {
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 480px;
+    position: absolute;
+
+   /* border: 1px solid #e5e5e5;
+    margin-top: 1px;
+    padding-left: 5px;
+    position: absolute;
+    width: 100%;
+    background: #fff;
+  
+    max-height: 300px;
+    overflow: auto;*/
+}
+#country-list li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list li:hover{background:#ece3d2;cursor: pointer;}
+#country-list1 li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#country-list1 li:hover{background:#ece3d2;cursor: pointer;}
+.col-xs-6.suburb {
+    margin-left: 9px;
+    margin-top: 9px;
+}
+.col-xs-3.postcode {
+    margin-left: -104px;
+}
+.col-xs-3.state {
+    margin-left: 65px;
+}
+.col-xs-3{
+margin-top: 0px !important;
+}
+</style>
+

@@ -18,37 +18,28 @@
 				$data['services']=$this->auth_model->get_services();
 				$data['view'] = 'customers/shipment';
 				$this->load->view('customers/layout', $data);
-		}
-		else {	
-			redirect('user/login');
-		}
+			}
+			else {	redirect('user/login');}
 		}
 
 		public function address_book()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			$data['view'] = 'customers/address_book';
-			$this->load->view('customers/layout', $data);
+				$data['view'] = 'customers/address_book';
+				$this->load->view('customers/layout', $data);
 			}
-			else {	
-				redirect('user/login');
-			}
+			else {	redirect('user/login');}
 		}
 
 		public function address_book_add()
 		{
-			if($this->session->has_userdata('is_customer_user_login'))
-			{
 			$data['view'] = 'customers/address_book_add';
 			$this->load->view('customers/layout', $data);
-		}
-		else {	redirect('user/login');}
 		}
 
 		public function address_book_import()
 		{
-
 			$data['view'] = 'customers/address_book_import';
 			$this->load->view('customers/layout', $data);
 		}
@@ -63,31 +54,50 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			$data['view'] = 'customers/history';
-			$this->load->view('customers/layout', $data);
-		}
-		else {	redirect('user/login');}
+				$data['view'] = 'customers/history';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
 		public function quote()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			$data['view'] = 'customers/quote';
-			$this->load->view('customers/layout', $data);
-		}
-		else {	redirect('user/login');}
+				$data['view'] = 'customers/quote';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
+
 		}
 
-		
+		public function get_calculate()
+		{
+			$sender_city = $this->input->post('sender_city');
+			$sender_postcode = $this->input->post('sender_postcode');
+			$sender_state =  $this->input->post('sender_state');
+			$rc_postcode= $this->input->post('rc_postcode');
+			$rc_statecode= $this->input->post('stateCode');
+			$rcv_city= $this->input->post('rcv_city');
+			$serviceId= $this->input->post('serviceId');
+			$service_type_Id= $this->input->post('service_type_Id');
+			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
+			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
+			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId);
+			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
+			$result['charges'] = $get_surcharge;
+			$result['base_charge']= $get_base_rate;
+			echo json_encode($result);
+			
+		}
 		public function setting()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			$data['view'] = 'customers/setting';
-			$this->load->view('customers/layout', $data);
-		}
-		else {	redirect('user/login');}
+				$data['view'] = 'customers/setting';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
 			
@@ -95,23 +105,17 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			$data['view'] = 'customers/help';
-			$this->load->view('customers/layout', $data);
-		}
-		else {	redirect('user/login');}
+				$data['view'] = 'customers/help';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	redirect('user/login');}
 		}
 
         public function booking()
 		{
-			if($this->session->has_userdata('is_customer_user_login'))
-			{
 			$data['view'] = 'customers/booking';
 			$this->load->view('customers/layout', $data);
 		}
-		else {	redirect('user/login');}
-		}
-
-
 		public function get_postcode()
 		{
 			$cityname = $this->input->post('keyword');	
@@ -121,8 +125,8 @@
 		
 		public function change_password()
 		{
-			
-            $this->load->library('form_validation');
+
+			$this->load->library('form_validation');
 			$this->form_validation->set_rules('oldPassword','Old Password','trim|required');
 			$this->form_validation->set_rules('newPassword', 'New Password', 'trim|required');
 			$this->form_validation->set_rules('confirmPassword', 'Repeat Password', 'trim|required|matches[newPassword]');
@@ -152,7 +156,7 @@
 					// 	$this->session->set_flashdata('error_msg', '<b>Error: </b>User Password not Change.');
 					// 	return redirect('customer/settings');
 					// }
-					return redirect('customer/shipment');
+					return redirect('customer/settings');
 				}
 				else {
 					$this->session->set_flashdata('error_msg', '<b>Error: </b>Old password is incorrect.');
@@ -162,36 +166,13 @@
 				
 		}
 
-	    public function get_customers()
+	public function get_customers()
 		{
-			print_r($this->session->userdata);
-			echo $this->session->userdata('customer_user_id');
+			$this->session->userdata('customer_user_id');
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customer/layout', $data);
 		}
-
-
-		public function get_calculate()
-		{
-			$sender_city = $this->input->post('sender_city');
-			$sender_postcode = $this->input->post('sender_postcode');
-			$sender_state =  $this->input->post('sender_state');
-			$rc_postcode= $this->input->post('rc_postcode');
-			$rc_statecode= $this->input->post('stateCode');
-			$rcv_city= $this->input->post('rcv_city');
-			$serviceId= $this->input->post('serviceId');
-			$service_type_Id= $this->input->post('service_type_Id');
-			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
-			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
-			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId);
-			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
-			$result['charges'] = $get_surcharge;
-			$result['base_charge']= $get_base_rate;
-			echo json_encode($result);
-			
-		}
-
 
 		public function add_shipment()
 		{
@@ -285,6 +266,9 @@
 				$this->user_model->save_shipment($saveData);
 			}
 
+
+		
+	
 	}
 
 ?>	

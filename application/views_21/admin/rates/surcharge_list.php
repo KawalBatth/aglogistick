@@ -1,11 +1,3 @@
-<?php   
- $connect = mysqli_connect("localhost", "root", "", "webfreight");  
- $query = "SELECT * FROM surcharges_list";  
- $result = mysqli_query($connect, $query);  
- ?>  
-<!DOCTYPE html>  
- <html>  
- <body>
 <div class="portlet box">
                             <div class="portlet-header">
                                 <div class="caption">
@@ -19,7 +11,6 @@
     <?php echo $this->session->flashdata('msg')?>
  </div>
  <?php } ?>
-                           
                             <div class="portlet-body" style="padding: 0px;">
                                 <div class="tab-content responsive">
                                     <div id="Overview-tab" class="tab-pane fade in active">
@@ -42,14 +33,12 @@
 
       <div class="modal-body">
      
-  <div class="form-group surcharge-list">
+  <div class="form-group">
   
-  <label for="exampleInputEmail1">Carrier Name:</label>
+  <label for="exampleInputEmail1">Carrier Name</label>
   
     <select name="carriers" id="carriers">
-    <option value="0">Select a carrier</option>
     <?php for($i=0;$i<count($carrier_list);$i++){?>
-     
         <option value="<?php echo $carrier_list[$i]['id'];?>"><?php echo $carrier_list[$i]['carrier_name'];?></option>
         <?php }?>
 </select>
@@ -62,30 +51,25 @@
   
   <td>
   <div class="form-group">
-    <label for="exampleInputPassword1">Surcharge Name:</label>
-    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name" placeholder="Enter Surcharge Name" onkeydown = "return((event.keyCode >= 65 && event.keyCode <= 120) || (event.keyCode==32));"  onfocus="this.value=''">
+    <label for="exampleInputPassword1">Surcharge Name</label>
+    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name" placeholder="Surcharge Name">
   </div>
   </td>
-    </tr>
-    <tr>
   <td>
   <div class="form-group">
-    <label for="exampleInputEmail1" class="sur_types">Type:</label>
+    <label for="exampleInputEmail1" class="sur_types">Type</label>
 
-      <select required name="surcharge_type" id="types">
-      <option value="">Select a type</option>
+      <select name="surcharge_type" id="types">
         <option value="0">Fixed</option>
         <option value="1">Percent of Base Charge</option>
         <option value="2">Percent of Surcharge</option>
    </select>
   </div>
   </td>
-    </tr>
-    <tr>
   <td>
   <div class="form-group">
-    <label for="exampleInputPassword1">Surcharge Price:</label>
-    <input type="text"  class="form-control" id="surcharge_price" required name="surcharge_price" placeholder="Enter Surcharge Price" autofocus pattern="[0-9]*\.?[0-9]{2}"  onfocus="this.value=''">
+    <label for="exampleInputPassword1">Surcharge Price</label>
+    <input type="text"  class="form-control" id="surcharge_price" required name="surcharge_price" placeholder="Surcharge Price">
   </div>
   </td> 
   </tr>
@@ -122,7 +106,7 @@
 
     <input type="hidden"  name="surcharge_id" class="form-control" value="" id="surcharge_id">
     
-  <label for="exampleInputEmail1">Carrier Name:</label>
+  <label for="exampleInputEmail1">Carrier Name</label>
     <select name="carrier_id" id="editcarriers">
     <?php for($i=0;$i<count($surcharge_list);$i++){?>
         <option value="<?php echo $surcharge_list[$i]['carrier_id'];?>"><?php echo $surcharge_list[$i]['carrier_name'];?></option>
@@ -135,16 +119,14 @@
   <tr id="carrier-dt1">
   
   <td>
-  <div class="form-group surcharge-list">
-    <label for="exampleInputPassword1">Surcharge Name:</label>
-    <input type="text" id="surcharge_name" class="form-control" value="" name="surcharge_name">
+  <div class="form-group">
+    <label for="exampleInputPassword1">Surcharge Name</label>
+    <input type="text" class="form-control" value="" name="surcharge_name" id="surcharge_name">
   </div>
   </td>
-    </tr>
-    <tr>
   <td>
   <div class="form-group">
-    <label for="exampleInputEmail1">Type:</label>
+    <label for="exampleInputEmail1">Type</label>
       <select name="surcharge_type" id="types">
         <option value="0">Fixed</option>
         <option value="1">Percent of Base Charge</option>
@@ -152,12 +134,10 @@
    </select>
   </div>
   </td>
-    </td>
-    <tr>
   <td>
   <div class="form-group">
-    <label for="exampleInputPassword1">Surcharge Price:</label>
-    <input type="text"  class="form-control prices" name="surcharge_price" id="surcharge_price" value="">
+    <label for="exampleInputPassword1">Surcharge Price</label>
+    <input type="number"  class="form-control prices" name="surcharge_price" id="surcharge_price" value="">
   </div>
   </td>
   </tr>
@@ -181,17 +161,17 @@
 
                                   <div class="row">
                                         <div class="col-lg-12">
-                                            <div id="accessorial-list-div" id="surcharge-data">
-                                                <table class="table table-bordered table-hover table-pointer" id="surcharge-list-table">
+                                            <div id="accessorial-list-div">
+                                                <table class="table table-bordered mg0 table-hover table-pointer" id="surcharge-list-table">
                                                     <thead>
                                                         <tr>
                                                      
-                                                            <th><b> ID </b></th>
-                                                            <th><b>Carrier Name <b></th>
-                                                            <th>Surcharge Name </th>
-                                                            <th>Surcharge Price</th>
-                                                            <th>Surcharge Type </th>
-                                                            <th>Last modified</th>
+                                                            <th sort-field="code" style="cursor: pointer;"> ID <i class="fa fa-sort-up"></i></th>
+                                                            <th sort-field="modified_date" style="cursor: pointer;">Carrier Name <i class="fa fa-sort"></i></th>
+                                                            <th sort-field="typeid" style="cursor: pointer;">Surcharge Name <i class="fa fa-sort"></i></th>
+                                                            <th sort-field="service_name" style="cursor: pointer;">Surcharge Price <i class="fa fa-sort"></i></th>
+                                                            <th sort-field="description" style="cursor: pointer;">Surcharge Type <i class="fa fa-sort"></i></th>
+                                                            <th sort-field="isquotable" style="cursor: pointer;">Last modified <i class="fa fa-sort"></i></th>
                                                             <th>Action</th>
                                                         </tr>
                                                     </thead>
@@ -223,8 +203,8 @@
 																	<td><?php echo $surcharge_list[$i]['surcharge_price'];?></td>
 																	<td><?php echo $surcharge_type;?></td>
 																	<td><?php echo $surcharge_list[$i]['last_modified'];?></td>
-                                <td>  <button type="button" class="btn remove"> Delete</button> </td>
-                                <!--td class="delete_surcharge">  <a href="#" class="remove"> <img src="<?= base_url() ?>public/dist/img/delete.jpg" class="del" alt="User Image"></a> </td-->               
+                                <td>  <button type="button" class="btn btn-danger remove"> Delete</button> </td>
+                                                                 
                                                           </tr>
 														<?php }?>
                                                      </tbody>
@@ -242,13 +222,10 @@
                                                 <button class="btn ref" type="button" onClick="window.location.reload()">
                                               Refresh
                                             </button>
-                                             <button type="button" class="btn btn-primary add_sur" data-toggle="modal" data-target="#exampleModal">Add New Surcharge</button>
-                                             <button type="button" onclick="editsurcharge()" id="EditButton" class="btn edit_sur" disabled>Edit Surcharge Details</button>
-                                           
-                                             <div align="right">  
-                     <button name="create_excel" id="create_excel" class="btn export">Export Excel</button>  
-                     <input type="button" id="btnExport" class="btn export_pdf" value="Export Pdf" />
-                </div> 
+                                             <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">Add New Surcharge</button>
+                                             <button type="button" onclick="editsurcharge()" id="EditButton" class="btn" disabled>Edit Surcharge Details</button>
+                                             <button name="create_excel" id="create_excel" class="btn btn-success">Create Excel File</button>  
+                                             
                                           </div>
                                             </div>
                                         </div>
@@ -273,10 +250,8 @@
       <div class="modal-body">
     
   <div class="form-group">
-    <label for="exampleInputName" class="add_carrier">Carrier Name:</label>
-    <!--input type="text" name="carrier_name" required class="form-control car_name"-->
-    <!--input type="text" id="carrier_name" name="carrier_name" required class="form-control car_name" placeholder="Enter Carrier Name"-->
-    <input type="text" name="carrier_name" id="carrier_name" class="form-control car_name" onkeydown = "return((event.keyCode >= 65 && event.keyCode <= 120) || (event.keyCode==32));" placeholder="Enter Carrier Name" required  onfocus="this.value=''">
+    <label for="exampleInputName">Carrier Name</label>
+    <input type="text" name="carrier_name" required class="form-control car_name">
   </div>
  
 </div>
@@ -288,28 +263,8 @@
       </div>
     </div>
   </div>     
- 
 
-  <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script-->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
- 
-<script type="text/javascript">
-        $("body").on("click", "#btnExport", function () {
-            html2canvas($('#surcharge-list-table')[0], {
-                onrendered: function (canvas) {
-                    var data = canvas.toDataURL();
-                    var docDefinition = {
-                        content: [{
-                            image: data,
-                            width: 650
-                        }]
-                    };
-                    pdfMake.createPdf(docDefinition).download("surcharge_list.pdf");
-                }
-            });
-        });
-
+<script>
     //To show datatable
     $(document).ready(function() 
    {
@@ -317,17 +272,6 @@
    });
 
 
-   
- $(document).ready(function(){  
-      $('#create_excel').click(function(){  
-           var excel_data = $('#surcharge-data').html();  
-           var page = "rates/import_rate?data=" + excel_data;  
-           window.location = page;  
-      });  
- });  
-
-
- 
     //To add and delete dynamic row in add surcharges Modal
    /* var tbl = $("#dataTable");
     $("#addRowBtn").click(function(){
@@ -400,12 +344,5 @@ $(".remove").click(function(){
         }
     });
 
-// To disappear a Falsh message
-var timeout = 2000; // in miliseconds (3*1000)
-$('.alert').delay(timeout).fadeOut(300);
-
 
 </script>
-
-</body>
-  </html>  

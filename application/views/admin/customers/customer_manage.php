@@ -50,7 +50,6 @@ if(isset($submit_id))
                 <div class="form-group input-group" style="width: 150px; margin-bottom: 0px;">
 			
                 <input type="date" id="start" required name="followUpDate" data-date-format="dd MM yyyy">
-                <input type='file' name='userfile' size='20' />
                 </div>
             </td>
         </tr>
@@ -66,7 +65,7 @@ if(isset($submit_id))
 </div>
 
 
-<!-- Add notes for customer modal -->
+<!-- Edit notes for customer modal -->
 <div class="modal fade" id="editNotesModal" tabindex="-1" role="dialog" aria-labelledby="editNotesModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -126,16 +125,19 @@ if(isset($submit_id))
         </button>
       </div>
       <div class="modal-body">
-      <div class="caption b17 text-center"></div>
+      <div class="caption b17 text-center">
+        Rate sheet for: Road Express
+       
+    </div>
     
     <div class="form-group">
-        <table class="table table-bordered mg0 table-hover">
+        <table class="table table-striped table-bordered mg0 table-hover">
             <thead>
             <tr>
-                <th>Destination</th>
-                <th class="text-right">Min</th>
-                <th class="text-right">Base</th>
-                <th class="text-right">Per Kg</th>
+                <th class="text-middle">Destination</th>
+                <th class="text-middle">Min</th>
+                <th class="text-middle">Base</th>
+                <th class="text-middle">Per Kg</th>
             </tr>
             </thead>
             <tbody>
@@ -148,6 +150,48 @@ if(isset($submit_id))
          </tbody>
          </table>
       </div>
+                
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>              
+
+
+<!-- fixed price kg Modal -->
+<div class="modal fade" id="fixed3Modal" tabindex="-1" role="dialog" aria-labelledby="fixed3ModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">View Rate Sheet</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="caption b17 text-center">
+        Rate sheet for: Fixed Price Premium 3kg
+    </div>
+    
+    <div class="form-group">
+        <table class="table table-bordered mg0 table-hover">
+            <thead>
+            <tr>
+                <th class="text-middle">Weight</th>
+                <th class="text-middle">Price</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+            <td>3.0</td>
+            <td></td>
+           
+            </tr>
+         </tbody>
+         </table>
+</div>
                 
       </div>
       <div class="modal-footer">
@@ -193,11 +237,12 @@ if(isset($submit_id))
     <div class="form-group">
       
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="username" maxlength="25" value="" id="webship_name" pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$" required class="form-control alloptions">
+        <input type="text" name="username" maxlength="25" value="" required id="webship_name" pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$" required class="form-control alloptions">
        <p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p>
     </div>
     <div class="form-group">
-        <label>Password:<span class="s30">*</span></label> <input name="userpassword" type="password" required pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" value="" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> 
+        <input name="userpassword" type="password" required pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" value="" class="form-control alloptions" maxlength="25">
         <p class="password">Note: Password should contains minimum 8 characters with at least 1 alphabet and 1 number.</p>
     </div>
     <div class="form-group">
@@ -250,13 +295,12 @@ if(isset($submit_id))
     <div class="form-group">
         
         <label>Alternate User :<span class="s30">*</span></label>
-        <!--pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$"-->
-        <input type="text" name="username" maxlength="25" value="" id="username"  class="form-control alloptions">
+        <input type="text" name="username" required maxlength="25" value="" pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$" id="username"  class="form-control alloptions">
         <p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p>
     </div>
     <div class="form-group">
-      <!--pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$"-->
-        <label>Password:<span class="s30">*</span></label> <input name="userpassword"  type="text" value="" id="userpassword" class="form-control alloptions" maxlength="25">
+      
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword"  required type="text" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" value="" id="userpassword" class="form-control alloptions" maxlength="25">
     <p class="password">Note: Password should contains minimum 8 characters with at least 1 alphabet and 1 number.</p>
     </div>
     <div class="form-group">
@@ -287,22 +331,29 @@ if(isset($submit_id))
     </div>
   </div>
 </div>
+
                                 <div class="col-lg-8 flr">
                                     <div class="form-group flr mgb">
                                         <table class="s36">
                                             <tbody>
                                             <tr>
                                         
-    <td id="search-customer-list"><select name="customerCode" id="customerCode" class="form-control" onchange="location = this.value;">
-    <option value="-1">Select a Customer</option>
-    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option> 
-    <?php for($i=0;$i<count($data);$i++)
-                                    {
-                            echo //'<option value="'.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
-                            '<option value="customer_manage?id='.$data[$i]['customer_id']. '">'.$data[$i]['customer_id'].' '.$data[$i]['customerName'].'</option>';  
-
-                            //echo "<option value=\"$i\" ".($rowsperpage == $i ? 'selected="selected"' : '').">$i</option>";                                  
-                                    }?>
+                                              <td>  
+                                            <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
+                                    <option value="-1">Select a Customer</option>
+                                    <option value="http://localhost:8011/webfreight/admin/add">Add a Customer</option>
+               <?php for($i=0;$i<count($data);$i++)
+                        {
+                        if ($submit_id == $data[$i]['customer_id']) 
+                        {
+                              $selected ="selected";
+                         } 
+                              else 
+                         {
+                                $selected = '';
+                         }
+    echo '<option value="customer_manage?id='.$data[$i]['customer_id'].'" ' .$selected.'>'.$data[$i]['customer_id'].' '.$data[$i]['customerName'].'</option>';
+}?>
 </select>
 
 </td>
@@ -317,28 +368,28 @@ if(isset($submit_id))
 
 
 
-<ul id="manage_customer_tab_nav" class="nav nav-tabs responsive">
-    <li style="margin-left: 10px;" class="active"><a href="#account-setup-tab" data-toggle="tab">Account Setup</a></li>
-    <li class=""><a href="#address-tab" data-toggle="tab">Address</a></li>
-    <li class=""><a href="#base-rates-tab" data-toggle="tab">Base Rates</a></li>
-    <li class=""><a href="#markups-tab" data-toggle="tab">Markups</a></li>
-    <li class=""><a href="#webship-tab" data-toggle="tab">Web Freight</a></li>
-    <li><a href="#notes-tab" data-toggle="tab">Notes</a></li>
-    <li><a href="#webship-history-tab" data-toggle="tab">Web Freight History</a></li>
-</ul>
+        <ul id="manage_customer_tab_nav" class="nav nav-tabs responsive">
+                <li style="margin-left: 10px;" class="active"><a href="#account-setup-tab" data-toggle="tab">Account Setup</a></li>
+                <li class=""><a href="#address-tab" data-toggle="tab">Address</a></li>
+                <li class=""><a href="#base-rates-tab" data-toggle="tab">Base Rates</a></li>
+                <!--li class=""><a href="#markups-tab" data-toggle="tab">Markups</a></li-->
+                <li class=""><a href="#webship-tab" data-toggle="tab">Web Freight</a></li>
+                <li><a href="#notes-tab" data-toggle="tab">Notes</a></li>
+                 <li><a href="#webship-history-tab" data-toggle="tab">Web Freight History</a></li>
+           </ul>
+<form id="update_customer_form">
 <div id="manage_customer_tab_content" class="tab-content responsive">
     <div id="account-setup-tab" class="tab-pane fade active in">
 
 
-  <?php echo form_open(base_url('admin/add_customer'), 'id="update_customer_form" '); ?>
+ 
     <div class="row">
         <div class="portlet-body b12 b11">
             <div class="row">
                 <div class="col-lg-4">
                     <table class="table" style="font-size: 11px;">
                     <tbody><tr>
-                            <td colspan="3" class="b16 uppercase">
-                            <p class="customer_info">
+                            <td colspan="3" class="b16 uppercase"><p>
                            <?php echo @$customer_data->customerName;?>
                                 <input type="hidden" name="customerName" value="<?php echo @$customer_data->customerName;?>" id="saveManageCustomer_accountSetup_address_customerName">
                                 <br>
@@ -374,10 +425,7 @@ if(isset($submit_id))
                         </tr>
                         <tr>
                             <td class="td1">Submit Date:</td>
-                            <td class="td2" colspan="2"><input type="text" name="createDate" value="<?php 
-                            $date = @$customer_data->created_date;
-                            $submit= date('d-m-Y h:i:s', strtotime($date));
-                            echo $submit; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
+                            <td class="td2" colspan="2"><input type="text" name="createDate" value="<?php echo @$customer_data->created_date; ?>" readonly="readonly" id="saveManageCustomer_accountSetup_createDate" class="form-control"></td>
                         </tr>
                         
                         <tr>
@@ -402,101 +450,80 @@ if(isset($submit_id))
                         <tr>
                             <td class="td1">Previous Carrier:</td>
                             <td class="td2" colspan="2"><select name="previousCarrier" id="saveManageCustomer_accountSetup_previousCarrier" class="form-control">
-    <option value="0" selected="selected"></option>
-    <option value="1">DHL</option>
-    <option value="52">Toll Priority</option>
-    <option value="59">Toll Ipec</option>
-    <option value="72">Startrack</option>
-    <option value="400">UPS Express</option>
+                                 <option value="0" selected="selected"></option>
+                                 <option value="1">DHL</option>
+                                 <option value="52">Toll Priority</option>
+                                 <option value="59">Toll Ipec</option>
+                                <option value="72">Startrack</option>
+                                <option value="400">UPS Express</option>
+                          </select>
 
-
-</select>
-
-</td>
+                          </td>
                         </tr>
                         <tr>
                             <td class="td1">Customer Group:</td>
                             <td class="td2" colspan="2"><select name="groupId" id="saveManageCustomer_accountSetup_groupId" class="form-control">
-    <option value="0"></option>
-    <option value="2">Gold</option>
-    <option value="4">Lead</option>
-    <option value="1">Platinum</option>
-    <option value="3">Silver</option>
+                                  <option value="0"></option>
+                                <option value="2">Gold</option>
+                             <option value="4">Lead</option>
+                             <option value="1">Platinum</option>
+                           <option value="3">Silver</option>
+                        </select>
 
-
-</select>
-
-</td>
+                         </td>
                         </tr>
                         <tr>
                             <td class="td1">Web Freight Group:</td>
                             <td class="td2"><select name="webshipGroupId" id="saveManageCustomer_accountSetup_webshipGroupId" class="form-control">
-    <option value="0" selected="selected"></option>
-    <option value="0" selected="selected">Default</option>
+                             <option value="0" selected="selected"></option>
+                            <option value="0" selected="selected">Default</option>
+                               </select>
 
-
-</select>
-
-</td>
+                              </td>
                         </tr>
                         <tr>
                             <td class="td1">Industry:</td>
                             <td class="td2" colspan="2"><select name="industryId" id="saveManageCustomer_accountSetup_industryId" class="form-control">
-    <option value="0" selected="selected"></option>
-    <option value="6">Accounting</option>
-    <option value="8">Advertising</option>
-    <option value="7">Finance</option>
-    <option value="1">Recruitment</option>
-    <option value="9">Training</option>
+                       <option value="0" selected="selected"></option>
+                          <option value="6">Accounting</option>
+                          <option value="8">Advertising</option>
+                          <option value="7">Finance</option>
+                            <option value="1">Recruitment</option>
+                      <option value="9">Training</option>
 
 
-</select>
+                            </select>
 
-</td>
+                                </td>
                         </tr>
                         <tr>
                             <td class="td1">Area:</td>
                             <td class="td2" colspan="2"><select name="areaId" id="saveManageCustomer_accountSetup_areaId" class="form-control">
-    <option value="0" selected="selected"></option>
-    <option value="2">Area 1</option>
-    <option value="1">Default Area</option>
+                     <option value="0" selected="selected"></option>
+                        <option value="2">Area 1</option>
+                     <option value="1">Default Area</option>
 
 
-</select>
+                            </select>
 
-</td>
+                           </td>
                         </tr>
                         <tr>
                             <td class="td1">Sales Rep:</td>
                             <td class="td2" colspan="2"><select name="salesRepId" id="saveManageCustomer_accountSetup_salesRepId" class="form-control">
-    <option value="0" selected="selected"></option>
-    <option value="1">AGL</option>
-    <option value="388">AGL</option>
-    <option value="403">Debbie</option>
-    <option value="390">GMS test</option>
-    <option value="405">Kawal</option>
-    <option value="395">Lynne</option>
-    <option value="402">Nancy Yeo</option>
-    <option value="404">Rhonda</option>
-    <option value="397">sue</option>
-    <option value="379">Sujeet</option>
-    <option value="401">Vince</option>
-    <option value="396">Wayne</option>
+                    <option value="0" selected="selected"></option>
+                   <option value="1">AGL</option>
+                  </select>
 
-
-</select>
-
-</td>
+                  </td>
                         </tr>
                         <tr>
                             <td class="td1">Collector:</td>
                             <td class="td2" colspan="2"><select name="collectorId" id="saveManageCustomer_accountSetup_collectorId" class="form-control">
-    <option value="0" selected="selected"></option>
+                            <option value="0" selected="selected"></option>
+                                   </select>
 
-
-</select>
-
-</td>
+                            </td>
                         </tr>
                         <tr>
                             <td class="td1">Business Registration #:</td>
@@ -556,23 +583,11 @@ if(isset($submit_id))
             </div>
         </div>
     </div>
-<script type="text/javascript">
-    function saveCustomerSetup() {
-        var data = $("#frmSaveAccountSetup").serialize();
-        loadingDialog.dialog("open");
-        $.post("manage_customers_account_setup_save.ix?reqType=json", data, function (res) {
-            loadingDialog.dialog("close");
-            $("#account-setup-tab").html(res.content);
-        }).fail(function () {
-            loadingDialog.dialog("close");
-            alertDialog.html('System internal error, please contact administrator.');
-            alertDialog.dialog("open");
-        });
-    }
+  
+</div>
 
-
-</script></div>
     <div id="address-tab" class="tab-pane fade">
+
     <div class="row">
         <div class="portlet-body b12 b11">
             <div class="row">
@@ -588,37 +603,39 @@ if(isset($submit_id))
                             </td>
                         </tr>
                         <tr>
-                            <td class="td1">Customer Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="customerName" value="<?php echo @$customer_data->customerName;?>" id="saveManageCustomer_customerAddress_address_customerName" class="form-control uppercase" group="address"></td>
+                            <td class="td1" data-label="Customer Name">Customer Name:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" required="required" name="customerName" value="<?php echo @$customer_data->customerName;?>" id="saveManageCustomer_customerAddress_address_customerName" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="contactName" value="<?php echo @$customer_data->contact_name;?>" id="saveManageCustomer_customerAddress_address_contactName" class="form-control uppercase" group="address"></td>
+                            <td class="td1" data-label="Contact Name">Contact Name:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" name="contactName" required="required" value="<?php echo @$customer_data->contact_name;?>" id="saveManageCustomer_customerAddress_address_contactName" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
                             <td class="td2" colspan="2"><input type="text" name="contactTitle" value="<?php echo @$customer_data->contact_title;?>" id="saveManageCustomer_customerAddress_address_contactTitle" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="address1" value="<?php echo @$customer_data->address;?>" id="saveManageCustomer_customerAddress_address_address1" class="form-control uppercase" group="address"></td>
+                            <td class="td1" data-label="Address">Address:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" name="address1" required="required" value="<?php echo @$customer_data->address;?>" id="saveManageCustomer_customerAddress_address_address1" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
-                            <td class="td2" colspan="2"><input type="text" name="address2" value="<?php echo @$customer_data->address;?>" id="saveManageCustomer_customerAddress_address_address2" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" name="address2" value="<?php //echo @$customer_data->address;?>" id="saveManageCustomer_customerAddress_address_address2" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="city" value="<?php echo @$customer_data->city;?>" id="saveManageCustomer_customerAddress_address_city" class="form-control uppercase" group="address"></td>
+                            <td class="td1" data-label="City">City:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" name="city" required="required" value="<?php echo @$customer_data->city;?>" id="saveManageCustomer_customerAddress_address_city" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Country:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><select name="country" id="saveManageCustomer_customerAddress_address_country" class="form-control uppercase" group="address">
-    <option value="0">Select a country</option>
-    <option value="12" selected="selected">Australia</option>
-</select>
+                            <td class="td1" data-label="Country">Country:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2">
+                            <select name="country" required="required" id="saveManageCustomer_customerAddress_address_country" class="form-control uppercase" group="address">
+                                   <option value="0">Select a Country</option>
+                                    <option value="12" selected="selected">Australia</option>
 
-</td>
+                            </select>
+
+                        </td>
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
@@ -629,8 +646,8 @@ if(isset($submit_id))
                             <td class="td2" colspan="2"><input type="text" name="stateCode" value="<?php echo @$customer_data->state_code;?>" id="saveManageCustomer_customerAddress_address_stateCode" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" pattern="08\d{8}" name="phone" value="<?php echo @$customer_data->phone;?>" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address"></td>
+                            <td class="td1" data-label="Phone">Phone:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" required="required" pattern="08\d{8}" name="phone" value="<?php echo @$customer_data->phone;?>" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
@@ -641,7 +658,7 @@ if(isset($submit_id))
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1">Email:</td>
+                            <td class="td1" data-label="Email">Email:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="text" name="email" value="<?php echo @$customer_data->email;?>" id="saveManageCustomer_customerAddress_address_email" class="form-control" group="address"></td>
                         </tr>
                         <tr>
@@ -670,37 +687,38 @@ if(isset($submit_id))
                             </td>
                         </tr>
                         <tr>
-                            <td class="td1">Customer Name:<span class="s30">*</span></td>
-                         <td class="td2" colspan="2"><input type="text" name="billingCustomerName" value="<?php echo @$customer_data->billing_customer_name;?>" id="saveManageCustomer_customerAddress_billingAddress_billingCustomerName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing Customer Name">Customer Name:<span class="s30">*</span></td>
+                         <td class="td2" colspan="2"><input type="text" required="required" name="billingCustomerName" value="<?php echo @$customer_data->billing_customer_name;?>" id="saveManageCustomer_customerAddress_billingAddress_billingCustomerName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Contact Name:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="billingContactName" value="<?php echo @$customer_data->billing_contact_name;?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing Contact Name">Contact Name:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" required="required" name="billingContactName" value="<?php echo @$customer_data->billing_contact_name;?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactName" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Contact Title:</td>
                             <td class="td2" colspan="2"><input type="text" name="billingContactTitle" value="<?php echo @$customer_data->billing_contact_title;?>" id="saveManageCustomer_customerAddress_billingAddress_billingContactTitle" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Address:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="billingAddress1" value="<?php echo @$customer_data->billing_address;?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress1" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing Address">Address:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" required="required" name="billingAddress1" value="<?php echo @$customer_data->billing_address;?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress1" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">&nbsp;</td>
                             <td class="td2" colspan="2"><input type="text" name="billingAddress2" value="<?php echo @$customer_data->billing_address2;?>" id="saveManageCustomer_customerAddress_billingAddress_billingAddress2" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
-                            <td class="td1">City:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="billingCity" value="<?php echo @$customer_data->billing_city;?>" id="saveManageCustomer_customerAddress_billingAddress_billingCity" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing City">City:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" required="required" name="billingCity" value="<?php echo @$customer_data->billing_city;?>" id="saveManageCustomer_customerAddress_billingAddress_billingCity" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Country:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><select name="billingCountry" id="saveManageCustomer_customerAddress_billingAddress_billingCountry" class="form-control uppercase" group="billing-address" readonly="readonly">
-    <option value="0">Select a country</option>
-    <option value="12" selected="selected">Australia</option>
-</select>
+                            <td class="td1" data-label="Billing Country">Country:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2">
+                            <select name="billingCountry" required="required" id="saveManageCustomer_customerAddress_billingAddress_billingCountry" class="form-control uppercase" group="billing-address" readonly="readonly">
+                                   <option value="0">S elect a Country</option>
+                                   <option value="12" selected="selected">Australia</option>
+                                </select>
 
-</td>
+                        </td>
                         </tr>
                         <tr>
                             <td class="td1">Postal Code:</td>
@@ -711,7 +729,7 @@ if(isset($submit_id))
                         <td class="td2" colspan="2"><input type="text" name="billingStateCode" value="<?php echo @$customer_data->billing_state_code;?>" id="saveManageCustomer_customerAddress_billingAddress_billingStateCode" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
-                            <td class="td1">Phone:<span class="s30">*</span></td>
+                            <td class="td1" data-label="Billing Phone">Phone:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><input type="text" name="billingPhone" value="<?php echo @$customer_data->billing_phone;?>" id="saveManageCustomer_customerAddress_billingAddress_billingPhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
@@ -723,8 +741,8 @@ if(isset($submit_id))
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1">Email:</td>
-                            <td class="td2" colspan="2"><input type="text" name="billingEmail" value="<?php echo @$customer_data->billing_email;?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing Email">Email:<span class="s30">*</span></td>
+                            <td class="td2" colspan="2"><input type="text" required="required" name="billingEmail" value="<?php echo @$customer_data->billing_email;?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
@@ -798,7 +816,10 @@ if(isset($submit_id))
             </div>
         </div>
     </div>
+    </form>
 <script type="text/javascript">
+
+
     $(document).ready(function () {
         enableDisableBillingAddress();
         // Bind on keyup event handler to the inputs that it's group is address
@@ -855,21 +876,6 @@ if(isset($submit_id))
 
 </script></div>
     <div id="base-rates-tab" class="tab-pane fade">
-
-
-
-<style type="text/css">
-    .scroll_horizontal {
-        overflow-x: auto;
-        overflow-y: hidden;
-        min-height: 55px;
-        width: 100%;
-    }
-
-    .div_baseRate input {
-        min-width: 50px;
-    }
-</style>
 
     <div id="Base-tab" class="tab-pane fade in">
         <div class="row">
@@ -1027,855 +1033,20 @@ if(isset($submit_id))
                                                             
                                                         </ul>
                                                     </div>
-                                                    <div id="hidden-input-1-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].baserateDescription" value="DHL Worldwide Express - Documents" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__baserateDescription" data-index="0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__weight" data-index="0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].shipmentTypeId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__shipmentTypeId" data-index="0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__customerCode" data-index="0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__content" data-index="0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__bound" data-index="0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].carrierId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__carrierId" data-index="0">
-                                                    </div>
+                                                   
                                                 </div>
                                             
                                         </div>
                                     
-                                        <div id="shipment_type_1_1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="1_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL Worldwide Express - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="1" data-content="1" data-bound="0" data-serviceid="1" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="1"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__rateType" class="form-control" data-index="1">
-    <option value="0">DHL</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].rate" maxlength="25" value="35.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="1">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',1,1,0,1)" class="b19" data-sheet-id="534" data-perweight-sheet-id="535" data-nc-sheet-id="449" data-nc-perweight-sheet-id="450"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="1"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_1__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[1].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="1" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="2" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[1].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="3" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[2].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="4" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[3].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="5" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[4].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="6" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[5].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="7" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[6].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="8" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[7].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="9" disabled="disabled" type="text" data-group="zone-name"> <input data-index="1" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerBaseRateDetails[8].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="35.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-1-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].baserateDescription" value="DHL Worldwide Express - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__baserateDescription" data-index="1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__weight" data-index="1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].shipmentTypeId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__shipmentTypeId" data-index="1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__customerCode" data-index="1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__content" data-index="1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__bound" data-index="1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[1].carrierId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_1__carrierId" data-index="1">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
+                                        
                                     
-                                        <div id="shipment_type_1_0_1">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="1_0_1" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL Worldwide Express - Documents (Inbound)</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="1" data-content="0" data-bound="1" data-serviceid="1" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="2"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__rateType" class="form-control" data-index="2">
-    <option value="0">DHL</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="2">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',1,0,1,1)" class="b19" data-sheet-id="536" data-perweight-sheet-id="0" data-nc-sheet-id="432" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="2"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_2__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[2].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="1" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="2" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[1].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="3" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[2].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="4" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[3].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="5" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[4].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="6" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[5].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="7" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[6].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="8" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[7].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="9" disabled="disabled" type="text" data-group="zone-name"> <input data-index="2" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerBaseRateDetails[8].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-1-0-1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].baserateDescription" value="DHL Worldwide Express - Documents (Inbound)" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__baserateDescription" data-index="2">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__weight" data-index="2">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].shipmentTypeId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__shipmentTypeId" data-index="2">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__customerCode" data-index="2">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__content" data-index="2">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].bound" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__bound" data-index="2">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[2].carrierId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_2__carrierId" data-index="2">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_1_1_1">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="1_1_1" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL Worldwide Express - Package (Inbound)</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="1" data-content="1" data-bound="1" data-serviceid="1" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="3"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__rateType" class="form-control" data-index="3">
-    <option value="0">DHL</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="3">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',1,1,1,1)" class="b19" data-sheet-id="537" data-perweight-sheet-id="538" data-nc-sheet-id="433" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="3"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_3__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[3].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="1" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="2" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[1].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="3" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[2].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="4" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[3].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="5" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[4].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="6" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[5].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="7" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[6].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="8" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[7].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="9" disabled="disabled" type="text" data-group="zone-name"> <input data-index="3" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerBaseRateDetails[8].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-1-1-1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].baserateDescription" value="DHL Worldwide Express - Package (Inbound)" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__baserateDescription" data-index="3">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__weight" data-index="3">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].shipmentTypeId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__shipmentTypeId" data-index="3">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__customerCode" data-index="3">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__content" data-index="3">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].bound" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__bound" data-index="3">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[3].carrierId" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_3__carrierId" data-index="3">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
+                                     
+                              
                                     
                                 </div>
                             </div>
                         </div>
-                        <!-- DHL Dom -->
-                        <div id="cust_base_rates_dhl_dom_tab" class="tab-pane fade in">
-                            <div class="row">
-                                <div data-type="print-rate-sheet" class="portlet-body b12 b11">
-                                    <!-- Print Rate Sheet -->
-                                    <div class="form-group">
-                                        <table class="s36">
-                                            <tbody><tr>
-                                                <td>Print Rate Sheets</td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheetCheckAll($(this))">
-                                                        Check All
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheetCheckNone($(this))">
-                                                        Check None
-                                                    </button>
-                                                </td>
-                                                <td>
-                                                    <button class="btn s37" type="button" onclick="printRateSheet($(this))">
-                                                        Print Checked Rate Sheets
-                                                    </button>
-                                                </td>
-                                                <td><input type="checkbox" data-type="pdf-format" onchange="rateSheetFormatChange($(this))"></td>
-                                                <td>Pdf</td>
-                                                <td><input type="checkbox" data-type="excel-format" onchange="rateSheetFormatChange($(this))"></td>
-                                                <td>Excel</td>
-                                            </tr>
-                                        </tbody></table>
-                                    </div>
-                                    <!-- Service Type List -->
-                                    
-                                        <div id="shipment_type_73_-1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="73_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL domestic</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="73" data-content="-1" data-bound="0" data-serviceid="15" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="4"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__rateType" class="form-control" data-index="4">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="4">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',73,-1,0,15)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="4"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_4__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[4].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-73-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].baserateDescription" value="DHL domestic" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__baserateDescription" data-index="4">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__weight" data-index="4">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].shipmentTypeId" value="73" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__shipmentTypeId" data-index="4">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__customerCode" data-index="4">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__content" data-index="4">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__bound" data-index="4">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[4].carrierId" value="15" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_4__carrierId" data-index="4">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_167_-1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="167_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL domestic</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="167" data-content="-1" data-bound="0" data-serviceid="15" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="5"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__rateType" class="form-control" data-index="5">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="5">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',167,-1,0,15)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="5"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_5__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[5].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-167-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].baserateDescription" value="DHL domestic" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__baserateDescription" data-index="5">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__weight" data-index="5">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].shipmentTypeId" value="167" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__shipmentTypeId" data-index="5">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__customerCode" data-index="5">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__content" data-index="5">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__bound" data-index="5">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[5].carrierId" value="15" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_5__carrierId" data-index="5">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_57_-1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="57_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL domestic</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="57" data-content="-1" data-bound="0" data-serviceid="15" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="6"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__rateType" class="form-control" data-index="6">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="6">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',57,-1,0,15)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="6"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_6__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[6].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-57-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].baserateDescription" value="DHL domestic" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__baserateDescription" data-index="6">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__weight" data-index="6">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].shipmentTypeId" value="57" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__shipmentTypeId" data-index="6">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__customerCode" data-index="6">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__content" data-index="6">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__bound" data-index="6">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[6].carrierId" value="15" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_6__carrierId" data-index="6">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_165_-1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="165_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL domestic</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="165" data-content="-1" data-bound="0" data-serviceid="15" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="7"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__rateType" class="form-control" data-index="7">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="7">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',165,-1,0,15)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="7"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_7__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[7].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-165-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].baserateDescription" value="DHL domestic" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__baserateDescription" data-index="7">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__weight" data-index="7">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].shipmentTypeId" value="165" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__shipmentTypeId" data-index="7">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__customerCode" data-index="7">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__content" data-index="7">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__bound" data-index="7">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[7].carrierId" value="15" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_7__carrierId" data-index="7">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_53_1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="53_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">DHL Domestic Express - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="53" data-content="1" data-bound="0" data-serviceid="15" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="8"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__rateType" class="form-control" data-index="8">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="8">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',53,1,0,15)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="8"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_8__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[8].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-53-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].baserateDescription" value="DHL Domestic Express - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__baserateDescription" data-index="8">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__weight" data-index="8">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].shipmentTypeId" value="53" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__shipmentTypeId" data-index="8">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__customerCode" data-index="8">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__content" data-index="8">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__bound" data-index="8">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[8].carrierId" value="15" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_8__carrierId" data-index="8">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                     
                         <!-- TNT Dom -->
                         <div id="cust_base_rates_tnt_dom_tab" class="tab-pane fade in">
                             <div class="row">
@@ -4148,7 +3319,7 @@ if(isset($submit_id))
                                                 </div>
                                             
                                         </div>
-                                    
+                                        
                                         <div id="shipment_type_22_-1_0">
                                             
                                                 
@@ -4766,15 +3937,7 @@ if(isset($submit_id))
                                                             <div class="pull-left c32">
                                                                 <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="43"></i>
                                                             </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__rateType" class="form-control" data-index="43">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
+                                                          
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
                                                                     <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="43">
@@ -4793,1528 +3956,19 @@ if(isset($submit_id))
                                                             </div>
                                                         </div>
                                                     </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="43"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_43__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[43].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-213-1-1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].baserateDescription" value="Express - Package (Inbound)" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__baserateDescription" data-index="43">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__weight" data-index="43">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].shipmentTypeId" value="213" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__shipmentTypeId" data-index="43">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__customerCode" data-index="43">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__content" data-index="43">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].bound" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__bound" data-index="43">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[43].carrierId" value="54" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_43__carrierId" data-index="43">
-                                                    </div>
+                                                  
                                                 </div>
                                             
                                         </div>
                                     
-                                        <div id="shipment_type_151_1_1">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="151_1_1" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Express Old - Package (Inbound)</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="151" data-content="1" data-bound="1" data-serviceid="54" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="44"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__rateType" class="form-control" data-index="44">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="44">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',151,1,1,54)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="44"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_44__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[44].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-151-1-1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].baserateDescription" value="Express Old - Package (Inbound)" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__baserateDescription" data-index="44">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__weight" data-index="44">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].shipmentTypeId" value="151" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__shipmentTypeId" data-index="44">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__customerCode" data-index="44">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__content" data-index="44">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].bound" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__bound" data-index="44">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[44].carrierId" value="54" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_44__carrierId" data-index="44">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
+                                      
                                     
-                                        <div id="shipment_type_214_1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="214_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Economy Express - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="214" data-content="1" data-bound="0" data-serviceid="54" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="45"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__rateType" class="form-control" data-index="45">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="45">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',214,1,0,54)" class="b19" data-sheet-id="404" data-perweight-sheet-id="405" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="45"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_45__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[45].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-214-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].baserateDescription" value="Economy Express - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__baserateDescription" data-index="45">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__weight" data-index="45">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].shipmentTypeId" value="214" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__shipmentTypeId" data-index="45">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__customerCode" data-index="45">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__content" data-index="45">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__bound" data-index="45">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[45].carrierId" value="54" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_45__carrierId" data-index="45">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_164_1_0">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="164_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Economy Express Old - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="164" data-content="1" data-bound="0" data-serviceid="54" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="46"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__rateType" class="form-control" data-index="46">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="46">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',164,1,0,54)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="46"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_46__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[46].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-164-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].baserateDescription" value="Economy Express Old - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__baserateDescription" data-index="46">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__weight" data-index="46">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].shipmentTypeId" value="164" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__shipmentTypeId" data-index="46">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__customerCode" data-index="46">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__content" data-index="46">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__bound" data-index="46">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[46].carrierId" value="54" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_46__carrierId" data-index="46">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_164_1_1">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="164_1_1" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Economy Express Old - Package (Inbound)</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="164" data-content="1" data-bound="1" data-serviceid="54" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="47"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__rateType" class="form-control" data-index="47">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="47">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',164,1,1,54)" class="b19" data-sheet-id="0" data-perweight-sheet-id="0" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="47"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_47__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[47].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-164-1-1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].baserateDescription" value="Economy Express Old - Package (Inbound)" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__baserateDescription" data-index="47">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__weight" data-index="47">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].shipmentTypeId" value="164" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__shipmentTypeId" data-index="47">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__customerCode" data-index="47">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__content" data-index="47">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].bound" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__bound" data-index="47">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[47].carrierId" value="54" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_47__carrierId" data-index="47">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div id="shipment_type_214_1_1">
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="214_1_1" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Economy Express - Package (Inbound)</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                
-                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" data-customercode="10000018" data-shipmenttypeid="214" data-content="1" data-bound="1" data-serviceid="54" style="margin-top: 6px;">
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-remove" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-remove"><i onclick="removeWeightBreak($(this))" style="color: red; font-size: 18px; padding-top: 3px;" class="fa fa-times s10 b3"></i></span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="br-weight" style="display: none;">
-                                                                <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
-                                                                </a>
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="48"></i>
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__rateType" class="form-control" data-index="48">
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="base-rate">
-                                                                
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="48">
-                                                                
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                            <div class="pull-left c32a">
-                                                                <a href="javascript:void(0)" onclick="viewRateSheet('10000018',214,1,1,54)" class="b19" data-sheet-id="407" data-perweight-sheet-id="406" data-nc-sheet-id="0" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
-                                                            </div>
-                                                            <div class="pull-left c32a">
-                                                                
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
-                                                                
-                                                                
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
-                                                        <ul class="c36" style="width: 14324px; overflow: hidden;">
-                                                            <li class="pull-left c35" style="margin-left: 40px;">
-                                                                <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="48"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_48__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[48].zoneCheck" value="true"></li>
-                                                            <li class="pull-left c35" style="padding: 5px;">
-                                                                By Zone:
-                                                            </li>
-                                                            
-                                                        </ul>
-                                                    </div>
-                                                    <div id="hidden-input-214-1-1">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].baserateDescription" value="Economy Express - Package (Inbound)" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__baserateDescription" data-index="48">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__weight" data-index="48">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].shipmentTypeId" value="214" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__shipmentTypeId" data-index="48">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__customerCode" data-index="48">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__content" data-index="48">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].bound" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__bound" data-index="48">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[48].carrierId" value="54" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_48__carrierId" data-index="48">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
                                     
                                 </div>
                             </div>
                         </div>
-                        <!-- Toll priority -->
-                        <div id="cust_base_rates_toll_priority_tab" class="tab-pane fade in">
-                            <div class="row">
-                                <div class="portlet-body b12 b11">
-                                    <!-- Service Type List -->
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="172_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Parcels Overnight</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__rateType" class="form-control" data-index="49">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].rate" maxlength="25" value="50.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="49">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-172-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].baserateDescription" value="Parcels Overnight" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__baserateDescription" data-index="49">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__weight" data-index="49">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].shipmentTypeId" value="172" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__shipmentTypeId" data-index="49">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__customerCode" data-index="49">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__content" data-index="49">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__bound" data-index="49">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[49].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_49__carrierId" data-index="49">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="173_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Parcels OffPeak</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__rateType" class="form-control" data-index="50">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].rate" maxlength="25" value="50.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="50">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-173-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].baserateDescription" value="Parcels OffPeak" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__baserateDescription" data-index="50">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__weight" data-index="50">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].shipmentTypeId" value="173" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__shipmentTypeId" data-index="50">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__customerCode" data-index="50">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__content" data-index="50">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__bound" data-index="50">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[50].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_50__carrierId" data-index="50">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="174_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Parcels SameDay</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__rateType" class="form-control" data-index="51">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="51">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-174-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].baserateDescription" value="Parcels SameDay" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__baserateDescription" data-index="51">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__weight" data-index="51">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].shipmentTypeId" value="174" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__shipmentTypeId" data-index="51">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__customerCode" data-index="51">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__content" data-index="51">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__bound" data-index="51">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[51].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_51__carrierId" data-index="51">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="175_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Auswide 1kg Satchel</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__rateType" class="form-control" data-index="52">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="52">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-175-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].baserateDescription" value="Auswide 1kg Satchel" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__baserateDescription" data-index="52">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__weight" data-index="52">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].shipmentTypeId" value="175" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__shipmentTypeId" data-index="52">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__customerCode" data-index="52">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__content" data-index="52">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__bound" data-index="52">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[52].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_52__carrierId" data-index="52">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="219_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">FUTILE PICKUP</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__rateType" class="form-control" data-index="53">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="53">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-219-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].baserateDescription" value="FUTILE PICKUP" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__baserateDescription" data-index="53">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__weight" data-index="53">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].shipmentTypeId" value="219" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__shipmentTypeId" data-index="53">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__customerCode" data-index="53">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__content" data-index="53">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__bound" data-index="53">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[53].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_53__carrierId" data-index="53">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="176_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Auswide 3kg Satchel</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__rateType" class="form-control" data-index="54">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="54">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-176-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].baserateDescription" value="Auswide 3kg Satchel" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__baserateDescription" data-index="54">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__weight" data-index="54">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].shipmentTypeId" value="176" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__shipmentTypeId" data-index="54">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__customerCode" data-index="54">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__content" data-index="54">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__bound" data-index="54">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[54].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_54__carrierId" data-index="54">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="177_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Auswide 5kg Satchel</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__rateType" class="form-control" data-index="55">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="55">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-177-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].baserateDescription" value="Auswide 5kg Satchel" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__baserateDescription" data-index="55">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__weight" data-index="55">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].shipmentTypeId" value="177" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__shipmentTypeId" data-index="55">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__customerCode" data-index="55">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__content" data-index="55">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__bound" data-index="55">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[55].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_55__carrierId" data-index="55">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="178_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Saturday/Afterhours</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__rateType" class="form-control" data-index="56">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="56">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-178-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].baserateDescription" value="Saturday/Afterhours" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__baserateDescription" data-index="56">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__weight" data-index="56">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].shipmentTypeId" value="178" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__shipmentTypeId" data-index="56">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__customerCode" data-index="56">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__content" data-index="56">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__bound" data-index="56">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[56].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_56__carrierId" data-index="56">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="179_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Sunday/Public Holidays</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__rateType" class="form-control" data-index="57">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="57">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-179-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].baserateDescription" value="Sunday/Public Holidays" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__baserateDescription" data-index="57">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__weight" data-index="57">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].shipmentTypeId" value="179" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__shipmentTypeId" data-index="57">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__customerCode" data-index="57">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__content" data-index="57">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__bound" data-index="57">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[57].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_57__carrierId" data-index="57">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="196_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Redelivery</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__rateType" class="form-control" data-index="58">
-    <option value="0">Toll Priority</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="58">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <div id="hidden-input-196-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].baserateDescription" value="Redelivery" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__baserateDescription" data-index="58">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__weight" data-index="58">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].shipmentTypeId" value="196" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__shipmentTypeId" data-index="58">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__customerCode" data-index="58">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__content" data-index="58">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__bound" data-index="58">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[58].carrierId" value="52" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_58__carrierId" data-index="58">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Toll Ipec -->
-                        <div id="cust_base_rates_toll_ipec_tab" class="tab-pane fade in">
-                            <div class="row">
-                                <div class="portlet-body b12 b11">
-                                    <!-- Service Type List -->
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="215_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">PRIORITY - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__rateType" class="form-control" data-index="59">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="59">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-215-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].baserateDescription" value="PRIORITY - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__baserateDescription" data-index="59">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__weight" data-index="59">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].shipmentTypeId" value="215" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__shipmentTypeId" data-index="59">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__customerCode" data-index="59">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__content" data-index="59">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__bound" data-index="59">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[59].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_59__carrierId" data-index="59">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="216_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">ROAD EXPRESS - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__rateType" class="form-control" data-index="60">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].rate" maxlength="25" value="50.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="60">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-216-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].baserateDescription" value="ROAD EXPRESS - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__baserateDescription" data-index="60">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__weight" data-index="60">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].shipmentTypeId" value="216" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__shipmentTypeId" data-index="60">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__customerCode" data-index="60">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__content" data-index="60">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__bound" data-index="60">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[60].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_60__carrierId" data-index="60">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="217_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">TOLL DIRECT - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__rateType" class="form-control" data-index="61">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="61">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-217-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].baserateDescription" value="TOLL DIRECT - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__baserateDescription" data-index="61">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__weight" data-index="61">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].shipmentTypeId" value="217" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__shipmentTypeId" data-index="61">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__customerCode" data-index="61">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__content" data-index="61">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__bound" data-index="61">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[61].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_61__carrierId" data-index="61">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="107_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Priority Same Day - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__rateType" class="form-control" data-index="62">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="62">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-107-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].baserateDescription" value="Priority Same Day - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__baserateDescription" data-index="62">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__weight" data-index="62">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].shipmentTypeId" value="107" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__shipmentTypeId" data-index="62">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__customerCode" data-index="62">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__content" data-index="62">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__bound" data-index="62">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[62].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_62__carrierId" data-index="62">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="108_0_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Road Other Charge - Documents</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__rateType" class="form-control" data-index="63">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="63">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-108-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].baserateDescription" value="Road Other Charge - Documents" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__baserateDescription" data-index="63">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__weight" data-index="63">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].shipmentTypeId" value="108" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__shipmentTypeId" data-index="63">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__customerCode" data-index="63">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__content" data-index="63">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__bound" data-index="63">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[63].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_63__carrierId" data-index="63">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="108_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Road Other Charge - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__rateType" class="form-control" data-index="64">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="64">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-108-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].baserateDescription" value="Road Other Charge - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__baserateDescription" data-index="64">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__weight" data-index="64">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].shipmentTypeId" value="108" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__shipmentTypeId" data-index="64">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__customerCode" data-index="64">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__content" data-index="64">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__bound" data-index="64">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[64].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_64__carrierId" data-index="64">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="109_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Local Other Charge - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__rateType" class="form-control" data-index="65">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="65">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-109-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].baserateDescription" value="Local Other Charge - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__baserateDescription" data-index="65">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__weight" data-index="65">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].shipmentTypeId" value="109" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__shipmentTypeId" data-index="65">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__customerCode" data-index="65">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__content" data-index="65">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__bound" data-index="65">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[65].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_65__carrierId" data-index="65">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="110_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Priority Other Charge - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__rateType" class="form-control" data-index="66">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="66">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-110-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].baserateDescription" value="Priority Other Charge - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__baserateDescription" data-index="66">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__weight" data-index="66">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].shipmentTypeId" value="110" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__shipmentTypeId" data-index="66">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__customerCode" data-index="66">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__content" data-index="66">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__bound" data-index="66">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[66].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_66__carrierId" data-index="66">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="111_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Manual Prepaid Sales - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__rateType" class="form-control" data-index="67">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="67">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-111-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].baserateDescription" value="Manual Prepaid Sales - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__baserateDescription" data-index="67">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__weight" data-index="67">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].shipmentTypeId" value="111" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__shipmentTypeId" data-index="67">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__customerCode" data-index="67">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__content" data-index="67">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__bound" data-index="67">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[67].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_67__carrierId" data-index="67">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="112_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Fashion Other Charge - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__rateType" class="form-control" data-index="68">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="68">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-112-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].baserateDescription" value="Fashion Other Charge - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__baserateDescription" data-index="68">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__weight" data-index="68">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].shipmentTypeId" value="112" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__shipmentTypeId" data-index="68">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__customerCode" data-index="68">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__content" data-index="68">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__bound" data-index="68">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[68].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_68__carrierId" data-index="68">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="113_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Local - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__rateType" class="form-control" data-index="69">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="69">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-113-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].baserateDescription" value="Local - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__baserateDescription" data-index="69">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__weight" data-index="69">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].shipmentTypeId" value="113" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__shipmentTypeId" data-index="69">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__customerCode" data-index="69">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__content" data-index="69">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__bound" data-index="69">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[69].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_69__carrierId" data-index="69">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="114_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Trans Tasman - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__rateType" class="form-control" data-index="70">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="70">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-114-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].baserateDescription" value="Trans Tasman - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__baserateDescription" data-index="70">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__weight" data-index="70">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].shipmentTypeId" value="114" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__shipmentTypeId" data-index="70">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__customerCode" data-index="70">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__content" data-index="70">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__bound" data-index="70">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[70].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_70__carrierId" data-index="70">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="116_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Fashion - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__rateType" class="form-control" data-index="71">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="71">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-116-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].baserateDescription" value="Fashion - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__baserateDescription" data-index="71">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__weight" data-index="71">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].shipmentTypeId" value="116" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__shipmentTypeId" data-index="71">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__customerCode" data-index="71">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__content" data-index="71">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__bound" data-index="71">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[71].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_71__carrierId" data-index="71">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="117_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">Sensitive Freight - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__rateType" class="form-control" data-index="72">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="72">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-117-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].baserateDescription" value="Sensitive Freight - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__baserateDescription" data-index="72">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__weight" data-index="72">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].shipmentTypeId" value="117" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__shipmentTypeId" data-index="72">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__customerCode" data-index="72">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__content" data-index="72">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__bound" data-index="72">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[72].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_72__carrierId" data-index="72">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="118_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">VIC Express - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__rateType" class="form-control" data-index="73">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="73">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-118-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].baserateDescription" value="VIC Express - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__baserateDescription" data-index="73">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__weight" data-index="73">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].shipmentTypeId" value="118" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__shipmentTypeId" data-index="73">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__customerCode" data-index="73">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__content" data-index="73">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__bound" data-index="73">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[73].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_73__carrierId" data-index="73">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                        <div>
-                                            
-                                                
-                                                <!-- Customer base rate -->
-                                                <div class="form-group base-rate-row" data-baserate="119_1_0" data-weight="0.00">
-                                                    <div class="base-rate">
-                                                        <div class="well well-sm pull-left c33" style="width: 100%">
-                                                            <div class="pull-left c32" style="padding: 5px; width: 250px;">
-                                                                
-                                                                    <span class="br-display-name">VIC Express Returns - Package</span>
-                                                                
-                                                            </div>
-                                                            <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__rateType" class="form-control" data-index="74">
-    <option value="0">Toll Ipec</option>
-    <option value="1" selected="selected">% Margin</option>
-
-
-</select>
-
-
-                                                            </div>
-                                                            <div class="pull-left c32">
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].rate" maxlength="25" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="74">
-                                                            </div>
-                                                            <div class="pull-left c32a">%</div>
-                                                        </div>
-                                                    </div>
-                                                    <!-- Customer base rate detail -->
-                                                    <div id="hidden-input-119-1-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].baserateDescription" value="VIC Express Returns - Package" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__baserateDescription" data-index="74">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__weight" data-index="74">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].shipmentTypeId" value="119" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__shipmentTypeId" data-index="74">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__customerCode" data-index="74">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].content" value="1" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__content" data-index="74">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__bound" data-index="74">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[74].carrierId" value="59" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_74__carrierId" data-index="74">
-                                                    </div>
-                                                </div>
-                                            
-                                        </div>
-                                    
-                                </div>
-                            </div>
-                        </div>
+                       
+                       
                         <!-- Star Track -->
                         <div id="cust_base_rates_star_track_tab" class="tab-pane fade active in">
                             <div class="row">
@@ -6496,9 +4150,13 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
                                                             <div class="pull-left c32a">
-                                                            <a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal" onclick="get_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')">
-  View
-</a>
+                                                         <?php  if($value['service_name'] == "Overnight" || $value['service_name'] == "Road Express") { ?>
+                                             <a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal" onclick="get_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')"> View</a>   
+
+<?php } else { ?>
+                                                            
+<a href="#" class="road_exp" data-toggle="modal" data-target="#fixed3Modal" onclick="get_fix_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')">View</a>
+<?php } ?>
                                                             </div>
                                                             <div class="pull-left c32a">
                                                                 
@@ -6516,700 +4174,25 @@ if(isset($submit_id))
                                                             <li class="pull-left c35" style="padding: 5px;">
                                                                 By Zone:
                                                             </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="A10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[1].zone" class="form-control alloptions text-center" maxlength="25" value="ABY" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[1].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[2].zone" class="form-control alloptions text-center" maxlength="25" value="AC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[2].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[3].zone" class="form-control alloptions text-center" maxlength="25" value="AC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[3].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[4].zone" class="form-control alloptions text-center" maxlength="25" value="AC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[4].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[5].zone" class="form-control alloptions text-center" maxlength="25" value="AC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[5].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[6].zone" class="form-control alloptions text-center" maxlength="25" value="AC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[6].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[7].zone" class="form-control alloptions text-center" maxlength="25" value="AC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[7].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[8].zone" class="form-control alloptions text-center" maxlength="25" value="AC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[8].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[9].zone" class="form-control alloptions text-center" maxlength="25" value="AC8" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[9].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[10].zone" class="form-control alloptions text-center" maxlength="25" value="AC9" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[10].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[11].zone" class="form-control alloptions text-center" maxlength="25" value="ADL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[11].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[12].zone" class="form-control alloptions text-center" maxlength="25" value="ALB" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[12].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[13].zone" class="form-control alloptions text-center" maxlength="25" value="ASP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[13].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[14].zone" class="form-control alloptions text-center" maxlength="25" value="AYR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[14].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[15].zone" class="form-control alloptions text-center" maxlength="25" value="BNA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[15].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[16].zone" class="form-control alloptions text-center" maxlength="25" value="BOR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[16].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[17].zone" class="form-control alloptions text-center" maxlength="25" value="BOT" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[17].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[18].zone" class="form-control alloptions text-center" maxlength="25" value="BRK" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[18].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[19].zone" class="form-control alloptions text-center" maxlength="25" value="BRO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[19].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[20].zone" class="form-control alloptions text-center" maxlength="25" value="BRS" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[20].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[21].zone" class="form-control alloptions text-center" maxlength="25" value="BUN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[21].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[22].zone" class="form-control alloptions text-center" maxlength="25" value="CBR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[22].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[23].zone" class="form-control alloptions text-center" maxlength="25" value="COF" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[23].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[24].zone" class="form-control alloptions text-center" maxlength="25" value="CRN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[24].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[25].zone" class="form-control alloptions text-center" maxlength="25" value="CUE" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[25].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[26].zone" class="form-control alloptions text-center" maxlength="25" value="D10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[26].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[27].zone" class="form-control alloptions text-center" maxlength="25" value="DAR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[27].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[28].zone" class="form-control alloptions text-center" maxlength="25" value="DC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[28].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[29].zone" class="form-control alloptions text-center" maxlength="25" value="DC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[29].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[30].zone" class="form-control alloptions text-center" maxlength="25" value="DC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[30].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[31].zone" class="form-control alloptions text-center" maxlength="25" value="DER" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[31].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[32].zone" class="form-control alloptions text-center" maxlength="25" value="GER" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[32].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[33].zone" class="form-control alloptions text-center" maxlength="25" value="GLA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[33].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[34].zone" class="form-control alloptions text-center" maxlength="25" value="GLD" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[34].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[35].zone" class="form-control alloptions text-center" maxlength="25" value="GOS" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[35].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[36].zone" class="form-control alloptions text-center" maxlength="25" value="GYM" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[36].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[37].zone" class="form-control alloptions text-center" maxlength="25" value="HC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[37].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[38].zone" class="form-control alloptions text-center" maxlength="25" value="HC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[38].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[39].zone" class="form-control alloptions text-center" maxlength="25" value="HOB" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[39].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[40].zone" class="form-control alloptions text-center" maxlength="25" value="ISA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[40].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[41].zone" class="form-control alloptions text-center" maxlength="25" value="KAL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[41].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[42].zone" class="form-control alloptions text-center" maxlength="25" value="KAR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[42].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[43].zone" class="form-control alloptions text-center" maxlength="25" value="L10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[43].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[44].zone" class="form-control alloptions text-center" maxlength="25" value="LC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[44].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[45].zone" class="form-control alloptions text-center" maxlength="25" value="LC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[45].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[46].zone" class="form-control alloptions text-center" maxlength="25" value="LC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[46].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[47].zone" class="form-control alloptions text-center" maxlength="25" value="LCN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[47].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[48].zone" class="form-control alloptions text-center" maxlength="25" value="LIS" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[48].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[49].zone" class="form-control alloptions text-center" maxlength="25" value="MAC" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[49].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[50].zone" class="form-control alloptions text-center" maxlength="25" value="MAR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[50].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[51].zone" class="form-control alloptions text-center" maxlength="25" value="MCT" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[51].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[52].zone" class="form-control alloptions text-center" maxlength="25" value="MEE" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[52].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[53].zone" class="form-control alloptions text-center" maxlength="25" value="MEL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[53].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[54].zone" class="form-control alloptions text-center" maxlength="25" value="MNO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[54].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[55].zone" class="form-control alloptions text-center" maxlength="25" value="MON" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[55].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[56].zone" class="form-control alloptions text-center" maxlength="25" value="MOR" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[56].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[57].zone" class="form-control alloptions text-center" maxlength="25" value="MRP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[57].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[58].zone" class="form-control alloptions text-center" maxlength="25" value="MSE" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[58].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[59].zone" class="form-control alloptions text-center" maxlength="25" value="MTG" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[59].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[60].zone" class="form-control alloptions text-center" maxlength="25" value="MTM" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[60].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[61].zone" class="form-control alloptions text-center" maxlength="25" value="N10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[61].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[62].zone" class="form-control alloptions text-center" maxlength="25" value="NC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[62].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[63].zone" class="form-control alloptions text-center" maxlength="25" value="NC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[63].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[64].zone" class="form-control alloptions text-center" maxlength="25" value="NC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[64].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[65].zone" class="form-control alloptions text-center" maxlength="25" value="NC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[65].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[66].zone" class="form-control alloptions text-center" maxlength="25" value="NC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[66].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[67].zone" class="form-control alloptions text-center" maxlength="25" value="NC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[67].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[68].zone" class="form-control alloptions text-center" maxlength="25" value="NCL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[68].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[69].zone" class="form-control alloptions text-center" maxlength="25" value="NCT" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[69].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[70].zone" class="form-control alloptions text-center" maxlength="25" value="PEN" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[70].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[71].zone" class="form-control alloptions text-center" maxlength="25" value="PER" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[71].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[72].zone" class="form-control alloptions text-center" maxlength="25" value="PRO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[72].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[73].zone" class="form-control alloptions text-center" maxlength="25" value="PTA" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[73].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[74].zone" class="form-control alloptions text-center" maxlength="25" value="PTH" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[74].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[75].zone" class="form-control alloptions text-center" maxlength="25" value="PTL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[75].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[76].zone" class="form-control alloptions text-center" maxlength="25" value="PTP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[76].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[77].zone" class="form-control alloptions text-center" maxlength="25" value="Q10" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[77].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[78].zone" class="form-control alloptions text-center" maxlength="25" value="QC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[78].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[79].zone" class="form-control alloptions text-center" maxlength="25" value="QC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[79].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[80].zone" class="form-control alloptions text-center" maxlength="25" value="QC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[80].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[81].zone" class="form-control alloptions text-center" maxlength="25" value="QC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[81].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[82].zone" class="form-control alloptions text-center" maxlength="25" value="QC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[82].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[83].zone" class="form-control alloptions text-center" maxlength="25" value="QC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[83].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[84].zone" class="form-control alloptions text-center" maxlength="25" value="QC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[84].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[85].zone" class="form-control alloptions text-center" maxlength="25" value="QC8" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[85].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[86].zone" class="form-control alloptions text-center" maxlength="25" value="QC9" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[86].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[87].zone" class="form-control alloptions text-center" maxlength="25" value="RIV" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[87].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[88].zone" class="form-control alloptions text-center" maxlength="25" value="ROC" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[88].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[89].zone" class="form-control alloptions text-center" maxlength="25" value="ROX" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[89].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[90].zone" class="form-control alloptions text-center" maxlength="25" value="SSC" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[90].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[91].zone" class="form-control alloptions text-center" maxlength="25" value="SYD" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[91].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[92].zone" class="form-control alloptions text-center" maxlength="25" value="TAM" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[92].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[93].zone" class="form-control alloptions text-center" maxlength="25" value="TVL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[93].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[94].zone" class="form-control alloptions text-center" maxlength="25" value="TWB" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[94].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[95].zone" class="form-control alloptions text-center" maxlength="25" value="VC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[95].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[96].zone" class="form-control alloptions text-center" maxlength="25" value="VC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[96].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[97].zone" class="form-control alloptions text-center" maxlength="25" value="VC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[97].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[98].zone" class="form-control alloptions text-center" maxlength="25" value="WC1" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[98].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[99].zone" class="form-control alloptions text-center" maxlength="25" value="WC2" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[99].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[100].zone" class="form-control alloptions text-center" maxlength="25" value="WC3" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[100].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[101].zone" class="form-control alloptions text-center" maxlength="25" value="WC4" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[101].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[102].zone" class="form-control alloptions text-center" maxlength="25" value="WC5" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[102].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[103].zone" class="form-control alloptions text-center" maxlength="25" value="WC6" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[103].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[104].zone" class="form-control alloptions text-center" maxlength="25" value="WC7" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[104].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[105].zone" class="form-control alloptions text-center" maxlength="25" value="WC8" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[105].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[106].zone" class="form-control alloptions text-center" maxlength="25" value="WC9" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[106].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[107].zone" class="form-control alloptions text-center" maxlength="25" value="WCO" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[107].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[108].zone" class="form-control alloptions text-center" maxlength="25" value="WHY" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[108].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[109].zone" class="form-control alloptions text-center" maxlength="25" value="WOL" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[109].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                                <li>
-                                                                    <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[110].zone" class="form-control alloptions text-center" maxlength="25" value="YKP" type="text" data-group="zone-name" readonly="readonly"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[110].rate" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
-                                                                    </div>
-                                                                </li>
-                                                            
-                                                        <
                                                             <?php
-                                                           /* $get_rates = get_ratess($value['id']);
-                                                            foreach ($get_rates as $key => $value) 
+                                                           // $get_rates = get_ratess($value['id']);
+                                                           // foreach ($get_rates as $key => $value) 
+                                                           foreach ($zones as $row)
                                                             {                                                              
                                                             ?>
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="<?php echo $value['origin']?>" disabled="disabled" type="text" data-group="zone-name"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="<?php echo $value['minimum']?>" data-group="zone-rate">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="<?php echo $row->origin?>" disabled="disabled" type="text" data-group="zone-name"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             <?php                                                            
-                                                             }  */                                                            
+                                                             }                                                              
                                                             ?>
                                                                 
                                                             
                                                         </ul>
                                                     </div>
-                                                    <div id="hidden-input-228-0-0">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].baserateDescription" value="Road Express" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__baserateDescription" data-index="75">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].weight" value="0.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__weight" data-index="75">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].shipmentTypeId" value="228" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__shipmentTypeId" data-index="75">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerCode" value="10000018" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__customerCode" data-index="75">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].content" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__content" data-index="75">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].bound" value="0" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__bound" data-index="75">
-                                                        <input type="hidden" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].carrierId" value="72" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__carrierId" data-index="75">
-                                                    </div>
+                                                
                                                 </div>
                                             
                                         </div>
@@ -7755,7 +4738,7 @@ if(isset($submit_id))
     <div class="portlet-body b12 b11">
         <div class="portlet-body b22" style="padding: 0px;">
             <ul id="manage-customer-webship-tabs" class="nav nav-tabs responsive">
-                <li class="active" style="margin-left: 10px;"><a href="#webship-users-tab" data-toggle="tab">Users</a>
+                <li style="margin-left: 10px;"><a href="#webship-users-tab" data-toggle="tab">Users</a>
                 </li>
                 <li><a href="#webship-carriers-tab" data-toggle="tab" class="tb3">Carriers</a></li>
                 <li><a href="#webship-customer-profile-tab" data-toggle="tab" class="tb3">Customer Profile</a></li>        
@@ -7810,7 +4793,7 @@ if(isset($submit_id))
                                             <?php for($i=0;$i<count($users);$i++)
                                             {
                                                 $date = $users[$i]['created_date']; 
-                                                $start= date('d-m-Y h:i:s', strtotime($date));
+                                                $start= date('m-d-Y h:i:s', strtotime($date));
 
                                                 if($users[$i]['customer_id'] == @$customer_data->customer_id){?>
                                               
@@ -7860,11 +4843,18 @@ if(isset($submit_id))
                                         
                                             
                                         
-                                            
-                                            
+                                          
+                                            <div id="sv-52" class="collapse">
+                                                
+                                                
+                                            </div>
                                         
-                                            
-                                            
+                                           
+                                            <div id="sv-59" class="collapse">
+                                                
+                                                   
+                                                
+                                            </div>
                                         
                                             <table class="s36 b24">
                                                 <tbody><tr>
@@ -7940,7 +4930,11 @@ if(isset($submit_id))
                                             </div>
                                         
                                            
-                                            
+                                            <div id="sv-400" class="collapse">
+                                                
+                                                   
+                                                
+                                            </div>
                                         
                                     
                                 
@@ -7950,21 +4944,16 @@ if(isset($submit_id))
                 </div>
                 
                 <div id="webship-customer-profile-tab" class="tab-pane fade in">
-                
                     <div class="row">
-                    <?php echo form_open_multipart('admin/do_upload');?>
-                    
                         <div class="portlet-body b12 b11">
                             <div class="form-group">
                                
 								    
 									<input type="hidden" name="file_path" value="" id="file_path"> 
-									<!--input type="file" name="userImage" value="" id="profile_image_upload" class="w10"-->
-                                    <input type='file' name='userfile' size='20' />
-                                    <input type='submit' name='submit' value='upload' />
+									<input type="file" name="userImage" value="" id="profile_image_upload" class="w10">
+								    
                             </div>
                         </div>
-                        <?php echo "</form>"?>
                     </div>
                 </div>
                 
@@ -8034,7 +5023,7 @@ $(".remove").click(function(){
     });
 
 
-    $(".del").click(function(){
+    $(".remove1").click(function(){
         var note_id = $(this).parents("tr").attr("data-accessorialid");
         if(confirm('Are you sure to remove this record ?'))
         {
@@ -8055,7 +5044,7 @@ $(".remove").click(function(){
     });
 
 
-function edituser()
+    function edituser()
 {
 
     $('#editModal').modal('show');
@@ -8111,7 +5100,7 @@ function edituser()
 
 
 
-    /*var webshipId = "";
+    var webshipId = "";
 
     $(document).ready(function () {
         $("#webship-list-result tr[webship-id]").click(function () {
@@ -8296,7 +5285,7 @@ function edituser()
         } else {
             loadWebshipDialog("");
         }
-    }*/
+    }
 
 
 </script></div>
@@ -8322,7 +5311,9 @@ function edituser()
            <tbody>
            <tr>
                <td style="border-top: 0px !important" colspan="">
-                   
+                   <div class="caption b17">
+                       Notes
+                   </div>
                </td>
            </tr>
            </tbody>
@@ -8342,27 +5333,22 @@ function edituser()
                <tbody>
                
                
-                  
-               <?php for($i=0;$i<count($user_note);$i++)
-                                            {
-                                                //$date = $user_note[$i]['created_date']; 
-                                                //$start= date('d-m-Y h:i:s', strtotime($date));
-
-                                                if($user_note[$i]['customer_id'] == @$customer_data->customer_id){?>
+                   <tr>
+                   <?php //for($i=0;$i<count($notes);$i++)
+                                      //    {
+                                              //  if($users[$i]['customer_id'] == @$customer_data->customer_id){?>
                                               
-                                              <tr class="on-click" data-accessorialid="<?php echo $users[$i]['id'];?>">
-                                                        <td><?php echo @$customer_data->customer_id; ?></td>
-                                                         <td><?php echo $user_note[$i]['modified_at'];?></td>
-                                                        <td><?php echo $user_note[$i]['customer_id'];?></td>
-                                                        <td><?php echo $user_note[$i]['user_notes']; ?></td>
-                                                        
+                                              <tr class="on-click" data-accessorialid="<?php echo $submit_id;?>">
+                                                        <td><?php echo @$customer_data->created_date; ?></td>
+                                                         <td><?php echo @$customer_data->customerName; ?></td>
+                                                        <td><?php echo @$customer_data->customer_id;?></td>
+                                                        <td><?php echo @$customer_data->notes; ?></td>
                                                      
-                   <td><button type="button" class="btn del"> Delete</button> </td>
+                   <td><button type="button" class="btn remove1"> Delete</button> </td>
                  
                                                     </tr>
-                                                 <?php }
-                                           }
-                                           
+                                                 <?php //}
+                                           //}
                                                 ?>
                  
                
@@ -8734,7 +5720,41 @@ function edituser()
         </tbody>
     </table>
 </div>
-</form>
+<div id="alert-dialog" title="Error"></div>
+<div id="message-dialog" title="Message"></div>
+<script type="text/javascript">
+    // init common dialog
+    var loadingDialog = $("#loading-dialog").dialog({
+        modal: true,
+        autoOpen: false,
+        width: "500px",
+        height: "auto",
+        //dialogClass: "no-close",
+        closeOnEscape: false,
+        show: {
+            effect: "fade",
+            duration: 500
+        }
+    });
+    var alertDialog = $("#alert-dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+    var messageDialog = $("#message-dialog").dialog({
+        autoOpen: false,
+        show: {
+            effect: "fade",
+            duration: 300
+        },
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+</script>
 <script type="text/javascript">
    function showOption() {
         if ($("#chk_show_option").is(":checked")) {
@@ -8742,6 +5762,53 @@ function edituser()
         } else {
             $("#div_list_chk_option").slideUp();
         }
+    }
+
+    function updateSaveCustomer()
+        {
+
+            var formdata = $("#update_customer_form").serialize();
+            var isfromsubmit = true;
+            var isfromsubmitvalue = true;
+            var html='';
+      $('#update_customer_form input').each(function()
+      {
+
+              if($(this).prop('required') && $(this).val()=='')
+              {
+                    alertDialog.dialog("open");  
+                    
+
+                    
+                    if(!$(this).parent().parent().find('.td1').attr('data-label'))
+                    {
+                        html +=$(this).parent().parent().find('.td1').html()+' cannot be empty <br/>';  
+                    }
+                    else {
+                      html +=$(this).parent().parent().find('.td1').attr('data-label')+' cannot be empty <br/>';
+                    }
+                    isfromsubmit = false;
+                    alertDialog.html(html);               
+              }
+             
+      });
+      if(isfromsubmit==true)
+      {
+        alertDialog.dialog("close");  
+        $.ajax({
+               url: 'customers/add_customer',
+               type: 'POST',
+               data:formdata,
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+                alert('Edit Successfully');  
+              console.log(res);      
+              window.location.reload();
+            }
+          });
+      }
     }
 
     function optionShowAll() {
@@ -8817,13 +5884,6 @@ function edituser()
 
     }
 
- 
-
-   
-
-    
-
-    
 
 </script>
 </div>
@@ -8837,6 +5897,8 @@ function edituser()
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
 <script src="https://rawgit.com/unconditional/jquery-table2excel/master/src/jquery.table2excel.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+
 
 <script>
   $("body").on("click", "#exportBtn", function () {
@@ -8866,32 +5928,17 @@ function edituser()
            // window.location = page;  
       });  
  });  
-        function updateSaveCustomer()
-        {
 
-            var formdata = $("#update_customer_form").serialize();
-        console.log(formdata);
-         $.ajax({
-               url: 'add_customer',
-               type: 'POST',
-               data:formdata,
-               error: function() {
-                  alert('Something is wrong');
-               },
-               success: function(res) {
-              console.log(res);          
-               }
-            });
 
-        }
-      function get_rates(id,name)
+     function get_rates(id,name)
       {
           $('#exampleModal .table tbody').html('');
-          $('#exampleModal .caption').html('Rate Sheet for: '+name);
+          var zone =  $('#starTrackColumnName option:selected').val();
+          $('#exampleModal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
           var rows ='';
           var x=0;
           var result='';
-          var zone =  $('#starTrackColumnName option:selected').val();
+         
            $.ajax({
                url: 'get_rates',
                type: 'POST',
@@ -8904,22 +5951,65 @@ function edituser()
                 console.log(data);    
                 jQuery.each(data, function( i, val ) {
                   result = val;
-                  rows +='<tr><td>'+val.destination+'</td><td>'+val.minimum+'</td><td>'+val.basic_charge+'</td><td>'+val.per_kg+'</td></tr>';                  
+                  rows +='<tr><td>'+val.destination+'</td><td>'+val.minimum+'</td><td>'+val.basic_charge+'</td><td class="price">'+val.per_kg+'</td></tr>';                  
                 });
                 $('#exampleModal .table tbody').html(rows);
-                
-                
+              }
+            });
+          }
+
+
+      function get_fix_rates(id,name)
+      {
+          $('#fixed3Modal .table tbody').html('');
+          var zone =  $('#starTrackColumnName option:selected').val();
+          $('#fixed3Modal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
+          var rows ='';
+          var x=0;
+          var result='';
+         
+           $.ajax({
+               url: 'get_fix_rates',
+               type: 'POST',
+               data:{zone:zone,service_type:id},
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+                var data= JSON.parse(res);              
+                console.log(data);    
+                jQuery.each(data, function( i, val ) {
+                  result = val;
+                  rows +='<tr><td>'+val.weight+'</td><td class="price">'+val.price+'</td></tr>';                  
+                });
+                $('#fixed3Modal .table tbody').html(rows);
                }
 
             });
-
-          
-          //$('#exampleModal').modal('show');
-      }
-
-     
+          }
 
 
+      $(document).ready(function(){
+	$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+		localStorage.setItem('activeTab', $(e.target).attr('href'));
+	});
+	var activeTab = localStorage.getItem('activeTab');
+	if(activeTab){
+		$('#manage_customer_tab_nav a[href="' + activeTab + '"]').tab('show');
+	}
+});
 </script>
+<style>
+.scroll_horizontal {
+        overflow-x: auto;
+        overflow-y: hidden;
+        min-height: 55px;
+        width: 100%;
+    }
+
+    .div_baseRate input {
+        min-width: 50px;
+    }
+    </style>
 </body>
 </html>

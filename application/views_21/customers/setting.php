@@ -69,7 +69,6 @@ $('.alert').delay(timeout).fadeOut(300);
 
 $(document).ready(function() {
   $("#confirmPassword").keyup(validate);
- // $("#newPassword").keyup(validate);
 });
 
 
