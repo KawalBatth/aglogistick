@@ -1,3 +1,9 @@
+<?php 
+echo "<pre>";
+print_r($result);
+print_r($surcharge);
+echo "</pre>";
+?>
 
                 <script type="text/javascript">
                     var loginAsDialog = $("#login-as-dialog").dialog({

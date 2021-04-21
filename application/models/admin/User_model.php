@@ -110,7 +110,19 @@
 				else
 					return false;
 			}*/
-
+public function savetempdata($str,$id)
+{
+	$arrayName = array('user_id' => $id,'formdata'=>$str);
+	$this->db->insert('temp_data',$arrayName);
+}
+public function gettempdata($id='')
+{
+	$this->db->select('*');
+	$this->db->from('temp_data');
+	$this->db->where('user_id', $id);
+	$query = $this->db->get();
+    return $query->row()->formdata;	
+}
 public function set_message($id,$data){
 	$this->db->where('id', $id);
 	$this->db->update('user',$data);

@@ -101,15 +101,7 @@
 		else {	redirect('user/login');}
 		}
 
-        public function booking()
-		{
-			if($this->session->has_userdata('is_customer_user_login'))
-			{
-			$data['view'] = 'customers/booking';
-			$this->load->view('customers/layout', $data);
-		}
-		else {	redirect('user/login');}
-		}
+       
 
 
 		public function get_postcode()
@@ -164,8 +156,7 @@
 
 	    public function get_customers()
 		{
-			print_r($this->session->userdata);
-			echo $this->session->userdata('customer_user_id');
+			$this->session->userdata('customer_user_id');
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customer/layout', $data);
@@ -174,6 +165,11 @@
 
 		public function get_calculate()
 		{
+			$weight = $this->input->post('weight');
+			$length = $this->input->post('length');
+			$dnh = $this->input->post('dnh');
+			$dnw = $this->input->post('dnw');
+			$totalweight = array_sum($weight);
 			$sender_city = $this->input->post('sender_city');
 			$sender_postcode = $this->input->post('sender_postcode');
 			$sender_state =  $this->input->post('sender_state');
@@ -188,10 +184,49 @@
 			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
 			$result['charges'] = $get_surcharge;
 			$result['base_charge']= $get_base_rate;
+			$result['totalweight']= $totalweight;
 			echo json_encode($result);
 			
 		}
+		 public function booking()
+		{
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+			
+			$str = $this->user_model->gettempdata($this->session->userdata('customer_user_id'));
+			$returndata = array();
+    		$strArray = explode("&", $str);
+    		$i = 0;
+    		foreach ($strArray as $item) {
+        		$array = explode("=", $item);
+        		$returndata[$array[0]] = $array[1];
+    		}
+			$sender_city = $returndata['shipmentPage.senderAddress.city'];
+			$sender_state =  $returndata['shipmentPage.senderAddress.state'];
+			$sender_postcode =  $returndata['shipmentPage.senderAddress.postalCode'];
+			$rc_postcode= $returndata['shipmentPage.receiverAddress.postalCode'];
+			$rc_statecode= $returndata['shipmentPage.receiverAddress.state'];
+			$rcv_city= $returndata['shipmentPage.receiverAddress.city'];
+    		$get_surcharge =  $this->user_model->get_surchargebyid($returndata['shipmentPage.serviceId']);
+    		$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
+			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
+			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
+    		
+    		$data['result'] = $returndata;
+    		$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
+    		$data['surcharge'] = array('base_charge' =>$get_base_rate,'charges'=>$get_surcharge);
+    		$data['view'] = 'customers/booking';
+			$this->load->view('customers/layout', $data);
+			}
+		else {	redirect('user/login');}
+		}
+		public function continuewbooking()
+		{
+			$str = urldecode($this->input->post('data'));
+			$this->user_model->savetempdata($str,$this->session->userdata('customer_user_id'));
+			
 
+		}
 
 		public function add_shipment()
 		{
