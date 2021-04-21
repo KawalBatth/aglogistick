@@ -1263,7 +1263,7 @@
                                                                   <button class="btn s33" type="button" onclick="continuewbooking()">
                                                                      Continue Booking
                                                                 </button>
-                                                           
+                                                           <?php //echo base_url('customer/continue_booking');?>
                                                            
                                                                 
                                                                
