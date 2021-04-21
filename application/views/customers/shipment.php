@@ -1630,7 +1630,7 @@ function openForm() {
         },
         success: function(data){
             var result= JSON.parse(data);
-            console.log(result);            
+            console.log(result);                   
             html +='<tr>';
                     html +='<td class="td1">Base Charge</td>';
                     html +='<td class="td2">$ '+result.base_charge+'</td>';
