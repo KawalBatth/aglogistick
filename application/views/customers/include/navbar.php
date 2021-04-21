@@ -465,6 +465,15 @@ button.ui-dialog-titlebar-close {
     overflow: inherit;
     width: 323px !important;
 }
+
+.td2{
+    font-size:11px !important;
+}
+
+label.control-label.ready {
+    width: 96%;
+    font-size: 11px;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->
