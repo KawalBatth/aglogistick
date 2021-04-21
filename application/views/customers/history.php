@@ -1,3 +1,203 @@
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Shipment Detail</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="col-lg-6">
+       <table class="table" style="font-size: 11px; margin-bottom: 0px">
+        <tbody><tr>
+            <td class="td1">Service Type</td>
+            <td class="td2">Fixed Price Premium 5kg</td>
+        </tr>
+        <tr>
+            <td class="td1">Shipment Date</td>
+            <td class="td2">20-04-2021</td>
+        </tr>
+        <tr>
+            <td class="td1">Package Type</td>
+            <td class="td2">Satchel</td>
+        </tr>
+        <tr>
+            <td class="td1">Tracking#</td>
+            <td class="td2">95AZ00020632</td>
+        </tr>
+        <tr>
+            <td class="td1">Contents Description#</td>
+            <td class="td2">Spare Parts</td>
+        </tr>
+
+    </tbody></table>
+</div>
+<div class="col-lg-6">
+    <table class="table" style="font-size: 11px; margin-bottom: 0px">
+        <tbody><tr>
+            <td class="td1">Reference#</td>
+            <td class="td2">84005-MMN-046 </td>
+        </tr>
+        <tr>
+            <td class="td1">Collection Reference#</td>
+            <td class="td2"></td>
+        </tr>
+        <tr>
+            <td class="td1">Confirmation#</td>
+            <td class="td2">9898177</td>
+        </tr>
+        <tr>
+            <td class="td1">Zone</td>
+            <td class="td2">1</td>
+        </tr>
+        <tr>
+            <td class="td1">Cubic. Weight</td>
+            <td class="td2">0.00 kg(s)</td>
+        </tr>
+        <tr>
+            <td class="td1">Total. Dead. Weight</td>
+            <td class="td2">3.0 kg(s)</td>
+        </tr>
+    </tbody></table>
+</div>
+<div class="col-lg-12">
+    <br> <label> <b><u>Package Information:</u></b>
+</label>
+    <hr class="w11">
+    <table class="table table-hover table-bordeed mg0" id="datatable12">
+        <thead>
+        <tr>
+            <th>Piece</th>
+            <th>Dead weight</th>
+            <th>Cubic weight</th>
+            <th>Dimension</th>
+        </tr>
+        </thead>
+        <tbody>
+        
+            <tr>
+                <td>1</td>
+                <td>3.00 kg(s)<br></td>
+                <td>0.00 kg(s)</td>
+                <td>0 x 0 x 0 cm(s)</td>
+            </tr>
+        
+        </tbody>
+    </table>
+    <hr class="w11">
+    <div class="row">
+        <div class="text-right pal pdt10 w6">
+            <button type="button" class="btn s33" onclick="javascript:viewAirbill();">View</button>
+            <button type="button" class="btn s33" onclick="javascript:trackAirbill();">Track</button>
+         </div>
+    </div>
+</div>
+<div class="col-lg-12">
+    <hr class="w11">
+    <div class="col-lg-6">
+        <table class="table table-hover  mg0" id="">
+            <thead>
+            <tr>
+                <th>Shipper Address</th>
+                <th>Receiver Address</th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>CEVA LOGISTICS </td>
+                <td>BHP SOUTH FLANK PROJECT</td>
+            </tr>
+            <tr>
+                <td>DAVID ROBERTS</td>
+                <td>ZIGGY / MICHAEL</td>
+            </tr>
+            <tr>
+                <td>GATE 6, 1203 ABERNETHY RD </td>
+                <td>MINING AREA C GATEHSE DROP 40</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td>GREAT NORTHERN HIGHWAY</td>
+            </tr>
+            <tr>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>HAZELMERE 6055 WA</td>
+                <td>NEWMAN 6753 WA</td>
+            </tr>
+            <tr>
+                <td>Australia</td>
+                <td>Australia</td>
+            </tr>
+            <tr>
+                <td>Ph: 08 6218 6813</td>
+                <td>Ph: 0436 848 566 </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div class="col-lg-6">
+        <table class="table table-hover  mg0" id="">
+            <thead>
+            <tr>
+                <th colspan="2">Quote Detail</th>
+            </tr>
+            </thead>
+            <tbody>
+            
+                <tr>
+                    <td>- Base Charge:
+                    </td>
+                    <td>16.90</td>
+                </tr>
+                
+                    <tr>
+
+                        <td>- Security Surcharge:
+                        </td>
+                        <td>0.65</td>
+                    </tr>
+                
+                    <tr>
+
+                        <td>- Fuel Surcharge:
+                        </td>
+                        <td>2.37</td>
+                    </tr>
+                
+                    <tr>
+
+                        <td>- GST:
+                        </td>
+                        <td>1.99</td>
+                    </tr>
+                
+                    <tr>
+
+                        <td>- Total Charges:
+                        </td>
+                        <td>21.91</td>
+                    </tr>
+                 <tr>
+                <td colspan="2"><i>Quote is an estimate. Additional fees may apply.</i></td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    
+</div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn s33" data-dismiss="modal">Close</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="portlet box">
                             <div class="portlet-header">
                                 <div class="caption">
@@ -30,7 +230,7 @@
                                                                     <!--button class="btn s33" type="button" onclick="javascript:exportToPdf();">
                                                                         Export to PDF
                                                                     </button-->
-                                                                    <input type="button" id="btnExport" class="btn export_pdf" value="Export Pdf" />
+                                                                    <input type="button" id="btnExport" class="btn s33 xport_pdf" value="Export to Pdf" />
                                                                 </td>
                                                                 <td id="btngenerate_manifest" style="display: none">
                                                                     <button class="btn s33" type="button" onclick="javascript:generateManifest();">
@@ -81,10 +281,10 @@
                                                     <button class="btn s33 s44" type="button" onclick="reshipHistory();" disabled="disabled">
                                                         Re-Ship Same Package
                                                     </button>
-                                                    <button class="btn s33 s44" type="button" onclick="viewDetail();" disabled="disabled">
+                                                    <button class="btn s33 s44" type="button" data-toggle="modal" id="view" data-target="#exampleModal" disabled="disabled">
                                                         View Details
                                                     </button>
-                                                    <button class="btn s33 s44" type="button" id="btn_view_shipment_receipt" onclick="shipmentReceipt();" disabled="disabled">
+                                                 <button class="btn s33 s44" type="button" id="btn_view_shipment_receipt" onclick="shipmentReceipt();" disabled="disabled">
                                                         Shipment Receipt
                                                     </button>
                                                         
@@ -261,7 +461,7 @@
                                                     <div class="form-group">
                                                         <label class="checkbox-inline"> <input type="checkbox" class="cb1" id="chk_option_all" onclick="optionShowAll();">
                                                             &nbsp; All
-                                                        </label> <label class="checkbox-inline"> <input type="checkbox" name="th_package" class="cb1" onclick="optionShowCol();" checked="checked">
+                                                        </label> <label class="checkbox-inline"> <input type="checkbox" name="th_package" class="cb1" onclick="optionShowCol();">
                                                         &nbsp; Package Type
                                                     </label> <label class="checkbox-inline"> <input type="checkbox" name="th_dimensions" class="cb1" onclick="optionShowCol();">
                                                         &nbsp; Dimensions
@@ -269,11 +469,11 @@
                                                         &nbsp; Shipment Reference
                                                     </label> <label class="checkbox-inline"> <input type="checkbox" name="th_billing_party" class="cb1" onclick="optionShowCol();">
                                                         &nbsp; Billing Party
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_company" class="cb1" onclick="optionShowCol();">
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_company" class="cb1" onclick="optionShowCol();" checked="checked">
                                                         &nbsp; Sender Company
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_contact" class="cb1" onclick="optionShowCol();">
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_contact" class="cb1" onclick="optionShowCol();" checked="checked">
                                                         &nbsp; Sender Contact
-                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_location" class="cb1" onclick="optionShowCol();">
+                                                    </label> <label class="checkbox-inline"> <input type="checkbox" name="th_sender_location" class="cb1" onclick="optionShowCol();" checked="checked">
                                                         &nbsp; Sender Location
                                                     </label> <label class="checkbox-inline"> <input type="checkbox" name="th_receiver_company" class="cb1" onclick="optionShowCol();">
                                                         &nbsp; Receiver Company
@@ -284,8 +484,11 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>  
-                          </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -293,34 +496,20 @@
 </form>
 
 
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
-
-                                
-<script>
-  $(document).ready(function() {
-    $('#datatable1').DataTable( {
-    } );
-} );
-
-$("body").on("click", "#btnExport", function () {
-            html2canvas($('#datatable1')[0], {
-                onrendered: function (canvas) {
-                    var data = canvas.toDataURL();
-                    var docDefinition = {
-                        content: [{
-                            image: data,
-                            width: 500
-                        }]
-                    };
-                    pdfMake.createPdf(docDefinition).download("shippingHistoryReport.pdf");
-                }
-            });
-        });
-
-       
 
 
+<div id="note-dialog"></div>
+<div id="add-note-dialog"></div>
+<div id="send-airbill-dialog"></div>
+
+<div class="remember_me">
+    <ul style="margin-left: 5px; margin-top: 10px;">
+        <li style="color: #F00;"></li>
+        <li style="color: #F00;"></li>
+    </ul>
+</div>
+<!--END CONTENT-->
+<script type="text/javascript">
     new_aae_manifest = false;
     toll_view_gen_manifest = false;
     toll_ipec_view_gen_manifest = false;
@@ -367,6 +556,12 @@ $("body").on("click", "#btnExport", function () {
         $("#button_actions").find("button").attr("disabled", true);
         if (hid_history_records > 0) {
             $("#multi_void, #update_collection").attr("disabled", false);
+
+            $(document).on('click', '#datatable1 tbody tr', function(e) {
+    $('#datatable1 tbody tr').removeClass('selected-row');
+    $(this).toggleClass('selected-row'); 
+    $("#view").prop('disabled', false);
+});
         }
         $(".chk_multivoid").hide();
         $(".col_hidden").hide();
@@ -555,50 +750,6 @@ $("body").on("click", "#btnExport", function () {
         }
     }
 
-    function shipmentReceipt() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("view_shipment_receipt.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
-
-    function viewAirbill() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("view_airbill.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
-
-    function viewCommercialInvoice() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("view_commercial_invoice.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
-
-    function caScheduleCollection() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("history_cancel_collection.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
-
-    function viewDetail() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var data = {
-            'shipmentId': shipment_id
-        }
-        loadDialogWithFunctionCallBack("history_detail.ix?reqType=json", data, exportDetail, "", "Close", "history_detaill", "Shipment Detail", "");
-
-    }
-
-    function exportDetail() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("history_export_detail.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
-
-    function voidAirbill() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("history_void_airbill.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
 
     function exportToPdf() {
         var data = $("#form_history").serialize();
@@ -615,31 +766,6 @@ $("body").on("click", "#btnExport", function () {
         });
     }
 
-    function generateTollPriorityManifest() {
-        document.getElementById('btntollprioritygenerate_manifest').style.display = "none";
-        $.post("generate_toll_priority_manifest_list.ix", null, function(){
-            $("#toll_priority_manifest_status").val(0);
-            toll_view_gen_manifest = false;
-            alertDialog.html("Success");
-            alertDialog.dialog("open");
-        });
-    }
-
-    function generateTollIpecManifest() {
-        document.getElementById('btntollipecgenerate_manifest').style.display = "none";
-        $.post("generate_toll_ipec_manifest_list.ix", null, function(){
-            $("#toll_ipec_manifest_status").val(0);
-            toll_ipec_view_gen_manifest = false;
-            alertDialog.html("Success");
-            alertDialog.dialog("open");
-        });
-    }
-
-    function exportDetail() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("history_export_detail.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
 
     function exportToExcel() {
         var data = $("#form_history").serialize();
@@ -648,121 +774,7 @@ $("body").on("click", "#btnExport", function () {
         window.open("history_export_excel.ix?" + data + columnHide, '_self');
     }
 
-
-
-    $("select#sel_total_date").change(function () {
-        var total_date = $(this).val();
-        if (total_date == 5) {
-            $("#div_range_date").slideDown();
-        } else {
-            $("#div_range_date").find("input").val("");
-            $("#div_range_date").slideUp();
-        }
-    });
-
-    $("select#sel_page_size").change(function () {
-        doPostDataNonError('history_search.ix?reqType=json', 'form_history', '', 'div_history_data');
-    });
-
-    function viewPackingList() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("view_packing_list.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
-
-    $('table#datatable1 tbody tr').click(function () {
-        $(this).addClass('selected-row').siblings().removeClass('selected-row');
-        var shipmentId = $(this).find('#shipmentId').val();
-        var commercialInvoiceId = $(this).find('#commercialInvoiceId').val();
-        var scheduleCollectionId = $(this).find('#schedule_collection_id').val();
-        var serviceId = $(this).find("#service_id").val();
-        var packingList = $(this).find("#packingList").val();
-        var isScheduled = $(this).find("#is_scheduled").val();
-        $("#hid_shipment_id").val(shipmentId);
-        $("#hid_service_id").val(serviceId);
-        $("#hidenShipmentId").val(shipmentId);
-        $("#hid_schedule_collection_id").val(scheduleCollectionId);
-        var strvoid = $(this).find("td.td_void_status").text();
-
-        if ($(".multivoid").css('display') == 'none') {
-            $("#button_actions").find("button").attr("disabled", false);
-            
-            if (packingList == "2") {
-                if ($(this).find("td.td_airbillNumber").text() == "" && serviceId == "50") {
-                    $("#btn_packing_list").attr("disabled", true);
-                } else {
-                    $("#btn_packing_list").attr("disabled", false);
-                }
-            } else {
-                $("#btn_packing_list").attr("disabled", true);
-            }
-            checkManifestButton(serviceId, strvoid);
-            if (commercialInvoiceId == "3") {
-                if ($(this).find("td.td_airbillNumber").text() == "" && serviceId == "50") {
-                    $("#btn_viewcommercial").attr("disabled", true);
-                } else {
-                    $("#btn_viewcommercial").attr("disabled", false);
-                }
-            } else {
-                $("#btn_viewcommercial").attr("disabled", true);
-            }
-
-            if ($(this).find("td.td_void_status").text() == "YES") {
-                $("#btn_void").attr("disabled", true);
-                $("#btn_schedule_collection, #btn_mo_schedule_collection, #btn_ca_schedule_collection").attr("disabled", true);
-            } else {
-                $("#btn_void").attr("disabled", false);
-                if ($(this).find("td.td_schedule").html() == "YES") {
-                    $("#btn_schedule_collection").attr("disabled", true);
-                    if (serviceId == 54) {
-                        $("#btn_mo_schedule_collection, #btn_ca_schedule_collection").attr("disabled", true);
-                    } else {
-                        $("#btn_mo_schedule_collection, #btn_ca_schedule_collection").attr("disabled", false);
-                    }
-                    if(serviceId==72)
-                    {
-                        $("#btn_ca_schedule_collection").attr("disabled", true);
-                    }
-                } else {
-                    $("#btn_schedule_collection").attr("disabled", false);
-                    $("#btn_mo_schedule_collection, #btn_ca_schedule_collection").attr("disabled", true);
-                }
-            }
-            //$("#btn_ca_schedule_collection").attr("disabled", true);//disiable modifie collection
-            if (serviceId != 1 && serviceId != 3 && serviceId != 15 && serviceId != 52 && serviceId != 54 && serviceId != 59 && serviceId != 72 && serviceId != 46) {
-                $("#btnViewAirbill").attr("disabled", true);
-                $("#btnViewThermalLabel").attr("disabled", true);
-                $("#btnSendAirbill").attr("disabled", true);
-            }
-            
-            if (serviceId == 400){
-				$("#btnViewAirbill").attr("disabled", false);
-                $("#btnViewThermalLabel").attr("disabled", false);
-                $("#btnSendAirbill").attr("disabled", false);
-			}
-        } else {
-            $("#button_actions").find("button").attr("disabled", true);
-            $("#multi_void, #update_collection").attr("disabled", false);
-            $("#btn_ca_schedule_collection").attr("disabled", true);//disiable modifie collection
-        }
-        if(serviceId == "16" || serviceId == "17" || serviceId == "18" || serviceId == "19" || serviceId == "20" || serviceId == "26" || serviceId == "27" || serviceId == "36")
-        {
-            $("#btn_view_shipment_receipt").attr("disabled", false);
-            $("#btn_schedule_collection").attr("disabled", false);
-            $("#btn_mo_schedule_collection").attr("disabled", true);
-            $("#btn_ca_schedule_collection").attr("disabled", true);
-        }else
-        {
-            $("#btn_view_shipment_receipt").attr("disabled", true);
-        }
-        if (serviceId == 54) {
-            $("#btn_tnt_connote").show();
-            $("#btn_tnt_connote").attr("disabled", false);
-        } else {
-            $("#btn_tnt_connote").hide();
-            $("#btn_tnt_connote").attr("disabled", true);
-        }
-    });
+   
 
     $('table#datatable1 tbody tr').dblclick(function () {
         $(this).addClass('selected-row').siblings().removeClass('selected-row');
@@ -771,53 +783,7 @@ $("body").on("click", "#btnExport", function () {
         viewDetail();
     });
 
-    function checkManifestButton(service_id, strvoid) {
-
-
-        document.getElementById("btngenerate_manifest").style.display = "none";
-        document.getElementById("btntollprioritygenerate_manifest").style.display = "none";
-        document.getElementById("btntollipecgenerate_manifest").style.display = "none";
-        if (service_id == 50 || service_id == 2 || (service_id == 3 && strvoid != "YES")) {
-            $("#btnviewmanifest").attr("disabled", false);
-             if(new_aae_manifest==true){
-                 document.getElementById("btngenerate_manifest").style.display = "block";
-             }
-        } else if (service_id == 52) {
-            $("#btnviewmanifest").attr("disabled", false);
-//             if(new_toll_manifest==true){
-             $("#toll_btngenerate_manifest").attr("disabled", false);
-             if(toll_view_gen_manifest)
-             {
-                 document.getElementById("btntollprioritygenerate_manifest").style.display = "block";
-                 $("#btntollprioritygenerate_manifest").attr("disabled", false);
-             }else
-             {
-                 document.getElementById("btntollprioritygenerate_manifest").style.display = "none";
-             }
-//             }
-        } else if (service_id == 59) {
-            $("#btnviewmanifest").attr("disabled", false);
-//             if(new_toll_manifest==true){
-            $("#toll_ipec_btngenerate_manifest").attr("disabled", false);
-            if(toll_ipec_view_gen_manifest)
-            {
-                document.getElementById("btntollipecgenerate_manifest").style.display = "block";
-                $("#btntollipecgenerate_manifest").attr("disabled", false);
-            }else
-            {
-                document.getElementById("btntollipecgenerate_manifest").style.display = "none";
-            }
-        } else if (service_id == 54) {
-            $("#btnviewmanifest").attr("disabled", false);
-//             if(new_tnt_int_manifest==true){
-             $("#btngenerate_manifest").attr("disabled", true);
-//             }
-        } else if (service_id == 72) {
-            $("#btnviewmanifest").attr("disabled", false);
-        } else {
-            $("#btnviewmanifest").attr("disabled", true);
-        }
-    }
+    
     function viewManifest() {
         var shipment_id = $("#hid_shipment_id").val();
         var win = window.open("view_manifest.ix?shipmentId=" + shipment_id, '_blank');
@@ -829,48 +795,5 @@ $("body").on("click", "#btnExport", function () {
         var win = window.open("view_tnt_connote.ix?shipmentId=" + shipment_id, '_blank');
         win.focus();
     }
-
-
-          
-           
-                var loadingDialog = $("#loading-dialog").dialog({
-                    autoOpen: false,
-                    modal: true,
-                    dialogClass: "no-close",
-                    show: {
-                        effect: 'fade',
-                        duration: 300
-                    }
-                });
-                var alertDialog = $("#alert-dialog").dialog({
-                    modal: true,
-                    autoOpen: false,
-                    maxHeight: 800,
-                    minWidth: 400,
-                    buttons: {
-                        'Close': function () {
-                            $(this).dialog("close");
-                        }
-                    }
-                });
-
-                function doLoginAs() {
-                    var name = $("#txtLoginAsName").val();
-                    var data = {
-                        "name": name
-                    };
-                    $.post("quick_search_login_as.ix?reqType=json", data, function (res) {
-                        if (res.errorCode == "SUCCESS") {
-                            loginAsDialog.html(res.content);
-                            loginAsDialog.dialog("open");
-                        } else {
-                            alertDialog.html(res.errorMsg);
-                            alertDialog.dialog("open");
-                        }
-                    }).fail(function () {
-                        alertDialog.html('System internal error, please contact administrator.');
-                        alertDialog.dialog("open");
-                    });
-                }
-          
-</script>
+            </script>
+        
