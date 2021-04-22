@@ -1706,7 +1706,7 @@ function openForm() {
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1">Total weight</td>';
-                    html +='<td class="td2">'+result.totalweight+'kg(s)</td>';
+                    html +='<td class="td2">'+totalweight+'kg(s)</td>';
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1">Weight type</td>';
@@ -1717,7 +1717,7 @@ function openForm() {
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1"><b>Total Charge</b></td>';
-                    html +='<td class="td2">$ 353.47</td>';
+                    html +='<td class="td2">$ '+final_total+'</td>';
             html +='</tr>';
             html +='<tr>';
                     html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';

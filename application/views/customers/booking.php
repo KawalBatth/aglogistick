@@ -18,8 +18,7 @@
                             duration: 500
                         }
                     });
-                </script>
-
+                    </script>
 <div id="shipment-div" style="display: none;">
     <div class="row mbl">
         <div class="col-lg-12">

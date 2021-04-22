@@ -179,9 +179,12 @@
 			$rcv_city= $this->input->post('rcv_city');
 			$serviceId= $this->input->post('serviceId');
 			$service_type_Id= $this->input->post('service_type_Id');
+			$totalweight= $this->input->post('total_weight');
 			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId);
+			$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
+
 			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
 			$result['charges'] = $get_surcharge;
 			$result['base_charge']= $get_base_rate;
@@ -211,14 +214,15 @@
 			$rc_postcode= $returndata['shipmentPage.receiverAddress.postalCode'];
 			$rc_statecode= $returndata['shipmentPage.receiverAddress.state'];
 			$rcv_city= $returndata['shipmentPage.receiverAddress.city'];
+			$service_type_Id = $returndata['shipmentPage.shipmentTypeId'];
     		$get_surcharge =  $this->user_model->get_surchargebyid($returndata['shipmentPage.serviceId']);
     		$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
-    		
+    		$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
     		$data['result'] = $returndata;
     		$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
-    		$data['surcharge'] = array('base_charge' =>$get_base_rate,'charges'=>$get_surcharge);
+    		$data['surcharge'] = array('base_charge' =>$get_base_rate,'fixed_price'=>$fixed_price,'charges'=>$get_surcharge);
     		$data['view'] = 'customers/booking';
 			$this->load->view('customers/layout', $data);
 			}
