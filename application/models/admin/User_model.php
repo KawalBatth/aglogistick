@@ -190,13 +190,16 @@ public function fetch_customer($id)
 		$this->db->select('*');
 		$this->db->from('rates');
 		$this->db->where(array('origin'=>$getsenderzone,'destination'=>$get_rcv_zone));
-		$query = $this->db->get();
-        if($query->num_rows() > 0)
+		return $query = $this->db->get()->result_array();
+		//$query = $this->db->get();
+       /* if($query->num_rows() > 0)
         {
-        	$data = $query->row()->basic_charge;					
+        	$data = $query->row()->basic_charge;
+			//$per = $query->row()->per_kg;	
+			//$total =  ($data * $per);	
         	return $data;
         }
-        else {return $data ='';}
+        else {return $data ='';}*/
 	}
 
 

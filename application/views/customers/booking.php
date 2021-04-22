@@ -1,9 +1,8 @@
-<<<<<<< HEAD
 <?php 
-echo "<pre>";
-print_r($result);
-print_r($surcharge);
-echo "</pre>";
+//echo "<pre>";
+//print_r($result);
+//print_r($surcharge);
+//echo "</pre>";
 ?>
 
                 <script type="text/javascript">
@@ -13,17 +12,14 @@ echo "</pre>";
                         width: "600",
                         height: 'auto',
                         maxHeight: 800,
-//                        dialogClass: "no-close",
+                    //dialogClass: "no-close",
                         show: {
                             effect: "fade",
                             duration: 500
                         }
                     });
                 </script>
- 
-=======
->>>>>>> 5755138e55225551c9696506cc2790d4b5337471
-<!--BEGIN TITLE & BREADCRUMB PAGE-->
+
 <div id="shipment-div" style="display: none;">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -61,7 +57,7 @@ echo "</pre>";
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="AGL SPECIALISED LOGISTICS" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
                                                     <div id="sender-address-by-company-search-result"></div>
                                                 </div>
                                             </div>
@@ -1576,12 +1572,7 @@ echo "</pre>";
                                                                 <td class="td2">57.99</td>
                                                             </tr>
                                                         
-                                                            <tr>
-                                                                <td class="td1 s40 ncl">- GST</td>
-                                                                <td class="td2">48.82</td>
-                                                            </tr>
-                                                        
-                                                        <tr>
+                                                          <tr>
                                                             <td class="td1 s41 ncl">- Total Charge</td>
                                                             <td class="td2">536.98</td>
                                                         </tr>
@@ -1595,13 +1586,13 @@ echo "</pre>";
                                                     <tr>
                                                         <td class="td1" style="font-style: italic; text-decoration: underline;">
                                                             Sender Address:</td>
-                                                        <td class="td2">AGL SPECIALISED LOGISTICS
-                                                            WAYNE ENNIS
-                                                            UNIT 1 / 11 FRICKER ROAD
-                                                            PERTH AIRPORT
+                                                        <td class="td2"><?php echo $customers->customerName;?>
+                                                        <?php echo $customers->contact_name;?>
+                                                        <?php echo $customers->address;?>
+                                                        <?php echo $customers->city;?>
                                                             
-                                                            6105
-                                                            PERTH airport</td>
+                                                        <?php echo $customers->postal_code;?>
+                                                        <?php echo $customers->state_code;?></td>
                                                     </tr>
                                                     </tbody>
                                                 </table>
@@ -1646,13 +1637,13 @@ echo "</pre>";
                                                 </label>
                                                 
                                                 
-                                                    <input type="text" name="shipmentRequestModel.contentDetail.description" maxlength="30" value="" id="form_booking_shipmentRequestModel_contentDetail_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Please limit content descriptions to 30 characters.">
+                                                    <input type="text" name="shipmentRequestModel.contentDetail.description" required maxlength="30" value="" id="form_booking_shipmentRequestModel_contentDetail_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Please limit content descriptions to 30 characters.">
                                                 
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="inputName"> Billing/Customer Reference <span class="s30"> *</span>
                                                 </label>
-                                                <input type="text" name="shipmentRequestModel.shipmentReference" value="" id="form_booking_shipmentRequestModel_shipmentReference" class="form-control">
+                                                <input type="text" name="shipmentRequestModel.shipmentReference" required value="" id="form_booking_shipmentRequestModel_shipmentReference" class="form-control">
                                             </div>
                                             <div class="form-group">
                                                 <label class="control-label" for="inputName"> Special Delivery Instructions
@@ -1662,7 +1653,7 @@ echo "</pre>";
 											<div class="form-group">
 												<label class="control-label" for="inputName"> Collection Reference No. <span class="s30"> *</span>
 												</label>
-												<input type="text" name="shipmentRequestModel.collectionReference" value="" id="form_booking_shipmentRequestModel_collectionReference" class="form-control">
+												<input type="text" name="shipmentRequestModel.collectionReference" required value="" id="form_booking_shipmentRequestModel_collectionReference" class="form-control">
 											</div>
                                         </div>
                                     </div>
@@ -1705,7 +1696,6 @@ echo "</pre>";
 
 </select>
 
-
             </div>
         </div>
         <div id="ws-schedule-collection-div" style="display: none;">
@@ -1713,44 +1703,45 @@ echo "</pre>";
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Company <span class="s30">*</span>
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.companyName" maxlength="25" value="AGL SPECIALISED LOGISTICS" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_companyName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company name">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.companyName" required maxlength="25" value="<?php echo $customers->customerName;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_companyName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company name">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Contact Name <span class="s30">*</span>
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.contactName" maxlength="25" value="WAYNE ENNIS" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_contactName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact name">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.contactName" maxlength="25" required value="<?php echo $customers->contact_name;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_contactName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact name">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.address" maxlength="25" value="UNIT 1 / 11 FRICKER ROAD" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 1">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.address" maxlength="25" required value="<?php echo $customers->address;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 1">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Address 2
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.address2" maxlength="25" value="PERTH AIRPORT" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 2">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.address2" maxlength="25" value="<?php //echo $customers->customerName;?>T" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 2">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="inputName"> City <span class="s30">*</span>
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.city" maxlength="25" value="PERTH airport" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_city" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
-                </div>
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.city" maxlength="25" required value="<?php echo $customers->city;?>" id="city" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+               </div>
             </div>
+          
             <div class="col-lg-7">
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Phone<span class="s30"> *</span>
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.phone" maxlength="25" value="0894793399" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.phone" maxlength="25" required value="<?php echo $customers->phone;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Postal Code
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.postalCode" maxlength="25" value="6105" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_postalCode" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal code">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.postalCode" maxlength="25" required value="<?php echo $customers->postal_code;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_postalCode" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal code">
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="inputName"> State/Province
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.state" maxlength="25" value="WA" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_state" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:State\/Province">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.saddress.state" maxlength="25" value="<?php echo $customers->state_code;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_state" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:State\/Province">
                 </div>
                 <div class="row">
                     <div class="col-lg-6">
@@ -1760,11 +1751,28 @@ echo "</pre>";
                         <div class="form-group input-group">
 							<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
 							</span>
-                            <input type="text" name="shipmentRequestModel.scheduleCollection.pickupDate" value="" readonly="readonly" id="form_booking_shipmentRequestModel_scheduleCollection_pickupDate" class="form-control form_datetime schedule-time" data-date-format="dd MM yyyy">
-                        </div>
+                            <input type="text" name="shipmentRequestModel.scheduleCollection.pickupDate" value="<?php echo date('Y-m-d');?>" readonly="readonly" id="form_booking_shipmentRequestModel_scheduleCollection_pickupDate" class="form-control form_datetime schedule-time" data-date-format="dd MM yyyy">
+                     </div>
                     </div>
                     <div class="col-lg-6">
                         <div class="form-group">
+                        <div class="sa"><a href="//24timezones.com/South-Australia/time" style="text-decoration: none" class="clock24" id="tz24-1619079550-ad16135-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Current time in South Australia" target="_blank" rel="nofollow">South Australia</a>
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+
+<div class="nsw"><a href="//24timezones.com/Sydney/time" style="text-decoration: none" class="clock24" id="tz24-1619079518-c1240-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Clock - Sydney" target="_blank" rel="nofollow">Sydney</a>
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+
+<div class="wa"><a href="//24timezones.com/Perth/time" style="text-decoration: none" class="clock24" id="tz24-1619079574-c1196-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Perth local time" target="_blank" rel="nofollow">Perth</a>
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+
+<div class="tas"><a href="//24timezones.com/Tasmania/time" style="text-decoration: none" class="clock24" id="tz24-1619079654-ad16138-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="timezone - Tasmania" target="_blank" rel="nofollow">Tasmania</a>
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+
+<div class="vic"><a href="//24timezones.com/State-of-Victoria/time" style="text-decoration: none" class="clock24" id="tz24-1619078892-ad16137-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="local time in Victoria" target="_blank" rel="nofollow">Victoria</a>
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+
+<div class="qld"><a href="//24timezones.com/Queensland/time" style="text-decoration: none" class="clock24" id="tz24-1619079735-ad16139-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Queensland time zone" target="_blank" rel="nofollow">Queensland</a>
+<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
                             <select name="shipmentRequestModel.scheduleCollection.pickupTime" id="sel-pickup-time" class="form-control">
     <option value="06:00:00">6:00 AM</option>
     <option value="06:30:00">6:30 AM</option>
@@ -1886,7 +1894,7 @@ echo "</pre>";
                 <div class="form-group">
                     <label class="control-label" for="inputName"> Location Description <span class="s30"> *</span>
                     </label>
-                    <input type="text" name="shipmentRequestModel.scheduleCollection.description" maxlength="25" value="Front Desk" id="form_booking_shipmentRequestModel_scheduleCollection_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Location description">
+                    <input type="text" name="shipmentRequestModel.scheduleCollection.description" required maxlength="25" value="Front Desk" id="form_booking_shipmentRequestModel_scheduleCollection_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Location description">
                 </div>
             </div>
         </div>
@@ -1910,14 +1918,9 @@ echo "</pre>";
     </div>
 </form>
 
-
-
-
 <div id="result_booking" title="Booking Result"></div>
 <div id="webship_booking_send_airbill_dialog" title="Send Airbill"></div>
-
-
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         $('.schedule-time').datetimepicker({
@@ -1947,6 +1950,77 @@ echo "</pre>";
 
 </script>
 <script type="text/javascript">
+
+$('#city').keyup(function() {
+  
+  // If value is not empty
+  if ($(this).val() == "NT") {
+    // Hide the element
+    $('.sa').show();
+      $('.nsw').hide();
+        $('.wa').hide();
+          $('.tas').hide();
+            $('.qld').hide();
+              $('.vic').hide();
+   
+  }
+ else if ($(this).val() == "NSW") {
+    // Hide the element
+    $('.nsw').show();
+      $('.sa').hide();
+        $('.wa').hide();
+          $('.tas').hide();
+            $('.qld').hide();
+              $('.vic').hide();
+  }
+  else if ($(this).val() == "WA") {
+    // Hide the element
+    $('.wa').show();
+      $('.sa').hide();
+       $('.syd').hide();
+         $('.tas').hide();
+           $('.qld').hide();
+             $('.vic').hide();
+  }
+    else if ($(this).val() == "TAS") {
+    // Hide the element
+    $('.tas').show();
+      $('.sa').hide();
+       $('.nsw').hide();
+         $('.wa').hide();
+           $('.qld').hide();
+             $('.vic').hide();
+  }
+  
+  else if ($(this).val() == "VIC") {
+    // Hide the element
+     $('.vic').show();
+      $('.sa').hide();
+       $('.nsw').hide();
+         $('.wa').hide();
+          $('.tas').hide();
+           $('.qld').hide();
+  }
+  
+    else if ($(this).val() == "QLD") {
+    // Hide the element
+     $('.qld').show();
+      $('.vic').hide();
+       $('.sa').hide();
+        $('.nsw').hide();
+         $('.wa').hide();
+          $('.tas').hide();
+  }
+  else {
+    // Otherwise show it
+    $('.nsw').hide();
+     $('.sa').hide();
+      $('.wa').show();
+       $('.tas').hide();
+        $('.vic').hide();
+        $('.qld').hide();
+  } 
+}).keyup();
     function changeCollectionType(type) {
         var data = {
             'shipmentRequestModelGson': $("#shipmentRequestModelGson").val(),
@@ -2068,6 +2142,7 @@ echo "</pre>";
         }
     }
 
+    
     // Prepare for return service
 
     function onChangeServiceType(isReturn) {

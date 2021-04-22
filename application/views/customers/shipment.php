@@ -1,10 +1,6 @@
 <div id="shipment-div">
     <div class="row mbl">
-        <div class="col-lg-12">
-            <div class="col-md-12">
-                <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;"></div>
-            </div>
-        </div>
+    
         <form id="shipment-info-form" name="shipment-info-form" action="/crm-webship/webship.ix" method="post">
             <div class="col-lg-12">
                 <div class="row">
@@ -884,7 +880,7 @@
                                                         </label>
                                                         
                                                         <select name="shipmentPage.serviceId" id="shipmentPage_serviceId" required class="form-control">
-                                                            <option value="" selected="selected">Select Carrier</option>
+                                                            <!--option value="" selected="selected">Select Carrier</option-->
                                                             <?php for($c=0;$c<count($carriers);$c++) 
                                                             {                                                                
                                                                 ?>  
@@ -898,8 +894,8 @@
                                                     <div class="form-group col-lg-6" id="change-service-div">
                                                         <label class="control-label" for="inputName"> Service Type <span class="s30"> *</span>
                                                         </label>
-                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control"  onchange="changeShipmentType($(this).val())">
-                                                            <option value="" selected="selected">Select Service Type</option>
+                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control" >
+                                                            <!--option value="" selected="selected">Select Service Type</option-->
     
                                                                 <?php for($c=0;$c<count($services);$c++) 
                                                             {                                                                
@@ -1024,18 +1020,18 @@
                                                             <tr id="addr" class="calculation visible">
                                                             <td class="sno">1</td>
                                                                 
-                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value=""></td>
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" maxlength="6" value="" required class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value=""></td>
                                                                 <td width="40%">
                                                                     <div class="row mg0">
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces.dimensionL1" required value="" class="form-control alloptions dimL length" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces.dimensionL1" required value="" class="form-control alloptions dimL length" id="textInput" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                            
                                                                  </div>
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces.dimensionW1" value="" required class="form-control alloptions dimW width" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces.dimensionW1" value="" required class="form-control alloptions dimW width" id="textInput1" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                         </div>
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces.dimensionH1" value="" required class="form-control alloptions dimH height" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" id="textInput2" name="shipmentPage.pieces.dimensionH1" value="" required class="form-control alloptions dimH height" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                             <input type="hidden" name="get_volume" id="get_volume_input" value="">    
 	
                                                                         </div>
@@ -1048,7 +1044,7 @@
                                                                <td><input type="text" name="shipmentPage.pieces.quantity1" value="1" id="shipment-info-form_shipmentPage_pieces_0__quantity" class="form-control quantity" required onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="10" min="1" onfocus="this.value=''">
                                                                <input type="hidden" name="final_total" id="final_total_input" value=""></td>
                                                                  
-      <td><input type="button" value="&times;" class="del" /></td>
+                                                                  <td><input type="button" value="&times;" class="del" /></td>
                                                                 
                                                                 <td width="3%" style="padding-top: 9px"><i id="remove" class="fa fa-times-circle-o s10" style="font-size: 18px; display: none;" onclick="removePiece($(this))"></i>
                                                                 </td>
@@ -1097,56 +1093,178 @@
                                                     </div>
                                                 </div>
                                                 <div class="row">
-                                                    <div class="col-lg-12" id="additional-config-div">
+                                                <div class="col-lg-12" id="additional-config-div">
 
 
 
-    <div class="form-group">
-        
-            <label class="fw0">
-                <input data-group="dangerousgoods" tabindex="5" id="service_cons_0" type="checkbox" name="shipmentPage.addCons[0].value" value="1" onclick="showServiceAddConDetails(0)"> &nbsp;
-                Dangerous Goods
-            </label>
-        
-        
-        <input type="hidden" name="shipmentPage.addCons[0].addConName" value="Dangerous Goods">
-        <input type="hidden" name="shipmentPage.addCons[0].addConCode" value="dangerousgoods">
-        
-           
-        
-    </div>
+<div class="form-group">
     
-
-    <div class="form-group">
-        
-            <label class="fw0">
-                <input data-group="atl" tabindex="5" id="service_cons_1" type="checkbox" name="shipmentPage.addCons[1].value" value="1" onclick="showServiceAddConDetails(1)"> &nbsp;
-                Authorized to Leave (ATL)
-            </label>
-        
-        
-        <input type="hidden" name="shipmentPage.addCons[1].addConName" value="Authorized to Leave (ATL)">
-        <input type="hidden" name="shipmentPage.addCons[1].addConCode" value="atl">
-        
-            <div class="row" id="service_cons_1_add" style="display: none;">
-                
-                    <div class="col-xs-6">
-                        <div class="form-group">
-                            
-                            <input type="hidden" value="Where to leave" name="shipmentPage.addCons[1].listProperties[0].addConDetailName">
-                            <input type="hidden" value="atltoleave" name="shipmentPage.addCons[1].listProperties[0].addConDetailCode">
-                            
-                            
-                            
-                                <label class="control-label">
-                                    Where to leave
-                                </label>
-                                <input type="text" class="form-control" name="shipmentPage.addCons[1].listProperties[0].value">
-                            
-                        </div>
+        <label class="fw0">
+            <input data-group="dangerousgoods" tabindex="5" id="service_cons_0" type="checkbox" name="shipmentPage.addCons[0].value" value="1" onclick="showServiceAddConDetails(0)"> &nbsp;
+            Dangerous Goods
+        </label>
+    
+    
+    <input type="hidden" name="shipmentPage.addCons[0].addConName" value="Dangerous Goods">
+    <input type="hidden" name="shipmentPage.addCons[0].addConCode" value="dangerousgoods">
+    
+        <div class="row" id="service_cons_0_add" style="display: none;">
+            
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        
+                        <input type="hidden" value="UN Number (4Digits)" name="shipmentPage.addCons[0].listProperties[0].addConDetailName">
+                        <input type="hidden" value="unnumber" name="shipmentPage.addCons[0].listProperties[0].addConDetailCode">
+                        
+                        
+                        
+                            <label class="control-label">
+                                UN Number (4Digits)
+                            </label>
+                            <input type="text" class="form-control" name="shipmentPage.addCons[0].listProperties[0].value">
+                        
                     </div>
-                
-            </div>
+                </div>
+            
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        
+                        <input type="hidden" value="Packing Group" name="shipmentPage.addCons[0].listProperties[1].addConDetailName">
+                        <input type="hidden" value="packinggroup" name="shipmentPage.addCons[0].listProperties[1].addConDetailCode">
+                        
+                            <label class="control-label">
+                                Packing Group
+                            </label>
+                            <select class="form-control" name="shipmentPage.addCons[0].listProperties[1].value">
+                                
+                                    <option value="1">1</option>
+                                
+                                    <option value="2">2</option>
+                                
+                                    <option value="3">3</option>
+                                
+                                    <option value="4">4</option>
+                                
+                            </select>
+                        
+                        
+                        
+                    </div>
+                </div>
+            
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        
+                        <input type="hidden" value="I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge." name="shipmentPage.addCons[0].listProperties[2].addConDetailName">
+                        <input type="hidden" value="msda" name="shipmentPage.addCons[0].listProperties[2].addConDetailCode">
+                        
+                        
+                            <label class="fw0">
+                                <input type="checkbox" tabindex="5" name="shipmentPage.addCons[0].listProperties[2].value">
+                                &nbsp;
+                                I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.
+                            </label>
+                        
+                        
+                    </div>
+                </div>
+            
+        </div>
+    
+</div>
+
+
+<div class="form-group">
+    
+        <label class="fw0">
+            <input data-group="atl" tabindex="5" id="service_cons_1" type="checkbox" name="shipmentPage.addCons[1].value" value="1" onclick="showServiceAddConDetails(1)"> &nbsp;
+            Authorized to Leave (ATL)
+        </label>
+    
+    
+    <input type="hidden" name="shipmentPage.addCons[1].addConName" value="Authorized to Leave (ATL)">
+    <input type="hidden" name="shipmentPage.addCons[1].addConCode" value="atl">
+    
+        <div class="row" id="service_cons_1_add" style="display: none;">
+            
+                <div class="col-xs-6">
+                    <div class="form-group">
+                        
+                        <input type="hidden" value="Where to leave" name="shipmentPage.addCons[1].listProperties[0].addConDetailName">
+                        <input type="hidden" value="atltoleave" name="shipmentPage.addCons[1].listProperties[0].addConDetailCode">
+                        
+                        
+                        
+                            <label class="control-label">
+                                Where to leave
+                            </label>
+                            <input type="text" class="form-control" name="shipmentPage.addCons[1].listProperties[0].value">
+                        
+                    </div>
+                </div>
+            
+        </div>
+    
+</div>
+
+
+
+<div class="form-group" id="divAglWarranty" style="display: none;">
+<label class="fw0">
+    <input data-group="aglWarranty" tabindex="5" id="service_cons_2" type="checkbox" name="shipmentPage.addCons[2].value" value="0" onclick="showServiceAddConDetails(2)" disabled="disabled"> &nbsp;
+    AGL Warranty
+</label>
+<input type="hidden" name="shipmentPage.addCons[2].value" value="0">
+<input type="hidden" name="shipmentPage.addCons[2].addConName" value="agl Warranty">
+<input type="hidden" name="shipmentPage.addCons[2].addConCode" value="aglWarranty">
+</div>
+<script type="text/javascript">
+var isAglWarranty = false;
+$(document).ready(function () {
+    if (isAglWarranty) {
+        $("#divAglWarranty").show();
+        $("#divAglWarranty").find("input[type='checkbox']").attr("checked", true);
+        $("#divAglWarranty").find("input[name='shipmentPage.addCons[2].value']").val(1);
+    } else {
+        $("#divAglWarranty").hide();
+        $("#divAglWarranty").find("input[type='checkbox']").attr("checked", false);
+        $("#divAglWarranty").find("input[name='shipmentPage.addCons[2].value']").val(0);
+    }
+});
+function showServiceAddConDetails(id) {
+    
+    
+    var isChecked = $("#service_cons_" + id).is(':checked');
+    if (isChecked) {
+    var extraTask =	$("input[name='shipmentPage.addCons["+id+"].addConName']").val();
+   // alert(""+extraTask);
+        if( extraTask == 'Dangerous Goods'){
+            var conformation = confirm(" Please call AGL customer service on 08 94793399 to check if this DG can be sent using this service. ");
+            if(conformation == true){
+                $("#service_cons_" + id + "_add").show();
+           }else{
+               $("#service_cons_" + id + "").attr('checked', false);
+            $("#service_cons_" + id + "_add").hide();
+           }
+        }
+        else if(extraTask == 'Time Critical Service Request'){
+            var conformation = confirm(" Should your consignment be time critical please call our AGL customer service team on 08 94793399 so that we can assist you with this. ");
+            if(conformation == true){
+                $("#service_cons_" + id + "_add").show();
+           }else{
+               $("#service_cons_" + id + "").attr('checked', false);
+            $("#service_cons_" + id + "_add").hide();
+           }
+        }else
+        {
+            $("#service_cons_" + id + "").attr('checked', true);
+            $("#service_cons_" + id + "_add").show();
+        }
+    } else {
+        $("#service_cons_" + id + "_add").hide();
+    }
+}
+</script></div>
         
     </div>
     
@@ -1165,61 +1283,8 @@
 </div>
 
 
-<div class="form-group" id="divAglWarranty" style="display: none;">
-    <label class="fw0">
-        <input data-group="aglWarranty" tabindex="5" id="service_cons_2" type="checkbox" name="shipmentPage.addCons[2].value" value="0" onclick="showServiceAddConDetails(2)" disabled="disabled"> &nbsp;
-        AGL Warranty
-    </label>
-    <input type="hidden" name="shipmentPage.addCons[2].value" value="0">
-    <input type="hidden" name="shipmentPage.addCons[2].addConName" value="agl Warranty">
-    <input type="hidden" name="shipmentPage.addCons[2].addConCode" value="aglWarranty">
-</div>
+
 <script type="text/javascript">
-    var isAglWarranty = false;
-    $(document).ready(function () {
-        if (isAglWarranty) {
-            $("#divAglWarranty").show();
-            $("#divAglWarranty").find("input[type='checkbox']").attr("checked", true);
-            $("#divAglWarranty").find("input[name='shipmentPage.addCons[2].value']").val(1);
-        } else {
-            $("#divAglWarranty").hide();
-            $("#divAglWarranty").find("input[type='checkbox']").attr("checked", false);
-            $("#divAglWarranty").find("input[name='shipmentPage.addCons[2].value']").val(0);
-        }
-    });
-
-    function showServiceAddConDetails(id) {
-    	 var isChecked = $("#service_cons_" + id).is(':checked');
-        if (isChecked) {
-        var extraTask =	$("input[name='shipmentPage.addCons["+id+"].addConName']").val();
-       // alert(""+extraTask);
-        	if( extraTask == 'Dangerous Goods'){
-        		var conformation = confirm(" Please call AGL customer service on 08 94793399 to check if this DG can be sent using this service. ");
-        		if(conformation == true){
-           		 $("#service_cons_" + id + "_add").show();
-           	}else{
-           		$("#service_cons_" + id + "").attr('checked', false);
-        		$("#service_cons_" + id + "_add").hide();
-           	}
-        	}
-        	else if(extraTask == 'Time Critical Service Request'){
-        		var conformation = confirm(" Should your consignment be time critical please call our AGL customer service team on 08 94793399 so that we can assist you with this. ");
-        		if(conformation == true){
-           		 $("#service_cons_" + id + "_add").show();
-           	}else{
-           		$("#service_cons_" + id + "").attr('checked', false);
-        		$("#service_cons_" + id + "_add").hide();
-           	}
-        	}else
-        	{
-        		$("#service_cons_" + id + "").attr('checked', true);
-        		$("#service_cons_" + id + "_add").show();
-        	}
-        } else {
-            $("#service_cons_" + id + "_add").hide();
-        }
-    }
-
 
   function maxLengthCheck(object) {
     if (object.value.length > object.maxLength)
@@ -1264,10 +1329,7 @@
                                                                      Continue Booking
                                                                 </button>
                                                            <?php //echo base_url('customer/continue_booking');?>
-                                                           
                                                                 
-                                                               
-                                                            
                                                         </div>
                                                     </div>
                                                 </div>
@@ -1287,13 +1349,13 @@
 
     </div>
 </div>
-<input type="hidden" name="defaultAddressJson" value="{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;08 94793399&quot;,&quot;contactName&quot;:&quot;DESPATCH&quot;,&quot;email&quot;:&quot;logistics@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;U1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH AIRPORT&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;,&quot;residential&quot;:&quot;0&quot;}" id="defaultAddressJson"/>
+<input type="hidden" name="defaultAddressJson" value="{&quot;companyName&quot;:&quot;<?php echo $customers->customerName;?>&quot;,&quot;phone&quot;:&quot;<?php echo $customers->phone;?>&quot;,&quot;contactName&quot;:&quot;<?php echo $customers->customerName;?>&quot;,&quot;email&quot;:&quot;<?php echo $customers->email;?>&quot;,&quot;country&quot;:&quot;<?php echo $customers->country;?>&quot;,&quot;address&quot;:&quot;<?php echo $customers->address;?>&quot;,&quot;address2&quot;:&quot;&quot;,&quot;city&quot;:&quot;<?php echo $customers->city;?>&quot;,&quot;postalCode&quot;:&quot;<?php echo $customers->postal_code;?>&quot;,&quot;state&quot;:&quot;<?php echo $customers->state_code;?>&quot;,&quot;residential&quot;:&quot;0&quot;}" id="defaultAddressJson"/>
 <div id="continue-booking-div"></div>
 <div id="get-quote-dialog" title="Quote"></div>
 <div id="session_time_out_dialog" title="Message"></div>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/pages/webship.js"></script>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/common/common.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
 <script>
 
 function onChangeServiceType(isReturn) {
@@ -1567,17 +1629,17 @@ function openForm() {
     var rcv_city= $("input[name='shipmentPage.receiverAddress.city']").val();
     var service_type_Id = $("select[name='shipmentPage.shipmentTypeId']").val();
 
-    var weight =[$("#addr input[name='shipmentPage.pieces.weight']").val()];
+    var weight =[$("#addr input[name='total_weight']").val()];
     var length =[$("#addr input[name='shipmentPage.pieces.dimensionL1']").val()];
     var dnw =[$("#addr input[name='shipmentPage.pieces.dimensionW1']").val()];
     var dnh=[$("#addr input[name='shipmentPage.pieces.dimensionH1']").val()];
-    var quantity =[$("#addr input[name='shipmentPage.pieces.quantity1']").val()];
+    var quantity =[$("#addr input[name='final_total']").val()];
 
     setTimeout(function(){ 
 
     $('#piece-table .calculation').each(function(i)
     {
-        var wh= $("#addr"+i+" input[name='shipmentPage.pieces.weight1]").val();
+        var wh= $("#addr"+i+" input[name='total_weight']").val();
         if(wh)
         weight.push(wh);
         var ln= $("#addr"+i+" input[name='shipmentPage.pieces.dimensionL1']").val();
@@ -1589,7 +1651,7 @@ function openForm() {
         var dn= $("#addr"+i+" input[name='shipmentPage.pieces.dimensionW1']").val();
         if(dn)
         dnw.push(dn);
-        var qty= $("#addr"+i+" input[name='shipmentPage.pieces.quantity1']").val();
+        var qty= $("#addr"+i+" input[name='final_total']").val();
         if(qty)
         quantity.push(qty);
         
@@ -1615,11 +1677,20 @@ function openForm() {
         },
         success: function(data){
             var result= JSON.parse(data);
-            console.log(result);                   
-            html +='<tr>';
+            console.log(result);   
+            $.each(result.base_charge, function(k, v) {
+                if(v)
+                {
+                    var basic_charge = v.basic_charge;
+                    var per_kg = v.per_kg;
+                    var total = per_kg * basic_charge;
+                    html +='<tr>';
                     html +='<td class="td1">Base Charge</td>';
-                    html +='<td class="td2">$ '+result.base_charge+'</td>';
-            html +='</tr>';        
+                    html +='<td class="td2">$ '+total+'</td>';
+                    html +='</tr>';
+                }
+            });                
+           
             
             $.each(result.charges, function(k, v) {
                 if(v)
@@ -1661,11 +1732,6 @@ function openForm() {
         
     });
     }, 1000);
-
-    
-
-
-    
 }
 
 function closeForm() {
@@ -1759,9 +1825,9 @@ var numRows = 1, ti = 5;
 		     	$("#final_total").html(lt);
 		    	$("#total_weight").html(weight_total.toFixed(2));
 		    	$("#get_volume").html(tt.toFixed(3));
-			    $("#final_total_input").val(lt);
-			    $("#total_weight_input").val(weight_total.toFixed(2));
-			    $("#get_volume_input").val(tt.toFixed(3));
+			   // $("#final_total_input").val(lt);
+			 //   $("#total_weight_input").val(weight_total.toFixed(2));
+			   // $("#get_volume_input").val(tt.toFixed(3));
 		}
 
 
@@ -1787,26 +1853,7 @@ var numRows = 1, ti = 5;
 			});
 
 		   $("#add_row").on("click",function(e) {
-				   var isValid = true;
-                    $('.num').each(function() {
-             if ($.trim($(this).val()) == '') 
-			    {
-                   isValid = false;
-                  $(this).css({ "border": "1px solid red" });
-               }
-		   else 
-		      {
-               $(this).css({ "border": "" });
-              }
-
-			  $('.num').blur(function () {
-				$(this).css({ "border": "" });
-              });
-           });
-           if (isValid == false) 
-              e.preventDefault();
-           else 
-	     	 addRow()
+			addRow()
          });
 
          $(document).on("click", ".add, .del", function(){
@@ -1834,7 +1881,19 @@ function changeShipmentType(shipmentTypeId, prevPackageName) {
     });
     
 }
-      
+
+document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("change", 
+	function(obj)
+  {
+  	var input = document.getElementById("textInput");
+    var input1 = document.getElementById("textInput1");
+    var input2 = document.getElementById("textInput2");
+    input.disabled = (this.value >= 3);
+    input1.disabled = (this.value >= 3);
+    input2.disabled = (this.value >= 3);
+  }, false);
+
+
     </script>
 <style>
 

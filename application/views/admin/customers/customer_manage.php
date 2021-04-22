@@ -5941,6 +5941,7 @@ $(".remove").click(function(){
          
            $.ajax({
                url: 'customers/get_rates',
+              // url: 'get_rates',
                type: 'POST',
                data:{zone:zone,service_type:id},
                error: function() {
@@ -5969,7 +5970,7 @@ $(".remove").click(function(){
           var result='';
          
            $.ajax({
-               url: 'get_fix_rates',
+               url: 'customers/get_fix_rates',
                type: 'POST',
                data:{zone:zone,service_type:id},
                error: function() {

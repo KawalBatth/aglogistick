@@ -324,6 +324,23 @@ h3.quote_title {
     margin-top: 7px;
 }
 
+span a {
+    display: none;
+}
+
+span {
+    margin-top: -155px !important;
+}
+
+.clock24{
+    color:inherit;
+    text-decoration:none;
+    cursor:text;
+}
+
+.clock24 :hover{
+    color:inherit;
+}
 /* The popup form - hidden by default */
 .form-popup {
   display: none;
@@ -478,6 +495,12 @@ label.control-label.ready {
 .modal-content {
     width: 135%;
 }
+
+textarea { height: 15px; padding: 3px; resize: none; }
+
+.errorField { border: 2px solid red; }
+.successField { border: 2px solid green; }
+
     </style>
   <header class="main-header">
     <!-- Logo -->

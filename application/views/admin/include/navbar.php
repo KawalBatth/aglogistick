@@ -688,6 +688,12 @@ td.price {
     margin-top:10px !important;
 }
 
+.caption.b17.text-center {
+    float: left;
+    margin-left: 267px;
+    margin-bottom: 19px;
+}
+
 
 
 

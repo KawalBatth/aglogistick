@@ -163,6 +163,7 @@
 		}
 
 
+
 		public function get_calculate()
 		{
 			$weight = $this->input->post('weight');
@@ -188,11 +189,14 @@
 			echo json_encode($result);
 			
 		}
+
+		
 		 public function booking()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 			
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$str = $this->user_model->gettempdata($this->session->userdata('customer_user_id'));
 			$returndata = array();
     		$strArray = explode("&", $str);
@@ -220,6 +224,7 @@
 			}
 		else {	redirect('user/login');}
 		}
+
 		public function continuewbooking()
 		{
 			$str = urldecode($this->input->post('data'));

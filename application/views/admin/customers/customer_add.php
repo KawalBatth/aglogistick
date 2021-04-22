@@ -35,10 +35,10 @@
         <table class="table table-bordered mg0 table-hover">
             <thead>
             <tr>
-                <th>Destination</th>
-                <th class="text-right">Min</th>
-                <th class="text-right">Base</th>
-                <th class="text-right">Per Kg</th>
+                <th class="text-middle">Destination</th>
+                <th class="text-middle">Min</th>
+                <th class="text-middle">Base</th>
+                <th class="text-middle">Per Kg</th>
             </tr>
             </thead>
             <tbody>
