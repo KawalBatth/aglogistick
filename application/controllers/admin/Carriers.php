@@ -34,6 +34,7 @@
 			'surcharge_name' => $this->input->post('surcharge_name'),
 			'surcharge_price' => $this->input->post('surcharge_price'),
 			'surcharge_type' => $this->input->post('surcharge_type'),
+			'is_dangerous' => $this->input->post('is_dangerous'),
 			'last_modified'=>$date = date('Y/m/d H:i:s')
 			);
 			

@@ -84,6 +84,23 @@
   </div>
   </td> 
   </tr>
+  <tr>
+    <td>
+      <div class="form-group">
+            <label class="fw0">
+                <input data-group="dangerousgoods" tabindex="5" id="service_cons_0" type="checkbox" name="is_dangerous" value="0"> &nbsp;
+                Dangerous Goods
+            </label>
+        
+        
+        
+        
+           
+        
+    </div>
+      
+    </td>
+  </tr>
   </table>
  
 
@@ -399,7 +416,14 @@ $(".remove").click(function(){
 var timeout = 2000; // in miliseconds (3*1000)
 $('.alert').delay(timeout).fadeOut(300);
 
-
+ $("input[name='is_dangerous']").change(function() {
+        if(this.checked) {
+        $("input[name='is_dangerous']").val(1);        
+        }
+        else {
+           $("input[name='is_dangerous']").val(0);        
+        }
+    });
 </script>
 
 </body>

@@ -107,6 +107,8 @@ $route['customer/help'] = 'customer/customers/help';
 $route['customer/get_calculate'] = 'customer/customers/get_calculate';
 $route['customer/continue_booking'] = 'customer/customers/continuewbooking';
 $route['customer/continue_bookingnew'] = 'customer/customers/continue_booking_new';
+$route['customer/save_quote'] = 'customer/customers/save_quote';
+
 
 $route['user/login'] = 'user';
 $route['user/logout'] = 'user/logout';

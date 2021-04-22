@@ -118,12 +118,18 @@ public function savetempdata($str,$id)
 public function get_fix_rate($id)
 {
 
-	$this->db->select('*');
+	$this->db->select('*, price as per_kg');
 	$this->db->from('star_services as service');
 	$this->db->where('service.id', $id);
 	$this->db->join('fixed_price', 'fixed_price.service_id = service.id');
 	$query = $this->db->get();
-    return $query->row()->price;	
+	 if($query->num_rows() > 0)
+        {
+        	$data = $query->row()->per_kg;					
+        	return $data;
+        }
+    	else {return $data ='';	}
+
 }
 public function gettempdata($id='')
 {
@@ -198,8 +204,13 @@ public function fetch_customer($id)
 	{
 		$this->db->select('*');
 		$this->db->from('surcharges_list');
-		$this->db->where('carrier_id', $id);		
-		$this->db->where('is_dangerous',$isdang);	
+		if($isdang==1)
+		{
+			$this->db->where(array('carrier_id'=>$id));			
+			}
+		else {
+			$this->db->where(array('carrier_id'=>$id,'is_dangerous'=>$isdang));		
+		}
 		return $query = $this->db->get()->result_array();
 			
 	}

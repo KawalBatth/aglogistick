@@ -608,13 +608,13 @@
                                                         </label>
                                                         
                                                         <select name="shipmentPage.serviceId" id="shipmentPage_serviceId" required class="form-control">
-                                                            <option value="" selected="selected">Select Carrier</option>
-                                                            <?php for($c=0;$c<count($carriers);$c++) 
+                                                            <option value="11" selected="selected">Star Track</option>
+                                                            <?php /*for($c=0;$c<count($carriers);$c++) 
                                                             {                                                                
                                                                 ?>  
                                                                 <option value="<?php echo $carriers[$c]['id'];?>"><?php echo $carriers[$c]['carrier_name'];?></option>
                                                             <?php
-                                                            }?>                                                            
+                                                            }*/?>                                                            
                                                         </select>
 
 
@@ -622,7 +622,7 @@
                                                     <div class="form-group col-lg-6" id="change-service-div">
                                                         <label class="control-label" for="inputName"> Service Type <span class="s30"> *</span>
                                                         </label>
-                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control"  onchange="changeShipmentType($(this).val())">
+                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control"  onchange="changeShipmentType($(this).val(), $('option:selected',this).text())">
                                                             <option value="" selected="selected">Select Service Type</option>
     
                                                                 <?php for($c=0;$c<count($services);$c++) 
@@ -748,7 +748,9 @@
                                                             <tr id="addr" class="calculation visible">
                                                             <td class="sno">1</td>
                                                                 
-                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value=""></td>
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value="">
+                                                                     <input type="hidden" name="service_kg" id="service_kg" value="">
+                                                                </td>
                                                                 <td width="40%">
                                                                     <div class="row mg0">
                                                                         <div class="col-lg-4 pd1">
@@ -828,7 +830,7 @@
     <div class="form-group">
         
             <label class="fw0">
-                <input data-group="dangerousgoods" tabindex="5" id="service_cons_0" type="checkbox" name="isdangerous" value="1" onclick="showServiceAddConDetails(0)"> &nbsp;
+                <input data-group="dangerousgoods" tabindex="5" id="service_cons_0" type="checkbox" name="isdangerous" value="0" onclick="showServiceAddConDetails(0)"> &nbsp;
                 Dangerous Goods
             </label>
         
@@ -881,7 +883,7 @@
    
         <tbody></table>
 <div class="quote-button">
-<button type="button" class="btn s33 save" onclick="save()">Save quote</button>
+<button type="button" class="btn s33 save" onclick="saveqoute()">Save quote</button>
     <button type="button" class="btn s33 cancel" onclick="closeForm()">Ok</button>
     </div>
   </form>
@@ -1316,6 +1318,46 @@ function continuewbookingnew()
         }
     });
 }
+ $("input[name='isdangerous']").change(function() {
+        if(this.checked) {
+        $("input[name='isdangerous']").val(1);        
+        }
+        else {
+           $("input[name='isdangerous']").val(0);        
+        }
+    });
+ function saveqoute()
+{
+    var quote_date =  new Date();
+    var customer = '<?php echo $customers->customer_id;?>';
+    var dd = String(quote_date.getDate()).padStart(2, '0');
+    var qoute_jobnumber   = customer+'AGL'+dd;
+    var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
+    var sender_city= $("input[name='shipmentPage.senderAddress.city']").val();
+
+    var stateCode1 = $("input[name='shipmentPage.senderAddress.state']").val();
+    var postalCode = $("input[name='shipmentPage.receiverAddress.postalCode']").val();
+    var stateCode = $("input[name='shipmentPage.receiverAddress.state']").val();
+    var servicename = $("select[name='shipmentPage.serviceId'] option:selected").text();
+    var rcv_city= $("input[name='shipmentPage.receiverAddress.city']").val();
+    var service_type_name = $("select[name='shipmentPage.shipmentTypeId'] option:selected").text();
+    var package_type_name = $("select[name='shipmentPage.packageId'] option:selected").text();
+    var total_amount = $('#total_weight_input').val(); 
+    
+    
+      $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/save_quote');?>",
+        data:{quote_date:quote_date,customer:customer,sender_subrub:sender_city,sender_postcode:sender_postcode,reciver_subrub:rcv_city,reciver_postcode:postalCode,shipment_type:service_type_name,package_type:package_type_name,qoute_jobnumber:qoute_jobnumber,total_amount:total_amount},
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+
+        }
+    });
+}
 function openForm() {
 
     document.getElementById("myForm").style.display = "block";
@@ -1329,8 +1371,9 @@ function openForm() {
     var service_type_Id = $("select[name='shipmentPage.shipmentTypeId']").val();
 
     
-    var weight =$("#addr input[name='total_weight']").val();
-
+    var weight =$("input[name='total_weight']").val();
+    
+    var isdangerous = $("input[name='isdangerous']").val();
     var length =[$("#addr input[name='shipmentPage.pieces.dimensionL1']").val()];
     var dnw =[$("#addr input[name='shipmentPage.pieces.dimensionW1']").val()];
     var dnh=[$("#addr input[name='shipmentPage.pieces.dimensionH1']").val()];
@@ -1338,8 +1381,8 @@ function openForm() {
     var totalweight = $('#total_weight_input').val();    
     var final_total=$("#final_total_input").val();
     var get_volume_input = $("#get_volume_input").val();
-    setTimeout(function(){    
-    
+    setTimeout(function()
+    {    
     $('#saveQuoteLog table tbody').html('');
     var html = '';
     var total ='';
@@ -1348,23 +1391,45 @@ function openForm() {
      $.ajax({
         type: "POST",
         url: "<?php echo base_url('customer/get_calculate');?>",
-        data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id},
+        data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id,isdangerous:isdangerous},
         beforeSend: function(){
 
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
         },
         success: function(data){
             var result= JSON.parse(data);
-            console.log(result);                   
-                
-            
-            $.each(result.charges, function(k, v) {
+            console.log(result);
+            if(result.base_charge)
+            {
+            $.each(result.base_charge, function(k, v) {
                 if(v)
                 {
                     basic_charge = v.basic_charge;
+                    if(basic_charge=='')
+                    {
+                        basic_charge='0.00';
+                    }
+                    console.log('basic_charge'+basic_charge);
                     per_kg = v.per_kg;
-                    total = (weight * per_kg) + basic_charge;
-                      
+                    console.log('per_kg'+per_kg);
+                    console.log('weight'+weight);
+                    total = parseFloat(basic_charge) + (parseFloat(weight) * parseFloat(per_kg));
+                }
+             });
+            }
+            else {
+
+                    basic_charge='0.00';
+                    console.log('basic_charge'+basic_charge);
+                    per_kg = result.fixed_price;
+                    console.log('per_kg'+per_kg);
+                    console.log('weight'+weight);
+                    total =  parseFloat(weight) * parseFloat(per_kg);
+
+            }
+            $.each(result.charges, function(k, v) {
+                if(v)
+                {
 
                     html +='<tr>';
                     html +='<td class="td1">'+v.surcharge_name+'</td>';
@@ -1374,7 +1439,7 @@ function openForm() {
             });
             html +='<tr>';
                     html +='<td class="td1">Base Charge</td>';
-                    html +='<td class="td2">$ '+total+'</td>';
+                    html +='<td class="td2">$ '+parseFloat(total)+'</td>';
                     html +='</tr>';
             
             html +='<tr>';
@@ -1382,7 +1447,7 @@ function openForm() {
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1">Total weight</td>';
-                    html +='<td class="td2">'+totalweight+'kg(s)</td>';
+                    html +='<td class="td2 totalweight">'+totalweight+'kg(s)</td>';
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1">Weight type</td>';
@@ -1473,12 +1538,15 @@ var numRows = 1, ti = 5;
 
 		function recalc() 
 		{
+            
 			var lt = 0,
 			wt = 0,
 			weight_total = 0,
 			tt = 0;
 			$("#piece-table").find('tr').each(function () {
 				var w = $(this).find('input.weight').val();
+
+                console.log('w'+w);
 				var q = parseFloat($(this).find('input.quantity').val());
 				//total = w;
 				var l = $(this).find('input.length').val();
@@ -1495,6 +1563,22 @@ var numRows = 1, ti = 5;
 				lt += isNumber(q) ? parseInt(q, 10) : 0;
 				tt += isNumber(dateTotal) ? dateTotal : 0;
 				weight_total += isNumber(w) ? parseInt(w, 10) : 0;
+                 var kg= $('#service_kg').val();
+                console.log('kg'+kg);
+                if(w)
+                {
+                if( kg!='' && w > kg)
+                {
+                    $('.myerror').remove();
+                    $(this).find('input.weight').css({ "border": "1px solid red" });
+                    $(this).find('input.weight').parent().append('<span class="myerror">Weight must be less then fixed service weight');
+            
+                }
+                else {
+                    $(this).find('input.weight').css({ "border": "1px solid #d2d6de" });
+                    $('.myerror').remove();
+                }
+                }
 				
 		    	}); //END .each
 
@@ -1505,6 +1589,9 @@ var numRows = 1, ti = 5;
 
 		     	$("#final_total").html(lt);
 		    	$("#total_weight").html(weight_total.toFixed(2));
+                var wght= weight_total.toFixed(2);
+
+
 		    	$("#get_volume").html(tt.toFixed(3));
 			    $("#final_total_input").val(lt);
 			    $("#total_weight_input").val(weight_total.toFixed(2));
@@ -1568,17 +1655,23 @@ var numRows = 1, ti = 5;
 			$(this).closest('tr').remove();
 	      });
          
-function changeShipmentType(shipmentTypeId, prevPackageName) {
+function changeShipmentType(shipmentTypeId, texthtml) {
+
+       var kg= texthtml.replace(/[^0-9]/g,'');
+       
+       $('#service_kg').val(kg);
     if (typeof (shipmentTypeId) == "undefined" || shipmentTypeId == '') {
         shipmentTypeId = $('#shipmentPage_shipmentTypeId').val();
     }
-  
+    
+    
     $("#piece-table").find("tbody").find("tr").each(function () {
         $(this).find("td").find("input").each(function () {
             var name_piece = $(this).attr("name");
             var value_piece = $(this).val();
         });
     });
+    recalc();
     
 }
       

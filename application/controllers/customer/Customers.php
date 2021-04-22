@@ -23,7 +23,23 @@
 			redirect('user/login');
 		}
 		}
+		public function save_quote()
+		{
+			
+			$quote_date= $this->input->post('quote_date');	
+			$customer= $this->input->post('customer');			
+			$qoute_jobnumber= $this->input->post('qoute_jobnumber');			
+			$sender_subrub = $this->input->post('sender_subrub');
+			$sender_postcode = $this->input->post('sender_postcode');
+			$reciver_subrub= $this->input->post('reciver_subrub');
+			$reciver_postcode= $this->input->post('reciver_postcode');
+			$shipment_type= $this->input->post('shipment_type');
+			$package_type= $this->input->post('package_type');
+			$total_amount =$this->input->post('total_amount');
 
+			// need to save in quote/job tabel
+
+		}
 		public function address_book()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
@@ -182,10 +198,20 @@
 			$isdange = $this->input->post('isdangerous');
 			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId,$isdange);
 			$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
+			if(empty($fixed_price))
+			{
+				$base_charge =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);	
+				$result['base_charge']= $base_charge;
+			}
+			else {
+				$result['fixed_price']= $fixed_price;
+			}
+			
 
-			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
-			$result['charges'] = $get_base_rate;
-			$result['base_charge']= $get_surcharge;
+			$result['charges'] = $get_surcharge;
+			
+	
+			
 			$result['totalweight']= $totalweight;
 			echo json_encode($result);
 			
@@ -236,7 +262,7 @@
         		$array = explode("=", $item);
         		$returndata[$array[0]] = $array[1];
     		}
-    		print_r($returndata
+    		print_r($returndata);
     			
 		}
 		public function continuewbooking()
