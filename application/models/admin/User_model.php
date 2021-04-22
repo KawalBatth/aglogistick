@@ -115,6 +115,16 @@ public function savetempdata($str,$id)
 	$arrayName = array('user_id' => $id,'formdata'=>$str);
 	$this->db->insert('temp_data',$arrayName);
 }
+public function get_fix_rate($id)
+{
+
+	$this->db->select('*');
+	$this->db->from('star_services as service');
+	$this->db->where('service.id', $id);
+	$this->db->join('fixed_price', 'fixed_price.service_id = service.id');
+	$query = $this->db->get();
+    return $query->row()->price;	
+}
 public function gettempdata($id='')
 {
 	$this->db->select('*');

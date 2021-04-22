@@ -1572,7 +1572,9 @@ function openForm() {
     var dnw =[$("#addr input[name='shipmentPage.pieces.dimensionW1']").val()];
     var dnh=[$("#addr input[name='shipmentPage.pieces.dimensionH1']").val()];
     var quantity =[$("#addr input[name='shipmentPage.pieces.quantity1']").val()];
-
+    var totalweight = $('#total_weight_input').val();    
+    var final_total=$("#final_total_input").val();
+    var get_volume_input = $("#get_volume_input").val();
     setTimeout(function(){ 
 
     $('#piece-table .calculation').each(function(i)
@@ -1635,7 +1637,7 @@ function openForm() {
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1">Total weight</td>';
-                    html +='<td class="td2">'+result.totalweight+'kg(s)</td>';
+                    html +='<td class="td2">'+totalweight+'kg(s)</td>';
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1">Weight type</td>';
@@ -1646,7 +1648,7 @@ function openForm() {
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1"><b>Total Charge</b></td>';
-                    html +='<td class="td2">$ 353.47</td>';
+                    html +='<td class="td2">$ '+final_total+'</td>';
             html +='</tr>';
             html +='<tr>';
                     html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';

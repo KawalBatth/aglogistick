@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 <?php 
 echo "<pre>";
 print_r($result);
@@ -21,8 +20,7 @@ echo "</pre>";
                     });
                 </script>
  
-=======
->>>>>>> 5755138e55225551c9696506cc2790d4b5337471
+
 <!--BEGIN TITLE & BREADCRUMB PAGE-->
 <div id="shipment-div" style="display: none;">
     <div class="row mbl">
