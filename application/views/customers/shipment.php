@@ -62,7 +62,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Email Address
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.email" maxlength="50" value="logistics@agllogistics.com" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
+                                                    <input type="text" name="email" maxlength="50" value="logistics@agllogistics.com" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
                                                 </div>
                                             </div>
                                         </div>
