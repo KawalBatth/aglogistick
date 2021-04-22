@@ -147,6 +147,13 @@ public function save_notes($notes, $id)
 	}
 
 
+	public function save_shipment($quote)
+	{
+		$this->db->insert('shipment', $quote);
+		return true;
+	}
+
+
  public function get_all_notes()
  {
 	$query = $this->db->get('user_notes');

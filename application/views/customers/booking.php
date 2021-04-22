@@ -419,7 +419,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="PERTH airport" id="shipment-info-form_shipmentPage_senderAddress_city" class="form-control alloptions" onkeyup="searchCity(true,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="VIC" id="shipment-info-form_shipmentPage_senderAddress_city" class="form-control alloptions" onkeyup="searchCity(true,true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
