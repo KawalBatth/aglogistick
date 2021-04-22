@@ -106,6 +106,8 @@ $route['customer/get_postcode'] = 'customer/customers/get_postcode';
 $route['customer/help'] = 'customer/customers/help';
 $route['customer/get_calculate'] = 'customer/customers/get_calculate';
 $route['customer/continue_booking'] = 'customer/customers/continuewbooking';
+$route['customer/continue_bookingnew'] = 'customer/customers/continue_booking_new';
+
 $route['user/login'] = 'user';
 $route['user/logout'] = 'user/logout';
 $route['user/login/process'] = 'user/process';

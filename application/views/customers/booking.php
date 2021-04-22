@@ -1,8 +1,8 @@
 <?php 
-//echo "<pre>";
-//print_r($result);
-//print_r($surcharge);
-//echo "</pre>";
+echo "<pre>";
+print_r($result);
+print_r($surcharge);
+echo "</pre>";
 ?>
 
                 <script type="text/javascript">

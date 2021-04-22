@@ -1,8 +1,3 @@
-<?php   
- $connect = mysqli_connect("localhost", "root", "", "webfreight");  
- $query = "SELECT * FROM surcharges_list";  
- $result = mysqli_query($connect, $query);  
- ?>  
 <!DOCTYPE html>  
  <html>  
  <body>

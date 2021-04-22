@@ -828,13 +828,12 @@
     <div class="form-group">
         
             <label class="fw0">
-                <input data-group="dangerousgoods" tabindex="5" id="service_cons_0" type="checkbox" name="shipmentPage.addCons[0].value" value="1" onclick="showServiceAddConDetails(0)"> &nbsp;
+                <input data-group="dangerousgoods" tabindex="5" id="service_cons_0" type="checkbox" name="isdangerous" value="1" onclick="showServiceAddConDetails(0)"> &nbsp;
                 Dangerous Goods
             </label>
         
         
-        <input type="hidden" name="shipmentPage.addCons[0].addConName" value="Dangerous Goods">
-        <input type="hidden" name="shipmentPage.addCons[0].addConCode" value="dangerousgoods">
+        
         
            
         
@@ -894,9 +893,7 @@
         <input data-group="aglWarranty" tabindex="5" id="service_cons_2" type="checkbox" name="shipmentPage.addCons[2].value" value="0" onclick="showServiceAddConDetails(2)" disabled="disabled"> &nbsp;
         AGL Warranty
     </label>
-    <input type="hidden" name="shipmentPage.addCons[2].value" value="0">
-    <input type="hidden" name="shipmentPage.addCons[2].addConName" value="agl Warranty">
-    <input type="hidden" name="shipmentPage.addCons[2].addConCode" value="aglWarranty">
+   
 </div>
 <script type="text/javascript">
     var isAglWarranty = false;
@@ -978,14 +975,17 @@
                                                             
                                                            <a href="<?= base_url('customer/shipment'); ?>" class="btn s33 s44"> New Shipment</a>
                                                              
-                                                                <!--button class="btn s33" type="button" onclick="openForm()"-->
-                                                                <button class="btn s33" type="button" onclick="save_ship()">
+                                                                <button class="btn s33" type="button" onclick="openForm()">
+                                                                <!--button class="btn s33" type="button" onclick="save_ship()"-->
                                                                     Quote
                                                                 </button>
                                                                 <button class="btn s33 calculation" type="button">
                                                                     Calculate
                                                                 </button>
                                                                   <button class="btn s33" type="button" onclick="continuewbooking()">
+                                                                     Continue Booking
+                                                                </button>
+                                                                    <button class="btn s33" type="button" onclick="continuewbookingnew()">
                                                                      Continue Booking
                                                                 </button>
                                                            
@@ -1300,6 +1300,22 @@ function continuewbooking()
     });
 
 }
+function continuewbookingnew()
+{
+     var formdata = $('#shipment-info-form').serialize();
+    console.log(formdata);
+    $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/continue_bookingnew');?>",
+        data:{ "data"  : formdata},
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+        }
+    });
+}
 function openForm() {
 
     document.getElementById("myForm").style.display = "block";
@@ -1312,7 +1328,9 @@ function openForm() {
     var rcv_city= $("input[name='shipmentPage.receiverAddress.city']").val();
     var service_type_Id = $("select[name='shipmentPage.shipmentTypeId']").val();
 
-    var weight =[$("#addr input[name='shipmentPage.pieces.weight']").val()];
+    
+    var weight =$("#addr input[name='total_weight']").val();
+
     var length =[$("#addr input[name='shipmentPage.pieces.dimensionL1']").val()];
     var dnw =[$("#addr input[name='shipmentPage.pieces.dimensionW1']").val()];
     var dnh=[$("#addr input[name='shipmentPage.pieces.dimensionH1']").val()];
@@ -1320,42 +1338,17 @@ function openForm() {
     var totalweight = $('#total_weight_input').val();    
     var final_total=$("#final_total_input").val();
     var get_volume_input = $("#get_volume_input").val();
-    setTimeout(function(){ 
-
-    $('#piece-table .calculation').each(function(i)
-    {
-        var wh= $("#addr"+i+" input[name='shipmentPage.pieces.weight1]").val();
-        if(wh)
-        weight.push(wh);
-        var ln= $("#addr"+i+" input[name='shipmentPage.pieces.dimensionL1']").val();
-        if(ln)
-        length.push(ln);
-        var dh= $("#addr"+i+" input[name='shipmentPage.pieces.dimensionH1']").val();
-        if(dh)
-        dnh.push(dh);
-        var dn= $("#addr"+i+" input[name='shipmentPage.pieces.dimensionW1']").val();
-        if(dn)
-        dnw.push(dn);
-        var qty= $("#addr"+i+" input[name='shipmentPage.pieces.quantity1']").val();
-        if(qty)
-        quantity.push(qty);
-        
-       
-    });
-    console.log(weight);
-    console.log(length);
-    console.log(dnw);
-    console.log(dnh);
-    console.log(quantity);
-
+    setTimeout(function(){    
     
     $('#saveQuoteLog table tbody').html('');
     var html = '';
-
+    var total ='';
+    var basic_charge = '';
+    var per_kg ='';
      $.ajax({
         type: "POST",
         url: "<?php echo base_url('customer/get_calculate');?>",
-        data:{weight:weight,length:length,dnh:dnh,dnw:dnw,sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id},
+        data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id},
         beforeSend: function(){
 
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
@@ -1368,15 +1361,10 @@ function openForm() {
             $.each(result.charges, function(k, v) {
                 if(v)
                 {
-                     var basic_charge = v.basic_charge;
-                    var per_kg = v.per_kg;
-                    var total = per_kg * basic_charge;
-                    html +='<tr>';
-                      console.log(result);                   
-                  html +='<tr>';
-                    html +='<td class="td1">Base Charge</td>';
-                    html +='<td class="td2">$ '+total+'</td>';
-                    html +='</tr>';
+                    basic_charge = v.basic_charge;
+                    per_kg = v.per_kg;
+                    total = (weight * per_kg) + basic_charge;
+                      
 
                     html +='<tr>';
                     html +='<td class="td1">'+v.surcharge_name+'</td>';
@@ -1384,6 +1372,10 @@ function openForm() {
                     html +='</tr>';
                 }
             });
+            html +='<tr>';
+                    html +='<td class="td1">Base Charge</td>';
+                    html +='<td class="td2">$ '+total+'</td>';
+                    html +='</tr>';
             
             html +='<tr>';
                 html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';

@@ -194,11 +194,12 @@ public function fetch_customer($id)
         else {return $data ='';}
 
 	}
-	public function get_surchargebyid($id)
+	public function get_surchargebyid($id, $isdang=null)
 	{
 		$this->db->select('*');
 		$this->db->from('surcharges_list');
-		$this->db->where('carrier_id', $id);	
+		$this->db->where('carrier_id', $id);		
+		$this->db->where('is_dangerous',$isdang);	
 		return $query = $this->db->get()->result_array();
 			
 	}

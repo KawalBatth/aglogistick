@@ -166,11 +166,8 @@
 
 		public function get_calculate()
 		{
-			$weight = $this->input->post('weight');
-			$length = $this->input->post('length');
-			$dnh = $this->input->post('dnh');
-			$dnw = $this->input->post('dnw');
-			$totalweight = array_sum($weight);
+			
+			
 			$sender_city = $this->input->post('sender_city');
 			$sender_postcode = $this->input->post('sender_postcode');
 			$sender_state =  $this->input->post('sender_state');
@@ -182,12 +179,13 @@
 			$totalweight= $this->input->post('total_weight');
 			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
-			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId);
+			$isdange = $this->input->post('isdangerous');
+			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId,$isdange);
 			$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
 
 			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
-			$result['charges'] = $get_surcharge;
-			$result['base_charge']= $get_base_rate;
+			$result['charges'] = $get_base_rate;
+			$result['base_charge']= $get_surcharge;
 			$result['totalweight']= $totalweight;
 			echo json_encode($result);
 			
@@ -228,7 +226,19 @@
 			}
 		else {	redirect('user/login');}
 		}
-
+		public function continue_booking_new()
+		{
+			$str = urldecode($this->input->post('data'));
+			$returndata = array();
+    		$strArray = explode("&", $str);
+    		$i = 0;
+    		foreach ($strArray as $item) {
+        		$array = explode("=", $item);
+        		$returndata[$array[0]] = $array[1];
+    		}
+    		print_r($returndata
+    			
+		}
 		public function continuewbooking()
 		{
 			$str = urldecode($this->input->post('data'));
