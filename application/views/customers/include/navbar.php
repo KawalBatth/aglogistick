@@ -501,6 +501,21 @@ textarea { height: 15px; padding: 3px; resize: none; }
 .errorField { border: 2px solid red; }
 .successField { border: 2px solid green; }
 
+span.length {
+    margin-left: -15px;
+    margin-right: -195px;
+    margin-top: 17px;
+}
+
+
+span.width {
+    margin-left: 281px;
+    margin-right: 87px;
+}
+
+span {
+    margin-top: -155px !important;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->

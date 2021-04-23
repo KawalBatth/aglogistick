@@ -115,6 +115,7 @@ public function savetempdata($str,$id)
 	$arrayName = array('user_id' => $id,'formdata'=>$str);
 	$this->db->insert('temp_data',$arrayName);
 }
+
 public function get_fix_rate($id)
 {
 
@@ -148,16 +149,17 @@ public function set_message($id,$data){
 public function save_notes($notes, $id)
 	{
 		$this->db->insert('customer', $notes);
-		$this->db->where('customer_id', $id);
 		return true;
 	}
 
 
-	public function save_shipment($quote)
-	{
-		$this->db->insert('shipment', $quote);
-		return true;
-	}
+	public function save_shipment($ship,$id)
+{
+	//$arrayName = array('user_id' => $id,'formdata'=>$str);
+	$this->db->insert('shipment',$ship);
+	$this->db->where('customer_id', $id);
+	return true;
+}
 
 
  public function get_all_notes()
