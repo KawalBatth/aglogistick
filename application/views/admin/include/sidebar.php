@@ -38,7 +38,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
                 <ul class="treeview-menu">
                     <li><a href="<?= base_url('admin/add'); ?>">Add Customer<i class="fa fa-external-link fa-fw sws pst"></i></a>
                     <li><a href="<?= base_url('admin/manage'); ?>">Manage Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
-                    <li><a href="<?= base_url('admin/search'); ?>">Search Customers <i class="fa fa-external-link fa-fw sws pst"></i></a>
+                    <!--li><a href="<?= base_url('admin/search'); ?>">Search Customers <i class="fa fa-external-link fa-fw sws pst"></i></a-->
                     <li><a href="<?= base_url('admin/list'); ?>">Customer List <i class="fa fa-external-link fa-fw sws pst"></i></a>
                 </ul>
             </li>

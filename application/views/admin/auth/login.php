@@ -42,7 +42,7 @@
                         </div>
                     <?php echo form_close(); ?>
                 </div>
-               <p> Forgot your password?<a href="<?php echo base_url('admin/auth/change_pwd'); ?>" >Click here to reset it.</a></p> 
+               <!--p> Forgot your password?<a href="<?php //echo base_url('admin/auth/change_pwd'); ?>" >Click here to reset it.</a></p--> 
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@
 			else{
 				//Compare the password attempt with the password we have stored.
 				$result = $query->row_array();
-			    $validPassword = md5($data['password'])== $result['password'];
+			    $validPassword = MD5($data['password'])== $result['password'];
 			    if($validPassword){
 			        return $result = $query->row_array();
 			    }
@@ -24,7 +24,7 @@
 			else{
 
 				$result = $query->row_array();
-			    $validPassword = base64_encode($data['password'])== $result['password'];
+			    $validPassword = MD5($data['password'])== $result['password'];
 			    if($validPassword){
 			        return $result = $query->row_array();
 			    }
@@ -49,6 +49,23 @@
 			
 			return $this->db->insert_id();;	
 		}
+
+		public function add_quote($data){
+			
+			$this->db->insert('quote', $data);
+			
+			return true;
+		}
+
+		public function get_quote()
+		{
+		   $this->db->select('*');
+		   $this->db->from('quote');
+		   return $result = $query->result_array();
+		 }
+
+
+
 		public function add_customers($data){
 			
 			$this->db->insert('customers', $data);
@@ -58,6 +75,11 @@
 
 		public function get_all_users(){
 			$query = $this->db->get('ci_users');
+			return $result = $query->result_array();
+		}
+
+		public function get_all_customer(){
+			$query = $this->db->get('customer');
 			return $result = $query->result_array();
 		}
 
@@ -148,23 +170,25 @@ public function set_message($id,$data){
 
 public function save_notes($notes, $id)
 	{
-		$this->db->insert('customer', $notes);
+		$this->db->insert('user_notes', $notes);
 		return true;
 	}
 
 
-	public function save_shipment($ship,$id)
+	public function save_shipment($ship)
 {
 	//$arrayName = array('user_id' => $id,'formdata'=>$str);
 	$this->db->insert('shipment',$ship);
-	$this->db->where('customer_id', $id);
+	//$this->db->where('customer_id', $id);
 	return true;
 }
 
 
- public function get_all_notes()
+ public function get_all_notes($id)
  {
-	$query = $this->db->get('user_notes');
+	$this->db->select('*');
+	$this->db->from('user_notes');
+	$this->db->where('customer_id', $id);
 	return $result = $query->result_array();
   }
   

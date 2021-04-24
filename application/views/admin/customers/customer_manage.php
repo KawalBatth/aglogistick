@@ -50,6 +50,8 @@ if(isset($submit_id))
                 <div class="form-group input-group" style="width: 150px; margin-bottom: 0px;">
 			
                 <input type="date" id="start" required name="followUpDate" data-date-format="dd MM yyyy">
+                <input type="hidden" name="file_path" value="" id="file_path"> 
+				<input type="file" name="userfile" value="" id="profile_image_upload" class="w10">
                 </div>
             </td>
         </tr>
@@ -937,9 +939,9 @@ if(isset($submit_id))
                                                                 <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
                                                                 </a>
                                                             </div>
-                                                            <div class="pull-left c32">
+                                                            <!--div class="pull-left c32">
                                                                 <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="0"></i>
-                                                            </div>
+                                                            </div-->
                                                             <div class="pull-left c32" data-group="sel-rate-type">
                                                                 <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__rateType" class="form-control" data-index="0">
     <option value="0">DHL</option>
@@ -4129,9 +4131,9 @@ if(isset($submit_id))
                                                                 <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
                                                                 </a>
                                                             </div>
-                                                            <div class="pull-left c32">
+                                                            <!--div class="pull-left c32">
                                                                 <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="75"></i>
-                                                            </div>
+                                                            </div-->
                                                             <div class="pull-left c32" data-group="sel-rate-type">
                                                                 <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rateType" class="form-control" data-index="75">
     <option value="0">Star Track</option>
@@ -4160,7 +4162,7 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32a">
                                                                 
-                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
+                                                            <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
                                                                 
                                                                 
                                                             </div>
@@ -4175,14 +4177,13 @@ if(isset($submit_id))
                                                                 By Zone:
                                                             </li>
                                                             <?php
-                                                           // $get_rates = get_ratess($value['id']);
-                                                           // foreach ($get_rates as $key => $value) 
-                                                           foreach ($zones as $row)
+                                                            $get_rates = get_ratess($value['id']);
+                                                            foreach ($get_rates as $key => $value) 
                                                             {                                                              
                                                             ?>
                                                                 <li>
                                                                     <div class="pull-left c34" data-group="zone">
-                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="<?php echo $row->origin?>" disabled="disabled" type="text" data-group="zone-name"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="00.00" data-group="zone-rate">
+                                                                        <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="<?php echo $value['origin']?>" disabled="disabled" type="text" data-group="zone-name"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="<?php echo $value['minimum']?>" data-group="zone-rate">
                                                                     </div>
                                                                 </li>
                                                             <?php                                                            
@@ -4223,7 +4224,7 @@ if(isset($submit_id))
 <div id="add-weight-dialog" title="Add Weight Break" style="display: none;"></div>
 <div id="view_rate_sheet_dialog" title="View Rate Sheet" style="display: none;"></div>
 <script type="text/javascript">
-    var globalIndex = "85";
+   var globalIndex = "85";
     function showZones($this) {
         if ($this.data("show") == "close") {
             $this.removeClass("fa-plus-square");
@@ -4748,34 +4749,7 @@ if(isset($submit_id))
                     <div class="row">
                         <div class="portlet-body b12 b11">
                             <div class="row">
-                                <div class="col-lg-12">
-                                    <div class="form-group">
-                                        <form id="frmSaveUserSetting">
-                                            <table class="s36 b24">
-                                                <tbody><tr>
-                                                    <td colspan="4"><b>Web Freight Account Setting:</b></td>
-                                                </tr>
-                                                <tr>
-                                                    <td><input type="hidden" name="saveManageCustomer.webship.customer.customerCode" value="10000018" id="saveManageCustomer_webship_customer_customerCode"> <input type="checkbox" name="saveManageCustomer.webship.customer.adminFunction" value="true" id="saveManageCustomer_webship_customer_adminFunction"><input type="hidden" id="__checkbox_saveManageCustomer_webship_customer_adminFunction" name="__checkbox_saveManageCustomer.webship.customer.adminFunction" value="true"></td>
-                                                    <td>Admin Function</td>
-                                                    <td><select name="saveManageCustomer.webship.customer.webshipAdminId" id="saveManageCustomer_webship_customer_webshipAdminId" class="form-control">
-    <option value="0" selected="selected"></option>
-    <option value="16594">10000018</option>
-    <option value="16721">Cheryl</option>
-    <option value="16785">Joanne Tidy</option>
-    <option value="16803">Andrew Brown</option>
-
-
-</select>
-
-</td>
-                                                    <td>Set Web Freight Admin</td>
-                                                </tr>
-                                            </tbody></table>
-                                          
-                                        
-                                    </div>
-                                </div>
+                             
                                 <div class="col-lg-12">
                                     
                                     <div id="webship-list-result">
@@ -5940,7 +5914,7 @@ $(".remove").click(function(){
           var result='';
          
            $.ajax({
-               url: 'customers/get_rates',
+               url: 'get_rates',
               // url: 'get_rates',
                type: 'POST',
                data:{zone:zone,service_type:id},
@@ -5970,7 +5944,7 @@ $(".remove").click(function(){
           var result='';
          
            $.ajax({
-               url: 'customers/get_fix_rates',
+               url: 'get_fix_rates',
                type: 'POST',
                data:{zone:zone,service_type:id},
                error: function() {

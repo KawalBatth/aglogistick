@@ -10,10 +10,16 @@
 
 		public function surcharge_list()
 		{
+			if($this->session->has_userdata('is_admin_login'))
+			{
 			$data['surcharge_list'] =  $this->auth_model->get_surcharges();
 			$data['carrier_list'] =  $this->auth_model->get_carrier();
 			$data['view'] = 'admin/rates/surcharge_list';
 			$this->load->view('admin/layout', $data);
+			}
+			else {
+				redirect('admin/auth/login');
+		}
 		}
 
         public function rate_sheet()
@@ -21,6 +27,7 @@
 			$data['view'] = 'admin/rates/rate_sheet';
 			$this->load->view('admin/layout', $data);
 		}
+
  function cleanData(&$str)
   {
     $str = preg_replace("/\t/", "\\t", $str);

@@ -37,17 +37,17 @@ button.btn.ref {
 button.btn.btn-primary.add_car {
     margin-right: 775px;
 }
-        #nav li a {
+        /*#nav li a {
             display: block;
             padding: 0;
             text-decoration: none;
             width: 200px;
             /* this is the width of the menu items */
-            line-height: 35px;
+           /* line-height: 35px;
             /* this is the hieght of the menu items */
-            color: #ffffff;
+           /* color: #ffffff;
             /* list item font color */
-        }
+       /* }
 
         #nav li li a {
             font-size: 95%;
@@ -57,20 +57,20 @@ button.btn.btn-primary.add_car {
             font-size: 16px;
         }
 
-        /* smaller font size for sub menu items */
+       
 
         #nav li:hover {
             background: #3c8dbc;
         }
 
-        /* highlights current hovered list item and the parent list items when hovering over sub menues */
+      
 
         #nav ul {
             position: absolute;
             padding: 0;
             left: 0;
             display: none;
-            /* hides sublists */
+           
         }
 
         ul.sub-menu li a {
@@ -83,22 +83,20 @@ button.btn.btn-primary.add_car {
             margin-top: 20px;
         }
 
-        /* hides sub-sublists */
+        
 
         #nav li:hover ul {
             display: block;
         }
 
-        /* shows sublist on hover */
+     
 
         #nav li li:hover ul {
             display: block;
-            /* shows sub-sublist on hover */
-            margin-left: 200px;
-            /* this should be the same width as the parent list item */
+         margin-left: 200px;
             margin-top: -35px;
-            /* aligns top of sub menu with top of list item */
-        }
+          
+        }*/
         input.reset {
     background: #3c8dbc;
     color: #fff;
@@ -430,6 +428,7 @@ p.user_name {
     color: #fff;
     font-size: 15px;
     margin-top: 18px;
+    margin-right:-55px;
 }
 
 .pull-right{
@@ -703,7 +702,7 @@ td.price {
     <!-- Logo -->
     <a href="<?= base_url('admin');?>" class="logo">
       <mini logo for sidebar mini 50x50 pixels -->
-      <!--img  src="<?php //echo site_url('public/dist/img/'.$customers->profile_image); ?>" alt="image" /-->
+      <!--img  src="<?php echo site_url('/public/dist/img/'.$note->image); ?>" alt="image" /-->
       <span><b> AGL <b></span>
       <span><b> Specialised <b></span>
     </a>
@@ -715,28 +714,88 @@ td.price {
         <span class="sr-only">Toggle navigation</span>
       </a>
 
+  </body>
       <div class="pull-right info">
-          <p class="user_name"><?= ucwords($this->session->userdata('name')); ?>
+      <ul id="nav-ul" class="user">
+        <li id="nav-li" class="name">
+         <p class="user_name"><?= ucwords($this->session->userdata('name')); ?>
          <i class="fa fa-circle text-success"></i> </p>
-        </div>
-        <?php  
+         <ul id="nav-ul" class="dropdown">
+         <?php  
       if($this->session->has_userdata('is_admin_login'))
       {
         ?>
-        <div style="text-align: center;">
-                <a href="<?php echo base_url('admin/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
-            </div>
-            <?php 
+         <li id="nav-li"><a  id="nav-a" href="<?php echo base_url('admin/logout'); ?>" class="logout">Log out</a></li>
+         <?php 
       }
       else 
       {
         ?>
-          <div style="text-align: center;">
-                <a href="<?php echo base_url('user/logout'); ?>"><img src="<?= base_url() ?>public/dist/img/logout.png" class="logo_img" alt="User Image"></a>
-            </div>
-      <?php }?>
-      </div>
+        <li id="nav-li"><a  id="nav-a" href="<?php echo base_url('admin/logout'); ?>" class="logout">Log out</a></li>
+        <?php }?>
+                <li id="nav-li"><a id="nav-a" href="<?php echo base_url('admin/auth/change_pwd'); ?>" class="update">Update</a></li>
+            </ul>
+        </li>
+    </ul>
+        </div>
+        
     
     </nav>
   </header>
- 
+  <script src="script.js"></script>
+ <style>
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#nav-ul {
+    top: 0;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: right;
+}
+
+#nav-ul #nav-li {
+  position: relative;
+  line-height: 21px;
+  text-align: right;
+}
+
+#nav-ul #nav-li #nav-a {
+    display: block;
+    padding: 8px 39px;
+    color: #333;
+    text-decoration: none;
+  
+}
+
+#nav-ul #nav-li #nav-a:hover {
+  color: #fff;
+  background: #3c8dbc;
+}
+
+#nav-ul #nav-li #nav-ul.dropdown {
+    width: 10%;
+    background: #fff;
+    display: none;
+    /* color: #fff; */
+    position: fixed;
+    /* z-index: 999; */
+    /* left: 0; */
+    float: right;
+    margin-top: 36px;
+}
+
+#nav-ul #nav-li:hover #nav-ul.dropdown {
+  display: block;
+  /* Display the dropdown */
+}
+
+#nav-ul #nav-li #nav-ul.dropdown #nav-li {
+  display: block;
+}
+</style>

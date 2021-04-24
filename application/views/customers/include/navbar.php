@@ -471,12 +471,17 @@ button.ui-dialog-titlebar-close {
     float: right;
 }
 
+.ui-dialog.ui-widget.ui-widget-content.ui-corner-all.ui-front.ui-draggable.ui-resizable{
+    margin-top:-90px !important;
+    
+}
+
 .ui-widget-content {
     background: #ffffff;
     padding: 0px;
     position: relative;
     padding: 1.6em;
-  border: 0;
+     border: 0;
     margin-top:-178px !important;
     /* background: none; */
     overflow: inherit;

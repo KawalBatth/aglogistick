@@ -23,6 +23,7 @@
 			redirect('user/login');
 		}
 		}
+
 		public function save_quote()
 		{
 			
@@ -37,9 +38,26 @@
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
 
-			// need to save in quote/job tabel
-
+			$array = array(
+				//'webshipId' =>$webshipId,
+				'quote_date' =>$quote_date,
+				'customer'=>$customer,
+				'quote_number'=>$qoute_jobnumber,
+				'sender_suburb'=>$sender_subrub,
+				'sender_postcode'=>$sender_postcode,
+				'receiver_suburb'=>$reciver_subrub,
+				'receiver_postcode' =>$reciver_postcode,
+				'shipment_type'=>$shipment_type,
+				'package_type'=>$package_type,
+				'total_amount'=>$total_amount
+			
+			 );
+			$this->user_model->add_quote($array);
+			$data['quote']  = $this->user_model->get_quote();
+			$data['view'] = 'customers/shipment';
+			$this->load->view('customers/layout', $data);
 		}
+
 		public function address_book()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
@@ -174,7 +192,7 @@
 		{
 			$this->session->userdata('customer_user_id');
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			$data['view'] = 'customers/shipment';
+			$data['view'] = 'customer/shipment';
 			$this->load->view('customer/layout', $data);
 		}
 
@@ -218,7 +236,7 @@
 		}
 
 		
-		 public function booking()
+		public function booking()
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
@@ -232,14 +250,14 @@
         		$array = explode("=", $item);
         		$returndata[$array[0]] = $array[1];
     		}
-			$sender_city = $returndata['city'];
-			$sender_state =  $returndata['state'];
-			$sender_postcode =  $returndata['postalCode'];
-			$rc_postcode= $returndata['receiverpostalCode'];
-			$rc_statecode= $returndata['receiverstate'];
-			$rcv_city= $returndata['city'];
-			$service_type_Id = $returndata['shipmentTypeId'];
-    		$get_surcharge =  $this->user_model->get_surchargebyid($returndata['serviceId']);
+			$sender_city = $returndata['shipmentPage.senderAddress.city'];
+			$sender_state =  $returndata['shipmentPage.senderAddress.state'];
+			$sender_postcode =  $returndata['shipmentPage.senderAddress.postalCode'];
+			$rc_postcode= $returndata['shipmentPage.receiverAddress.postalCode'];
+			$rc_statecode= $returndata['shipmentPage.receiverAddress.state'];
+			$rcv_city= $returndata['shipmentPage.receiverAddress.city'];
+			$service_type_Id = $returndata['shipmentPage.shipmentTypeId'];
+    		$get_surcharge =  $this->user_model->get_surchargebyid($returndata['shipmentPage.serviceId']);
     		$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
@@ -251,6 +269,14 @@
 			$this->load->view('customers/layout', $data);
 			}
 		else {	redirect('user/login');}
+		}
+		
+		public function continuewbooking()
+		{
+			$str = urldecode($this->input->post('data'));
+			$this->user_model->savetempdata($str,$this->session->userdata('customer_user_id'));
+			
+
 		}
 		
 
@@ -398,11 +424,7 @@
     			
 		}
 
-		public function continuewbooking()
-		{
-			$str = urldecode($this->input->post('data'));
-			$this->user_model->savetempdata($str,$this->session->userdata('customer_user_id'));
-		}
+		
 
 		public function add_shipment()
 		{

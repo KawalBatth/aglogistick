@@ -6,6 +6,7 @@
 			parent::__construct();
 			$this->load->model('admin/user_model', 'user_model');
 			$this->load->model('admin/auth_model', 'auth_model');
+			$this->load->helper(array('form', 'url'));
 			$this->load->helper('customer'); 
 			$this->load->library('email');
 			$config['composer_autoload'] = FALSE;
@@ -31,6 +32,7 @@
         public function customer_list()
 		{
 			$data['all_users'] =  $this->user_model->get_all_users();
+			$data['all_customers'] =  $this->user_model->get_all_customer();
 			$data['view'] = 'admin/customers/customer_list';
 			$this->load->view('admin/layout', $data);
 		} 
@@ -173,7 +175,7 @@
 	        	$zone = $this->input->post('zone');	
 		        $id = $this->input->post('service_type');	
 		        $data=  $this->auth_model->get_rates($zone,$id);
-				$zones=  $this->auth_model->get_zones();
+				//$zones=  $this->auth_model->get_zones();
 	        	echo json_encode($data);
 				
             }
@@ -187,11 +189,21 @@
 
        public function delUser($id = 0){
 
-	$this->db->delete('user', array('id' => $id));
-	//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
-	redirect(base_url('admin/manage'), 'refresh');
+	       $this->db->delete('user', array('id' => $id));
+	       //$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
+	       redirect(base_url('admin/manage'), 'refresh');
 	
       }
+
+	  public function delCustomer($id = 0){
+
+		$this->db->delete('customer', array('id' => $id));
+		//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
+		redirect(base_url('admin/list'), 'refresh');
+		
+		  }
+
+
 		public function add_customer()
 		{
 
@@ -335,22 +347,24 @@
 			$customerCode = $this->input->post('customerCode');	
 			$note = $this->input->post('note');	
 			$followUpDate = $this->input->post('followUpDate');	
-			/*$userfile = $this->input->post('userfile');	
-			$config['upload_path']          = './public/';
-                $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 100;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
-                $this->load->library('upload', $config);*/
-				//'image'=>$userfile,
+			$userfile = $this->input->post('userfile');	
+			$config['upload_path']  = './public/';
+                $config['allowed_types'] = 'gif|jpg|png';
+                $config['max_size'] = 100;
+                $config['max_width'] = 1024;
+                $config['max_height'] = 768;
+                $this->load->library('upload', $config);
+				
 
 			$array = array(
-			    //'customer_id' =>$customerCode,
-				'notes'=>$note,
-			    'followUpDate'=>$followUpDate,
+			    'customer_id' =>$customerCode,
+				'user_notes'=>$note,
+			    'follow_up_date'=>$followUpDate,
+				'image'=>$userfile,
 				'modified_at' => date('Y-m-d : h:m:s'),
 			 );
 			$this->user_model->save_notes($array, $customerCode);
+			$data['note'] = $this->user_model->get_all_notes($customerCode);
 			redirect('admin/customers/customer_manage?id='.$customerCode);
   }
 

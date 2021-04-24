@@ -67,12 +67,12 @@
 
 		public function get_zones()
 		{
-			$this->db->distinct();
+			//$this->db->distinct();
 			$this->db->select('origin');
 			$this->db->from('rates');
-			///return $query = $this->db->get()->result_array();
-			$query=$this->db->get();  
-			return $query->num_rows();  
+			return $query = $this->db->get()->result_array();
+			//$query=$this->db->get();  
+			//return $query->num_rows();  
 		 
 		}
 
