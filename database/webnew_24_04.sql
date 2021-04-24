@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 24, 2021 at 03:13 PM
+-- Generation Time: Apr 24, 2021 at 06:06 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -185,8 +185,7 @@ CREATE TABLE `customer` (
 
 INSERT INTO `customer` (`id`, `customer_id`, `customerName`, `contact_name`, `contact_title`, `address`, `city`, `country`, `postal_code`, `state_code`, `phone`, `fax`, `email`, `mobile`, `alt_contact`, `billing_customer_name`, `billing_contact_name`, `billing_contact_title`, `billing_address`, `billing_address2`, `billing_city`, `billing_country`, `billing_postal_code`, `billing_state_code`, `billing_phone`, `billing_fax`, `billing_email`, `billing_mobile`, `billing_alt_contact`, `owner`, `other_phone`, `other_email`, `other_contact`, `other_phone1`, `other_email1`, `other_contact1`, `other_phone2`, `other_email2`, `other_contact2`, `other_phone3`, `other_email3`, `created_date`, `notes`, `image`) VALUES
 (5, 10000002, 'Kawal', 'Batth', '', '49 a Arkana ', 'VIC', '12', 6105, 0, '846573646', 0, 'kawalbatth@gmail.com', 0, 0, 'Kawal', 'Batth', '', '49 a Arkana', '', 'Perth', '12', 6105, 0, 846573646, 0, 'kawalbatth@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-17 17:01:31', '', ''),
-(51, 10000010, 'TESTING', 'TESYT', 'HHJJ', 'JKHHJJ ', 'PERTH', '12', 0, 0, '0876654345', 0, 'second@email.com', 0, 0, 'TESTING', 'TESYT', 'HHJJ', 'JKHHJJ', '', 'PERTH', '12', 0, 0, 876654345, 0, 'second@email.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-18 14:40:00', '', ''),
-(57, 10000011, 'RERER', 'RERE', '', 'ERER ', 'ERER', '12', 0, 0, '00000', 0, 'kawalbatth89@gmail.com', 0, 0, 'RERER', 'RERE', '', 'ERER', '', 'ERER', '12', 0, 0, 0, 0, 'kawalbatth89@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-20 11:44:49', '', NULL);
+(58, 10000003, 'TEST', 'TESTING', 'TESTING', '56A ', 'PERTH', '12', 6105, 0, '0857575757', 0, 'kawalbatth89@gmail.com', 0, 0, 'TEST', 'TESTING', 'TESTING', '56A', '', 'PERTH', '12', 6105, 0, 857575757, 0, 'kawalbatth89@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-24 15:28:30', 'This is testing note.', NULL);
 
 -- --------------------------------------------------------
 
@@ -196,8 +195,8 @@ INSERT INTO `customer` (`id`, `customer_id`, `customerName`, `contact_name`, `co
 
 CREATE TABLE `fixed_price` (
   `id` int(50) NOT NULL,
-  `weight` varchar(250) NOT NULL,
-  `price` double NOT NULL,
+  `weight` float(4,2) NOT NULL,
+  `price` float(4,2) NOT NULL,
   `service_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -206,11 +205,11 @@ CREATE TABLE `fixed_price` (
 --
 
 INSERT INTO `fixed_price` (`id`, `weight`, `price`, `service_id`) VALUES
-(1, '1', 9.1, 3),
-(2, '3', 10.01, 4),
-(3, '5', 16.9, 9),
-(4, '10', 45.96, 10),
-(5, '20 ', 82.53, 8);
+(1, 1.00, 9.10, 3),
+(2, 3.00, 10.01, 4),
+(3, 5.00, 16.90, 9),
+(4, 10.00, 45.96, 10),
+(5, 20.00, 82.53, 8);
 
 -- --------------------------------------------------------
 
@@ -62205,12 +62204,12 @@ CREATE TABLE `user` (
 
 INSERT INTO `user` (`id`, `webshipId`, `customer_id`, `user_name`, `password`, `language`, `allowExportAddressBook`, `isRequireChangePassword`, `created_date`, `updated_at`) VALUES
 (1, '', 10000002, 'TES123', 'VGVzdGluZ0Ax', 'english', 0, 0, '2021-04-13 22:22:04', '2021-04-24 11:15:02'),
-(3, '16721', 10000002, 'edumailtest', 'bWFpbGVkdUAyMDIx', 'english', 0, 0, '2021-04-13 23:09:58', '2021-04-16 11:05:00'),
+(3, '16721', 10000002, 'edumailtest', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 0, 0, '2021-04-13 23:09:58', '2021-04-24 15:33:26'),
 (4, '16721', 10000002, 'newuser', '81dc9bdb52d04dc20036dbd8313ed055', 'english', 0, 0, '2021-04-13 23:12:15', '2021-04-24 11:19:59'),
 (5, '16721', 10000002, 'panky', 'cGFua2FqNTQzMg==', 'english', 0, 0, '2021-04-13 23:21:25', '2021-04-16 11:05:00'),
 (6, '16721', 10000002, 'arvind', 'Y29kZUAxMjM=', 'english', 0, 0, '2021-04-13 23:21:57', '2021-04-16 11:05:00'),
 (7, '16721', 10000001, 'zoras', 'VGVzdGluZ0AxMjM=', 'english', NULL, NULL, '2021-04-14 06:54:20', '2021-04-19 13:37:12'),
-(9, '', 10000002, 'testing', 'dGVzdGluZzEy', 'english', 1, 1, '2021-04-16 19:05:24', '2021-04-16 11:05:24'),
+(9, '', 10000002, 'testing', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 1, 1, '2021-04-16 19:05:24', '2021-04-24 13:43:19'),
 (10, '', 10000002, 'testing', 'VGVzdGluZzM=', 'english', 1, 1, '2021-04-16 19:26:46', '2021-04-16 11:26:46'),
 (11, '', 10000002, 'RAM322', 'VGVzdGluZzEyQA==', 'english', 1, 1, '2021-04-16 19:29:40', '2021-04-16 11:29:40'),
 (12, '', 10000002, 'URD454', 'VGVzdGluZ0AxMjQ=', 'english', NULL, NULL, '2021-04-16 19:45:09', '2021-04-17 12:21:28'),
@@ -62228,11 +62227,13 @@ INSERT INTO `user` (`id`, `webshipId`, `customer_id`, `user_name`, `password`, `
 (27, '', 10000012, 'AGL012', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 22:53:31', '2021-04-18 14:53:31'),
 (28, '', 10000014, 'AGL014', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 23:04:30', '2021-04-18 15:04:30'),
 (29, '', 10000015, 'AGL015', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 23:05:38', '2021-04-18 15:05:38'),
-(30, '', 10000002, 'TES123', 'VGVzdGluZ0AxMg==', 'english', 1, 1, '2021-04-18 23:30:36', '2021-04-18 15:30:36'),
+(30, '', 10000002, 'TES123', '06e4dff3c420e66ae6927dc539ba82c6', 'english', 1, 1, '2021-04-18 23:30:36', '2021-04-24 15:31:25'),
 (32, '', 10000011, 'TES124', 'VGVzdGluZ0AxMjM=', 'english', 1, 1, '2021-04-24 13:57:39', '2021-04-24 05:57:49'),
 (33, '', 10000011, 'BAR110', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 1, 1, '2021-04-24 14:20:20', '2021-04-24 06:59:09'),
 (34, '', 10000011, 'BAT113', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 1, 1, '2021-04-24 14:28:30', '2021-04-24 07:00:05'),
-(35, '', 10000010, 'TES123', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 1, 1, '2021-04-24 14:36:30', '2021-04-24 11:15:49');
+(35, '', 10000010, 'TES123', '827ccb0eea8a706c4c34a16891f84e7b', 'english', 1, 1, '2021-04-24 14:36:30', '2021-04-24 13:41:26'),
+(36, '', 10000003, 'AGL003', 'QWRtaW5AMTIzNA==', 'english', 0, 1, '2021-04-24 23:28:30', '2021-04-24 15:29:50'),
+(37, '', 10000003, 'TES123', 'VGVzdGluZ0AxMjM=', 'english', 1, 1, '2021-04-24 23:30:34', '2021-04-24 15:30:34');
 
 -- --------------------------------------------------------
 
@@ -62395,7 +62396,7 @@ ALTER TABLE `ci_users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=58;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
 
 --
 -- AUTO_INCREMENT for table `fixed_price`
@@ -62461,7 +62462,7 @@ ALTER TABLE `temp_data`
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=36;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=38;
 
 --
 -- AUTO_INCREMENT for table `user_notes`

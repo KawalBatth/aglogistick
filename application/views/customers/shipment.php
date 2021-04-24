@@ -41,7 +41,7 @@
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
 
-                                                    <input type="text" name="companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
                                                     
                                                     <div id="sender-address-by-company-search-result"></div>
                                                 </div>
@@ -51,14 +51,14 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="phone" maxlength="25" pattern="08\d{8}" value="08 94793399" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" required data-placement="top" data-original-title="TOOLTIP:Phone">
+                                                    <input type="text" name="shipmentPage.senderAddress.phone" maxlength="25" pattern="08\d{8}" value="<?php echo $customers->phone;?>" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" required data-placement="top" data-original-title="TOOLTIP:Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="contactName" maxlength="35" value="DESPATCH" id="shipment-info-form_shipmentPage_senderAddress_contactName" class="form-control alloptions" required onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
+                                                    <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="<?php echo $customers->contact_name;?>"  id="shipment-info-form_shipmentPage_senderAddress_contactName" class="form-control alloptions" required onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
                                                     <div id="sender-address-by-contact-search-result"></div>
                                                 </div>
                                             </div>
@@ -66,7 +66,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Email Address
                                                     </label>
-                                                    <input type="text" name="email" maxlength="50" value="logistics@agllogistics.com" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
+                                                    <input type="text" name="shipmentPage.senderAddress.email" maxlength="50" value="<?php echo $customers->email;?>" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
                                                 </div>
                                             </div>
                                         </div>
@@ -87,7 +87,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.address" maxlength="35" required value="U1 / 11 FRICKER ROAD" id="shipment-info-form_shipmentPage_senderAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
+                                                    <input type="text" name="shipmentPage.senderAddress.address" maxlength="35" required value="<?php echo $customers->address;?>" id="shipment-info-form_shipmentPage_senderAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -139,7 +139,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="PERTH AIRPORT" id="senderAddress_city" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City" autocomplete="off">
+                                                    <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="<?php echo $customers->city;?>" id="senderAddress_city" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City" autocomplete="off">
                                                     <div id="suggesstion-box1"></div>
 
                                                 </div>
@@ -148,7 +148,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Postal Code
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.postalCode" maxlength="12" value="6105" id="shipment-info-form_shipmentPage_senderAddress_postalCode" class="form-control alloptions" onkeyup="searchCity(true,false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal Code">
+                                                    <input type="text" name="shipmentPage.senderAddress.postalCode" maxlength="12" value="<?php echo $customers->postal_code;?>" id="shipment-info-form_shipmentPage_senderAddress_postalCode" class="form-control alloptions" onkeyup="searchCity(true,false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal Code">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -160,7 +160,7 @@
 <label class="control-label" for="inputName"> State/Province</label>
 
     
-        <input type="text" name="shipmentPage.senderAddress.state" value="WA" id="shipmentPage_senderAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
+        <input type="text" name="shipmentPage.senderAddress.state" value="<?php echo $customers->state_code;?>" id="shipmentPage_senderAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
     
     
 
@@ -754,14 +754,14 @@
                                                                 <td width="40%">
                                                                     <div class="row mg0">
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces.dimensionL1" required value="" class="form-control alloptions dimL length" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces.dimensionL1" required value="" id="textInput" class="form-control alloptions dimL length" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                            
                                                                  </div>
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces.dimensionW1" value="" required class="form-control alloptions dimW width" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces.dimensionW1" value="" required id="textInput1" class="form-control alloptions dimW width" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                         </div>
                                                                         <div class="col-lg-4 pd1">
-                                                                            <input type="text" name="shipmentPage.pieces.dimensionH1" value="" required class="form-control alloptions dimH height" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
+                                                                            <input type="text" name="shipmentPage.pieces.dimensionH1" value="" required id="textInput2" class="form-control alloptions dimH height" onkeypress="return isNumeric(event)" oninput="maxLengthCheck(this)" maxlength="4" min="1" onfocus="this.value=''">
                                                                             <input type="hidden" name="get_volume" id="get_volume_input" value="">    
 	
                                                                         </div>
@@ -978,8 +978,7 @@
                                                            <a href="<?= base_url('customer/shipment'); ?>" class="btn s33 s44"> New Shipment</a>
                                                              
                                                                 <button class="btn s33" type="button" onclick="openForm()">
-                                                                <!--button class="btn s33" type="button" onclick="save_ship()"-->
-                                                                    Quote
+                                                               Quote
                                                                 </button>
                                                                 <button class="btn s33 calculation" type="button">
                                                                     Calculate
@@ -987,9 +986,9 @@
                                                                   <button class="btn s33" type="button" onclick="continuewbooking()">
                                                                      Continue Booking
                                                                 </button>
-                                                                    <button class="btn s33" type="button" onclick="continuewbookingnew()">
+                                                                    <!--button class="btn s33" type="button" onclick="continuewbookingnew()">
                                                                      Continue Booking
-                                                                </button>
+                                                                </button-->
                                                            
                                                            
                                                                 
@@ -1008,13 +1007,9 @@
                 </div>
             </div>
         </form>
-
-
-
-
     </div>
 </div>
-<input type="hidden" name="defaultAddressJson" value="{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;08 94793399&quot;,&quot;contactName&quot;:&quot;DESPATCH&quot;,&quot;email&quot;:&quot;logistics@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;U1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH AIRPORT&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;,&quot;residential&quot;:&quot;0&quot;}" id="defaultAddressJson"/>
+<input type="hidden" name="defaultAddressJson" value="{&quot;companyName&quot;:&quot;<?php echo $customers->customerName;?>&quot;,&quot;phone&quot;:&quot;<?php echo $customers->phone;?>&quot;,&quot;contactName&quot;:&quot;<?php echo $customers->contact_name;?>&quot;,&quot;email&quot;:&quot;<?php echo $customers->email;?>&quot;,&quot;country&quot;:&quot;<?php echo $customers->country;?>&quot;,&quot;address&quot;:&quot;<?php echo $customers->address;?>&quot;,&quot;address2&quot;:&quot;&quot;,&quot;city&quot;:&quot;<?php echo $customers->city;?>&quot;,&quot;postalCode&quot;:&quot;<?php echo $customers->postal_code;?>&quot;,&quot;state&quot;:&quot;<?php echo $customers->state_code;?>&quot;,&quot;residential&quot;:&quot;0&quot;}" id="defaultAddressJson"/>
 <div id="continue-booking-div"></div>
 <div id="get-quote-dialog" title="Quote"></div>
 <div id="session_time_out_dialog" title="Message"></div>
@@ -1023,27 +1018,8 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
 <script>
 
-function save_ship() {
-      
-      //loadingDialog.dialog("open");
 
-      var formdata = $("#shipment-info-form").serialize();
-        $.ajax({
-             url: 'customers/add_shipment',
-             type: 'POST',
-             data:formdata,
-             error: function() {
-                alert('Something is wrong');
-             },
-             success: function(res) {
-                location.reload();
-             }
-          });
-      }
-
-
-
-function onChangeServiceType(isReturn) {
+ function onChangeServiceType(isReturn) {
         var defaultAddressJs = JSON.parse($("#defaultAddressJson").val());
         if (isReturn) {
             $("#chkThirdParty").prop("checked", false);
@@ -1683,6 +1659,18 @@ function changeShipmentType(shipmentTypeId, texthtml) {
     recalc();
     
 }
+
+document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("change", 
+	function(obj)
+  {
+  	var input = document.getElementById("textInput");
+    var input1 = document.getElementById("textInput1");
+    var input2 = document.getElementById("textInput2");
+    input.disabled = (this.value >= 3);
+    input1.disabled = (this.value >= 3);
+    input2.disabled = (this.value >= 3);
+  }, false);
+      
       
     </script>
 <style>

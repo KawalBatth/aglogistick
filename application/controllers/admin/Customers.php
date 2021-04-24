@@ -250,7 +250,7 @@
 			$other2Phone = $this->input->post('other2Phone');
 			$other2Email = $this->input->post('other2Email');
 			$notes = $this->input->post('note');
-			$followUpDate = $this->input->post('followUpDate');
+			//$followUpDate = $this->input->post('followUpDate');
 			$userfile = $this->input->post('userImage');	
 			$config['upload_path']          = './public/dist/img/';
                 $config['allowed_types']        = 'gif|jpg|png';
@@ -301,8 +301,8 @@
 				'other_phone3'=>$other2Phone,
 				'other_email3'=>$other2Email,
 				'notes'=>$notes,
-				'profile_image'=>$userfile,
-				'followUpDate'=>$followUpDate,
+				'image'=>$userfile,
+				//'followUpDate'=>$followUpDate,
 				
           	);
 			if($customerCodeexists==true)
