@@ -280,7 +280,7 @@
 		}
 		
 
-		public function continue_booking_new()
+		/*public function continue_booking_new()
 		{
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$str = urldecode($this->input->post('data'));
@@ -422,7 +422,7 @@
 			$this->auth_model->save_shipment($shipData);
     		//print_r($returndata);
     			
-		}
+		}*/
 
 		
 

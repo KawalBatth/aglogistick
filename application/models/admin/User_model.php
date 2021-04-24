@@ -175,13 +175,13 @@ public function save_notes($notes, $id)
 	}
 
 
-	public function save_shipment($ship)
+	/*public function save_shipment($ship)
 {
 	//$arrayName = array('user_id' => $id,'formdata'=>$str);
 	$this->db->insert('shipment',$ship);
 	//$this->db->where('customer_id', $id);
 	return true;
-}
+}*/
 
 
  public function get_all_notes($id)

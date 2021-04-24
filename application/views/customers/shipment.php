@@ -980,9 +980,9 @@
                                                                 <button class="btn s33" type="button" onclick="openForm()">
                                                                Quote
                                                                 </button>
-                                                                <button class="btn s33 calculation" type="button">
+                                                                <!--button class="btn s33 calculation" type="button">
                                                                     Calculate
-                                                                </button>
+                                                                </button-->
                                                                   <button class="btn s33" type="button" onclick="continuewbooking()">
                                                                      Continue Booking
                                                                 </button>
