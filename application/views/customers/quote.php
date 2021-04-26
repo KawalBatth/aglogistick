@@ -256,33 +256,22 @@
         </thead>
         <tbody>
         
-        
-            
-                <tr data-quote-id="3262">
-                    <td>01-04-2021</td>
-                    <td>AGL SPECIALISED LOGISTICS</td>
-                    <td>10006666</td>
-                    <td>PERTH AIRPORT</td>
-                    <td>6105</td>
-                    <td>DILI</td>
-                    <td></td>
-                    <td>DHL Worldwide Express</td>
-                    <td>Customer packaging</td>
-                    <td>899.98</td>
+        <!-- new added to show quote data--->
+        <?php for($i=0;$i<count($quote);$i++)
+                                            { ?>
+                <tr data-quote-id="<?php echo $quote[$i]['customer'];?>">
+                    <td><?php echo $quote[$i]['quote_date'];?></td>
+                    <td><?php echo $quote[$i]['customer_name'];?></td>
+                    <td><?php echo $quote[$i]['quote_number'];?></td>
+                    <td><?php echo $quote[$i]['sender_suburb'];?></td>
+                    <td><?php echo $quote[$i]['sender_postcode'];?></td>
+                    <td><?php echo $quote[$i]['receiver_suburb'];?></td>
+                    <td><?php echo $quote[$i]['receiver_postcode'];?></td>
+                    <td><?php echo $quote[$i]['shipment_type'];?></td>
+                    <td><?php echo $quote[$i]['package_type'];?></td>
+                    <td><?php echo $quote[$i]['total_amount'];?></td>
                 </tr>
-            
-                <tr data-quote-id="3261">
-                    <td>01-04-2021</td>
-                    <td>AGL SPECIALISED LOGISTICS</td>
-                    <td>100056787R</td>
-                    <td>BUSSELTON</td>
-                    <td>6280</td>
-                    <td>PERTH AIRPORT</td>
-                    <td>6105</td>
-                    <td>ROAD EXPRESS</td>
-                    <td>Customer Supplied Package</td>
-                    <td>87.54</td>
-                </tr>
+             <?php } ?>
         </tbody>
     </table>
     <input type="hidden" name="" value="1" id="currPage">

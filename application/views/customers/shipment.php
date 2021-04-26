@@ -1306,9 +1306,13 @@ function continuewbookingnew()
  function saveqoute()
 {
     var quote_date =  new Date();
+    //alert(quote_date);
     var customer = '<?php echo $customers->customer_id;?>';
     var dd = String(quote_date.getDate()).padStart(2, '0');
     var qoute_jobnumber   = customer+'AGL'+dd;
+    alert(qoute_jobnumber);
+    
+    var customer_name= $("input[name='shipmentPage.senderAddress.companyName']").val();
     var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
     var sender_city= $("input[name='shipmentPage.senderAddress.city']").val();
 
@@ -1325,7 +1329,7 @@ function continuewbookingnew()
       $.ajax({
         type: "POST",
         url: "<?php echo base_url('customer/save_quote');?>",
-        data:{quote_date:quote_date,customer:customer,sender_subrub:sender_city,sender_postcode:sender_postcode,reciver_subrub:rcv_city,reciver_postcode:postalCode,shipment_type:service_type_name,package_type:package_type_name,qoute_jobnumber:qoute_jobnumber,total_amount:total_amount},
+        data:{quote_date:quote_date,customer:customer,customer_name:customer_name,sender_subrub:sender_city,sender_postcode:sender_postcode,reciver_subrub:rcv_city,reciver_postcode:postalCode,shipment_type:service_type_name,package_type:package_type_name,qoute_jobnumber:qoute_jobnumber,total_amount:total_amount},
         beforeSend: function(){
 
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");

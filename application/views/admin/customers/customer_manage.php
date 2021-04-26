@@ -343,7 +343,7 @@ if(isset($submit_id))
                                               <td>  
                                             <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                                     <option value="-1">Select a Customer</option>
-                                    <option value="http://localhost:8011/webfreight/admin/add">Add a Customer</option>
+                                    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option>
                <?php for($i=0;$i<count($data);$i++)
                         {
                         if ($submit_id == $data[$i]['customer_id']) 
@@ -649,7 +649,7 @@ if(isset($submit_id))
                         </tr>
                         <tr>
                             <td class="td1" data-label="Phone">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" required="required" pattern="08\d{8}" name="phone" value="<?php echo @$customer_data->phone;?>" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address"></td>
+                            <td class="td2" colspan="2"><input type="text" required="required" pattern="08\d{8}" name="phone" value="<?php echo @$customer_data->phone;?>" id="saveManageCustomer_customerAddress_address_phone" class="form-control uppercase" group="address" maxlength="10" ></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
@@ -732,7 +732,7 @@ if(isset($submit_id))
                         </tr>
                         <tr>
                             <td class="td1" data-label="Billing Phone">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="billingPhone" value="<?php echo @$customer_data->billing_phone;?>" id="saveManageCustomer_customerAddress_billingAddress_billingPhone" class="form-control uppercase" group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingPhone" value="<?php echo @$customer_data->billing_phone;?>" id="saveManageCustomer_customerAddress_billingAddress_billingPhone" class="form-control uppercase" pattern="08\d{8}" group="billing-address" readonly="readonly" maxlength="10"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>

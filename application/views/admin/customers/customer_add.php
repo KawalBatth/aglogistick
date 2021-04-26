@@ -416,7 +416,9 @@
                         <tr>
                             <td class="td1" data-label="Phone">Phone:<span class="s30">*</span></td>
                             <!--td class="td2" colspan="2"><input type="text" name="phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td-->
-                         <td>   <input type="tel" name="phone" value="" pattern="08\d{8}" title="Please enter exactly 10 digits" id="address_address_phone" required="required" class="form-control uppercase" data-group="address" maxlength="10"> </td>
+                         <td> <input type="tel" name="phone" value="" pattern="08\d{8}" id="address_address_phone" required="required" class="form-control uppercase" data-group="address" maxlength="10"> </td>
+                    
+                        
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
@@ -1321,6 +1323,18 @@ foreach($services as $key => $value)
             }
         }
     }
+
+   /* function validate()
+{
+  var text = document.getElementById("address_address_phone").value;
+  var regx = /^08\d{8}$/ ;
+  if(regx.test(text))
+   // alert("valid");
+   document.getElementById("pho").innerHTML = "Valid Phone number";
+  else
+    //alert("invalid");
+     document.getElementById("pho").innerHTML = "Invalid phone number!";
+}*/
 </script>
 </div>
 </div>

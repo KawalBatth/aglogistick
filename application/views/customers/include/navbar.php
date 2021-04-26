@@ -521,6 +521,10 @@ span.width {
 span {
     margin-top: -155px !important;
 }
+
+input#shipment-info-form_shipmentPage_senderAddress_email {
+    text-transform: lowercase;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->

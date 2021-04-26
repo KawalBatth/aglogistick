@@ -39,32 +39,43 @@
 
 		public function update_user_data($data,$user_id)
         {
-        $this->db->where('id', $user_id);
-        $this->db->update('user', $data);       
-        return true;
-     }
+           $this->db->where('id', $user_id);
+           $this->db->update('user', $data);       
+           return true;
+       }
 	 
 		public function add_user($data){
 			$this->db->insert('ci_users', $data);
-			
 			return $this->db->insert_id();;	
 		}
 
-		public function add_quote($data){
-			
-			$this->db->insert('quote', $data);
-			
+
+		public function add_address_book($data){
+			$this->db->insert('address_book', $data);
 			return true;
 		}
+
+
+		public function add_quote($data){
+			$this->db->insert('quote', $data);
+			return true;
+		}
+
 
 		public function get_quote()
 		{
 		   $this->db->select('*');
 		   $this->db->from('quote');
-		   return $result = $query->result_array();
+		   return $query = $this->db->get()->result_array();
 		 }
 
 
+		 public function get_address_book()
+		{
+		   $this->db->select('*');
+		   $this->db->from('address_book');
+		   return $query = $this->db->get()->result_array();
+		 }
 
 		public function add_customers($data){
 			
@@ -198,6 +209,16 @@ public function fetch_customer($id)
 			$this->db->from('user');
 			$this->db->join('customer', 'customer.customer_id = user.customer_id');
 			$this->db->where('user.id', $id);
+			$query = $this->db->get();
+            return $query->row();			
+	}
+
+	public function fetch_quote($id)
+	{
+			$this->db->select('*');
+			$this->db->from('quote');
+			//$this->db->join('customer', 'customer.customer_id = user.customer_id');
+			$this->db->where('customer', $id);
 			$query = $this->db->get();
             return $query->row();			
 	}

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Apr 20, 2021 at 01:16 PM
+-- Generation Time: Apr 26, 2021 at 08:23 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.6
 
@@ -54,6 +54,69 @@ CREATE TABLE `account_setup` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `additional_details`
+--
+
+CREATE TABLE `additional_details` (
+  `id` int(11) NOT NULL,
+  `customer_id` int(11) NOT NULL,
+  `content_desc` int(11) NOT NULL,
+  `billing_ref` int(11) NOT NULL,
+  `special_delivery` int(11) NOT NULL,
+  `collection_ref` int(11) NOT NULL,
+  `collect_company` varchar(150) NOT NULL,
+  `collect_Contact_name` varchar(150) NOT NULL,
+  `collect_address` varchar(150) NOT NULL,
+  `collect_address1` varchar(150) NOT NULL,
+  `collect_city` varchar(150) NOT NULL,
+  `collect_phone` int(50) NOT NULL,
+  `contact_postal_code` int(50) NOT NULL,
+  `collect_state` varchar(150) NOT NULL,
+  `collect_ready_time` time NOT NULL,
+  `collect_close_time` time NOT NULL,
+  `collect_pickup_location` varchar(150) NOT NULL,
+  `collect_location_code` int(50) NOT NULL,
+  `collect_location_description` varchar(150) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `address_book`
+--
+
+CREATE TABLE `address_book` (
+  `id` int(50) NOT NULL,
+  `contact_name` varchar(150) NOT NULL,
+  `company_name` varchar(150) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `postcode` int(4) NOT NULL,
+  `address` varchar(150) NOT NULL,
+  `address1` varchar(150) NOT NULL,
+  `phone` varchar(50) NOT NULL,
+  `city` varchar(50) NOT NULL,
+  `email` varchar(50) NOT NULL,
+  `country` varchar(150) NOT NULL,
+  `department` varchar(50) NOT NULL,
+  `deafult_billing_type` int(11) NOT NULL,
+  `fax` varchar(50) NOT NULL,
+  `account_number` varchar(50) NOT NULL,
+  `residential_address` varchar(50) NOT NULL,
+  `default_service_type` varchar(50) NOT NULL,
+  `default_package_type` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `address_book`
+--
+
+INSERT INTO `address_book` (`id`, `contact_name`, `company_name`, `state`, `postcode`, `address`, `address1`, `phone`, `city`, `email`, `country`, `department`, `deafult_billing_type`, `fax`, `account_number`, `residential_address`, `default_service_type`, `default_package_type`) VALUES
+(1, 'test', 'tes', 'ew', 7363, 'ets', 'ewe', '4434344434', 'wwe', '270', 'Perth', '22', 1, 'ewew', '', '1', '0', '1'),
+(2, 'Kawal', 'batth', 'wa', 6105, '45', 'arkana', '08765555333', 'perth', '3', 'Perth', '433', 1, '34434434', '44343443', '1', '0', '1');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `carriers`
 --
 
@@ -95,7 +158,7 @@ CREATE TABLE `ci_users` (
 --
 
 INSERT INTO `ci_users` (`id`, `username`, `firstname`, `lastname`, `email`, `mobile_no`, `password`, `is_admin`, `last_ip`, `created_at`, `updated_at`) VALUES
-(3, 'Admin', 'admin', 'admin', 'admin@admin.com', '12345', 'ae2b1fca515949e5d54fb22b8ed95575', 1, '', '2017-09-29 10:09:44', '2017-09-30 08:09:29'),
+(3, 'Admin', 'admin', 'admin', 'admin@admin.com', '12345', 'a119e534072584a0ea88cdea4664aecd', 1, '', '2017-09-29 10:09:44', '2017-09-30 08:09:29'),
 (10, 'Pankaj Saharan', 'Pankaj', 'Saharan', 'test@test.com', '08949790120', '827ccb0eea8a706c4c34a16891f84e7b', 0, '', '2021-04-04 00:00:00', '2021-04-04 00:00:00');
 
 -- --------------------------------------------------------
@@ -129,7 +192,7 @@ CREATE TABLE `customer` (
   `billing_country` varchar(50) DEFAULT NULL,
   `billing_postal_code` int(50) DEFAULT NULL,
   `billing_state_code` int(50) DEFAULT NULL,
-  `billing_phone` int(50) DEFAULT NULL,
+  `billing_phone` varchar(50) DEFAULT NULL,
   `billing_fax` int(50) DEFAULT NULL,
   `billing_email` varchar(150) DEFAULT NULL,
   `billing_mobile` int(50) DEFAULT NULL,
@@ -148,7 +211,7 @@ CREATE TABLE `customer` (
   `other_email3` varchar(50) DEFAULT NULL,
   `created_date` timestamp NOT NULL DEFAULT current_timestamp(),
   `notes` longtext NOT NULL,
-  `image` longblob NOT NULL
+  `image` longtext DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
@@ -156,9 +219,11 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`id`, `customer_id`, `customerName`, `contact_name`, `contact_title`, `address`, `city`, `country`, `postal_code`, `state_code`, `phone`, `fax`, `email`, `mobile`, `alt_contact`, `billing_customer_name`, `billing_contact_name`, `billing_contact_title`, `billing_address`, `billing_address2`, `billing_city`, `billing_country`, `billing_postal_code`, `billing_state_code`, `billing_phone`, `billing_fax`, `billing_email`, `billing_mobile`, `billing_alt_contact`, `owner`, `other_phone`, `other_email`, `other_contact`, `other_phone1`, `other_email1`, `other_contact1`, `other_phone2`, `other_email2`, `other_contact2`, `other_phone3`, `other_email3`, `created_date`, `notes`, `image`) VALUES
-(3, 10000001, 'Pankaj', 'Pankaj Saharan', '', 'Ward No. 9 ', 'TDI City', 'Australia', 6105, 0, '846575855', 0, 'pankaj@gmail.com', 0, 0, 'pankaj', 'Pankaj Saharan', '', 'Ward No. 9', '', 'TDI City', '98', 0, 0, 2147483647, 43743773, '', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-11 18:05:07', '', ''),
-(5, 10000002, 'Kawal', 'Batth', '', '49 a Arkana ', 'Perth', '12', 6105, 0, '846573646', 0, 'kawalbatth@gmail.com', 0, 0, 'Kawal', 'Batth', '', '49 a Arkana', '', 'Perth', '12', 6105, 0, 846573646, 0, 'kawalbatth@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-17 17:01:31', '', ''),
-(51, 10000010, 'TESTING', 'TESYT', 'HHJJ', 'JKHHJJ ', 'PERTH', '12', 0, 0, '0876654345', 0, 'second@email.com', 0, 0, 'TESTING', 'TESYT', 'HHJJ', 'JKHHJJ', '', 'PERTH', '12', 0, 0, 876654345, 0, 'second@email.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-18 14:40:00', '', '');
+(5, 10000002, 'Kawal', 'Batth', '', '49 a Arkana  ', 'VIC', '12', 6105, 0, '08765456789', 0, 'kawalbatth@gmail.com', 0, 0, 'Kawal', 'Batth', '', '49 a Arkana', '', 'Perth', '12', 6105, 0, '2147483647', 0, 'kawalbatth@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-17 17:01:31', '', NULL),
+(58, 10000003, 'TEST', 'TESTING', 'TESTING', '56A ', 'PERTH', '12', 6105, 0, '0857575757', 0, 'kawalbatth89@gmail.com', 0, 0, 'TEST', 'TESTING', 'TESTING', '56A', '', 'PERTH', '12', 6105, 0, '857575757', 0, 'kawalbatth89@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-24 15:28:30', 'This is testing note.', NULL),
+(59, 10000004, 'TEST', 'TESTING', '', '354      ', 'PERTH', '12', 6105, 0, '5454545454', 0, 'kawalbatth89@gmail.com', 0, 0, 'TEST', 'TESTING', '', '354', '', 'PERTH', '12', 6105, 0, '2147483647', 0, 'kawalbatth89@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-25 08:51:21', '', NULL),
+(60, 10000005, 'TESTing', 'TESTs', '', '45545      ', 'PERTH', '12', 6207, 0, '0832323323', 0, 'kdskdsd@gmail.com', 0, 0, 'TESTing', 'TESTs', '', '45545', '', 'PERTH', '12', 6207, 0, '0832323323', 0, 'kdskdsd@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-25 10:28:16', '', NULL),
+(61, 10000006, 'TETS', 'TEST', '', '434 ', 'PERTH', '12', 6105, 0, '0383823233', 0, 'kawalbatth89@gmail.com', 0, 0, 'TETS', 'TEST', '', '434', '', 'PERTH', '12', 6105, 0, '0383823233', 0, 'kawalbatth89@gmail.com', 0, 0, '', 0, '', 0, 0, '', 0, 0, '', 0, 0, '', '2021-04-26 06:19:08', 'This is testing', NULL);
 
 -- --------------------------------------------------------
 
@@ -168,8 +233,8 @@ INSERT INTO `customer` (`id`, `customer_id`, `customerName`, `contact_name`, `co
 
 CREATE TABLE `fixed_price` (
   `id` int(50) NOT NULL,
-  `weight` varchar(250) NOT NULL,
-  `price` double NOT NULL,
+  `weight` float(4,2) NOT NULL,
+  `price` float(4,2) NOT NULL,
   `service_id` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -178,11 +243,42 @@ CREATE TABLE `fixed_price` (
 --
 
 INSERT INTO `fixed_price` (`id`, `weight`, `price`, `service_id`) VALUES
-(1, '1', 9.1, 3),
-(2, '3', 10.01, 4),
-(3, '5', 16.9, 9),
-(4, '10', 45.96, 10),
-(5, '20 ', 82.53, 8);
+(1, 1.00, 9.10, 3),
+(2, 3.00, 10.01, 4),
+(3, 5.00, 16.90, 9),
+(4, 10.00, 45.96, 10),
+(5, 20.00, 82.53, 8);
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `quote`
+--
+
+CREATE TABLE `quote` (
+  `id` int(50) NOT NULL,
+  `customer` varchar(50) NOT NULL,
+  `customer_name` varchar(50) NOT NULL,
+  `quote_number` int(11) NOT NULL,
+  `sender_suburb` varchar(50) NOT NULL,
+  `sender_postcode` int(11) NOT NULL,
+  `receiver_suburb` varchar(50) NOT NULL,
+  `receiver_postcode` int(11) NOT NULL,
+  `shipment_type` varchar(50) NOT NULL,
+  `package_type` varchar(50) NOT NULL,
+  `total_amount` double NOT NULL,
+  `quote_date` date DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `quote`
+--
+
+INSERT INTO `quote` (`id`, `customer`, `customer_name`, `quote_number`, `sender_suburb`, `sender_postcode`, `receiver_suburb`, `receiver_postcode`, `shipment_type`, `package_type`, `total_amount`, `quote_date`) VALUES
+(6, '10000002', 'Kawal', 10000002, 'Perth', 6000, 'Melbourne', 3000, 'Overnight', 'Customer packaging', 34, '2021-04-25'),
+(7, '10000002', 'Kawal', 10000002, 'Perth', 6000, 'Melbourne', 3000, 'Overnight', 'Customer packaging', 34, '2021-04-25'),
+(8, '10000002', 'Kawal', 10000002, 'Perth', 6000, 'Melbourne', 3000, 'Overnight', 'Customer packaging', 34, '2021-04-25'),
+(9, '10000002', 'Kawal', 10000002, 'Perth', 6000, 'Melbourne', 3000, 'Overnight', 'Customer packaging', 14, '2021-04-26');
 
 -- --------------------------------------------------------
 
@@ -62000,50 +62096,58 @@ INSERT INTO `sender_zone` (`id`, `sender_zone`, `sender_suburb`, `sender_postcod
 
 CREATE TABLE `shipment` (
   `id` int(50) NOT NULL,
-  `sender_company` varchar(50) NOT NULL,
-  `sender_contact_name` varchar(50) NOT NULL,
-  `sender_phone` int(11) NOT NULL,
-  `sender_email` varchar(50) NOT NULL,
-  `sender_country` varchar(50) NOT NULL,
-  `sender_address` varchar(50) NOT NULL,
-  `sender_address1` varchar(50) NOT NULL,
-  `sender_address2` varchar(50) NOT NULL,
-  `sender_save_address_book` varchar(50) NOT NULL,
-  `sender_residence` varchar(50) NOT NULL,
-  `sender_alt_name` varchar(50) NOT NULL,
-  `sender_city` varchar(50) NOT NULL,
-  `sender_postal_code` int(50) NOT NULL,
-  `sender_state` varchar(50) NOT NULL,
-  `receiver_company` varchar(50) NOT NULL,
-  `receiver_contact_name` varchar(50) NOT NULL,
-  `receiver_country` varchar(50) NOT NULL,
-  `receiver_phone` int(11) NOT NULL,
-  `receiver_email` varchar(50) NOT NULL,
-  `receiver_address` varchar(50) NOT NULL,
-  `receiver_address1` varchar(50) NOT NULL,
-  `receiver_address2` varchar(50) NOT NULL,
-  `shipping_date` date NOT NULL,
-  `receiver_save_address` varchar(50) NOT NULL,
-  `receiver_residence` varchar(50) NOT NULL,
-  `receiver_city` varchar(50) NOT NULL,
-  `receiver_postal_code` int(50) NOT NULL,
-  `receiver_state` varchar(50) NOT NULL,
-  `carrier_name` varchar(50) NOT NULL,
-  `service_type` varchar(50) NOT NULL,
-  `package_type` varchar(50) NOT NULL,
-  `contents` varchar(50) NOT NULL,
-  `weight_unit` double NOT NULL,
-  `dimension_unit` double NOT NULL,
-  `currency` double NOT NULL,
-  `weight` double NOT NULL,
-  `length` double NOT NULL,
-  `width` double NOT NULL,
-  `height` double NOT NULL,
-  `quantity` double NOT NULL,
-  `dangerous_goods` tinyint(4) NOT NULL,
-  `authorized_to_leave` tinyint(4) NOT NULL,
-  `created_date` date NOT NULL
+  `customer_id` int(50) NOT NULL,
+  `sender_company` varchar(50) DEFAULT NULL,
+  `sender_contact_name` varchar(50) DEFAULT NULL,
+  `sender_phone` int(11) DEFAULT NULL,
+  `sender_email` varchar(50) DEFAULT NULL,
+  `sender_country` varchar(50) DEFAULT NULL,
+  `sender_address` varchar(50) DEFAULT NULL,
+  `sender_address1` varchar(50) DEFAULT NULL,
+  `sender_address2` varchar(50) DEFAULT NULL,
+  `sender_save_address_book` varchar(50) DEFAULT NULL,
+  `sender_residence` varchar(50) DEFAULT NULL,
+  `sender_alt_name` varchar(50) DEFAULT NULL,
+  `sender_city` varchar(50) DEFAULT NULL,
+  `sender_postal_code` int(50) DEFAULT NULL,
+  `sender_state` varchar(50) DEFAULT NULL,
+  `receiver_company` varchar(50) DEFAULT NULL,
+  `receiver_contact_name` varchar(50) DEFAULT NULL,
+  `receiver_country` varchar(50) DEFAULT NULL,
+  `receiver_phone` int(11) DEFAULT NULL,
+  `receiver_email` varchar(50) DEFAULT NULL,
+  `receiver_address` varchar(50) DEFAULT NULL,
+  `receiver_address1` varchar(50) DEFAULT NULL,
+  `receiver_address2` varchar(50) DEFAULT NULL,
+  `shipping_date` date DEFAULT NULL,
+  `receiver_save_address` varchar(50) DEFAULT NULL,
+  `receiver_residence` varchar(50) DEFAULT NULL,
+  `receiver_city` varchar(50) DEFAULT NULL,
+  `receiver_postal_code` int(50) DEFAULT NULL,
+  `receiver_state` varchar(50) DEFAULT NULL,
+  `carrier_name` varchar(50) DEFAULT NULL,
+  `service_type` varchar(50) DEFAULT NULL,
+  `package_type` varchar(50) DEFAULT NULL,
+  `contents` varchar(50) DEFAULT NULL,
+  `weight_unit` double DEFAULT NULL,
+  `dimension_unit` double DEFAULT NULL,
+  `currency` double DEFAULT NULL,
+  `weight` double DEFAULT NULL,
+  `length` double DEFAULT NULL,
+  `width` double DEFAULT NULL,
+  `height` double DEFAULT NULL,
+  `quantity` double DEFAULT NULL,
+  `dangerous_goods` tinyint(4) DEFAULT NULL,
+  `authorized_to_leave` tinyint(4) DEFAULT NULL,
+  `created_date` date NOT NULL DEFAULT current_timestamp()
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `shipment`
+--
+
+INSERT INTO `shipment` (`id`, `customer_id`, `sender_company`, `sender_contact_name`, `sender_phone`, `sender_email`, `sender_country`, `sender_address`, `sender_address1`, `sender_address2`, `sender_save_address_book`, `sender_residence`, `sender_alt_name`, `sender_city`, `sender_postal_code`, `sender_state`, `receiver_company`, `receiver_contact_name`, `receiver_country`, `receiver_phone`, `receiver_email`, `receiver_address`, `receiver_address1`, `receiver_address2`, `shipping_date`, `receiver_save_address`, `receiver_residence`, `receiver_city`, `receiver_postal_code`, `receiver_state`, `carrier_name`, `service_type`, `package_type`, `contents`, `weight_unit`, `dimension_unit`, `currency`, `weight`, `length`, `width`, `height`, `quantity`, `dangerous_goods`, `authorized_to_leave`, `created_date`) VALUES
+(1, 0, NULL, NULL, NULL, NULL, NULL, '  ', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-22', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '2021-04-22');
 
 -- --------------------------------------------------------
 
@@ -62081,6 +62185,7 @@ CREATE TABLE `surcharges_list` (
   `surcharge_name` varchar(100) DEFAULT NULL,
   `surcharge_price` varchar(100) DEFAULT NULL,
   `surcharge_type` int(11) NOT NULL,
+  `is_dangerous` int(11) NOT NULL DEFAULT 0,
   `last_modified` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
@@ -62088,9 +62193,34 @@ CREATE TABLE `surcharges_list` (
 -- Dumping data for table `surcharges_list`
 --
 
-INSERT INTO `surcharges_list` (`id`, `carrier_id`, `surcharge_name`, `surcharge_price`, `surcharge_type`, `last_modified`) VALUES
-(6, 11, 'fuel surcharge', '9.66', 0, '2021-04-10 19:18:02'),
-(10, 11, 'Dnagerous goods', '11.22', 0, '2021-04-20 00:00:00');
+INSERT INTO `surcharges_list` (`id`, `carrier_id`, `surcharge_name`, `surcharge_price`, `surcharge_type`, `is_dangerous`, `last_modified`) VALUES
+(6, 11, 'fuel surcharge', '9.66', 0, 0, '2021-04-10 19:18:02'),
+(10, 11, 'Dnagerous goods', '11.22', 0, 0, '2021-04-20 00:00:00');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `temp_data`
+--
+
+CREATE TABLE `temp_data` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `formdata` longtext NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `temp_data`
+--
+
+INSERT INTO `temp_data` (`id`, `user_id`, `formdata`) VALUES
+(12, 1, 'customerCode=&companyName=Kawal&phone=846573646&contactName=Batth&email=kawalbatth@gmail.com&country=12&address=49 a Arkana &address2=&address3=&alternateUserName=&city=VIC&postalCode=6105&state=0&receivercompanyName=&receiverphone=&receivercontactName=&receiveremail=&receivercountry=0&receiverAddress=&receiverAddress2=&receiverAddress3=&receivercity=Melbourne&receiverpostalCode=3000&receiverstate=VIC&shipping_date=2021-04-23&serviceId=11&shipmentTypeId=4&packageId=3&contentType=WPX&weightUnit=KG&dimensionUnit=CM&currencyCode=AUD&weight=2&total_weight=2.00&service_kg=3&get_volume=0.000&quantity1=1&final_total=1&dangerName=Dangerous Goods&dangerCode=dangerousgoods&dangerDetailName=UN Number (4Digits)&dangerDetailCode=unnumber&dangerNumber=&packDetailName=Packing Group&packDetailCode=packinggroup&packValue=1&packName=I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&packCode=msda&authorityName=Authorized to Leave (ATL)&authorityCode=atl&authorityQuestion=Where to leave&authorityCode=atltoleave&authorityAnswer='),
+(13, 1, 'customerCode=&companyName=Kawal&phone=846573646&contactName=Batth&email=kawalbatth@gmail.com&country=12&address=49 a Arkana &address2=assas&address3=asassasa&residentialPickup=true&shipmentPage.residentialPickup=true&alternateUserName=ass&city=VIC&postalCode=6105&state=WA&receivercompanyName=&receiverphone=&receivercontactName=&receiveremail=&receivercountry=0&receiverAddress=&receiverAddress2=&receiverAddress3=&receivercity=Melbourne&receiverpostalCode=3000&receiverstate=VIC&shipping_date=2021-04-23&serviceId=11&shipmentTypeId=4&packageId=3&contentType=WPX&weightUnit=KG&dimensionUnit=CM&currencyCode=AUD&weight=2&total_weight=2.00&service_kg=3&get_volume=0.000&quantity1=1&final_total=1&dangerName=Dangerous Goods&dangerCode=dangerousgoods&dangerDetailName=UN Number (4Digits)&dangerDetailCode=unnumber&dangerNumber=&packDetailName=Packing Group&packDetailCode=packinggroup&packValue=1&packName=I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&packCode=msda&authorityName=Authorized to Leave (ATL)&authorityCode=atl&authorityQuestion=Where to leave&authorityCode=atltoleave&authorityAnswer='),
+(14, 1, 'customerCode=&companyName=Kawal&phone=846573646&contactName=Batth&email=kawalbatth@gmail.com&country=12&address=49 a Arkana &address2=assas&address3=asassasa&residentialPickup=true&shipmentPage.residentialPickup=true&alternateUserName=ass&city=VIC&postalCode=6105&state=WA&receivercompanyName=&receiverphone=&receivercontactName=&receiveremail=&receivercountry=0&receiverAddress=&receiverAddress2=&receiverAddress3=&receivercity=Melbourne&receiverpostalCode=3000&receiverstate=VIC&shipping_date=2021-04-23&serviceId=11&shipmentTypeId=4&packageId=3&contentType=WPX&weightUnit=KG&dimensionUnit=CM&currencyCode=AUD&weight=2&total_weight=2.00&service_kg=3&get_volume=0.000&quantity1=1&final_total=1&dangerName=Dangerous Goods&dangerCode=dangerousgoods&dangerDetailName=UN Number (4Digits)&dangerDetailCode=unnumber&dangerNumber=&packDetailName=Packing Group&packDetailCode=packinggroup&packValue=1&packName=I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&packCode=msda&authorityName=Authorized to Leave (ATL)&authorityCode=atl&authorityQuestion=Where to leave&authorityCode=atltoleave&authorityAnswer='),
+(15, 1, 'customerCode=&companyName=Kawal&phone=846573646&contactName=Batth&email=kawalbatth@gmail.com&country=12&address=49 a Arkana &address2=&address3=&alternateUserName=&city=VIC&postalCode=6105&state=0&receivercompanyName=&receiverphone=&receivercontactName=&receiveremail=&receivercountry=0&receiverAddress=&receiverAddress2=&receiverAddress3=&receivercity=Melbourne&receiverpostalCode=3000&receiverstate=VIC&shipping_date=2021-04-23&serviceId=11&shipmentTypeId=1&packageId=3&contentType=WPX&weightUnit=KG&dimensionUnit=CM&currencyCode=AUD&weight=3&total_weight=3.00&service_kg=&dimensionL1=&dimensionW1=&dimensionH1=&get_volume=0.000&quantity1=1&final_total=1&dangerName=Dangerous Goods&dangerCode=dangerousgoods&dangerDetailName=UN Number (4Digits)&dangerDetailCode=unnumber&dangerNumber=&packDetailName=Packing Group&packDetailCode=packinggroup&packValue=1&packName=I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&packCode=msda&authorityName=Authorized to Leave (ATL)&authorityCode=atl&authorityQuestion=Where to leave&authorityCode=atltoleave&authorityAnswer='),
+(16, 1, 'customerCode=&companyName=Kawal&phone=846573646&contactName=Batth&email=kawalbatth@gmail.com&country=12&address=49 a Arkana &address2=&address3=&alternateUserName=&city=VIC&postalCode=6105&state=0&receivercompanyName=&receiverphone=&receivercontactName=&receiveremail=&receivercountry=0&receiverAddress=&receiverAddress2=&receiverAddress3=&receivercity=Melbourne&receiverpostalCode=3000&receiverstate=VIC&shipping_date=2021-04-23&serviceId=11&shipmentTypeId=1&packageId=3&contentType=WPX&weightUnit=KG&dimensionUnit=CM&currencyCode=AUD&weight=3&total_weight=3.00&service_kg=&dimensionL1=&dimensionW1=&dimensionH1=&get_volume=0.000&quantity1=1&final_total=1&dangerName=Dangerous Goods&dangerCode=dangerousgoods&dangerDetailName=UN Number (4Digits)&dangerDetailCode=unnumber&dangerNumber=&packDetailName=Packing Group&packDetailCode=packinggroup&packValue=1&packName=I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&packCode=msda&authorityName=Authorized to Leave (ATL)&authorityCode=atl&authorityQuestion=Where to leave&authorityCode=atltoleave&authorityAnswer='),
+(17, 3, 'customerCode=&shipmentPage.senderAddress.companyName=Kawal&shipmentPage.senderAddress.phone=846573646&shipmentPage.senderAddress.contactName=Batth&shipmentPage.senderAddress.email=kawalbatth@gmail.com&shipmentPage.senderAddress.country=12&shipmentPage.senderAddress.address=49 a Arkana &shipmentPage.senderAddress.address2=&shipmentPage.senderAddress.address3=&shipmentPage.senderAddress.alternateUserName=&shipmentPage.senderAddress.city=Perth&shipmentPage.senderAddress.postalCode=6000&shipmentPage.senderAddress.state=WA&shipmentPage.receiverAddress.companyName=&shipmentPage.receiverAddress.phone=&shipmentPage.receiverAddress.contactName=&shipmentPage.receiverAddress.email=&shipmentPage.receiverAddress.country=0&shipmentPage.receiverAddress.address=&shipmentPage.receiverAddress.address2=&shipmentPage.receiverAddress.address3=&shipmentPage.receiverAddress.city=Melbourne&shipmentPage.receiverAddress.postalCode=3000&shipmentPage.receiverAddress.state=VIC&shipping_date=2021-04-24&shipmentPage.serviceId=11&shipmentPage.shipmentTypeId=3&shipmentPage.packageId=3&shipmentPage.contentType=WPX&shipmentPage.weightUnit=KG&shipmentPage.dimensionUnit=CM&shipmentPage.currencyCode=AUD&shipmentPage.pieces.weight=1&total_weight=1.00&service_kg=1&get_volume=0.000&shipmentPage.pieces.quantity1=1&final_total=1&shipmentPage.isAddPiece=true&shipmentPage.addCons[1].addConName=Authorized to Leave (ATL)&shipmentPage.addCons[1].addConCode=atl&shipmentPage.addCons[1].listProperties[0].addConDetailName=Where to leave&shipmentPage.addCons[1].listProperties[0].addConDetailCode=atltoleave&shipmentPage.addCons[1].listProperties[0].value='),
+(18, 3, 'customerCode=&shipmentPage.senderAddress.companyName=Kawal&shipmentPage.senderAddress.phone=08765456789&shipmentPage.senderAddress.contactName=Batth&shipmentPage.senderAddress.email=kawalbatth@gmail.com&shipmentPage.senderAddress.country=12&shipmentPage.senderAddress.address=49 a Arkana  &shipmentPage.senderAddress.address2=&shipmentPage.senderAddress.address3=&shipmentPage.senderAddress.alternateUserName=&shipmentPage.senderAddress.city=Perth&shipmentPage.senderAddress.postalCode=6000&shipmentPage.senderAddress.state=WA&shipmentPage.receiverAddress.companyName=&shipmentPage.receiverAddress.phone=&shipmentPage.receiverAddress.contactName=&shipmentPage.receiverAddress.email=&shipmentPage.receiverAddress.country=0&shipmentPage.receiverAddress.address=&shipmentPage.receiverAddress.address2=&shipmentPage.receiverAddress.address3=&shipmentPage.receiverAddress.city=Melbourne&shipmentPage.receiverAddress.postalCode=3000&shipmentPage.receiverAddress.state=VIC&shipping_date=2021-04-26&shipmentPage.serviceId=11&shipmentPage.shipmentTypeId=1&shipmentPage.packageId=3&shipmentPage.contentType=WPX&shipmentPage.weightUnit=KG&shipmentPage.dimensionUnit=CM&shipmentPage.currencyCode=AUD&shipmentPage.pieces.weight=14&total_weight=14.00&service_kg=&shipmentPage.pieces.dimensionL1=&shipmentPage.pieces.dimensionW1=&shipmentPage.pieces.dimensionH1=&get_volume=0.000&shipmentPage.pieces.quantity1=1&final_total=1&shipmentPage.isAddPiece=true&shipmentPage.addCons[1].addConName=Authorized to Leave (ATL)&shipmentPage.addCons[1].addConCode=atl&shipmentPage.addCons[1].listProperties[0].addConDetailName=Where to leave&shipmentPage.addCons[1].listProperties[0].addConDetailCode=atltoleave&shipmentPage.addCons[1].listProperties[0].value=');
 
 -- --------------------------------------------------------
 
@@ -62116,13 +62246,13 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`id`, `webshipId`, `customer_id`, `user_name`, `password`, `language`, `allowExportAddressBook`, `isRequireChangePassword`, `created_date`, `updated_at`) VALUES
-(1, '', 10000002, 'Testinguser', 'MTIzNDU2', 'english', 0, 0, '2021-04-13 22:22:04', '2021-04-17 16:14:52'),
-(3, '16721', 10000002, 'edumailtest', 'bWFpbGVkdUAyMDIx', 'english', 0, 0, '2021-04-13 23:09:58', '2021-04-16 11:05:00'),
-(4, '16721', 10000002, 'newuser', 'MTIzNA==', 'english', 0, 0, '2021-04-13 23:12:15', '2021-04-16 11:05:00'),
+(1, '', 10000002, 'TES123', 'VGVzdGluZ0Ax', 'english', 0, 0, '2021-04-13 22:22:04', '2021-04-24 11:15:02'),
+(3, '16721', 10000002, 'edumailtest', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 0, 0, '2021-04-13 23:09:58', '2021-04-24 15:33:26'),
+(4, '16721', 10000002, 'newuser', '81dc9bdb52d04dc20036dbd8313ed055', 'english', 0, 0, '2021-04-13 23:12:15', '2021-04-24 11:19:59'),
 (5, '16721', 10000002, 'panky', 'cGFua2FqNTQzMg==', 'english', 0, 0, '2021-04-13 23:21:25', '2021-04-16 11:05:00'),
 (6, '16721', 10000002, 'arvind', 'Y29kZUAxMjM=', 'english', 0, 0, '2021-04-13 23:21:57', '2021-04-16 11:05:00'),
 (7, '16721', 10000001, 'zoras', 'VGVzdGluZ0AxMjM=', 'english', NULL, NULL, '2021-04-14 06:54:20', '2021-04-19 13:37:12'),
-(9, '', 10000002, 'testing', 'dGVzdGluZzEy', 'english', 1, 1, '2021-04-16 19:05:24', '2021-04-16 11:05:24'),
+(9, '', 10000002, 'testing', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 1, 1, '2021-04-16 19:05:24', '2021-04-24 13:43:19'),
 (10, '', 10000002, 'testing', 'VGVzdGluZzM=', 'english', 1, 1, '2021-04-16 19:26:46', '2021-04-16 11:26:46'),
 (11, '', 10000002, 'RAM322', 'VGVzdGluZzEyQA==', 'english', 1, 1, '2021-04-16 19:29:40', '2021-04-16 11:29:40'),
 (12, '', 10000002, 'URD454', 'VGVzdGluZ0AxMjQ=', 'english', NULL, NULL, '2021-04-16 19:45:09', '2021-04-17 12:21:28'),
@@ -62134,13 +62264,22 @@ INSERT INTO `user` (`id`, `webshipId`, `customer_id`, `user_name`, `password`, `
 (21, '', 10000006, '10000006', 'Admin@123', 'english', 0, 0, '2021-04-18 21:59:13', '2021-04-18 13:59:13'),
 (22, '', 10000007, '10000007', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 22:01:49', '2021-04-18 14:01:49'),
 (23, '', 10000008, 'AGL00844', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 22:03:33', '2021-04-18 14:04:05'),
-(24, '', 10000009, 'WER009', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 22:32:23', '2021-04-18 14:33:19'),
+(24, '', 10000009, 'WER009', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 0, 0, '2021-04-18 22:32:23', '2021-04-24 06:12:36'),
 (25, '', 10000010, 'AGL010', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 22:40:00', '2021-04-18 14:40:00'),
 (26, '', 10000011, 'AGL011', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 22:48:03', '2021-04-18 14:48:03'),
 (27, '', 10000012, 'AGL012', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 22:53:31', '2021-04-18 14:53:31'),
 (28, '', 10000014, 'AGL014', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 23:04:30', '2021-04-18 15:04:30'),
 (29, '', 10000015, 'AGL015', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-18 23:05:38', '2021-04-18 15:05:38'),
-(30, '', 10000002, 'TES123', 'VGVzdGluZ0AxMg==', 'english', 1, 1, '2021-04-18 23:30:36', '2021-04-18 15:30:36');
+(30, '', 10000002, 'TES123', '06e4dff3c420e66ae6927dc539ba82c6', 'english', 1, 1, '2021-04-18 23:30:36', '2021-04-24 15:31:25'),
+(32, '', 10000011, 'TES124', 'VGVzdGluZ0AxMjM=', 'english', 1, 1, '2021-04-24 13:57:39', '2021-04-24 05:57:49'),
+(33, '', 10000011, 'BAR110', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 1, 1, '2021-04-24 14:20:20', '2021-04-24 06:59:09'),
+(34, '', 10000011, 'BAT113', 'ae2b1fca515949e5d54fb22b8ed95575', 'english', 1, 1, '2021-04-24 14:28:30', '2021-04-24 07:00:05'),
+(35, '', 10000010, 'TES123', '827ccb0eea8a706c4c34a16891f84e7b', 'english', 1, 1, '2021-04-24 14:36:30', '2021-04-24 13:41:26'),
+(36, '', 10000003, 'AGL003', 'QWRtaW5AMTIzNA==', 'english', 0, 1, '2021-04-24 23:28:30', '2021-04-24 15:29:50'),
+(37, '', 10000003, 'TES123', 'VGVzdGluZ0AxMjM=', 'english', 1, 1, '2021-04-24 23:30:34', '2021-04-24 15:30:34'),
+(38, '', 10000004, 'AGL004', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-25 16:51:21', '2021-04-25 08:51:21'),
+(39, '', 10000005, 'AGL005', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-25 18:28:16', '2021-04-25 10:28:16'),
+(40, '', 10000006, 'AGL006', 'QWRtaW5AMTIz', 'english', 0, 0, '2021-04-26 14:19:08', '2021-04-26 06:19:08');
 
 -- --------------------------------------------------------
 
@@ -62162,16 +62301,7 @@ CREATE TABLE `user_notes` (
 --
 
 INSERT INTO `user_notes` (`id`, `customer_id`, `user_notes`, `follow_up_date`, `image`, `modified_at`) VALUES
-(1, 10000002, 'jshsjdjsdsd', '2021-04-17', '', '0000-00-00 00:00:00'),
-(2, 10000002, 'ghsshhjsjhds', '2021-04-17', '', '0000-00-00 00:00:00'),
-(3, 10000002, 'ghj', '2021-04-10', 'IMG_2113.JPG', '2021-04-16 16:00:00'),
-(4, 10000002, 'ererere', '2021-04-02', 'IMG_2117.JPG', '2021-04-16 16:00:00'),
-(5, 10000002, 'fgghhh', '2021-04-08', NULL, '2021-04-16 16:00:00'),
-(6, 10000002, 'ghj', '2021-04-01', 'IMG_3962.JPG', '2021-04-16 16:00:00'),
-(7, 10000002, 'ewewewe', '2021-04-23', NULL, '2021-04-16 16:00:00'),
-(8, 10000001, 'eeew', '2021-03-31', '', '2021-04-16 16:00:00'),
-(9, 10000001, 'ghhjhjs', '2021-04-15', NULL, '2021-04-16 16:00:00'),
-(10, 10000001, 'jjkk', '2021-04-15', NULL, '2021-04-16 16:00:00');
+(11, 10000001, 'sass', '2021-04-16', 'AGL.png', '2021-04-22 16:00:00');
 
 --
 -- Indexes for dumped tables
@@ -62181,6 +62311,18 @@ INSERT INTO `user_notes` (`id`, `customer_id`, `user_notes`, `follow_up_date`, `
 -- Indexes for table `account_setup`
 --
 ALTER TABLE `account_setup`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `additional_details`
+--
+ALTER TABLE `additional_details`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `address_book`
+--
+ALTER TABLE `address_book`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -62209,6 +62351,12 @@ ALTER TABLE `fixed_price`
   ADD KEY `fk_service_id` (`service_id`);
 
 --
+-- Indexes for table `quote`
+--
+ALTER TABLE `quote`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `rates`
 --
 ALTER TABLE `rates`
@@ -62233,6 +62381,12 @@ ALTER TABLE `sender_zone`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `shipment`
+--
+ALTER TABLE `shipment`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `star_services`
 --
 ALTER TABLE `star_services`
@@ -62242,6 +62396,12 @@ ALTER TABLE `star_services`
 -- Indexes for table `surcharges_list`
 --
 ALTER TABLE `surcharges_list`
+  ADD PRIMARY KEY (`id`);
+
+--
+-- Indexes for table `temp_data`
+--
+ALTER TABLE `temp_data`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -62267,6 +62427,18 @@ ALTER TABLE `account_setup`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT;
 
 --
+-- AUTO_INCREMENT for table `additional_details`
+--
+ALTER TABLE `additional_details`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `address_book`
+--
+ALTER TABLE `address_book`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+
+--
 -- AUTO_INCREMENT for table `carriers`
 --
 ALTER TABLE `carriers`
@@ -62282,13 +62454,19 @@ ALTER TABLE `ci_users`
 -- AUTO_INCREMENT for table `customer`
 --
 ALTER TABLE `customer`
-  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=57;
+  MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=62;
 
 --
 -- AUTO_INCREMENT for table `fixed_price`
 --
 ALTER TABLE `fixed_price`
   MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT for table `quote`
+--
+ALTER TABLE `quote`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `rates`
@@ -62315,6 +62493,12 @@ ALTER TABLE `sender_zone`
   MODIFY `id` int(150) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21309;
 
 --
+-- AUTO_INCREMENT for table `shipment`
+--
+ALTER TABLE `shipment`
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+
+--
 -- AUTO_INCREMENT for table `star_services`
 --
 ALTER TABLE `star_services`
@@ -62327,16 +62511,22 @@ ALTER TABLE `surcharges_list`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
+-- AUTO_INCREMENT for table `temp_data`
+--
+ALTER TABLE `temp_data`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 -- AUTO_INCREMENT for table `user`
 --
 ALTER TABLE `user`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=31;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=41;
 
 --
 -- AUTO_INCREMENT for table `user_notes`
 --
 ALTER TABLE `user_notes`
-  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- Constraints for dumped tables

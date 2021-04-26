@@ -30,29 +30,20 @@
                                                     </tr>
                                                     </thead>
                                                     <tbody>
-                                                          <tr data-address-id="36">
-                                                                <td>MARK CANNING</td>
-                                                                <td>CENTURION GARAGE DOORS</td>
-                                                                <td>145 QUINNS HILL ROAD EAST</td>
-                                                                <td></td>
-                                                                <td>STAPYLTON</td>
-                                                                <td>QLD</td>
-                                                                <td>4207</td>
-                                                                <td>Australia</td>
-                                                                <td>0734414900</td>
+                                                    <?php for($i=0;$i<count($address_book);$i++)
+                                            { ?>
+                                  <tr data-address-id="<?php echo $address_book[$i]['id'];?>">
+                                                                <td><?php echo $address_book[$i]['contact_name'];?></td>
+                                                                <td><?php echo $address_book[$i]['company_name'];?></td>
+                                                                <td><?php echo $address_book[$i]['address'];?></td>
+                                                                <td><?php echo $address_book[$i]['address1'];?></td>
+                                                                <td><?php echo $address_book[$i]['city'];?></td>
+                                                                <td><?php echo $address_book[$i]['state'];?></td>
+                                                                <td><?php echo $address_book[$i]['postcode'];?></td>
+                                                                <td><?php echo $address_book[$i]['country'];?></td>
+                                                                <td><?php echo $address_book[$i]['phone'];?></td>
                                                             </tr>
-                                                        
-                                                            <tr data-address-id="37">
-                                                                <td>VIKKI</td>
-                                                                <td>CENTURION GARAGE DOORS</td>
-                                                                <td>79 INNOVATION CIRCUT</td>
-                                                                <td></td>
-                                                                <td>WANGARA</td>
-                                                                <td>WA</td>
-                                                                <td>6065</td>
-                                                                <td>Canada</td>
-                                                                <td>0893027500</td>
-                                                            </tr>
+                                                    <?php }?>
                                                          </tbody>
                                                 </table>
                                                 <input type="hidden" name="" value="1" id="currPage">
@@ -77,9 +68,9 @@
                                 <div class=" text-right pal pdt10">
                                     <div class="row">
                                         <div class="col-lg-10 text-left">
-                                            <a href="<?= base_url('admin/address_book_add'); ?>" class="btn s33 s44">Add</a>
+                                            <a href="<?= base_url('customer/address_book_add'); ?>" class="btn s33 s44">Add</a>
                                             <button class="btn s33 s44" disabled="disabled" id="btnEdit" onclick="doEdit()">
-                                                Edit
+                                     Edit
                                             </button>
                                             <button class="btn s33 s44" disabled="disabled" id="btnRemove" onclick="doRemove()">
                                                 Remove

@@ -1,4 +1,4 @@
-<form id="address_book_add" name="address_book_add" action="/crm-webship/address_book_add.ix" method="post">
+<form id="address_book_add" name="address_book_add">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="portlet box">
@@ -16,31 +16,30 @@
                                         <div class="row">
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="inputName"> Contact <span class="s30">*</span>
+                                                    <label class="control-label" for="inputName" data-label="Contact"> Contact <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressBookModel.contactName" value="" id="address_book_add_addressBookModel_contactName" class="form-control">
-                                                    <span class="s30"> </span>
-                                                </div>
+                                                    <input type="text" name="addressContactName" value="" id="address_book_add_addressBookModel_contactName" class="form-control" required="required">
+                         </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company
                                                     </label>
-                                                    <input type="text" name="addressBookModel.companyName" value="" id="address_book_add_addressBookModel_companyName" class="form-control">
+                                                    <input type="text" name="addressCompanyName" value="" id="address_book_add_addressBookModel_companyName" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
+                                                    <label class="control-label" for="inputName" data-label="Address"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="addressBookModel.address1" value="" id="address_book_add_addressBookModel_address1" class="form-control">
+                                                    <input type="text" name="addressAddress1" value="" id="address_book_add_addressBookModel_address1" class="form-control" required="required">
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address 2
                                                     </label>
-                                                    <input type="text" name="addressBookModel.address2" value="" id="address_book_add_addressBookModel_address2" class="form-control">
+                                                    <input type="text" name="addressAddress2" value="" id="address_book_add_addressBookModel_address2" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label" for="inputName"> City <span class="s30">*</span>
+                                                    <label class="control-label" for="inputName" data-label="City"> City <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressBookModel.city" value="" id="address_book_add_addressBookModel_city" class="form-control" onkeyup="searchCity($(this).val())">
+                                                    <input type="text" name="addressCity" value="" id="address_book_add_addressBookModel_city" class="form-control" required="required">
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div id="city-search"></div>
@@ -49,17 +48,17 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> State/Province
                                                     </label>
-                                                    <input type="text" name="addressBookModel.state" value="" id="address_book_add_addressBookModel_state" class="form-control">
+                                                    <input type="text" name="addressState" value="" id="address_book_add_addressBookModel_state" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Postal Code
                                                     </label>
-                                                    <input type="text" name="addressBookModel.postalCode" value="" id="address_book_add_addressBookModel_postalCode" class="form-control">
+                                                    <input type="text" name="addressPostalCode" value="" id="address_book_add_addressBookModel_postalCode" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label" for="inputName"> Country <span class="s30"> *</span>
+                                                    <label class="control-label" for="inputName" data-label="Country"> Country <span class="s30"> *</span>
                                                     </label>
-                                                    <select name="addressBookModel.country" id="addressCountryId" class="form-control">
+                                                    <select name="addressCountry" id="addressCountryId" class="form-control" required="required">
     <option value="0">country</option>
     <option value="1">Afghanistan</option>
     <option value="2">Albania</option>
@@ -341,15 +340,15 @@
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label" for="inputName"> Phone <span class="s30">*</span>
+                                                    <label class="control-label" for="inputName" data-label="Phone"> Phone <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressBookModel.phone" value="" id="address_book_add_addressBookModel_phone" class="form-control">
+                                                    <input type="text" name="addressPhone" value="" id="address_book_add_addressBookModel_phone" class="form-control" required="required">
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Email
                                                     </label>
-                                                    <input type="text" name="addressBookModel.email" value="" id="address_book_add_addressBookModel_email" class="form-control">
+                                                    <input type="email" name="addressEmail" value="" id="address_book_add_addressBookModel_email" class="form-control">
                                                     <span class="s30"> </span>
                                                 </div>
                                             </div>
@@ -378,702 +377,38 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Department
                                                     </label>
-                                                    <input type="text" name="addressBookModel.department" value="" id="address_book_add_addressBookModel_department" class="form-control">
+                                                    <input type="text" name="addressDepartment" value="" id="address_book_add_addressBookModel_department" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Fax
                                                     </label>
-                                                    <input type="text" name="addressBookModel.fax" value="" id="address_book_add_addressBookModel_fax" class="form-control">
+                                                    <input type="text" name="addressFax" value="" id="address_book_add_addressBookModel_fax" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Default Service Type
                                                     </label>
-                                                    <select name="addressBookModel.defaultServiceType" id="address_book_add_addressBookModel_defaultServiceType" class="form-control">
+                                                    <select name="addressDefaultServiceType" id="address_book_add_addressBookModel_defaultServiceType" class="form-control">
     <option value="0">No default</option>
-    <option value="0">
-    	Not Available
-</option>
-    <option value="1">
-    	DHL Worldwide Express
-</option>
-    <option value="2">
-    	General Road (TNT)
-</option>
-    <option value="3">
-    	Priority (TNT)
-</option>
-    <option value="4">
-    	AAE Prepaid 15 KG
-</option>
-    <option value="7">
-    	Local
-</option>
-    <option value="8">
-    	Overnight
-</option>
-    <option value="9">
-    	3 Day Offpeak
-</option>
-    <option value="12">
-    	Next Flight
-</option>
-    <option value="18">
-    	Road Express
-</option>
-    <option value="19">
-    	Economy Express
-</option>
-    <option value="20">
-    	Express (Non Document)
-</option>
-    <option value="21">
-    	Overnight Express
-</option>
-    <option value="22">
-    	9:00 Express
-</option>
-    <option value="23">
-    	Sameday Express
-</option>
-    <option value="24">
-    	D  DC
-</option>
-    <option value="25">
-    	D 04
-</option>
-    <option value="26">
-    	D 4TC
-</option>
-    <option value="36">
-    	AAE Prepaid - 3KG
-</option>
-    <option value="37">
-    	AAE Prepaid - 5KG
-</option>
-    <option value="38">
-    	AAE Prepaid - 1KG
-</option>
-    <option value="46">
-    	2 Day Economy
-</option>
-    <option value="50">
-    	10:00 Express
-</option>
-    <option value="51">
-    	12:00 Express
-</option>
-    <option value="52">
-    	Technology Express
-</option>
-    <option value="53">
-    	DHL Domestic Express
-</option>
-    <option value="54">
-    	Import - Parcel
-</option>
-    <option value="55">
-    	Export - Parcel
-</option>
-    <option value="56">
-    	Export - Documents
-</option>
-    <option value="57">
-    	DHL domestic
-</option>
-    <option value="58">
-    	Toll Prepaid - 5KG
-</option>
-    <option value="59">
-    	Toll Prepaid - 1KG
-</option>
-    <option value="60">
-    	Toll Overnight
-</option>
-    <option value="61">
-    	Same Day - Standard
-</option>
-    <option value="62">
-    	Import - Documents
-</option>
-    <option value="63">
-    	Toll Prepaid - 3KG
-</option>
-    <option value="64">
-    	Same Day - VIP (2 hour)
-</option>
-    <option value="65">
-    	Same Day - Golden Service (ASAP)
-</option>
-    <option value="66">
-    	OVERNIGHT SATCHEL 3KG
-</option>
-    <option value="67">
-    	Import - Parcel
-</option>
-    <option value="68">
-    	Export - Parcel
-</option>
-    <option value="69">
-    	Export - Documents
-</option>
-    <option value="70">
-    	Same Day - Standard
-</option>
-    <option value="71">
-    	OVERNIGHT SATCHEL 3KG
-</option>
-    <option value="72">
-    	Same Day - Interstate
-</option>
-    <option value="73">
-    	DHL domestic
-</option>
-    <option value="74">
-    	Same Day - VIP (2 hour)
-</option>
-    <option value="75">
-    	Import - Consolidated Air
-</option>
-    <option value="76">
-    	Same Day - Golden Service (ASAP)
-</option>
-    <option value="77">
-    	Toll Prepaid - 5KG
-</option>
-    <option value="78">
-    	Toll Prepaid - 1KG
-</option>
-    <option value="79">
-    	Toll Overnight
-</option>
-    <option value="80">
-    	Import - Documents
-</option>
-    <option value="81">
-    	Toll Prepaid - 3KG
-</option>
-    <option value="82">
-    	Fashion Express
-</option>
-    <option value="83">
-    	718B
-</option>
-    <option value="84">
-    	PAYU Satchel
-</option>
-    <option value="85">
-    	Prepaid Extra Charges
-</option>
-    <option value="88">
-    	General Road
-</option>
-    <option value="89">
-    	Priority
-</option>
-    <option value="90">
-    	Same Day - Direct Drive (1 hour)
-</option>
-    <option value="91">
-    	General Road
-</option>
-    <option value="92">
-    	Base Service
-</option>
-    <option value="93">
-    	Import - Sea Freight
-</option>
-    <option value="94">
-    	Export - Sea Freight
-</option>
-    <option value="95">
-    	General Road
-</option>
-    <option value="96">
-    	EDI Satchel 3 kg
-</option>
-    <option value="97">
-    	Controlled Logistics
-</option>
-    <option value="98">
-    	Express 3 Tonne Truck
-</option>
-    <option value="99">
-    	Express Courier
-</option>
-    <option value="100">
-    	Local Parcel Service
-</option>
-    <option value="101">
-    	Standard Van or Tray
-</option>
-    <option value="102">
-    	Express Courier
-</option>
-    <option value="103">
-    	Standard Van
-</option>
-    <option value="104">
-    	Standard Courier
-</option>
-    <option value="107">
-    	Priority Same Day
-</option>
-    <option value="108">
-    	Road Other Charge
-</option>
-    <option value="109">
-    	Local Other Charge
-</option>
-    <option value="110">
-    	Priority Other Charge
-</option>
-    <option value="111">
-    	Manual Prepaid Sales
-</option>
-    <option value="112">
-    	Fashion Other Charge
-</option>
-    <option value="113">
-    	Local
-</option>
-    <option value="114">
-    	Trans Tasman
-</option>
-    <option value="116">
-    	Fashion
-</option>
-    <option value="117">
-    	Sensitive Freight
-</option>
-    <option value="118">
-    	VIC Express
-</option>
-    <option value="119">
-    	VIC Express Returns
-</option>
-    <option value="120">
-    	General Road
-</option>
-    <option value="121">
-    	Priority
-</option>
-    <option value="122">
-    	ECONOMY SELECT (ESI)
-</option>
-    <option value="123">
-    	EXPRESS 12:00
-</option>
-    <option value="124">
-    	NRI-NON REVENUE ITEM
-</option>
-    <option value="125">
-    	Overnight
-</option>
-    <option value="126">
-    	Re-delivery
-</option>
-    <option value="127">
-    	OceanFreight Import
-</option>
-    <option value="128">
-    	ETS
-</option>
-    <option value="129">
-    	AGL Import
-</option>
-    <option value="130">
-    	International Container
-</option>
-    <option value="131">
-    	EXPRESS 9:00
-</option>
-    <option value="132">
-    	Road Express
-</option>
-    <option value="133">
-    	Priority
-</option>
-    <option value="134">
-    	Site to Site Priority
-</option>
-    <option value="135">
-    	Normal Road
-</option>
-    <option value="136">
-    	Site to Site Same Day Road
-</option>
-    <option value="137">
-    	Same Day Normal Road
-</option>
-    <option value="138">
-    	Site to Site Road
-</option>
-    <option value="139">
-    	Tailgate Road
-</option>
-    <option value="140">
-    	Road Express
-</option>
-    <option value="141">
-    	Road Express
-</option>
-    <option value="142">
-    	General Road
-</option>
-    <option value="143">
-    	AGL Import
-</option>
-    <option value="144">
-    	AGL Import
-</option>
-    <option value="145">
-    	AGL Import
-</option>
-    <option value="146">
-    	Road
-</option>
-    <option value="147">
-    	Express (Document)
-</option>
-    <option value="148">
-    	Toll Off Peak
-</option>
-    <option value="149">
-    	General Road
-</option>
-    <option value="150">
-    	General Road
-</option>
-    <option value="151">
-    	Express Old
-</option>
-    <option value="152">
-    	General Road
-</option>
-    <option value="153">
-    	Sea Freight
-</option>
-    <option value="154">
-    	General Road - Pallets
-</option>
-    <option value="155">
-    	General Road - Parcels
-</option>
-    <option value="156">
-    	Express Road - Pallets
-</option>
-    <option value="157">
-    	Express Road - Parcels
-</option>
-    <option value="158">
-    	General Road
-</option>
-    <option value="159">
-    	NSE
-</option>
-    <option value="160">
-    	NSU
-</option>
-    <option value="161">
-    	Air Freight Import
-</option>
-    <option value="164">
-    	Economy Express Old
-</option>
-    <option value="165">
-    	DHL domestic
-</option>
-    <option value="166">
-    	General Road
-</option>
-    <option value="167">
-    	DHL domestic
-</option>
-    <option value="168">
-    	General Road
-</option>
-    <option value="169">
-    	eParcel - Road Express
-</option>
-    <option value="170">
-    	eParcel - Air Express
-</option>
-    <option value="171">
-    	test123
-</option>
-    <option value="172">
-    	Parcels Overnight
-</option>
-    <option value="173">
-    	Parcels OffPeak
-</option>
-    <option value="174">
-    	Parcels SameDay
-</option>
-    <option value="175">
-    	Auswide 1kg Satchel
-</option>
-    <option value="176">
-    	Auswide 3kg Satchel
-</option>
-    <option value="177">
-    	Auswide 5kg Satchel
-</option>
-    <option value="178">
-    	Saturday/Afterhours
-</option>
-    <option value="179">
-    	Sunday/Public Holidays
-</option>
-    <option value="180">
-    	Auswide 3kg Label
-</option>
-    <option value="181">
-    	Express
-</option>
-    <option value="182">
-    	AGLImport
-</option>
-    <option value="183">
-    	OVERNIGHT SATCHEL 5KG
-</option>
-    <option value="184">
-    	Same Day - Direct Drive (1 hour)
-</option>
-    <option value="185">
-    	General Road
-</option>
-    <option value="186">
-    	DHL domestic
-</option>
-    <option value="187">
-    	Toll Overnight
-</option>
-    <option value="188">
-    	Toll Prepaid - 5KG
-</option>
-    <option value="189">
-    	Toll Prepaid - 3KG
-</option>
-    <option value="190">
-    	Toll Prepaid - 1KG
-</option>
-    <option value="191">
-    	Toll Off Peak
-</option>
-    <option value="192">
-    	Same Day - Standard
-</option>
-    <option value="193">
-    	OVERNIGHT SATCHEL 5KG
-</option>
-    <option value="194">
-    	Priority
-</option>
-    <option value="195">
-    	Import
-</option>
-    <option value="196">
-    	Redelivery
-</option>
-    <option value="197">
-    	Toll Prepaid - 3KG
-</option>
-    <option value="198">
-    	Toll Prepaid - 1KG
-</option>
-    <option value="199">
-    	Toll Prepaid - 5KG
-</option>
-    <option value="200">
-    	Toll Overnight
-</option>
-    <option value="201">
-    	Toll Off Peak
-</option>
-    <option value="202">
-    	General Road
-</option>
-    <option value="203">
-    	Same day - standard (four hour service)
-</option>
-    <option value="204">
-    	Same day - VIP (2 hour service)
-</option>
-    <option value="205">
-    	Same day - direct Drive ( 1 hour service)
-</option>
-    <option value="206">
-    	Same day - Golden Service (ASAP)
-</option>
-    <option value="207">
-    	Same day - standard (four hour service)
-</option>
-    <option value="208">
-    	Same day - VIP (2 hour service)
-</option>
-    <option value="209">
-    	Same day - direct Drive ( 1 hour service)
-</option>
-    <option value="210">
-    	Same day - Golden Service (ASAP)
-</option>
-    <option value="211">
-    	Same Day - Interstate (Saturday)
-</option>
-    <option value="213">
-    	Express
-</option>
-    <option value="214">
-    	Economy Express
-</option>
-    <option value="215">
-    	PRIORITY
-</option>
-    <option value="216">
-    	ROAD EXPRESS
-</option>
-    <option value="217">
-    	TOLL DIRECT
-</option>
-    <option value="218">
-    	Dangerous Goods
-</option>
-    <option value="219">
-    	FUTILE PICKUP
-</option>
-    <option value="220">
-    	InXpress AU Freight
-</option>
-    <option value="221">
-    	Freight
-</option>
-    <option value="222">
-    	GM Packet Cross Border Standard
-</option>
-    <option value="223">
-    	International Freight
-</option>
-    <option value="224">
-    	Courier Service
-</option>
-    <option value="225">
-    	NSS
-</option>
-    <option value="226">
-    	Domestic Freight
-</option>
-    <option value="227">
-    	ShipIt - Profession
-</option>
-    <option value="228">
-    	Road Express
-</option>
-    <option value="229">
-    	Premium Air Freight
-</option>
-    <option value="230">
-    	Fixed Price Premium 1kg
-</option>
-    <option value="231">
-    	Fixed Price Premium 3kg
-</option>
-    <option value="232">
-    	Fixed Price Premium 5kg
-</option>
-    <option value="233">
-    	Supplies
-</option>
-    <option value="234">
-    	Fixed Price Premium 10kg
-</option>
-    <option value="235">
-    	Fixed Price Premium 20kg
-</option>
-    <option value="236">
-    	Taxi Truck
-</option>
-    <option value="237">
-    	Courier
-</option>
-    <option value="238">
-    	Hourly Hire
-</option>
-    <option value="239">
-    	Pallet Rate
-</option>
-    <option value="240">
-    	Road Express
-</option>
-    <option value="241">
-    	SAMEDAY AFTERHOURS
-</option>
-    <option value="243">
-    	Polo's Skateboard
-</option>
-    <option value="244">
-    	Polo's Rollercoaster
-</option>
-    <option value="245">
-    	Next Flight NFX
-</option>
-    <option value="246">
-    	Express Saver
-</option>
-    <option value="247">
-    	GM Packet Plus - Standard
-</option>
-    <option value="248">
-    	Air Freight Export
-</option>
-    <option value="249">
-    	Express Saver Export
-</option>
-    <option value="250">
-    	Express Saver
-</option>
-    <option value="251">
-    	Expedited
-</option>
-    <option value="252">
-    	Parcel International Standard 
-</option>
-    <option value="253">
-    	UPS Worldwide Express
-</option>
-
-
+    <option value="0">Not Available</option>
+    <option value="1">DHL Worldwide Express</option>
 </select>
 
 
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Default Package Type</label>
-                                                    <select name="addressBookModel.defaultPackageType" id="address_book_add_addressBookModel_defaultPackageType" class="form-control">
+                                                    <select name="addressDefaultPackageType" id="address_book_add_addressBookModel_defaultPackageType" class="form-control">
     <option value="0">No default</option>
     <option value="1">
-    	DHL Express Envelope
+    	Star Track
 </option>
-    <option value="2">
-    	Other DHL Packaging
-</option>
-    <option value="3">
-    	Customer packaging
-</option>
-    <option value="4">
-    	DHL Flyer
-</option>
-
-
 </select>
-
-
-                                                </div>
+     </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Default Billing Type</label>
-                                                    <select name="addressBookModel.defaultBillingType" id="address_book_add_addressBookModel_defaultBillingType" class="form-control">
+                                                    <select name="addressDefaultBillingType" id="address_book_add_addressBookModel_defaultBillingType" class="form-control">
     <option value="0">No default</option>
     <option value="1">
     	Sender
@@ -1085,17 +420,14 @@
     	Third Party
 </option>
 
-
 </select>
-
-
-                                                </div>
+ </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName">Account No</label>
-                                                    <input type="text" name="addressBookModel.accountNumber" value="" id="address_book_add_addressBookModel_accountNumber" class="form-control">
+                                                    <input type="text" name="addressAccountNumber" value="" id="address_book_add_addressAccountNumber" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input name="addressBookModel.isResidential" type="checkbox" value="1">
+                                                    <label class="fw0"> <input name="isResidential" type="checkbox" value="1">
                                                         &nbsp; Residential Address
                                                     </label>
                                                 </div>
@@ -1104,10 +436,10 @@
                                     </div>
                                     <input type="hidden" name="addressBookModel.addressId" value="" id="address_book_add_addressBookModel_addressId">
                                     <div class=" text-right pal pdt10">
-                                        <button class="btn s33 " type="submit">
+                                        <button class="btn s33 " type="button" onclick="saveNewAddressBook()">
                                             Save
                                         </button>
-                                        <a href="<?= base_url('admin/address_book'); ?>" class="btn s33 ">Cancel</a>
+                                        <a href="<?= base_url('customer/address_book'); ?>" class="btn s33 ">Cancel</a>
                                     </div>
                                 </div>
                                 <div class="chat-form s11"></div>
@@ -1116,3 +448,125 @@
                     </div>
                 </div>
             </form>
+        
+
+ <div id="alert-dialog" title="Error"></div>
+<div id="message-dialog" title="Message"></div>
+<script type="text/javascript">
+    // init common dialog
+    var loadingDialog = $("#loading-dialog").dialog({
+        modal: true,
+        autoOpen: false,
+        //width: "500px",
+        height: "auto",
+        //dialogClass: "no-close",
+        closeOnEscape: false,
+        show: {
+            effect: "fade",
+            duration: 500
+        }
+    });
+    var alertDialog = $("#alert-dialog").dialog({
+        autoOpen: false,
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+    var messageDialog = $("#message-dialog").dialog({
+        autoOpen: false,
+        show: {
+            effect: "fade",
+            duration: 300
+        },
+        modal: true,
+        close: function (e) {
+            $("#message-dialog").html("");
+        }
+    });
+</script>
+
+        <script>
+        
+    function saveNewAddressBook() {
+      
+     var formdata = $("#address_book_add").serialize();
+      var isfromsubmit = true;
+      var isfromsubmitvalue = true;
+      var html='';
+      $('#address_book_add input').each(function()
+      {
+
+              if($(this).prop('required') && $(this).val()=='')
+              {
+                    alertDialog.dialog("open");  
+                    
+                if(!$(this).parent().parent().find('.control-label').attr('data-label'))
+                    {
+                        html +=$(this).parent().parent().find('.control-label').html()+' cannot be empty <br/>';  
+                    }
+                    else {
+                      html +=$(this).parent().parent().find('.control-label').attr('data-label')+' cannot be empty <br/>';
+                    }
+                    isfromsubmit = false;
+                    alertDialog.html(html);               
+              }
+             
+      });
+      if(isfromsubmit==true)
+      {
+        alertDialog.dialog("close");  
+        $.ajax({
+             url: 'customers/add_address_book',
+             type: 'POST',
+             data:formdata,
+             error: function() {
+                alert('Something is wrong');
+             },
+             success: function(res) {
+                location.reload();
+             }
+          });
+      }
+    
+  }
+</script>
+<style>
+.ui-widget-content {
+    background: #ffffff;
+    padding: 0px;
+    position: relative;
+    padding: 1.6em;
+    border: 0;
+    margin-top: 0px !important;
+}
+
+span.ui-button-text {
+    margin-left: -20px;
+}
+
+.ui-dialog .ui-dialog-title {
+    /* float: left; */
+    margin: .1em 0;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding-top: 3px !important;
+}
+
+button.ui-button.ui-widget.ui-state-default.ui-corner-all.ui-button-icon-only.ui-dialog-titlebar-close {
+    background: none;
+}
+
+.ui-dialog .ui-dialog-title {
+    float: none !important;
+    margin: 0;
+    border-bottom: none;
+    color:#fff !important;
+}
+
+.ui-button .ui-button-text {
+    display: inline-block;
+    text-indent: 0;
+}
+    </style>

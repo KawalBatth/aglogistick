@@ -28,7 +28,8 @@
 		{
 			
 			$quote_date= $this->input->post('quote_date');	
-			$customer= $this->input->post('customer');			
+			$customer= $this->input->post('customer');	
+			$customer_name= $this->input->post('customer_name');
 			$qoute_jobnumber= $this->input->post('qoute_jobnumber');			
 			$sender_subrub = $this->input->post('sender_subrub');
 			$sender_postcode = $this->input->post('sender_postcode');
@@ -42,6 +43,7 @@
 				//'webshipId' =>$webshipId,
 				'quote_date' =>$quote_date,
 				'customer'=>$customer,
+				'customer_name'=>$customer_name,
 				'quote_number'=>$qoute_jobnumber,
 				'sender_suburb'=>$sender_subrub,
 				'sender_postcode'=>$sender_postcode,
@@ -49,11 +51,11 @@
 				'receiver_postcode' =>$reciver_postcode,
 				'shipment_type'=>$shipment_type,
 				'package_type'=>$package_type,
-				'total_amount'=>$total_amount
+				'total_amount'=>$total_amount,
+				'quote_date' => date('Y-m-d')
 			
 			 );
 			$this->user_model->add_quote($array);
-			$data['quote']  = $this->user_model->get_quote();
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customers/layout', $data);
 		}
@@ -62,6 +64,7 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
+			$data['address_book']  = $this->user_model->get_address_book();
 			$data['view'] = 'customers/address_book';
 			$this->load->view('customers/layout', $data);
 			}
@@ -107,6 +110,7 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
+		    $data['quote']  = $this->user_model->get_quote();
 			$data['view'] = 'customers/quote';
 			$this->load->view('customers/layout', $data);
 		}
@@ -519,6 +523,53 @@
 			);
 
 				$this->user_model->save_shipment($saveData);
+			}
+
+
+			public function add_address_book()
+			{
+				
+				$addressContactName= $this->input->post('addressContactName');	
+				$addressCompanyName= $this->input->post('addressCompanyName');	
+				$addressAddress1= $this->input->post('addressAddress1');
+				$addressAddress2= $this->input->post('addressAddress2');			
+				$addressCity = $this->input->post('addressCity');
+				$addressState = $this->input->post('addressState');
+				$addressPostalCode= $this->input->post('addressPostalCode');
+				$addressCountry= $this->input->post('addressCountry');
+				$addressPhone= $this->input->post('addressPhone');
+				$addressEmail= $this->input->post('addressEmail');
+				$addressDepartment =$this->input->post('addressDepartment');
+				$addressFax= $this->input->post('addressFax');
+				$addressDefaultServiceType= $this->input->post('addressDefaultServiceType');
+				$addressDefaultPackageType= $this->input->post('addressDefaultPackageType');
+				$addressDefaultBillingType =$this->input->post('addressDefaultBillingType');
+				$addressAccountNumber =$this->input->post('addressAccountNumber');
+				$isResidential =$this->input->post('isResidential');
+	
+				$array = array(
+					'contact_name' =>$addressContactName,
+					'company_name'=>$addressCompanyName,
+					'address'=>$addressAddress1,
+					'address1'=>$addressAddress2,
+					'city'=>$addressCity,
+					'state'=>$addressState,
+					'postcode'=>$addressPostalCode,
+					'phone'=>$addressPhone,
+					'email' =>$addressEmail,
+					'country' =>$addressCountry,
+					'department'=>$addressDepartment,
+					'fax'=>$addressFax,
+					'default_service_type'=>$addressDefaultServiceType,
+					'default_package_type'=>$addressDefaultPackageType,
+					'deafult_billing_type'=>$addressDefaultBillingType,
+					'account_number'=>$addressAccountNumber,
+					'residential_address'=>$isResidential,
+					
+			  );
+				$this->user_model->add_address_book($array);
+				$data['view'] = 'customers/quote';
+				$this->load->view('customers/layout', $data);
 			}
 
 	}
