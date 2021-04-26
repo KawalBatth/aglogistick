@@ -77,6 +77,7 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
+			$data['address_book']  = $this->user_model->get_address_book();
 			$data['view'] = 'customers/address_book_add';
 			$this->load->view('customers/layout', $data);
 		}
@@ -214,6 +215,7 @@
 			$rcv_city= $this->input->post('rcv_city');
 			$serviceId= $this->input->post('serviceId');
 			$service_type_Id= $this->input->post('service_type_Id');
+			$shipment_type= $this->input->post('shipment_type');
 			$totalweight= $this->input->post('total_weight');
 			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
@@ -222,7 +224,7 @@
 			$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
 			if(empty($fixed_price))
 			{
-				$base_charge =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);	
+				$base_charge =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);	
 				$result['base_charge']= $base_charge;
 			}
 			else {
@@ -264,10 +266,10 @@
     		$get_surcharge =  $this->user_model->get_surchargebyid($returndata['shipmentPage.serviceId']);
     		$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
-			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
+			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);
     		$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
     		$data['result'] = $returndata;
-    		$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone);
+    		$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);
     		$data['surcharge'] = array('base_charge' =>$get_base_rate,'fixed_price'=>$fixed_price,'charges'=>$get_surcharge);
     		$data['view'] = 'customers/booking';
 			$this->load->view('customers/layout', $data);
@@ -284,6 +286,12 @@
 		}
 		
 
+		public function delAddress($id = 0){
+			$this->db->delete('address_book', array('id' => $id));
+			//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
+			redirect(base_url('customers/address_book'), 'refresh');
+			
+		}
 		/*public function continue_booking_new()
 		{
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));

@@ -19,6 +19,7 @@
           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 		  <link rel="stylesheet" href="https://webfreight.agllogistics.com/crm-webship/styles/webship/styles/vendor/css_jquery_ui.css">
+		  
           <!--link rel="stylesheet" href="https://webfreight.agllogistics.com/crm-webship/styles/webship/styles/vendor/css_bootstrap.css"-->
 
 
