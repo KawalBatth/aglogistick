@@ -39,7 +39,7 @@
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
 
-			$chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+			$chars = "aABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     		$pwd= substr(str_shuffle($chars),0,3);
 			
 			$array = array(
