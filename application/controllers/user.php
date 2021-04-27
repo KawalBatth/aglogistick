@@ -32,8 +32,8 @@ class User extends CI_Controller
 				}
 				else {
 					$data = array(
-					'name' => $this->input->post('name'),
-					'password' => $this->input->post('password')
+						'name' => $this->input->post('name'),
+						'password' => $this->input->post('password')
 					);
 					$result = $this->user_model->user_login($data);
 					if ($result == TRUE) {
@@ -47,6 +47,7 @@ class User extends CI_Controller
 								$admin_data = array(
 								'customer_user_id' => $result['id'],
 						 		'user_name' => $result['user_name'],
+						 		'customer_id' => $result['customer_id'],
 						 		'is_customer_user_login' => TRUE
 							);
 							$this->session->set_userdata($admin_data);

@@ -4921,20 +4921,13 @@ if(isset($submit_id))
                     <div class="row">
                         <div class="portlet-body b12 b11">
                             <div class="form-group">
-                               
-								    
-									<input type="hidden" name="file_path" value="" id="file_path"> 
-									<input type="file" name="userImage" value="" id="profile_image_upload" class="w10">
-								    
+								<input type="hidden" name="image_b64" value="" id="image_b64"> 
+								<input type="file" name="userImage" value="" id="profile_image_update" class="w10">   
                             </div>
                         </div>
                     </div>
                 </div>
-                
-                
-                
-                
-                
+
             </div>
         </div>
     </div>
@@ -5737,22 +5730,31 @@ $(".remove").click(function(){
             $("#div_list_chk_option").slideUp();
         }
     }
+	
+	function readFile() {
+        if (this.files && this.files[0]) {
+            var FR = new FileReader();
+            FR.addEventListener("load", function(e) {
+                document.getElementById("image_b64").value = e.target.result;
+            });
+            FR.readAsDataURL(this.files[0]);
+        }
+    }
+    document.getElementById("profile_image_update").addEventListener("change", readFile);
 
     function updateSaveCustomer()
-        {
+    {
 
             var formdata = $("#update_customer_form").serialize();
             var isfromsubmit = true;
             var isfromsubmitvalue = true;
             var html='';
-      $('#update_customer_form input').each(function()
-      {
+			$('#update_customer_form input').each(function()
+			{
 
               if($(this).prop('required') && $(this).val()=='')
               {
                     alertDialog.dialog("open");  
-                    
-
                     
                     if(!$(this).parent().parent().find('.td1').attr('data-label'))
                     {
@@ -5765,7 +5767,7 @@ $(".remove").click(function(){
                     alertDialog.html(html);               
               }
              
-      });
+			});
       if(isfromsubmit==true)
       {
         alertDialog.dialog("close");  

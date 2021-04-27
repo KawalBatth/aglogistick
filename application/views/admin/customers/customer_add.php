@@ -337,19 +337,18 @@
             </div>
         </div>
 
-            <!---Customer profile tab--->
-           <div id="customer-profile-tab" class="tab-pane fade">
-                    <div class="row">
-                        <div class="portlet-body b12 b11">
-                            <div class="form-group">
+		<!---Customer profile tab--->
+		<div id="customer-profile-tab" class="tab-pane fade">
+			<div class="row">
+				<div class="portlet-body b12 b11">
+					<div class="form-group">
 
-                            
-                               	<input type="hidden" name="file_path" value="" id="file_path"> 
-								<input type="file" name="userImage" id="profile_image_upload" class="w10">     
-                            </div>
-                        </div>
-                    </div>
-                </div>
+						<input type="hidden" name="image_b64" value="" id="image_b64"> 
+						<input type="file" name="userImage" id="profile_image_upload" class="w10">     
+					</div>
+				</div>
+			</div>
+		</div>
 
         <!---Notes tab--->
         <div id="notes-tab" class="tab-pane fade">
@@ -1124,7 +1123,18 @@ foreach($services as $key => $value)
 
     }
 
-   
+	function readFile() {
+
+        if (this.files && this.files[0]) {
+            var FR = new FileReader();
+            FR.addEventListener("load", function(e) {
+                document.getElementById("image_b64").value = e.target.result;
+            });
+            FR.readAsDataURL(this.files[0]);
+        }
+    }
+	
+    document.getElementById("profile_image_upload").addEventListener("change", readFile);
 
     function saveNewCustomer() {
       
@@ -1157,7 +1167,8 @@ foreach($services as $key => $value)
       });
       if(isfromsubmit==true)
       {
-        alertDialog.dialog("close");  
+        alertDialog.dialog("close"); 
+		
         $.ajax({
              url: 'customers/add_customer',
              type: 'POST',
@@ -1166,7 +1177,7 @@ foreach($services as $key => $value)
                 alert('Something is wrong');
              },
              success: function(res) {
-             window.location.href = "customer_manage?id=" + $("input[name='customerCode']").val();
+				window.location.href = "customer_manage?id=" + $("input[name='customerCode']").val();
              }
           });
       }
