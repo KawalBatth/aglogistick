@@ -1,3 +1,19 @@
+<?php /*$address_id = @$_GET['id'];
+if(isset($address_id))
+{
+  @$address_book= get_address_by_id($address_id);
+  
+   foreach($address_book as $key=>$value)
+        { 
+          if (!$value) 
+            $address_book->$key = '';
+        }
+        
+}
+echo @$address_book;*/
+
+?>
+
 <form id="address_book_add" name="address_book_add">
                 <div class="row">
                     <div class="col-lg-6">

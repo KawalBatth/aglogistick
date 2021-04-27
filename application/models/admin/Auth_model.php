@@ -157,6 +157,7 @@
 		if($last)
 		return $last->customer_id+1;
 	}
+	
 	public function update_customer($data,$id)
 	{
 

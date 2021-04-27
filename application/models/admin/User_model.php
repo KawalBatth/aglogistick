@@ -61,6 +61,10 @@
 			return true;
 		}
 
+		public function add_booking_data($data){
+			$this->db->insert('shipment', $data);
+			return true;
+		}
 
 		public function get_quote()
 		{
@@ -104,6 +108,14 @@
 			$query = $this->db->get_where('user', array('id' => $id));
 			return $result = $query->row_array();
 		}
+
+
+		public function get_address_by_id($id){
+			
+			$query = $this->db->get_where('address_book', array('id' => $id));
+			return $result = $query->row_array();
+		}
+
 
 		public function edit_user($data, $id){
 			$this->db->where('id', $id);
@@ -261,11 +273,11 @@ public function fetch_customer($id)
 		return $query = $this->db->get()->result_array();
 			
 	}
-	public function get_base_rate($getsenderzone,$get_rcv_zone)
+	public function get_base_rate($getsenderzone,$get_rcv_zone,$shipmentId)
 	{
 		$this->db->select('*');
 		$this->db->from('rates');
-		$this->db->where(array('origin'=>$getsenderzone,'destination'=>$get_rcv_zone));
+		$this->db->where(array('origin'=>$getsenderzone,'destination'=>$get_rcv_zone,'service_type'=>$shipmentId));
 		return $query = $this->db->get()->result_array();
 		//$query = $this->db->get();
        /* if($query->num_rows() > 0)

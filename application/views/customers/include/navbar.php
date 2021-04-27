@@ -525,6 +525,10 @@ span {
 input#shipment-info-form_shipmentPage_senderAddress_email {
     text-transform: lowercase;
 }
+
+input#btnExport {
+    text-transform: initial;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->
