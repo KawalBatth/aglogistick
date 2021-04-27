@@ -529,6 +529,13 @@ input#shipment-info-form_shipmentPage_senderAddress_email {
 input#btnExport {
     text-transform: initial;
 }
+
+img {
+    width: 115%;
+    height: 100%;
+    margin-left: -15px;
+    margin-top: -4px;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->

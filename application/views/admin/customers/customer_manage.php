@@ -84,6 +84,7 @@ if(isset($submit_id))
     <table>
         <tbody><tr>
             <td colspan="3">  </td>
+
         </tr>
         <tr>
             <td>Customer #:</td>
@@ -1054,6 +1055,7 @@ if(isset($submit_id))
                             <div class="row">
                                 <div data-type="print-rate-sheet" class="portlet-body b12 b11">
                                     <!-- Orgin -->
+                                   
                                     <div class="form-group">
                                         <table class="s36">
                                             <tbody><tr>
@@ -3976,11 +3978,12 @@ if(isset($submit_id))
                             <div class="row">
                                 <div data-type="print-rate-sheet" class="portlet-body b12 b11">
                                     <!-- Orgin -->
+                                    <?php echo form_open(base_url('admin/add_margin'), 'class="margin-form" id="margin-form"'); ?>
                                     <div class="form-group">
                                         <table class="s36">
                                             <tbody><tr>
                                                 <td>Origin</td>
-                                                <td><select name="" id="starTrackColumnName" class="form-control">
+                                                <td><select name="starTrackColumnName" id="starTrackColumnName" class="form-control">
 <option value="A10">A10</option>
 <option value="ABY">ALBANY - ABY</option>
 <option value="AC1">SA ZONE 1 - AC1</option>
@@ -4115,7 +4118,8 @@ if(isset($submit_id))
                                                            
                                                             <div class="pull-left c32" style="padding: 5px; width: 250px;">
                                                                 
-                                                                    <span class="br-display-name"><?php echo $value['service_name'];?></span>
+                                                                    <span class="br-display-name"><?php echo $value['service_name'];?>
+                                                                    <input type="hidden" name="service_name" value="<?php echo $value['service_name'];?>"></span>
                                                                 
                                                             </div>
                                                             <div class="pull-left c32">
@@ -4146,7 +4150,7 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
+                                                                    <input type="text" name="margin_rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
                                                                 
                                                                 
                                                             </div>
@@ -4974,7 +4978,7 @@ $(".remove").click(function(){
         {
             $.ajax({
 
-              url: 'delUser/'+id,
+              url: 'customers/delUser/'+id,
                type: 'DELETE',
                error: function() {
                   alert('Something is wrong');

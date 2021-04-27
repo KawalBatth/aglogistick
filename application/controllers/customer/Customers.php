@@ -38,13 +38,15 @@
 			$shipment_type= $this->input->post('shipment_type');
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
+			$x = 'A';
 
+			$x++;
 			$array = array(
 				//'webshipId' =>$webshipId,
 				'quote_date' =>$quote_date,
 				'customer'=>$customer,
 				'customer_name'=>$customer_name,
-				'quote_number'=>$qoute_jobnumber,
+				'quote_number'=>$qoute_jobnumber.$x,
 				'sender_suburb'=>$sender_subrub,
 				'sender_postcode'=>$sender_postcode,
 				'receiver_suburb'=>$reciver_subrub,
@@ -53,8 +55,10 @@
 				'package_type'=>$package_type,
 				'total_amount'=>$total_amount,
 				'quote_date' => date('Y-m-d')
+				
 			
 			 );
+			 
 			$this->user_model->add_quote($array);
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customers/layout', $data);

@@ -148,7 +148,8 @@
 				//'webshipId' =>$webshipId,
 				'customer_id' =>$customerCode,
 				'user_name'=>$username,
-				'password'=>base64_encode($userpassword),
+				//'password'=>base64_encode($userpassword),
+				'password'=>md5($userpassword),
 				'language'=>$language,
 				'allowExportAddressBook'=>$allowExport,
 				'isRequireChangePassword'=>$isRequire
@@ -326,7 +327,7 @@
 					//'webshipId' =>$webshipId,
 					'customer_id' =>$customerCode,
 					'user_name'=>'AGL'.$number,
-					'password'=>md5('Admin@123'),
+					'password'=>base64_encode('Admin@123'),
 					'language'=>'english',
 					'allowExportAddressBook'=>'0',
 					'isRequireChangePassword'=>'0'
@@ -378,6 +379,23 @@
 		
 		} */
 		
+		public function add_margin()
+		{
+			
+			$customerCode = $this->input->post('customerCode');	
+			$starTrackColumnName = $this->input->post('starTrackColumnName');	
+			$margin_rate = $this->input->post('margin_rate');	
+			
+
+			$array = array(
+			    'customer_id' =>$customerCode,
+				'service_name'=>$starTrackColumnName,
+			    'margin'=>$margin_rate,
+				
+			 );
+			$this->user_model->save_margin($array, $customerCode);
+			redirect('admin/customers/customer_manage?id='.$customerCode);
+  }
 
 	
 		

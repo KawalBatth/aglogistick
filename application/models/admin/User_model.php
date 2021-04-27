@@ -88,6 +88,14 @@
 			return true;
 		}
 
+
+		public function save_margin($data){
+			
+			$this->db->insert('margin', $data);
+			
+			return true;
+		}
+
 		public function get_all_users(){
 			$query = $this->db->get('ci_users');
 			return $result = $query->result_array();
