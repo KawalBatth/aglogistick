@@ -220,6 +220,7 @@
 			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 			$isdange = $this->input->post('isdangerous');
+			
 			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId,$isdange);
 			$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
 			if(empty($fixed_price))
@@ -231,12 +232,7 @@
 				$result['fixed_price']= $fixed_price;
 			}
 			
-
 			$result['charges'] = $get_surcharge;
-			
-	
-			
-			$result['totalweight']= $totalweight;
 			echo json_encode($result);
 			
 		}
