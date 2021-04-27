@@ -529,6 +529,11 @@ input#shipment-info-form_shipmentPage_senderAddress_email {
 input#btnExport {
     text-transform: initial;
 }
+
+.selected-row {
+    color: #3c8dbc;
+    transition: 0.3s all ease-out;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->

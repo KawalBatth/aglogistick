@@ -109,6 +109,8 @@ $route['customer/continue_booking'] = 'customer/customers/continuewbooking';
 $route['customer/continue_bookingnew'] = 'customer/customers/continue_booking_new';
 $route['customer/save_quote'] = 'customer/customers/save_quote';
 
+$route['customer/update_address_book'] = 'customer/customers/update_address_book';
+
 
 $route['user/login'] = 'user';
 $route['user/logout'] = 'user/logout';

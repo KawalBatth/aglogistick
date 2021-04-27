@@ -61,6 +61,11 @@
 			return true;
 		}
 
+		public function add_booking($data){
+			$this->db->insert('additional_details', $data);
+			return true;
+		}
+
 		public function add_booking_data($data){
 			$this->db->insert('shipment', $data);
 			return true;
@@ -290,6 +295,13 @@ public function fetch_customer($id)
         else {return $data ='';}*/
 	}
 
+
+	public function update_address_data($data,$address_id)
+	{
+		$this->db->where('id', $address_id);
+		$this->db->update('address_book', $data);		
+		return true;
+	}
 
 	}
 

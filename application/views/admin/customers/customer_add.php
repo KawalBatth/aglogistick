@@ -140,7 +140,7 @@
     <li class=""><a href="#notes-tab" data-toggle="tab">Notes</a></li>
 </ul>
   <?php //echo form_open(base_url('admin/add_customer'), 'class="add_customer_form" id="add_customer_form"'); ?>
-  <form id="add_customer_form" enctype="multipart/form-data">
+  <form id="add_customer_form">
     <div id="manage_customer_tab_content" class="tab-content responsive">
         <!-- Account setup tab -->
         <div id="account-setup-tab" class="tab-pane fade active in">
@@ -797,7 +797,7 @@ foreach($services as $key => $value)
                        </div>
                        <div class="pull-left c32" data-group="base-rate">
                            
-                               <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
+                               <input type="text" name="rate_margin" value="00.00" lass="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
                            
                            
                        </div>

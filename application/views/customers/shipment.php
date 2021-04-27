@@ -1278,22 +1278,7 @@ function continuewbooking()
     });
 
 }
-function continuewbookingnew()
-{
-     var formdata = $('#shipment-info-form').serialize();
-    console.log(formdata);
-    $.ajax({
-        type: "POST",
-        url: "<?php echo base_url('customer/continue_bookingnew');?>",
-        data:{ "data"  : formdata},
-        beforeSend: function(){
 
-            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
-        },
-        success: function(data){
-        }
-    });
-}
  $("input[name='isdangerous']").change(function() {
         if(this.checked) {
         $("input[name='isdangerous']").val(1);        
@@ -1302,20 +1287,27 @@ function continuewbookingnew()
            $("input[name='isdangerous']").val(0);        
         }
     });
+
+
     
  function saveqoute()
 {
     var quote_date =  new Date();
     //alert(quote_date);
     var customer = '<?php echo $customers->customer_id;?>';
-    var dd = String(quote_date.getDate()).padStart(2, '0');
-    $column = 'A';
-$step = 2; // number of columns to step by
-for($i = 1; $i < $step; $i++) {
-    var qoute_jobnumber   = customer+'AGL'+$column;
-    $column++;
-}
-    //alert(qoute_jobnumber);
+   //var dd = String(quote_date.getDate()).padStart(2, '0');
+   // var column = 'A';
+   // var i= 0;
+   // var step = 2; // number of columns to step by
+   // for(i = 1; i < step; i++) {
+    //var qoute_jobnumber   = customer+'AGL';
+    var qoute_jobnumber   = customer;
+
+//}
+//column++;
+  //  alert(qoute_jobnumber);
+ 
+
 
     var customer_name= $("input[name='shipmentPage.senderAddress.companyName']").val();
     var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
@@ -1344,6 +1336,8 @@ for($i = 1; $i < $step; $i++) {
         }
     });
 }
+
+
 function openForm() {
 
     document.getElementById("myForm").style.display = "block";
@@ -1373,12 +1367,12 @@ function openForm() {
     var html = '';
     var total ='';
     var basic_charge = '';
-    var is_dangerous = '';
+   // var is_dangerous = '';
     var per_kg ='';
     var total_charge = '';
     var surcharge_name = '';
     var surcharge_price = '';
-    var SUM = '';
+    //var SUM = '';
      $.ajax({
         type: "POST",
         url: "<?php echo base_url('customer/get_calculate');?>",
@@ -1388,7 +1382,8 @@ function openForm() {
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
         },
         success: function(data){
-            var result= JSON.parse(data);
+           var result= JSON.parse(data);
+        
             console.log(result);
             if(result.base_charge)
             {
@@ -1421,18 +1416,18 @@ function openForm() {
 
             html +='<tr>';
                     html +='<td class="td1">Base Charge</td>';
-                    html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
-                 // html +='<td class="td2">$ '+total+'</td>';
+                   // html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
+                   html +='<td class="td2">$ '+total+'</td>';
                     html +='</tr>';
 
             $.each(result.charges, function(k, v) {
                 if(v)
                 {
-                    is_dangerous = v.is_dangerous;
+                    //is_dangerous = v.is_dangerous;
                     surcharge_name = v.surcharge_name;
                     surcharge_price = v.surcharge_price;
                     //total_charge = total + SUM(surcharge_price);
-                    total_charge = (total + surcharge_price);
+                    //total_charge = (total + surcharge_price);
                   //  alert(total_charge);
                     /*if(is_dangerous == 1){
                         if(surcharge_name == "Dangerous goods")
@@ -1461,7 +1456,7 @@ function openForm() {
             html +='</tr>';
             html +='<tr>';
                     html +='<td class="td1"><b>Total Charge</b></td>';
-                    html +='<td class="td2">$ '+total_charge+'</td>';
+                    html +='<td class="td2">$ '+total+'</td>';
             html +='</tr>';
             html +='<tr>';
                     html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
@@ -1486,6 +1481,9 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
+
+
 
 
 
@@ -1553,11 +1551,11 @@ var numRows = 1, ti = 5;
 				var q = parseFloat($(this).find('input.quantity').val());
 				//total = w;
 				var l = $(this).find('input.length').val();
-				
+				l/= 100;
 				var p = $(this).find('input.width').val();
-				
+				p/= 100;
 				var h = $(this).find('input.height').val();
-				
+				h/= 100;
 
 				var dateTotal = (l * p * h);
 				dateTotal = parseFloat(dateTotal.toFixed(3));

@@ -250,14 +250,15 @@
 			$other2Phone = $this->input->post('other2Phone');
 			$other2Email = $this->input->post('other2Email');
 			$notes = $this->input->post('note');
+			$rateMargin = $this->input->post('rate_margin');
 			//$followUpDate = $this->input->post('followUpDate');
-			$userfile = $this->input->post('userImage');	
+			/*$userfile = $this->input->post('userImage');	
 			$config['upload_path']          = './public/dist/img/';
                 $config['allowed_types']        = 'gif|jpg|png';
                 $config['max_size']             = 100;
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
-                $this->load->library('upload', $config);
+                $this->load->library('upload', $config);*/
 
 			$dataforsave = array(
 				'customer_id'=>$customerCode,
@@ -301,7 +302,8 @@
 				'other_phone3'=>$other2Phone,
 				'other_email3'=>$other2Email,
 				'notes'=>$notes,
-				'image'=>$userfile,
+				//'image'=>$userfile,
+				'margin'=>$rateMargin,
 				//'followUpDate'=>$followUpDate,
 				
           	);
