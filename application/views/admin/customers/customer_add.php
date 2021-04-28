@@ -110,7 +110,7 @@
                                             <td>    
                                             <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                                     <option value="-1">Select a Customer</option>
-                                    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option>
+                                    <option value="http://localhost:8011/webfreight/admin/add">Add a Customer</option>
                                     <?php for($i=0;$i<count($customers);$i++)
                                     {
                                     echo  '<option value="customer_manage?id='.$customers[$i]['customer_id'].'">'.$customers[$i]['customer_id'].' '.$customers[$i]['customerName'].'</option>';  
@@ -629,6 +629,8 @@
                                 <div class="row">
                                     <div data-type="print-rate-sheet" class="portlet-body b12 b11">
                                         <!-- Orgin -->
+                                        <?php echo form_open(base_url('admin/add_margin'), 'class="add_margin_form" id="add_margin_form"'); ?>
+                                        <input type="hidden" name="customerCode" value="<?php echo $cid;?>">
                                         <div class="form-group">
                                             <table class="s36">
                                                 <tbody><tr>
@@ -766,7 +768,7 @@ foreach($services as $key => $value)
                        <div class="pull-left c32" style="padding: 5px; width: 250px;">
                            
                                <span class="br-display-name"><?php echo $value['service_name'];?></span>
-                           
+                               <input type="hidden" name="service_name" value="<?php echo $value['service_name'];?>">
                        </div>
                        <div class="pull-left c32">
                            
@@ -817,7 +819,9 @@ foreach($services as $key => $value)
                            
                        </div>
                    </div>
+                   
                </div>
+               
                <!-- Customer base rate detail -->
                <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
                    <ul class="c36" style="width: 14324px; overflow: hidden;">
@@ -831,17 +835,18 @@ foreach($services as $key => $value)
                        foreach ($get_rates as $key => $value) 
                        {                                                              
                        ?>
-                           <li>
+                           <!--li>
                                <div class="pull-left c34" data-group="zone">
                                    <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="<?php echo $value['origin']?>" disabled="disabled" type="text" data-group="zone-name"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="<?php echo $value['minimum']?>" data-group="zone-rate">
                                </div>
-                           </li>
+                           </li-->
                        <?php                                                            
                         }                                                              
                        ?>
                            
                        
                    </ul>
+              
                </div>
             
            </div>
@@ -853,6 +858,7 @@ foreach($services as $key => $value)
    }
  ?>
 </div>
+<button type="submit" class="btn btn-primary">Save</button>
 </div>
 </div>
        

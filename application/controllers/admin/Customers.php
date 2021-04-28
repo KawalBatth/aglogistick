@@ -101,7 +101,7 @@
 				'customer_id'=>$customerId,
 				//'webshipId'=>$webshipId,
 				'user_name' => $this->input->post('username'),
-				'password' => base64_encode($this->input->post('userpassword')),
+				'password' => md5($this->input->post('userpassword')),
 				'language' => $this->input->post('language'),
 				'allowExportAddressBook' => $allowExport,
 				'isRequireChangePassword' => $isRequire,
@@ -181,12 +181,7 @@
 				
             }
 
-			public function get_fix_rates()
-           {	
-		         $id = $this->input->post('service_type');	
-		         $data=  $this->auth_model->get_fix_rates($id);
-	        	echo json_encode($data);
-            }
+			
 
        public function delUser($id = 0){
 
@@ -251,7 +246,7 @@
 			$other2Phone = $this->input->post('other2Phone');
 			$other2Email = $this->input->post('other2Email');
 			$notes = $this->input->post('note');
-			$rateMargin = $this->input->post('rate_margin');
+			//$rateMargin = $this->input->post('margin_rate');
 			//$followUpDate = $this->input->post('followUpDate');
 			/*$userfile = $this->input->post('userImage');	
 			$config['upload_path']          = './public/dist/img/';
@@ -315,7 +310,7 @@
 				'other_email3'=>$other2Email,
 				'notes'=>$notes,
 				//'image'=>$userfile,
-				'margin'=>$rateMargin,
+				//'fixed_5kg_margin'=>$rateMargin,
 				//'followUpDate'=>$followUpDate,
 				
           	);
@@ -335,7 +330,8 @@
 					//'webshipId' =>$webshipId,
 					'customer_id' =>$customerCode,
 					'user_name'=>'AGL'.$number,
-					'password'=>base64_encode('Admin@123'),
+					//'password'=>base64_encode('Admin@123'),
+					'password'=>md5('Admin@123'),
 					'language'=>'english',
 					'allowExportAddressBook'=>'0',
 					'isRequireChangePassword'=>'0'
@@ -391,21 +387,21 @@
 		{
 			
 			$customerCode = $this->input->post('customerCode');	
-			$starTrackColumnName = $this->input->post('starTrackColumnName');	
-			$margin_rate = $this->input->post('margin_rate');	
+			$service_name = $this->input->post('service_name');	
+			$rate_margin = $this->input->post('rate_margin');	
 			
 
 			$array = array(
 			    'customer_id' =>$customerCode,
-				'service_name'=>$starTrackColumnName,
-			    'margin'=>$margin_rate,
+				'service_name'=>$service_name,
+			    'margin'=>$rate_margin,
 				
 			 );
-			$this->user_model->save_margin($array, $customerCode);
+			$this->user_model->save_margin($array);
 			redirect('admin/customers/customer_manage?id='.$customerCode);
   }
 
-	
+
 		
 	
 	

@@ -38,12 +38,14 @@
 			$shipment_type= $this->input->post('shipment_type');
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
-			$x = 'A';
 
-			$chars = "aABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    		$pwd= substr(str_shuffle($chars),0,3);
+   
+
+
+			$chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    		$pwd= substr(str_shuffle($chars),0,1);
 			
-			$x++;
+			
 
 			$array = array(
 				//'webshipId' =>$webshipId,
@@ -51,10 +53,10 @@
 				'customer'=>$customer,
 				'customer_name'=>$customer_name,
 
-				'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
+				//'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
 			//	'quote_number'=>$qoute_jobnumber,
 
-				'quote_number'=>$qoute_jobnumber.$x,
+				'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
 				'sender_suburb'=>$sender_subrub,
 				'sender_postcode'=>$sender_postcode,
 				'receiver_suburb'=>$reciver_subrub,
@@ -66,7 +68,7 @@
 				
 			
 			 );
-			 
+		
 			$this->user_model->add_quote($array);
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customers/layout', $data);
@@ -123,12 +125,20 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-		    $data['quote']  = $this->user_model->get_quote();
+
+			$data['quote']  = $this->user_model->get_quote();
 			$data['view'] = 'customers/quote';
 			$this->load->view('customers/layout', $data);
 		}
 		else {	redirect('user/login');}
 		}
+
+		public function gets_quote()
+           {	
+		         $id = $this->input->post('zone');	
+		         $data=  $this->auth_model->get_fix_quote($id);
+	        	echo json_encode($data);
+            }
 
 		
 		public function setting()

@@ -27,6 +27,8 @@
 		$this->db->update('surcharges_list', $data);		
 		return true;
 	}
+
+	
 	public function add_surcharge_data($surgcharge)
 	{
 		
@@ -88,6 +90,17 @@
 
 		}
 
+
+		public function get_fix_quote($id)
+		{
+			
+			$this->db->select('*');
+			$this->db->from('quote');
+			$this->db->where('id', $id);
+			return $query = $this->db->get()->result_array();
+
+		}
+
 		public function get_fix_rates($id)
 		{
 			
@@ -97,6 +110,17 @@
 			return $query = $this->db->get()->result_array();
         }
 		
+
+		public function get_quote_by_id($id)
+		{
+			
+			$this->db->select('*');
+			$this->db->from('quote');
+			$this->db->where('id', $id);
+			return $query = $this->db->get()->result_array();
+        }
+
+
 	public function save_customer($customers)
 	{
 		$this->db->insert('customer',$customers);
@@ -163,6 +187,12 @@
 
 		$this->db->where('customer_id', $id);
 		$this->db->update('customer', $data);
+		return true;
+	}
+
+	public function save_margin($margin)
+	{
+		$this->db->insert('margin',$user);
 		return true;
 	}
 }

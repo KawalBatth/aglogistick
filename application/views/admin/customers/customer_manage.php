@@ -344,7 +344,7 @@ if(isset($submit_id))
                                               <td>  
                                             <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                                     <option value="-1">Select a Customer</option>
-                                    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option>
+                                    <option value="http://localhost:8011/webfreight/admin/add">Add a Customer</option>
                <?php for($i=0;$i<count($data);$i++)
                         {
                         if ($submit_id == $data[$i]['customer_id']) 
@@ -4185,11 +4185,11 @@ if(isset($submit_id))
                                                             foreach ($get_rates as $key => $value) 
                                                             {                                                              
                                                             ?>
-                                                                <li>
+                                                                <!--li>
                                                                     <div class="pull-left c34" data-group="zone">
                                                                         <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="<?php echo $value['origin']?>" disabled="disabled" type="text" data-group="zone-name"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="<?php echo $value['minimum']?>" data-group="zone-rate">
                                                                     </div>
-                                                                </li>
+                                                                </li-->
                                                             <?php                                                            
                                                              }                                                              
                                                             ?>

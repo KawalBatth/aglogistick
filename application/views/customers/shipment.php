@@ -835,9 +835,71 @@
             </label>
         
         
+        <input type="hidden" name="shipmentPage.addCons[0].addConName" value="Dangerous Goods">
+        <input type="hidden" name="shipmentPage.addCons[0].addConCode" value="dangerousgoods">
         
-        
-           
+            <div class="row" id="service_cons_0_add" style="display: none;">
+                
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            
+                            <input type="hidden" value="UN Number (4Digits)" name="shipmentPage.addCons[0].listProperties[0].addConDetailName">
+                            <input type="hidden" value="unnumber" name="shipmentPage.addCons[0].listProperties[0].addConDetailCode">
+                            
+                            
+                            
+                                <label class="control-label">
+                                    UN Number (4Digits)
+                                </label>
+                                <input type="text" class="form-control" name="shipmentPage.addCons[0].listProperties[0].value">
+                            
+                        </div>
+                    </div>
+                
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            
+                            <input type="hidden" value="Packing Group" name="shipmentPage.addCons[0].listProperties[1].addConDetailName">
+                            <input type="hidden" value="packinggroup" name="shipmentPage.addCons[0].listProperties[1].addConDetailCode">
+                            
+                                <label class="control-label">
+                                    Packing Group
+                                </label>
+                                <select class="form-control" name="shipmentPage.addCons[0].listProperties[1].value">
+                                    
+                                        <option value="1">1</option>
+                                    
+                                        <option value="2">2</option>
+                                    
+                                        <option value="3">3</option>
+                                    
+                                        <option value="4">4</option>
+                                    
+                                </select>
+                            
+                            
+                            
+                        </div>
+                    </div>
+                
+                    <div class="col-xs-6">
+                        <div class="form-group">
+                            
+                            <input type="hidden" value="I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge." name="shipmentPage.addCons[0].listProperties[2].addConDetailName">
+                            <input type="hidden" value="msda" name="shipmentPage.addCons[0].listProperties[2].addConDetailCode">
+                            
+                            
+                                <label class="fw0">
+                                    <input type="checkbox" tabindex="5" name="shipmentPage.addCons[0].listProperties[2].value">
+                                    &nbsp;
+                                    I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.
+                                </label>
+                            
+                            
+                        </div>
+                    </div>
+                
+            </div>
         
     </div>
     
@@ -895,7 +957,9 @@
         <input data-group="aglWarranty" tabindex="5" id="service_cons_2" type="checkbox" name="shipmentPage.addCons[2].value" value="0" onclick="showServiceAddConDetails(2)" disabled="disabled"> &nbsp;
         AGL Warranty
     </label>
-   
+    <input type="hidden" name="shipmentPage.addCons[2].value" value="0">
+    <input type="hidden" name="shipmentPage.addCons[2].addConName" value="agl Warranty">
+    <input type="hidden" name="shipmentPage.addCons[2].addConCode" value="aglWarranty">
 </div>
 <script type="text/javascript">
     var isAglWarranty = false;
@@ -910,9 +974,10 @@
             $("#divAglWarranty").find("input[name='shipmentPage.addCons[2].value']").val(0);
         }
     });
-
     function showServiceAddConDetails(id) {
-    	 var isChecked = $("#service_cons_" + id).is(':checked');
+    	
+    	
+    	var isChecked = $("#service_cons_" + id).is(':checked');
         if (isChecked) {
         var extraTask =	$("input[name='shipmentPage.addCons["+id+"].addConName']").val();
        // alert(""+extraTask);
@@ -942,7 +1007,6 @@
             $("#service_cons_" + id + "_add").hide();
         }
     }
-
 
   function maxLengthCheck(object) {
     if (object.value.length > object.maxLength)
@@ -1287,27 +1351,20 @@ function continuewbooking()
            $("input[name='isdangerous']").val(0);        
         }
     });
-
-
     
  function saveqoute()
 {
     var quote_date =  new Date();
     //alert(quote_date);
     var customer = '<?php echo $customers->customer_id;?>';
-   //var dd = String(quote_date.getDate()).padStart(2, '0');
-   // var column = 'A';
-   // var i= 0;
-   // var step = 2; // number of columns to step by
-   // for(i = 1; i < step; i++) {
-    //var qoute_jobnumber   = customer+'AGL';
+   // var dd = String(quote_date.getDate()).padStart(2, '0');
+  //  $column = 'A';
+//$step = 2; // number of columns to step by
+//for($i = 1; $i < $step; $i++) {
     var qoute_jobnumber   = customer;
-
+    //$column++;
 //}
-//column++;
-  //  alert(qoute_jobnumber);
- 
-
+    //alert(qoute_jobnumber);
 
     var customer_name= $("input[name='shipmentPage.senderAddress.companyName']").val();
     var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
@@ -1337,7 +1394,6 @@ function continuewbooking()
     });
 }
 
-
 function openForm() {
 
     document.getElementById("myForm").style.display = "block";
@@ -1361,58 +1417,10 @@ function openForm() {
     var totalweight = $('#total_weight_input').val();    
     var final_total=$("#final_total_input").val();
     var get_volume_input = $("#get_volume_input").val();
+    get_volume_input = get_volume_input * 250;
+    //alert(get_volume_input);
     setTimeout(function()
     {    
-
-    $('#saveQuoteLog table tbody').html('');
-    var html = '';
-    var total ='';
-    var basic_charge = '';
-   // var is_dangerous = '';
-    var per_kg ='';
-    var total_charge = '';
-    var surcharge_name = '';
-    var surcharge_price = '';
-    //var SUM = '';
-     $.ajax({
-        type: "POST",
-        url: "<?php echo base_url('customer/get_calculate');?>",
-        data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id,isdangerous:isdangerous},
-        beforeSend: function(){
-
-            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
-        },
-        success: function(data){
-           var result= JSON.parse(data);
-        
-            console.log(result);
-            if(result.base_charge)
-            {
-            $.each(result.base_charge, function(k, v) {
-                if(v)
-                {
-                    basic_charge = v.basic_charge;
-                    if(basic_charge=='')
-                    {
-                        basic_charge='0.00';
-                    }
-                    console.log('basic_charge'+basic_charge);
-                    per_kg = v.per_kg;
-                    console.log('per_kg'+per_kg);
-                    console.log('weight'+weight);
-                    total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
-                }
-             });
-            }
-            else {
-
-                    basic_charge='0.00';
-                    console.log('basic_charge'+basic_charge);
-                    per_kg = result.fixed_price;
-                    console.log('per_kg'+per_kg);
-                    console.log('weight'+weight);
-                    total =  parseFloat(weight) * parseFloat(per_kg);
-
 		$('#saveQuoteLog table tbody').html('');
 		var html = '';
 		var total ='';
@@ -1448,12 +1456,19 @@ function openForm() {
 						per_kg = v.per_kg;
 						console.log('per_kg'+per_kg);
 						console.log('weight'+weight);
+                        console.log('get_volume_input'+get_volume_input);
+                        if(weight >get_volume_input)
+                        {
 						total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
+                        }
+                        else
+                        {
+                            total = (parseFloat(get_volume_input) * parseFloat(per_kg)) + parseFloat(basic_charge);
+                        }
 					}
 				 });
 				}
 				else {
-
 
 						basic_charge='0.00';
 						console.log('basic_charge'+basic_charge);
@@ -1461,64 +1476,6 @@ function openForm() {
 						console.log('per_kg'+per_kg);
 						console.log('weight'+weight);
 						total =  parseFloat(weight) * parseFloat(per_kg);
-
-
-            html +='<tr>';
-                    html +='<td class="td1">Base Charge</td>';
-                   // html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
-                   html +='<td class="td2">$ '+total+'</td>';
-                    html +='</tr>';
-
-            $.each(result.charges, function(k, v) {
-                if(v)
-                {
-                    //is_dangerous = v.is_dangerous;
-                    surcharge_name = v.surcharge_name;
-                    surcharge_price = v.surcharge_price;
-                    //total_charge = total + SUM(surcharge_price);
-                    //total_charge = (total + surcharge_price);
-                  //  alert(total_charge);
-                    /*if(is_dangerous == 1){
-                        if(surcharge_name == "Dangerous goods")
-                    }*/
-                    html +='<tr>';
-                    html +='<td class="td1">'+surcharge_name+'</td>';
-                    html +='<td class="td2">$ '+surcharge_price+'</td>';
-                    html +='</tr>';
-                }
-            });
-           
-            
-            html +='<tr>';
-                html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
-            html +='</tr>';
-            html +='<tr>';
-                    html +='<td class="td1">Total weight</td>';
-                    html +='<td class="td2 totalweight">'+weight+'kg(s)</td>';
-            html +='</tr>';
-            html +='<tr>';
-                    html +='<td class="td1">Weight type</td>';
-                    html +='<td class="td2">Actual</td>';
-            html +='</tr>';
-            html +='<tr>';
-                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
-            html +='</tr>';
-            html +='<tr>';
-                    html +='<td class="td1"><b>Total Charge</b></td>';
-                    html +='<td class="td2">$ '+total+'</td>';
-            html +='</tr>';
-            html +='<tr>';
-                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
-            html +='</tr>';
-            html +='<tr>';
-                    html +='<td colspan="2">';
-                    html +='<p>Quote is an estimate. Additional fees may apply.</p>';
-                    html +='</td>';
-            html +='</tr>';
-            $('#myForm table tbody').html(html);
-        }
-        
-    });
 
 				}
 
@@ -1537,9 +1494,7 @@ function openForm() {
 						//total_charge = total + SUM(surcharge_price);
 						total += parseFloat(surcharge_price);
 					  //  alert(total_charge);
-						/*if(is_dangerous == 1){
-							if(surcharge_name == "Dangerous goods")
-						}*/
+					
 						html +='<tr>';
 						html +='<td class="td1">'+surcharge_name+'</td>';
 						html +='<td class="td2">$ '+surcharge_price+'</td>';
@@ -1551,10 +1506,19 @@ function openForm() {
 				html +='<tr>';
 					html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
 				html +='</tr>';
+                if(weight >get_volume_input)
+                        {
 				html +='<tr>';
 						html +='<td class="td1">Total weight</td>';
 						html +='<td class="td2 totalweight">'+weight+'kg(s)</td>';
 				html +='</tr>';
+                        }else
+                        {
+                            html +='<tr>';
+						html +='<td class="td1">Total weight</td>';
+						html +='<td class="td2 totalweight">'+get_volume_input+'kg(s)</td>';
+				html +='</tr>';
+                        }
 				html +='<tr>';
 						html +='<td class="td1">Weight type</td>';
 						html +='<td class="td2">Actual</td>';
@@ -1564,7 +1528,7 @@ function openForm() {
 				html +='</tr>';
 				html +='<tr>';
 						html +='<td class="td1"><b>Total Charge</b></td>';
-						html +='<td class="td2">$ '+total+'</td>';
+						html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
 				html +='</tr>';
 				html +='<tr>';
 						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
@@ -1578,7 +1542,6 @@ function openForm() {
 			}
 			
 		});
-
     }, 1000);
 
 }
@@ -1586,9 +1549,6 @@ function openForm() {
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
-
-
-
 
 
 

@@ -80,6 +80,8 @@ $route['admin/add_carrier'] = 'admin/carriers/add_carrier';
 $route['admin/update_user'] = 'admin/customers/update_user';
 $route['admin/get_c_user_by_id'] = 'admin/customers/get_c_user_by_id';
 
+$route['admin/add_margin'] = 'admin/customers/add_margin';
+
 $route['customer/change_password'] = 'customer/customers/change_password';
 
 //$route['admin/shipment'] = 'admin/customers/shipment';
