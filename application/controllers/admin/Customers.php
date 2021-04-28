@@ -98,14 +98,14 @@
 			}
             $user = array(
 
-            'customer_id'=>$customerId,
-            //'webshipId'=>$webshipId,
-            'user_name' => $this->input->post('username'),
-            'password' => base64_encode($this->input->post('userpassword')),
-            'language' => $this->input->post('language'),
-            'allowExportAddressBook' => $allowExport,
-            'isRequireChangePassword' => $isRequire,
-        );
+				'customer_id'=>$customerId,
+				//'webshipId'=>$webshipId,
+				'user_name' => $this->input->post('username'),
+				'password' => base64_encode($this->input->post('userpassword')),
+				'language' => $this->input->post('language'),
+				'allowExportAddressBook' => $allowExport,
+				'isRequireChangePassword' => $isRequire,
+			);
             
             $user = $this->user_model->update_user_data($user,$user_id);
             $this->session->set_flashdata('msg', 'User is Edited Successfully!');
@@ -115,7 +115,7 @@
 
         }
 
-         public function get_c_user_by_id()
+        public function get_c_user_by_id()
 		{
 			$user_id = $this->input->post('user_id');	
 			$data['user'] = $this->user_model->get_c_user_by_id($user_id);
@@ -148,7 +148,8 @@
 				//'webshipId' =>$webshipId,
 				'customer_id' =>$customerCode,
 				'user_name'=>$username,
-				'password'=>base64_encode($userpassword),
+				//'password'=>base64_encode($userpassword),
+				'password'=>md5($userpassword),
 				'language'=>$language,
 				'allowExportAddressBook'=>$allowExport,
 				'isRequireChangePassword'=>$isRequire
@@ -259,7 +260,18 @@
                 $config['max_width']            = 1024;
                 $config['max_height']           = 768;
                 $this->load->library('upload', $config);*/
-
+			//$userfile = $_FILES['userImage'];	
+			
+			$userfile = "";
+			if(!empty($this->input->post('image_b64'))){
+				$folderPath = './public/dist/img/';
+				$image_parts = explode(";base64,", $this->input->post('image_b64'));
+				$image_type_aux = explode("image/", $image_parts[0]);
+				$image_type = $image_type_aux[1];
+				$image_base64 = base64_decode($image_parts[1]);
+				$userfile = $folderPath . uniqid() . '.png';
+				file_put_contents($userfile, $image_base64);
+			}
 			$dataforsave = array(
 				'customer_id'=>$customerCode,
 				'customerName'=>$customerName,
@@ -307,41 +319,37 @@
 				//'followUpDate'=>$followUpDate,
 				
           	);
+			
 			if($customerCodeexists==true)
 			{
 				$this->auth_model->update_customer($dataforsave,$customerCode);	
 				$this->session->set_flashdata('msg', 'Customer is Edited Successfully!');		
-			}
-			else {
+			}else {
 				$this->auth_model->save_customer($dataforsave);
 				$this->session->set_flashdata('msg', 'Customer is Added Successfully!');
 				$number = substr($customerCode, -3);
     			//$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-    		//	$pwd= substr(str_shuffle($chars),0,4);
-		//	$pwd='Admin@123';
+				//	$pwd= substr(str_shuffle($chars),0,4);
+				//	$pwd='Admin@123';
 				$array = array(
-				//'webshipId' =>$webshipId,
-				'customer_id' =>$customerCode,
-				'user_name'=>'AGL'.$number,
-				'password'=>base64_encode('Admin@123'),
-				'language'=>'english',
-				'allowExportAddressBook'=>'0',
-				'isRequireChangePassword'=>'0'
-			 );
-			$this->auth_model->save_user($array);
-			}
-			
-			
+					//'webshipId' =>$webshipId,
+					'customer_id' =>$customerCode,
+					'user_name'=>'AGL'.$number,
+					'password'=>base64_encode('Admin@123'),
+					'language'=>'english',
+					'allowExportAddressBook'=>'0',
+					'isRequireChangePassword'=>'0'
+				);
+				$this->auth_model->save_user($array);
+			}	
 		}
 
-
-		 /*public function delNote($id = 0){
+		/*public function delNote($id = 0){
 			$this->db->delete('user_notes', array('id' => $id));
 			//$this->session->set_flashdata('msg', 'Record is Deleted Successfully!');
 			redirect(base_url('admin/manage'), 'refresh');
 			
 		}*/
-		
 
 		public function add_notes()
 		{
@@ -379,6 +387,23 @@
 		
 		} */
 		
+		public function add_margin()
+		{
+			
+			$customerCode = $this->input->post('customerCode');	
+			$starTrackColumnName = $this->input->post('starTrackColumnName');	
+			$margin_rate = $this->input->post('margin_rate');	
+			
+
+			$array = array(
+			    'customer_id' =>$customerCode,
+				'service_name'=>$starTrackColumnName,
+			    'margin'=>$margin_rate,
+				
+			 );
+			$this->user_model->save_margin($array, $customerCode);
+			redirect('admin/customers/customer_manage?id='.$customerCode);
+  }
 
 	
 		

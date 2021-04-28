@@ -1363,6 +1363,7 @@ function openForm() {
     var get_volume_input = $("#get_volume_input").val();
     setTimeout(function()
     {    
+
     $('#saveQuoteLog table tbody').html('');
     var html = '';
     var total ='';
@@ -1412,7 +1413,55 @@ function openForm() {
                     console.log('weight'+weight);
                     total =  parseFloat(weight) * parseFloat(per_kg);
 
-            }
+		$('#saveQuoteLog table tbody').html('');
+		var html = '';
+		var total ='';
+		var basic_charge = '';
+		var is_dangerous = '';
+		var per_kg ='';
+		var total_charge = '';
+		var surcharge_name = '';
+		var surcharge_price = '';
+		var SUM = '';
+		 $.ajax({
+			type: "POST",
+			url: "<?php echo base_url('customer/get_calculate');?>",
+			data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id,isdangerous:isdangerous},
+			beforeSend: function(){
+
+				//$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+			},
+			success: function(data){
+				var result= JSON.parse(data);
+				console.log(result);
+				if(result.base_charge)
+				{
+				$.each(result.base_charge, function(k, v) {
+					if(v)
+					{
+						basic_charge = v.basic_charge;
+						if(basic_charge=='')
+						{
+							basic_charge='0.00';
+						}
+						console.log('basic_charge'+basic_charge);
+						per_kg = v.per_kg;
+						console.log('per_kg'+per_kg);
+						console.log('weight'+weight);
+						total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
+					}
+				 });
+				}
+				else {
+
+
+						basic_charge='0.00';
+						console.log('basic_charge'+basic_charge);
+						per_kg = result.fixed_price;
+						console.log('per_kg'+per_kg);
+						console.log('weight'+weight);
+						total =  parseFloat(weight) * parseFloat(per_kg);
+
 
             html +='<tr>';
                     html +='<td class="td1">Base Charge</td>';
@@ -1470,12 +1519,68 @@ function openForm() {
         }
         
     });
+
+				}
+
+				html +='<tr>';
+						html +='<td class="td1">Base Charge</td>';
+						html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
+					 // html +='<td class="td2">$ '+total+'</td>';
+						html +='</tr>';
+
+				$.each(result.charges, function(k, v) {
+					if(v)
+					{
+						is_dangerous = v.is_dangerous;
+						surcharge_name = v.surcharge_name;
+						surcharge_price = v.surcharge_price;
+						//total_charge = total + SUM(surcharge_price);
+						total += parseFloat(surcharge_price);
+					  //  alert(total_charge);
+						/*if(is_dangerous == 1){
+							if(surcharge_name == "Dangerous goods")
+						}*/
+						html +='<tr>';
+						html +='<td class="td1">'+surcharge_name+'</td>';
+						html +='<td class="td2">$ '+surcharge_price+'</td>';
+						html +='</tr>';
+					}
+				});
+			   
+				
+				html +='<tr>';
+					html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
+				html +='</tr>';
+				html +='<tr>';
+						html +='<td class="td1">Total weight</td>';
+						html +='<td class="td2 totalweight">'+weight+'kg(s)</td>';
+				html +='</tr>';
+				html +='<tr>';
+						html +='<td class="td1">Weight type</td>';
+						html +='<td class="td2">Actual</td>';
+				html +='</tr>';
+				html +='<tr>';
+						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+				html +='</tr>';
+				html +='<tr>';
+						html +='<td class="td1"><b>Total Charge</b></td>';
+						html +='<td class="td2">$ '+total+'</td>';
+				html +='</tr>';
+				html +='<tr>';
+						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+				html +='</tr>';
+				html +='<tr>';
+						html +='<td colspan="2">';
+						html +='<p>Quote is an estimate. Additional fees may apply.</p>';
+						html +='</td>';
+				html +='</tr>';
+				$('#myForm table tbody').html(html);
+			}
+			
+		});
+
     }, 1000);
 
-    
-
-
-    
 }
 
 function closeForm() {

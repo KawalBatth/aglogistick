@@ -38,17 +38,23 @@
 			$shipment_type= $this->input->post('shipment_type');
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
+			$x = 'A';
 
 			$chars = "aABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
     		$pwd= substr(str_shuffle($chars),0,3);
 			
+			$x++;
+
 			$array = array(
 				//'webshipId' =>$webshipId,
 				'quote_date' =>$quote_date,
 				'customer'=>$customer,
 				'customer_name'=>$customer_name,
+
 				'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
 			//	'quote_number'=>$qoute_jobnumber,
+
+				'quote_number'=>$qoute_jobnumber.$x,
 				'sender_suburb'=>$sender_subrub,
 				'sender_postcode'=>$sender_postcode,
 				'receiver_suburb'=>$reciver_subrub,
@@ -57,8 +63,10 @@
 				'package_type'=>$package_type,
 				'total_amount'=>$total_amount,
 				'quote_date' => date('Y-m-d')
+				
 			
 			 );
+			 
 			$this->user_model->add_quote($array);
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customers/layout', $data);
@@ -224,6 +232,7 @@
 			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 			$isdange = $this->input->post('isdangerous');
+			
 			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId,$isdange);
 			$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
 			if(empty($fixed_price))
@@ -235,12 +244,7 @@
 				$result['fixed_price']= $fixed_price;
 			}
 			
-
 			$result['charges'] = $get_surcharge;
-			
-	
-			
-			$result['totalweight']= $totalweight;
 			echo json_encode($result);
 			
 		}

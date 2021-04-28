@@ -533,17 +533,35 @@ input#btnExport {
 .selected-row {
     color: #3c8dbc;
     transition: 0.3s all ease-out;
+
+img {
+    width: 115%;
+    height: 100%;
+    margin-left: -15px;
+    margin-top: -4px;
 }
     </style>
   <header class="main-header">
     <!-- Logo -->
     <?php //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; ?>
     <a href="<?= base_url('customer/shipment');?>" class="logo">
-      <mini logo for sidebar mini 50x50 pixels -->
+      <!--mini logo for sidebar mini 50x50 pixels -->
+	  <?php
+		$this->db->select('image');
+		$this->db->from('customer');
+		$this->db->where('customer_id',$_SESSION['customer_id']);
+		$get_image = $this->db->get()->row();
+		if(!empty($get_image->image)){
+			$image_url = substr($get_image->image, 2); ?>
+			<img  src="<?= base_url().$image_url;?>" alt="image">
+		<?php }else{ ?>
+			<span><b> AGL <b></span>
+			<span><b> Specialised <b></span>
+		<?php }
+	  ?>
       <!--img  src="<?php //echo site_url('public/dist/img/'.$customers->profile_image); ?>" alt="image" /-->
       <!--img src="<?= base_url() ?>public/dist/img/AGL.png" class="logo_img" alt="User Image"-->
-      <span><b> AGL <b></span>
-      <span><b> Specialised <b></span>
+      
       <!-- logo for regular state and mobile devices -->
      
     </a>
