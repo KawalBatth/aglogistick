@@ -155,67 +155,67 @@
 				else
 					return false;
 			}*/
-public function savetempdata($str,$id)
-{
-	$arrayName = array('user_id' => $id,'formdata'=>$str);
-	$this->db->insert('temp_data',$arrayName);
-}
-
-public function get_fix_rate($id)
-{
-
-	$this->db->select('*, price as per_kg');
-	$this->db->from('star_services as service');
-	$this->db->where('service.id', $id);
-	$this->db->join('fixed_price', 'fixed_price.service_id = service.id');
-	$query = $this->db->get();
-	 if($query->num_rows() > 0)
-        {
-        	$data = $query->row()->per_kg;					
-        	return $data;
-        }
-    	else {return $data ='';	}
-
-}
-public function gettempdata($id='')
-{
-	$this->db->select('*');
-	$this->db->from('temp_data');
-	$this->db->where('user_id', $id);
-	$query = $this->db->get();
-    return $query->row()->formdata;	
-}
-public function set_message($id,$data){
-	$this->db->where('id', $id);
-	$this->db->update('user',$data);
-	return true;
-}
-
-public function save_notes($notes, $id)
+	public function savetempdata($str,$id)
 	{
-		$this->db->insert('user_notes', $notes);
+		$arrayName = array('user_id' => $id,'formdata'=>$str);
+		$this->db->insert('temp_data',$arrayName);
+	}
+
+	public function get_fix_rate($id)
+	{
+
+		$this->db->select('*, price as per_kg');
+		$this->db->from('star_services as service');
+		$this->db->where('service.id', $id);
+		$this->db->join('fixed_price', 'fixed_price.service_id = service.id');
+		$query = $this->db->get();
+		 if($query->num_rows() > 0)
+			{
+				$data = $query->row()->per_kg;					
+				return $data;
+			}
+			else {return $data ='';	}
+
+	}
+	public function gettempdata($id='')
+	{
+		$this->db->select('*');
+		$this->db->from('temp_data');
+		$this->db->where('user_id', $id);
+		$query = $this->db->get();
+		return $query->row()->formdata;	
+	}
+	public function set_message($id,$data){
+		$this->db->where('id', $id);
+		$this->db->update('user',$data);
 		return true;
 	}
 
-
-	/*public function save_shipment($ship)
-{
-	//$arrayName = array('user_id' => $id,'formdata'=>$str);
-	$this->db->insert('shipment',$ship);
-	//$this->db->where('customer_id', $id);
-	return true;
-}*/
+	public function save_notes($notes, $id)
+		{
+			$this->db->insert('user_notes', $notes);
+			return true;
+		}
 
 
- public function get_all_notes($id)
- {
-	$this->db->select('*');
-	$this->db->from('user_notes');
-	$this->db->where('customer_id', $id);
-	return $result = $query->result_array();
-  }
+		/*public function save_shipment($ship)
+	{
+		//$arrayName = array('user_id' => $id,'formdata'=>$str);
+		$this->db->insert('shipment',$ship);
+		//$this->db->where('customer_id', $id);
+		return true;
+	}*/
+
+
+	 public function get_all_notes($id)
+	 {
+		$this->db->select('*');
+		$this->db->from('user_notes');
+		$this->db->where('customer_id', $id);
+		return $result = $query->result_array();
+	  }
   
-public function fetch_customer($id)
+	public function fetch_customer($id)
 	{
 			$this->db->select('*');
 			$this->db->from('user');
@@ -290,7 +290,21 @@ public function fetch_customer($id)
         else {return $data ='';}*/
 	}
 
-
+	public function get_carrierbyid($serviceId)
+	{
+		$this->db->select('*');
+		$this->db->from('carriers');
+		$this->db->where('id',$serviceId);
+		return $query = $this->db->get()->row();
 	}
+	
+	public function get_servicebyid($service_type_Id)
+	{
+		$this->db->select('*');
+		$this->db->from('star_services');
+		$this->db->where('id',$service_type_Id);
+		return $query = $this->db->get()->row();
+	}
+}
 
 ?>

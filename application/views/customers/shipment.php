@@ -1270,10 +1270,10 @@ function continuewbooking()
         url: "<?php echo base_url('customer/continue_booking');?>",
         data:{ "data"  : formdata},
         beforeSend: function(){
-
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
         },
         success: function(data){
+			window.location.href = "<?php echo base_url('customer/booking');?>";
         }
     });
 

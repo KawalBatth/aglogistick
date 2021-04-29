@@ -242,35 +242,38 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			
-			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			$str = $this->user_model->gettempdata($this->session->userdata('customer_user_id'));
-			$returndata = array();
-    		$strArray = explode("&", $str);
-    		$i = 0;
-    		foreach ($strArray as $item) {
-        		$array = explode("=", $item);
-        		$returndata[$array[0]] = $array[1];
-    		}
-			$sender_city = $returndata['shipmentPage.senderAddress.city'];
-			$sender_state =  $returndata['shipmentPage.senderAddress.state'];
-			$sender_postcode =  $returndata['shipmentPage.senderAddress.postalCode'];
-			$rc_postcode= $returndata['shipmentPage.receiverAddress.postalCode'];
-			$rc_statecode= $returndata['shipmentPage.receiverAddress.state'];
-			$rcv_city= $returndata['shipmentPage.receiverAddress.city'];
-			$service_type_Id = $returndata['shipmentPage.shipmentTypeId'];
-    		$get_surcharge =  $this->user_model->get_surchargebyid($returndata['shipmentPage.serviceId']);
-    		$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
-			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
-			$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);
-    		$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
-    		$data['result'] = $returndata;
-    		$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);
-    		$data['surcharge'] = array('base_charge' =>$get_base_rate,'fixed_price'=>$fixed_price,'charges'=>$get_surcharge);
-    		$data['view'] = 'customers/booking';
-			$this->load->view('customers/layout', $data);
+				$str = $this->user_model->gettempdata($this->session->userdata('customer_user_id'));
+				$returndata = array();
+				$strArray   = explode("&", $str);
+				$i = 0;
+				foreach ($strArray as $item) {
+					$array = explode("=", $item);
+					$returndata[$array[0]] = $array[1];
+				}
+				$sender_city     = $returndata['shipmentPage.senderAddress.city'];
+				$sender_state    = $returndata['shipmentPage.senderAddress.state'];
+				$sender_postcode = $returndata['shipmentPage.senderAddress.postalCode'];
+				$rc_postcode     = $returndata['shipmentPage.receiverAddress.postalCode'];
+				$rc_statecode    = $returndata['shipmentPage.receiverAddress.state'];
+				$rcv_city        = $returndata['shipmentPage.receiverAddress.city'];
+				$service_type_Id = $returndata['shipmentPage.shipmentTypeId'];
+				
+				$get_surcharge =  $this->user_model->get_surchargebyid($returndata['shipmentPage.serviceId'],$returndata['isdangerous']);
+				$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
+				$get_rcv_zone  =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
+				$fixed_price   =  $this->user_model->get_fix_rate($service_type_Id);
+				$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);
+				
+				$data['get_carrier']   =  $this->user_model->get_carrierbyid($returndata['shipmentPage.serviceId']);
+				$data['get_service']   =  $this->user_model->get_servicebyid($service_type_Id);
+				$data['result']    = $returndata;
+				$data['surcharge'] = array('base_charge'=>$get_base_rate,'fixed_price'=>$fixed_price,'charges'=>$get_surcharge);
+				$data['customers'] = $this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$data['view']      = 'customers/booking';
+				$this->load->view('customers/layout', $data);
+			} else {	
+				redirect('user/login');
 			}
-		else {	redirect('user/login');}
 		}
 		
 		public function continuewbooking()

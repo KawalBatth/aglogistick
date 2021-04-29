@@ -1,8 +1,8 @@
 <?php 
-echo "<pre>";
+/* echo "<pre>";
 print_r($result);
-print_r($surcharge);
-echo "</pre>";
+print_r($get_carrier);
+echo "</pre>"; */
 ?>
 
                 <script type="text/javascript">
@@ -1233,11 +1233,11 @@ echo "</pre>";
                                             <table class="table s99" style="font-size: 13px; margin-bottom: 0px">
                                                 <tbody><tr>
                                                     <td class="td1">Carrier Name</td>
-                                                    <td class="td2">Startrack</td>
+                                                    <td class="td2"><?php echo $get_carrier->carrier_name; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="td1">Service Type</td>
-                                                    <td class="td2">Premium Air Freight</td>
+                                                    <td class="td2"><?php echo $get_service->service_name; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="td1">Package Type</td>
@@ -1249,14 +1249,14 @@ echo "</pre>";
                                             <table class="table s99" style="font-size: 13px;">
                                                 <tbody><tr>
                                                     <td class="td1">Weight</td>
-                                                    <td class="td2">76.00 kgs</td>
+                                                    <td class="td2"><?php echo $result['total_weight']; ?> <?php echo $result['shipmentPage.weightUnit']; ?></td>
                                                 </tr>
                                                 <tr>
                                                     <td class="td1">Dimensions</td>
                                                     <td class="td2"> 
                                                     
                                                          
-                                                         67.00 x 67.00 x 67.00
+                                                        <?php echo $result['shipmentPage.pieces.dimensionL1']; ?> x <?php echo $result['shipmentPage.pieces.dimensionW1']; ?> x <?php echo $result['shipmentPage.pieces.dimensionH1']; ?>
                                                          <br>
                                                     
                                                    </td>
@@ -1264,16 +1264,31 @@ echo "</pre>";
                                             </tbody></table>
                                         </div>
                                         <div class="col-md-4">
-                                            
-                                                <table class="table s99" style="font-size: 13px;">
-                                                    <tbody><tr>
-                                                        <td class="td1">Quote</td>
-                                                        <td class="td2">536.98 <br>
-                                                            <i><u> (Quote is an estimate. Additional fees may apply.)
-                                                            </u></i></td>
-                                                    </tr>
-                                                </tbody></table>
-                                            
+											<?php $base_charge = 0;
+											if(!empty($surcharge['base_charge'])){ 
+												$basic_charge = $surcharge['base_charge'][0]['basic_charge'];
+												$per_kg       = $surcharge['base_charge'][0]['per_kg'];
+												$base_charge  = $result['total_weight']*$per_kg+$basic_charge;
+												$quote_value  = $result['total_weight']*$per_kg+$basic_charge;
+											} 
+											
+											?>
+											<table class="table s99" style="font-size: 13px;">
+												<?php if(!empty($surcharge['charges'])){
+													foreach($surcharge['charges'] as $char){ 
+														$quote_value += $char['surcharge_price'];
+													}
+												}
+												?>
+												<tbody>
+													<tr>
+														<td class="td1">Quote</td>
+														<td class="td2">$ <?php echo $quote_value; ?><br>
+															<i><u> (Quote is an estimate. Additional fees may apply.)</u></i>
+														</td>
+													</tr>
+												</tbody>
+											</table>
                                         </div>
                                         <div class="col-md-12 pd0">
                                             <div class="col-md-12">
@@ -1285,30 +1300,31 @@ echo "</pre>";
                                                 
                                                     <table class="table s99" style="font-size: 13px;">
                                                         <tbody>
-                                                        <tr>
-                                                            <td class="td1 s39" style="font-style: italic; text-decoration: underline;">
-                                                                Quote Details:</td>
-                                                            <td class="td2"></td>
-                                                        </tr>
-                                                        <tr>
-                                                            <td class="td1 s40 ncl">- Base Charge</td>
-                                                            <td class="td2">414.22</td>
-                                                        </tr>
-                                                        
-                                                            <tr>
-                                                                <td class="td1 s40 ncl">- Security Surcharge</td>
-                                                                <td class="td2">15.95</td>
-                                                            </tr>
-                                                        
-                                                            <tr>
-                                                                <td class="td1 s40 ncl">- Fuel Surcharge</td>
-                                                                <td class="td2">57.99</td>
-                                                            </tr>
-                                                        
-                                                          <tr>
-                                                            <td class="td1 s41 ncl">- Total Charge</td>
-                                                            <td class="td2">536.98</td>
-                                                        </tr>
+															<tr>
+																<td class="td1 s39" style="font-style: italic; text-decoration: underline;">
+																	Quote Details:</td>
+																<td class="td2"></td>
+															</tr>
+															<tr>
+																<td class="td1 s40 ncl">- Base Charge</td>
+																<td class="td2">$ <?php echo $base_charge; ?></td>
+															</tr>
+															<?php if(!empty($surcharge['charges'])){
+																	foreach($surcharge['charges'] as $charges){ 
+																	$base_charge += $charges['surcharge_price'];
+																?>
+																	<tr>
+																		<td class="td1 s40 ncl">- <?php echo $charges['surcharge_name']; ?></td>
+																		<td class="td2">$ <?php echo $charges['surcharge_price']; ?></td>
+																	</tr>	
+																<?php	}
+																}
+															?>
+															
+															<tr>
+																<td class="td1 s41 ncl">- Total Charge</td>
+																<td class="td2">$ <?php echo $base_charge; ?></td>
+															</tr>
                                                         </tbody>
                                                     </table>
                                                 
