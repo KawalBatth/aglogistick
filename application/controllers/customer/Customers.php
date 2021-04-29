@@ -39,12 +39,24 @@
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
 
+   
+
+
+			$chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    		$pwd= substr(str_shuffle($chars),0,1);
+			
+			
+
 			$array = array(
 				//'webshipId' =>$webshipId,
 				'quote_date' =>$quote_date,
 				'customer'=>$customer,
 				'customer_name'=>$customer_name,
-				'quote_number'=>$qoute_jobnumber,
+
+				//'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
+			//	'quote_number'=>$qoute_jobnumber,
+
+				'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
 				'sender_suburb'=>$sender_subrub,
 				'sender_postcode'=>$sender_postcode,
 				'receiver_suburb'=>$reciver_subrub,
@@ -53,8 +65,10 @@
 				'package_type'=>$package_type,
 				'total_amount'=>$total_amount,
 				'quote_date' => date('Y-m-d')
+				
 			
 			 );
+		
 			$this->user_model->add_quote($array);
 			$data['view'] = 'customers/shipment';
 			$this->load->view('customers/layout', $data);
@@ -111,12 +125,20 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-		    $data['quote']  = $this->user_model->get_quote();
+
+			$data['quote']  = $this->user_model->get_quote();
 			$data['view'] = 'customers/quote';
 			$this->load->view('customers/layout', $data);
 		}
 		else {	redirect('user/login');}
 		}
+
+		public function gets_quote()
+           {	
+		         $id = $this->input->post('zone');	
+		         $data=  $this->auth_model->get_fix_quote($id);
+	        	echo json_encode($data);
+            }
 
 		
 		public function setting()
@@ -236,6 +258,7 @@
 			echo json_encode($result);
 			
 		}
+	
 
 		
 		public function booking()
@@ -535,7 +558,6 @@
 
 			public function add_address_book()
 			{
-				
 				$addressContactName= $this->input->post('addressContactName');	
 				$addressCompanyName= $this->input->post('addressCompanyName');	
 				$addressAddress1= $this->input->post('addressAddress1');
@@ -555,7 +577,7 @@
 				$isResidential =$this->input->post('isResidential');
 	
 				$array = array(
-					'contact_name' =>$addressContactName,
+				    'contact_name' =>$addressContactName,
 					'company_name'=>$addressCompanyName,
 					'address'=>$addressAddress1,
 					'address1'=>$addressAddress2,
@@ -575,10 +597,96 @@
 					
 			  );
 				$this->user_model->add_address_book($array);
-				$data['view'] = 'customers/quote';
+				$this->session->set_flashdata('address_msg', 'Address Book Added Succesfully.');
+				$data['view'] = 'customers/address_book_add';
 				$this->load->view('customers/layout', $data);
 			}
 
+
+			public function add_booking()
+			{
+				$customerCode= $this->input->post('customerCode');
+				//$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$contentDescription= $this->input->post('contentDescription');	
+				$shipmentReference= $this->input->post('shipmentReference');	
+				$specialDelivery= $this->input->post('specialDelivery');
+				$collectionReference= $this->input->post('collectionReference');			
+				$scheduleCollectionSelect = $this->input->post('scheduleCollectionSelect');
+				$scheduleCollectioncompanyName = $this->input->post('scheduleCollectioncompanyName');
+				$scheduleCollectionContactName= $this->input->post('scheduleCollectionContactName');
+				$scheduleCollectionAddress= $this->input->post('scheduleCollectionAddress');
+				$scheduleCollectionAddress2= $this->input->post('scheduleCollectionAddress2');
+				$scheduleCollectionCity= $this->input->post('scheduleCollectionCity');
+				$scheduleCollectionPhone =$this->input->post('scheduleCollectionPhone');
+				$scheduleCollectionpostalCode= $this->input->post('scheduleCollectionpostalCode');
+				$scheduleCollectionstate= $this->input->post('scheduleCollectionstate');
+				$scheduleCollectionPickupDate= $this->input->post('scheduleCollectionPickupDate');
+				$scheduleCollectionPickupTime =$this->input->post('scheduleCollectionPickupTime');
+				$scheduleCollectionPickupTimeNoLater =$this->input->post('scheduleCollectionPickupTimeNoLater');
+				$scheduleCollectionPickupLocation =$this->input->post('scheduleCollectionPickupLocation');
+                $scheduleCollectionLocationCodeId= $this->input->post('scheduleCollectionLocationCodeId');
+				$scheduleCollectionDescription= $this->input->post('scheduleCollectionDescription');
+	
+				$array = array(
+					'customer_id' =>$customerCode,
+					'content_desc' =>$contentDescription,
+					'billing_ref'=>$shipmentReference,
+					'special_delivery'=>$specialDelivery,
+					'collection_ref'=>$collectionReference,
+					'schedule_select'=>$scheduleCollectionSelect,
+					'collect_company'=>$scheduleCollectioncompanyName,
+					'collect_Contact_name'=>$scheduleCollectionContactName,
+					'collect_address'=>$scheduleCollectionAddress,
+					'collect_address1' =>$scheduleCollectionAddress2,
+					'collect_city' =>$scheduleCollectionCity,
+					'collect_phone'=>$scheduleCollectionPhone,
+					'contact_postal_code'=>$scheduleCollectionpostalCode,
+					'collect_state'=>$scheduleCollectionstate,
+					'ready_date'=>$scheduleCollectionPickupDate,
+					'collect_ready_time'=>$scheduleCollectionPickupTime,
+					'collect_close_time'=>$scheduleCollectionPickupTimeNoLater,
+					'collect_pickup_location'=>$scheduleCollectionPickupLocation,
+					'collect_location_code'=>$scheduleCollectionLocationCodeId,
+					'collect_location_description'=>$scheduleCollectionDescription,
+					
+			  );
+				$this->user_model->add_booking($array);
+			//	$this->session->set_flashdata('address_msg', 'Booking Added Succesfully.');
+				$data['view'] = 'customers/booking';
+				$this->load->view('customers/layout', $data);
+			}
+
+
+			public function update_address_book()
+			{
+				$address_id = $this->input->post('address_id');
+				$address = array(
+				'contact_name' => $this->input->post('addressContactName'),
+				'company_name' => $this->input->post('addressCompanyName'),
+				'state' => $this->input->post('addressState'),
+				'postcode' => $this->input->post('addressPostalCode'),
+				'address' => $this->input->post('addressAddress1'),
+				'address1' => $this->input->post('addressAddress2'),
+				'phone' => $this->input->post('addressPhone'),
+				'city' => $this->input->post('addressCity'),
+				'email' => $this->input->post('addressEmail'),
+				'country' => $this->input->post('addressCountry'),
+				'department' => $this->input->post('addressDepartment'),
+				'deafult_billing_type' => $this->input->post('addressDefaultBillingType'),
+				'fax' => $this->input->post('addressFax'),
+				'account_number' => $this->input->post('addressAccountNumber'),
+				'residential_address' => $this->input->post('isResidential'),
+				'default_service_type' => $this->input->post('addressDefaultServiceType'),
+				'default_package_type' => $this->input->post('addressDefaultPackageType'),
+				'last_modified'=>$date = date('Y/m/d H:i:s')
+				);
+				$address = $this->user_model->update_address_data($address,$address_id);
+				$this->session->set_flashdata('msg', 'SuAddress Book is Edited Successfully!');
+				redirect(base_url('customer/address_book'), 'refresh');
+	
+			}
+
+			
 	}
 
 ?>	

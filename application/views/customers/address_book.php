@@ -1,3 +1,4 @@
+
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -30,28 +31,28 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Contact"> Contact <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressContactName" value="" id="address_book_add_addressBookModel_contactName" class="form-control" required="required">
+                                                    <input type="text" name="addressContactName" value="" id="addresscontactName" class="form-control" required="required">
                          </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company
                                                     </label>
-                                                    <input type="text" name="addressCompanyName" value="" id="address_book_add_addressBookModel_companyName" class="form-control">
+                                                    <input type="text" name="addressCompanyName" value="" id="addresscompanyName" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Address"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="addressAddress1" value="" id="address_book_add_addressBookModel_address1" class="form-control" required="required">
+                                                    <input type="text" name="addressAddress1" value="" id="address1" class="form-control" required="required">
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address 2
                                                     </label>
-                                                    <input type="text" name="addressAddress2" value="" id="address_book_add_addressBookModel_address2" class="form-control">
+                                                    <input type="text" name="addressAddress2" value="" id="address2" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="City"> City <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressCity" value="" id="address_book_add_addressBookModel_city" class="form-control" required="required">
+                                                    <input type="text" name="addressCity" value="" id="addresscity" class="form-control" required="required">
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div id="city-search"></div>
@@ -60,12 +61,12 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> State/Province
                                                     </label>
-                                                    <input type="text" name="addressState" value="" id="address_book_add_addressBookModel_state" class="form-control">
+                                                    <input type="text" name="addressState" value="" id="addressstate" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Postal Code
                                                     </label>
-                                                    <input type="text" name="addressPostalCode" value="" id="address_book_add_addressBookModel_postalCode" class="form-control">
+                                                    <input type="text" name="addressPostalCode" value="" id="addresspostalCode" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Country"> Country <span class="s30"> *</span>
@@ -354,13 +355,13 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Phone"> Phone <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressPhone" value="" id="address_book_add_addressBookModel_phone" class="form-control" required="required">
+                                                    <input type="text" name="addressPhone" value="" id="addressphone" class="form-control" required="required">
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Email
                                                     </label>
-                                                    <input type="email" name="addressEmail" value="" id="address_book_add_addressBookModel_email" class="form-control">
+                                                    <input type="email" name="addressEmail" value="" id="addressemail" class="form-control">
                                                     <span class="s30"> </span>
                                                 </div>
                                             </div>
@@ -389,17 +390,17 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Department
                                                     </label>
-                                                    <input type="text" name="addressDepartment" value="" id="address_book_add_addressBookModel_department" class="form-control">
+                                                    <input type="text" name="addressDepartment" value="" id="addressdepartment" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Fax
                                                     </label>
-                                                    <input type="text" name="addressFax" value="" id="address_book_add_addressBookModel_fax" class="form-control">
+                                                    <input type="text" name="addressFax" value="" id="addressfax" class="form-control">
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Default Service Type
                                                     </label>
-                                                    <select name="addressDefaultServiceType" id="address_book_add_addressBookModel_defaultServiceType" class="form-control">
+                                                    <select name="addressDefaultServiceType" id="defaultServiceType" class="form-control">
     <option value="0">No default</option>
     <option value="0">Not Available</option>
     <option value="1">DHL Worldwide Express</option>
@@ -409,7 +410,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Default Package Type</label>
-                                                    <select name="addressDefaultPackageType" id="address_book_add_addressBookModel_defaultPackageType" class="form-control">
+                                                    <select name="addressDefaultPackageType" id="defaultPackageType" class="form-control">
     <option value="0">No default</option>
     <option value="1">
     	Star Track
@@ -420,7 +421,7 @@
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Default Billing Type</label>
-                                                    <select name="addressDefaultBillingType" id="address_book_add_addressBookModel_defaultBillingType" class="form-control">
+                                                    <select name="addressDefaultBillingType" id="defaultBillingType" class="form-control">
     <option value="0">No default</option>
     <option value="1">
     	Sender
@@ -436,10 +437,10 @@
  </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName">Account No</label>
-                                                    <input type="text" name="addressAccountNumber" value="" id="address_book_add_addressAccountNumber" class="form-control">
+                                                    <input type="text" name="addressAccountNumber" value="" id="addressAccountNumber" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input name="isResidential" type="checkbox" value="1">
+                                                    <label class="fw0"> <input name="isResidential" id="isResidential" type="checkbox" value="1">
                                                         &nbsp; Residential Address
                                                     </label>
                                                 </div>
@@ -457,15 +458,16 @@
                         </div>
                     </div>
                 </div>
-            </form>
+           
       </div>
       <div class="modal-footer">
         
-        <button type="button" class="btn btn-primary">Edit</button>
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+      <button type="submit" name="submit" class="btn s33 s44">Update</button>
+        <button type="button" class="btn s33 s44" data-dismiss="modal">Close</button>
       </div>
+      </form>
     </div>
-  </div>
+   </div>
 </div>
 
 <div class="portlet box">
@@ -514,11 +516,8 @@
                                                                 <td><?php echo $address_book[$i]['postcode'];?></td>
                                                                 <td><?php echo $address_book[$i]['country'];?></td>
                                                                 <td><?php echo $address_book[$i]['phone'];?></td>
-                                 <td><!--button class="btn s33 s44" disabled="disabled" id="btnEdit"><a href="address_book_add/?id=<?php //echo $address_book[$i]['id'];?>">Edit</a></button-->
-                            <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" onclick="editAddressBook()">Edit
-</button>
-                                <button type="button" class="btn s33 s44" disabled="disabled" id="btnRemove">Remove</button> </td>
+                              
+                               <td>     <button type="button" class="btn s33 s44 remove" id="remove"> Delete</button> </td>
                                                             
                                                             </tr>
                                                     <?php }?>
@@ -547,7 +546,7 @@
                                     <div class="row">
                                         <div class="col-lg-10 text-left">
                                             <a href="<?= base_url('customer/address_book_add'); ?>" class="btn s33 s44">Add</a>
-                                        
+                                            <button type="button" onclick="editAddressBook()" id="EditButton" class="btn s33 s44" disabled>Edit</button>
                                           
                                           <a href="<?= base_url('admin/address_book_import'); ?>" class="btn s33 s44">Import</a>
                                             <button class="btn s33 s44" type="button" onClick="window.location.reload()">
@@ -588,57 +587,86 @@
         });
           
 
-        function editAddressBook()
-{
+//To enable and disable edit surcharge button
+$(document).on('click', '#address-book-table tbody tr', function(e) {
+    $('#address-book-table tbody tr').removeClass('selected-row');
+    $(this).toggleClass('selected-row'); 
+    $("#EditButton").prop('disabled', false);
+});
+
+
+   function editAddressBook()
+   {
 
     $('#exampleModal').modal('show');
-    var surcharge_id = $('.selected-row').attr('data-accessorialid');
+    var address_id = $('.selected-row').attr('data-address-id');
     var addressContactName = $('.selected-row td:eq(0)').html();
     var addressCompanyName = $('.selected-row td:eq(1)').html();
-
     var addressAddress1 = $('.selected-row td:eq(2)').html();
     var addressAddress2 = $('.selected-row td:eq(3)').html();
     var addressCity = $('.selected-row td:eq(4)').html();
-    var addressState = $('.selected-row td:eq(0)').html();
-    var addressPostalCode = $('.selected-row td:eq(1)').html();
-
-    var addressCountry = $('.selected-row td:eq(2)').html();
-    var addressPhone = $('.selected-row td:eq(3)').html();
-    var addressEmail = $('.selected-row td:eq(4)').html();
-
-    var addressDepartment = $('.selected-row td:eq(0)').html();
-    var addressFax = $('.selected-row td:eq(1)').html();
-
-    var addressDefaultServiceType = $('.selected-row td:eq(2)').html();
-    var addressDefaultPackageType = $('.selected-row td:eq(3)').html();
-    var addressAccountNumber = $('.selected-row td:eq(4)').html();
-    var isResidential = $('.selected-row td:eq(4)').html();
+    var addressState = $('.selected-row td:eq(5)').html();
+    var addressPostalCode = $('.selected-row td:eq(6)').html();
+    var addressCountry = $('.selected-row td:eq(7)').html();
+    var addressPhone = $('.selected-row td:eq(8)').html();
+    var addressEmail = $('.selected-row td:eq(9)').html();
+    var addressDepartment = $('.selected-row td:eq(10)').html();
+    var addressFax = $('.selected-row td:eq(11)').html();
+    var addressDefaultServiceType = $('.selected-row td:eq(12)').html();
+    var addressDefaultPackageType = $('.selected-row td:eq(13)').html();
+    var addressDefaultBillingType = $('.selected-row td:eq(14)').html();
+    var addressAccountNumber = $('.selected-row td:eq(15)').html();
+    var isResidential = $('.selected-row td:eq(16)').html();
 
 
-    $('#editModal #editcarriers option').each(function()
+    $('#exampleModal #addressCountryId option').each(function()
     {
-        if($(this).html()==carrier_name)
+        if($(this).html()==addressCountry)
         {
             $(this).prop('selected',true);
         } 
-    });    
-     $('#editModal #types option').each(function()
+    });  
+     $('#exampleModal #defaultServiceType option').each(function()
     {
-        if($(this).html()==surcharge_type)
+        if($(this).html()==addressDefaultServiceType)
         {
             $(this).prop('selected',true);
         } 
     });   
-     $('#editModal #surcharge_price').val(surcharge_price);
-     $('#editModal #surcharge_name').val(surcharge_name);
-     $('#editModal #surcharge_id').val(surcharge_id);
+   $('#exampleModal #defaultPackageType option').each(function()
+    {
+        if($(this).html()==addressDefaultPackageType)
+        {
+            $(this).prop('selected',true);
+        } 
+    });   
+    $('#exampleModal #defaultBillingType option').each(function()
+    {
+        if($(this).html()==addressDefaultBillingType)
+        {
+            $(this).prop('selected',true);
+        } 
+    });   
+
+     $('#exampleModal #addresscontactName').val(addressContactName);
+     $('#exampleModal #addresscompanyName').val(addressCompanyName);
+     $('#exampleModal #address1').val(addressAddress1);
+     $('#exampleModal #address2').val(addressAddress2);
+     $('#exampleModal #addresscity').val(addressCity);
+     $('#exampleModal #addressstate').val(addressState);
+     $('#exampleModal #addresspostalCode').val(addressPostalCode);
+     $('#exampleModal #addressphone').val(addressPhone);
+     $('#exampleModal #addressemail').val(addressEmail);
+     $('#exampleModal #addressdepartment').val(addressDepartment);
+     $('#exampleModal #addressfax').val(addressFax);
+     $('#exampleModal #addressAccountNumber').val(addressAccountNumber);
+     $('#exampleModal #isResidential').val(isResidential);
+     $('#exampleModal #address_id').val(address_id);
      
-     
-    
 }
 
     
-        $("#btnRemove").click(function(){
+        $(".remove").click(function(){
         var id = $(this).parents("tr").attr("data-address-id");
         if(confirm('Are you sure to remove this record ?'))
         {

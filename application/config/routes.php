@@ -80,6 +80,8 @@ $route['admin/add_carrier'] = 'admin/carriers/add_carrier';
 $route['admin/update_user'] = 'admin/customers/update_user';
 $route['admin/get_c_user_by_id'] = 'admin/customers/get_c_user_by_id';
 
+$route['admin/add_margin'] = 'admin/customers/add_margin';
+
 $route['customer/change_password'] = 'customer/customers/change_password';
 
 //$route['admin/shipment'] = 'admin/customers/shipment';
@@ -90,6 +92,8 @@ $route['customer/change_password'] = 'customer/customers/change_password';
 //$route['admin/address_book_export'] = 'admin/customers/address_book_export';
 //$route['admin/history'] = 'admin/customers/history';
 //$route['admin/settings'] = 'admin/customers/setting';
+
+$route['admin/add_margin'] = 'admin/customers/add_margin';
 
 
 $route['customer/shipment'] = 'customer/customers/shipment';
@@ -108,6 +112,8 @@ $route['customer/get_calculate'] = 'customer/customers/get_calculate';
 $route['customer/continue_booking'] = 'customer/customers/continuewbooking';
 $route['customer/continue_bookingnew'] = 'customer/customers/continue_booking_new';
 $route['customer/save_quote'] = 'customer/customers/save_quote';
+
+$route['customer/update_address_book'] = 'customer/customers/update_address_book';
 
 
 $route['user/login'] = 'user';

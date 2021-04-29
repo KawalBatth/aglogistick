@@ -61,6 +61,11 @@
 			return true;
 		}
 
+		public function add_booking($data){
+			$this->db->insert('additional_details', $data);
+			return true;
+		}
+
 		public function add_booking_data($data){
 			$this->db->insert('shipment', $data);
 			return true;
@@ -84,6 +89,14 @@
 		public function add_customers($data){
 			
 			$this->db->insert('customers', $data);
+			
+			return true;
+		}
+
+
+		public function save_margin($data){
+			
+			$this->db->insert('margin', $data);
 			
 			return true;
 		}
@@ -259,7 +272,8 @@
         else {return $data ='';}
 
 	}
-	public function get_surchargebyid($id, $isdang=null)
+
+	public function get_surchargebyid($id, $isdang=0)
 	{
 		$this->db->select('*');
 		$this->db->from('surcharges_list');
@@ -268,7 +282,7 @@
 			$this->db->where(array('carrier_id'=>$id));			
 			}
 		else {
-			$this->db->where(array('carrier_id'=>$id,'is_dangerous'=>$isdang));		
+			$this->db->where(array('carrier_id'=>$id,'surcharge_name'=>'fuel surcharge'));		
 		}
 		return $query = $this->db->get()->result_array();
 			
@@ -304,6 +318,13 @@
 		$this->db->from('star_services');
 		$this->db->where('id',$service_type_Id);
 		return $query = $this->db->get()->row();
+	}
+	
+	public function update_address_data($data,$address_id)
+	{
+		$this->db->where('id', $address_id);
+		$this->db->update('address_book', $data);		
+		return true;
 	}
 }
 

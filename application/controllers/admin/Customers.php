@@ -101,7 +101,7 @@
 				'customer_id'=>$customerId,
 				//'webshipId'=>$webshipId,
 				'user_name' => $this->input->post('username'),
-				'password' => base64_encode($this->input->post('userpassword')),
+				'password' => md5($this->input->post('userpassword')),
 				'language' => $this->input->post('language'),
 				'allowExportAddressBook' => $allowExport,
 				'isRequireChangePassword' => $isRequire,
@@ -148,7 +148,8 @@
 				//'webshipId' =>$webshipId,
 				'customer_id' =>$customerCode,
 				'user_name'=>$username,
-				'password'=>base64_encode($userpassword),
+				//'password'=>base64_encode($userpassword),
+				'password'=>md5($userpassword),
 				'language'=>$language,
 				'allowExportAddressBook'=>$allowExport,
 				'isRequireChangePassword'=>$isRequire
@@ -180,12 +181,7 @@
 				
             }
 
-			public function get_fix_rates()
-           {	
-		         $id = $this->input->post('service_type');	
-		         $data=  $this->auth_model->get_fix_rates($id);
-	        	echo json_encode($data);
-            }
+			
 
        public function delUser($id = 0){
 
@@ -250,7 +246,15 @@
 			$other2Phone = $this->input->post('other2Phone');
 			$other2Email = $this->input->post('other2Email');
 			$notes = $this->input->post('note');
+			//$rateMargin = $this->input->post('margin_rate');
 			//$followUpDate = $this->input->post('followUpDate');
+			/*$userfile = $this->input->post('userImage');	
+			$config['upload_path']          = './public/dist/img/';
+                $config['allowed_types']        = 'gif|jpg|png';
+                $config['max_size']             = 100;
+                $config['max_width']            = 1024;
+                $config['max_height']           = 768;
+                $this->load->library('upload', $config);*/
 			//$userfile = $_FILES['userImage'];	
 			
 			$userfile = "";
@@ -263,7 +267,6 @@
 				$userfile = $folderPath . uniqid() . '.png';
 				file_put_contents($userfile, $image_base64);
 			}
-
 			$dataforsave = array(
 				'customer_id'=>$customerCode,
 				'customerName'=>$customerName,
@@ -306,7 +309,8 @@
 				'other_phone3'=>$other2Phone,
 				'other_email3'=>$other2Email,
 				'notes'=>$notes,
-				'image'=>$userfile,
+				//'image'=>$userfile,
+				//'fixed_5kg_margin'=>$rateMargin,
 				//'followUpDate'=>$followUpDate,
 				
           	);
@@ -326,6 +330,7 @@
 					//'webshipId' =>$webshipId,
 					'customer_id' =>$customerCode,
 					'user_name'=>'AGL'.$number,
+					//'password'=>base64_encode('Admin@123'),
 					'password'=>md5('Admin@123'),
 					'language'=>'english',
 					'allowExportAddressBook'=>'0',
@@ -378,8 +383,25 @@
 		
 		} */
 		
+		public function add_margin()
+		{
+			
+			$customerCode = $this->input->post('customerCode');	
+			$service_name = $this->input->post('service_name');	
+			$rate_margin = $this->input->post('rate_margin');	
+			
 
-	
+			$array = array(
+			    'customer_id' =>$customerCode,
+				'service_name'=>$service_name,
+			    'margin'=>$rate_margin,
+				
+			 );
+			$this->user_model->save_margin($array);
+			redirect('admin/customers/customer_manage?id='.$customerCode);
+  }
+
+
 		
 	
 	

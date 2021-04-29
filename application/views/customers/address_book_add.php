@@ -13,7 +13,6 @@ if(isset($address_id))
 echo @$address_book;*/
 
 ?>
-
 <form id="address_book_add" name="address_book_add">
                 <div class="row">
                     <div class="col-lg-6">
@@ -546,6 +545,11 @@ echo @$address_book;*/
       }
     
   }
+
+  // To disappear a Falsh message
+var timeout = 2000; // in miliseconds (3*1000)
+$('.alert').delay(timeout).fadeOut(300);
+
 </script>
 <style>
 .ui-widget-content {
