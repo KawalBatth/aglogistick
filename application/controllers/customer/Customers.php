@@ -280,14 +280,26 @@
 				$rc_statecode    = $returndata['shipmentPage.receiverAddress.state'];
 				$rcv_city        = $returndata['shipmentPage.receiverAddress.city'];
 				$service_type_Id = $returndata['shipmentPage.shipmentTypeId'];
-				
-				$get_surcharge =  $this->user_model->get_surchargebyid($returndata['shipmentPage.serviceId'],$returndata['isdangerous']);
+				$service_Id      = $returndata['shipmentPage.serviceId'];
+			    $isdang         = $returndata['isdangerous'];
+
+			//	$sender_company_name = $returndata['shipmentPage.senderAddress.companyName'];
+			//	$sender_phone = $returndata['shipmentPage.senderAddress.phone'];
+			//	$sender_isSave = $returndata['shipmentPage.isSaveSenderAddressBook'];
+				//$sender_address = $returndata['shipmentPage.senderAddress.address'];
+
+			//	$receiver_company_name = $returndata['shipmentPage.receiverAddress.companyName'];
+			//	$receiver_contact_name = $returndata['shipmentPage.receiverAddress.contactName'];
+			//	$receiver_phone = $returndata['shipmentPage.receiverAddress.phone'];
+				//$receiver_isSave = $returndata['shipmentPage.isSaveRecipientAddressBook'];
+
+				$get_surcharge =  $this->user_model->get_surchargebyid($service_Id,$isdang);
 				$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 				$get_rcv_zone  =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 				$fixed_price   =  $this->user_model->get_fix_rate($service_type_Id);
 				$get_base_rate =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);
 				
-				$data['get_carrier']   =  $this->user_model->get_carrierbyid($returndata['shipmentPage.serviceId']);
+				$data['get_carrier']   =  $this->user_model->get_carrierbyid($service_Id);
 				$data['get_service']   =  $this->user_model->get_servicebyid($service_type_Id);
 				$data['result']    = $returndata;
 				$data['surcharge'] = array('base_charge'=>$get_base_rate,'fixed_price'=>$fixed_price,'charges'=>$get_surcharge);
@@ -314,150 +326,6 @@
 			redirect(base_url('customers/address_book'), 'refresh');
 			
 		}
-		/*public function continue_booking_new()
-		{
-			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			$str = urldecode($this->input->post('data'));
-			$returndata = array();
-    		$strArray = explode("&", $str);
-    		$i = 0;
-    		foreach ($strArray as $item) {
-        		$array = explode("=", $item);
-        		$returndata[$array[0]] = $array[1];
-    		}
-
-	$senderCompany = $returndata['companyName'];
-    $senderPhone = $returndata['phone']; 
-    $senderContact = $returndata['contactName']; 
-    $senderEmail = $returndata['email'];
-    $senderCountry = $returndata['country'];  
-    $senderAddress = $returndata['address'];  
-    $senderaddress2 = $returndata['address2'];  
-    $senderAddress3 = $returndata['address3']; 
-	$isSaveSenderAddressBook = $returndata['isSaveSenderAddressBook']; 
-	$residentialPickup = $returndata['residentialPickup']; 
-    $senderAlternateUserName = $returndata['alternateUserName'];  
-    $senderAddressCity = $returndata['city'];  
-    $senderPostalCode = $returndata['postalCode'];  
-    $senderState = $returndata['state'];  
-	$receivercompanyName = $returndata['receiverCompanyName'];  
-	$receiverPhone = $returndata['receiverphone'];  
-    $receivercontactName = $returndata['receivercontactName'];  
-    $receiverEmail = $returndata['receiveremail'];  
-	$receiverCountry  = $returndata['receivercountry']; 
-    $receiverAddress  = $returndata['receiverAddress']; 
-	$receiverAddress2  = $returndata['receiverAddress2'];  
-    $receiverAddress3  = $returndata['receiverAddress3'];  
-	$isSaveRecipientAddressBook = $returndata['isSaveRecipientAddressBook'];
-	$residentialDelivery = $returndata['residentialDelivery']; 
-    $receiverAddressCity  = $returndata['receivercity'];  
-	$receiverpostalCode = $returndata['receiverpostalCode'];  
-    $receiverState = $returndata['receiverstate'];  
-	$ShippingDate = $returndata['shipping_date'];
-	$serviceId = $returndata['serviceId'];  
-    $shipmentTypeId = $returndata['shipmentTypeId']; 
-    $packageId = $returndata['packageId']; 
-    $contentType = $returndata['contentType'];  
-    $weightUnit = $returndata['weightUnit'];  
-    $dimensionUnit = $returndata['dimensionUnit'];  
-    $currencyCode = $returndata['currencyCode'];  
-    //$weight = $returndata['shipmentPage.pieces.weight'];  
-    $weight = $returndata['total_weight'];
-	$dimensionL = $returndata['dimensionL1'];  
-    $dimensionW = $returndata['dimensionW1'];  
-    $dimensionH = $returndata['dimensionH1'];
-    //$returndata['get_volume'];  
-	//$quantity = $returndata['shipmentPage.pieces.quantity1'];  
-	$quantity = $returndata['final_total']; 
-	$isDangerous = $returndata['isdangerous']; 
-    //$returndata['shipmentPage.isAddPiece'];  
-	//$addCons = $returndata['value'];  
-    $addConName = $returndata['dangerName'];  
-    $addConCode = $returndata['dangerCode'];  
-    $addConDetailName = $returndata['dangerDetailName'];  
-    $addConDetailCode = $returndata['dangerDetailCode'];  
-    $addConValue = $ $returndata['dangerNumber'];  
-    $packName = $returndata['packDetailName'];  
-    $packCode = $returndata['packDetailCode'];  
-    $packValue = $returndata['packValue'];  
-    $danMsg = $returndata['packName'];  
-    $danMsgCode = $returndata['packCode'];  
-    $danMsgValue = $returndata['packMsg'];  
-	$authorityValue = $returndata['authorityValue']; 
-    $authorityName = $returndata['authorityName']; 
-    $authorityCode = $returndata['authorityCode']; 
-    $authorityLeave = $returndata['authorityQuestion'];  
-    $leaveName = $returndata['authorityCode'];  
-    $leaveValue = $returndata['authorityAnswer']; 
-  
-
-         $shipData = array(
-				//'customer_id'=>$customerCode,
-				'sender_company'=>$senderCompany,
-				'sender_phone'=>$senderPhone,
-				'sender_contact_name'=>$senderContact,
-				'sender_email'=>$senderEmail,
-				'sender_country'=>$senderCountry,
-				'sender_address'=>$senderAddress ." ".$$senderaddress2 ." ".$senderAddress3,
-				'sender_save_address_book'=>$isSaveSenderAddressBook,
-			    'sender_residence'=>$residentialPickup,
-				'sender_alt_name'=>$senderAlternateUserName,
-				'sender_city'=>$senderAddressCity,
-				'sender_postal_code'=>$senderPostalCode,
-				'sender_state'=>$senderState,
-				'receiver_company'=>$receivercompanyName,
-				'receiver_phone'=>$receiverPhone,
-				'receiver_contact_name'=>$receivercontactName, 
-                'receiver_email'=>$receiverEmail,
-				'receiver_country'=>$receiverCountry,
-				'receiver_address'=>$receiverAddress,
-				'receiver_address1'=>$receiverAddress2,
-				'receiver_address2'=>$receiverAddress3,
-				'receiver_save_address'=>$isSaveRecipientAddressBook,
-				'receiver_residence'=>$residentialDelivery,
-				'receiver_city'=>$receiverAddressCity,
-				'receiver_postal_code'=>$receiverpostalCode,
-				'receiver_state'=>$receiverState,
-				'shipping_date'=>$ShippingDate,
-				'service_type'=>$serviceId,
-				'carrier_name'=>$shipmentTypeId,
-				'package_type'=>$packageId,
-				'contents'=>$contentType,
-				'weight_unit'=>$weightUnit,
-				'dimension_unit'=>$dimensionUnit,
-				'currency'=>$currencyCode,
-				'weight'=>$weight,
-				'length'=>$dimensionL,
-				'width'=>$dimensionW,
-				'height'=>$dimensionH,
-				'quantity'=>$quantity,
-				'dangerous_goods'=>$isDangerous,
-				'addConName'=>$addConName, 
-				'addConCode'=>$addConCode,
-				'addConDetailName'=>$addConDetailName, 
-				'addConDetailCode'=>$addConDetailCode,
-				'addConValue'=>$addConValue, 
-				'packName'=>$packName, 
-				'packCode'=>$packCode, 
-				'packValue'=>$packValue, 
-				'danMsg'=>$danMsg,
-				'danMsgCode'=>$danMsgCode, 
-				'danMsgValue'=>$danMsgValue, 
-				'leaveValue'=>$authorityValue,
-				'authorityName'=>$authorityName, 
-				'authorityCode'=>$authorityCode, 
-				'authorityLeave'=>$authorityLeave, 
-				'leaveName'=>$leaveName, 
-				'leavemsg'=>$leaveValue,
-				
-
-			);
-			//$this->user_model->save_shipment($str,$this->session->userdata('customer_user_id'));
-			$this->auth_model->save_shipment($shipData);
-    		//print_r($returndata);
-    			
-		}*/
-
 		
 
 		public function add_shipment()

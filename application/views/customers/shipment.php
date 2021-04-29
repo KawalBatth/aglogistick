@@ -109,7 +109,7 @@
 												
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input name="shipmentPage.isSaveSenderAddressBook" value="0" tabindex="5" type="checkbox" onclick="checkSavaAddressBook('shipmentPage.isSaveSenderAddressBook')">
+                                                    <label class="fw0"> <input name="shipmentPage.isSaveSenderAddressBook" value="0" tabindex="5" type="checkbox">
                                                         &nbsp; Save to Address Book
                                                     </label>
                                                 </div>
@@ -524,7 +524,7 @@
 												<div class="col-md-6"></div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input name="shipmentPage.isSaveRecipientAddressBook" value="0" tabindex="5" type="checkbox" onclick="checkSavaAddressBook('shipmentPage.isSaveRecipientAddressBook')">
+                                                    <label class="fw0"> <input name="shipmentPage.isSaveRecipientAddressBook" value="0" tabindex="5" type="checkbox">
                                                         &nbsp; Save to Address Book
                                                     </label>
                                                 </div>
@@ -728,9 +728,9 @@
                                                                         
                                                                         
                                                                         <div style="width: 100%;text-align: center;padding-left: 25px;padding-right: 25px">
-                                                                            <span style="float: left">L*</span>
-                                                                            <span style="float: none">W*</span>
-                                                                            <span style="float: right">H*</span>
+                                                                        <span class="length">L*</span>
+                                                                            <span class="width">W*</span>
+                                                                            <span class="height">H*</span>
                                                                         </div>
                                                                     
                                                                 </th>
@@ -748,7 +748,7 @@
                                                             <tr id="addr" class="calculation visible">
                                                             <td class="sno">1</td>
                                                                 
-                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value="">
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" id="shipment-weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value="">
                                                                      <input type="hidden" name="service_kg" id="service_kg" value="">
                                                                 </td>
                                                                 <td width="40%">
@@ -1050,15 +1050,8 @@
                                                                   <button class="btn s33" type="button" onclick="continuewbooking()">
                                                                      Continue Booking
                                                                 </button>
-                                                                    <!--button class="btn s33" type="button" onclick="continuewbookingnew()">
-                                                                     Continue Booking
-                                                                </button-->
-                                                           
-                                                           
-                                                                
-                                                               
-                                                            
-                                                        </div>
+                                                          
+                                                            </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1351,6 +1344,24 @@ function continuewbooking()
            $("input[name='isdangerous']").val(0);        
         }
     });
+
+    $("input[name='shipmentPage.isSaveSenderAddressBook']").change(function() {
+        if(this.checked) {
+        $("input[name='shipmentPage.isSaveSenderAddressBook']").val(1);        
+        }
+        else {
+           $("input[name='shipmentPage.isSaveSenderAddressBook']").val(0);        
+        }
+    });
+
+    $("input[name='shipmentPage.isSaveRecipientAddressBook']").change(function() {
+        if(this.checked) {
+        $("input[name='shipmentPage.isSaveRecipientAddressBook']").val(1);        
+        }
+        else {
+           $("input[name='shipmentPage.isSaveRecipientAddressBook']").val(0);        
+        }
+    });
     
  function saveqoute()
 {
@@ -1482,7 +1493,7 @@ function openForm() {
 				html +='<tr>';
 						html +='<td class="td1">Base Charge</td>';
 						html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
-					 // html +='<td class="td2">$ '+total+'</td>';
+					   // html +='<td class="td2">$ '+total+'</td>';
 						html +='</tr>';
 
 				$.each(result.charges, function(k, v) {
@@ -1508,6 +1519,7 @@ function openForm() {
 				html +='</tr>';
                 if(weight >get_volume_input)
                         {
+                              
 				html +='<tr>';
 						html +='<td class="td1">Total weight</td>';
 						html +='<td class="td2 totalweight">'+weight+'kg(s)</td>';
@@ -1529,6 +1541,7 @@ function openForm() {
 				html +='<tr>';
 						html +='<td class="td1"><b>Total Charge</b></td>';
 						html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
+                      //  html +='<td class="td2">$ '+total+'</td>';
 				html +='</tr>';
 				html +='<tr>';
 						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
@@ -1628,7 +1641,8 @@ var numRows = 1, ti = 5;
 				//dateTotal = (dateTotal * q);
 				lt += isNumber(q) ? parseInt(q, 10) : 0;
 				tt += isNumber(dateTotal) ? dateTotal : 0;
-				weight_total += isNumber(w) ? parseInt(w, 10) : 0;
+				weight_total += isNumber(w) ? parseFloat(w, 10) : 0;
+                
                  var kg= $('#service_kg').val();
                 console.log('kg'+kg);
                 if(w)
@@ -1655,12 +1669,13 @@ var numRows = 1, ti = 5;
 
 		     	$("#final_total").html(lt);
 		    	$("#total_weight").html(weight_total.toFixed(2));
-                var wght= weight_total.toFixed(2);
+                var wght= weight_total;
 
 
 		    	$("#get_volume").html(tt.toFixed(3));
 			    $("#final_total_input").val(lt);
 			    $("#total_weight_input").val(weight_total.toFixed(2));
+               //$("#total_weight_input").val(weight_total);
 			    $("#get_volume_input").val(tt.toFixed(3));
 		}
 
@@ -1669,7 +1684,7 @@ var numRows = 1, ti = 5;
 		function addRow() 
 		{
 
-    	$('#addr' + numRows).html("<td class='sno'>1</td><td width='10%'><input type='number' name='shipmentPage.pieces.weight1' maxlength='6' value='' required id='shipment-info-form_shipmentPage_pieces_0__weight' class='form-control alloptions weight' onkeypress='return isNum(event)' oninput='maxLengthCheck(this)' min='1'></td><td width='40%'><div class='row mg0'><div class='col-lg-4 pd1'> <input type='text' name='shipmentPage.pieces.dimensionL1' required class='form-control alloptions dimL length' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionW1' value='' required class='form-control alloptions dimW width' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionH1' value='' required class='form-control alloptions dimH height' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1' ></div></div></td> <td><input type='text' name='shipmentPage.pieces.quantity1' value='1' id='shipment-info-form_shipmentPage_pieces_0__quantity' class='form-control quantity' required onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='10' min='1'></td><td><input type='button' value='&times;' class='del'></td>");
+    	$('#addr' + numRows).html("<td class='sno'>1</td><td width='10%'><input type='number' name='shipmentPage.pieces.weight1' maxlength='6' value='' required id='shipment-weight' class='form-control alloptions weight' onkeypress='return isNum(event)' oninput='maxLengthCheck(this)' min='1'></td><td width='40%'><div class='row mg0'><div class='col-lg-4 pd1'> <input type='text' name='shipmentPage.pieces.dimensionL1' required class='form-control alloptions dimL length' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionW1' value='' required class='form-control alloptions dimW width' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionH1' value='' required class='form-control alloptions dimH height' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1' ></div></div></td> <td><input type='text' name='shipmentPage.pieces.quantity1' value='1' id='shipment-info-form_shipmentPage_pieces_0__quantity' class='form-control quantity' required onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='10' min='1'></td><td><input type='button' value='&times;' class='del'></td>");
 
         $('#piece-table tr:last').after('<tr id="addr' + (numRows + 1) + '" class="calculation visible"></tr>');
 			numRows++;
@@ -1739,6 +1754,12 @@ function changeShipmentType(shipmentTypeId, texthtml) {
     });
     recalc();
     
+}
+
+
+document.getElementById('shipment-weight').onchange = function(){
+      if(this.value > 5000)
+          alert('The maximum allowed weight is 5000Kg');
 }
 
 document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("change", 

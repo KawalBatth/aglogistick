@@ -270,7 +270,7 @@
 
 	}
 
-	public function get_surchargebyid($id, $isdang=0)
+	public function get_surchargebyid($id, $isdang=null)
 	{
 		$this->db->select('*');
 		$this->db->from('surcharges_list');
