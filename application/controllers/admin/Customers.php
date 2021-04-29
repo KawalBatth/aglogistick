@@ -82,6 +82,7 @@
 		
 		public function update_user()
         {
+			
             $user_id = $this->input->post('user_id');
             $customerId = $this->input->post('customerId'); 
             //$webshipId = $this->input->post('webshipId');
@@ -102,6 +103,7 @@
 				//'webshipId'=>$webshipId,
 				'user_name' => $this->input->post('username'),
 				'password' => md5($this->input->post('userpassword')),
+				'plain_password' => $this->input->post('userpassword'),
 				'language' => $this->input->post('language'),
 				'allowExportAddressBook' => $allowExport,
 				'isRequireChangePassword' => $isRequire,
@@ -150,6 +152,7 @@
 				'user_name'=>$username,
 				//'password'=>base64_encode($userpassword),
 				'password'=>md5($userpassword),
+				'plain_password'=>$userpassword,
 				'language'=>$language,
 				'allowExportAddressBook'=>$allowExport,
 				'isRequireChangePassword'=>$isRequire
@@ -332,6 +335,7 @@
 					'user_name'=>'AGL'.$number,
 					//'password'=>base64_encode('Admin@123'),
 					'password'=>md5('Admin@123'),
+					'plain_password'=>'Admin@123',
 					'language'=>'english',
 					'allowExportAddressBook'=>'0',
 					'isRequireChangePassword'=>'0'

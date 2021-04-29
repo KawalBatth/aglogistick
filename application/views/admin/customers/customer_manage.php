@@ -289,7 +289,7 @@ if(isset($submit_id))
       </div>
       
       <div class="modal-body">
-        <?php echo form_open(base_url('admin/update_user'), 'id="update_user_form" '); ?>
+      <?php echo form_open(base_url('admin/update_user'), 'id="update_user_form" '); ?>
       <input type="hidden" name="customerId" value="<?php echo $submit_id;?>" id="customerId">
       <input type="hidden" name="webshipId" value="" id="webshipId">      
       <input type="hidden" name="user_id" value="" id="user_id">     
@@ -4777,8 +4777,8 @@ if(isset($submit_id))
                                               
                                               <tr class="on-click" data-accessorialid="<?php echo $users[$i]['id'];?>">
                                                         <td><?php echo @$customer_data->customer_id; ?></td>
-                                                         <td><?php echo $users[$i]['user_name'];?></td>
-                                                        <td><?php echo base64_decode($users[$i]['password']);?></td>
+                                                        <td><?php echo $users[$i]['user_name'];?></td>
+                                                        <td><?php echo $users[$i]['plain_password'];?></td>
                                                         <td><?php echo $start; ?></td>
                                                         <td><button type="button" class="btn remove"> Delete</button> </td>
                                                     </tr>
@@ -5021,7 +5021,7 @@ $(".remove").click(function(){
     $('#editModal').modal('show');
     var user_id = $('.selected-row').attr('data-accessorialid');    
     $.ajax({
-               url: '<?php echo base_url('admin/get_c_user_by_id')?>',
+               url: "<?php echo base_url('admin/get_c_user_by_id')?>",
                type: 'POST',
                data:{user_id:user_id},
                error: function() {
@@ -5033,7 +5033,7 @@ $(".remove").click(function(){
                 var username = data.user_name;
                 var userid = data.id;
                 var webshipId = data.webshipId;
-                var userpassword = atob(data.password);
+                var userpassword = data.plain_password;
                 var language = data.language;
                 var allowExportAddressBook = data.allowExportAddressBook;
                 var isRequireChangePassword = data.isRequireChangePassword;

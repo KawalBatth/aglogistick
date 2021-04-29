@@ -174,7 +174,6 @@
 		
 		public function change_password()
 		{
-			
             $this->load->library('form_validation');
 			$this->form_validation->set_rules('oldPassword','Old Password','trim|required');
 			$this->form_validation->set_rules('newPassword', 'New Password', 'trim|required');
@@ -186,14 +185,15 @@
 			}else{
 				// Update Data
 				$data = array(
-					'password' => base64_encode($this->input->post('newPassword')),
+					'password' => md5($this->input->post('newPassword')),
+					'plain_password' => $this->input->post('newPassword'),
 					//'update_date' => time()
 				);
 
 				// Check Old {Password}
 
-				$result = $this->user_model->checkOldPassword($this->session->userdata('customer_user_id'),$this->input->post('oldPassword'));				
-				if($result > 0 AND $result === true ){
+				$result = $this->user_model->checkOldPassword($this->session->userdata('customer_user_id'),$this->input->post('oldPassword'));		
+				if($result > 0 || $result === true ){
 						$this->session->set_flashdata('success_msg', 'User Password Changed.');
 						$results = $this->user_model->set_message($this->session->userdata('customer_user_id'), $data);
 					// updata user data

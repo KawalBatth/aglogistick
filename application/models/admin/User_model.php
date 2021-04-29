@@ -20,15 +20,12 @@
 			$query = $this->db->get_where('user', array('user_name' => $data['name']));
 			if ($query->num_rows() == 0){
 				return false;
-			}
-			else{
-
+			}else{
 				$result = $query->row_array();
 			    $validPassword = MD5($data['password'])== $result['password'];
 			    if($validPassword){
 			        return $result = $query->row_array();
 			    }
-				
 			}
 		}
 		public function change_pwd($data, $id){
@@ -146,7 +143,7 @@
 
 		public function checkOldPassword($user_id, $oldPassword)
 		{
-		    $this->db->where(array('id' =>$user_id,'password'=> base64_encode($oldPassword)));
+		    $this->db->where(array('id' =>$user_id,'password'=> md5($oldPassword)));
 		    $query=$this->db->get('user');
 			$row  = $query->row_array();
 			if(empty($row))
