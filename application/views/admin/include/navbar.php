@@ -693,7 +693,13 @@ td.price {
     margin-bottom: 19px;
 }
 
+div#address-tab {
+    font-weight: 500;
+}
 
+.alert-dismissible{
+    display: none !important;
+}
 
 
     </style>
@@ -731,7 +737,7 @@ td.price {
       else 
       {
         ?>
-        <li id="nav-li"><a  id="nav-a" href="<?php echo base_url('admin/logout'); ?>" class="logout">Log out</a></li>
+        <li id="nav-li"><a  id="nav-a" href="<?php echo base_url('user/logout'); ?>" class="logout">Log out</a></li>
         <?php }?>
                 <li id="nav-li"><a id="nav-a" href="<?php echo base_url('admin/auth/change_pwd'); ?>" class="update">Update</a></li>
             </ul>

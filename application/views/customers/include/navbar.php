@@ -542,7 +542,7 @@ input#btnExport {
     margin-top: -4px;
 }*/
 
-div .myForm {
+div .quote-form {
     width: 45%;
     /* height: 81%; */
 }

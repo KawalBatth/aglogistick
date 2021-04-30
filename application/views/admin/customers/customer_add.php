@@ -399,7 +399,7 @@
                             <td class="td1" data-label="Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><select name="country" id="address_address_country" required="required" class="form-control uppercase" data-group="address">
     <option value="0">Select a country</option>
-    <option value="12">Australia</option>
+    <option value="Australia">Australia</option>
 </select>
 
 </td>
@@ -415,7 +415,7 @@
                         <tr>
                             <td class="td1" data-label="Phone">Phone:<span class="s30">*</span></td>
                             <!--td class="td2" colspan="2"><input type="text" name="phone" value="" id="address_address_phone" class="form-control uppercase" data-group="address"></td-->
-                         <td> <input type="tel" name="phone" value="" pattern="08\d{8}" id="address_address_phone" required="required" class="form-control uppercase" data-group="address" maxlength="10"> </td>
+                         <td> <input type="tel" name="phone" value="" pattern="08\d{8}" id="address_address_phone" required="required" class="form-control uppercase" data-group="address" maxlength="12"> </td>
                     
                         
                         </tr>
@@ -428,8 +428,8 @@
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Email">Email:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="email" name="email" value="" required="required" id="address_address_email" class="form-control" data-group="address"></td>
+                            <td class="td1" data-label="Email">Email:</td>
+                            <td class="td2" colspan="2"><input type="email" name="email" value="" id="address_address_email" class="form-control" data-group="address"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
@@ -484,7 +484,7 @@
                             <td class="td1" data-label="Billing Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2"><select name="billingCountry" required="required" id="address_billingAddress_billingCountry" class="form-control uppercase" data-group="billing-address" readonly="readonly">
                                     <option value="0">Select a country</option>
-                                    <option value="12">Australia</option>
+                                    <option value="Australia">Australia</option>
                                </select>
 
                              </td>
@@ -499,7 +499,7 @@
                         </tr>
                         <tr>
                             <td class="td1" data-label="Billing Phone">Phone:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" name="billingPhone" required="required" value="" id="address_billingAddress_billingPhone" class="form-control uppercase" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td2" colspan="2"><input type="text" name="billingPhone" required="required" pattern="08\d{8}" value="" id="address_billingAddress_billingPhone" class="form-control uppercase" data-group="billing-address" readonly="readonly" maxlength="12"></td>
                         </tr>
                         <tr>
                             <td class="td1">Fax:</td>
@@ -510,8 +510,8 @@
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Billing Email">Email:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" required="required" name="billingEmail" value="" id="address_billingAddress_billingEmail" class="form-control" data-group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing Email">Email:</td>
+                            <td class="td2" colspan="2"><input type="text" name="billingEmail" value="" id="address_billingAddress_billingEmail" class="form-control" data-group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
@@ -1340,6 +1340,17 @@ foreach($services as $key => $value)
             }
         }
     }
+
+
+    $(document).ready(function () {
+            $("#add_customer_form").submit(function () {
+                window.localStorage['rate_margin_val'] = $("input[name = 'rate_margin']").val();
+            });
+            $(window).load(function () {
+                $("input[name = 'rate_margin']").val(window.localStorage['rate_margin_val']);
+                window.localStorage['rate_margin_val'] = '';
+            });
+        });
 
    /* function validate()
 {

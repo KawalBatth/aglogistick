@@ -132,14 +132,20 @@
 			$this->db->update('ci_users', $data);
 			return true;
 		}
+		
 		public function get_address($keyword)
 		{
 			$this->db->limit(5);
 			return $return = $this->db->select('*')->from('recent_postcode')->where("suburb LIKE '%$keyword%'")->get()->result_array();
-
-
-
 		}
+
+
+		public function get_receiver_data($keyword)
+		{
+			$this->db->limit(5);
+			return $return = $this->db->select('*')->from('address_book')->where("suburb LIKE '%$keyword%'")->get()->result_array();
+		}
+
 
 		public function checkOldPassword($user_id, $oldPassword)
 		{

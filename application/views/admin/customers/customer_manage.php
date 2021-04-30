@@ -240,12 +240,12 @@ if(isset($submit_id))
     <div class="form-group">
       
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="username" maxlength="25" value="" required id="webship_name" pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$" required class="form-control alloptions">
-       <p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p>
+        <input type="text" name="username" maxlength="25" value="" required id="webship_name" required class="form-control alloptions">
+       <!--p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p-->
     </div>
     <div class="form-group">
         <label>Password:<span class="s30">*</span></label> 
-        <input name="userpassword" type="password" required pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" value="" class="form-control alloptions" maxlength="25">
+        <input name="userpassword" type="password" required pattern="^(?=(.*[a-z]){0,})(?=(.*[A-Z]){0,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){0,}).{8,}$" value="" class="form-control alloptions" maxlength="25">
         <p class="password">Note: Password should contains minimum 8 characters with at least 1 alphabet and 1 number.</p>
     </div>
     <div class="form-group">
@@ -298,12 +298,12 @@ if(isset($submit_id))
     <div class="form-group">
         
         <label>Alternate User :<span class="s30">*</span></label>
-        <input type="text" name="username" required maxlength="25" value="" pattern="^(?=(.*[A-Z]){3})(?=(.*[0-9]){3}).{6}$" id="username"  class="form-control alloptions">
-        <p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p>
+        <input type="text" name="username" required maxlength="25" value="" id="username"  class="form-control alloptions">
+        <!--p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p-->
     </div>
     <div class="form-group">
       
-        <label>Password:<span class="s30">*</span></label> <input name="userpassword"  required type="text" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" value="" id="userpassword" class="form-control alloptions" maxlength="25">
+        <label>Password:<span class="s30">*</span></label> <input name="userpassword"  required type="text" pattern="^(?=(.*[a-z]){0,})(?=(.*[A-Z]){0,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){0,}).{8,}$" value="" id="userpassword" class="form-control alloptions" maxlength="25">
     <p class="password">Note: Password should contains minimum 8 characters with at least 1 alphabet and 1 number.</p>
     </div>
     <div class="form-group">
@@ -634,7 +634,7 @@ if(isset($submit_id))
                             <td class="td2" colspan="2">
                             <select name="country" required="required" id="saveManageCustomer_customerAddress_address_country" class="form-control uppercase" group="address">
                                    <option value="0">Select a Country</option>
-                                    <option value="12" selected="selected">Australia</option>
+                                    <option value="Australia" selected="selected">Australia</option>
 
                             </select>
 
@@ -744,8 +744,8 @@ if(isset($submit_id))
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Billing Email">Email:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" required="required" name="billingEmail" value="<?php echo @$customer_data->billing_email;?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing Email">Email:</td>
+                            <td class="td2" colspan="2"><input type="text" name="billingEmail" value="<?php echo @$customer_data->billing_email;?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
@@ -4150,7 +4150,7 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                    <input type="text" name="margin_rate" maxlength="25" value="00.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
+                                                                    <input type="text" name="margin_rate" maxlength="25" value="00.00" id="margin_rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75" onchange='saveValue(this);'>
                                                                 
                                                                 
                                                             </div>
@@ -4978,7 +4978,7 @@ $(".remove").click(function(){
         {
             $.ajax({
 
-              url: 'customers/delUser/'+id,
+              url: 'delUser/'+id,
                type: 'DELETE',
                error: function() {
                   alert('Something is wrong');
@@ -5777,6 +5777,7 @@ $(".remove").click(function(){
         alertDialog.dialog("close");  
         $.ajax({
                url: 'customers/add_customer',
+             //  url: 'add_customer',
                type: 'POST',
                data:formdata,
                error: function() {
@@ -5790,6 +5791,29 @@ $(".remove").click(function(){
           });
       }
     }
+
+
+
+    document.getElementById("margin_rate").value = getSavedValue("margin_rate");    // set the value to this input
+     //   document.getElementById("txt_2").value = getSavedValue("txt_2");   // set the value to this input
+        /* Here you can add more inputs to set value. if it's saved */
+
+        //Save the value function - save it to localStorage as (ID, VALUE)
+        function saveValue(e){
+            var id = e.id;  // get the sender's id to save it . 
+            var val = e.value; // get the value. 
+            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+        }
+
+        //get the saved value function - return the value of "v" from localStorage. 
+        function getSavedValue  (v){
+            if (!localStorage.getItem(v)) {
+                return "";// You can change this to your defualt value. 
+            }
+            return localStorage.getItem(v);
+           // location.reload();
+        }
+
 
     function optionShowAll() {
         if ($("#chk_option_all").is(":checked")) {

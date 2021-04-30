@@ -171,6 +171,15 @@
 			$data['address'] = $this->user_model->get_address($cityname);
 			echo json_encode($data['address']);
 		}
+
+
+		public function get_receiver()
+		{
+			$companyName = $this->input->post('keyword');	
+			$data['receiver'] = $this->user_model->get_receiver_data($companyName);
+			echo json_encode($data['receiver']);
+		}
+
 		
 		public function change_password()
 		{
