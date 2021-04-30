@@ -92,9 +92,14 @@
 
 
 		public function save_margin($data){
-			
-			$this->db->insert('margin', $data);
-			
+			$this->db->insert('customer_margin', $data);
+			return true;
+		}
+		
+		public function update_margin($data,$customer_id)
+		{
+			$this->db->where('customer_id', $customer_id);
+			$this->db->update('customer_margin', $data);
 			return true;
 		}
 

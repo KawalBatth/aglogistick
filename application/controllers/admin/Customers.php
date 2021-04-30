@@ -41,19 +41,16 @@
 		{
 			if($this->session->has_userdata('is_admin_login'))
 			{
+				$data['data']     = $this->auth_model->get_customer();
+				$data['users']    = $this->auth_model->get_users();
+				$data['services'] = $this->auth_model->get_services();
+				$data['margin']   = $this->auth_model->get_margin($_GET['id']);
+				$data['view']     = 'admin/customers/customer_manage';
+				$this->load->view('admin/layout', $data);
 
-			$data['data']=$this->auth_model->get_customer();
-			$data['users'] =  $this->auth_model->get_users();
-			$data['services'] =  $this->auth_model->get_services();
-			$data['view'] = 'admin/customers/customer_manage';
-			$this->load->view('admin/layout', $data);
-
-		   }		
-		else 
-	    	{	
-			redirect('admin/auth/login');
-	    	}
-
+			} else {	
+				redirect('admin/auth/login');
+			}
 		}
 
 		/*public function customer_manage()
@@ -359,24 +356,23 @@
 			$followUpDate = $this->input->post('followUpDate');	
 			$userfile = $this->input->post('userfile');	
 			$config['upload_path']  = './public/';
-                $config['allowed_types'] = 'gif|jpg|png';
-                $config['max_size'] = 100;
-                $config['max_width'] = 1024;
-                $config['max_height'] = 768;
-                $this->load->library('upload', $config);
-				
-
+			$config['allowed_types'] = 'gif|jpg|png';
+			$config['max_size'] = 100;
+			$config['max_width'] = 1024;
+			$config['max_height'] = 768;
+			$this->load->library('upload', $config);
+		
 			$array = array(
 			    'customer_id' =>$customerCode,
 				'user_notes'=>$note,
 			    'follow_up_date'=>$followUpDate,
 				'image'=>$userfile,
 				'modified_at' => date('Y-m-d : h:m:s'),
-			 );
+			);
 			$this->user_model->save_notes($array, $customerCode);
 			$data['note'] = $this->user_model->get_all_notes($customerCode);
 			redirect('admin/customers/customer_manage?id='.$customerCode);
-  }
+		}
 
 
 		/*public function fetch_notes()
@@ -389,26 +385,33 @@
 		
 		public function add_margin()
 		{
-			
-			$customerCode = $this->input->post('customerCode');	
-			$service_name = $this->input->post('service_name');	
-			$rate_margin = $this->input->post('rate_margin');	
-			
-
-			$array = array(
-			    'customer_id' =>$customerCode,
-				'service_name'=>$service_name,
-			    'margin'=>$rate_margin,
+			$margin_arr = array();
+			if($this->input->post('service_name')){
 				
-			 );
-			$this->user_model->save_margin($array);
-			redirect('admin/customers/customer_manage?id='.$customerCode);
-  }
-
-
-		
-	
-	
+				$check_margin_exist  = $this->auth_model->get_margin($this->input->post('customer_id'));
+				$customer_service_type = $this->input->post('customer_service_type');
+				$margin_rate = $this->input->post('margin_rate');
+				foreach($this->input->post('service_name') as $key=>$service_name){
+					$margin_arr[$key] = array(
+						"service_name"=>$service_name,
+						"customer_service_type"=>$customer_service_type[$key],
+						"margin_rate"=>$margin_rate[$key],
+					);
+				}
+				
+				$data['customer_id'] = $this->input->post('customer_id');
+				$data['origin']      = $this->input->post('starTrackColumnName');
+				$data['margin_rate'] = json_encode($margin_arr);
+					
+				if(!empty($check_margin_exist)){
+					$this->user_model->update_margin($data,$data['customer_id']);
+				}else{
+					$this->user_model->save_margin($data);
+				}
+			}
+			
+			redirect('admin/customers/customer_manage?id='.$data['customer_id']);
+		}
 	}
 
 ?>	

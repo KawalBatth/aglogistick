@@ -167,11 +167,9 @@
 	}
 	public function get_users()
 	{
-			$this->db->select('*');
-			$this->db->from('user');
-			return $query = $this->db->get()->result_array();
-
-			
+		$this->db->select('*');
+		$this->db->from('user');
+		return $query = $this->db->get()->result_array();	
 	}
 
 	public function get_customer_id()
@@ -194,6 +192,14 @@
 	{
 		$this->db->insert('margin',$user);
 		return true;
+	}
+	
+	public function get_margin($customer_id)
+	{
+		$this->db->select('*');
+		$this->db->from('customer_margin');
+		$this->db->where('customer_id',$customer_id);
+		return $query = $this->db->get()->row();
 	}
 }
 

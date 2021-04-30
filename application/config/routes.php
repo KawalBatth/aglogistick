@@ -93,7 +93,6 @@ $route['customer/change_password'] = 'customer/customers/change_password';
 //$route['admin/history'] = 'admin/customers/history';
 //$route['admin/settings'] = 'admin/customers/setting';
 
-$route['admin/add_margin'] = 'admin/customers/add_margin';
 
 
 $route['customer/shipment'] = 'customer/customers/shipment';

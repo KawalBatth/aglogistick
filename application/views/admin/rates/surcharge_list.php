@@ -306,125 +306,177 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
  
-<script type="text/javascript">
-        $("body").on("click", "#btnExport", function () {
-            html2canvas($('#surcharge-list-table')[0], {
-                onrendered: function (canvas) {
-                    var data = canvas.toDataURL();
-                    var docDefinition = {
-                        content: [{
-                            image: data,
-                            width: 650
-                        }]
-                    };
-                    pdfMake.createPdf(docDefinition).download("surcharge_list.pdf");
-                }
-            });
-        });
+	<script type="text/javascript">
+		$("body").on("click", "#btnExport", function () {
+			html2canvas($('#surcharge-list-table')[0], {
+				onrendered: function (canvas) {
+					var data = canvas.toDataURL();
+					var docDefinition = {
+						content: [{
+							image: data,
+							width: 650
+						}]
+					};
+					pdfMake.createPdf(docDefinition).download("surcharge_list.pdf");
+				}
+			});
+		});
 
-    //To show datatable
-    $(document).ready(function() 
-   {
-      $('#surcharge-list-table').DataTable();
-   });
+		//To show datatable
+		$(document).ready(function() 
+		{
+			$('#surcharge-list-table').DataTable();
+		});
 
-
-   
- $(document).ready(function(){  
-      $('#create_excel').click(function(){  
-           var excel_data = $('#surcharge-data').html();  
-           var page = "rates/import_rate?data=" + excel_data;  
-           window.location = page;  
-      });  
- });  
+		/* $(document).ready(function(){  
+			$('#create_excel').click(function(){  
+				var excel_data = $('#surcharge-data').html();  
+				var page = "rates/import_rate?data=" + excel_data;  
+				window.location = page;  
+			});  
+		});  */ 
 
 
- 
-    //To add and delete dynamic row in add surcharges Modal
-   /* var tbl = $("#dataTable");
-    $("#addRowBtn").click(function(){
-        $("<tr><td><input type='text' class='form-control dimL' id='surcharge_name' name='surcharge_name[]' required placeholder='Surcharge Name'></td><td><select name='types' id='types'><option value=''>Fixed</option><option value='DHL'>Percent of Base Charge</option><option value='Star Track'>Percent of Surcharge</option></select></td><td><input type='number' class='form-control weight' required id='surcharge_price' name='surcharge_price[]' placeholder='Surcharge Price'></td><br><td><button class='delRowBtn'>-</button></td></tr>").appendTo(tbl);        
-    });
-        
-    $(document.body).delegate(".delRowBtn", "click", function(){
-        $(this).closest("tr").remove();        
-    }); */
+	 
+		//To add and delete dynamic row in add surcharges Modal
+		/* var tbl = $("#dataTable");
+		$("#addRowBtn").click(function(){
+			$("<tr><td><input type='text' class='form-control dimL' id='surcharge_name' name='surcharge_name[]' required placeholder='Surcharge Name'></td><td><select name='types' id='types'><option value=''>Fixed</option><option value='DHL'>Percent of Base Charge</option><option value='Star Track'>Percent of Surcharge</option></select></td><td><input type='number' class='form-control weight' required id='surcharge_price' name='surcharge_price[]' placeholder='Surcharge Price'></td><br><td><button class='delRowBtn'>-</button></td></tr>").appendTo(tbl);        
+		});
+			
+		$(document.body).delegate(".delRowBtn", "click", function(){
+			$(this).closest("tr").remove();        
+		}); */
 
 
-//To enable and disable edit surcharge button
-$(document).on('click', '#surcharge-list-table tbody tr', function(e) {
-    $('#surcharge-list-table tbody tr').removeClass('selected-row');
-    $(this).toggleClass('selected-row'); 
-    $("#EditButton").prop('disabled', false);
-});
+		//To enable and disable edit surcharge button
+		$(document).on('click', '#surcharge-list-table tbody tr', function(e) {
+			$('#surcharge-list-table tbody tr').removeClass('selected-row');
+			$(this).toggleClass('selected-row'); 
+			$("#EditButton").prop('disabled', false);
+		});
 
-function editsurcharge()
-{
+		function editsurcharge()
+		{
 
-    $('#editModal').modal('show');
-    var surcharge_id = $('.selected-row').attr('data-accessorialid');
-    var carrier_id = $('.selected-row td:eq(0)').html();
-    var carrier_name = $('.selected-row td:eq(1)').html();
+			$('#editModal').modal('show');
+			var surcharge_id = $('.selected-row').attr('data-accessorialid');
+			var carrier_id = $('.selected-row td:eq(0)').html();
+			var carrier_name = $('.selected-row td:eq(1)').html();
 
-    var surcharge_name = $('.selected-row td:eq(2)').html();
-    var surcharge_price = $('.selected-row td:eq(3)').html();
-    var surcharge_type = $('.selected-row td:eq(4)').html();
+			var surcharge_name = $('.selected-row td:eq(2)').html();
+			var surcharge_price = $('.selected-row td:eq(3)').html();
+			var surcharge_type = $('.selected-row td:eq(4)').html();
 
-    $('#editModal #editcarriers option').each(function()
-    {
-        if($(this).html()==carrier_name)
-        {
-            $(this).prop('selected',true);
-        } 
-    });    
-     $('#editModal #types option').each(function()
-    {
-        if($(this).html()==surcharge_type)
-        {
-            $(this).prop('selected',true);
-        } 
-    });   
-     $('#editModal #surcharge_price').val(surcharge_price);
-     $('#editModal #surcharge_name').val(surcharge_name);
-     $('#editModal #surcharge_id').val(surcharge_id);
-     
-     
-    
-}
+			$('#editModal #editcarriers option').each(function()
+			{
+				if($(this).html()==carrier_name)
+				{
+					$(this).prop('selected',true);
+				} 
+			});    
+			 $('#editModal #types option').each(function()
+			{
+				if($(this).html()==surcharge_type)
+				{
+					$(this).prop('selected',true);
+				} 
+			});   
+			$('#editModal #surcharge_price').val(surcharge_price);
+			$('#editModal #surcharge_name').val(surcharge_name);
+			$('#editModal #surcharge_id').val(surcharge_id);
+		}
 
-$(".remove").click(function(){
-        var id = $(this).parents("tr").attr("data-accessorialid");
-        if(confirm('Are you sure to remove this record ?'))
-        {
-            $.ajax({
+		$(".remove").click(function(){
+			var id = $(this).parents("tr").attr("data-accessorialid");
+			if(confirm('Are you sure to remove this record ?'))
+			{
+				$.ajax({
 
-              url: 'carriers/delSurcharge/'+id,
-               type: 'DELETE',
-               error: function() {
-                  alert('Something is wrong');
-               },
-               success: function(data) {
-                    $("#"+id).remove();
-                    alert("Record removed successfully");  
-                   window.location.reload();
-               }
-            });
-        }
-    });
+				  url: 'carriers/delSurcharge/'+id,
+				   type: 'DELETE',
+				   error: function() {
+					  alert('Something is wrong');
+				   },
+				   success: function(data) {
+						$("#"+id).remove();
+						alert("Record removed successfully");  
+					   window.location.reload();
+				   }
+				});
+			}
+		});
 
-// To disappear a Falsh message
-var timeout = 2000; // in miliseconds (3*1000)
-$('.alert').delay(timeout).fadeOut(300);
+		// To disappear a Falsh message
+		var timeout = 2000; // in miliseconds (3*1000)
+		$('.alert').delay(timeout).fadeOut(300);
 
- $("input[name='is_dangerous']").change(function() {
-        if(this.checked) {
-        $("input[name='is_dangerous']").val(1);        
-        }
-        else {
-           $("input[name='is_dangerous']").val(0);        
-        }
-    });
-</script>
+		$("input[name='is_dangerous']").change(function() {
+			if(this.checked) {
+				$("input[name='is_dangerous']").val(1);        
+			}
+			else {
+				$("input[name='is_dangerous']").val(0);        
+			}
+		});
+	</script>
+	
+	<script>
+	$('#create_excel').click(function() {
+	  var titles = [];
+	  var data = [];
 
-</body>
-  </html>  
+	  $('.dataTable th').each(function() {
+		titles.push($(this).text());
+	  });
+
+	  $('.dataTable td').each(function() {
+		data.push($(this).text());
+	  });
+
+	  var CSVString = prepCSVRow(titles, titles.length, '');
+	  CSVString = prepCSVRow(data, titles.length, CSVString);
+
+	  var downloadLink = document.createElement("a");
+	  var blob = new Blob(["\ufeff", CSVString]);
+	  var url = URL.createObjectURL(blob);
+	  downloadLink.href = url;
+	  downloadLink.download = "data.csv";
+
+	  document.body.appendChild(downloadLink);
+	  downloadLink.click();
+	  document.body.removeChild(downloadLink);
+	});
+
+	function prepCSVRow(arr, columnCount, initial) {
+	  var row = ''; // this will hold data
+	  var delimeter = ','; // data slice separator, in excel it's `;`, in usual CSv it's `,`
+	  var newLine = '\r\n'; // newline separator for CSV row
+
+	  function splitArray(_arr, _count) {
+		var splitted = [];
+		var result = [];
+		_arr.forEach(function(item, idx) {
+		  if ((idx + 1) % _count === 0) {
+			splitted.push(item);
+			result.push(splitted);
+			splitted = [];
+		  } else {
+			splitted.push(item);
+		  }
+		});
+		return result;
+	  }
+	  var plainArr = splitArray(arr, columnCount);
+	  plainArr.forEach(function(arrItem) {
+		arrItem.forEach(function(item, idx) {
+		  row += item + ((idx + 1) === arrItem.length ? '' : delimeter);
+		});
+		row += newLine;
+	  });
+	  return initial + row;
+	}
+	</script>
+
+	</body>
+</html>  
