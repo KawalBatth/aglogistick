@@ -535,14 +535,14 @@ input#btnExport {
     transition: 0.3s all ease-out;
 }
 
-img {
+/*img {
     width: 115%;
     height: 100%;
     margin-left: -15px;
     margin-top: -4px;
-}
+}*/
 
-div .myForm {
+div .quote-form {
     width: 45%;
     /* height: 81%; */
 }

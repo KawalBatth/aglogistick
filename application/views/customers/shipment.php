@@ -43,7 +43,7 @@
 
                                                     <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
                                                     
-                                                    <div id="sender-address-by-company-search-result"></div>
+                                                    <div id="sender-search-result"></div>
                                                 </div>
                                               <?php  // }?>
                                             </div>
@@ -109,7 +109,7 @@
 												
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input name="shipmentPage.isSaveSenderAddressBook" value="0" tabindex="5" type="checkbox" onclick="checkSavaAddressBook('shipmentPage.isSaveSenderAddressBook')">
+                                                    <label class="fw0"> <input name="shipmentPage.isSaveSenderAddressBook" value="0" tabindex="5" type="checkbox">
                                                         &nbsp; Save to Address Book
                                                     </label>
                                                 </div>
@@ -189,8 +189,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
-                                                    <div id="receiver-address-by-company-search-result"></div>
+                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="receiver_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
+                                                    <div id="receiver-search-result"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -524,7 +524,7 @@
 												<div class="col-md-6"></div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input name="shipmentPage.isSaveRecipientAddressBook" value="0" tabindex="5" type="checkbox" onclick="checkSavaAddressBook('shipmentPage.isSaveRecipientAddressBook')">
+                                                    <label class="fw0"> <input name="shipmentPage.isSaveRecipientAddressBook" value="0" tabindex="5" type="checkbox">
                                                         &nbsp; Save to Address Book
                                                     </label>
                                                 </div>
@@ -728,9 +728,9 @@
                                                                         
                                                                         
                                                                         <div style="width: 100%;text-align: center;padding-left: 25px;padding-right: 25px">
-                                                                            <span style="float: left">L*</span>
-                                                                            <span style="float: none">W*</span>
-                                                                            <span style="float: right">H*</span>
+                                                                        <span class="length">L*</span>
+                                                                            <span class="width">W*</span>
+                                                                            <span class="height">H*</span>
                                                                         </div>
                                                                     
                                                                 </th>
@@ -748,7 +748,7 @@
                                                             <tr id="addr" class="calculation visible">
                                                             <td class="sno">1</td>
                                                                 
-                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value="">
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" id="shipment-weight" maxlength="6" value="" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value="">
                                                                      <input type="hidden" name="service_kg" id="service_kg" value="">
                                                                 </td>
                                                                 <td width="40%">
@@ -1050,15 +1050,8 @@
                                                                   <button class="btn s33" type="button" onclick="continuewbooking()">
                                                                      Continue Booking
                                                                 </button>
-                                                                    <!--button class="btn s33" type="button" onclick="continuewbookingnew()">
-                                                                     Continue Booking
-                                                                </button-->
-                                                           
-                                                           
-                                                                
-                                                               
-                                                            
-                                                        </div>
+                                                          
+                                                            </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -1324,6 +1317,7 @@ function onListClick1(obj, isReceiver) {
 
     }
 }
+
 function continuewbooking()
 {
 
@@ -1351,25 +1345,35 @@ function continuewbooking()
            $("input[name='isdangerous']").val(0);        
         }
     });
+
+    $("input[name='shipmentPage.isSaveSenderAddressBook']").change(function() {
+        if(this.checked) {
+        $("input[name='shipmentPage.isSaveSenderAddressBook']").val(1);        
+        }
+        else {
+           $("input[name='shipmentPage.isSaveSenderAddressBook']").val(0);        
+        }
+    });
+
+    $("input[name='shipmentPage.isSaveRecipientAddressBook']").change(function() {
+        if(this.checked) {
+        $("input[name='shipmentPage.isSaveRecipientAddressBook']").val(1);        
+        }
+        else {
+           $("input[name='shipmentPage.isSaveRecipientAddressBook']").val(0);        
+        }
+    });
     
  function saveqoute()
 {
     var quote_date =  new Date();
-    //alert(quote_date);
     var customer = '<?php echo $customers->customer_id;?>';
    // var dd = String(quote_date.getDate()).padStart(2, '0');
-  //  $column = 'A';
-//$step = 2; // number of columns to step by
-//for($i = 1; $i < $step; $i++) {
     var qoute_jobnumber   = customer;
-    //$column++;
-//}
-    //alert(qoute_jobnumber);
 
     var customer_name= $("input[name='shipmentPage.senderAddress.companyName']").val();
     var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
     var sender_city= $("input[name='shipmentPage.senderAddress.city']").val();
-
     var stateCode1 = $("input[name='shipmentPage.senderAddress.state']").val();
     var postalCode = $("input[name='shipmentPage.receiverAddress.postalCode']").val();
     var stateCode = $("input[name='shipmentPage.receiverAddress.state']").val();
@@ -1408,16 +1412,18 @@ function openForm() {
 
     
     var weight =$("input[name='total_weight']").val();
-    
+   
     var isdangerous = $("input[name='isdangerous']").val();
     var length =[$("#addr input[name='shipmentPage.pieces.dimensionL1']").val()];
     var dnw =[$("#addr input[name='shipmentPage.pieces.dimensionW1']").val()];
     var dnh=[$("#addr input[name='shipmentPage.pieces.dimensionH1']").val()];
     var quantity =[$("#addr input[name='shipmentPage.pieces.quantity1']").val()];
-    var totalweight = $('#total_weight_input').val();    
+    var totalweight = $('#total_weight_input').val();  
+      
     var final_total=$("#final_total_input").val();
+    weight = weight * final_total;
     var get_volume_input = $("#get_volume_input").val();
-    get_volume_input = get_volume_input * 250;
+    get_volume_input = (get_volume_input * 250) * final_total;
     //alert(get_volume_input);
     setTimeout(function()
     {    
@@ -1481,24 +1487,25 @@ function openForm() {
 
 				html +='<tr>';
 						html +='<td class="td1">Base Charge</td>';
-						html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
-					 // html +='<td class="td2">$ '+total+'</td>';
+						html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
+					   // html +='<td class="td2">$ '+total+'</td>';
 						html +='</tr>';
 
 				$.each(result.charges, function(k, v) {
 					if(v)
 					{
-						is_dangerous = v.is_dangerous;
+                   
+                       is_dangerous = v.is_dangerous;
 						surcharge_name = v.surcharge_name;
 						surcharge_price = v.surcharge_price;
 						//total_charge = total + SUM(surcharge_price);
 						total += parseFloat(surcharge_price);
 					  //  alert(total_charge);
-					
-						html +='<tr>';
+                      html +='<tr>';
 						html +='<td class="td1">'+surcharge_name+'</td>';
 						html +='<td class="td2">$ '+surcharge_price+'</td>';
 						html +='</tr>';
+                        
 					}
 				});
 			   
@@ -1508,15 +1515,16 @@ function openForm() {
 				html +='</tr>';
                 if(weight >get_volume_input)
                         {
+                              
 				html +='<tr>';
 						html +='<td class="td1">Total weight</td>';
-						html +='<td class="td2 totalweight">'+weight+'kg(s)</td>';
+						html +='<td class="td2 totalweight">'+Math.round(weight)+':00 kg(s)</td>';
 				html +='</tr>';
                         }else
                         {
                             html +='<tr>';
 						html +='<td class="td1">Total weight</td>';
-						html +='<td class="td2 totalweight">'+get_volume_input+'kg(s)</td>';
+						html +='<td class="td2 totalweight">'+Math.round(get_volume_input)+':00 kg(s)</td>';
 				html +='</tr>';
                         }
 				html +='<tr>';
@@ -1528,7 +1536,8 @@ function openForm() {
 				html +='</tr>';
 				html +='<tr>';
 						html +='<td class="td1"><b>Total Charge</b></td>';
-						html +='<td class="td2">$ '+parseFloat(total.toFixed(3))+'</td>';
+						html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
+                      //  html +='<td class="td2">$ '+total+'</td>';
 				html +='</tr>';
 				html +='<tr>';
 						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
@@ -1596,6 +1605,91 @@ $(document).ready(function(){
 });
 
 
+
+/*function onListClick2(obj, isRecipient) {
+    $("#company-list1").hide();
+    var companyName = $(obj).find("div[data-companyName]").html();
+        companyName = companyName.trim();
+    var contactName = $(obj).find("div[data-contactName]").html();
+        contactName = contactName.trim();
+    var receiverCountry = $(obj).find("div[data-receiverCountry]").html();
+        receiverCountry = receiverCountry.trim();
+    var receiverCity = $(obj).find("div[data-receiverCity]").html();
+        receiverCity = receiverCity.trim();
+    var receiverAddress = $(obj).find("div[data-receiverAddress]").html();
+        receiverAddress = receiverAddress.trim();
+    var receiverPost = $(obj).find("div[data-receiverPost]").html();
+        receiverPost = receiverPost.trim();
+    if (isRecipient) 
+    {
+        $("input[name='shipmentPage.receiverAddress.companyName']").val(companyName);
+        $("input[name='shipmentPage.receiverAddress.contactName']").val(contactName);
+        $("input[name='shipmentPage.receiverAddress.country']").val(receiverCountry);
+        $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
+        $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+     } 
+     else
+      {
+        $("input[name='shipmentPage.receiverAddress.companyName']").val(companyName);
+        $("input[name='shipmentPage.receiverAddress.contactName']").val(contactName);
+        $("input[name='shipmentPage.receiverAddress.country']").val(receiverCountry);
+        $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
+        $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+
+    }
+}*/
+// to show receiver details
+/*$(document).ready(function(){
+    var list ='<ul id="company-list1">';
+
+    $("#receiver_companyName").keyup(function(){
+        
+        $("#receiver-search-result").html('');
+        if($(this).val().length>2)
+        {
+        $.ajax({
+        type: "POST",
+       url: "<?php //echo base_url('customer/get_receiver');?>",
+     //url: 'customers/get_receiver',
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#receiver-search-result").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick2($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 companyName" data data-companyName="'+v.company_name+'">'+v.company_name+'</div>';
+                list +='<div class="col-xs-3 contactName" data-contactName="'+v.contact_name+'">'+v.contact_name+'</div>';
+                list +='<div class="col-xs-3 receiverCountry" data-receiverCountry="'+v.country+'">'+v.country+'</div>';
+                list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div>';
+                list +='<div class="col-xs-3 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div>';
+                list +='<div class="col-xs-3 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div>';
+                list +='</div></li>';
+        });
+            list +='<ul id="company-list1" style="width:100%;">';
+            
+            
+        }
+        });
+        $("#receiver-search-result").html(list);
+        list='<ul id="company-list1">';
+        }
+        else {
+            $("#receiver-search-result").hide();
+            list ='';
+        }
+    });
+});
+*/
+
+
 var numRows = 1, ti = 5;
 
 		function isNumber(n) {
@@ -1628,7 +1722,8 @@ var numRows = 1, ti = 5;
 				//dateTotal = (dateTotal * q);
 				lt += isNumber(q) ? parseInt(q, 10) : 0;
 				tt += isNumber(dateTotal) ? dateTotal : 0;
-				weight_total += isNumber(w) ? parseInt(w, 10) : 0;
+				weight_total += isNumber(w) ? parseFloat(w, 10) : 0;
+                
                  var kg= $('#service_kg').val();
                 console.log('kg'+kg);
                 if(w)
@@ -1655,12 +1750,13 @@ var numRows = 1, ti = 5;
 
 		     	$("#final_total").html(lt);
 		    	$("#total_weight").html(weight_total.toFixed(2));
-                var wght= weight_total.toFixed(2);
+                var wght= weight_total;
 
 
 		    	$("#get_volume").html(tt.toFixed(3));
 			    $("#final_total_input").val(lt);
 			    $("#total_weight_input").val(weight_total.toFixed(2));
+               //$("#total_weight_input").val(weight_total);
 			    $("#get_volume_input").val(tt.toFixed(3));
 		}
 
@@ -1669,7 +1765,7 @@ var numRows = 1, ti = 5;
 		function addRow() 
 		{
 
-    	$('#addr' + numRows).html("<td class='sno'>1</td><td width='10%'><input type='number' name='shipmentPage.pieces.weight1' maxlength='6' value='' required id='shipment-info-form_shipmentPage_pieces_0__weight' class='form-control alloptions weight' onkeypress='return isNum(event)' oninput='maxLengthCheck(this)' min='1'></td><td width='40%'><div class='row mg0'><div class='col-lg-4 pd1'> <input type='text' name='shipmentPage.pieces.dimensionL1' required class='form-control alloptions dimL length' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionW1' value='' required class='form-control alloptions dimW width' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionH1' value='' required class='form-control alloptions dimH height' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1' ></div></div></td> <td><input type='text' name='shipmentPage.pieces.quantity1' value='1' id='shipment-info-form_shipmentPage_pieces_0__quantity' class='form-control quantity' required onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='10' min='1'></td><td><input type='button' value='&times;' class='del'></td>");
+    	$('#addr' + numRows).html("<td class='sno'>1</td><td width='10%'><input type='number' name='shipmentPage.pieces.weight1' maxlength='6' value='' required id='shipment-weight' class='form-control alloptions weight' onkeypress='return isNum(event)' oninput='maxLengthCheck(this)' min='1'></td><td width='40%'><div class='row mg0'><div class='col-lg-4 pd1'> <input type='text' name='shipmentPage.pieces.dimensionL1' required class='form-control alloptions dimL length' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionW1' value='' required class='form-control alloptions dimW width' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1'></div><div class='col-lg-4 pd1'><input type='text' name='shipmentPage.pieces.dimensionH1' value='' required class='form-control alloptions dimH height' onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='4' min='1' ></div></div></td> <td><input type='text' name='shipmentPage.pieces.quantity1' value='1' id='shipment-info-form_shipmentPage_pieces_0__quantity' class='form-control quantity' required onkeypress='return isNumeric(event)' oninput='maxLengthCheck(this)' maxlength='10' min='1'></td><td><input type='button' value='&times;' class='del'></td>");
 
         $('#piece-table tr:last').after('<tr id="addr' + (numRows + 1) + '" class="calculation visible"></tr>');
 			numRows++;
@@ -1741,6 +1837,12 @@ function changeShipmentType(shipmentTypeId, texthtml) {
     
 }
 
+
+document.getElementById('shipment-weight').onchange = function(){
+      if(this.value > 5000)
+          alert('The maximum allowed weight is 5000Kg');
+}
+
 document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("change", 
 	function(obj)
   {
@@ -1750,6 +1852,9 @@ document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("chang
     input.disabled = (this.value >= 3);
     input1.disabled = (this.value >= 3);
     input2.disabled = (this.value >= 3);
+    input.value = '';
+    input1.value = '';
+    input2.value = '';
   }, false);
       
       

@@ -43,7 +43,7 @@
                                                 <br>
                                             </p>
 
-                                            <div class="form-popup" class="myForm" id="myForm">
+                                            <div class="form-popup quote-form" id="myForm">
 <form id="saveQuoteLog" name="saveQuoteLog">
 <h3 class="quote_title">Quote</h3>
 <hr>
