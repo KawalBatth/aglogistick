@@ -4132,14 +4132,8 @@ if(isset($submit_id))
 																</select>
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
-                                                                
-<<<<<<< HEAD
+
                                                                 <input type="text" name="margin_rate[<?php echo $key; ?>]" maxlength="25" value="<?php if(!empty($margin_rates)){ echo $margin_rates[$key]->margin_rate;}else{ echo 0; } ?>" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
-=======
-                                                                    <input type="text" name="margin_rate" maxlength="25" value="00.00" id="margin_rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75" onchange='saveValue(this);'>
-                                                                
->>>>>>> 62a1123d0b360cfc9a8153ac51414425892f5044
-                                                                
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
                                                             <div class="pull-left c32a">
@@ -5771,28 +5765,7 @@ $(".remove").click(function(){
 					window.location.reload();
 				}
 			});
-<<<<<<< HEAD
 		}
-=======
-      if(isfromsubmit==true)
-      {
-        alertDialog.dialog("close");  
-        $.ajax({
-               url: 'customers/add_customer',
-             //  url: 'add_customer',
-               type: 'POST',
-               data:formdata,
-               error: function() {
-                  alert('Something is wrong');
-               },
-               success: function(res) {
-                alert('Edit Successfully');  
-              console.log(res);      
-              window.location.reload();
-            }
-          });
-      }
->>>>>>> 62a1123d0b360cfc9a8153ac51414425892f5044
     }
 
 
