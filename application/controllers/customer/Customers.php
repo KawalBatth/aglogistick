@@ -162,10 +162,7 @@
 		else {	redirect('user/login');}
 		}
 
-       
-
-
-		public function get_postcode()
+       public function get_postcode()
 		{
 			$cityname = $this->input->post('keyword');	
 			$data['address'] = $this->user_model->get_address($cityname);
@@ -180,6 +177,13 @@
 			echo json_encode($data['receiver']);
 		}
 
+
+		public function get_contact_name()
+		{
+			$contactName = $this->input->post('keyword');	
+			$data['contact'] = $this->user_model->get_contact_data($contactName);
+			echo json_encode($data['contact']);
+		}
 		
 		public function change_password()
 		{

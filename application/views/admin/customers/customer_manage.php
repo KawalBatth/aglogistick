@@ -344,7 +344,7 @@ if(isset($submit_id))
                                               <td>  
                                             <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                                     <option value="-1">Select a Customer</option>
-                                    <option value="http://localhost:8011/webfreight/admin/add">Add a Customer</option>
+                                    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option>
                <?php for($i=0;$i<count($data);$i++)
                         {
                         if ($submit_id == $data[$i]['customer_id']) 
@@ -4953,7 +4953,7 @@ $(".remove").click(function(){
         {
             $.ajax({
 
-              url: 'delUser/'+id,
+              url: 'customers/delUser/'+id,
                type: 'DELETE',
                error: function() {
                   alert('Something is wrong');
@@ -5920,8 +5920,8 @@ $(".remove").click(function(){
           var result='';
          
            $.ajax({
-               url: 'customers/get_rates',
-              // url: 'get_rates',
+               //url: 'customers/get_rates',
+               url: 'get_rates',
                type: 'POST',
                data:{zone:zone,service_type:id},
                error: function() {

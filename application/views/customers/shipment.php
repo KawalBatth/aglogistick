@@ -41,7 +41,7 @@
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
 
-                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="shipment-info-form_shipmentPage_senderAddress_companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company">
+                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="sender-companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
                                                     
                                                     <div id="sender-search-result"></div>
                                                 </div>
@@ -58,8 +58,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="<?php echo $customers->contact_name;?>"  id="shipment-info-form_shipmentPage_senderAddress_contactName" class="form-control alloptions" required onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
-                                                    <div id="sender-address-by-contact-search-result"></div>
+                                                    <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="<?php echo $customers->contact_name;?>" id="sender_contactName" class="form-control alloptions" required onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name" autocomplete="off">
+                                                    <div id="sender-contact-result"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -204,8 +204,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_contactName" class="form-control alloptions" required ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name">
-                                                    <div id="receiver-address-by-contact-search-result"></div>
+                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="" id="receiver_contactName" class="form-control alloptions" required ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name" autocomplete="off">
+                                                    <div id="receiver-contact-result"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -622,13 +622,14 @@
                                                     <div class="form-group col-lg-6" id="change-service-div">
                                                         <label class="control-label" for="inputName"> Service Type <span class="s30"> *</span>
                                                         </label>
-                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control"  onchange="changeShipmentType($(this).val(), $('option:selected',this).text())">
+                                                        <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control shipmentId"  onchange="changeShipmentType($(this).val(), $('option:selected',this).text())">
                                                             <!--option value="" selected="selected">Select Service Type</option-->
     
                                                                 <?php for($c=0;$c<count($services);$c++) 
                                                             {                                                                
                                                                 ?>  
                                                                 <option value="<?php echo $services[$c]['id'];?>" ><?php echo $services[$c]['service_name'];?></option>
+                                                                
                                                             <?php
                                                             }?>  
 
@@ -1482,8 +1483,7 @@ function openForm() {
 						console.log('per_kg'+per_kg);
 						console.log('weight'+weight);
 						total =  parseFloat(weight) * parseFloat(per_kg);
-
-				}
+                }
 
 				html +='<tr>';
 						html +='<td class="td1">Base Charge</td>';
@@ -1494,20 +1494,23 @@ function openForm() {
 				$.each(result.charges, function(k, v) {
 					if(v)
 					{
-                   
-                       is_dangerous = v.is_dangerous;
+                        is_dangerous = v.is_dangerous;
 						surcharge_name = v.surcharge_name;
 						surcharge_price = v.surcharge_price;
+
+                   
 						//total_charge = total + SUM(surcharge_price);
 						total += parseFloat(surcharge_price);
 					  //  alert(total_charge);
+                      html +='<div class="surcharge">';
                       html +='<tr>';
 						html +='<td class="td1">'+surcharge_name+'</td>';
 						html +='<td class="td2">$ '+surcharge_price+'</td>';
 						html +='</tr>';
-                        
-					}
+                        html +='</div>';
+                    }
 				});
+                
 			   
 				
 				html +='<tr>';
@@ -1606,7 +1609,7 @@ $(document).ready(function(){
 
 
 
-/*function onListClick2(obj, isRecipient) {
+function onListClick3(obj, isRecipient) {
     $("#company-list1").hide();
     var companyName = $(obj).find("div[data-companyName]").html();
         companyName = companyName.trim();
@@ -1639,9 +1642,10 @@ $(document).ready(function(){
         $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
 
     }
-}*/
+}
+
 // to show receiver details
-/*$(document).ready(function(){
+$(document).ready(function(){
     var list ='<ul id="company-list1">';
 
     $("#receiver_companyName").keyup(function(){
@@ -1651,7 +1655,7 @@ $(document).ready(function(){
         {
         $.ajax({
         type: "POST",
-       url: "<?php //echo base_url('customer/get_receiver');?>",
+       url: "<?php echo base_url('customer/get_receiver');?>",
      //url: 'customers/get_receiver',
         data:'keyword='+$(this).val(),
         beforeSend: function(){
@@ -1664,13 +1668,13 @@ $(document).ready(function(){
             $("#receiver-search-result").show();
             $.each(result, function(k, v) {
                 //console.log(k + ' is ' + v);
-                list +='<li onclick="onListClick2($(this),false);"><div class="row">';
-                list +='<div class="col-xs-6 companyName" data data-companyName="'+v.company_name+'">'+v.company_name+'</div>';
-                list +='<div class="col-xs-3 contactName" data-contactName="'+v.contact_name+'">'+v.contact_name+'</div>';
-                list +='<div class="col-xs-3 receiverCountry" data-receiverCountry="'+v.country+'">'+v.country+'</div>';
-                list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div>';
-                list +='<div class="col-xs-3 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div>';
-                list +='<div class="col-xs-3 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div>';
+                list +='<li onclick="onListClick3($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 companyName" data data-companyName="'+v.company_name+'">'+v.company_name+'</div></br>';
+                list +='<div class="col-xs-6 contactName" data-contactName="'+v.contact_name+'">'+v.contact_name+'</div></br>';
+                list +='<div class="col-xs-6 receiverCountry" data-receiverCountry="'+v.country+'">'+v.country+'</div></br>';
+                list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div></br>';
+                list +='<div class="col-xs-6 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div></br>';
+                list +='<div class="col-xs-6 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div></br>';
                 list +='</div></li>';
         });
             list +='<ul id="company-list1" style="width:100%;">';
@@ -1687,7 +1691,259 @@ $(document).ready(function(){
         }
     });
 });
-*/
+
+
+function onListClick4(obj, isRecipient) {
+    $("#contact-list1").hide();
+    var companyName = $(obj).find("div[data-companyName]").html();
+        companyName = companyName.trim();
+    var contactName = $(obj).find("div[data-contactName]").html();
+        contactName = contactName.trim();
+    var receiverCountry = $(obj).find("div[data-receiverCountry]").html();
+        receiverCountry = receiverCountry.trim();
+    var receiverCity = $(obj).find("div[data-receiverCity]").html();
+        receiverCity = receiverCity.trim();
+    var receiverAddress = $(obj).find("div[data-receiverAddress]").html();
+        receiverAddress = receiverAddress.trim();
+    var receiverPost = $(obj).find("div[data-receiverPost]").html();
+        receiverPost = receiverPost.trim();
+    if (isRecipient) 
+    {
+        $("input[name='shipmentPage.receiverAddress.companyName']").val(companyName);
+        $("input[name='shipmentPage.receiverAddress.contactName']").val(contactName);
+        $("input[name='shipmentPage.receiverAddress.country']").val(receiverCountry);
+        $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
+        $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+     } 
+     else
+      {
+        $("input[name='shipmentPage.receiverAddress.companyName']").val(companyName);
+        $("input[name='shipmentPage.receiverAddress.contactName']").val(contactName);
+        $("input[name='shipmentPage.receiverAddress.country']").val(receiverCountry);
+        $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
+        $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
+        $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+
+    }
+}
+
+// to show receiver details
+$(document).ready(function(){
+    var list ='<ul id="contact-list1">';
+
+    $("#receiver_contactName").keyup(function(){
+        
+        $("#receiver-contact-result").html('');
+        if($(this).val().length>2)
+        {
+        $.ajax({
+        type: "POST",
+       url: "<?php echo base_url('customer/get_contact_name');?>",
+     //url: 'customers/get_receiver',
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#receiver-contact-result").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick4($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 contactName" data-contactName="'+v.contact_name+'">'+v.contact_name+'</div></br>';
+                list +='<div class="col-xs-6 companyName" data data-companyName="'+v.company_name+'">'+v.company_name+'</div></br>';
+                list +='<div class="col-xs-6 receiverCountry" data-receiverCountry="'+v.country+'">'+v.country+'</div></br>';
+                list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div></br>';
+                list +='<div class="col-xs-6 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div></br>';
+                list +='<div class="col-xs-6 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div></br>';
+                list +='</div></li>';
+        });
+            list +='<ul id="contact-list1" style="width:100%;">';
+            
+            
+        }
+        });
+        $("#receiver-contact-result").html(list);
+        list='<ul id="contact-list1">';
+        }
+        else {
+            $("#receiver-contact-result").hide();
+            list ='';
+        }
+    });
+});
+
+
+function onListClick5(obj, isRecipient) {
+    $("#contact-list").hide();
+    var companyName = $(obj).find("div[data-companyName]").html();
+        companyName = companyName.trim();
+    var contactName = $(obj).find("div[data-contactName]").html();
+        contactName = contactName.trim();
+    var receiverCountry = $(obj).find("div[data-receiverCountry]").html();
+        receiverCountry = receiverCountry.trim();
+    var receiverCity = $(obj).find("div[data-receiverCity]").html();
+        receiverCity = receiverCity.trim();
+    var receiverAddress = $(obj).find("div[data-receiverAddress]").html();
+        receiverAddress = receiverAddress.trim();
+    var receiverPost = $(obj).find("div[data-receiverPost]").html();
+        receiverPost = receiverPost.trim();
+    if (isRecipient) 
+    {
+        $("input[name='shipmentPage.senderAddress.companyName']").val(companyName);
+        $("input[name='shipmentPage.senderAddress.contactName']").val(contactName);
+        $("input[name='shipmentPage.senderAddress.country']").val(receiverCountry);
+        $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress);
+        $("input[name='shipmentPage.senderAddress.city']").val(receiverCity);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost);
+     } 
+     else
+      {
+        $("input[name='shipmentPage.senderAddress.companyName']").val(companyName);
+        $("input[name='shipmentPage.senderAddress.contactName']").val(contactName);
+        $("input[name='shipmentPage.senderAddress.country']").val(receiverCountry);
+        $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress);
+        $("input[name='shipmentPage.senderAddress.city']").val(receiverCity);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost);
+
+    }
+}
+
+// to show receiver details
+$(document).ready(function(){
+    var list ='<ul id="contact-list">';
+
+    $("#sender_contactName").keyup(function(){
+        
+        $("#sender-contact-result").html('');
+        if($(this).val().length>2)
+        {
+        $.ajax({
+        type: "POST",
+       url: "<?php echo base_url('customer/get_contact_name');?>",
+     //url: 'customers/get_receiver',
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#sender-contact-result").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick5($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 contactName" data-contactName="'+v.contact_name+'">'+v.contact_name+'</div></br>';
+                list +='<div class="col-xs-6 companyName" data data-companyName="'+v.company_name+'">'+v.company_name+'</div></br>';
+                list +='<div class="col-xs-6 receiverCountry" data-receiverCountry="'+v.country+'">'+v.country+'</div></br>';
+                list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div></br>';
+                list +='<div class="col-xs-6 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div></br>';
+                list +='<div class="col-xs-6 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div></br>';
+                list +='</div></li>';
+        });
+            list +='<ul id="contact-list" style="width:100%;">';
+            
+            
+        }
+        });
+        $("#sender-contact-result").html(list);
+        list='<ul id="contact-list">';
+        }
+        else {
+            $("#sender-contact-result").hide();
+            list ='';
+        }
+    });
+});
+
+//To show contact name
+function onListClick2(obj, isSend) {
+    $("#company-list").hide();
+    var companyName1 = $(obj).find("div[data-companyName1]").html();
+        companyName1 = companyName1.trim();
+    var contactName1 = $(obj).find("div[data-contactName1]").html();
+        contactName1 = contactName1.trim();
+    var receiverCountry1 = $(obj).find("div[data-receiverCountry1]").html();
+        receiverCountry1 = receiverCountry1.trim();
+    var receiverCity1 = $(obj).find("div[data-receiverCity1]").html();
+        receiverCity1 = receiverCity1.trim();
+    var receiverAddress1 = $(obj).find("div[data-receiverAddress1]").html();
+        receiverAddress1 = receiverAddress1.trim();
+    var receiverPost1 = $(obj).find("div[data-receiverPost1]").html();
+        receiverPost1 = receiverPost1.trim();
+    if (isSend) 
+    {
+        $("input[name='shipmentPage.senderAddress.companyName']").val(companyName1);
+        $("input[name='shipmentPage.senderAddress.contactName']").val(contactName1);
+        $("input[name='shipmentPage.senderAddress.country']").val(receiverCountry1);
+        $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress1);
+        $("input[name='shipmentPage.senderAddress.city']").val(receiverCity1);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost1);
+     } 
+     else
+      {
+        $("input[name='shipmentPage.senderAddress.companyName']").val(companyName1);
+        $("input[name='shipmentPage.senderAddress.contactName']").val(contactName1);
+        $("input[name='shipmentPage.senderAddress.country']").val(receiverCountry1);
+        $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress1);
+        $("input[name='shipmentPage.senderAddress.city']").val(receiverCity1);
+        $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost1);
+
+    }
+}
+
+// to show receiver details
+$(document).ready(function(){
+    var list ='<ul id="company-list">';
+
+    $("#sender-companyName").keyup(function(){
+
+         $("#sender-search-result").html('');
+        
+        if($(this).val().length>2)
+        {
+        $.ajax({
+        type: "POST",
+       url: "<?php echo base_url('customer/get_receiver');?>",
+     //url: 'customers/get_receiver',
+        data:'keyword='+$(this).val(),
+        beforeSend: function(){
+
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result= JSON.parse(data);
+            console.log(result);
+            $("#sender-search-result").show();
+            $.each(result, function(k, v) {
+                //console.log(k + ' is ' + v);
+                list +='<li onclick="onListClick2($(this),false);"><div class="row">';
+                list +='<div class="col-xs-6 companyName" data data-companyName1="'+v.company_name+'">'+v.company_name+'</div></br>';
+                list +='<div class="col-xs-6 contactName" data-contactName1="'+v.contact_name+'">'+v.contact_name+'</div></br>';
+                list +='<div class="col-xs-6 receiverCountry" data-receiverCountry1="'+v.country+'">'+v.country+'</div></br>';
+                list +='<div class="col-xs-6 receiverCity" data data-receiverCity1="'+v.city+'">'+v.city+'</div></br>';
+                list +='<div class="col-xs-6 receiverAddress" data-receiverAddress1="'+v.address+'">'+v.address+'</div></br>';
+                list +='<div class="col-xs-6 receiverPost" data-receiverPost1="'+v.postcode+'">'+v.postcode+'</div></br>';
+                list +='</div></li>';
+        });
+            list +='<ul id="company-list" style="width:100%;">';
+            
+            
+        }
+        });
+        $("#sender-search-result").html(list);
+        list='<ul id="company-list">';
+        }
+        else {
+            $("#sender-search-result").hide();
+            list ='';
+        }
+    });
+});
 
 
 var numRows = 1, ti = 5;
@@ -1857,9 +2113,63 @@ document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("chang
     input2.value = '';
   }, false);
       
-      
+
+  /*$(function() {
+    $("select").change(function() {        
+        var selectValue=document.getElementById("shipmentPage_shipmentTypeId").value
+       // alert(selectValue);
+        if (selectValue == 3) {
+           // $(".extra_field_input input").show();
+            $(".surcharge").hide();
+        } else {
+            //$(".extra_field_input input").hide();
+            $(".surcharge").show();
+        };
+    });
+});*/
     </script>
 <style>
+
+
+#contact-list1{
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 89%;
+    position: absolute;
+    z-index: 9;
+}
+
+#contact-list{
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 89%;
+    position: absolute;
+    z-index: 9;
+}
+
+#company-list1 {
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 89%;
+    position: absolute;
+    z-index: 9;
+}
+
+#company-list {
+    float: left;
+    list-style: none;
+    margin-top: -1px;
+    padding: 0px;
+    width: 89%;
+    position: absolute;
+    z-index: 9;
+}
 
 #country-list1 {
     float: left;
@@ -1878,15 +2188,6 @@ document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("chang
     width: 288%;
     position: absolute;
 
-   /* border: 1px solid #e5e5e5;
-    margin-top: 1px;
-    padding-left: 5px;
-    position: absolute;
-    width: 100%;
-    background: #fff;
-  
-    max-height: 300px;
-    overflow: auto;*/
 }
 #country-list li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
 #country-list li:hover{background:#ece3d2;cursor: pointer;}
@@ -1905,4 +2206,18 @@ document.getElementById ("shipmentPage_shipmentTypeId").addEventListener ("chang
 .col-xs-3{
 margin-top: 0px !important;
 }
+
+#company-list1 li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#company-list1 li:hover{background:#ece3d2;cursor: pointer;}
+
+#company-list li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#company-list li:hover{background:#ece3d2;cursor: pointer;}
+
+#contact-list1 li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#contact-list1 li:hover{background:#ece3d2;cursor: pointer;}
+
+#contact-list li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid;}
+#contact-list li:hover{background:#ece3d2;cursor: pointer;}
+
+
 </style>
