@@ -240,8 +240,7 @@
 
 		public function get_calculate()
 		{
-			
-			
+			$customer_id = $this->session->userdata('customer_id');
 			$sender_city = $this->input->post('sender_city');
 			$sender_postcode = $this->input->post('sender_postcode');
 			$sender_state =  $this->input->post('sender_state');
@@ -257,14 +256,13 @@
 			$isdange = $this->input->post('isdangerous');
 			
 			$get_surcharge =  $this->user_model->get_surchargebyid($serviceId,$isdange);
-			$fixed_price =  $this->user_model->get_fix_rate($service_type_Id);
+			$fixed_price   =  $this->user_model->get_fix_rate($service_type_Id);
 			if(empty($fixed_price))
 			{
 				$base_charge =  $this->user_model->get_base_rate($getsenderzone,$get_rcv_zone,$service_type_Id);	
-				$result['base_charge']= $base_charge;
-			}
-			else {
-				$result['fixed_price']= $fixed_price;
+				$result['base_charge'] = $base_charge;
+			} else {
+				$result['fixed_price'] = $fixed_price;
 			}
 			
 			$result['charges'] = $get_surcharge;

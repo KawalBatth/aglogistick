@@ -171,17 +171,48 @@
 
 
 }
-               public function get_rates()
-           {
-	        	$zone = $this->input->post('zone');	
-		        $id = $this->input->post('service_type');	
-		        $data=  $this->auth_model->get_rates($zone,$id);
-				//$zones=  $this->auth_model->get_zones();
-	        	echo json_encode($data);
-				
-            }
 
-			
+		public function get_rates()
+		{
+			$zone = $this->input->post('zone');	
+			$id   = $this->input->post('service_type');	
+			$c_id = $this->input->post('customer_id');	
+			$data['data']   = $this->auth_model->get_rates($zone,$id);
+			$margin = $this->auth_model->get_margin($c_id);
+			$data['margin'] = array();
+			if(!empty($margin)){
+				$margin_rates = json_decode($margin->margin_rate);
+				foreach($margin_rates as $margin){
+					if($margin->service_id == $id){
+						$data['margin'] = $margin->margin_rate;
+					}
+				}
+			}
+			//$zones=  $this->auth_model->get_zones();
+			echo json_encode($data);
+
+		}
+		
+		public function get_fix_rates()
+		{
+			$zone = $this->input->post('zone');	
+			$id   = $this->input->post('service_type');	
+			$c_id = $this->input->post('customer_id');	
+			$data['data']   = $this->auth_model->get_rates($zone,$id);
+			$margin = $this->auth_model->get_margin($c_id);
+			$data['margin'] = array();
+			if(!empty($margin)){
+				$margin_rates = json_decode($margin->margin_rate);
+				foreach($margin_rates as $margin){
+					if($margin->service_id == $id){
+						$data['margin'] = $margin->margin_rate;
+					}
+				}
+			}
+			//$zones=  $this->auth_model->get_zones();
+			echo json_encode($data);
+
+		}
 
        public function delUser($id = 0){
 
@@ -315,7 +346,7 @@
 				
           	);
 			
-			if($customerCodeexists==true)
+			if($customerCodeexists == true)
 			{
 				$this->auth_model->update_customer($dataforsave,$customerCode);	
 				$this->session->set_flashdata('msg', 'Customer is Edited Successfully!');		

@@ -77,17 +77,14 @@
 			//return $query->num_rows();  
 		 
 		}
-
-	
-
+		
+		
 		public function get_rates($zone,$id)
 		{
-			
 			$this->db->select('*');
 			$this->db->from('rates');
 			$this->db->where(array('service_type'=>$id,'origin'=>$zone));
 			return $query = $this->db->get()->result_array();
-
 		}
 
 

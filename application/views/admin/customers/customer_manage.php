@@ -4084,7 +4084,7 @@ if(isset($submit_id))
 											</tbody>
 										</table>
                                     </div>
-									<input type="hidden" value="<?php echo $submit_id;?>" name="customer_id">
+									<input type="hidden" value="<?php echo $submit_id;?>" name="customer_id" id="customer_id">
                                     <!-- Service Type List -->
                                     <?php 
 										if(!empty($margin)){
@@ -4109,7 +4109,9 @@ if(isset($submit_id))
                                                             <div class="pull-left c32" style="padding: 5px; width: 250px;">
                                                                 
 																<span class="br-display-name"><?php echo $value['service_name'];?>
-																<input type="hidden" name="service_name[]" value="<?php echo $value['service_name'];?>"></span>
+																	<input type="hidden" name="service_name[]" value="<?php echo $value['service_name'];?>">
+																	<input type="hidden" name="service_id[]" value="<?php echo $value['id'];?>">
+																</span>
                                                                 
                                                             </div>
                                                             <div class="pull-left c32">
@@ -4138,7 +4140,7 @@ if(isset($submit_id))
                                                             <div class="pull-left c32a">%</div>
                                                             <div class="pull-left c32a">
 																<?php  if($value['service_name'] == "Overnight" || $value['service_name'] == "Road Express") { ?>
-																	<a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal" onclick="get_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')"> View</a>   
+																	<a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal" onclick="get_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')"> View </a>   
 
 																<?php } else { ?>
 
@@ -5910,64 +5912,69 @@ $(".remove").click(function(){
  });  
 
 
-     function get_rates(id,name)
-      {
-          $('#exampleModal .table tbody').html('');
-          var zone =  $('#starTrackColumnName option:selected').val();
-          $('#exampleModal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
-          var rows ='';
-          var x=0;
-          var result='';
+    function get_rates(id,name)
+    {
+		$('#exampleModal .table tbody').html('');
+		var zone =  $('#starTrackColumnName option:selected').val();
+		$('#exampleModal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
+		var rows ='';
+		var x=0;
+		var result='';
+		var customer_id = $('#customer_id').val();
+
+		$.ajax({
+			//url: 'customers/get_rates',
+			url: 'get_rates',
+			type: 'POST',
+			data:{zone:zone,service_type:id,customer_id:customer_id},
+			error: function() {
+				alert('Something is wrong');
+			},
+			success: function(res) {
+				console.log(res);
+				var data = JSON.parse(res);              
+				console.log(data.margin);    
+				jQuery.each(data.data, function( i, val ) {
+					result = val;
+					var b_charges = parseFloat(val.basic_charge);
+					var b_charge = b_charges + (val.basic_charge*data.margin)/100;
+					rows +='<tr><td>'+val.destination+'</td><td>'+val.minimum+'</td><td>'+b_charge+'</td><td class="price">'+val.per_kg+'</td></tr>';                  
+				});
+				$('#exampleModal .table tbody').html(rows);
+			}
+		});
+    }
+
+
+	function get_fix_rates(id,name)
+	{
+		$('#fixed3Modal .table tbody').html('');
+		var zone =  $('#starTrackColumnName option:selected').val();
+		$('#fixed3Modal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
+		var rows = '';
+		var x = 0;
+		var result = '';
+		var customer_id = $('#customer_id').val();
          
-           $.ajax({
-               //url: 'customers/get_rates',
-               url: 'get_rates',
-               type: 'POST',
-               data:{zone:zone,service_type:id},
-               error: function() {
-                  alert('Something is wrong');
-               },
-               success: function(res) {
-                var data= JSON.parse(res);              
-                console.log(data);    
-                jQuery.each(data, function( i, val ) {
-                  result = val;
-                  rows +='<tr><td>'+val.destination+'</td><td>'+val.minimum+'</td><td>'+val.basic_charge+'</td><td class="price">'+val.per_kg+'</td></tr>';                  
-                });
-                $('#exampleModal .table tbody').html(rows);
-              }
-            });
-          }
+		$.ajax({
+			url: 'get_fix_rates',
+			type: 'POST',
+			data:{zone:zone,service_type:id,customer_id:customer_id},
+			error: function() {
+				alert('Something is wrong');
+			},
+			success: function(res) {
+				var data = JSON.parse(res);              
+				console.log(data);    
+				jQuery.each(data.data, function( i, val ) {
+					result = val;
+					rows +='<tr><td>'+val.weight+'</td><td class="price">'+val.price+'</td></tr>';                  
+				});
+				$('#fixed3Modal .table tbody').html(rows);
+			}
 
-
-      function get_fix_rates(id,name)
-      {
-          $('#fixed3Modal .table tbody').html('');
-          var zone =  $('#starTrackColumnName option:selected').val();
-          $('#fixed3Modal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
-          var rows ='';
-          var x=0;
-          var result='';
-         
-           $.ajax({
-               url: 'customers/get_fix_rates',
-               type: 'POST',
-               data:{zone:zone,service_type:id},
-               error: function() {
-                  alert('Something is wrong');
-               },
-               success: function(res) {
-                var data= JSON.parse(res);              
-                console.log(data);    
-                jQuery.each(data, function( i, val ) {
-                  result = val;
-                  rows +='<tr><td>'+val.weight+'</td><td class="price">'+val.price+'</td></tr>';                  
-                });
-                $('#fixed3Modal .table tbody').html(rows);
-               }
-
-            });
-          }
+		});
+    }
 
 
       $(document).ready(function(){
