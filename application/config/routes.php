@@ -99,7 +99,7 @@ $route['customer/shipment'] = 'customer/customers/shipment';
 $route['login/process'] = 'customer/login/process';
 $route['customer/address_book'] = 'customer/customers/address_book';
 $route['customer/address_book_add'] = 'customer/customers/address_book_add';
-$route['customer/address_book_import'] = 'customer/customers/address_book_import';
+$route['customer/import_excel'] = 'customer/customers/import_excel';
 $route['customer/address_book_export'] = 'customer/customers/address_book_export';
 $route['customer/history'] = 'customer/customers/history';
 $route['customer/settings'] = 'customer/customers/setting';
@@ -113,6 +113,8 @@ $route['customer/get_calculate'] = 'customer/customers/get_calculate';
 $route['customer/continue_booking'] = 'customer/customers/continuewbooking';
 $route['customer/continue_bookingnew'] = 'customer/customers/continue_booking_new';
 $route['customer/save_quote'] = 'customer/customers/save_quote';
+
+//$route['customer/add_address_book'] = 'customer/customers/add_address_book';
 
 $route['customer/update_address_book'] = 'customer/customers/update_address_book';
 

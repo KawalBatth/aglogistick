@@ -52,7 +52,7 @@
    <tbody></table>
 <div class="quote-button">
 
-    <button type="button" class="btn s33 cancel" onclick="closeForm()">Ok</button>
+   
     </div>
   </form>
 </div>    
@@ -164,8 +164,9 @@ function fecth_quote()
                 jQuery.each(data, function( i, val ) {
                   result = val;
                 
+                  html +='<button type="button" class="btn s33 ok" onclick="closeForm()">x</button>';
                   html +='<div class="col-lg-6">';
-                  html +='<table class="table" style="font-size: 11px; margin-bottom: 0px">';
+                  html +='<table class="table" style="font-size: 11px; margin-bottom: 0px; margin-top: 28px">';
                   html +='<tbody>';
                     html +='<tr>';
                         html +='<td class="td1">Service Type</td>';
@@ -309,7 +310,7 @@ function fecth_quote()
                         html +='</div>';
                         html +='<div class="col-lg-6">';
                         html +='<form id="formUpdatequoteJob" name="formUpdatequoteJob" action="/crm-webship/quote_job_view_detail.ix" method="post">';
-                        html +='<table class="table table-hover  mg0" id="">';
+                        html +='<table class="table table-hover mg0" id="">';
                         html +='<thead>';
                   html +='<tr>';
                         html +='<th>Quote Detail</th>';
@@ -332,14 +333,14 @@ function fecth_quote()
                        html +='<td colspan="2">27.05</td>';
                        html +='</tr>';
                        html +='<tr>';
-                       html +='<td colspan="4"><i>Quote is an estimate. Additional fees may apply.</i></td>';
+                       html +='<td class="quote" colspan="4"><i>Quote is an estimate. Additional fees may apply.</i></td>';
                        html +='</tr>';
-                       
                 });
             	$('#myForm').html(html);
               }
             });
           }
 
+         
 
 </script>

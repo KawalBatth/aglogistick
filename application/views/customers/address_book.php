@@ -12,6 +12,7 @@
       <?php echo form_open(base_url('customer/update_address_book'), 'class="address_book_add-form" '); ?>
       <div class="modal-body">
       <input type="hidden"  name="address_id" class="form-control" value="" id="address_id">
+      <input type="hidden" name="customerCode" id="customerCode" value="<?php echo $customers->customer_id;?>">
       <div class="row">
                     <div class="col-lg-6">
                         <div class="portlet box">
@@ -19,6 +20,15 @@
                                 <div class="caption">
                                     Address Fields
                                 </div>
+                                <?php if(!empty($success_msg)){ ?>
+    <div class="col-xs-12">
+        <div class="alert alert-success"><?php echo $success_msg; ?></div>
+    </div>
+    <?php if(!empty($error_msg)){ ?>
+    <div class="col-xs-12">
+        <div class="alert alert-danger"><?php echo $error_msg; ?></div>
+    </div>
+    <?php } }?>
                                 <div class="tools">
                                     <i class="fa fa-chevron-up"></i><i class="fa fa-times"></i>
                                 </div>
@@ -506,7 +516,7 @@
                                                     <?php for($i=0;$i<count($address_book);$i++)
                                             { ?>
                                   <tr data-address-id="<?php echo $address_book[$i]['id'];?>">
-                                  <?php $id= $address_book[$i]['id']; ?>
+                                  <?php $id= $address_book[$i]['customer_id']; ?>
                                                                 <td><?php echo $address_book[$i]['contact_name'];?></td>
                                                                 <td><?php echo $address_book[$i]['company_name'];?></td>
                                                                 <td><?php echo $address_book[$i]['address'];?></td>
@@ -547,13 +557,25 @@
                                         <div class="col-lg-10 text-left">
                                             <a href="<?= base_url('customer/address_book_add'); ?>" class="btn s33 s44">Add</a>
                                             <button type="button" onclick="editAddressBook()" id="EditButton" class="btn s33 s44" disabled>Edit</button>
-                                          
-                                          <a href="<?= base_url('admin/address_book_import'); ?>" class="btn s33 s44">Import</a>
+                                            <div class="col-md-12 head">
+            <div class="float-right">
+                <a href="javascript:void(0);" class="btn s33 s44 import" onclick="formToggle('importFrm');"><i class="plus"></i> Import</a>
+            </div>
+        </div>
+          <!-- File upload form -->
+          <div class="col-md-12" id="importFrm" style="display: none;">
+            <form action="<?php echo base_url('members/import'); ?>" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
+            </form>
+        </div>
+                                          <!--a href="<?php //base_url('customer/import_excel'); ?>" class="btn s33 s44">Import</a-->
                                             <button class="btn s33 s44" type="button" onClick="window.location.reload()">
                                               Refresh
                                             </button>
                                             <!--a href="/crm-webship/address_book_export.ix" class="btn s33 s44">Export</a-->
-                                            <input type="button" id="btnExport" class="btn s33 s44" value="Export to Pdf" />
+                                            <!--input type="button" id="btnExport" class="btn s33 s44" value="Export to Pdf" /-->
+                                            <button name="create_excel" id="create_excel" class="btn s33 export">Export Excel</button> 
                                         </div>
                                         <div class="col-lg-2">
                                             <button class="btn s33 s44" type="button" onclick="onShipTo()">
@@ -567,11 +589,10 @@
                     </div>
 
  <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script-->
-     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+  
  
 <script type="text/javascript">
-        $("body").on("click", "#btnExport", function () {
+       /* $("body").on("click", "#btnExport", function () {
             html2canvas($('#address-book-table')[0], {
                 onrendered: function (canvas) {
                     var data = canvas.toDataURL();
@@ -584,7 +605,7 @@
                     pdfMake.createPdf(docDefinition).download("address-book.pdf");
                 }
             });
-        });
+        });*/
           
 
 //To enable and disable edit surcharge button
@@ -594,6 +615,61 @@ $(document).on('click', '#address-book-table tbody tr', function(e) {
     $("#EditButton").prop('disabled', false);
 });
 
+
+$('#create_excel').click(function() {
+	  var titles = [];
+	  var data = [];
+
+	  $('.dataTable th').each(function() {
+		titles.push($(this).text());
+	  });
+
+	  $('.dataTable td').each(function() {
+		data.push($(this).text());
+	  });
+
+	  var CSVString = prepCSVRow(titles, titles.length, '');
+	  CSVString = prepCSVRow(data, titles.length, CSVString);
+
+	  var downloadLink = document.createElement("a");
+	  var blob = new Blob(["\ufeff", CSVString]);
+	  var url = URL.createObjectURL(blob);
+	  downloadLink.href = url;
+	  downloadLink.download = "data.csv";
+
+	  document.body.appendChild(downloadLink);
+	  downloadLink.click();
+	  document.body.removeChild(downloadLink);
+	});
+
+	function prepCSVRow(arr, columnCount, initial) {
+	  var row = ''; // this will hold data
+	  var delimeter = ','; // data slice separator, in excel it's `;`, in usual CSv it's `,`
+	  var newLine = '\r\n'; // newline separator for CSV row
+
+	  function splitArray(_arr, _count) {
+		var splitted = [];
+		var result = [];
+		_arr.forEach(function(item, idx) {
+		  if ((idx + 1) % _count === 0) {
+			splitted.push(item);
+			result.push(splitted);
+			splitted = [];
+		  } else {
+			splitted.push(item);
+		  }
+		});
+		return result;
+	  }
+	  var plainArr = splitArray(arr, columnCount);
+	  plainArr.forEach(function(arrItem) {
+		arrItem.forEach(function(item, idx) {
+		  row += item + ((idx + 1) === arrItem.length ? '' : delimeter);
+		});
+		row += newLine;
+	  });
+	  return initial + row;
+	}
 
    function editAddressBook()
    {
@@ -684,6 +760,15 @@ $(document).on('click', '#address-book-table tbody tr', function(e) {
             });
         }
     });
+
+    function formToggle(ID){
+    var element = document.getElementById(ID);
+    if(element.style.display === "none"){
+        element.style.display = "block";
+    }else{
+        element.style.display = "none";
+    }
+}
 
 
   $(document).ready(function() {

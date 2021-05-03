@@ -344,7 +344,7 @@ if(isset($submit_id))
                                               <td>  
                                             <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                                     <option value="-1">Select a Customer</option>
-                                    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option>
+                                    <option value="http://localhost:8011/webfreight/admin/add">Add a Customer</option>
                <?php for($i=0;$i<count($data);$i++)
                         {
                         if ($submit_id == $data[$i]['customer_id']) 
@@ -945,14 +945,18 @@ if(isset($submit_id))
                                                             </div-->
                                                             <div class="pull-left c32" data-group="sel-rate-type">
                                                                 <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__rateType" class="form-control" data-index="0">
-																	<option value="0">DHL</option>
-																	<option value="1" selected="selected">% Margin</option>
-																</select>
+    <option value="0">DHL</option>
+    <option value="1" selected="selected">% Margin</option>
+
+
+</select>
+
 
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].rate" maxlength="25" value="35.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="0">
+                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].rate" maxlength="25" value="35.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="0">
+                                                                
                                                                 
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
@@ -960,7 +964,9 @@ if(isset($submit_id))
                                                                 <a href="javascript:void(0)" onclick="viewRateSheet('10000018',1,0,0,1)" class="b19" data-sheet-id="533" data-perweight-sheet-id="0" data-nc-sheet-id="448" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
                                                             </div>
                                                             <div class="pull-left c32a">
-                                                                <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
+                                                                
+                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
+                                                                
                                                                 
                                                             </div>
                                                         </div>
@@ -1055,104 +1061,104 @@ if(isset($submit_id))
                                             <tbody><tr>
                                                 <td>Origin</td>
                                                 <td><select name="" id="tntDomColumnName" class="form-control">
-													<option value="ADL">ADELAIDE - ADL</option>
-													<option value="ABY">ALBANY - ABY</option>
-													<option value="ALB">ALBURY/WODONGA - ALB</option>
-													<option value="ASP">ALICE SPRINGS - ASP</option>
-													<option value="ALL">ALL TO ALL - ALL</option>
-													<option value="ARM">ARMIDALE - ARM</option>
-													<option value="BAL">BALLARAT - BAL</option>
-													<option value="BEN">BENDIGO - BEN</option>
-													<option value="BNE">BRISBANE - BNE</option>
-													<option value="BKH">BROKEN HILL - BKH</option>
-													<option value="BME">BROOME - BME</option>
-													<option value="BUN">BUNBURY - BUN</option>
-													<option value="BBG">BUNDABERG - BBG</option>
-													<option value="BUS">BUSSELTON - BUS</option>
-													<option value="CNS">CAIRNS - CNS</option>
-													<option value="CBA">CANBERRA - CBA</option>
-													<option value="CVQ">CARNARVON - CVQ</option>
-													<option value="COF">COFFS HARBOUR - COF</option>
-													<option value="DWN">DARWIN - DWN</option>
-													<option value="DUB">DUBBO - DUB</option>
-													<option value="EMD">EMERALD - EMD</option>
-													<option value="ESP">ESPERENCE - ESP</option>
-													<option value="EXM">EXMOUTH - EXM</option>
-													<option value="GLG">GEELONG - GLG</option>
-													<option value="GET">GERALDTON - GET</option>
-													<option value="GLD">GLADSTONE - GLD</option>
-													<option value="OOL">GOLD COAST - OOL</option>
-													<option value="GOS">GOSFORD - GOS</option>
-													<option value="GOV">GOVE - GOV</option>
-													<option value="HOB">HOBART - HOB</option>
-													<option value="KAL">KALGOORLIE - KAL</option>
-													<option value="KTA">KARRATHA - KTA</option>
-													<option value="KTH">KATHERINE - KTH</option>
-													<option value="KNX">KUNUNURRA - KNX</option>
-													<option value="LNC">LAUNCESTON - LNC</option>
-													<option value="LST">LEINSTER - LST</option>
-													<option value="LIS">LISMORE - LIS</option>
-													<option value="MKY">MACKAY - MKY</option>
-													<option value="MAN">MANDURAH - MAN</option>
-													<option value="MEL">MELBOURNE - MEL</option>
-													<option value="MWL">MORWELL - MWL</option>
-													<option value="MTG">MT GAMBIER - MTG</option>
-													<option value="ISA">MT ISA - ISA</option>
-													<option value="MTM">MT MAGNET - MTM</option>
-													<option value="NCL">NEWCASTLE - NCL</option>
-													<option value="NMN">NEWNAM - NMN</option>
-													<option value="NOW">NOWRA - NOW</option>
-													<option value="NS1">NSW COUNTRY 1 - NS1</option>
-													<option value="NS2">NSW COUNTRY 2 - NS2</option>
-													<option value="NS3">NSW COUNTRY 3 - NS3</option>
-													<option value="NS4">NSW COUNTRY 4 - NS4</option>
-													<option value="NS5">NSW COUNTRY 5 - NS5</option>
-													<option value="NS6">NSW COUNTRY 6 - NS6</option>
-													<option value="NT1">NT COUNTRY 1 - NT1</option>
-													<option value="NT2">NT COUNTRY 2 - NT2</option>
-													<option value="ORA">ORANGE - ORA</option>
-													<option value="PAN">PANNAWONICA - PAN</option>
-													<option value="PBO">PARABURDOO - PBO</option>
-													<option value="PTH">PERTH - PTH</option>
-													<option value="PHE">PORT HEDLAND - PHE</option>
-													<option value="PTM">PORT MACQUARIE - PTM</option>
-													<option value="QL1">QLD COUNTRY 1 - QL1</option>
-													<option value="QL2">QLD COUNTRY 2 - QL2</option>
-													<option value="QL3">QLD COUNTRY 3 - QL3</option>
-													<option value="QL4">QLD COUNTRY 4 - QL4</option>
-													<option value="RAV">RAVENSTHORPI - RAV</option>
-													<option value="RKN">ROCKHAMPTON - RKN</option>
-													<option value="SA1">SA COUNTRY 1 - SA1</option>
-													<option value="SA2">SA COUNTRY 2 - SA2</option>
-													<option value="SA3">SA COUNTRY 3 - SA3</option>
-													<option value="SHP">SHEPPARTON - SHP</option>
-													<option value="SIN">SINGLETON - SIN</option>
-													<option value="MCE">SUNSHINE COAST - MCE</option>
-													<option value="SYD">SYDNEY - SYD</option>
-													<option value="TAM">TAMWORTH - TAM</option>
-													<option value="TAS">TASMANIA - TAS</option>
-													<option value="TCK">TENNANT CREEK - TCK</option>
-													<option value="TPR">TOM PRICE - TPR</option>
-													<option value="TBA">TOOWOOMBA - TBA</option>
-													<option value="TVE">TOWNSVILLE - TVE</option>
-													<option value="VC1">VIC COUNTRY 1 - VC1</option>
-													<option value="VC2">VIC COUNTRY 2 - VC2</option>
-													<option value="VC3">VIC COUNTRY 3 - VC3</option>
-													<option value="WA1">WA COUNTRY 1 - WA1</option>
-													<option value="WA2">WA COUNTRY 2 - WA2</option>
-													<option value="WA3">WA COUNTRY 3 - WA3</option>
-													<option value="WA4">WA COUNTRY 4 - WA4</option>
-													<option value="WGA">WAGGA - WGA</option>
-													<option value="WGR">WANGARATTA - WGR</option>
-													<option value="WMB">WARRNAMBOOL - WMB</option>
-													<option value="WPI">WEIPA - WPI</option>
-													<option value="WIC">WICKHAM - WIC</option>
-													<option value="WNG">WOLLONGONG - WNG</option>
+    <option value="ADL">ADELAIDE - ADL</option>
+    <option value="ABY">ALBANY - ABY</option>
+    <option value="ALB">ALBURY/WODONGA - ALB</option>
+    <option value="ASP">ALICE SPRINGS - ASP</option>
+    <option value="ALL">ALL TO ALL - ALL</option>
+    <option value="ARM">ARMIDALE - ARM</option>
+    <option value="BAL">BALLARAT - BAL</option>
+    <option value="BEN">BENDIGO - BEN</option>
+    <option value="BNE">BRISBANE - BNE</option>
+    <option value="BKH">BROKEN HILL - BKH</option>
+    <option value="BME">BROOME - BME</option>
+    <option value="BUN">BUNBURY - BUN</option>
+    <option value="BBG">BUNDABERG - BBG</option>
+    <option value="BUS">BUSSELTON - BUS</option>
+    <option value="CNS">CAIRNS - CNS</option>
+    <option value="CBA">CANBERRA - CBA</option>
+    <option value="CVQ">CARNARVON - CVQ</option>
+    <option value="COF">COFFS HARBOUR - COF</option>
+    <option value="DWN">DARWIN - DWN</option>
+    <option value="DUB">DUBBO - DUB</option>
+    <option value="EMD">EMERALD - EMD</option>
+    <option value="ESP">ESPERENCE - ESP</option>
+    <option value="EXM">EXMOUTH - EXM</option>
+    <option value="GLG">GEELONG - GLG</option>
+    <option value="GET">GERALDTON - GET</option>
+    <option value="GLD">GLADSTONE - GLD</option>
+    <option value="OOL">GOLD COAST - OOL</option>
+    <option value="GOS">GOSFORD - GOS</option>
+    <option value="GOV">GOVE - GOV</option>
+    <option value="HOB">HOBART - HOB</option>
+    <option value="KAL">KALGOORLIE - KAL</option>
+    <option value="KTA">KARRATHA - KTA</option>
+    <option value="KTH">KATHERINE - KTH</option>
+    <option value="KNX">KUNUNURRA - KNX</option>
+    <option value="LNC">LAUNCESTON - LNC</option>
+    <option value="LST">LEINSTER - LST</option>
+    <option value="LIS">LISMORE - LIS</option>
+    <option value="MKY">MACKAY - MKY</option>
+    <option value="MAN">MANDURAH - MAN</option>
+    <option value="MEL">MELBOURNE - MEL</option>
+    <option value="MWL">MORWELL - MWL</option>
+    <option value="MTG">MT GAMBIER - MTG</option>
+    <option value="ISA">MT ISA - ISA</option>
+    <option value="MTM">MT MAGNET - MTM</option>
+    <option value="NCL">NEWCASTLE - NCL</option>
+    <option value="NMN">NEWNAM - NMN</option>
+    <option value="NOW">NOWRA - NOW</option>
+    <option value="NS1">NSW COUNTRY 1 - NS1</option>
+    <option value="NS2">NSW COUNTRY 2 - NS2</option>
+    <option value="NS3">NSW COUNTRY 3 - NS3</option>
+    <option value="NS4">NSW COUNTRY 4 - NS4</option>
+    <option value="NS5">NSW COUNTRY 5 - NS5</option>
+    <option value="NS6">NSW COUNTRY 6 - NS6</option>
+    <option value="NT1">NT COUNTRY 1 - NT1</option>
+    <option value="NT2">NT COUNTRY 2 - NT2</option>
+    <option value="ORA">ORANGE - ORA</option>
+    <option value="PAN">PANNAWONICA - PAN</option>
+    <option value="PBO">PARABURDOO - PBO</option>
+    <option value="PTH">PERTH - PTH</option>
+    <option value="PHE">PORT HEDLAND - PHE</option>
+    <option value="PTM">PORT MACQUARIE - PTM</option>
+    <option value="QL1">QLD COUNTRY 1 - QL1</option>
+    <option value="QL2">QLD COUNTRY 2 - QL2</option>
+    <option value="QL3">QLD COUNTRY 3 - QL3</option>
+    <option value="QL4">QLD COUNTRY 4 - QL4</option>
+    <option value="RAV">RAVENSTHORPI - RAV</option>
+    <option value="RKN">ROCKHAMPTON - RKN</option>
+    <option value="SA1">SA COUNTRY 1 - SA1</option>
+    <option value="SA2">SA COUNTRY 2 - SA2</option>
+    <option value="SA3">SA COUNTRY 3 - SA3</option>
+    <option value="SHP">SHEPPARTON - SHP</option>
+    <option value="SIN">SINGLETON - SIN</option>
+    <option value="MCE">SUNSHINE COAST - MCE</option>
+    <option value="SYD">SYDNEY - SYD</option>
+    <option value="TAM">TAMWORTH - TAM</option>
+    <option value="TAS">TASMANIA - TAS</option>
+    <option value="TCK">TENNANT CREEK - TCK</option>
+    <option value="TPR">TOM PRICE - TPR</option>
+    <option value="TBA">TOOWOOMBA - TBA</option>
+    <option value="TVE">TOWNSVILLE - TVE</option>
+    <option value="VC1">VIC COUNTRY 1 - VC1</option>
+    <option value="VC2">VIC COUNTRY 2 - VC2</option>
+    <option value="VC3">VIC COUNTRY 3 - VC3</option>
+    <option value="WA1">WA COUNTRY 1 - WA1</option>
+    <option value="WA2">WA COUNTRY 2 - WA2</option>
+    <option value="WA3">WA COUNTRY 3 - WA3</option>
+    <option value="WA4">WA COUNTRY 4 - WA4</option>
+    <option value="WGA">WAGGA - WGA</option>
+    <option value="WGR">WANGARATTA - WGR</option>
+    <option value="WMB">WARRNAMBOOL - WMB</option>
+    <option value="WPI">WEIPA - WPI</option>
+    <option value="WIC">WICKHAM - WIC</option>
+    <option value="WNG">WOLLONGONG - WNG</option>
 
 
-												</select>
+</select>
 
-												</td>
+</td>
                                             </tr>
                                         </tbody></table>
                                     </div>
@@ -1215,10 +1221,10 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="sel-rate-type">
                                                                 <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[9].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_9__rateType" class="form-control" data-index="9">
-																	<option value="1" selected="selected">% Margin</option>
+    <option value="1" selected="selected">% Margin</option>
 
 
-																</select>
+</select>
 
 
                                                             </div>
@@ -3966,155 +3972,164 @@ if(isset($submit_id))
                             </div>
                         </div>
                        
-						<?php //echo '<pre>'; print_r(json_decode($margin->margin_rate)); echo '</pre>'; ?>
+                       
                         <!-- Star Track -->
                         <div id="cust_base_rates_star_track_tab" class="tab-pane fade active in">
                             <div class="row">
                                 <div data-type="print-rate-sheet" class="portlet-body b12 b11">
                                     <!-- Orgin -->
-									<form action="<?php echo base_url('admin/add_margin'); ?>" class="margin-form" id="margin-form" method="post" accept-charset="utf-8">
+                                    <?php echo form_open(base_url('admin/add_margin'), 'class="margin-form" id="margin-form"'); ?>
                                     <div class="form-group">
                                         <table class="s36">
                                             <tbody><tr>
                                                 <td>Origin</td>
-                                                <td>
-													<select name="starTrackColumnName" id="starTrackColumnName" class="form-control">
-													<option value="A10">A10</option>
-													<option value="ABY">ALBANY - ABY</option>
-													<option value="AC1">SA ZONE 1 - AC1</option>
-													<option value="AC2">SA ZONE 2 - AC2</option>
-													<option value="AC3">SA ZONE 3 - AC3</option>
-													<option value="AC4">SA ZONE 4 - AC4</option>
-													<option value="AC5">SA ZONE 5 - AC5</option>
-													<option value="AC6">SA ZONE 6 - AC6</option>
-													<option value="AC7">SA ZONE 7 - AC7</option>
-													<option value="SC7">SA ZONE 7 - SC7</option>
-													<option value="AC8">SA ZONE 8 - AC8</option>
-													<option value="AC9">SA ZONE 9 - AC9</option>
-													<option value="ADL">ADELAIDE - ADL</option>
-													<option value="ALB">ALBURY - ALB</option>
-													<option value="ASP">ALICE SPRINGS - ASP</option>
-													<option value="BNA">BALLINA - BNA</option>
-													<option value="BRO">BROOME - BRO</option>
-													<option value="BRS">BRISBANE - BRS</option>
-													<option value="BUN">BUNDABERG - BUN</option>
-													<option value="CBR">CANBERRA - CBR</option>
-													<option value="COF">COFFS HARBOUR - COF</option>
-													<option value="CRN">CAIRNS - CRN</option>
-													<option value="D10">DARWIN ZONE 10 - D10</option>
-													<option value="DAR">DARWIN - DAR</option>
-													<option value="DC4">DARWIN ZONE 4 - DC4</option>
-													<option value="DC6">DARWIN ZONE 6 - DC6	</option>
-													<option value="DC7">DARWIN ZONE 7 - DC7	</option>
-													<option value="ESP">ESPERENCE - ESP	</option>
-													<option value="GLA">GLADSTONE - GLA	</option>
-													<option value="GLD">GOLD COAST - GLD</option>
-													<option value="GYM">GYMPIE - GYM</option>
-													<option value="HC1">HOBART ZONE 1 - HC1	</option>
-													<option value="HC2">HOBART ZONE 2 - HC2	</option>
-													<option value="HOB">HOBART - HOB</option>
-													<option value="KAR">KARRATHA - KAR</option>
-													<option value="L10">L10	</option>
-													<option value="LC1">LAUNCESTON ZONE 1 - LC1	</option>
-													<option value="LC2">LAUNCESTON ZONE 2 - LC2	</option>
-													<option value="LC3">LAUNCESTON ZONE 3 - LC3	</option>
-													<option value="LCN">LAUNCESTON - LCN</option>
-													<option value="LIS">LISMORE - LIS</option>
-													<option value="MAC">MACKAY - MAC</option>
-													<option value="MAR">MARYBOROUGH - MAR</option>
-													<option value="MEL">MELBOURNE - MEL</option>
-													<option value="N10">N10	</option>
-													<option value="NC1">NSW ZONE 1 - NC1</option>
-													<option value="NC2">NSW ZONE 2 - NC2</option>
-													<option value="NC3">NSW ZONE 3 - NC3</option>
-													<option value="NC4">NSW ZONE 4 - NC4</option>
-													<option value="NC5">NSW ZONE 5 - NC5</option>
-													<option value="NC6">NSW ZONE 6 - NC6</option>
-													<option value="NCL">NEWCASTLE - NCL	</option>
-													<option value="PER">PERTH - PER	</option>
-													<option value="PRO">GREGORY RIVER - PRO	</option>
-													<option value="Q10">Q10	</option>
-													<option value="QC1">QUEENSLAND ZONE 1 - QC1	</option>
-													<option value="QC2">QUEENSLAND ZONE 2 - QC2	</option>
-													<option value="QC3">QUEENSLAND ZONE 3 - QC3	</option>
-													<option value="QC4">QUEENSLAND ZONE 4 - QC4	</option>
-													<option value="QC5">QUEENSLAND ZONE 5 - QC5	</option>
-													<option value="QC6">QUEENSLAND ZONE 6 - QC6	</option>
-													<option value="QC7">QUEENSLAND ZONE 7 - QC7	</option>
-													<option value="QC8">QUEENSLAND ZONE 8 - QC8	</option>
-													<option value="QC9">QUEENSLAND ZONE 9 - QC9	</option>
-													<option value="RHM">ROCKINGHAM - RHM</option>
-													<option value="RKH">ROCKINGHAM - RKH</option>
-													<option value="ROC">ROCKHAMPTON - ROC</option>
-													<option value="SSC">SUNSHINE COAST - SSC</option>
-													<option value="SYD">SYDNEY - SYD</option>
-													<option value="TAM">TAMWORTH - TAM</option>
-													<option value="TVL">TOWNSVILLE - TVL</option>
-													<option value="TWB">TOOWOOMBA - TWB</option>
-													<option value="VC1">VICTORIA ZONE 1 - VC1</option>
-													<option value="VC2">VICTORIA ZONE 2 - VC2</option>
-													<option value="VC3">VICTORIA ZONE 3 - VC3</option>
-													<option value="WC1">WA ZONE 1 - WC1</option>
-													<option value="WC2">WA ZONE 2 - WC2</option>
-													<option value="WC3">WA ZONE 3 - WC3</option>
-													<option value="WC4">WA ZONE 4 - WC4</option>
-													<option value="WC5">WA ZONE 5 - WC5</option>
-													<option value="WC6">WA ZONE 6 - WC6</option>
-													<option value="WC7">WA ZONE 7 - WC7</option>
-													<option value="WC8">WA ZONE 8 - WC8</option>
-													<option value="WC9">WA ZONE 9 - WC9</option>
-													<option value="WOL">WOLLONGONG - WOL</option>
-													</select>
-													</td>
+                                                <td><select name="starTrackColumnName" id="starTrackColumnName" class="form-control">
+<option value="A10">A10</option>
+<option value="ABY">ALBANY - ABY</option>
+<option value="AC1">SA ZONE 1 - AC1</option>
+<option value="AC2">SA ZONE 2 - AC2</option>
+<option value="AC3">SA ZONE 3 - AC3</option>
+<option value="AC4">SA ZONE 4 - AC4</option>
+<option value="AC5">SA ZONE 5 - AC5</option>
+<option value="AC6">SA ZONE 6 - AC6</option>
+<option value="AC7">SA ZONE 7 - AC7</option>
+<option value="SC7">SA ZONE 7 - SC7</option>
+<option value="AC8">SA ZONE 8 - AC8</option>
+<option value="AC9">SA ZONE 9 - AC9</option>
+<option value="ADL">ADELAIDE - ADL</option>
+<option value="ALB">ALBURY - ALB</option>
+<option value="ASP">ALICE SPRINGS - ASP</option>
+<option value="BNA">BALLINA - BNA</option>
+<option value="BRO">BROOME - BRO</option>
+<option value="BRS">BRISBANE - BRS</option>
+<option value="BUN">BUNDABERG - BUN</option>
+<option value="CBR">CANBERRA - CBR</option>
+<option value="COF">COFFS HARBOUR - COF</option>
+<option value="CRN">CAIRNS - CRN</option>
+<option value="D10">DARWIN ZONE 10 - D10</option>
+<option value="DAR">DARWIN - DAR</option>
+<option value="DC4">DARWIN ZONE 4 - DC4</option>
+<option value="DC6">DARWIN ZONE 6 - DC6	</option>
+<option value="DC7">DARWIN ZONE 7 - DC7	</option>
+<option value="ESP">ESPERENCE - ESP	</option>
+<option value="GLA">GLADSTONE - GLA	</option>
+<option value="GLD">GOLD COAST - GLD</option>
+<option value="GYM">GYMPIE - GYM</option>
+<option value="HC1">HOBART ZONE 1 - HC1	</option>
+<option value="HC2">HOBART ZONE 2 - HC2	</option>
+<option value="HOB">HOBART - HOB</option>
+<option value="KAR">KARRATHA - KAR</option>
+<option value="L10">L10	</option>
+<option value="LC1">LAUNCESTON ZONE 1 - LC1	</option>
+<option value="LC2">LAUNCESTON ZONE 2 - LC2	</option>
+<option value="LC3">LAUNCESTON ZONE 3 - LC3	</option>
+<option value="LCN">LAUNCESTON - LCN</option>
+<option value="LIS">LISMORE - LIS</option>
+<option value="MAC">MACKAY - MAC</option>
+<option value="MAR">MARYBOROUGH - MAR</option>
+<option value="MEL">MELBOURNE - MEL</option>
+<option value="N10">N10	</option>
+<option value="NC1">NSW ZONE 1 - NC1</option>
+<option value="NC2">NSW ZONE 2 - NC2</option>
+<option value="NC3">NSW ZONE 3 - NC3</option>
+<option value="NC4">NSW ZONE 4 - NC4</option>
+<option value="NC5">NSW ZONE 5 - NC5</option>
+<option value="NC6">NSW ZONE 6 - NC6</option>
+<option value="NCL">NEWCASTLE - NCL	</option>
+<option value="PER">PERTH - PER	</option>
+<option value="PRO">GREGORY RIVER - PRO	</option>
+<option value="Q10">Q10	</option>
+<option value="QC1">QUEENSLAND ZONE 1 - QC1	</option>
+<option value="QC2">QUEENSLAND ZONE 2 - QC2	</option>
+<option value="QC3">QUEENSLAND ZONE 3 - QC3	</option>
+<option value="QC4">QUEENSLAND ZONE 4 - QC4	</option>
+<option value="QC5">QUEENSLAND ZONE 5 - QC5	</option>
+<option value="QC6">QUEENSLAND ZONE 6 - QC6	</option>
+<option value="QC7">QUEENSLAND ZONE 7 - QC7	</option>
+<option value="QC8">QUEENSLAND ZONE 8 - QC8	</option>
+<option value="QC9">QUEENSLAND ZONE 9 - QC9	</option>
+<option value="RHM">ROCKINGHAM - RHM</option>
+<option value="RKH">ROCKINGHAM - RKH</option>
+<option value="ROC">ROCKHAMPTON - ROC</option>
+<option value="SSC">SUNSHINE COAST - SSC</option>
+<option value="SYD">SYDNEY - SYD</option>
+<option value="TAM">TAMWORTH - TAM</option>
+<option value="TVL">TOWNSVILLE - TVL</option>
+<option value="TWB">TOOWOOMBA - TWB</option>
+<option value="VC1">VICTORIA ZONE 1 - VC1</option>
+<option value="VC2">VICTORIA ZONE 2 - VC2</option>
+<option value="VC3">VICTORIA ZONE 3 - VC3</option>
+<option value="WC1">WA ZONE 1 - WC1</option>
+<option value="WC2">WA ZONE 2 - WC2</option>
+<option value="WC3">WA ZONE 3 - WC3</option>
+<option value="WC4">WA ZONE 4 - WC4</option>
+<option value="WC5">WA ZONE 5 - WC5</option>
+<option value="WC6">WA ZONE 6 - WC6</option>
+<option value="WC7">WA ZONE 7 - WC7</option>
+<option value="WC8">WA ZONE 8 - WC8</option>
+<option value="WC9">WA ZONE 9 - WC9</option>
+<option value="WOL">WOLLONGONG - WOL</option>
+
+
+</select>
+
+</td>
                                             </tr>
                                         </tbody></table>
                                     </div>
                                     <!-- Print Rate Sheet -->
                                     <div class="form-group">
                                         <table class="s36">
-                                            <tbody>
-												<tr>
-													<td><input type="radio" class="TLO" name="radio1" id="all" />Check All</td>
-													<td><input type="radio" class="TLO" name="radio1" id="none" />Uncheck All</td>
-													<td><input type="checkbox" data-type="pdf-format" onchange="rateSheetFormatChange($(this))"></td>
-													<td>Pdf</td>
-													<td><input type="checkbox" data-type="excel-format" onchange="rateSheetFormatChange($(this))"></td>
-													<td>Excel</td>
-												</tr>
-											</tbody>
-										</table>
+                                            <tbody><tr>
+                                             
+                                               
+                                                 <!--td><input type="radio" class="TLO" name="radio1" id="all" />Check All</td>
+                                                   <td> <input type="radio" class="TLO" name="radio1" id="none" />Uncheck All</td-->
+                                               
+                                             
+                                                <!--td><input type="checkbox" data-type="pdf-format" onchange="rateSheetFormatChange($(this))"></td>
+                                                <td>Pdf</td>
+                                                <td><input type="checkbox" data-type="excel-format" onchange="rateSheetFormatChange($(this))"></td>
+                                                <td>Excel</td-->
+                                                <!--button name="create_excel" id="create_excel" class="btn s33">  
+                                                                        Export to Excel
+                                                                    </button> 
+                                                <input type="button" id="btnExport" class="btn export_pdf" value="Export Pdf" /-->
+                                              
+                                            </tr>
+                                        </tbody></table>
                                     </div>
-									<input type="hidden" value="<?php echo $submit_id;?>" name="customer_id">
                                     <!-- Service Type List -->
-                                    <?php 
-										if(!empty($margin)){
-											$margin_rates = json_decode($margin->margin_rate);
-										}else{
-											$margin_rates = '';
-										}
-										
-										/* echo '<pre>';
-										print_r($margin_rates);
-										echo '</pre>'; */
-										foreach($services as $key => $value)
-                                        { 
-									?>
-											<div id="shipment_type_<?php echo $value['id'];?>_-1_0">
+                                     <?php 
+
+                                     foreach($services as $key => $value)
+                                                              {
+
+                                                              
+
+                                                                ?>
+
+                                                                
+                                                             
+                                                         
+                                        <div id="shipment_type_<?php echo $value['id'];?>_-1_0">
                                             
+                                               
                                                 <!-- Customer base rate -->
                                                 <div class="form-group base-rate-row" data-baserate="228_0_0" data-weight="0.00">
                                                     <div class="base-rate">
                                                         <div class="well well-sm pull-left c33" style="width: 100%">
                                                           
+                                                           
                                                             <div class="pull-left c32" style="padding: 5px; width: 250px;">
                                                                 
-																<span class="br-display-name"><?php echo $value['service_name'];?>
-																<input type="hidden" name="service_name[]" value="<?php echo $value['service_name'];?>"></span>
+                                                                    <span class="br-display-name"><?php echo $value['service_name'];?>
+                                                                    <input type="hidden" name="service_name" value="<?php echo $value['service_name'];?>"></span>
                                                                 
                                                             </div>
                                                             <div class="pull-left c32">
                                                                 
-                                                                <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="228" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
+                                                                    <input data-type="print-rate-sheet-checkbox" type="checkbox" class="country" data-customercode="10000018" data-shipmenttypeid="228" data-content="-1" data-bound="0" data-serviceid="72" style="margin-top: 6px;">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32" data-group="br-remove" style="display: none;">
@@ -4125,35 +4140,45 @@ if(isset($submit_id))
                                                                 <a class="b18"> <b><span data-group="br-weight">0.00+</span></b>
                                                                 </a>
                                                             </div>
+                                                            <!--div class="pull-left c32">
+                                                                <i onclick="addWeightBreak($(this))" id="dwed-link" class="fa fa-chevron-circle-right s10 b3" style="font-size: 18px; padding-top: 3px;" data-index="75"></i>
+                                                            </div-->
                                                             <div class="pull-left c32" data-group="sel-rate-type">
-                                                                <select name="customer_service_type[<?php echo $key; ?>]" class="form-control" data-index="75">
-																	<option value="0">Star Track</option>
-																	<option value="1" selected="selected">% Margin</option>
-																</select>
+                                                                <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__rateType" class="form-control" data-index="75">
+    <option value="0">Star Track</option>
+    <option value="1" selected="selected">% Margin</option>
+
+
+</select>
+
+
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
-
-                                                                <input type="text" name="margin_rate[<?php echo $key; ?>]" maxlength="25" value="<?php if(!empty($margin_rates)){ echo $margin_rates[$key]->margin_rate;}else{ echo 0; } ?>" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
+                                                                
+                                                                    <input type="text" name="margin_rate" maxlength="25" value="00.00" id="margin_rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75" onchange='saveValue(this);'>
+                                                                
+                                                                
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
                                                             <div class="pull-left c32a">
-																<?php  if($value['service_name'] == "Overnight" || $value['service_name'] == "Road Express") { ?>
-																	<a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal" onclick="get_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')"> View</a>   
+                                                         <?php  if($value['service_name'] == "Overnight" || $value['service_name'] == "Road Express") { ?>
+                                             <a href="#" class="road_exp" data-toggle="modal" data-target="#exampleModal" onclick="get_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')"> View</a>   
 
-																<?php } else { ?>
-
-																	<a href="#" class="road_exp" data-toggle="modal" data-target="#fixed3Modal" onclick="get_fix_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')">View</a>
-																<?php } ?>
+<?php } else { ?>
+                                                            
+<a href="#" class="road_exp" data-toggle="modal" data-target="#fixed3Modal" onclick="get_fix_rates(<?php echo $value['id'];?>,'<?php echo $value['service_name'];?>')">View</a>
+<?php } ?>
                                                             </div>
                                                             <div class="pull-left c32a">
                                                                 
-																<i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
+                                                            <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
+                                                                
                                                                 
                                                             </div>
                                                         </div>
                                                     </div>
                                                     <!-- Customer base rate detail -->
-                                                    <!--<div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
+                                                    <div class="form-group pull-left base-rate" style="width: 100%; overflow: auto; display: none;">
                                                         <ul class="c36" style="width: 14324px; overflow: hidden;">
                                                             <li class="pull-left c35" style="margin-left: 40px;">
                                                                 <input type="checkbox" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].zoneCheck" value="true" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_75__zoneCheck" style="margin-top: 7px;" onclick="onCheckZoneCheck($(this),$(this).parents('ul'))" data-group="zone-check" data-index="75"><input type="hidden" id="__checkbox_saveManageCustomer_saveCustBaseRate_customerBaseRates_75__zoneCheck" name="__checkbox_saveManageCustomer.saveCustBaseRate.customerBaseRates[75].zoneCheck" value="true"></li>
@@ -4165,22 +4190,27 @@ if(isset($submit_id))
                                                             foreach ($get_rates as $key => $value) 
                                                             {                                                              
                                                             ?>
-                                                                <li>
+                                                                <!--li>
                                                                     <div class="pull-left c34" data-group="zone">
                                                                         <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].zone" class="form-control alloptions text-center" maxlength="25" value="<?php echo $value['origin']?>" disabled="disabled" type="text" data-group="zone-name"> <input data-index="75" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[75].customerBaseRateDetails[0].rate" disabled="disabled" class="form-control alloptions text-center" type="text" maxlength="25" value="<?php echo $value['minimum']?>" data-group="zone-rate">
                                                                     </div>
-                                                                </l>
+                                                                </li-->
                                                             <?php                                                            
-                                                            }                                                              
+                                                             }                                                              
                                                             ?>
+                                                                
+                                                            
                                                         </ul>
-                                                    </div>-->
+                                                    </div>
+                                                
                                                 </div>
-											</div>
-                                        <?php } ?>
-										<input type="submit" value="Update" class="btn s37">
-											
-									</form>
+                                            
+                                        </div>
+                                    
+                                       
+                                        <?php
+                                        }
+                                      ?>
                                 </div>
                             </div>
                         </div>
@@ -4202,7 +4232,26 @@ if(isset($submit_id))
 <div id="add-weight-break-comp" style="display: none;"></div>
 <div id="add-weight-dialog" title="Add Weight Break" style="display: none;"></div>
 <div id="view_rate_sheet_dialog" title="View Rate Sheet" style="display: none;"></div>
-<script type="text/javascript">
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+ 
+	<script type="text/javascript">
+		$("body").on("click", "#btnExport", function () {
+			html2canvas($('#exampleModalLabel')[0], {
+				onrendered: function (canvas) {
+					var data = canvas.toDataURL();
+					var docDefinition = {
+						content: [{
+							image: data,
+							width: 650
+						}]
+					};
+					pdfMake.createPdf(docDefinition).download("surcharge_list.pdf");
+				}
+			});
+		});
+
+
    var globalIndex = "85";
     function showZones($this) {
         if ($this.data("show") == "close") {
@@ -4953,7 +5002,7 @@ $(".remove").click(function(){
         {
             $.ajax({
 
-              url: 'customers/delUser/'+id,
+              url: 'delUser/'+id,
                type: 'DELETE',
                error: function() {
                   alert('Something is wrong');
@@ -4991,11 +5040,11 @@ $(".remove").click(function(){
 
 
     function edituser()
-    {
+{
 
-		$('#editModal').modal('show');
-		var user_id = $('.selected-row').attr('data-accessorialid');    
-		$.ajax({
+    $('#editModal').modal('show');
+    var user_id = $('.selected-row').attr('data-accessorialid');    
+    $.ajax({
                url: "<?php echo base_url('admin/get_c_user_by_id')?>",
                type: 'POST',
                data:{user_id:user_id},
@@ -5723,49 +5772,48 @@ $(".remove").click(function(){
 
     function updateSaveCustomer()
     {
-		var formdata = $("#update_customer_form").serialize();
-		console.log(formdata);
-		return false;
-		var isfromsubmit = true;
-		var isfromsubmitvalue = true;
-		var html='';
-		$('#update_customer_form input').each(function()
-		{
 
-		    if($(this).prop('required') && $(this).val()=='')
-		    {
-				alertDialog.dialog("open");  
-				
-				if(!$(this).parent().parent().find('.td1').attr('data-label'))
-				{
-					html +=$(this).parent().parent().find('.td1').html()+' cannot be empty <br/>';  
-				}
-				else {
-				  html +=$(this).parent().parent().find('.td1').attr('data-label')+' cannot be empty <br/>';
-				}
-				isfromsubmit = false;
-				alertDialog.html(html);               
-		    }
-		 
-		});
-		
-		if(isfromsubmit==true)
-		{
-			alertDialog.dialog("close");  
-			$.ajax({
-				url: 'customers/add_customer',
-				type: 'POST',
-				data:formdata,
-				error: function() {
-					alert('Something is wrong');
-				},
-				success: function(res) {
-					alert('Edit Successfully');  
-					console.log(res);      
-					window.location.reload();
-				}
+            var formdata = $("#update_customer_form").serialize();
+            var isfromsubmit = true;
+            var isfromsubmitvalue = true;
+            var html='';
+			$('#update_customer_form input').each(function()
+			{
+
+              if($(this).prop('required') && $(this).val()=='')
+              {
+                    alertDialog.dialog("open");  
+                    
+                    if(!$(this).parent().parent().find('.td1').attr('data-label'))
+                    {
+                        html +=$(this).parent().parent().find('.td1').html()+' cannot be empty <br/>';  
+                    }
+                    else {
+                      html +=$(this).parent().parent().find('.td1').attr('data-label')+' cannot be empty <br/>';
+                    }
+                    isfromsubmit = false;
+                    alertDialog.html(html);               
+              }
+             
 			});
-		}
+      if(isfromsubmit==true)
+      {
+        alertDialog.dialog("close");  
+        $.ajax({
+               url: 'customers/add_customer',
+             //  url: 'add_customer',
+               type: 'POST',
+               data:formdata,
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+                alert('Edit Successfully');  
+              console.log(res);      
+              window.location.reload();
+            }
+          });
+      }
     }
 
 
@@ -5874,27 +5922,13 @@ $(".remove").click(function(){
         </div>
     </div>
 </div>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+
 <script src="https://rawgit.com/unconditional/jquery-table2excel/master/src/jquery.table2excel.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 
 
 <script>
-  $("body").on("click", "#exportBtn", function () {
-            html2canvas($('#datatable1')[0], {
-                onrendered: function (canvas) {
-                    var data = canvas.toDataURL();
-                    var docDefinition = {
-                        content: [{
-                            image: data,
-                            width: 500
-                        }]
-                    };
-                    pdfMake.createPdf(docDefinition).download("web_freight_history.pdf");
-                }
-            });
-        });
+ 
 
         $(document).ready(function(){  
       $('#create_excel').click(function(){  
@@ -5920,8 +5954,8 @@ $(".remove").click(function(){
           var result='';
          
            $.ajax({
-               //url: 'customers/get_rates',
-               url: 'get_rates',
+               url: 'customers/get_rates',
+              // url: 'get_rates',
                type: 'POST',
                data:{zone:zone,service_type:id},
                error: function() {
@@ -5979,6 +6013,9 @@ $(".remove").click(function(){
 		$('#manage_customer_tab_nav a[href="' + activeTab + '"]').tab('show');
 	}
 });
+
+
+
 </script>
 <style>
 .scroll_horizontal {

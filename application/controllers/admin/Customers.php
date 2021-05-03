@@ -176,6 +176,7 @@
 	        	$zone = $this->input->post('zone');	
 		        $id = $this->input->post('service_type');	
 		        $data=  $this->auth_model->get_rates($zone,$id);
+			//$data['margin']   = $this->auth_model->get_margin();
 				//$zones=  $this->auth_model->get_zones();
 	        	echo json_encode($data);
 				

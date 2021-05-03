@@ -76,12 +76,15 @@
 		 }
 
 
-		 public function get_address_book()
+		 public function get_address_book($id)
 		{
 		   $this->db->select('*');
 		   $this->db->from('address_book');
+		   $this->db->where('customer_id', $id);
 		   return $query = $this->db->get()->result_array();
 		 }
+
+	
 
 		public function add_customers($data){
 			
@@ -125,11 +128,11 @@
 		}
 
 
-		public function get_address_by_id($id){
+	/*	public function get_address_by_id($id){
 			
 			$query = $this->db->get_where('address_book', array('id' => $id));
 			return $result = $query->row_array();
-		}
+		}*/
 
 
 		public function edit_user($data, $id){

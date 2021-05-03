@@ -28,6 +28,10 @@
 			$this->load->view('admin/layout', $data);
 		}
 
+	
+	
+
+
  function cleanData(&$str)
   {
     $str = preg_replace("/\t/", "\\t", $str);

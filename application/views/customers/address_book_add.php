@@ -14,6 +14,7 @@ echo @$address_book;*/
 
 ?>
 <form id="address_book_add" name="address_book_add">
+<input type="hidden" name="customerCode" id="customerCode" value="<?php echo $customers->customer_id;?>">
                 <div class="row">
                     <div class="col-lg-6">
                         <div class="portlet box">
@@ -88,7 +89,7 @@ echo @$address_book;*/
     <option value="9">Argentina</option>
     <option value="10">Armenia</option>
     <option value="11">Aruba</option>
-    <option value="12">Australia</option>
+    <option value="Australia">Australia</option>
     <option value="13">Austria</option>
     <option value="14">Azerbaijan</option>
     <option value="238">Azores EU</option>
@@ -530,9 +531,10 @@ echo @$address_book;*/
       });
       if(isfromsubmit==true)
       {
-        alertDialog.dialog("close");  
+        alertDialog.dialog("close"); 
         $.ajax({
-             url: 'customers/add_address_book',
+            url: 'customers/add_address_book',
+           //url: "<?php //echo base_url('customer/add_address_book');?>",
              type: 'POST',
              data:formdata,
              error: function() {
