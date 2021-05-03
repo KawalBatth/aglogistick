@@ -17,7 +17,7 @@
         </thead>
         <tbody>
           <?php foreach($all_customers as $row): ?>
-          <tr data-accessorialid="<?php echo $row['customer_id']; ?>">
+          <tr data-accessorialid="<?php echo $row['id']; ?>">
             <td><?= $row['customer_id'];?></td>
             <td><?= $row['customerName']; ?></td>
             <td><?= $row['email']; ?></td>
@@ -25,7 +25,6 @@
             <!--td><span class="btn btn-primary btn-flat btn-xs"><?php //($all_users['is_admin'] == 1)? 'admin': 'member'; ?></span></td-->
             
             <td class="text-right"><a href="<?= base_url('admin/customer_manage?id='.$row['customer_id']); ?>" class="btn btn-info btn-flat">Edit</a>
-            <a href="<?php //base_url('admin/customers/delCustomer/'.$row['customer_id']); ?>" class="btn btn-danger btn-flat <?php //($row['is_admin'] == 1)? 'disabled': ''?>"></a>
             <button type="button" class="btn remove"> Delete</button> </td>
 
          
@@ -64,5 +63,7 @@ $(".remove").click(function(){
             });
         }
     });
+
+   
 
 </script>

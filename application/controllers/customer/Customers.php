@@ -4,6 +4,7 @@
 	class Customers extends CI_Controller {
 		public function __construct(){
 			parent::__construct();
+			//$this->load->database();
 			$this->load->model('admin/user_model', 'user_model');
 			$this->load->model('admin/auth_model', 'auth_model');
 			$this->load->helper('customer'); 
@@ -78,7 +79,10 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			$data['address_book']  = $this->user_model->get_address_book();
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+			
+			$customerCode = $this->input->post('customerCode');
+			$data['address_book']  = $this->user_model->get_address_book($customerCode);
 			$data['view'] = 'customers/address_book';
 			$this->load->view('customers/layout', $data);
 			}
@@ -91,6 +95,7 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['address_book']  = $this->user_model->get_address_book();
 			$data['view'] = 'customers/address_book_add';
 			$this->load->view('customers/layout', $data);
@@ -98,12 +103,13 @@
 		else {	redirect('user/login');}
 		}
 
-		public function address_book_import()
+		public function import_excel()
 		{
 
-			$data['view'] = 'customers/address_book_import';
+			$data['view'] = 'customers/import_excel';
 			$this->load->view('customers/layout', $data);
 		}
+
 
 		public function address_book_export()
 		{
@@ -437,6 +443,8 @@
 
 			public function add_address_book()
 			{
+
+				$addressCustomerId= $this->input->post('customerCode');
 				$addressContactName= $this->input->post('addressContactName');	
 				$addressCompanyName= $this->input->post('addressCompanyName');	
 				$addressAddress1= $this->input->post('addressAddress1');
@@ -456,6 +464,7 @@
 				$isResidential =$this->input->post('isResidential');
 	
 				$array = array(
+					'customer_id' =>$addressCustomerId,
 				    'contact_name' =>$addressContactName,
 					'company_name'=>$addressCompanyName,
 					'address'=>$addressAddress1,

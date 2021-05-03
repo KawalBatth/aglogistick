@@ -544,8 +544,24 @@ input#btnExport {
 
 div .quote-form {
     width: 45%;
-    /* height: 81%; */
+    top: 101px;
+    float: right;
+    right: 448px;
 }
+
+button.btn.s33.ok {
+    float: right;
+}
+
+table.table.table-hover.mg0 {
+    margin-bottom: 16px;
+}
+
+a.btn.s33.s44.import {
+    margin-top: -47px;
+    margin-left: 274px;
+}
+
     </style>
   <header class="main-header">
     <!-- Logo -->

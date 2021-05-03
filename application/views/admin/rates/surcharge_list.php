@@ -235,7 +235,7 @@
 																	<td><?php echo $surcharge_list[$i]['surcharge_price'];?></td>
 																	<td><?php echo $surcharge_type;?></td>
 																	<td><?php echo $surcharge_list[$i]['last_modified'];?></td>
-                                <td>  <button type="button" class="btn remove"> Delete</button> </td>
+                                  <td><button type="button" class="btn remove"> Delete</button> </td>
                                 <!--td class="delete_surcharge">  <a href="#" class="remove"> <img src="<?= base_url() ?>public/dist/img/delete.jpg" class="del" alt="User Image"></a> </td-->               
                                                           </tr>
 														<?php }?>

@@ -773,7 +773,7 @@ body {
 
 #nav-ul #nav-li #nav-a {
     display: block;
-    padding: 8px 39px;
+    padding: 8px 68px;
     color: #333;
     text-decoration: none;
   
@@ -791,7 +791,7 @@ body {
     /* color: #fff; */
     position: fixed;
     /* z-index: 999; */
-    /* left: 0; */
+    right: 4px;
     float: right;
     margin-top: 36px;
 }
