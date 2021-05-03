@@ -148,7 +148,13 @@
 		public function get_receiver_data($keyword)
 		{
 			$this->db->limit(5);
-			return $return = $this->db->select('*')->from('address_book')->where("suburb LIKE '%$keyword%'")->get()->result_array();
+			return $return = $this->db->select('*')->from('address_book')->where("company_name LIKE '%$keyword%'")->get()->result_array();
+		}
+
+		public function get_contact_data($keyword)
+		{
+			$this->db->limit(5);
+			return $return = $this->db->select('*')->from('address_book')->where("contact_name LIKE '%$keyword%'")->get()->result_array();
 		}
 
 
@@ -179,6 +185,7 @@
 	public function savetempdata($str,$id)
 	{
 		$arrayName = array('user_id' => $id,'formdata'=>$str);
+		$this->db->empty_table('temp_data');
 		$this->db->insert('temp_data',$arrayName);
 	}
 
