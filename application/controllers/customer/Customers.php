@@ -15,6 +15,7 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$data['addres']=$this->user_model->get_address_book();
 				$data['carriers']=$this->auth_model->get_carrier();
 				$data['services']=$this->auth_model->get_services();
 				$data['view'] = 'customers/shipment';
@@ -80,9 +81,8 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			
-			$customerCode = $this->input->post('customerCode');
-			$data['address_book']  = $this->user_model->get_address_book($customerCode);
+			$data['customer_id'] = $this->input->post('customerCode');
+			$data['address_book']  = $this->user_model->get_address_book();
 			$data['view'] = 'customers/address_book';
 			$this->load->view('customers/layout', $data);
 			}
@@ -96,7 +96,7 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			$data['address_book']  = $this->user_model->get_address_book();
+			//$data['address_book']  = $this->user_model->get_address_book();
 			$data['view'] = 'customers/address_book_add';
 			$this->load->view('customers/layout', $data);
 		}

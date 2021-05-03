@@ -1,3 +1,16 @@
+<?php $address_id = @$_GET['id'];
+/*if(isset($address_id))
+{
+ echo @$address_data= get_address_book($address_id);
+  
+   foreach($address_data as $key=>$value)
+        { 
+          if (!$value) 
+            $address_data->$key = '';
+        }
+        
+}*/
+//echo $address_id;?>
 <div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -189,7 +202,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="receiver_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
+                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="<?php echo @$address_data->company_name; ?>" id="receiver_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
                                                     <div id="receiver-search-result"></div>
                                                 </div>
                                             </div>
