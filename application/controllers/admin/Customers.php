@@ -310,7 +310,7 @@
 				'other_phone3'=>$other2Phone,
 				'other_email3'=>$other2Email,
 				'notes'=>$notes,
-				//'image'=>$userfile,
+				'image'=>$userfile,
 				//'fixed_5kg_margin'=>$rateMargin,
 				//'followUpDate'=>$followUpDate,
 				
