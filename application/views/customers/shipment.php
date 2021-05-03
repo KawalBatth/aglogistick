@@ -1053,10 +1053,10 @@
                                                     <div class="col-lg-12">
                                                         <div class="text-left pal pdt10" style="margin-bottom: 50px; margin-top: 102px; text-align: right;">
                                                             
-                                                           <a href="<?= base_url('customer/shipment'); ?>" class="btn s33 s44"> New Shipment</a>
+                                                            <a href="<?= base_url('customer/shipment'); ?>" class="btn s33 s44"> New Shipment</a>
                                                              
                                                                 <button class="btn s33" type="button" onclick="openForm()">
-                                                               Quote
+																	Quote
                                                                 </button>
                                                                 <!--button class="btn s33 calculation" type="button">
                                                                     Calculate
@@ -1464,68 +1464,67 @@ function openForm() {
 				console.log(result);
 				if(result.base_charge)
 				{
-				$.each(result.base_charge, function(k, v) {
-					if(v)
-					{
-						basic_charge = v.basic_charge;
-						if(basic_charge=='')
+					$.each(result.base_charge, function(k, v) {
+						if(v)
 						{
-							basic_charge='0.00';
+							basic_charge = v.basic_charge;
+							if(basic_charge=='')
+							{
+								basic_charge='0.00';
+							}
+							console.log('basic_charge'+basic_charge);
+							per_kg = v.per_kg;
+							console.log('per_kg'+per_kg);
+							console.log('weight'+weight);
+							console.log('get_volume_input'+get_volume_input);
+							if(weight >get_volume_input)
+							{
+								total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
+							}
+							else
+							{
+								total = (parseFloat(get_volume_input) * parseFloat(per_kg)) + parseFloat(basic_charge);
+							}
 						}
-						console.log('basic_charge'+basic_charge);
-						per_kg = v.per_kg;
-						console.log('per_kg'+per_kg);
-						console.log('weight'+weight);
-                        console.log('get_volume_input'+get_volume_input);
-                        if(weight >get_volume_input)
-                        {
-						total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
-                        }
-                        else
-                        {
-                            total = (parseFloat(get_volume_input) * parseFloat(per_kg)) + parseFloat(basic_charge);
-                        }
-					}
-				 });
-				}
-				else {
+					});
+				} else {
 
-						basic_charge='0.00';
-						console.log('basic_charge'+basic_charge);
-						per_kg = result.fixed_price;
-						console.log('per_kg'+per_kg);
-						console.log('weight'+weight);
-						total =  parseFloat(weight) * parseFloat(per_kg);
+					basic_charge='0.00';
+					console.log('basic_charge'+basic_charge);
+					per_kg = result.fixed_price;
+					console.log('per_kg'+per_kg);
+					console.log('weight'+weight);
+					total =  parseFloat(weight) * parseFloat(per_kg);
                 }
-
+				
 				html +='<tr>';
 						html +='<td class="td1">Base Charge</td>';
 						html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
 					   // html +='<td class="td2">$ '+total+'</td>';
 						html +='</tr>';
+				if(service_type_Id == 1 || service_type_Id == 2){
+					
+					$.each(result.charges, function(k, v) {
+						if(v)
+						{
+							is_dangerous = v.is_dangerous;
+							surcharge_name = v.surcharge_name;
+							surcharge_price = v.surcharge_price;
 
-				$.each(result.charges, function(k, v) {
-					if(v)
-					{
-                        is_dangerous = v.is_dangerous;
-						surcharge_name = v.surcharge_name;
-						surcharge_price = v.surcharge_price;
-
-                   
-						//total_charge = total + SUM(surcharge_price);
-						total += parseFloat(surcharge_price);
-					  //  alert(total_charge);
-                      html +='<div class="surcharge">';
-                      html +='<tr>';
-						html +='<td class="td1">'+surcharge_name+'</td>';
-						html +='<td class="td2">$ '+surcharge_price+'</td>';
-						html +='</tr>';
-                        html +='</div>';
-                    }
-				});
+					   
+							//total_charge = total + SUM(surcharge_price);
+							total += parseFloat(surcharge_price);
+						  //  alert(total_charge);
+						  html +='<div class="surcharge">';
+						  html +='<tr>';
+							html +='<td class="td1">'+surcharge_name+'</td>';
+							html +='<td class="td2">$ '+surcharge_price+'</td>';
+							html +='</tr>';
+							html +='</div>';
+						}
+					});
+				}
                 
-			   
-				
 				html +='<tr>';
 					html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
 				html +='</tr>';
