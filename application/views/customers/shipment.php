@@ -1,16 +1,3 @@
-<?php $address_id = @$_GET['id'];
-if(isset($address_id))
-{
- @$address_data= get_address_book($address_id);
-  
-   foreach($address_data as $key=>$value)
-        { 
-          if (!$value) 
-            $address_data->$key = '';
-        }
-        
-}
-echo $address_id;?>
 <div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -185,6 +172,7 @@ echo $address_id;?>
                                 </div>
                             </div>
                         </div>
+						<?php //echo '<pre>'; print_r($addres); echo '</pre>'; ?>
                         <div class="portlet box" id="receiver-address-box">
                             <div class="portlet-header">
                                 <div class="caption">
@@ -202,7 +190,7 @@ echo $address_id;?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="<?php echo @$address_data->company_name; ?>" id="receiver_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
+                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="<?php if(isset($addres->company_name)){ echo $addres->company_name; } ?>" id="receiver_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
                                                     <div id="receiver-search-result"></div>
                                                 </div>
                                             </div>
@@ -210,14 +198,14 @@ echo $address_id;?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
-                                         <input type="text" name="shipmentPage.receiverAddress.phone" maxlength="25" value="" pattern="08\d{8}" id="shipment-info-form_shipmentPage_receiverAddress_phone" required class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
+                                         <input type="text" name="shipmentPage.receiverAddress.phone" maxlength="25" value="<?php if(isset($addres->phone)){ echo $addres->phone; } ?>" pattern="08\d{8}" id="shipment-info-form_shipmentPage_receiverAddress_phone" required class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="" id="receiver_contactName" class="form-control alloptions" required ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name" autocomplete="off">
+                                                    <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="<?php if(isset($addres->contact_name)){ echo $addres->contact_name; } ?>" id="receiver_contactName" class="form-control alloptions" required ondblclick="searchReceiverAddress(false)" onkeyup="searchReceiverAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name" autocomplete="off">
                                                     <div id="receiver-contact-result"></div>
                                                 </div>
                                             </div>
@@ -225,7 +213,7 @@ echo $address_id;?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Email Address
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.email" maxlength="50" value="" id="shipment-info-form_shipmentPage_receiverAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
+                                                    <input type="text" name="shipmentPage.receiverAddress.email" maxlength="50" value="<?php if(isset($addres->email)){ echo $addres->email; } ?>" id="shipment-info-form_shipmentPage_receiverAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email">
                                                 </div>
                                             </div>
                                         </div>
@@ -516,7 +504,7 @@ echo $address_id;?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.address" maxlength="35" value="" id="shipment-info-form_shipmentPage_receiverAddress_address" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
+                                                    <input type="text" name="shipmentPage.receiverAddress.address" maxlength="35" value="<?php if(isset($addres->address)){ echo $addres->address; } ?>" id="shipment-info-form_shipmentPage_receiverAddress_address" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1">
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -555,7 +543,7 @@ echo $address_id;?>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="" id="receiverAddress_city" class="form-control alloptions" required  data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City"  autocomplete="off">
+                                                    <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="<?php if(isset($addres->city)){ echo $addres->city; } ?>" id="receiverAddress_city" class="form-control alloptions" required  data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City"  autocomplete="off">
                                                         <div id="suggesstion-box"></div>
                                                 </div>
                                             </div>
@@ -565,7 +553,7 @@ echo $address_id;?>
                                                     </label>
                                                     
                                                   
-                                                    <input type="text" name="shipmentPage.receiverAddress.postalCode" maxlength="12" value="" id="shipment-info-form_shipmentPage_receiverAddress_postalCode" class="form-control alloptions" onkeyup="searchCity(false,false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal Code">
+                                                    <input type="text" name="shipmentPage.receiverAddress.postalCode" maxlength="12" value="<?php if(isset($addres->postcode)){ echo $addres->postcode; } ?>" id="shipment-info-form_shipmentPage_receiverAddress_postalCode" class="form-control alloptions" onkeyup="searchCity(false,false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal Code">
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -578,7 +566,7 @@ echo $address_id;?>
 
 
     
-                                                   <input type="text" name="shipmentPage.receiverAddress.state" value="" id="shipmentPage_receiverAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
+                                                   <input type="text" name="shipmentPage.receiverAddress.state" value="<?php if(isset($addres->state)){ echo $addres->state; } ?>" id="shipmentPage_receiverAddress_state" class="form-control" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Sate\/Province">
  </div>
                                             </div>
                                             <div class="col-md-12" id="receiver-city-search"></div>
@@ -1447,6 +1435,7 @@ function openForm() {
 		var basic_charge = '';
 		var is_dangerous = '';
 		var per_kg ='';
+		var margin ='';
 		var total_charge = '';
 		var surcharge_name = '';
 		var surcharge_price = '';
@@ -1460,8 +1449,9 @@ function openForm() {
 				//$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
 			},
 			success: function(data){
-				var result= JSON.parse(data);
+				var result = JSON.parse(data);
 				console.log(result);
+				margin = result.margin;
 				if(result.base_charge)
 				{
 					$.each(result.base_charge, function(k, v) {
@@ -1480,10 +1470,16 @@ function openForm() {
 							if(weight >get_volume_input)
 							{
 								total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
+								if(margin != ''){
+									total =  total + parseFloat(total * parseFloat(margin/100));
+								}
 							}
 							else
 							{
 								total = (parseFloat(get_volume_input) * parseFloat(per_kg)) + parseFloat(basic_charge);
+								if(margin != ''){
+									total =  total + parseFloat(total * parseFloat(margin/100));
+								}
 							}
 						}
 					});
@@ -1495,6 +1491,9 @@ function openForm() {
 					console.log('per_kg'+per_kg);
 					console.log('weight'+weight);
 					total =  parseFloat(weight) * parseFloat(per_kg);
+					if(margin != ''){
+						total =  total + parseFloat(total * parseFloat(margin/100));
+					}
                 }
 				
 				html +='<tr>';

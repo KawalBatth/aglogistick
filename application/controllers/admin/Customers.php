@@ -423,10 +423,12 @@
 				
 				$check_margin_exist  = $this->auth_model->get_margin($this->input->post('customer_id'));
 				$customer_service_type = $this->input->post('customer_service_type');
+				$service_id = $this->input->post('service_id');
 				$margin_rate = $this->input->post('margin_rate');
 				foreach($this->input->post('service_name') as $key=>$service_name){
 					$margin_arr[$key] = array(
 						"service_name"=>$service_name,
+						"service_id"=>$service_id[$key],
 						"customer_service_type"=>$customer_service_type[$key],
 						"margin_rate"=>$margin_rate[$key],
 					);

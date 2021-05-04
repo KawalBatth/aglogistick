@@ -58,26 +58,30 @@
                                                 </tr>
                                             </tbody></table>
                                         </div>
-
-                                       
+										
                                         <div class="col-md-4">
-											<?php $base_charge = 0;
+											<?php $base_charge = 0; $quote_value = 0;
 											if(!empty($surcharge['base_charge'])){ 
 												$basic_charge = $surcharge['base_charge'][0]['basic_charge'];
 												$per_kg       = $surcharge['base_charge'][0]['per_kg'];
 												$base_charge  = $result['total_weight']*$per_kg+$basic_charge;
+												if(!empty($margin)){
+													$base_charge  = $base_charge + ($base_charge*$margin/100);
+												}
 												$quote_value  = $result['total_weight']*$per_kg+$basic_charge;
+												if(!empty($margin)){
+													$quote_value  = $quote_value + ($quote_value*$margin/100);
+												}
 											} 
                                            
 											?>
 											<table class="table s99" style="font-size: 13px;">
-												<?php if(!empty($surcharge['charges'])){
-													foreach($surcharge['charges'] as $char){ 
-														$quote_value += $char['surcharge_price'];
+												<?php 
+													if(!empty($surcharge['charges'])){
+														foreach($surcharge['charges'] as $char){ 
+															$quote_value += $char['surcharge_price'];
+														}
 													}
-                                                   
-                                                }
-                                               
 												?>
 												<tbody>
 													<tr>

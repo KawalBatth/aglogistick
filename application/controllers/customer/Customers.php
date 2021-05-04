@@ -15,15 +15,19 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-				$data['addres']=$this->user_model->get_address_book();
+				$data['addres']="";
+				if(isset($_GET['id'])){
+					$data['addres']=$this->user_model->get_address_book_by_id($_GET['id']);
+				}
+				
 				$data['carriers']=$this->auth_model->get_carrier();
 				$data['services']=$this->auth_model->get_services();
 				$data['view'] = 'customers/shipment';
 				$this->load->view('customers/layout', $data);
-		}
-		else {	
-			redirect('user/login');
-		}
+			}
+			else {	
+				redirect('user/login');
+			}
 		}
 
 		public function save_quote()
@@ -273,6 +277,16 @@
 			}
 			
 			$result['charges'] = $get_surcharge;
+			$margin = $this->auth_model->get_margin($customer_id);
+			$result['margin'] = "";
+			if(!empty($margin)){
+				$margin_rates = json_decode($margin->margin_rate);
+				foreach($margin_rates as $margins){
+					if($margins->service_id == $service_type_Id){
+						$result['margin'] = $margins->margin_rate;
+					}
+				}
+			}
 			echo json_encode($result);
 			
 		}
@@ -299,7 +313,7 @@
 				$rcv_city        = $returndata['shipmentPage.receiverAddress.city'];
 				$service_type_Id = $returndata['shipmentPage.shipmentTypeId'];
 				$service_Id      = $returndata['shipmentPage.serviceId'];
-			    $isdang         = $returndata['isdangerous'];
+			    $isdang          = (isset($returndata['isdangerous'])) ? $returndata['isdangerous'] : "";
 
 			//	$sender_company_name = $returndata['shipmentPage.senderAddress.companyName'];
 			//	$sender_phone = $returndata['shipmentPage.senderAddress.phone'];
@@ -322,6 +336,18 @@
 				$data['result']    = $returndata;
 				$data['surcharge'] = array('base_charge'=>$get_base_rate,'fixed_price'=>$fixed_price,'charges'=>$get_surcharge);
 				$data['customers'] = $this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				
+				$margin = $this->auth_model->get_margin($this->session->userdata('customer_id'));
+				$data['margin'] = "";
+				if(!empty($margin)){
+					$margin_rates = json_decode($margin->margin_rate);
+					foreach($margin_rates as $margins){
+						if($margins->service_id == $service_type_Id){
+							$data['margin'] = $margins->margin_rate;
+						}
+					}
+				}
+			
 				$data['view']      = 'customers/booking';
 				$this->load->view('customers/layout', $data);
 			} else {	
