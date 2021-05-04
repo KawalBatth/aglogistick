@@ -75,9 +75,11 @@
         
         <!-- new added to show quote data--->
         <?php for($i=0;$i<count($quote);$i++)
-                                            { ?>
+             { 
+            if($quote[$i]['customer'] == $customers->customer_id)
+            {?>
                 <tr data-quote-id="<?php echo $quote[$i]['id'];?>">
-        <input type="hidden" name="quote_id" value="<?php echo $quote[$i]['id'];?>">
+                <input type="hidden" name="quote_id" value="<?php echo $quote[$i]['id'];?>">
                     <td><?php echo $quote[$i]['quote_date'];?></td>
                     <td><?php echo $quote[$i]['customer_name'];?></td>
                     <td><?php echo $quote[$i]['quote_number'];?></td>
@@ -89,7 +91,7 @@
                     <td><?php echo $quote[$i]['package_type'];?></td>
                     <td><?php echo $quote[$i]['total_amount'];?></td>
                 </tr>
-             <?php } ?>
+             <?php } }?>
         </tbody>
     </table>
     <input type="hidden" name="" value="1" id="currPage">

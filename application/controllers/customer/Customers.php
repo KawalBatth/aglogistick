@@ -131,7 +131,7 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['quote']  = $this->user_model->get_quote();
 			$data['view'] = 'customers/quote';
 			$this->load->view('customers/layout', $data);
@@ -152,7 +152,7 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 			$data['view'] = 'customers/setting';
-			$this->load->view('customers/layout', $data);
+			$this->load->view('settings/layout', $data);
 		}
 		else {	redirect('user/login');}
 		}

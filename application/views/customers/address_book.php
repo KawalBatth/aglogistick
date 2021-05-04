@@ -580,11 +580,15 @@
                                             <button name="create_excel" id="create_excel" class="btn s33 export">Export Excel</button> 
                                         </div>
                                         <div class="col-lg-2">
-                                     
-                                       
+                                     <?php if(!empty($addressId))
+                                       { ?>
                                        <a href="<?php echo base_url('customer/shipment/?id='.$addressId); ?>"> <button class="btn s33 s44" type="button" onclick="onShipTo()">
                                                 Ship To
                                             </button></a>
+                                            <?php } 
+                                else { ?>
+                                     <button class="btn s33 s44" type="button" onclick="myFunction()">Ship To </button>
+<?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -611,7 +615,9 @@
             });
         });*/
           
-
+        function myFunction() {
+  alert("Please select an address!");
+}
 //To enable and disable edit surcharge button
 $(document).on('click', '#address-book-table tbody tr', function(e) {
     $('#address-book-table tbody tr').removeClass('selected-row');

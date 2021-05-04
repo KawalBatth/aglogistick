@@ -1,6 +1,6 @@
 
 <form id="form_booking" name="form_booking">
-<input type="hidden" name="customerCode" id="<?php echo $customers->customer_id;?>">
+<input type="hidden" name="customerCode" id="customerCode" value="<?php echo $customers->customer_id;?>">
     <input type="hidden" name="shipmentRequestModelGson" value="{&quot;shipmentInfo&quot;:{&quot;senderAddress&quot;:{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;0894793399&quot;,&quot;contactName&quot;:&quot;WAYNE ENNIS&quot;,&quot;email&quot;:&quot;wayne@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;UNIT 1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;PERTH AIRPORT&quot;,&quot;address3&quot;:&quot;&quot;,&quot;alternateUserName&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH airport&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;},&quot;receiverAddress&quot;:{&quot;companyName&quot;:&quot;toll&quot;,&quot;phone&quot;:&quot;8888888888&quot;,&quot;contactName&quot;:&quot;toll&quot;,&quot;email&quot;:&quot;&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;88&quot;,&quot;address2&quot;:&quot;&quot;,&quot;address3&quot;:&quot;&quot;,&quot;city&quot;:&quot;MELBOURNE&quot;,&quot;postalCode&quot;:&quot;8001&quot;,&quot;state&quot;:&quot;&quot;},&quot;serviceId&quot;:&quot;72&quot;,&quot;shipmentTypeId&quot;:&quot;229&quot;,&quot;contentType&quot;:&quot;WPX&quot;,&quot;pieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;67.00&quot;,&quot;dimensionH&quot;:&quot;67.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;bound&quot;:&quot;15&quot;,&quot;isAddPiece&quot;:&quot;true&quot;,&quot;addCons&quot;:[{&quot;addConName&quot;:&quot;Dangerous Goods&quot;,&quot;addConCode&quot;:&quot;dangerousgoods&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;UN Number (4Digits)&quot;,&quot;addConDetailCode&quot;:&quot;unnumber&quot;,&quot;value&quot;:&quot;&quot;},{&quot;addConDetailName&quot;:&quot;Packing Group&quot;,&quot;addConDetailCode&quot;:&quot;packinggroup&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;addConDetailName&quot;:&quot;I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&quot;,&quot;addConDetailCode&quot;:&quot;msda&quot;}]},{&quot;addConName&quot;:&quot;Authorized to Leave (ATL)&quot;,&quot;addConCode&quot;:&quot;atl&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;Where to leave&quot;,&quot;addConDetailCode&quot;:&quot;atltoleave&quot;,&quot;value&quot;:&quot;&quot;}]},{&quot;addConName&quot;:&quot;agl Warranty&quot;,&quot;addConCode&quot;:&quot;aglWarranty&quot;,&quot;value&quot;:&quot;0&quot;}],&quot;shipperAccount&quot;:&quot;963374666&quot;,&quot;totalWeight&quot;:&quot;76.0&quot;,&quot;weightType&quot;:&quot;Dimensional&quot;,&quot;shipmentRequestPieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;67.00&quot;,&quot;dimensionH&quot;:&quot;67.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;deadWeight&quot;:&quot;75.19&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;dutiesBillTo&quot;:&quot;0&quot;,&quot;dutiesAccount&quot;:&quot;&quot;,&quot;billingParty&quot;:&quot;0&quot;,&quot;packageId&quot;:&quot;3&quot;,&quot;shipmentDate&quot;:&quot;21-04-2021&quot;,&quot;contents&quot;:&quot;1&quot;,&quot;weightUnit&quot;:&quot;KG&quot;,&quot;dimensionUnit&quot;:&quot;CM&quot;,&quot;currencyCode&quot;:&quot;AUD&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;zone&quot;:&quot;&quot;},&quot;quote&quot;:{&quot;baseCharge&quot;:&quot;414.22&quot;,&quot;carrierCharge&quot;:&quot;414.22&quot;,&quot;accessorial&quot;:[{&quot;accessorialId&quot;:&quot;526&quot;,&quot;code&quot;:&quot;Security Surcharge&quot;,&quot;description&quot;:&quot;Security Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;15.95&quot;,&quot;valueCurrency&quot;:&quot;$ 15.95&quot;},{&quot;accessorialId&quot;:&quot;528&quot;,&quot;code&quot;:&quot;Fuel Surcharge&quot;,&quot;description&quot;:&quot;Fuel Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;57.99&quot;,&quot;valueCurrency&quot;:&quot;$ 57.99&quot;},{&quot;code&quot;:&quot;GST&quot;,&quot;description&quot;:&quot;GST&quot;,&quot;value&quot;:&quot;48.82&quot;,&quot;valueCurrency&quot;:&quot;$ 48.82&quot;}],&quot;totalCharge&quot;:&quot;536.98&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;weight&quot;:&quot;76.00 kgs&quot;,&quot;weightType&quot;:&quot;Dimensional&quot;,&quot;nonStandardCharge&quot;:&quot;0.00&quot;,&quot;manualHandlingSurcharge&quot;:0.0,&quot;insuranceValue&quot;:&quot;0.00&quot;,&quot;baseChargeUnit&quot;:&quot;$ 414.22&quot;,&quot;totalChargeUnit&quot;:&quot;$ 536.98&quot;},&quot;shipmentReference&quot;:&quot;&quot;}" id="shipmentRequestModelGson">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -50,14 +50,16 @@
                                                     <td class="td1">Dimensions</td>
                                                     <td class="td2"> 
                                                     
-                                                         
-                                                        <?php echo $result['shipmentPage.pieces.dimensionL1']; ?> x <?php echo $result['shipmentPage.pieces.dimensionW1']; ?> x <?php echo $result['shipmentPage.pieces.dimensionH1']; ?>
+                                                  
+                                                    <?php if(!empty($result['shipmentPage.pieces.dimensionL1'])){ echo $result['shipmentPage.pieces.dimensionL1']; }else{ echo 0; } ?> x <?php if(!empty($result['shipmentPage.pieces.dimensionW1'])){ echo $result['shipmentPage.pieces.dimensionW1']; }else{ echo 0; } ?> x   <?php if(!empty($result['shipmentPage.pieces.dimensionH1'])){ echo $result['shipmentPage.pieces.dimensionH1']; }else{ echo 0; } ?>
                                                          <br>
-                                                    
+                                                       
                                                    </td>
                                                 </tr>
                                             </tbody></table>
                                         </div>
+
+                                       
                                         <div class="col-md-4">
 											<?php $base_charge = 0;
 											if(!empty($surcharge['base_charge'])){ 
@@ -66,14 +68,16 @@
 												$base_charge  = $result['total_weight']*$per_kg+$basic_charge;
 												$quote_value  = $result['total_weight']*$per_kg+$basic_charge;
 											} 
-											
+                                           
 											?>
 											<table class="table s99" style="font-size: 13px;">
 												<?php if(!empty($surcharge['charges'])){
 													foreach($surcharge['charges'] as $char){ 
 														$quote_value += $char['surcharge_price'];
 													}
-												}
+                                                   
+                                                }
+                                               
 												?>
 												<tbody>
 													<tr>
