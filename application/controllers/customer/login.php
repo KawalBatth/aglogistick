@@ -38,19 +38,20 @@ class Login extends CI_Controller
 					);
 					$result = $this->user_model->user_login($data);
 					if ($result == TRUE) {
+						
+						$admin_data = array(
+							'customer_user_id' => $result['id'],
+							'customer_id' => $result['customer_id'],
+							'user_name' => $result['user_name'],
+							'is_customer_user_login' => TRUE
+						);
+						$this->session->set_userdata($admin_data);
 
 						$forcepassword =$result['isRequireChangePassword'];
 						if($forcepassword==1)
 						{
 							redirect(base_url('customer/settings'), 'refresh');
-						}
-						else {
-								$admin_data = array(
-								'customer_user_id' => $result['id'],
-						 		'user_name' => $result['user_name'],
-						 		'is_customer_user_login' => TRUE
-							);
-							$this->session->set_userdata($admin_data);
+						} else {
 							redirect(base_url('customer/shipment'), 'refresh');
 						}
 					}

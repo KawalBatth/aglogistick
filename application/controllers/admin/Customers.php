@@ -233,7 +233,9 @@
 
 		public function add_customer()
 		{
-
+			/* echo '<pre>';
+			print_r($this->input->post());
+			exit; */
 			$customerCode = $this->input->post('customerCode');
 			$customerCodeexists = $this->auth_model->check_customer($customerCode);
 			$customerName = $this->input->post('customerName');

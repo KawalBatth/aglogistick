@@ -819,7 +819,7 @@ if(isset($submit_id))
             </div>
         </div>
     </div>
-    </form>
+    <!--</form>-->
 <script type="text/javascript">
 
 
@@ -4841,7 +4841,7 @@ if(isset($submit_id))
                     <div class="row">
                         <div class="portlet-body b12 b11">
                             <div class="form-group">
-                                <form id="frmSaveWebshipSettings">
+                                <!--<form id="frmSaveWebshipSettings">-->
                                     
                                         
                                             
@@ -5357,7 +5357,7 @@ $(".remove").click(function(){
     <div id="notes-tab" class="tab-pane fade"></div>
    
     <div id="webship-history-tab" class="tab-pane fade">
-         <form>
+         <!--<form>-->
     <div id="tab-general">
         <div class="row mbl">
             <div class="col-lg-12">
@@ -5810,7 +5810,7 @@ $(".remove").click(function(){
                },
                success: function(res) {
                 alert('Edit Successfully');  
-              console.log(res);      
+              console.log(res);    			  
               window.location.reload();
             }
           });
