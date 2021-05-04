@@ -63,7 +63,7 @@ class Members extends CI_Controller {
                             
                             // Prepare data for DB insertion
                             $memData = array(
-                             
+                                'customer_id' => $this->session->userdata('customer_id'),
                                 'contact_name' => $row['Contact'],
                                 'company_name' => $row['Company'],
                                 'state' => $row['State'],
@@ -72,22 +72,21 @@ class Members extends CI_Controller {
                                 'address1' => $row['Address1'],
                                 'phone' => $row['Phone'],
                                 'city' => $row['City'],
-                               // 'email' => $row['Email'],
+                                'email' => $row['Email'],
                                 'country' => $row['Country'],
                                 'department' => $row['Department'],
-                                'default_billing_type' => $row['Defaul_billing'],
+                                'deafult_billing_type' => $row['Defaul_billing'],
                                 'fax' => $row['Fax'],
                                 'account_number' => $row['Account_number'],
                                 'residential_address' => $row['Residential_address'],
                                 'default_service_type' => $row['Default_service'],
                                 'default_package_type' => $row['Default_package'],
-                                
-                            );
+                              );
                             
                             // Check whether email already exists in the database
                           $con = array(
                                 'where' => array(
-                                    'contact_name' => $row['Contact']
+                                    'email' => $row['Email']
                                 ),
                                 'returnType' => 'count'
                             );
@@ -95,7 +94,7 @@ class Members extends CI_Controller {
                             
                             if($prevCount > 0){
                                 // Update member data
-                                $condition = array('contact_name' => $row['Contact']);
+                                $condition = array('email' => $row['Email']);
                                 $update = $this->member->update($memData, $condition);
                                 
                                 if($update){

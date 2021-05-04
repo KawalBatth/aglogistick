@@ -76,11 +76,11 @@
 		 }
 
 
-		 public function get_address_book($id)
+		 public function get_address_book()
 		{
 		   $this->db->select('*');
 		   $this->db->from('address_book');
-		   $this->db->where('customer_id', $id);
+		   //$this->db->where('customer_id', $id);
 		   return $query = $this->db->get()->result_array();
 		 }
 

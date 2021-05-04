@@ -5003,7 +5003,7 @@ $(".remove").click(function(){
         {
             $.ajax({
 
-              url: 'delUser/'+id,
+              url: 'customers/delUser/'+id,
                type: 'DELETE',
                error: function() {
                   alert('Something is wrong');

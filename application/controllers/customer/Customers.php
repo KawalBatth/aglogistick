@@ -15,6 +15,7 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$data['addres']=$this->user_model->get_address_book();
 				$data['carriers']=$this->auth_model->get_carrier();
 				$data['services']=$this->auth_model->get_services();
 				$data['view'] = 'customers/shipment';
@@ -81,12 +82,10 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-				
 				$data['address_book']  = $this->user_model->get_address_book($data['customers']->customer_id);
 				$data['view'] = 'customers/address_book';
 				$this->load->view('customers/layout', $data);
-			}
-			else {	
+			} else {	
 				redirect('user/login');
 			}
 		}
@@ -95,12 +94,14 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			$data['address_book']  = $this->user_model->get_address_book($this->session->userdata('customer_user_id'));
-			$data['view'] = 'customers/address_book_add';
-			$this->load->view('customers/layout', $data);
-		}
-		else {	redirect('user/login');}
+				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$data['address_book']  = $this->user_model->get_address_book($this->session->userdata('customer_user_id'));
+				$data['view'] = 'customers/address_book_add';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	
+				redirect('user/login');
+			}
 		}
 
 		public function import_excel()
@@ -131,7 +132,7 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 			$data['quote']  = $this->user_model->get_quote();
 			$data['view'] = 'customers/quote';
 			$this->load->view('customers/layout', $data);
@@ -152,7 +153,7 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 			$data['view'] = 'customers/setting';
-			$this->load->view('customers/layout', $data);
+			$this->load->view('settings/layout', $data);
 		}
 		else {	redirect('user/login');}
 		}

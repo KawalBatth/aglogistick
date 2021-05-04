@@ -49,8 +49,10 @@ class User extends CI_Controller
 						$forcepassword =$result['isRequireChangePassword'];
 						if($forcepassword==1)
 						{
-							redirect(base_url('customer/settings'), 'refresh');
-						} else {
+							
+						redirect(base_url('customer/settings'), 'refresh');
+						//	$this->load->view('settings/layout', $data);
+							} else {
 							
 							redirect(base_url('customer/shipment'), 'refresh');
 						}

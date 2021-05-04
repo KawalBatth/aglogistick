@@ -514,9 +514,11 @@
                                                     </thead>
                                                     <tbody>
                                                     <?php for($i=0;$i<count($address_book);$i++)
-                                            { ?>
+                                            { 
+                                             if($address_book[$i]['customer_id'] == $customers->customer_id){?>
                                   <tr data-address-id="<?php echo $address_book[$i]['id'];?>">
-                                  <?php $id= $address_book[$i]['customer_id']; ?>
+                                <?php  $addressId =  $address_book[$i]['id'];
+                                  $id= $address_book[$i]['customer_id']; ?>
                                                                 <td><?php echo $address_book[$i]['contact_name'];?></td>
                                                                 <td><?php echo $address_book[$i]['company_name'];?></td>
                                                                 <td><?php echo $address_book[$i]['address'];?></td>
@@ -530,7 +532,7 @@
                                <td>     <button type="button" class="btn s33 s44 remove" id="remove"> Delete</button> </td>
                                                             
                                                             </tr>
-                                                    <?php }?>
+                                                    <?php } }?>
                                                          </tbody>
                                                 </table>
                                                 <input type="hidden" name="" value="1" id="currPage">
@@ -578,9 +580,15 @@
                                             <button name="create_excel" id="create_excel" class="btn s33 export">Export Excel</button> 
                                         </div>
                                         <div class="col-lg-2">
-                                            <button class="btn s33 s44" type="button" onclick="onShipTo()">
+                                     <?php if(!empty($addressId))
+                                       { ?>
+                                       <a href="<?php echo base_url('customer/shipment/?id='.$addressId); ?>"> <button class="btn s33 s44" type="button" onclick="onShipTo()">
                                                 Ship To
-                                            </button>
+                                            </button></a>
+                                            <?php } 
+                                else { ?>
+                                     <button class="btn s33 s44" type="button" onclick="myFunction()">Ship To </button>
+<?php } ?>
                                         </div>
                                     </div>
                                 </div>
@@ -607,7 +615,9 @@
             });
         });*/
           
-
+        function myFunction() {
+  alert("Please select an address!");
+}
 //To enable and disable edit surcharge button
 $(document).on('click', '#address-book-table tbody tr', function(e) {
     $('#address-book-table tbody tr').removeClass('selected-row');

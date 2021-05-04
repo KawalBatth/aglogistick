@@ -1,3 +1,16 @@
+<?php $address_id = @$_GET['id'];
+if(isset($address_id))
+{
+ @$address_data= get_address_book($address_id);
+  
+   foreach($address_data as $key=>$value)
+        { 
+          if (!$value) 
+            $address_data->$key = '';
+        }
+        
+}
+echo $address_id;?>
 <div id="shipment-div">
     <div class="row mbl">
         <div class="col-lg-12">
@@ -189,7 +202,7 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="" id="receiver_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
+                                                    <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="<?php echo @$address_data->company_name; ?>" id="receiver_companyName" required class="form-control alloptions" ondblclick="searchReceiverAddress(true)" onkeyup="searchReceiverAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off">
                                                     <div id="receiver-search-result"></div>
                                                 </div>
                                             </div>
@@ -1622,6 +1635,8 @@ function onListClick3(obj, isRecipient) {
         receiverAddress = receiverAddress.trim();
     var receiverPost = $(obj).find("div[data-receiverPost]").html();
         receiverPost = receiverPost.trim();
+    var receiverState = $(obj).find("div[data-receiverState]").html();
+        receiverState = receiverState.trim();
     if (isRecipient) 
     {
         $("input[name='shipmentPage.receiverAddress.companyName']").val(companyName);
@@ -1630,6 +1645,7 @@ function onListClick3(obj, isRecipient) {
         $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
         $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
         $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+        $("input[name='shipmentPage.receiverAddress.state']").val(receiverState);
      } 
      else
       {
@@ -1639,6 +1655,7 @@ function onListClick3(obj, isRecipient) {
         $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
         $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
         $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+        $("input[name='shipmentPage.receiverAddress.state']").val(receiverState);
 
     }
 }
@@ -1674,6 +1691,7 @@ $(document).ready(function(){
                 list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div></br>';
                 list +='<div class="col-xs-6 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div></br>';
                 list +='<div class="col-xs-6 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div></br>';
+                list +='<div class="col-xs-6 receiverState" data-receiverState="'+v.state+'">'+v.state+'</div></br>';
                 list +='</div></li>';
         });
             list +='<ul id="company-list1" style="width:100%;">';
@@ -1706,6 +1724,8 @@ function onListClick4(obj, isRecipient) {
         receiverAddress = receiverAddress.trim();
     var receiverPost = $(obj).find("div[data-receiverPost]").html();
         receiverPost = receiverPost.trim();
+    var receiverState = $(obj).find("div[data-receiverState]").html();
+        receiverState = receiverState.trim();
     if (isRecipient) 
     {
         $("input[name='shipmentPage.receiverAddress.companyName']").val(companyName);
@@ -1714,6 +1734,7 @@ function onListClick4(obj, isRecipient) {
         $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
         $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
         $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+        $("input[name='shipmentPage.receiverAddress.state']").val(receiverState);
      } 
      else
       {
@@ -1723,6 +1744,7 @@ function onListClick4(obj, isRecipient) {
         $("input[name='shipmentPage.receiverAddress.address']").val(receiverAddress);
         $("input[name='shipmentPage.receiverAddress.city']").val(receiverCity);
         $("input[name='shipmentPage.receiverAddress.postalCode']").val(receiverPost);
+        $("input[name='shipmentPage.receiverAddress.state']").val(receiverState);
 
     }
 }
@@ -1758,6 +1780,7 @@ $(document).ready(function(){
                 list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div></br>';
                 list +='<div class="col-xs-6 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div></br>';
                 list +='<div class="col-xs-6 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div></br>';
+                list +='<div class="col-xs-6 receiverState" data-receiverState="'+v.state+'">'+v.state+'</div></br>';
                 list +='</div></li>';
         });
             list +='<ul id="contact-list1" style="width:100%;">';
@@ -1790,6 +1813,8 @@ function onListClick5(obj, isRecipient) {
         receiverAddress = receiverAddress.trim();
     var receiverPost = $(obj).find("div[data-receiverPost]").html();
         receiverPost = receiverPost.trim();
+    var receiverState = $(obj).find("div[data-receiverState]").html();
+        receiverState = receiverState.trim();
     if (isRecipient) 
     {
         $("input[name='shipmentPage.senderAddress.companyName']").val(companyName);
@@ -1798,6 +1823,7 @@ function onListClick5(obj, isRecipient) {
         $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress);
         $("input[name='shipmentPage.senderAddress.city']").val(receiverCity);
         $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost);
+        $("input[name='shipmentPage.senderAddress.state']").val(receiverState);
      } 
      else
       {
@@ -1807,6 +1833,7 @@ function onListClick5(obj, isRecipient) {
         $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress);
         $("input[name='shipmentPage.senderAddress.city']").val(receiverCity);
         $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost);
+        $("input[name='shipmentPage.senderAddress.state']").val(receiverState);
 
     }
 }
@@ -1842,6 +1869,7 @@ $(document).ready(function(){
                 list +='<div class="col-xs-6 receiverCity" data data-receiverCity="'+v.city+'">'+v.city+'</div></br>';
                 list +='<div class="col-xs-6 receiverAddress" data-receiverAddress="'+v.address+'">'+v.address+'</div></br>';
                 list +='<div class="col-xs-6 receiverPost" data-receiverPost="'+v.postcode+'">'+v.postcode+'</div></br>';
+                list +='<div class="col-xs-6 receiverState" data-receiverState="'+v.state+'">'+v.state+'</div></br>';
                 list +='</div></li>';
         });
             list +='<ul id="contact-list" style="width:100%;">';
@@ -1874,6 +1902,8 @@ function onListClick2(obj, isSend) {
         receiverAddress1 = receiverAddress1.trim();
     var receiverPost1 = $(obj).find("div[data-receiverPost1]").html();
         receiverPost1 = receiverPost1.trim();
+    var receiverState1 = $(obj).find("div[data-receiverState1]").html();
+        receiverState1 = receiverState1.trim();
     if (isSend) 
     {
         $("input[name='shipmentPage.senderAddress.companyName']").val(companyName1);
@@ -1882,6 +1912,7 @@ function onListClick2(obj, isSend) {
         $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress1);
         $("input[name='shipmentPage.senderAddress.city']").val(receiverCity1);
         $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost1);
+        $("input[name='shipmentPage.senderAddress.state']").val(receiverState1);
      } 
      else
       {
@@ -1891,6 +1922,7 @@ function onListClick2(obj, isSend) {
         $("input[name='shipmentPage.senderAddress.address']").val(receiverAddress1);
         $("input[name='shipmentPage.senderAddress.city']").val(receiverCity1);
         $("input[name='shipmentPage.senderAddress.postalCode']").val(receiverPost1);
+        $("input[name='shipmentPage.senderAddress.state']").val(receiverState1);
 
     }
 }
@@ -1927,6 +1959,7 @@ $(document).ready(function(){
                 list +='<div class="col-xs-6 receiverCity" data data-receiverCity1="'+v.city+'">'+v.city+'</div></br>';
                 list +='<div class="col-xs-6 receiverAddress" data-receiverAddress1="'+v.address+'">'+v.address+'</div></br>';
                 list +='<div class="col-xs-6 receiverPost" data-receiverPost1="'+v.postcode+'">'+v.postcode+'</div></br>';
+                list +='<div class="col-xs-6 receiverState" data-receiverState1="'+v.state+'">'+v.state+'</div></br>';
                 list +='</div></li>';
         });
             list +='<ul id="company-list" style="width:100%;">';
