@@ -17,17 +17,12 @@
                                                 <div class="form-group flr mgb">
                                                     <table class="s36" style="margin-bottom: 10px;">
                                                         <tbody><tr>
-                                                            <td>Start date:</td>
-                                                            <td><input id="startDate"  type="text" class="form-control date form_datetime" data-date-format="dd MM yyyy" readonly="readonly"></td>
+                                                           
                                                             <td>End date:</td>
                                                             <td><input type='date' id='date' class="form-control date form_datetime" value='<?php echo date('Y-m-d');?>' readonly="readonly"></td>
-                                                            
-                                                            <td>
-                                                                <button class="btn s33" type="button" disabled="disabled" id="btn-reship" onclick="javascript:reshipQuoteJob();">
-                                                                    Book this shipment
-                                                                </button>
-                                                            </td>
-                                                            <td>
+                                                           
+                                                           
+                                                              <td>
                                                                 <!--button class="btn s33" type="button" disabled="disabled" id="btn-view-detail" onclick="openDetail()"-->
                                                                 <!-- Button trigger modal -->
                                                                  <button class="btn s33" type="button" id="btn-view-detail" onclick="fecth_quote()" disabled>View Details
@@ -74,12 +69,17 @@
         <tbody>
         
         <!-- new added to show quote data--->
+       
+
+
         <?php for($i=0;$i<count($quote);$i++)
              { 
             if($quote[$i]['customer'] == $customers->customer_id)
             {?>
-                <tr data-quote-id="<?php echo $quote[$i]['id'];?>">
-                <input type="hidden" name="quote_id" value="<?php echo $quote[$i]['id'];?>">
+                <tr data-quote-id="<?php echo $quote[$i]['id'];?>" id="<?php echo $quote[$i]['id'];?>" >
+             <?php 
+             $quote_ship_id = $quote[$i]['id']; ?>
+                <input type="hidden" name="quotes_id" value="<?php echo $quote[$i]['id'];?>">
                     <td><?php echo $quote[$i]['quote_date'];?></td>
                     <td><?php echo $quote[$i]['customer_name'];?></td>
                     <td><?php echo $quote[$i]['quote_number'];?></td>
@@ -90,10 +90,23 @@
                     <td><?php echo $quote[$i]['shipment_type'];?></td>
                     <td><?php echo $quote[$i]['package_type'];?></td>
                     <td><?php echo $quote[$i]['total_amount'];?></td>
+                  
                 </tr>
-             <?php } }?>
-        </tbody>
+             <?php } 
+            }?>
+           
+</tbody>
     </table>
+   
+    <?php if(!empty($quote_ship_id))
+											{ ?>
+												<button class="btn s33 s44" type="button" onclick="bookTo()">
+													Book this shipment
+												</button>
+											<?php } 
+											else { ?>
+												<button class="btn s33 s44" type="button" onclick="myFunction()">Book this shipment </button>
+											<?php } ?>
     <input type="hidden" name="" value="1" id="currPage">
     <input type="hidden" id="selectedId" value="">
     <script type="text/javascript">
@@ -104,8 +117,9 @@
                 selectedAddressId = $(this).attr("data-quote-id");
                 $('#selectedId').val(selectedAddressId);
                 $('#btn-view-detail').attr('disabled', false);
-                $('#btn-reship').attr('disabled', false);
+                $('#shipment').attr('disabled', false);
             });
+
             $('table#quote-job-table tbody tr').dblclick(function () {
                 viewDetail();
             });
@@ -117,6 +131,7 @@
     $("#btn-view-detail").prop('disabled', false);
 });
 
+
     function openDetail() {
   document.getElementById("myForm").style.display = "block";
 }
@@ -124,9 +139,19 @@
 function closeForm() {
   document.getElementById("myForm").style.display = "none";
 }
+
+function myFunction() {
+  alert("Please select an address!");
+}
+
+function bookTo(){
+			var row_id = $('tr.selected-row').attr('id');
+			window.location.href = "<?php echo base_url('customer/shipment/?quote_id='); ?>"+row_id;
+		}
     </script>
 </div>
 </div>
+
                                         </div>
                                     </div>
                                 </div>

@@ -453,7 +453,8 @@ img.logo_img {
     width: 2%;
     height: -21%;
     margin-top: 11px;
-    margin-right: -155px;
+    display:block;
+    margin-right: -193px;
     background: aliceblue;
 }
 
@@ -473,6 +474,7 @@ button.ui-dialog-titlebar-close {
     margin-top:-90px !important;
     
 }
+
 
 .ui-widget-content {
     background: #ffffff;
@@ -570,7 +572,7 @@ img.image {
   <header class="main-header">
     <!-- Logo -->
     <?php //echo '<pre>' . print_r($_SESSION, TRUE) . '</pre>'; ?>
-    <a href="<?= base_url('customer/shipment');?>" class="logo">
+    <a id="foo" disabled="true" class="logo">
       <!--mini logo for sidebar mini 50x50 pixels -->
 	  <?php
 		$this->db->select('image');

@@ -15,11 +15,12 @@
 		  <link rel="stylesheet" href="https://webfreight.agllogistics.com/crm-admin/styles/xms/styles/customer/css_main.css">
 		  
           <link rel="stylesheet" href="https://webfreight.agllogistics.com/crm-admin/styles/xms/styles/customer/css_xms.css">
-		  <link rel="stylesheet" href="<?php echo base_url('assets/bootstrap/bootstrap.min.css'); ?>">
+		  <!--link rel="stylesheet" href="<?php //echo base_url('assets/bootstrap/bootstrap.min.css'); ?>"-->
     
+		  <link rel="stylesheet" href="<?= base_url() ?>assets/bootstrap/bootstrap.min.css">
     <!-- Stylesheet file -->
-    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>">
-
+    <!--link rel="stylesheet" href="<?php //echo base_url('assets/css/style.css'); ?>"-->
+	<link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
           <link rel="stylesheet" href="https://cdn.datatables.net/buttons/1.7.0/css/buttons.dataTables.min.css">
 		  <link rel="stylesheet" href="https://webfreight.agllogistics.com/crm-webship/styles/webship/styles/vendor/css_jquery_ui.css">

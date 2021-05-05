@@ -66,9 +66,9 @@ class Members extends CI_Controller {
                                 'customer_id' => $this->session->userdata('customer_id'),
                                 'contact_name' => $row['Contact'],
                                 'company_name' => $row['Company'],
-                                'state' => $row['State'],
-                                'postcode' => $row['Postcode'],
-                                'address' => $row['Address'],
+                                'state' => $row['State/Province'],
+                                'postcode' => $row['Postal Code'],
+                                'address' => $row['Address#'],
                                 'address1' => $row['Address1'],
                                 'phone' => $row['Phone'],
                                 'city' => $row['City'],
@@ -81,12 +81,12 @@ class Members extends CI_Controller {
                                 'residential_address' => $row['Residential_address'],
                                 'default_service_type' => $row['Default_service'],
                                 'default_package_type' => $row['Default_package'],
-                              );
+                     );
                             
                             // Check whether email already exists in the database
                           $con = array(
                                 'where' => array(
-                                    'email' => $row['Email']
+                                    'company_name' => $row['Company']
                                 ),
                                 'returnType' => 'count'
                             );
@@ -94,7 +94,7 @@ class Members extends CI_Controller {
                             
                             if($prevCount > 0){
                                 // Update member data
-                                $condition = array('email' => $row['Email']);
+                                $condition = array('company_name' => $row['Company']);
                                 $update = $this->member->update($memData, $condition);
                                 
                                 if($update){

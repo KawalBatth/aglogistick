@@ -92,6 +92,15 @@
 		   return $query = $this->db->get()->row();
 		}
 		
+
+		public function get_quote_by_id($quote_id)
+		{
+		   $this->db->select('*');
+		   $this->db->from('quote');
+		   $this->db->where('id', $quote_id);
+		   return $query = $this->db->get()->row();
+		}
+
 		public function add_customers($data){
 			
 			$this->db->insert('customers', $data);

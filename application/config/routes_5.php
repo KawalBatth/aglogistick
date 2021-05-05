@@ -90,7 +90,7 @@ $route['customer/change_password'] = 'customer/customers/change_password';
 //$route['admin/address_book'] = 'admin/customers/address_book';
 //$route['admin/address_book_add'] = 'admin/customers/address_book_add';
 //$route['admin/address_book_import'] = 'admin/customers/address_book_import';
-$route['customer/address_book_export'] = 'customer/customers/address_book_export';
+//$route['admin/address_book_export'] = 'admin/customers/address_book_export';
 //$route['admin/history'] = 'admin/customers/history';
 //$route['admin/settings'] = 'admin/customers/setting';
 
@@ -135,6 +135,7 @@ $route['customer/quote'] = 'customer/customers/quote';
 //$route['admin/carrier_list'] = 'admin/carriers/carrier_list';
 
 //$route['admin/country_list'] = 'admin/carriers/country_list';
+//$route['customer/customer_setting'] = 'customer/customers/customer_setting';
 
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

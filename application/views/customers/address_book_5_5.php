@@ -82,7 +82,7 @@
                                                     <label class="control-label" for="inputName" data-label="Country"> Country <span class="s30"> *</span>
                                                     </label>
                                                     <select name="addressCountry" id="addressCountryId" class="form-control" required="required">
-                                                    <option value="0">Select a Country</option>
+    <option value="0">Select a Country</option>
     <option value="Afghanistan">Afghanistan</option>
     <option value="Albania">Albania</option>
     <option value="Algeria">Algeria</option>
@@ -356,7 +356,6 @@
     <option value="Zambia">Zambia</option>
     <option value="Zimbabwe">Zimbabwe</option>
 
-
 </select>
 
 
@@ -499,43 +498,42 @@
                                             <div id="div-address-book-table" class="col-xs-12">
                                                 <table class="table table-hover table-bordered mg0" id="address-book-table">
                                                     <thead>
-														<tr>
-															<th>Contact</th>
-															<th>Company</th>
-															<th>Address#</th>
-															<th>Address 2</th>
-															<th>City</th>
-															<th>State/Province</th>
-															<th>Postal Code</th>
-															<th>Country</th>
-															<th>Phone</th>
-															<th>Action</th>
-														</tr>
+                                                    <tr>
+                                                        <th>Contact</th>
+                                                        <th>Company</th>
+                                                        <th>Address#</th>
+                                                        <th>Address 2</th>
+                                                        <th>City</th>
+                                                        <th>State/Province</th>
+                                                        <th>Postal Code</th>
+                                                        <th>Country</th>
+                                                        <th>Phone</th>
+                                                        <th>Action</th>
+                                                    </tr>
                                                     </thead>
-													<tbody>
-														<?php for($i=0;$i<count($address_book);$i++)
-														{ 
-															if($address_book[$i]['customer_id'] == $customers->customer_id){ ?>
-																<tr data-address-id="<?php echo $address_book[$i]['id'];?>" id="<?php echo $address_book[$i]['id'];?>" >
-																	<?php  
-																		$addressId =  $address_book[$i]['id'];
-																		$id	= $address_book[$i]['customer_id']; ?>
-																	<td><?php echo $address_book[$i]['contact_name'];?></td>
-																	<td><?php echo $address_book[$i]['company_name'];?></td>
-																	<td><?php echo $address_book[$i]['address'];?></td>
-																	<td><?php echo $address_book[$i]['address1'];?></td>
-																	<td><?php echo $address_book[$i]['city'];?></td>
-																	<td><?php echo $address_book[$i]['state'];?></td>
-																	<td><?php echo $address_book[$i]['postcode'];?></td>
-																	<td><?php echo $address_book[$i]['country'];?></td>
-																	<td><?php echo $address_book[$i]['phone'];?></td>
-																	<td>     
-																		<button type="button" class="btn s33 s44 remove" id="remove">Delete</button> 
-																	</td>
-																</tr>
-															<?php } 
-														} ?>
-													</tbody>
+                                                    <tbody>
+                                                    <?php for($i=0;$i<count($address_book);$i++)
+                                            { 
+                                             if($address_book[$i]['customer_id'] == $customers->customer_id){?>
+                                  <tr data-address-id="<?php echo $address_book[$i]['id'];?>">
+                                <?php  $addressId =  $address_book[$i]['id'];
+                                  $id= $address_book[$i]['customer_id']; ?>
+                                                                <td><?php echo $address_book[$i]['contact_name'];?></td>
+                                                                <td><?php echo $address_book[$i]['company_name'];?></td>
+                                                                <td><?php echo $address_book[$i]['address'];?></td>
+                                                                <td><?php echo $address_book[$i]['address1'];?></td>
+                                                                <td><?php echo $address_book[$i]['city'];?></td>
+                                                                <td><?php echo $address_book[$i]['state'];?></td>
+                                                                <td><?php echo $address_book[$i]['postcode'];?></td>
+                                                                <td><?php echo $address_book[$i]['country'];?></td>
+                                                                <td><?php echo $address_book[$i]['phone'];?></td>
+                                                               
+                             <input type="hidden" value="<?php $address_book[$i]['email'];?>" id="email" name="email">
+                               <td>     <button type="button" class="btn s33 s44 remove" id="remove"> Delete</button> </td>
+                                                            
+                                                            </tr>
+                                                    <?php } }?>
+                                                         </tbody>
                                                 </table>
                                                 <input type="hidden" name="" value="1" id="currPage">
                                                 <input type="hidden" id="selectedId" value="">
@@ -547,7 +545,7 @@
                                                             selectedAddressId = $(this).attr("data-address-id");
                                                            // $('#selectedId').val(selectedAddressId);
                                                             $('#btnEdit').attr('disabled', false);
-                                                            $('#btnRemove').attr('disabled', false);
+                                                            $('#shipto').attr('disabled', false);
                                                         });
                                                     });
                                                 </script>
@@ -562,17 +560,17 @@
                                             <a href="<?= base_url('customer/address_book_add'); ?>" class="btn s33 s44">Add</a>
                                             <button type="button" onclick="editAddressBook()" id="EditButton" class="btn s33 s44" disabled>Edit</button>
                                             <div class="col-md-12 head">
-												<div class="float-right">
-													<a href="javascript:void(0);" class="btn s33 s44 import" onclick="formToggle('importFrm');"><i class="plus"></i> Import</a>
-												</div>
-											</div>
-											  <!-- File upload form -->
-											  <div class="col-md-12" id="importFrm" style="display: none;">
-												<form action="<?php echo base_url('members/import'); ?>" method="post" enctype="multipart/form-data">
-													<input type="file" name="file" />
-													<input type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
-												</form>
-											</div>
+            <div class="float-right">
+                <a href="javascript:void(0);" class="btn s33 s44 import" onclick="formToggle('importFrm');"><i class="plus"></i> Import</a>
+            </div>
+        </div>
+          <!-- File upload form -->
+          <div class="col-md-12" id="importFrm" style="display: none;">
+            <form action="<?php echo base_url('members/import'); ?>" method="post" enctype="multipart/form-data">
+                <input type="file" name="file" />
+                <input type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
+            </form>
+        </div>
                                           <!--a href="<?php //base_url('customer/import_excel'); ?>" class="btn s33 s44">Import</a-->
                                             <button class="btn s33 s44" type="button" onClick="window.location.reload()">
                                               Refresh
@@ -580,18 +578,19 @@
                                             <!--a href="/crm-webship/address_book_export.ix" class="btn s33 s44">Export</a-->
                                             <!--input type="button" id="btnExport" class="btn s33 s44" value="Export to Pdf" /-->
                                             <button name="create_excel" id="create_excel" class="btn s33 export">Export Excel</button> 
+                                            <?php if(!empty($addressId))
+                                       { ?>
+                                       <a href="<?php echo base_url('customer/shipment/?id='.$addressId); ?>"> <button class="btn s33 s44" disabled id="shipto" type="button">
+                                                Ship To
+                                            </button></a>
+                                            <?php } 
+                                else { ?>
+                                     <button class="btn s33 s44" type="button" id="shipto" onclick="myFunction()">Ship To </button>
+<?php } ?>
                                         </div>
-										<div class="col-lg-2">
-											<?php if(!empty($addressId))
-											{ ?>
-												<button class="btn s33 s44" type="button" onclick="onShipTo()">
-													Ship To
-												</button>
-											<?php } 
-											else { ?>
-												<button class="btn s33 s44" type="button" onclick="myFunction()">Ship To </button>
-											<?php } ?>
-										</div>
+                                        <div class="col-lg-2">
+                                     
+                                        </div>
                                     </div>
                                 </div>
                             </div>
@@ -616,21 +615,26 @@
                 }
             });
         });*/
-        
-		function onShipTo(){
-			var row_id = $('tr.selected-row').attr('id');
-			window.location.href = "<?php echo base_url('customer/shipment/?id='); ?>"+row_id;
-		}
-		
-		function myFunction() {
-			alert("Please select an address!");
-		}
+          
+function myFunction() 
+{
+  alert("Please select an address!");
+}
+
+
 //To enable and disable edit surcharge button
 $(document).on('click', '#address-book-table tbody tr', function(e) {
     $('#address-book-table tbody tr').removeClass('selected-row');
     $(this).toggleClass('selected-row'); 
     $("#EditButton").prop('disabled', false);
 });
+
+$(document).on('click', '#address-book-table tbody tr', function(e) {
+    $('#address-book-table tbody tr').removeClass('selected-row');
+    $(this).toggleClass('selected-row'); 
+    $("#shipto").prop('disabled', false);
+});
+
 
 
 $('#create_excel').click(function() {
@@ -749,7 +753,7 @@ $('#create_excel').click(function() {
      $('#exampleModal #addressstate').val(addressState);
      $('#exampleModal #addresspostalCode').val(addressPostalCode);
      $('#exampleModal #addressphone').val(addressPhone);
-     $('#exampleModal #addressemail').val(addressEmail);
+     $('#exampleModal #email').val(addressEmail);
      $('#exampleModal #addressdepartment').val(addressDepartment);
      $('#exampleModal #addressfax').val(addressFax);
      $('#exampleModal #addressAccountNumber').val(addressAccountNumber);
@@ -792,4 +796,5 @@ $('#create_excel').click(function() {
     $('#address-book-table').DataTable( {
     } );
 } );
+
 </script>

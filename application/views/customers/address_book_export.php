@@ -1,100 +1,90 @@
-<head>
-  <title>Code Table</title>
+<div class="portlet box">
+            <div class="portlet-header">
+                <div class="caption w4">
+                  Change a Password
+                </div>
+                <div class="tools">
+                                <i class="fa fa-chevron-up"></i><i class="fa fa-times"></i>
+                </div>
+            </div>
+            <?php if($error = $this->session->flashdata('success_msg')): ?>
+                <div class="alert alert-success alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <strong>Success!</strong> <?= $error ?>
+                </div>
+            <?php endif; ?>
+            <?php if($error = $this->session->flashdata('error_msg')): ?>
+                <div class="alert alert-danger alert-dismissible" role="alert">
+                  <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <?= $error ?>
+                </div>
+            <?php endif; ?>
+           
+            <div class="portlet-body">
+            <?php echo form_open(base_url('customer/change_password'), 'class="change_password-form" '); ?>
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <div class="alert alert-success" role="alert" style="display: none">
+                                <i class="fa fa-check fa-fw"></i><span></span>
+                            </div>
+                            <p style="color: red">
+                                <b>Note:</b> <br> - Password should contain minimum 8 characters, with at least one letter and one number.
+                            </p>
+<!--pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"-->
+                            <div class="form-group">
+                                <label class="control-label" for="inputName">Old Password</label> 
+                                <input name="oldPassword" value="" type="password" placeholder="Enter the old password" class="form-control old_pass" required> <span class="s30"></span>
+                                <?php echo form_error('oldPassword', '<div class="error">', '</div>')?>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputName">New Password</label>
+                                 <input name="newPassword" value="" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" type="password" placeholder="Enter the new password"  class="form-control alloptions old_pass" id="newPassword" required> <span class="s30"></span>
+                                 <?php echo form_error('newPassword', '<div class="error">', '</div>')?>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="inputName">Confirm New</label>
+                                 <input name="confirmPassword" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" type="password" required placeholder="Re-enter the new password" class="form-control alloptions old_pass" id="confirmPassword" required>
+                                 <span id="message"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class=" text-right pal pdt10">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <button class="btn s33 s44 save" type="submit">
+                                    Save
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script>
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-</head>
+// To disappear a Falsh message
+var timeout = 2000; // in miliseconds (3*1000)
+$('.alert').delay(timeout).fadeOut(300);
 
-<body>
-  <fieldset>
-    <input id="searchBox" placeholder="Paste the list HERE" type="search">
 
-    <button type="button" id="Search">Search</button>
-    <br><br>
-    <input type="checkbox" class="theader" name="theader1" checked="checked"> CODE
-    <input type="checkbox" class="theader" name="theader2" checked="checked"> DIVISION
-    <input type="checkbox" class="theader" name="theader3" checked="checked"> PROVINCE
-    <input type="checkbox" class="theader" name="theader4" checked="checked"> NAME
-
-  </fieldset>
-  <br>
-  <table border="1px" id="data">
-    <thead>
-      <tr>
-        <th id="theader1" class="theader1">CODE</th>
-        <th id="theader2" class="theader2">DIVISION</th>
-        <th id="theader3" class="theader3">PROVINCE</th>
-        <th id="theader4" class="theader4">NAME</th>
-      </tr>
-    </thead>
-    <tbody>
-
-    </tbody>
-  </table>
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <script>
-  var datab, datac, datad;
-$("#Search").click(function() {
-  $("tbody").empty();
-
-  var searchIds = new Set($('#searchBox').val().split(/[ ,\r\n]+/).map(s => s.trim()));
-
-  searchIds.forEach(CODE => {
-
-    var theader = [`<td class="theader1">${CODE}</td>`, `<td class="theader2">${datab[CODE]}</td>`, `<td class="theader3" >${datac[CODE]}</td>`, `<td class="theader4">${datad[CODE]}</td>`];
-    $("tbody").append('<tr></tr>');
-    $('.theader').each(function(idx) {
-
-      if ($(this).is(':checked')) {
-        $("tbody tr:last").append(`${theader[idx]}`);
-      }
-    });
-  });
+$(document).ready(function() {
+  $("#confirmPassword").keyup(validate);
+ // $("#newPassword").keyup(validate);
 });
 
 
-function getdata() {
-  fetch("https://api.myjson.com/bins/f2nos").then(resp => resp.json()).then(resp => {
-    datab = Object.assign({}, ...resp.features.map(
-      ({
-        properties: {
-          CODE,
-          DIVISION
-        }
-      }) => ({
-        [CODE]: DIVISION
-      })));
-    datac = Object.assign({}, ...resp.features.map(
-      ({
-        properties: {
-          CODE,
-          PROVINCE
-        }
-      }) => ({
-        [CODE]: PROVINCE
-      })));
-    datad = Object.assign({}, ...resp.features.map(
-      ({
-        properties: {
-          CODE,
-          NAME
-        }
-      }) => ({
-        [CODE]: NAME
-      })));
-  });
+function validate() {
+  var password1 = $("#newPassword").val();
+  var password2 = $("#confirmPassword").val();
+
+    if(password1 == password2) {
+       document.getElementById('message').style.color = 'green';
+       document.getElementById('message').innerHTML = 'Passwords Matching';        
+    }
+    else { 
+        document.getElementById('message').style.color = 'red';
+        document.getElementById('message').innerHTML = 'Passwords not matching';
+    }
+    
 }
-
-getdata();
-
-/*Checkbox To Table Head*/
-$(".theader:not(:checked)").each(function() {
-  var column = "table ." + $(this).attr("name");
-  $(column).hide();
-});
-
-$(".theader").click(function() {
-  var column = "table ." + $(this).attr("name");
-  $(column).toggle();
-});
 </script>

@@ -15,22 +15,15 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-				$data['addres']="";
-				if(isset($_GET['id'])){
-					$data['addres']=$this->user_model->get_address_book_by_id($_GET['id']);
-				}
-				$data['quotes']="";
-				if(isset($_GET['quote_id'])){
-					$data['quotes']=$this->user_model->get_quote_by_id($_GET['quote_id']);
-				}
+				$data['addres']=$this->user_model->get_address_book();
 				$data['carriers']=$this->auth_model->get_carrier();
 				$data['services']=$this->auth_model->get_services();
 				$data['view'] = 'customers/shipment';
 				$this->load->view('customers/layout', $data);
-			}
-			else {	
-				redirect('user/login');
-			}
+		}
+		else {	
+			redirect('user/login');
+		}
 		}
 
 		public function save_quote()
@@ -42,13 +35,13 @@
 			$qoute_jobnumber= $this->input->post('qoute_jobnumber');			
 			$sender_subrub = $this->input->post('sender_subrub');
 			$sender_postcode = $this->input->post('sender_postcode');
-			$receiver_city= $this->input->post('receiver_city');
+			$reciver_subrub= $this->input->post('reciver_subrub');
 			$reciver_postcode= $this->input->post('reciver_postcode');
 			$shipment_type= $this->input->post('shipment_type');
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
 
-			$rcv_state= $this->input->post('rcv_state');	
+			$rcv_city= $this->input->post('rcv_city');	
 			$rcv_phone= $this->input->post('rcv_phone');	
 			$rcv_company= $this->input->post('rcv_company');
 			$rcv_contact= $this->input->post('rcv_contact');			
@@ -61,13 +54,18 @@
 			$quote_height =$this->input->post('quote_height');
             $quote_quantity= $this->input->post('quote_quantity');
 			$rcv_country= $this->input->post('rcv_country');
+			$stateCode1= $this->input->post('stateCode1');
 			$stateCode =$this->input->post('stateCode');
 			$servicename =$this->input->post('servicename');
 
    
-            $chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+
+
+			$chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     		$pwd= substr(str_shuffle($chars),0,1);
 			
+			
+
 			$array = array(
 				//'webshipId' =>$webshipId,
 				'quote_date' =>$quote_date,
@@ -75,33 +73,37 @@
 				'customer_name'=>$customer_name,
 
 				//'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
-			    //'quote_number'=>$qoute_jobnumber,
+			//	'quote_number'=>$qoute_jobnumber,
 
 				'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
 				'sender_suburb'=>$sender_subrub,
 				'sender_postcode'=>$sender_postcode,
-				'receiver_suburb'=>$receiver_city,
+				'receiver_suburb'=>$reciver_subrub,
 				'receiver_postcode' =>$reciver_postcode,
 				'shipment_type'=>$shipment_type,
 				'package_type'=>$package_type,
 				'total_amount'=>$total_amount,
 
+				'receiver_city'=>$rcv_city,
 				'receiver_phone'=>$rcv_phone,
 				'receiver_company'=>$rcv_company,
 				'receiver_contact' =>$rcv_contact,
 				'receiver_email'=>$rcv_email,
 				'receiver_address'=>$rcv_address,
 				'receiver_address1'=>$rcv_address3,
-                'quote_weight'=>$quote_weight,
+
+				'quote_weight'=>$quote_weight,
 				'quote_length'=>$quote_length,
 				'quote_width'=>$quote_width,
 				'quote_height' =>$quote_height,
 				'quote_quantity'=>$quote_quantity,
 				'sender_state'=>$stateCode,
+				'receiver_state'=>$stateCode,
 				'servicename'=>$servicename,
 				'receiver_country'=>$rcv_country,
-				'receiver_state'=>$rcv_state,
-				'quote_date' => date('Y-m-d'),
+				'quote_date' => date('Y-m-d')
+				
+			
 			 );
 		
 			$this->user_model->add_quote($array);
@@ -111,14 +113,15 @@
 
 		public function address_book()
 		{
-			
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-				$data['address_book']  = $this->user_model->get_address_book($data['customers']->customer_id);
-				$data['view'] = 'customers/address_book';
-				$this->load->view('customers/layout', $data);
-			} else {	
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+			$data['customer_id'] = $this->input->post('customerCode');
+			$data['address_book']  = $this->user_model->get_address_book();
+			$data['view'] = 'customers/address_book';
+			$this->load->view('customers/layout', $data);
+			}
+			else {	
 				redirect('user/login');
 			}
 		}
@@ -127,14 +130,12 @@
 		{
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
-				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-				$data['address_book']  = $this->user_model->get_address_book($this->session->userdata('customer_user_id'));
-				$data['view'] = 'customers/address_book_add';
-				$this->load->view('customers/layout', $data);
-			}
-			else {	
-				redirect('user/login');
-			}
+			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+			//$data['address_book']  = $this->user_model->get_address_book();
+			$data['view'] = 'customers/address_book_add';
+			$this->load->view('customers/layout', $data);
+		}
+		else {	redirect('user/login');}
 		}
 
 		public function import_excel()
@@ -147,7 +148,7 @@
 
 		public function address_book_export()
 		{
-			$data['view'] = 'customers/address_book_export';
+			$data['view'] = 'admin/customers/address_book_export';
 			$this->load->view('customers/layout', $data);
 		}
 
@@ -166,7 +167,6 @@
 			if($this->session->has_userdata('is_customer_user_login'))
 			{
 			$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-			
 			$data['quote']  = $this->user_model->get_quote();
 			$data['view'] = 'customers/quote';
 			$this->load->view('customers/layout', $data);
@@ -307,16 +307,6 @@
 			}
 			
 			$result['charges'] = $get_surcharge;
-			$margin = $this->auth_model->get_margin($customer_id);
-			$result['margin'] = "";
-			if(!empty($margin)){
-				$margin_rates = json_decode($margin->margin_rate);
-				foreach($margin_rates as $margins){
-					if($margins->service_id == $service_type_Id){
-						$result['margin'] = $margins->margin_rate;
-					}
-				}
-			}
 			echo json_encode($result);
 			
 		}
@@ -343,7 +333,7 @@
 				$rcv_city        = $returndata['shipmentPage.receiverAddress.city'];
 				$service_type_Id = $returndata['shipmentPage.shipmentTypeId'];
 				$service_Id      = $returndata['shipmentPage.serviceId'];
-			    $isdang          = (isset($returndata['isdangerous'])) ? $returndata['isdangerous'] : "";
+			    $isdang         = $returndata['isdangerous'];
 
 			//	$sender_company_name = $returndata['shipmentPage.senderAddress.companyName'];
 			//	$sender_phone = $returndata['shipmentPage.senderAddress.phone'];
@@ -366,18 +356,6 @@
 				$data['result']    = $returndata;
 				$data['surcharge'] = array('base_charge'=>$get_base_rate,'fixed_price'=>$fixed_price,'charges'=>$get_surcharge);
 				$data['customers'] = $this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-				
-				$margin = $this->auth_model->get_margin($this->session->userdata('customer_id'));
-				$data['margin'] = "";
-				if(!empty($margin)){
-					$margin_rates = json_decode($margin->margin_rate);
-					foreach($margin_rates as $margins){
-						if($margins->service_id == $service_type_Id){
-							$data['margin'] = $margins->margin_rate;
-						}
-					}
-				}
-			
 				$data['view']      = 'customers/booking';
 				$this->load->view('customers/layout', $data);
 			} else {	
@@ -623,7 +601,7 @@
 				'residential_address' => $this->input->post('isResidential'),
 				'default_service_type' => $this->input->post('addressDefaultServiceType'),
 				'default_package_type' => $this->input->post('addressDefaultPackageType'),
-				'modified'=>$date = date('Y/m/d H:i:s')
+				'last_modified'=>$date = date('Y/m/d H:i:s')
 				);
 				$address = $this->user_model->update_address_data($address,$address_id);
 				$this->session->set_flashdata('msg', 'SuAddress Book is Edited Successfully!');
