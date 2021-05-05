@@ -6,7 +6,8 @@
             </div>
         </div>
         <form id="shipment-info-form" name="shipment-info-form" action="/crm-webship/webship.ix" method="post">
-        <input type="hidden" name="customerCode" id="<?php echo $customers->customer_id;?>">
+			<input type="hidden" name="customerCode" id="<?php echo $customers->customer_id;?>">
+			<input type="hidden" name="total_charge" value="">
             <div class="col-lg-12">
                 <div class="row">
                     <div class="col-md-12">
@@ -76,8 +77,8 @@
                                                     <label class="control-label" for="inputName"> Country <span class="s30"> *</span>
                                                     </label>
                                                     <select name="shipmentPage.senderAddress.country" required id="shipmentPage_senderAddress_country" class="form-control">
-    <option value="12" selected="selected">Australia</option>
-</select>
+														<option value="12" selected="selected">Australia</option>
+													</select>
 
 
 
@@ -939,30 +940,30 @@
         
     </div>
     
-<div class="form-popup" id="myForm">
-<form id="saveQuoteLog" name="saveQuoteLog">
-<h3 class="quote_title">Quote</h3>
-<hr>
-    <table class="table">
-   
-        <tbody></table>
-<div class="quote-button">
-<button type="button" class="btn s33 save" onclick="saveqoute()">Save quote</button>
-    <button type="button" class="btn s33 cancel" onclick="closeForm()">Ok</button>
-    </div>
-  </form>
-</div>
+	<div class="form-popup" id="myForm">
+	<form id="saveQuoteLog" name="saveQuoteLog">
+	<h3 class="quote_title">Quote</h3>
+	<hr>
+		<table class="table">
+	   
+			<tbody></table>
+	<div class="quote-button">
+	<button type="button" class="btn s33 save" onclick="saveqoute()">Save quote</button>
+		<button type="button" class="btn s33 cancel" onclick="closeForm()">Ok</button>
+		</div>
+	  </form>
+	</div>
 
 
-<div class="form-group" id="divAglWarranty" style="display: none;">
-    <label class="fw0">
-        <input data-group="aglWarranty" tabindex="5" id="service_cons_2" type="checkbox" name="shipmentPage.addCons[2].value" value="0" onclick="showServiceAddConDetails(2)" disabled="disabled"> &nbsp;
-        AGL Warranty
-    </label>
-    <input type="hidden" name="shipmentPage.addCons[2].value" value="0">
-    <input type="hidden" name="shipmentPage.addCons[2].addConName" value="agl Warranty">
-    <input type="hidden" name="shipmentPage.addCons[2].addConCode" value="aglWarranty">
-</div>
+	<div class="form-group" id="divAglWarranty" style="display: none;">
+		<label class="fw0">
+			<input data-group="aglWarranty" tabindex="5" id="service_cons_2" type="checkbox" name="shipmentPage.addCons[2].value" value="0" onclick="showServiceAddConDetails(2)" disabled="disabled"> &nbsp;
+			AGL Warranty
+		</label>
+		<input type="hidden" name="shipmentPage.addCons[2].value" value="0">
+		<input type="hidden" name="shipmentPage.addCons[2].addConName" value="agl Warranty">
+		<input type="hidden" name="shipmentPage.addCons[2].addConCode" value="aglWarranty">
+	</div>
 <script type="text/javascript">
     var isAglWarranty = false;
     $(document).ready(function () {
@@ -1523,24 +1524,22 @@ function openForm() {
 						}
 					});
 				}
-                
+                $('#total_charge').val(total);
 				html +='<tr>';
 					html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
 				html +='</tr>';
                 if(weight >get_volume_input)
-                        {
-                              
-				html +='<tr>';
-						html +='<td class="td1">Total weight</td>';
-						html +='<td class="td2 totalweight">'+Math.round(weight)+':00 kg(s)</td>';
-				html +='</tr>';
-                        }else
-                        {
-                            html +='<tr>';
+                {
+					html +='<tr>';
+							html +='<td class="td1">Total weight</td>';
+							html +='<td class="td2 totalweight">'+Math.round(weight)+':00 kg(s)</td>';
+					html +='</tr>';
+				} else {
+					html +='<tr>';
 						html +='<td class="td1">Total weight</td>';
 						html +='<td class="td2 totalweight">'+Math.round(get_volume_input)+':00 kg(s)</td>';
-				html +='</tr>';
-                        }
+					html +='</tr>';
+                }
 				html +='<tr>';
 						html +='<td class="td1">Weight type</td>';
 						html +='<td class="td2">Actual</td>';
