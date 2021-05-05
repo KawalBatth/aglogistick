@@ -1724,148 +1724,146 @@ get_volume_input = (get_volume_input * 250) * final_total;
 //alert(get_volume_input);
 setTimeout(function()
 {    
-		$('#saveQuoteLog table tbody').html('');
-		var html = '';
-		var total ='';
-		var basic_charge = '';
-		var is_dangerous = '';
-		var per_kg ='';
-		var margin ='';
-		var total_charge = '';
-		var surcharge_name = '';
-		var surcharge_price = '';
-		var SUM = '';
-		 $.ajax({
-			type: "POST",
-			url: "<?php echo base_url('customer/get_calculate');?>",
-			data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id,isdangerous:isdangerous},
-			beforeSend: function(){
+    $('#saveQuoteLog table tbody').html('');
+    var html = '';
+    var total ='';
+    var basic_charge = '';
+    var is_dangerous = '';
+    var per_kg ='';
+    var margin ='';
+    var total_charge = '';
+    var surcharge_name = '';
+    var surcharge_price = '';
+    var SUM = '';
+     $.ajax({
+        type: "POST",
+        url: "<?php echo base_url('customer/get_calculate');?>",
+        data:{sender_postcode:sender_postcode,sender_city:sender_city,sender_state:stateCode1,rc_postcode:postalCode,rc_statecode:stateCode,rcv_city:rcv_city,serviceId:serviceId,service_type_Id:service_type_Id,isdangerous:isdangerous},
+        beforeSend: function(){
 
-				//$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
-			},
-			success: function(data){
-				var result = JSON.parse(data);
-				console.log(result);
-				margin = result.margin;
-				if(result.base_charge)
-				{
-					$.each(result.base_charge, function(k, v) {
-						if(v)
-						{
-							basic_charge = v.basic_charge;
-							if(basic_charge=='')
-							{
-								basic_charge='0.00';
-							}
-							console.log('basic_charge'+basic_charge);
-							per_kg = v.per_kg;
-							console.log('per_kg'+per_kg);
-							console.log('weight'+weight);
-							console.log('get_volume_input'+get_volume_input);
-							if(weight >get_volume_input)
-							{
-								total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
-								if(margin != ''){
-									total =  total + parseFloat(total * parseFloat(margin/100));
-								}
-							}
-							else
-							{
-								total = (parseFloat(get_volume_input) * parseFloat(per_kg)) + parseFloat(basic_charge);
-								if(margin != ''){
-									total =  total + parseFloat(total * parseFloat(margin/100));
-								}
-							}
-						}
-					});
-				} else {
-
-					basic_charge='0.00';
-					console.log('basic_charge'+basic_charge);
-					per_kg = result.fixed_price;
-					console.log('per_kg'+per_kg);
-					console.log('weight'+weight);
-					
-					if(margin != ''){
-						total =  total + parseFloat(total * parseFloat(margin/100));
-					}
-                    else{
-                        total =  parseFloat(weight) * parseFloat(per_kg);
-                    }
-                }
-				
-				html +='<tr>';
-						html +='<td class="td1">Base Charge</td>';
-						//html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
-					    html +='<td class="td2">$ '+total+'</td>';
-						html +='</tr>';
-				if(service_type_Id == 1 || service_type_Id == 2){
-					
-					$.each(result.charges, function(k, v) {
-						if(v)
-						{
-							is_dangerous = v.is_dangerous;
-							surcharge_name = v.surcharge_name;
-							surcharge_price = v.surcharge_price;
-
-					   
-							//total_charge = total + SUM(surcharge_price);
-							total += parseFloat(surcharge_price);
-						  //  alert(total_charge);
-						  html +='<div class="surcharge">';
-						  html +='<tr>';
-							html +='<td class="td1">'+surcharge_name+'</td>';
-							html +='<td class="td2">$ '+surcharge_price+'</td>';
-							html +='</tr>';
-							html +='</div>';
-						}
-					});
-				}
-                
-				html +='<tr>';
-					html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
-				html +='</tr>';
-                if(weight >get_volume_input)
+            //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
+        },
+        success: function(data){
+            var result = JSON.parse(data);
+            console.log(result);
+            margin = result.margin;
+            if(result.base_charge)
+            {
+                $.each(result.base_charge, function(k, v) {
+                    if(v)
+                    {
+                        basic_charge = v.basic_charge;
+                        if(basic_charge=='')
                         {
-                              
-				html +='<tr>';
-						html +='<td class="td1">Total weight</td>';
-						html +='<td class="td2 totalweight">'+Math.round(weight)+':00 kg(s)</td>';
-				html +='</tr>';
-                        }else
-                        {
-                            html +='<tr>';
-						html +='<td class="td1">Total weight</td>';
-						html +='<td class="td2 totalweight">'+Math.round(get_volume_input)+':00 kg(s)</td>';
-				html +='</tr>';
+                            basic_charge='0.00';
                         }
-				html +='<tr>';
-						html +='<td class="td1">Weight type</td>';
-						html +='<td class="td2">Actual</td>';
-				html +='</tr>';
-				html +='<tr>';
-						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
-				html +='</tr>';
-				html +='<tr>';
-						html +='<td class="td1"><b>Total Charge</b></td>';
-					//	html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
-                        html +='<td class="td2">$ '+total+'</td>';
-				html +='</tr>';
-				html +='<tr>';
-						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
-				html +='</tr>';
-				html +='<tr>';
-						html +='<td colspan="2">';
-						html +='<p>Quote is an estimate. Additional fees may apply.</p>';
-						html +='</td>';
-				html +='</tr>';
-				$('#myForm table tbody').html(html);
-			}
-			
-		});
-    }, 1000);
+                        console.log('basic_charge'+basic_charge);
+                        per_kg = v.per_kg;
+                        console.log('per_kg'+per_kg);
+                        console.log('weight'+weight);
+                        console.log('get_volume_input'+get_volume_input);
+                        if(weight >get_volume_input)
+                        {
+                            total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
+                            if(margin != ''){
+                                total =  total + parseFloat(total * parseFloat(margin/100));
+                            }
+                        }
+                        else
+                        {
+                            total = (parseFloat(get_volume_input) * parseFloat(per_kg)) + parseFloat(basic_charge);
+                            if(margin != ''){
+                                total =  total + parseFloat(total * parseFloat(margin/100));
+                            }
+                        }
+                    }
+                });
+            } else {
+
+                basic_charge='0.00';
+                console.log('basic_charge'+basic_charge);
+                per_kg = result.fixed_price;
+                console.log('per_kg'+per_kg);
+                console.log('weight'+weight);
+                total =  parseFloat(weight) * parseFloat(per_kg);
+                if(margin != ''){
+                    total =  total + parseFloat(total * parseFloat(margin/100));
+                }
+            }
+            
+            html +='<tr>';
+                    html +='<td class="td1">Base Charge</td>';
+                    html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
+                   // html +='<td class="td2">$ '+total+'</td>';
+                    html +='</tr>';
+            if(service_type_Id == 1 || service_type_Id == 2){
+                
+                $.each(result.charges, function(k, v) {
+                    if(v)
+                    {
+                        is_dangerous = v.is_dangerous;
+                        surcharge_name = v.surcharge_name;
+                        surcharge_price = v.surcharge_price;
+
+                   
+                        //total_charge = total + SUM(surcharge_price);
+                        total += parseFloat(surcharge_price);
+                      //  alert(total_charge);
+                      html +='<div class="surcharge">';
+                      html +='<tr>';
+                        html +='<td class="td1">'+surcharge_name+'</td>';
+                        html +='<td class="td2">$ '+surcharge_price+'</td>';
+                        html +='</tr>';
+                        html +='</div>';
+                    }
+                });
+            }
+            
+            html +='<tr>';
+                html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
+            html +='</tr>';
+            if(weight >get_volume_input)
+                    {
+                          
+            html +='<tr>';
+                    html +='<td class="td1">Total weight</td>';
+                    html +='<td class="td2 totalweight">'+Math.round(weight)+':00 kg(s)</td>';
+            html +='</tr>';
+                    }else
+                    {
+                        html +='<tr>';
+                    html +='<td class="td1">Total weight</td>';
+                    html +='<td class="td2 totalweight">'+Math.round(get_volume_input)+':00 kg(s)</td>';
+            html +='</tr>';
+                    }
+            html +='<tr>';
+                    html +='<td class="td1">Weight type</td>';
+                    html +='<td class="td2">Actual</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td class="td1"><b>Total Charge</b></td>';
+                    html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
+                  //  html +='<td class="td2">$ '+total+'</td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';
+            html +='</tr>';
+            html +='<tr>';
+                    html +='<td colspan="2">';
+                    html +='<p>Quote is an estimate. Additional fees may apply.</p>';
+                    html +='</td>';
+            html +='</tr>';
+            $('#myForm table tbody').html(html);
+        }
+        
+    });
+}, 1000);
 
 }
+
 
 function closeForm() {
   document.getElementById("myForm").style.display = "none";

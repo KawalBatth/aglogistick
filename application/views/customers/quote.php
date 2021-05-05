@@ -79,7 +79,7 @@
                 <tr data-quote-id="<?php echo $quote[$i]['id'];?>" id="<?php echo $quote[$i]['id'];?>" >
              <?php 
              $quote_ship_id = $quote[$i]['id']; ?>
-                <input type="hidden" name="quote_id" value="<?php echo $quote[$i]['id'];?>">
+                <input type="hidden" name="quotes_id" value="<?php echo $quote[$i]['id'];?>">
                     <td><?php echo $quote[$i]['quote_date'];?></td>
                     <td><?php echo $quote[$i]['customer_name'];?></td>
                     <td><?php echo $quote[$i]['quote_number'];?></td>
@@ -101,11 +101,11 @@
     <?php if(!empty($quote_ship_id))
 											{ ?>
 												<button class="btn s33 s44" type="button" onclick="bookTo()">
-													book
+													Book this shipment
 												</button>
 											<?php } 
 											else { ?>
-												<button class="btn s33 s44" type="button" onclick="myFunction()">book </button>
+												<button class="btn s33 s44" type="button" onclick="myFunction()">Book this shipment </button>
 											<?php } ?>
     <input type="hidden" name="" value="1" id="currPage">
     <input type="hidden" id="selectedId" value="">
