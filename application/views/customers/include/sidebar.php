@@ -58,7 +58,7 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
     
       <ul class="sidebar-menu">
         <li id="admin" class="treeview">
-           <a href="<?= base_url('customer/settings'); ?>"><i class="fa fa-cog fa-fw"></i>Settings
+           <a href="<?= base_url('customer/address_book_export'); ?>"><i class="fa fa-cog fa-fw"></i>Settings
               
            </a>
          

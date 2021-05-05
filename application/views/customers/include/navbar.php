@@ -268,6 +268,7 @@ button.btn.s33.s44.save {
 p.help_info {
     font-size: 16px;
     color: #333;
+    font-weight: 100;
 }
 
 label.control-label {
@@ -278,6 +279,7 @@ label.control-label {
 .help_contact {
     font-size: 16px;
     color: #333;
+    font-weight: 100;
 }
 
 body {font-family: Arial, Helvetica, sans-serif;}
@@ -453,7 +455,7 @@ img.logo_img {
     width: 2%;
     height: -21%;
     margin-top: 11px;
-    margin-right: -155px;
+    margin-right: -163px;
     background: aliceblue;
 }
 
@@ -556,7 +558,7 @@ table.table.table-hover.mg0 {
 }
 
 a.btn.s33.s44.import {
-    margin-top: -48px;
+    margin-top: -46px;
     margin-left: 193px;
 }
 
@@ -564,6 +566,12 @@ img.image {
     width: 230px;
     height: 57px;
     margin-left: -16px;
+}
+
+button#shipto {
+    float: right;
+    margin-top: -85px;
+    margin-right: 75px;
 }
 
     </style>

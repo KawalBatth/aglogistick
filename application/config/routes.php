@@ -90,7 +90,7 @@ $route['customer/change_password'] = 'customer/customers/change_password';
 //$route['admin/address_book'] = 'admin/customers/address_book';
 //$route['admin/address_book_add'] = 'admin/customers/address_book_add';
 //$route['admin/address_book_import'] = 'admin/customers/address_book_import';
-//$route['admin/address_book_export'] = 'admin/customers/address_book_export';
+$route['customer/address_book_export'] = 'customer/customers/address_book_export';
 //$route['admin/history'] = 'admin/customers/history';
 //$route['admin/settings'] = 'admin/customers/setting';
 
