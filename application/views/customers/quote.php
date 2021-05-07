@@ -5,7 +5,7 @@
                                 Quote/Job
                             </div>
                             <div class="tools">
-                                <i class="fa fa-chevron-up"></i><i class="afa fa-times"></i>
+                            <i class="fa fa-chevron-up"></i><i class="fa fa-times"></i>
                             </div>
                         </div>
                         <div class="portlet-body" style="display: block;">
@@ -13,27 +13,12 @@
                                 <div class="form-body pal">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <div class="col-lg-12 flr pd0">
-                                                <div class="form-group flr mgb">
-                                                    <table class="s36" style="margin-bottom: 10px;">
-                                                        <tbody><tr>
-                                                           
-                                                            <td>End date:</td>
+                                        <table class="date">
+                                        <tbody>
+                                        <td>End date:</td>
                                                             <td><input type='date' id='date' class="form-control date form_datetime" value='<?php echo date('Y-m-d');?>' readonly="readonly"></td>
-                                                           
-                                                           
-                                                              <td>
-                                                                <!--button class="btn s33" type="button" disabled="disabled" id="btn-view-detail" onclick="openDetail()"-->
-                                                                <!-- Button trigger modal -->
-                                                                 <button class="btn s33" type="button" id="btn-view-detail" onclick="fecth_quote()" disabled>View Details
-                                                                </button>
-                                                              
-
-                                                          </td>
-                                                        </tr>
-                                                    </tbody></table>
-                                                </div>
-                                            </div>
+                                                            </tbody>
+                                                            </table>
                                             <p>
                                                 <br>
                                             </p>
@@ -89,26 +74,47 @@
                     <td><?php echo $quote[$i]['receiver_postcode'];?></td>
                     <td><?php echo $quote[$i]['shipment_type'];?></td>
                     <td><?php echo $quote[$i]['package_type'];?></td>
-                    <td><?php echo $quote[$i]['total_amount'];?></td>
-                  
+
+                   <?php $amount = $quote[$i]['final_amount'];?>
+                    <td><?php echo number_format((float)$amount, 2, '.', ''); ?></td>
+                    
                 </tr>
              <?php } 
             }?>
            
 </tbody>
     </table>
-   
-    <?php if(!empty($quote_ship_id))
+    <div class="col-lg-12 flr pd0">
+                                                <div class="form-group flr mgb">
+                                                    <table class="s36" style="margin-bottom: 10px;">
+                                                        <tbody><tr>
+                                                             
+                                                          <td>  <?php if(!empty($quote_ship_id))
 											{ ?>
-												<button class="btn s33 s44" type="button" onclick="bookTo()">
+												<button class="btn s33 s44" type="button" id="bookTo" onclick="bookTo()" disabled>
 													Book this shipment
 												</button>
 											<?php } 
 											else { ?>
-												<button class="btn s33 s44" type="button" onclick="myFunction()">Book this shipment </button>
-											<?php } ?>
+												<button class="btn s33 s44" type="button" id="bookTo" onclick="myFunction()" disabled>Book this shipment </button>
+											<?php } ?></td>
+                                                              <td>
+                                                                <!--button class="btn s33" type="button" disabled="disabled" id="btn-view-detail" onclick="openDetail()"-->
+                                                                <!-- Button trigger modal -->
+                                                                 <button class="btn s33" type="button" id="btn-view-detail" onclick="fecth_quote()" disabled>View Details
+                                                                </button>
+                                                              
+
+                                                          </td>
+                                                        </tr>
+                                                    </tbody></table>
+                                                </div>
+                                            </div>
+  
+   
     <input type="hidden" name="" value="1" id="currPage">
     <input type="hidden" id="selectedId" value="">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script type="text/javascript">
         $(document).ready(function () {
             $('#selectedId').val("");
@@ -125,11 +131,13 @@
             });
         });
 
-        $(document).on('click', '#quote-job-table tbody tr', function(e) {
+ $(document).on('click', '#quote-job-table tbody tr', function(e) {
     $('#quote-job-table tbody tr').removeClass('selected-row');
     $(this).toggleClass('selected-row'); 
     $("#btn-view-detail").prop('disabled', false);
+    $("#bookTo").prop('disabled', false);
 });
+
 
 
     function openDetail() {
@@ -229,11 +237,11 @@ function fecth_quote()
                  html +='</tr>';
                  html +='<tr>';
                      html +='<td class="td1">Acutal weight</td>';
-                     html +='<td class="td2">'+val.total_amount+' </td>';
+                     html +='<td class="td2"> </td>';
                  html +='</tr>';
                  html +='<tr>';
                      html +='<td class="td1">Dim. Weight</td>';
-                     html +='<td class="td2">'+val.total_amount+' KG(s) </td>';
+                     html +='<td class="td2">'+val.dimension_weight+' KG(s) </td>';
                 html +='</tr>';
                 html +='</tbody>';
                 html +='</table>';
@@ -257,10 +265,10 @@ function fecth_quote()
                 html +='<tbody>';
                 html +='<tr>';
                 html +='<td>1</td>';
-                html +='<td>14.00 KG(s)</td>';
+                html +='<td>'+val.quote_weight+' KG(s)</td>';
                 html +='<td>7.96 KG(s)</td>';
-                html +='<td>1</td>';
-                html +='<td>35.00 x 35.00 x 26.00 CM(s)';
+                html +='<td>'+val.quote_quantity+'</td>';
+                html +='<td>'+val.quote_length+':00 x '+val.quote_width+':00 x '+val.quote_height+':00 CM(s)';
                 html +='</td>';
                 html +='</tr>';
             
@@ -285,50 +293,50 @@ function fecth_quote()
                 html +='<tr><td>';
                 html +='<table>';
                 html +='<tbody><tr>';
-                html +='<td>Beaver Process Equipment </td>';
+                html +='<td>'+val.sender_company+'</td>';
                 html +='</tr>';
                 html +='<tr>';
-                html +='<td>Jason</td>';
+                html +='<td>'+val.sender_contact+'</td>';
                 html +='</tr>';
                 html +='<tr>';
-                html +='<td>193 Beechboro Road South</td>';
+                html +='<td>'+val.sender_address+'</td>';
                 html +='</tr>';
                 html +='<tr>';
                 html +='<td></td>';
                        html +='</tr>';
                        html +='<tr>';
-                       html +='<td>EMBLETON&nbsp;6062</td>';
+                       html +='<td>'+val.sender_suburb+' '+val.sender_postcode+'</td>';
                        html +='</tr>';
                        html +='<tr>';
-                       html +='<td>Australia</td>';
+                       html +='<td>'+val.sender_country+'</td>';
                        html +='</tr>';
                        html +='<tr>';
-                       html +='<td>Ph: 1300239398</td>';
+                       html +='<td>Ph: '+val.sender_phone+'</td>';
                        html +='</tr>';
                        html +='</tbody></table>';
                        html +='</td>';
                        html +='<td>';
                        html +='<table>';
                        html +='<tbody><tr>';
-                       html +='<td>Beaver Process Equipment </td>';
+                       html +='<td>'+val.receiver_company+'</td>';
                        html +='</tr>';
                         html +='<tr>';
-                        html +='<td>Samuel Hinschen</td>';
+                        html +='<td>'+val.receiver_contact+'</td>';
                         html +='</tr>';
                         html +='<tr>';
-                        html +='<td>538 Tarragindi Rd </td>';
+                        html +='<td>'+val.receiver_address+'</td>';
                         html +='</tr>';
                         html +='<tr>';
                         html +='<td></td>';
                         html +='</tr>';
                         html +='<tr>';
-                        html +='<td>SALISBURY&nbsp;4107</td>';
+                        html +='<td>'+val.receiver_suburb+' '+val.receiver_postcode+'</td>';
                         html +='</tr>';
                         html +='<tr>';
-                        html +='<td>Australia</td>';
+                        html +='<td>'+val.receiver_country+'</td>';
                         html +='</tr>';
                         html +='<tr>';
-                        html +='<td>Ph: 1300295799</td>';
+                        html +='<td>Ph: '+val.receiver_phone+'</td>';
                         html +='</tr>';
                         html +='</tbody></table>';
                         html +='</td>';
@@ -347,17 +355,18 @@ function fecth_quote()
                         html +='<tbody>';
                  html +='<tr>';
                         html +='<td colspan="2" width="60%">- Base Charge:</td>';
-                       html +='<td colspan="2"><input type="hidden" name="webshipQuoteLogModel.quoteId" value="3315" id="formUpdatequoteJob_webshipQuoteLogModel_quoteId"> 21.57</td>';
+                       html +='<td colspan="2">'+val.total_amount+'</td>';
                        html +='</tr>';
                     
                        html +='<tr>';
                        html +='<td colspan="2" width="60%">- Fuel Surcharge: </td>';
-                       html +='<td colspan="2">3.02</td>';
+                      
+                      html +='<td colspan="2">'+val.surcharge_amount+'</td>';
                        html +='</tr>';
                     
                        html +='<tr>';
                        html +='<td colspan="2" width="60%">- Total Charges: </td>';
-                       html +='<td colspan="2">27.05</td>';
+                       html +='<td colspan="2">'+val.final_amount+'</td>';
                        html +='</tr>';
                        html +='<tr>';
                        html +='<td class="quote" colspan="4"><i>Quote is an estimate. Additional fees may apply.</i></td>';

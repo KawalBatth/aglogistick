@@ -1450,9 +1450,9 @@ function openForm() {
     var totalweight = $('#total_weight_input').val();  
       
     var final_total=$("#final_total_input").val();
-    weight = weight * final_total;
+    weight = weight * quantity;
     var get_volume_input = $("#get_volume_input").val();
-    get_volume_input = (get_volume_input * 250) * final_total;
+    //get_volume_input = get_volume_input * 250;
     //alert(get_volume_input);
     setTimeout(function()
     {    
@@ -1490,7 +1490,7 @@ function openForm() {
 							console.log('basic_charge'+basic_charge);
 							per_kg = v.per_kg;
 							console.log('per_kg'+per_kg);
-							console.log('weight'+weight);
+							console.log('totalweight'+totalweight);
 							console.log('get_volume_input'+get_volume_input);
 							if(weight >get_volume_input)
 							{
@@ -2020,7 +2020,8 @@ var numRows = 1, ti = 5;
 				h/= 100;
 
 				var dateTotal = (l * p * h);
-				dateTotal = parseFloat(dateTotal.toFixed(3));
+               // dateTotal = dateTotal * 250;
+			   dateTotal = parseFloat(dateTotal.toFixed(3));
 				//$(this).find('input.row-total').val(dateTotal ? dateTotal : "0.000");
 				//dateTotal = (dateTotal * q);
 				lt += isNumber(q) ? parseInt(q, 10) : 0;

@@ -256,11 +256,11 @@ if(isset($submit_id))
     <div class="form-group">
         <table class="s36">
             <tbody><tr>
-                <td width="25"><input type="checkbox" name="allowExportAddressBook" value="true" id="webship_allowExportAddressBook"><input type="hidden" id="__checkbox_webship_allowExportAddressBook" name="allowExportAddressBook" value="true"></td>
+                <td width="25"><input type="checkbox" name="allowExportAddressBook" value="false" id="webship_allowExportAddressBook"><!--input type="hidden" id="__checkbox_webship_allowExportAddressBook" name="allowExportAddressBook" value="true"--></td>
                 <td>Allow Address Book Export</td>
             </tr>
             <tr>
-                <td width="25"><input type="checkbox" name="isRequireChangePassword" value="true" id="webship_isRequireChangePassword"><input type="hidden" id="__checkbox_webship_isRequireChangePassword" name="isRequireChangePassword" value="true"></td>
+                <td width="25"><input type="checkbox" name="isRequireChangePassword" value="false" id="webship_isRequireChangePassword"><!--input type="hidden" id="__checkbox_webship_isRequireChangePassword" name="isRequireChangePassword" value="true"--></td>
                 <td>Force Password Change</td>
             </tr>
         </tbody></table>
@@ -988,7 +988,7 @@ if(isset($submit_id))
                             <td class="td1" data-label="Billing Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2">
                             <select name="billingCountry" required="required" id="saveManageCustomer_customerAddress_billingAddress_billingCountry" class="form-control uppercase" group="billing-address" readonly="readonly">
-                                   <option value="0">S elect a Country</option>
+                                   <option value="0">Select a Country</option>
                                    <option value="12" selected="selected">Australia</option>
                                 </select>
 
@@ -4342,7 +4342,7 @@ if(isset($submit_id))
                                     </div>
                                     <!-- Print Rate Sheet -->
                                     <div class="form-group">
-                                        <table class="s36">
+                                        <table class="s36 check-list">
                                             <tbody>
 												<tr>
 													<td><input type="radio" class="TLO" name="radio1" id="all" />Check All</td>
@@ -4406,7 +4406,7 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                <input type="text" name="margin_rate[<?php echo $key; ?>]" maxlength="25" value="<?php if(!empty($margin_rates)){ echo $margin_rates[$key]->margin_rate;}else{ echo 0; } ?>" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
+                                                                <input type="text" name="margin_rate[<?php echo $key; ?>]" maxlength="25" value="<?php if(!empty($margin_rates)){ echo $margin_rates[$key]->margin_rate;}else{ echo "00.00"; } ?>" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="75">
                                                                 
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
@@ -6187,14 +6187,14 @@ $(".remove").click(function(){
 					result = val;
 					var b_charges = parseFloat(val.basic_charge);
 					var b_charge = b_charges + (val.basic_charge*data.margin)/100;
-					rows +='<tr><td>'+val.destination+'</td><td>'+val.minimum+'</td><td>'+b_charge+'</td><td class="price">'+val.per_kg+'</td></tr>';                  
+					rows +='<tr><td>'+val.destination+'</td><td>'+val.minimum+'</td><td>'+parseFloat(b_charge.toFixed(2))+'</td><td class="price">'+val.per_kg+'</td></tr>';                  
 				});
 				$('#exampleModal .table tbody').html(rows);
 			}
 		});
     }
 
-	function get_fix_rates(id,name)
+	/*function get_fix_rates(id,name)
 	{
 		$('#fixed3Modal .table tbody').html('');
 		var zone =  $('#starTrackColumnName option:selected').val();
@@ -6206,22 +6206,70 @@ $(".remove").click(function(){
          
 		$.ajax({
 			url: 'get_fix_rates',
+            //url: 'customers/get_fix_rates',
 			type: 'POST',
-			data:{zone:zone,service_type:id,customer_id:customer_id},
+			//data:{zone:zone,service_type:id,customer_id:customer_id},
+            data:{service_type:id,customer_id:customer_id},
 			error: function() {
 				alert('Something is wrong');
 			},
 			success: function(res) {
 				var data = JSON.parse(res);              
-				console.log(data);    
+				console.log(data.margin);    
 				jQuery.each(data.data, function( i, val ) {
 					result = val;
-					rows +='<tr><td>'+val.weight+'</td><td class="price">'+val.price+'</td></tr>';                  
+                    var b_prices = parseFloat(val.price);
+					var b_price = b_prices + (val.price*data.margin)/100;
+					rows +='<tr><td>'+val.weight+'</td><td class="price">'+b_price+'</td></tr>';                  
 				});
 				$('#fixed3Modal .table tbody').html(rows);
 			}
 
 		});
+    }*/
+
+    function get_fix_rates(id,name)
+      {
+          $('#fixed3Modal .table tbody').html('');
+          var zone =  $('#starTrackColumnName option:selected').val();
+          $('#fixed3Modal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
+          var rows ='';
+          var x=0;
+          var result='';
+         
+           $.ajax({
+              // url: 'customers/get_fix_rates',
+               url: 'get_fix_rates',
+               type: 'POST',
+               data:{zone:zone,service_type:id},
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+                var data= JSON.parse(res);              
+                console.log(data);    
+                jQuery.each(data, function( i, val ) {
+                  result = val;
+                  rows +='<tr><td>'+val.weight+'</td><td class="price">'+val.price+'</td></tr>';                  
+                });
+                $('#fixed3Modal .table tbody').html(rows);
+                
+              }
+
+            });
+             //$('#fixed3Modal').modal('show');
+      }
+
+    function enableDisableBillingAddress() {
+        if ($("#billing-same-with-customer-checkbox").is(':checked')) {
+            $("input[data-group='billing-address'], select[data-group='billing-address']").each(function () {
+                $(this).attr("readonly", true);
+            });
+        } else {
+            $("input[data-group='billing-address'], select[data-group='billing-address']").each(function () {
+                $(this).attr("readonly", false);
+            });
+        }
     }
 
     $(document).ready(function(){
