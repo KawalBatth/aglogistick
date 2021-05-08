@@ -163,16 +163,16 @@
 		}
 
 
-		public function get_receiver_data($keyword)
-		{
-			$this->db->limit(5);
-			return $return = $this->db->select('*')->from('address_book')->where("company_name LIKE '%$keyword%'")->get()->result_array();
-		}
+		public function get_receiver_data($keyword,$customer_id)
+{
+	$this->db->limit(5);
+	return $return = $this->db->select('*')->from('address_book')->where('customer_id',$customer_id)->where("company_name LIKE '%$keyword%'")->get()->result_array();
+}
 
-		public function get_contact_data($keyword)
+		public function get_contact_data($keyword,$cid)
 		{
 			$this->db->limit(5);
-			return $return = $this->db->select('*')->from('address_book')->where("contact_name LIKE '%$keyword%'")->get()->result_array();
+			return $return = $this->db->select('*')->from('address_book')->where('customer_id',$cid)->where("contact_name LIKE '%$keyword%'")->get()->result_array();
 		}
 
 

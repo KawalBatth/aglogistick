@@ -214,15 +214,17 @@
 		public function get_receiver()
 		{
 			$companyName = $this->input->post('keyword');	
-			$data['receiver'] = $this->user_model->get_receiver_data($companyName);
+			$customer_id = $this->session->userdata('customer_id');
+			$data['receiver'] = $this->user_model->get_receiver_data($companyName,$customer_id);
 			echo json_encode($data['receiver']);
 		}
 
 
 		public function get_contact_name()
 		{
-			$contactName = $this->input->post('keyword');	
-			$data['contact'] = $this->user_model->get_contact_data($contactName);
+			$contactName = $this->input->post('keyword');
+			$customer_id = $this->session->userdata('customer_id');	
+			$data['contact'] = $this->user_model->get_contact_data($contactName,$customer_id);
 			echo json_encode($data['contact']);
 		}
 		

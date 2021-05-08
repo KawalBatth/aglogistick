@@ -902,11 +902,18 @@
                                                         <label class="control-label" for="inputName"> Service Type <span class="s30"> *</span>
                                                         </label>
                                                         <select name="shipmentPage.shipmentTypeId" id="shipmentPage_shipmentTypeId" required class="form-control shipmentId"  onchange="changeShipmentType($(this).val(), $('option:selected',this).text())">
-                                                        <?php if(!empty(isset($quotes->shipment_type))){ ?>
-                                                        <option value="<?php echo $quotes->shipment_type;  ?>" <?php echo "selected" ?>><?php echo $quotes->shipment_type;  ?> </option>
+                                                        <?php
+                                                        if(!empty(isset($quotes->shipment_type))){
+                                                          $service = $quotes->shipment_type;
+                                                          $this->db->select('*');
+                                                        $this->db->from('star_services');
+                                                        $this->db->where('service_name',$service);
+                                                        $get_quote = $this->db->get()->row(); ?>
+                                                        <option value="<?php echo $get_quote->id;  ?>" <?php echo "selected" ?>><?php echo $get_quote->service_name;  ?> </option>
                                                         <?php }
-                                                       else{
-                                                        for($c=0;$c<count($services);$c++) 
+                                                       else
+                                                       {
+                                                        for($c=0;$c<count($services);$c++)
                                                             {                                                                
                                                                 ?>  
                                                                 <option value="<?php echo $services[$c]['id'];?>" ><?php echo $services[$c]['service_name'];?></option>
@@ -1709,11 +1716,16 @@ var service_type_Id = $("select[name='shipmentPage.shipmentTypeId']").val();
 
 
 var weight =$("input[name='total_weight']").val();
-
+var base_weight = $("input[name='shipmentPage.pieces.weight']").val();
 var isdangerous = $("input[name='isdangerous']").val();
 var length =[$("#addr input[name='shipmentPage.pieces.dimensionL1']").val()];
+length = length/100;
 var dnw =[$("#addr input[name='shipmentPage.pieces.dimensionW1']").val()];
+dnw = dnw/100;
 var dnh=[$("#addr input[name='shipmentPage.pieces.dimensionH1']").val()];
+dnh = dnh/100;
+var quote_volume = length*dnw*dnh;
+quote_volume = quote_volume * 250;
 var quantity =[$("#addr input[name='shipmentPage.pieces.quantity1']").val()];
 var totalweight = $('#total_weight_input').val();  
   
@@ -1721,6 +1733,8 @@ var final_total=$("#final_total_input").val();
 weight = weight * final_total;
 var get_volume_input = $("#get_volume_input").val();
 get_volume_input = (get_volume_input * 250) * final_total;
+
+
 //alert(get_volume_input);
 setTimeout(function()
 {    
@@ -1734,7 +1748,7 @@ setTimeout(function()
     var total_charge = '';
     var surcharge_name = '';
     var surcharge_price = '';
-    var SUM = '';
+   
      $.ajax({
         type: "POST",
         url: "<?php echo base_url('customer/get_calculate');?>",
@@ -1747,6 +1761,7 @@ setTimeout(function()
             var result = JSON.parse(data);
             console.log(result);
             margin = result.margin;
+
             if(result.base_charge)
             {
                 $.each(result.base_charge, function(k, v) {
@@ -1760,18 +1775,22 @@ setTimeout(function()
                         console.log('basic_charge'+basic_charge);
                         per_kg = v.per_kg;
                         console.log('per_kg'+per_kg);
-                        console.log('weight'+weight);
+                        console.log('base_weight'+base_weight);
+                        console.log('quote_volume'+quote_volume);
+                        //console.log('weight'+weight);
+                        console.log('totalweight'+totalweight);
                         console.log('get_volume_input'+get_volume_input);
-                        if(weight >get_volume_input)
+
+                        if(base_weight >quote_volume)
                         {
-                            total = (parseFloat(weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
+                            total = (parseFloat(base_weight) * parseFloat(per_kg)) + parseFloat(basic_charge);
                             if(margin != ''){
                                 total =  total + parseFloat(total * parseFloat(margin/100));
                             }
                         }
                         else
                         {
-                            total = (parseFloat(get_volume_input) * parseFloat(per_kg)) + parseFloat(basic_charge);
+                            total = (parseFloat(quote_volume) * parseFloat(per_kg)) + parseFloat(basic_charge);
                             if(margin != ''){
                                 total =  total + parseFloat(total * parseFloat(margin/100));
                             }
@@ -1784,8 +1803,8 @@ setTimeout(function()
                 console.log('basic_charge'+basic_charge);
                 per_kg = result.fixed_price;
                 console.log('per_kg'+per_kg);
-                console.log('weight'+weight);
-                total =  parseFloat(weight) * parseFloat(per_kg);
+                console.log('base_weight'+base_weight);
+                total =  parseFloat(base_weight) * parseFloat(per_kg);
                 if(margin != ''){
                     total =  total + parseFloat(total * parseFloat(margin/100));
                 }
@@ -1822,14 +1841,32 @@ setTimeout(function()
             html +='<tr>';
                 html +='<td colspan="2" style="background: #686BB1;padding: 1px;"></td>';
             html +='</tr>';
-            if(weight >get_volume_input)
+
+            
+            if(base_weight >quote_volume)
                     {
-                          
+                 
             html +='<tr>';
                     html +='<td class="td1">Total weight</td>';
-                    html +='<td class="td2 totalweight">'+Math.round(weight)+':00 kg(s)</td>';
+                    html +='<td class="td2 totalweight">'+Math.round(base_weight)+':00 kg(s)</td>';
             html +='</tr>';
-                    }else
+                 }
+                 else
+                    {
+                        html +='<tr>';
+                    html +='<td class="td1">Total weight</td>';
+                    html +='<td class="td2 totalweight">'+Math.round(quote_volume)+':00 kg(s)</td>';
+            html +='</tr>';
+                    }
+                    if(totalweight >get_volume_input)
+                    {
+                 
+            html +='<tr>';
+                    html +='<td class="td1">Total weight</td>';
+                    html +='<td class="td2 totalweight">'+Math.round(totalweight)+':00 kg(s)</td>';
+            html +='</tr>';
+                 }
+                 else
                     {
                         html +='<tr>';
                     html +='<td class="td1">Total weight</td>';
