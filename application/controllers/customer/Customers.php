@@ -25,8 +25,10 @@
 				}
 				$data['carriers']=$this->auth_model->get_carrier();
 				$data['services']=$this->auth_model->get_services();
+				$data['country']=$this->user_model->get_country();
 				$data['view'] = 'customers/shipment';
 				$this->load->view('customers/layout', $data);
+				
 			}
 			else {	
 				redirect('user/login');
@@ -43,10 +45,20 @@
 			$sender_subrub = $this->input->post('sender_subrub');
 			$sender_postcode = $this->input->post('sender_postcode');
 			$receiver_city= $this->input->post('receiver_city');
+
+			$sender_companyName= $this->input->post('sender_companyName');
+			$sender_contactName= $this->input->post('sender_contactName');			
+			$sender_phone = $this->input->post('sender_phone');
+			$sender_address = $this->input->post('sender_address');
+			$sender_country= $this->input->post('sender_country');
+			$surcharge_amount= $this->input->post('surcharge_amount');
+
 			$reciver_postcode= $this->input->post('reciver_postcode');
 			$shipment_type= $this->input->post('shipment_type');
 			$package_type= $this->input->post('package_type');
 			$total_amount =$this->input->post('total_amount');
+			$final_amount =$this->input->post('final_amount');
+			$get_volume_input =$this->input->post('get_volume_input');
 
 			$rcv_state= $this->input->post('rcv_state');	
 			$rcv_phone= $this->input->post('rcv_phone');	
@@ -61,7 +73,7 @@
 			$quote_height =$this->input->post('quote_height');
             $quote_quantity= $this->input->post('quote_quantity');
 			$rcv_country= $this->input->post('rcv_country');
-			$stateCode =$this->input->post('stateCode');
+			$stateCode =$this->input->post('sender_state');
 			$servicename =$this->input->post('servicename');
 
    
@@ -73,11 +85,7 @@
 				'quote_date' =>$quote_date,
 				'customer'=>$customer,
 				'customer_name'=>$customer_name,
-
-				//'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
-			    //'quote_number'=>$qoute_jobnumber,
-
-				'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
+                'quote_number'=>$qoute_jobnumber.'AGL'.$pwd,
 				'sender_suburb'=>$sender_subrub,
 				'sender_postcode'=>$sender_postcode,
 				'receiver_suburb'=>$receiver_city,
@@ -85,8 +93,7 @@
 				'shipment_type'=>$shipment_type,
 				'package_type'=>$package_type,
 				'total_amount'=>$total_amount,
-
-				'receiver_phone'=>$rcv_phone,
+                'receiver_phone'=>$rcv_phone,
 				'receiver_company'=>$rcv_company,
 				'receiver_contact' =>$rcv_contact,
 				'receiver_email'=>$rcv_email,
@@ -101,6 +108,15 @@
 				'servicename'=>$servicename,
 				'receiver_country'=>$rcv_country,
 				'receiver_state'=>$rcv_state,
+				'surcharge_amount'=>$surcharge_amount,
+
+				'sender_contact'=>$sender_contactName,
+				'sender_company'=>$sender_companyName,
+				'sender_address'=>$sender_address,
+				'sender_phone'=>$sender_phone,
+				'sender_country'=>$sender_country,
+				'final_amount'=>$final_amount,
+				'dimension_weight'=>$get_volume_input,
 				'quote_date' => date('Y-m-d'),
 			 );
 		
@@ -145,9 +161,9 @@
 		}
 
 
-		public function address_book_export()
+		public function password_setting()
 		{
-			$data['view'] = 'customers/address_book_export';
+			$data['view'] = 'customers/password_setting';
 			$this->load->view('customers/layout', $data);
 		}
 
@@ -223,6 +239,7 @@
 		public function get_contact_name()
 		{
 			$contactName = $this->input->post('keyword');
+		
 			$customer_id = $this->session->userdata('customer_id');	
 			$data['contact'] = $this->user_model->get_contact_data($contactName,$customer_id);
 			echo json_encode($data['contact']);
@@ -293,7 +310,7 @@
 			$serviceId= $this->input->post('serviceId');
 			$service_type_Id= $this->input->post('service_type_Id');
 			$shipment_type= $this->input->post('shipment_type');
-			$totalweight= $this->input->post('total_weight');
+			//$totalweight= $this->input->post('total_weight');
 			$getsenderzone =  $this->user_model->get_sender_zone($sender_city,$sender_postcode);
 			$get_rcv_zone =  $this->user_model->get_rcv_zone($rcv_city,$rc_postcode);
 			$isdange = $this->input->post('isdangerous');

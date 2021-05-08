@@ -4,7 +4,7 @@
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <!--h5 class="modal-title" id="exampleModalLabel">Edit Address Book Details</h5-->
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
           <span aria-hidden="true">&times;</span>
         </button>
@@ -584,12 +584,12 @@
 										<div class="col-lg-2">
 											<?php if(!empty($addressId))
 											{ ?>
-												<button class="btn s33 s44" type="button" onclick="onShipTo()">
+												<button class="btn s33 s44" type="button" id="shipto" disabled onclick="onShipTo()">
 													Ship To
 												</button>
 											<?php } 
 											else { ?>
-												<button class="btn s33 s44" type="button" onclick="myFunction()">Ship To </button>
+												<button class="btn s33 s44" type="button" id="shipto" onclick="myFunction()">Ship To </button>
 											<?php } ?>
 										</div>
                                     </div>
@@ -630,6 +630,7 @@ $(document).on('click', '#address-book-table tbody tr', function(e) {
     $('#address-book-table tbody tr').removeClass('selected-row');
     $(this).toggleClass('selected-row'); 
     $("#EditButton").prop('disabled', false);
+    $("#shipto").prop('disabled', false);
 });
 
 
@@ -688,7 +689,9 @@ $('#create_excel').click(function() {
 	  return initial + row;
 	}
 
-   function editAddressBook()
+
+
+    function editAddressBook()
    {
 
     $('#exampleModal').modal('show');
@@ -749,7 +752,7 @@ $('#create_excel').click(function() {
      $('#exampleModal #addressstate').val(addressState);
      $('#exampleModal #addresspostalCode').val(addressPostalCode);
      $('#exampleModal #addressphone').val(addressPhone);
-     $('#exampleModal #addressemail').val(addressEmail);
+     $('#exampleModal #email').val(addressEmail);
      $('#exampleModal #addressdepartment').val(addressDepartment);
      $('#exampleModal #addressfax').val(addressFax);
      $('#exampleModal #addressAccountNumber').val(addressAccountNumber);
@@ -757,6 +760,7 @@ $('#create_excel').click(function() {
      $('#exampleModal #address_id').val(address_id);
      
 }
+
 
     
         $(".remove").click(function(){

@@ -164,10 +164,16 @@
 
 
 		public function get_receiver_data($keyword,$customer_id)
+
 {
 	$this->db->limit(5);
 	return $return = $this->db->select('*')->from('address_book')->where('customer_id',$customer_id)->where("company_name LIKE '%$keyword%'")->get()->result_array();
 }
+       {
+     	$this->db->limit(5);
+	    return $return = $this->db->select('*')->from('address_book')->where('customer_id',$customer_id)->where("company_name LIKE '%$keyword%'")->get()->result_array();
+        }
+
 
 		public function get_contact_data($keyword,$cid)
 		{
@@ -359,6 +365,13 @@
 		$this->db->update('address_book', $data);		
 		return true;
 	}
+
+	    public function get_country()
+		{
+			$this->db->select('*');
+			$this->db->from('country_list');
+			return $query = $this->db->get()->result_array();
+		 }
 }
 
 ?>

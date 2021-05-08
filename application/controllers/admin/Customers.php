@@ -193,12 +193,30 @@ public function get_rates()
 
 }
 
-         public function get_fix_rates()
+         /*public function get_fix_rates()
            {	
-		         $id = $this->input->post('service_type');	
+		         $id = $this->input->post('service_type');
+				 $c_id = $this->input->post('customer_id');		
 		         $data=  $this->auth_model->get_fix_rates($id);
+				 $margin = $this->auth_model->get_margin($c_id);
+	$data['margin'] = array();
+	if(!empty($margin)){
+		$margin_rates = json_decode($margin->margin_rate);
+		foreach($margin_rates as $margin){
+			if($margin->service_id == $id){
+				$data['margin'] = $margin->margin_rate;
+			}
+		}
+	}
 	        	echo json_encode($data);
-            }
+            }*/
+
+			public function get_fix_rates()
+			{	
+				  $id = $this->input->post('service_type');	
+				  $data=  $this->auth_model->get_fix_rates($id);
+				 echo json_encode($data);
+			 }
 
        public function delUser($id = 0){
 

@@ -702,6 +702,13 @@ div#address-tab {
 }
 
 
+table.s36.check-list {
+    margin-left: 278px;
+    margin-top: -38px;
+    margin-bottom: 37px;
+}
+
+
     </style>
 
   <header class="main-header">

@@ -570,8 +570,19 @@ img.image {
 
 button#shipto {
     float: right;
-    margin-top: -85px;
-    margin-right: 75px;
+    margin-top: 0px;
+    margin-right: 326px;
+}
+
+.form-group.flr.mgb {
+    float: left;
+    margin-top: 24px;
+}
+
+table.date {
+    float: right;
+    margin-bottom: 17px;
+    /* margin-right: 138px; */
 }
 
     </style>
