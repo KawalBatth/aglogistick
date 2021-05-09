@@ -24,7 +24,7 @@
 <!-- Add Surcharge Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content surcharge">
       <div class="modal-header">
    
         <h5 class="modal-title" id="exampleModalLabel">Add Carrier Surcharges</h5>
@@ -35,14 +35,14 @@
 
       <?php echo form_open(base_url('admin/add_surcharge'), 'class="surcharges-form" '); ?>
 
-      <div class="modal-body">
+      <div class="modal-body surcharge">
      
   <div class="form-group surcharge-list">
   
   <label for="exampleInputEmail1">Carrier Name:</label>
   
-    <select name="carriers" id="carriers">
-    <option value="0">Select a carrier</option>
+    <select name="carriers" id="carriers" required>
+    <option value="0">Select a Carrier</option>
     <?php for($i=0;$i<count($carrier_list);$i++){?>
      
         <option value="<?php echo $carrier_list[$i]['id'];?>"><?php echo $carrier_list[$i]['carrier_name'];?></option>
@@ -54,11 +54,11 @@
   <table id="dataTable">
   
   <tr id="carrier-dt1">
-  
+  <!--onkeydown = "return((event.keyCode >= 65 && event.keyCode <= 120) || (event.keyCode==32));"-->
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Name:</label>
-    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name" placeholder="Enter Surcharge Name" onkeydown = "return((event.keyCode >= 65 && event.keyCode <= 120) || (event.keyCode==32));"  onfocus="this.value=''">
+    <input type="text" class="form-control dimL" id="surcharge_name" required name="surcharge_name" placeholder="Enter Surcharge Name" onfocus="this.value=''">
   </div>
   </td>
     </tr>
@@ -80,7 +80,7 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Price:</label>
-    <input type="text"  class="form-control" id="surcharge_price" required name="surcharge_price" placeholder="Enter Surcharge Price" autofocus pattern="[0-9]*\.?[0-9]{2}"  onfocus="this.value=''">
+    <input type="text" onkeypress="return (event.charCode !=8 && event.charCode ==0 || ( event.charCode == 46 || (event.charCode >= 48 && event.charCode <= 57)))" class="form-control" id="surcharge_price" required name="surcharge_price" placeholder="Enter Surcharge Price"  onfocus="this.value=''">
   </div>
   </td> 
   </tr>
@@ -121,7 +121,7 @@
 <!-- Edit Modal -->
 <div class="modal fade" id="editModal" tabindex="-1" role="dialog" aria-labelledby="editModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
-    <div class="modal-content">
+    <div class="modal-content surcharge">
       <div class="modal-header">
         <h5 class="modal-title" id="editModalLabel">Edit Surcharges Details</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -129,16 +129,20 @@
         </button>
       </div>
       <?php echo form_open(base_url('admin/update_surcharge'), 'class="update_surcharge-form" '); ?>
-      <div class="modal-body">
-  <div class="form-group">
+      <div class="modal-body surcharge">
+  <div class="form-group surcharge_list">
 
     <input type="hidden"  name="surcharge_id" class="form-control" value="" id="surcharge_id">
     
   <label for="exampleInputEmail1">Carrier Name:</label>
     <select name="carrier_id" id="editcarriers">
-    <?php for($i=0;$i<count($surcharge_list);$i++){?>
-        <option value="<?php echo $surcharge_list[$i]['carrier_id'];?>"><?php echo $surcharge_list[$i]['carrier_name'];?></option>
-        <?php }?>
+    <?php //for($i=0;$i<count($surcharge_list);$i++){?>
+        <?php //echo $surcharge_list[$i]['carrier_id'];?><?php //echo $surcharge_list[$i]['carrier_name'];?>
+        <?php //}?>
+        <?php for($i=0;$i<count($carrier_list);$i++){?>
+     
+     <option value="<?php echo $carrier_list[$i]['id'];?>"><?php echo $carrier_list[$i]['carrier_name'];?></option>
+     <?php }?>
 </select>
   </div>
 
@@ -169,7 +173,7 @@
   <td>
   <div class="form-group">
     <label for="exampleInputPassword1">Surcharge Price:</label>
-    <input type="text"  class="form-control prices" name="surcharge_price" id="surcharge_price" value="">
+    <input type="text" class="form-control prices" name="surcharge_price" id="surcharge_price" value="">
   </div>
   </td>
   </tr>
@@ -204,8 +208,7 @@
                                                             <th>Surcharge Price</th>
                                                             <th>Surcharge Type </th>
                                                             <th>Last modified</th>
-                                                            <th>Action</th>
-                                                        </tr>
+                                                          </tr>
                                                     </thead>
                                                       <tbody>
                                                         <!-- Multiple filter -->
@@ -226,16 +229,15 @@
                                                                 $surcharge_type="Percent of Surcharge";
                                                             }
                             															?>
-
-                                                          <tr class="on-click" data-accessorialid="<?php echo $surcharge_list[$i]['id'];?>">
-                                                       
-                                                                    <td><?php echo $surcharge_list[$i]['id'];?></td>
+ <tr class="on-click" data-accessorialid="<?php echo $surcharge_list[$i]['id'];?>" id="<?php echo $surcharge_list[$i]['id'];?>">
+                                      <?php $surchargeId = $surcharge_list[$i]['id']; ?>
+                                       <td><?php echo $surcharge_list[$i]['id'];?></td>
 																	<td><?php echo $surcharge_list[$i]['carrier_name'];?></td>
 																	<td><?php echo $surcharge_list[$i]['surcharge_name'];?></td>
 																	<td><?php echo $surcharge_list[$i]['surcharge_price'];?></td>
 																	<td><?php echo $surcharge_type;?></td>
 																	<td><?php echo $surcharge_list[$i]['last_modified'];?></td>
-                                  <td><button type="button" class="btn remove"> Delete</button> </td>
+                                  
                                 <!--td class="delete_surcharge">  <a href="#" class="remove"> <img src="<?= base_url() ?>public/dist/img/delete.jpg" class="del" alt="User Image"></a> </td-->               
                                                           </tr>
 														<?php }?>
@@ -250,10 +252,14 @@
                                         <div class="row">
                                        
                                           <div class="col-lg-12 text-right">
+                                          <?php if(!empty($surchargeId)){ ?>
+                                          <button type="button" class="btn remove" id="remove" onclick="deleteSurcharge()" disabled> Delete</button>
+                                          <?php } ?>
                                           <button type="button" class="btn btn-primary add_car" data-toggle="modal" data-target="#addModal">Add New Carrier</button>
                                                 <button class="btn ref" type="button" onClick="window.location.reload()">
                                               Refresh
                                             </button>
+                                            
                                              <button type="button" class="btn btn-primary add_sur" data-toggle="modal" data-target="#exampleModal">Add New Surcharge</button>
                                              <button type="button" onclick="editsurcharge()" id="EditButton" class="btn edit_sur" disabled>Edit Surcharge Details</button>
                                            
@@ -273,7 +279,7 @@
 <div class="modal fade" id="addModal" tabindex="-1" role="dialog" aria-labelledby="addModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
  
-    <div class="modal-content">
+    <div class="modal-content carrier">
       <div class="modal-header">
         <h5 class="modal-title" id="editModalLabel">Add New Carrier</h5>
         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -282,13 +288,13 @@
       </div>
       
   <?php echo form_open(base_url('admin/add_carrier'), 'class="surcharges-form" '); ?>
-      <div class="modal-body">
+      <div class="modal-body carrier">
     
-  <div class="form-group">
+  <div class="form-group carrier">
     <label for="exampleInputName" class="add_carrier">Carrier Name:</label>
     <!--input type="text" name="carrier_name" required class="form-control car_name"-->
-    <!--input type="text" id="carrier_name" name="carrier_name" required class="form-control car_name" placeholder="Enter Carrier Name"-->
-    <input type="text" name="carrier_name" id="carrier_name" class="form-control car_name" onkeydown = "return((event.keyCode >= 65 && event.keyCode <= 120) || (event.keyCode==32));" placeholder="Enter Carrier Name" required  onfocus="this.value=''">
+    <input type="text" id="carrier_name" name="carrier_name" required class="form-control car_name" placeholder="Enter Carrier Name">
+    <!--input type="text" name="carrier_name" id="carrier_name" class="form-control car_name" onkeydown = "return((event.keyCode >= 65 && event.keyCode <= 120) || (event.keyCode==32));" placeholder="Enter Carrier Name" required  onfocus="this.value=''"-->
   </div>
  
 </div>
@@ -314,7 +320,7 @@
 					var docDefinition = {
 						content: [{
 							image: data,
-							width: 650
+							width: 550
 						}]
 					};
 					pdfMake.createPdf(docDefinition).download("surcharge_list.pdf");
@@ -354,6 +360,7 @@
 			$('#surcharge-list-table tbody tr').removeClass('selected-row');
 			$(this).toggleClass('selected-row'); 
 			$("#EditButton").prop('disabled', false);
+      $("#remove").prop('disabled', false);
 		});
 
 		function editsurcharge()
@@ -363,8 +370,7 @@
 			var surcharge_id = $('.selected-row').attr('data-accessorialid');
 			var carrier_id = $('.selected-row td:eq(0)').html();
 			var carrier_name = $('.selected-row td:eq(1)').html();
-
-			var surcharge_name = $('.selected-row td:eq(2)').html();
+      var surcharge_name = $('.selected-row td:eq(2)').html();
 			var surcharge_price = $('.selected-row td:eq(3)').html();
 			var surcharge_type = $('.selected-row td:eq(4)').html();
 
@@ -387,8 +393,8 @@
 			$('#editModal #surcharge_id').val(surcharge_id);
 		}
 
-		$(".remove").click(function(){
-			var id = $(this).parents("tr").attr("data-accessorialid");
+		function deleteSurcharge(){
+		var id = $('tr.selected-row').attr('id');
 			if(confirm('Are you sure to remove this record ?'))
 			{
 				$.ajax({
@@ -405,7 +411,7 @@
 				   }
 				});
 			}
-		});
+		}
 
 		// To disappear a Falsh message
 		var timeout = 2000; // in miliseconds (3*1000)

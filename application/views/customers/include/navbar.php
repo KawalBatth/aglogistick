@@ -571,7 +571,7 @@ img.image {
 button#shipto {
     float: right;
     margin-top: 0px;
-    margin-right: 326px;
+    margin-left: 410px;
 }
 
 .form-group.flr.mgb {
@@ -583,6 +583,10 @@ table.date {
     float: right;
     margin-bottom: 17px;
     /* margin-right: 138px; */
+}
+
+table.address_button td {
+    padding: 14px 6px 0px 0px;
 }
 
     </style>

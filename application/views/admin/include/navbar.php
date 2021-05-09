@@ -389,7 +389,10 @@ h3.new_surcharge {
 }
 
 input#carrier_name {
-    width: 40%;
+    margin-left: 112px;
+    width: 51%;
+    margin-top: -19px;
+    padding-left: 8px;
 }
 
 .form-group.text-bottom.s99 {
@@ -476,6 +479,7 @@ select#editcarriers {
     margin-top: 13px;
     margin-left: 48px;
     width: 34%;
+    font-weight:100;
 }
 
 h5#editModalLabel {
@@ -541,12 +545,9 @@ img.del {
 
 input#surcharge_name {
     margin-top: -24px;
-    margin-left: 132px;
+    margin-left: 134px;
     width: 60%;
-}
-input#surcharge_price {
-    margin-top: -21px;
-    margin-left: 133px;
+    text-transform: capitalize;
 }
 
 select#carriers {
@@ -556,12 +557,12 @@ select#carriers {
 
 select#types {
     margin-left: 101px;
-    width: 59%;
+    width: 57%;
 }
 
 input#surcharge_price {
     margin-top: -21px;
-    margin-left: 130px;
+    margin-left: 137px;
     width: 60%;
 }
 
@@ -569,11 +570,6 @@ label.add_carrier {
     margin-top: 25px;
 }
 
-input#carrier_name {
-    margin-left: 112px;
-    width: 40%;
-    margin-top: -19px;
-}
 .buttons-row {
   margin: 20px 10px;
 }
@@ -708,6 +704,40 @@ table.s36.check-list {
     margin-bottom: 37px;
 }
 
+button#edit {
+    margin-left: 5px;
+}
+button#remove {
+    margin-left: 6px;
+}
+
+.modal-content.carrier {
+    width: 82%;
+}
+
+.modal-body.carrier {
+    padding-left: 30px;
+}
+
+.form-group .carrier {
+    width: 115%;
+    padding-left: 13px;
+}
+
+.modal-body.surcharge {
+    position: relative;
+    padding: 28px 0px 0px 111px;
+}
+
+.modal-content.surcharge {
+    width: 100%;
+    margin-left: 72px;
+}
+
+select 
+{
+    font-weight:100;
+}
 
     </style>
 

@@ -169,10 +169,7 @@
 	$this->db->limit(5);
 	return $return = $this->db->select('*')->from('address_book')->where('customer_id',$customer_id)->where("company_name LIKE '%$keyword%'")->get()->result_array();
 }
-       {
-     	$this->db->limit(5);
-	    return $return = $this->db->select('*')->from('address_book')->where('customer_id',$customer_id)->where("company_name LIKE '%$keyword%'")->get()->result_array();
-        }
+       
 
 
 		public function get_contact_data($keyword,$cid)
