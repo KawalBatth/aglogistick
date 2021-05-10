@@ -195,12 +195,12 @@ public function get_rates()
 
 }
 
-         /*public function get_fix_rates()
-           {	
-		         $id = $this->input->post('service_type');
-				 $c_id = $this->input->post('customer_id');		
-		         $data=  $this->auth_model->get_fix_rates($id);
-				 $margin = $this->auth_model->get_margin($c_id);
+public function get_fix_rates()
+{	
+	$id   = $this->input->post('service_type');	
+	$c_id = $this->input->post('customer_id');	
+	$data['data'] = $this->auth_model->get_fix_rates($id);
+	$margin = $this->auth_model->get_margin($c_id);
 	$data['margin'] = array();
 	if(!empty($margin)){
 		$margin_rates = json_decode($margin->margin_rate);
@@ -210,15 +210,8 @@ public function get_rates()
 			}
 		}
 	}
-	        	echo json_encode($data);
-            }*/
-
-			public function get_fix_rates()
-			{	
-				  $id = $this->input->post('service_type');	
-				  $data=  $this->auth_model->get_fix_rates($id);
-				 echo json_encode($data);
-			 }
+	echo json_encode($data);
+}
 
        public function delUser($id = 0){
 
@@ -237,148 +230,149 @@ public function get_rates()
 		  }
 
 
-		public function add_customer()
-		{
-			/* echo '<pre>';
-			print_r($this->input->post());
-			exit; */
-			$customerCode = $this->input->post('customerCode');
-			$customerCodeexists = $this->auth_model->check_customer($customerCode);
-			$customerName = $this->input->post('customerName');
-			$contactName = $this->input->post('contactName');
-			$contactTitle = $this->input->post('contactTitle');
-			$address1 = $this->input->post('address1');
-			$address2 = $this->input->post('address2');
-			$city = $this->input->post('city');
-			$country = $this->input->post('country');
-			$postalCode = $this->input->post('postalCode');
-			$stateCode = $this->input->post('stateCode');
-			$phone = $this->input->post('phone');
-			$fax = $this->input->post('fax');
-			$email = $this->input->post('email');
-			$mobile = $this->input->post('mobile');
-			$alternatePhone = $this->input->post('alternatePhone');
-			$billingCustomerName = $this->input->post('billingCustomerName');
-			$billingContactName = $this->input->post('billingContactName');
-			$billingContactTitle = $this->input->post('billingContactTitle');
-			$billingAddress1 = $this->input->post('billingAddress1');
-			$billingAddress2 = $this->input->post('billingAddress2');
-			$billingCity = $this->input->post('billingCity');
-			$billingCountry = $this->input->post('billingCountry');
-			$billingPostalCode = $this->input->post('billingPostalCode');
-			$billingStateCode = $this->input->post('billingStateCode');
-			$billingPhone = $this->input->post('billingPhone');
-			$billingFax = $this->input->post('billingFax');
-			$billingEmail = $this->input->post('billingEmail');
-			$billingMobile = $this->input->post('billingMobile');
-			$billingAlternatePhone = $this->input->post('billingAlternatePhone');
-            $owner = $this->input->post('owner');
-			$ownerPhone = $this->input->post('ownerPhone');
-			$ownerEmail = $this->input->post('ownerEmail');
-			$apContact = $this->input->post('apContact');
-			$apPhone = $this->input->post('apPhone');
-			$apEmail = $this->input->post('apEmail');
-			$otherContact = $this->input->post('otherContact');
-			$otherPhone = $this->input->post('otherPhone');
-			$otherEmail = $this->input->post('otherEmail');
-			$other2Contact = $this->input->post('other2Contact');
-			$other2Phone = $this->input->post('other2Phone');
-			$other2Email = $this->input->post('other2Email');
-			$notes = $this->input->post('note');
-			//$rateMargin = $this->input->post('margin_rate');
-			//$followUpDate = $this->input->post('followUpDate');
-			/*$userfile = $this->input->post('userImage');	
-			$config['upload_path']          = './public/dist/img/';
-                $config['allowed_types']        = 'gif|jpg|png';
-                $config['max_size']             = 100;
-                $config['max_width']            = 1024;
-                $config['max_height']           = 768;
-                $this->load->library('upload', $config);*/
-			//$userfile = $_FILES['userImage'];	
-			
-			$userfile = "";
-			if(!empty($this->input->post('image_b64'))){
-				$folderPath = './public/dist/img/';
-				$image_parts = explode(";base64,", $this->input->post('image_b64'));
-				$image_type_aux = explode("image/", $image_parts[0]);
-				$image_type = $image_type_aux[1];
-				$image_base64 = base64_decode($image_parts[1]);
-				$userfile = $folderPath . uniqid() . '.png';
-				file_put_contents($userfile, $image_base64);
-			}
-			$dataforsave = array(
-				'customer_id'=>$customerCode,
-				'customerName'=>$customerName,
-				'contact_name'=>$contactName,
-				'contact_title'=>$contactTitle,
-				'address'=>$address1." ".$address2,
-				'city'=>$city,
-				'country'=>$country,
-				'postal_code'=>$postalCode,
-				'state_code'=>$stateCode,
-				'phone'=>$phone,
-				'fax'=>$fax,
-				'email'=>$email,
-				'mobile'=>$mobile,
-				'alt_contact'=>$alternatePhone,
-                'billing_customer_name'=>$billingCustomerName,
-				'billing_contact_name'=>$billingContactName,
-				'billing_contact_title'=>$billingContactTitle,
-				'billing_address'=>$billingAddress1,
-				'billing_address2'=>$billingAddress2,
-				'billing_city'=>$billingCity,
-				'billing_country'=>$billingCountry,
-				'billing_postal_code'=>$billingPostalCode,
-				'billing_state_code'=>$billingStateCode,
-				'billing_phone'=>$billingPhone,
-				'billing_fax'=>$billingFax,
-				'billing_email'=>$billingEmail,
-				'billing_mobile'=>$billingMobile,
-				'billing_alt_contact'=>$billingAlternatePhone,
-				'owner'=>$owner,
-				'other_phone'=>$ownerPhone,
-				'other_email'=>$ownerEmail,
-				'other_contact'=>$apContact,
-				'other_phone1'=>$apPhone,
-				'other_email1'=>$apEmail,
-				'other_contact1'=>$otherContact,
-				'other_phone2'=>$otherPhone,
-				'other_email2'=>$otherEmail,
-				'other_contact2'=>$other2Contact,
-				'other_phone3'=>$other2Phone,
-				'other_email3'=>$other2Email,
-				'notes'=>$notes,
-				'image'=>$userfile,
-				//'fixed_5kg_margin'=>$rateMargin,
-				//'followUpDate'=>$followUpDate,
-				
-          	);
-			
-			if($customerCodeexists == true)
-			{
-				$this->auth_model->update_customer($dataforsave,$customerCode);	
-				$this->session->set_flashdata('msg', 'Customer is Edited Successfully!');		
-			}else {
-				$this->auth_model->save_customer($dataforsave);
-				$this->session->set_flashdata('msg', 'Customer is Added Successfully!');
-				$number = substr($customerCode, -3);
-    			//$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-				//	$pwd= substr(str_shuffle($chars),0,4);
-				//	$pwd='Admin@123';
-				$array = array(
-					//'webshipId' =>$webshipId,
-					'customer_id' =>$customerCode,
-					'user_name'=>'AGL'.$number,
-					//'password'=>base64_encode('Admin@123'),
-					'password'=>md5('Admin@123'),
-					'plain_password'=>'Admin@123',
-					'language'=>'english',
-					'allowExportAddressBook'=>'0',
-					'isRequireChangePassword'=>'0'
+		  public function add_customer()
+		  {
+			  /* echo '<pre>';
+			  print_r($this->input->post());
+			  exit; */
+			  $customerCode = $this->input->post('customerCode');
+			  $customerCodeexists = $this->auth_model->check_customer($customerCode);
+			  $customerName = $this->input->post('customerName');
+			  $contactName = $this->input->post('contactName');
+			  $contactTitle = $this->input->post('contactTitle');
+			  $address1 = $this->input->post('address1');
+			  $address2 = $this->input->post('address2');
+			  $city = $this->input->post('city');
+			  $country = $this->input->post('country');
+			  $postalCode = $this->input->post('postalCode');
+			  $stateCode = $this->input->post('stateCode');
+			  $phone = $this->input->post('phone');
+			  $fax = $this->input->post('fax');
+			  $email = $this->input->post('email');
+			  $mobile = $this->input->post('mobile');
+			  $alternatePhone = $this->input->post('alternatePhone');
+			  $billingCustomerName = $this->input->post('billingCustomerName');
+			  $billingContactName = $this->input->post('billingContactName');
+			  $billingContactTitle = $this->input->post('billingContactTitle');
+			  $billingAddress1 = $this->input->post('billingAddress1');
+			  $billingAddress2 = $this->input->post('billingAddress2');
+			  $billingCity = $this->input->post('billingCity');
+			  $billingCountry = $this->input->post('billingCountry');
+			  $billingPostalCode = $this->input->post('billingPostalCode');
+			  $billingStateCode = $this->input->post('billingStateCode');
+			  $billingPhone = $this->input->post('billingPhone');
+			  $billingFax = $this->input->post('billingFax');
+			  $billingEmail = $this->input->post('billingEmail');
+			  $billingMobile = $this->input->post('billingMobile');
+			  $billingAlternatePhone = $this->input->post('billingAlternatePhone');
+			  $owner = $this->input->post('owner');
+			  $ownerPhone = $this->input->post('ownerPhone');
+			  $ownerEmail = $this->input->post('ownerEmail');
+			  $apContact = $this->input->post('apContact');
+			  $apPhone = $this->input->post('apPhone');
+			  $apEmail = $this->input->post('apEmail');
+			  $otherContact = $this->input->post('otherContact');
+			  $otherPhone = $this->input->post('otherPhone');
+			  $otherEmail = $this->input->post('otherEmail');
+			  $other2Contact = $this->input->post('other2Contact');
+			  $other2Phone = $this->input->post('other2Phone');
+			  $other2Email = $this->input->post('other2Email');
+			  $notes = $this->input->post('note');
+			  //$rateMargin = $this->input->post('margin_rate');
+			  //$followUpDate = $this->input->post('followUpDate');
+			  /*$userfile = $this->input->post('userImage');	
+			  $config['upload_path']          = './public/dist/img/';
+				  $config['allowed_types']        = 'gif|jpg|png';
+				  $config['max_size']             = 100;
+				  $config['max_width']            = 1024;
+				  $config['max_height']           = 768;
+				  $this->load->library('upload', $config);*/
+			  //$userfile = $_FILES['userImage'];	
+			  
+			  $userfile = "";
+			  if(!empty($this->input->post('image_b64'))){
+				  $folderPath = './public/dist/img/';
+				  $image_parts = explode(";base64,", $this->input->post('image_b64'));
+				  $image_type_aux = explode("image/", $image_parts[0]);
+				  $image_type = $image_type_aux[1];
+				  $image_base64 = base64_decode($image_parts[1]);
+				  $userfile = $folderPath . uniqid() . '.png';
+				  file_put_contents($userfile, $image_base64);
+			  }
+			  $dataforsave = array(
+				  'customer_id'=>$customerCode,
+				  'customerName'=>$customerName,
+				  'contact_name'=>$contactName,
+				  'contact_title'=>$contactTitle,
+				  'address'=>$address1." ".$address2,
+				  'city'=>$city,
+				  'country'=>$country,
+				  'postal_code'=>$postalCode,
+				  'state_code'=>$stateCode,
+				  'phone'=>$phone,
+				  'fax'=>$fax,
+				  'email'=>$email,
+				  'mobile'=>$mobile,
+				  'alt_contact'=>$alternatePhone,
+				  'billing_customer_name'=>$billingCustomerName,
+				  'billing_contact_name'=>$billingContactName,
+				  'billing_contact_title'=>$billingContactTitle,
+				  'billing_address'=>$billingAddress1,
+				  'billing_address2'=>$billingAddress2,
+				  'billing_city'=>$billingCity,
+				  'billing_country'=>$billingCountry,
+				  'billing_postal_code'=>$billingPostalCode,
+				  'billing_state_code'=>$billingStateCode,
+				  'billing_phone'=>$billingPhone,
+				  'billing_fax'=>$billingFax,
+				  'billing_email'=>$billingEmail,
+				  'billing_mobile'=>$billingMobile,
+				  'billing_alt_contact'=>$billingAlternatePhone,
+				  'owner'=>$owner,
+				  'other_phone'=>$ownerPhone,
+				  'other_email'=>$ownerEmail,
+				  'other_contact'=>$apContact,
+				  'other_phone1'=>$apPhone,
+				  'other_email1'=>$apEmail,
+				  'other_contact1'=>$otherContact,
+				  'other_phone2'=>$otherPhone,
+				  'other_email2'=>$otherEmail,
+				  'other_contact2'=>$other2Contact,
+				  'other_phone3'=>$other2Phone,
+				  'other_email3'=>$other2Email,
+				  'notes'=>$notes,
+				  'image'=>$userfile,
+				  //'fixed_5kg_margin'=>$rateMargin,
+				  //'followUpDate'=>$followUpDate,
+				  
 				);
-				$this->auth_model->save_user($array);
-			}	
-		}
+			  
+			  if($customerCodeexists == true)
+			  {
+				  $this->auth_model->update_customer($dataforsave,$customerCode);	
+				  $this->session->set_flashdata('msg', 'Customer is Edited Successfully!');		
+			  }else {
+				  $this->auth_model->save_customer($dataforsave);
+				  $this->session->set_flashdata('msg', 'Customer is Added Successfully!');
+				  $number = substr($customerCode, -3);
+				  //$chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+				  //	$pwd= substr(str_shuffle($chars),0,4);
+				  //	$pwd='Admin@123';
+				  $array = array(
+					  //'webshipId' =>$webshipId,
+					  'customer_id' =>$customerCode,
+					  'user_name'=>'AGL'.$number,
+					  //'password'=>base64_encode('Admin@123'),
+					  'password'=>md5('Admin@123'),
+					  'plain_password'=>'Admin@123',
+					  'language'=>'english',
+					  'allowExportAddressBook'=>'0',
+					  'isRequireChangePassword'=>'0'
+				  );
+				  $this->auth_model->save_user($array);
+			  }	
+		  }
+  
 
 		/*public function delNote($id = 0){
 			$this->db->delete('user_notes', array('id' => $id));

@@ -132,6 +132,7 @@
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 				$data['address_book']  = $this->user_model->get_address_book($data['customers']->customer_id);
+				$data['country']=$this->user_model->get_country();
 				$data['view'] = 'customers/address_book';
 				$this->load->view('customers/layout', $data);
 			} else {	
@@ -521,7 +522,7 @@
 			public function add_address_book()
 			{
 
-				$addressCustomerId= $this->input->post('customerId');
+				$addressCustomerId= $this->input->post('customerCode');
 				$addressContactName= $this->input->post('addressContactName');	
 				$addressCompanyName= $this->input->post('addressCompanyName');	
 				$addressAddress1= $this->input->post('addressAddress1');

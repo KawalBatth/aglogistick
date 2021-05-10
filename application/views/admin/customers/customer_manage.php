@@ -239,7 +239,7 @@ if(isset($submit_id))
     </div>
     <div class="form-group">
       
-    <label>Alternate User :<span class="s30">*</span></label>
+        <label>Alternate User :<span class="s30">*</span></label>
         <input type="text" name="username" maxlength="25" value="" required id="webship_name" required class="form-control alloptions">
        <!--p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p-->
     </div>
@@ -256,11 +256,11 @@ if(isset($submit_id))
     <div class="form-group">
         <table class="s36">
             <tbody><tr>
-                <td width="25"><input type="checkbox" name="allowExportAddressBook" value="false" id="webship_allowExportAddressBook"><!--input type="hidden" id="__checkbox_webship_allowExportAddressBook" name="allowExportAddressBook" value="true"--></td>
+                <td width="25"><input type="checkbox" name="allowExportAddressBook" value="true" id="webship_allowExportAddressBook"><input type="hidden" id="__checkbox_webship_allowExportAddressBook" name="allowExportAddressBook" value="true"></td>
                 <td>Allow Address Book Export</td>
             </tr>
             <tr>
-                <td width="25"><input type="checkbox" name="isRequireChangePassword" value="false" id="webship_isRequireChangePassword"><!--input type="hidden" id="__checkbox_webship_isRequireChangePassword" name="isRequireChangePassword" value="true"--></td>
+                <td width="25"><input type="checkbox" name="isRequireChangePassword" value="true" id="webship_isRequireChangePassword"><input type="hidden" id="__checkbox_webship_isRequireChangePassword" name="isRequireChangePassword" value="true"></td>
                 <td>Force Password Change</td>
             </tr>
         </tbody></table>
@@ -297,7 +297,7 @@ if(isset($submit_id))
     
     <div class="form-group">
         
-    <label>Alternate User :<span class="s30">*</span></label>
+        <label>Alternate User :<span class="s30">*</span></label>
         <input type="text" name="username" required maxlength="25" value="" id="username"  class="form-control alloptions">
         <!--p class="username">Note: Username should contains only 6 characters with 3 alphabets and 3 numbers.</p-->
     </div>
@@ -344,7 +344,7 @@ if(isset($submit_id))
                                               <td>  
                                             <select name="customerCode" id="customerCode" class="form-control" onchange="this.options[this.selectedIndex].value && (window.location = this.options[this.selectedIndex].value);">
                                     <option value="-1">Select a Customer</option>
-                                    <option value="http://localhost/agllogistic/admin/add">Add a Customer</option>
+                                    <option value="http://localhost:8011/webfreight/admin/add">Add a Customer</option>
                <?php for($i=0;$i<count($data);$i++)
                         {
                         if ($submit_id == $data[$i]['customer_id']) 
@@ -758,8 +758,8 @@ if(isset($submit_id))
 							</span></td>
                         </tr>
                         <tr>
-                            <td class="td1" data-label="Billing Email">Email:<span class="s30">*</span></td>
-                            <td class="td2" colspan="2"><input type="text" required="required" name="billingEmail" value="<?php echo @$customer_data->billing_email;?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
+                            <td class="td1" data-label="Billing Email">Email:</td>
+                            <td class="td2" colspan="2"><input type="text" name="billingEmail" value="<?php echo @$customer_data->billing_email;?>" id="saveManageCustomer_customerAddress_billingAddress_billingEmail" class="form-control" group="billing-address" readonly="readonly"></td>
                         </tr>
                         <tr>
                             <td class="td1">Mobile:</td>
@@ -959,14 +959,18 @@ if(isset($submit_id))
                                                             </div-->
                                                             <div class="pull-left c32" data-group="sel-rate-type">
                                                                 <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__rateType" class="form-control" data-index="0">
-																	<option value="0">DHL</option>
-																	<option value="1" selected="selected">% Margin</option>
-																</select>
+    <option value="0">DHL</option>
+    <option value="1" selected="selected">% Margin</option>
+
+
+</select>
+
 
                                                             </div>
                                                             <div class="pull-left c32" data-group="base-rate">
                                                                 
-                                                                <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].rate" maxlength="25" value="35.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="0">
+                                                                    <input type="text" name="saveManageCustomer.saveCustBaseRate.customerBaseRates[0].rate" maxlength="25" value="35.00" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_0__rate" class="form-control alloptions" style="width: 50px;" data-group="br-rate" data-index="0">
+                                                                
                                                                 
                                                             </div>
                                                             <div class="pull-left c32a">%</div>
@@ -974,7 +978,9 @@ if(isset($submit_id))
                                                                 <a href="javascript:void(0)" onclick="viewRateSheet('10000018',1,0,0,1)" class="b19" data-sheet-id="533" data-perweight-sheet-id="0" data-nc-sheet-id="448" data-nc-perweight-sheet-id="0"><u><b>View</b></u></a>
                                                             </div>
                                                             <div class="pull-left c32a">
-                                                                <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
+                                                                
+                                                                    <i id="show-zones" onclick="showZones($(this))" class="fa fa-plus-square s10 b3" data-show="close" style="font-size: 18px;"></i>
+                                                                
                                                                 
                                                             </div>
                                                         </div>
@@ -1069,104 +1075,104 @@ if(isset($submit_id))
                                             <tbody><tr>
                                                 <td>Origin</td>
                                                 <td><select name="" id="tntDomColumnName" class="form-control">
-													<option value="ADL">ADELAIDE - ADL</option>
-													<option value="ABY">ALBANY - ABY</option>
-													<option value="ALB">ALBURY/WODONGA - ALB</option>
-													<option value="ASP">ALICE SPRINGS - ASP</option>
-													<option value="ALL">ALL TO ALL - ALL</option>
-													<option value="ARM">ARMIDALE - ARM</option>
-													<option value="BAL">BALLARAT - BAL</option>
-													<option value="BEN">BENDIGO - BEN</option>
-													<option value="BNE">BRISBANE - BNE</option>
-													<option value="BKH">BROKEN HILL - BKH</option>
-													<option value="BME">BROOME - BME</option>
-													<option value="BUN">BUNBURY - BUN</option>
-													<option value="BBG">BUNDABERG - BBG</option>
-													<option value="BUS">BUSSELTON - BUS</option>
-													<option value="CNS">CAIRNS - CNS</option>
-													<option value="CBA">CANBERRA - CBA</option>
-													<option value="CVQ">CARNARVON - CVQ</option>
-													<option value="COF">COFFS HARBOUR - COF</option>
-													<option value="DWN">DARWIN - DWN</option>
-													<option value="DUB">DUBBO - DUB</option>
-													<option value="EMD">EMERALD - EMD</option>
-													<option value="ESP">ESPERENCE - ESP</option>
-													<option value="EXM">EXMOUTH - EXM</option>
-													<option value="GLG">GEELONG - GLG</option>
-													<option value="GET">GERALDTON - GET</option>
-													<option value="GLD">GLADSTONE - GLD</option>
-													<option value="OOL">GOLD COAST - OOL</option>
-													<option value="GOS">GOSFORD - GOS</option>
-													<option value="GOV">GOVE - GOV</option>
-													<option value="HOB">HOBART - HOB</option>
-													<option value="KAL">KALGOORLIE - KAL</option>
-													<option value="KTA">KARRATHA - KTA</option>
-													<option value="KTH">KATHERINE - KTH</option>
-													<option value="KNX">KUNUNURRA - KNX</option>
-													<option value="LNC">LAUNCESTON - LNC</option>
-													<option value="LST">LEINSTER - LST</option>
-													<option value="LIS">LISMORE - LIS</option>
-													<option value="MKY">MACKAY - MKY</option>
-													<option value="MAN">MANDURAH - MAN</option>
-													<option value="MEL">MELBOURNE - MEL</option>
-													<option value="MWL">MORWELL - MWL</option>
-													<option value="MTG">MT GAMBIER - MTG</option>
-													<option value="ISA">MT ISA - ISA</option>
-													<option value="MTM">MT MAGNET - MTM</option>
-													<option value="NCL">NEWCASTLE - NCL</option>
-													<option value="NMN">NEWNAM - NMN</option>
-													<option value="NOW">NOWRA - NOW</option>
-													<option value="NS1">NSW COUNTRY 1 - NS1</option>
-													<option value="NS2">NSW COUNTRY 2 - NS2</option>
-													<option value="NS3">NSW COUNTRY 3 - NS3</option>
-													<option value="NS4">NSW COUNTRY 4 - NS4</option>
-													<option value="NS5">NSW COUNTRY 5 - NS5</option>
-													<option value="NS6">NSW COUNTRY 6 - NS6</option>
-													<option value="NT1">NT COUNTRY 1 - NT1</option>
-													<option value="NT2">NT COUNTRY 2 - NT2</option>
-													<option value="ORA">ORANGE - ORA</option>
-													<option value="PAN">PANNAWONICA - PAN</option>
-													<option value="PBO">PARABURDOO - PBO</option>
-													<option value="PTH">PERTH - PTH</option>
-													<option value="PHE">PORT HEDLAND - PHE</option>
-													<option value="PTM">PORT MACQUARIE - PTM</option>
-													<option value="QL1">QLD COUNTRY 1 - QL1</option>
-													<option value="QL2">QLD COUNTRY 2 - QL2</option>
-													<option value="QL3">QLD COUNTRY 3 - QL3</option>
-													<option value="QL4">QLD COUNTRY 4 - QL4</option>
-													<option value="RAV">RAVENSTHORPI - RAV</option>
-													<option value="RKN">ROCKHAMPTON - RKN</option>
-													<option value="SA1">SA COUNTRY 1 - SA1</option>
-													<option value="SA2">SA COUNTRY 2 - SA2</option>
-													<option value="SA3">SA COUNTRY 3 - SA3</option>
-													<option value="SHP">SHEPPARTON - SHP</option>
-													<option value="SIN">SINGLETON - SIN</option>
-													<option value="MCE">SUNSHINE COAST - MCE</option>
-													<option value="SYD">SYDNEY - SYD</option>
-													<option value="TAM">TAMWORTH - TAM</option>
-													<option value="TAS">TASMANIA - TAS</option>
-													<option value="TCK">TENNANT CREEK - TCK</option>
-													<option value="TPR">TOM PRICE - TPR</option>
-													<option value="TBA">TOOWOOMBA - TBA</option>
-													<option value="TVE">TOWNSVILLE - TVE</option>
-													<option value="VC1">VIC COUNTRY 1 - VC1</option>
-													<option value="VC2">VIC COUNTRY 2 - VC2</option>
-													<option value="VC3">VIC COUNTRY 3 - VC3</option>
-													<option value="WA1">WA COUNTRY 1 - WA1</option>
-													<option value="WA2">WA COUNTRY 2 - WA2</option>
-													<option value="WA3">WA COUNTRY 3 - WA3</option>
-													<option value="WA4">WA COUNTRY 4 - WA4</option>
-													<option value="WGA">WAGGA - WGA</option>
-													<option value="WGR">WANGARATTA - WGR</option>
-													<option value="WMB">WARRNAMBOOL - WMB</option>
-													<option value="WPI">WEIPA - WPI</option>
-													<option value="WIC">WICKHAM - WIC</option>
-													<option value="WNG">WOLLONGONG - WNG</option>
+    <option value="ADL">ADELAIDE - ADL</option>
+    <option value="ABY">ALBANY - ABY</option>
+    <option value="ALB">ALBURY/WODONGA - ALB</option>
+    <option value="ASP">ALICE SPRINGS - ASP</option>
+    <option value="ALL">ALL TO ALL - ALL</option>
+    <option value="ARM">ARMIDALE - ARM</option>
+    <option value="BAL">BALLARAT - BAL</option>
+    <option value="BEN">BENDIGO - BEN</option>
+    <option value="BNE">BRISBANE - BNE</option>
+    <option value="BKH">BROKEN HILL - BKH</option>
+    <option value="BME">BROOME - BME</option>
+    <option value="BUN">BUNBURY - BUN</option>
+    <option value="BBG">BUNDABERG - BBG</option>
+    <option value="BUS">BUSSELTON - BUS</option>
+    <option value="CNS">CAIRNS - CNS</option>
+    <option value="CBA">CANBERRA - CBA</option>
+    <option value="CVQ">CARNARVON - CVQ</option>
+    <option value="COF">COFFS HARBOUR - COF</option>
+    <option value="DWN">DARWIN - DWN</option>
+    <option value="DUB">DUBBO - DUB</option>
+    <option value="EMD">EMERALD - EMD</option>
+    <option value="ESP">ESPERENCE - ESP</option>
+    <option value="EXM">EXMOUTH - EXM</option>
+    <option value="GLG">GEELONG - GLG</option>
+    <option value="GET">GERALDTON - GET</option>
+    <option value="GLD">GLADSTONE - GLD</option>
+    <option value="OOL">GOLD COAST - OOL</option>
+    <option value="GOS">GOSFORD - GOS</option>
+    <option value="GOV">GOVE - GOV</option>
+    <option value="HOB">HOBART - HOB</option>
+    <option value="KAL">KALGOORLIE - KAL</option>
+    <option value="KTA">KARRATHA - KTA</option>
+    <option value="KTH">KATHERINE - KTH</option>
+    <option value="KNX">KUNUNURRA - KNX</option>
+    <option value="LNC">LAUNCESTON - LNC</option>
+    <option value="LST">LEINSTER - LST</option>
+    <option value="LIS">LISMORE - LIS</option>
+    <option value="MKY">MACKAY - MKY</option>
+    <option value="MAN">MANDURAH - MAN</option>
+    <option value="MEL">MELBOURNE - MEL</option>
+    <option value="MWL">MORWELL - MWL</option>
+    <option value="MTG">MT GAMBIER - MTG</option>
+    <option value="ISA">MT ISA - ISA</option>
+    <option value="MTM">MT MAGNET - MTM</option>
+    <option value="NCL">NEWCASTLE - NCL</option>
+    <option value="NMN">NEWNAM - NMN</option>
+    <option value="NOW">NOWRA - NOW</option>
+    <option value="NS1">NSW COUNTRY 1 - NS1</option>
+    <option value="NS2">NSW COUNTRY 2 - NS2</option>
+    <option value="NS3">NSW COUNTRY 3 - NS3</option>
+    <option value="NS4">NSW COUNTRY 4 - NS4</option>
+    <option value="NS5">NSW COUNTRY 5 - NS5</option>
+    <option value="NS6">NSW COUNTRY 6 - NS6</option>
+    <option value="NT1">NT COUNTRY 1 - NT1</option>
+    <option value="NT2">NT COUNTRY 2 - NT2</option>
+    <option value="ORA">ORANGE - ORA</option>
+    <option value="PAN">PANNAWONICA - PAN</option>
+    <option value="PBO">PARABURDOO - PBO</option>
+    <option value="PTH">PERTH - PTH</option>
+    <option value="PHE">PORT HEDLAND - PHE</option>
+    <option value="PTM">PORT MACQUARIE - PTM</option>
+    <option value="QL1">QLD COUNTRY 1 - QL1</option>
+    <option value="QL2">QLD COUNTRY 2 - QL2</option>
+    <option value="QL3">QLD COUNTRY 3 - QL3</option>
+    <option value="QL4">QLD COUNTRY 4 - QL4</option>
+    <option value="RAV">RAVENSTHORPI - RAV</option>
+    <option value="RKN">ROCKHAMPTON - RKN</option>
+    <option value="SA1">SA COUNTRY 1 - SA1</option>
+    <option value="SA2">SA COUNTRY 2 - SA2</option>
+    <option value="SA3">SA COUNTRY 3 - SA3</option>
+    <option value="SHP">SHEPPARTON - SHP</option>
+    <option value="SIN">SINGLETON - SIN</option>
+    <option value="MCE">SUNSHINE COAST - MCE</option>
+    <option value="SYD">SYDNEY - SYD</option>
+    <option value="TAM">TAMWORTH - TAM</option>
+    <option value="TAS">TASMANIA - TAS</option>
+    <option value="TCK">TENNANT CREEK - TCK</option>
+    <option value="TPR">TOM PRICE - TPR</option>
+    <option value="TBA">TOOWOOMBA - TBA</option>
+    <option value="TVE">TOWNSVILLE - TVE</option>
+    <option value="VC1">VIC COUNTRY 1 - VC1</option>
+    <option value="VC2">VIC COUNTRY 2 - VC2</option>
+    <option value="VC3">VIC COUNTRY 3 - VC3</option>
+    <option value="WA1">WA COUNTRY 1 - WA1</option>
+    <option value="WA2">WA COUNTRY 2 - WA2</option>
+    <option value="WA3">WA COUNTRY 3 - WA3</option>
+    <option value="WA4">WA COUNTRY 4 - WA4</option>
+    <option value="WGA">WAGGA - WGA</option>
+    <option value="WGR">WANGARATTA - WGR</option>
+    <option value="WMB">WARRNAMBOOL - WMB</option>
+    <option value="WPI">WEIPA - WPI</option>
+    <option value="WIC">WICKHAM - WIC</option>
+    <option value="WNG">WOLLONGONG - WNG</option>
 
 
-												</select>
+</select>
 
-												</td>
+</td>
                                             </tr>
                                         </tbody></table>
                                     </div>
@@ -1229,10 +1235,10 @@ if(isset($submit_id))
                                                             </div>
                                                             <div class="pull-left c32" data-group="sel-rate-type">
                                                                 <select name="saveManageCustomer.saveCustBaseRate.customerBaseRates[9].rateType" id="saveManageCustomer_saveCustBaseRate_customerBaseRates_9__rateType" class="form-control" data-index="9">
-																	<option value="1" selected="selected">% Margin</option>
+    <option value="1" selected="selected">% Margin</option>
 
 
-																</select>
+</select>
 
 
                                                             </div>
@@ -3980,7 +3986,7 @@ if(isset($submit_id))
                             </div>
                         </div>
                        
-						<?php //echo '<pre>'; print_r(json_decode($margin->margin_rate)); echo '</pre>'; ?>
+                       
                         <!-- Star Track -->
                         <div id="cust_base_rates_star_track_tab" class="tab-pane fade active in">
                             <div class="row">
@@ -4749,7 +4755,7 @@ if(isset($submit_id))
                                 <div class="col-lg-12">
                                     
                                     <div id="webship-list-result">
-                                        <table class="table table-bordered table-hover mg0" id="webfreight_table">
+                                    <table class="table table-bordered table-hover mg0" id="webfreight_table">
                                             <thead>
                                             <tr>
                                                <th>CustomerID</th>
@@ -4918,7 +4924,6 @@ if(isset($submit_id))
                         </div>
                     </div>
                 </div>
-
             </div>
         </div>
     </div>
@@ -5005,11 +5010,11 @@ function deleteUser(){
 
 
     function edituser()
-    {
+{
 
-		$('#editModal').modal('show');
-		var user_id = $('.selected-row').attr('data-accessorialid');    
-		$.ajax({
+    $('#editModal').modal('show');
+    var user_id = $('.selected-row').attr('data-accessorialid');    
+    $.ajax({
                url: "<?php echo base_url('admin/get_c_user_by_id')?>",
                type: 'POST',
                data:{user_id:user_id},
@@ -5657,7 +5662,7 @@ function deleteUser(){
             <td height="10"></td>
         </tr>
         <tr>
-        <td>
+            <td>
             <button class="btn s37" type="reset">
                         Reset
                     </button>
@@ -5737,50 +5742,72 @@ function deleteUser(){
 
     function updateSaveCustomer()
     {
-		var formdata = $("#update_customer_form").serialize();
-		console.log(formdata);
-		return false;
-		var isfromsubmit = true;
-		var isfromsubmitvalue = true;
-		var html='';
-		$('#update_customer_form input').each(function()
-		{
 
-		    if($(this).prop('required') && $(this).val()=='')
-		    {
-				alertDialog.dialog("open");  
-				
-				if(!$(this).parent().parent().find('.td1').attr('data-label'))
-				{
-					html +=$(this).parent().parent().find('.td1').html()+' cannot be empty <br/>';  
-				}
-				else {
-				  html +=$(this).parent().parent().find('.td1').attr('data-label')+' cannot be empty <br/>';
-				}
-				isfromsubmit = false;
-				alertDialog.html(html);               
-		    }
-		 
-		});
-		
-		if(isfromsubmit==true)
-		{
-			alertDialog.dialog("close");  
-			$.ajax({
-				url: 'customers/add_customer',
-				type: 'POST',
-				data:formdata,
-				error: function() {
-					alert('Something is wrong');
-				},
-				success: function(res) {
-					alert('Edit Successfully');  
-					console.log(res);      
-					window.location.reload();
-				}
+            var formdata = $("#update_customer_form").serialize();
+            var isfromsubmit = true;
+            var isfromsubmitvalue = true;
+            var html='';
+			$('#update_customer_form input').each(function()
+			{
+
+              if($(this).prop('required') && $(this).val()=='')
+              {
+                    alertDialog.dialog("open");  
+                    
+                    if(!$(this).parent().parent().find('.td1').attr('data-label'))
+                    {
+                        html +=$(this).parent().parent().find('.td1').html()+' cannot be empty <br/>';  
+                    }
+                    else {
+                      html +=$(this).parent().parent().find('.td1').attr('data-label')+' cannot be empty <br/>';
+                    }
+                    isfromsubmit = false;
+                    alertDialog.html(html);               
+              }
+             
 			});
-		}
+      if(isfromsubmit==true)
+      {
+        alertDialog.dialog("close");  
+        $.ajax({
+               url: 'customers/add_customer',
+               //url: 'add_customer',
+               type: 'POST',
+               data:formdata,
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+                alert('Edit Successfully');  
+              console.log(res);      
+              window.location.reload();
+            }
+          });
+      }
     }
+
+
+
+    document.getElementById("margin_rate").value = getSavedValue("margin_rate");    // set the value to this input
+     //   document.getElementById("txt_2").value = getSavedValue("txt_2");   // set the value to this input
+        /* Here you can add more inputs to set value. if it's saved */
+
+        //Save the value function - save it to localStorage as (ID, VALUE)
+        function saveValue(e){
+            var id = e.id;  // get the sender's id to save it . 
+            var val = e.value; // get the value. 
+            localStorage.setItem(id, val);// Every time user writing something, the localStorage's value will override . 
+        }
+
+        //get the saved value function - return the value of "v" from localStorage. 
+        function getSavedValue  (v){
+            if (!localStorage.getItem(v)) {
+                return "";// You can change this to your defualt value. 
+            }
+            return localStorage.getItem(v);
+           // location.reload();
+        }
+
 
     function optionShowAll() {
         if ($("#chk_option_all").is(":checked")) {
@@ -5900,7 +5927,7 @@ function deleteUser(){
       });  
  });  
 
-	function get_rates(id,name)
+ function get_rates(id,name)
     {
 		$('#exampleModal .table tbody').html('');
 		var zone =  $('#starTrackColumnName option:selected').val();
@@ -5933,93 +5960,48 @@ function deleteUser(){
 		});
     }
 
-	/*function get_fix_rates(id,name)
+
+    function get_fix_rates(id,name)
 	{
 		$('#fixed3Modal .table tbody').html('');
 		var zone =  $('#starTrackColumnName option:selected').val();
 		$('#fixed3Modal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
-		var rows = '';
-		var x = 0;
-		var result = '';
+		var rows ='';
+		var x=0;
+		var result='';
 		var customer_id = $('#customer_id').val();
-         
+
 		$.ajax({
-			url: 'get_fix_rates',
-            //url: 'customers/get_fix_rates',
+			//url: 'customers/get_fix_rates',
+			  url: 'get_fix_rates',
 			type: 'POST',
-			//data:{zone:zone,service_type:id,customer_id:customer_id},
-            data:{service_type:id,customer_id:customer_id},
+			data:{zone:zone,service_type:id,customer_id:customer_id},
 			error: function() {
 				alert('Something is wrong');
 			},
 			success: function(res) {
-				var data = JSON.parse(res);              
-				console.log(data.margin);    
+				var data= JSON.parse(res);    
 				jQuery.each(data.data, function( i, val ) {
 					result = val;
-                    var b_prices = parseFloat(val.price);
-					var b_price = b_prices + (val.price*data.margin)/100;
-					rows +='<tr><td>'+val.weight+'</td><td class="price">'+b_price+'</td></tr>';                  
+					var b_charges = parseFloat(val.price);
+					var b_charge = b_charges + (val.price*data.margin)/100;
+					rows +='<tr><td>'+val.weight+'</td><td class="price">'+b_charge.toFixed(2)+'</td></tr>';                  
 				});
 				$('#fixed3Modal .table tbody').html(rows);
 			}
-
 		});
-    }*/
+		//$('#fixed3Modal').modal('show');
+	}
 
-    function get_fix_rates(id,name)
-      {
-          $('#fixed3Modal .table tbody').html('');
-          var zone =  $('#starTrackColumnName option:selected').val();
-          $('#fixed3Modal .caption').html('Rate Sheet For: Star Track '+ name + '<br> From ' + zone + ' to All');
-          var rows ='';
-          var x=0;
-          var result='';
-         
-           $.ajax({
-              // url: 'customers/get_fix_rates',
-               url: 'get_fix_rates',
-               type: 'POST',
-               data:{zone:zone,service_type:id},
-               error: function() {
-                  alert('Something is wrong');
-               },
-               success: function(res) {
-                var data= JSON.parse(res);              
-                console.log(data);    
-                jQuery.each(data, function( i, val ) {
-                  result = val;
-                  rows +='<tr><td>'+val.weight+'</td><td class="price">'+val.price+'</td></tr>';                  
-                });
-                $('#fixed3Modal .table tbody').html(rows);
-                
-              }
-
-            });
-             //$('#fixed3Modal').modal('show');
-      }
-
-    function enableDisableBillingAddress() {
-        if ($("#billing-same-with-customer-checkbox").is(':checked')) {
-            $("input[data-group='billing-address'], select[data-group='billing-address']").each(function () {
-                $(this).attr("readonly", true);
-            });
-        } else {
-            $("input[data-group='billing-address'], select[data-group='billing-address']").each(function () {
-                $(this).attr("readonly", false);
-            });
-        }
-    }
-
-    $(document).ready(function(){
-		$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
-			localStorage.setItem('activeTab', $(e.target).attr('href'));
-		});
-		var activeTab = localStorage.getItem('activeTab');
-		if(activeTab){
-			$('#manage_customer_tab_nav a[href="' + activeTab + '"]').tab('show');
-		}
+      $(document).ready(function(){
+	$('a[data-toggle="tab"]').on('show.bs.tab', function(e) {
+		localStorage.setItem('activeTab', $(e.target).attr('href'));
 	});
+	var activeTab = localStorage.getItem('activeTab');
+	if(activeTab){
+		$('#manage_customer_tab_nav a[href="' + activeTab + '"]').tab('show');
+	}
+});
 </script>
 <style>
 .scroll_horizontal {

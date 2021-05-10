@@ -466,9 +466,50 @@
             </div>
         </div>
     </div>
+
+    <!---------------------- sender info ---------------------->
+<input type="hidden" name="sender_name" id="sender_name" value="<?php echo $result['shipmentPage.senderAddress.contactName']; ?>">
+<input type="hidden" name="sender_email" id="sender_email" value="<?php echo $result['shipmentPage.senderAddress.email']; ?>">
+<input type="hidden" name="sender_phone" id="sender_phone" value="<?php echo $result['shipmentPage.senderAddress.phone']; ?>">
+<input type="hidden" name="sender_city" id="sender_city" value="<?php echo $result['shipmentPage.senderAddress.city']; ?>">
+<input type="hidden" name="sender_pin" id="sender_pin" value="<?php echo $result['shipmentPage.senderAddress.postalCode']; ?>">
+<input type="hidden" name="sender_state" id="sender_state" value="<?php echo $result['shipmentPage.senderAddress.state']; ?>">
+<input type="hidden" name="sender_address" id="sender_address" value="<?php echo $result['shipmentPage.senderAddress.address'].' '.$result['shipmentPage.senderAddress.address2'].' '.$result['shipmentPage.senderAddress.address3']; ?>">
+
+
+<!---------------------- receiver info ---------------------->
+<input type="hidden" name="receiver_name" id="receiver_name" value="<?php echo $result['shipmentPage.receiverAddress.contactName']; ?>">
+<input type="hidden" name="receiver_company" id="receiver_company" value="<?php echo $result['shipmentPage.receiverAddress.companyName']; ?>">
+<input type="hidden" name="receiver_email" id="receiver_email" value="<?php echo $result['shipmentPage.receiverAddress.email']; ?>">
+<input type="hidden" name="receiver_phone" id="receiver_phone" value="<?php echo $result['shipmentPage.receiverAddress.phone']; ?>">
+<input type="hidden" name="receiver_city" id="receiver_city" value="<?php echo $result['shipmentPage.receiverAddress.city']; ?>">
+<input type="hidden" name="receiver_pin" id="receiver_pin" value="<?php echo $result['shipmentPage.receiverAddress.postalCode']; ?>">
+<input type="hidden" name="receiver_state" id="receiver_state" value="<?php echo $result['shipmentPage.receiverAddress.state']; ?>">
+<input type="hidden" name="receiver_address" id="receiver_address" value="<?php echo $result['shipmentPage.receiverAddress.address'].' '.$result['shipmentPage.senderAddress.address2'].' '.$result['shipmentPage.receiverAddress.address3']; ?>">
+
+
+<input type="hidden" name="ship_total" id="ship_total" value="<?php echo $quote_value;//result['total_weight']; ?>">
+<input type="hidden" name="ship_weight" id="ship_weight" value="<?php echo $result['shipmentPage.pieces.weight']; ?>">
+<input type="hidden" name="ship_length" id="ship_length" value="<?php echo $result['shipmentPage.pieces.dimensionL1']; ?>">
+<input type="hidden" name="ship_width" id="ship_width" value="<?php echo $result['shipmentPage.pieces.dimensionW1']; ?>">
+<input type="hidden" name="ship_height" id="ship_height" value="<?php echo $result['shipmentPage.pieces.dimensionH1']; ?>">
+
 </form>
 <div id="alert-dialog" title="Error"></div>
 <div id="message-dialog" title="Message"></div>
+<style>
+#ship_id{
+	display:none;
+	padding: 6px;
+    width: 95%;
+    margin: 0 auto;
+    background: #d4ecd4;
+    margin-bottom: 13px;
+    font-size: 16px;
+    font-weight: 600;
+    text-align: center;
+}
+</style>
 <script type="text/javascript">
     // init common dialog
     var loadingDialog = $("#loading-dialog").dialog({
@@ -539,47 +580,51 @@
 
     <script>  
 
-    function saveNewBooking() {
-      
-     var formdata = $("#form_booking").serialize();
-     //var customer = '<?php //echo $customers->customer_id;?>';
-    console.log(formdata);
-    $.ajax({
-      /*var isfromsubmitvalue = true;
-      var html='';
-      $('#address_book_add input').each(function()
-      {
+function saveNewBooking() {
 
-              if($(this).prop('required') && $(this).val()=='')
-              {
-                    alertDialog.dialog("open");  
-                    
-                if(!$(this).parent().parent().find('.control-label').attr('data-label'))
-                    {
-                        html +=$(this).parent().parent().find('.control-label').html()+' cannot be empty <br/>';  
-                    }
-                    else {
-                      html +=$(this).parent().parent().find('.control-label').attr('data-label')+' cannot be empty <br/>';
-                    }
-                    isfromsubmit = false;
-                    alertDialog.html(html);               
-              }
-             
-      });*/
-     
-             url: 'customers/add_booking',
-             type: 'POST',
-             data:formdata,
-            // data:{customer:customer,formdata},
-    
-             error: function() {
-                alert('Something is wrong');
-             },
-             success: function(res) {
-                location.reload();
-             }
-          });
-      }
+var formdata = $("#form_booking").serialize();
+//var customer = '<?php //echo $customers->customer_id;?>';
+//console.log(formdata);
+$.ajax({
+ /*var isfromsubmitvalue = true;
+ var html='';
+ $('#address_book_add input').each(function()
+ {
+
+         if($(this).prop('required') && $(this).val()=='')
+         {
+               alertDialog.dialog("open");  
+               
+           if(!$(this).parent().parent().find('.control-label').attr('data-label'))
+               {
+                   html +=$(this).parent().parent().find('.control-label').html()+' cannot be empty <br/>';  
+               }
+               else {
+                 html +=$(this).parent().parent().find('.control-label').attr('data-label')+' cannot be empty <br/>';
+               }
+               isfromsubmit = false;
+               alertDialog.html(html);               
+         }
+        
+ });*/
+
+        url: 'customers/add_booking',
+        type: 'POST',
+        data:formdata,
+       // data:{customer:customer,formdata},
+
+        error: function() {
+           alert('Something is wrong');
+        },
+        success: function(res) {
+           alert('Shipment ID: '+res);
+           $('#ship_id').html('Shipment ID: '+res);
+           $('#ship_id').show();
+           location.reload();
+        }
+     });
+ }
+
  
 
 

@@ -9,7 +9,7 @@
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <?php echo form_open(base_url('customer/update_address_book'), 'class="address_book_add-form" '); ?>
+      <?php echo form_open(base_url('customer/update_address_book'), 'class="address_book_add-form" onsubmit="return validate_form();"'); ?>
       <div class="modal-body">
       <input type="hidden"  name="address_id" class="form-control" value="" id="address_id">
       <input type="hidden" name="customerCode" id="customerCode" value="<?php echo $customers->customer_id;?>">
@@ -41,7 +41,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Contact"> Contact <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressContactName" value="" id="addresscontactName" class="form-control" required="required">
+                                                    <input type="text" name="addressContactName" value="" id="addresscontactName" class="form-control">
+                                                    <div id="error"></div>
                          </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Company
@@ -51,7 +52,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Address"> Address <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="addressAddress1" value="" id="address1" class="form-control" required="required">
+                                                    <input type="text" name="addressAddress1" value="" id="address1" class="form-control">
+                                                    <div id="error1"></div>
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div class="form-group">
@@ -62,7 +64,8 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="City"> City <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressCity" value="" id="addresscity" class="form-control" required="required">
+                                                    <input type="text" name="addressCity" value="" id="addresscity" class="form-control" >
+                                                    <div id="error2"></div>
                                                     <span class="s30"> </span>
                                                 </div>
                                                 <div id="city-search"></div>
@@ -81,25 +84,27 @@
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Country"> Country <span class="s30"> *</span>
                                                     </label>
-                                                    <select name="addressCountry" id="addressCountryId" class="form-control" required="required">
-                                                    <option value="0">Select a Country</option>
-                                                    <?php  for($c=0;$c<count($country);$c++) 
+                                                    <select name="addressCountry" id="addressCountryId" class="form-control">
+                                                    
+                                           <?php  for($c=0;$c<count($country);$c++) 
                                                             {                                                                
                                                                 ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
+                                                                <option value="<?php echo $country[$c]['country_name'];?>" ><?php echo $country[$c]['country_name'];?></option>
                                                                
                                                             <?php
                                                            }   ?> 
-</select>
+ 
+                                                  </select>
 
-
-                                                    <span class="s30"> </span>
+                                                  <div id="error3"></div>
+                                                  
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName" data-label="Phone"> Phone <span class="s30">*</span>
                                                     </label>
-                                                    <input type="text" name="addressPhone" value="" id="addressphone" class="form-control" required="required">
+                                                    <input type="text" name="addressPhone" value="" id="addressphone" class="form-control"  maxlength="10">
                                                     <span class="s30"> </span>
+                                                    <div id="error4"></div>
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Email
@@ -242,7 +247,8 @@
 															<th>Postal Code</th>
 															<th>Country</th>
 															<th>Phone</th>
-												</tr>
+															
+														</tr>
                                                     </thead>
 													<tbody>
 														<?php for($i=0;$i<count($address_book);$i++)
@@ -259,11 +265,9 @@
 																	<td><?php echo $address_book[$i]['city'];?></td>
 																	<td><?php echo $address_book[$i]['state'];?></td>
 																	<td><?php echo $address_book[$i]['postcode'];?></td>
-                                                                    <td> <?php echo $address_book[$i]['country']; ?></td>
-                                                                   <td><?php echo $address_book[$i]['phone'];?></td>
-																	<!--td>     
-																		<button type="button" class="btn s33 s44 remove" id="remove">Delete</button> 
-																	</td-->
+																	<td><?php echo $address_book[$i]['country'];?></td>
+																	<td><?php echo $address_book[$i]['phone'];?></td>
+																	
 																</tr>
 															<?php } 
 														} ?>
@@ -275,8 +279,7 @@
                                         </div>
                                     </div>
                                 </div>
-                              
-              <table class="address_button">
+                                <table class="address_button">
                 <tbody> 
                  <div class="row">
                       <div class="col-lg-10 text-left">
@@ -287,7 +290,7 @@
 											</td>
 											  <!-- File upload form -->
 											  <div class="col-md-12" id="importFrm" style="display: none;">
-												<form action="<?php echo base_url('members/import'); ?>" method="post" enctype="multipart/form-data">
+												<form action="<?php echo base_url('members/import'); ?>" method="post" enctype="multipart/form-data" >
 													<input type="file" name="file" />
 													<input type="submit" class="btn btn-primary" name="importSubmit" value="IMPORT">
 												</form>
@@ -303,7 +306,7 @@
                                         <td> <button type="button" onclick="editAddressBook()" id="EditButton" class="btn s33 s44" disabled>Edit</button></td>
 											<?php if(!empty($addressId))
 											{ ?>
-                                              <td>  <button type="button" class="btn s33 s44" id="remove" disabled onclick="deleteAddress()">Delete</button> <td>
+                                              <td>  <button type="button" class="btn s33 s44" id="remove" disabled onclick="deleteAddress()">Remove</button> <td>
 												<td><button class="btn s33 s44" type="button" id="shipto" disabled onclick="onShipTo()">
 													Ship To
 												</button></td>
@@ -323,7 +326,91 @@
 
  <!--script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script-->
   
- 
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
+
+function validate_form()
+{
+    valid = true;
+
+ var addressContactName = document.getElementById("addresscontactName").value;
+ var address = document.getElementById("address1").value;
+ var addressCity = document.getElementById("addresscity").value;
+ var addressPhone = document.getElementById("addressphone").value;
+ var addressCountry  = document.getElementById("addressCountryId").value;
+    
+     if(addressContactName == "")
+     {
+     document.getElementById('error').innerHTML="*Contact Name is empty";
+     $("#error").css("color", "red");
+     $("#error").css("font-size", "11px");
+      valid = false;
+     }
+     
+
+      if(address == ""){
+       document.getElementById('error1').innerHTML="*Address is empty";
+        $("#error1").css("color", "red");
+        $("#error1").css("font-size", "11px");
+         valid = false;
+     }
+     
+   
+
+     if(addressCity == ""){
+     document.getElementById('error2').innerHTML="*City is empty";
+     $("#error2").css("color", "red");
+     $("#error2").css("font-size", "11px");
+      valid = false;
+     }
+    
+
+    if(addressCountry == ""){
+       document.getElementById('error3').innerHTML="*Country is empty";
+        $("#error3").css("color", "red");
+        $("#error3").css("font-size", "11px");
+        valid = false;
+     }
+    
+
+     if(addressPhone == ""){
+       document.getElementById('error4').innerHTML="*Phone number is empty";
+        $("#error4").css("color", "red");
+        $("#error4").css("font-size", "11px");
+        valid = false;
+     }
+
+     else
+     {
+      
+        return valid;
+     }
+
+    
+}
+
+document.address_book_add.addressContactName.onchange = function() {
+    document.getElementById('error').remove();
+}
+
+
+document.address_book_add.addressAddress1.onchange = function() {
+    document.getElementById('error1').remove();
+}
+
+
+document.address_book_add.addressCity.onchange = function() {
+    document.getElementById('error6').remove();
+}
+
+
+document.address_book_add.addressPhone.onchange = function() {
+    document.getElementById('error3').remove();
+}
+
+</script>
 <script type="text/javascript">
        /* $("body").on("click", "#btnExport", function () {
             html2canvas($('#address-book-table')[0], {
@@ -340,7 +427,7 @@
             });
         });*/
         
-		function onShipTo(){
+        function onShipTo(){
 			var row_id = $('tr.selected-row').attr('id');
 			window.location.href = "<?php echo base_url('customer/shipment/?id='); ?>"+row_id;
 		}
@@ -417,8 +504,9 @@ $('#create_excel').click(function() {
 
     function editAddressBook()
    {
-
+   
     $('#exampleModal').modal('show');
+   
     var address_id = $('.selected-row').attr('data-address-id');
     var addressContactName = $('.selected-row td:eq(0)').html();
     var addressCompanyName = $('.selected-row td:eq(1)').html();
@@ -467,7 +555,7 @@ $('#create_excel').click(function() {
             $(this).prop('selected',true);
         } 
     });   
-
+   
      $('#exampleModal #addresscontactName').val(addressContactName);
      $('#exampleModal #addresscompanyName').val(addressCompanyName);
      $('#exampleModal #address1').val(addressAddress1);
@@ -484,6 +572,7 @@ $('#create_excel').click(function() {
      $('#exampleModal #address_id').val(address_id);
      
 }
+   
 
     function deleteAddress(){
 		var id = $('tr.selected-row').attr('id');

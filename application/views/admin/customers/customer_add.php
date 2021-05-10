@@ -349,7 +349,6 @@
 				</div>
 			</div>
 		</div>
-
         <!---Notes tab--->
         <div id="notes-tab" class="tab-pane fade">
            <p><b>Note:</b><br>
@@ -1146,16 +1145,17 @@ foreach($services as $key => $value)
 
 	function readFile() {
 
-        if (this.files && this.files[0]) {
-            var FR = new FileReader();
-            FR.addEventListener("load", function(e) {
-                document.getElementById("image_b64").value = e.target.result;
-            });
-            FR.readAsDataURL(this.files[0]);
-        }
-    }
-	
-    document.getElementById("profile_image_upload").addEventListener("change", readFile);
+if (this.files && this.files[0]) {
+    var FR = new FileReader();
+    FR.addEventListener("load", function(e) {
+        document.getElementById("image_b64").value = e.target.result;
+    });
+    FR.readAsDataURL(this.files[0]);
+}
+}
+
+document.getElementById("profile_image_upload").addEventListener("change", readFile);
+
 
     function saveNewCustomer() {
       
