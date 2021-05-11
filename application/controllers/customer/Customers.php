@@ -570,6 +570,32 @@
 
 			public function add_booking()
 			{
+				/********************** Ship API ***********************************/
+				
+				$sender_name = $this->input->post('sender_name');
+				$sender_email = $this->input->post('sender_email');
+				$sender_phone = $this->input->post('sender_phone');
+				$sender_address = $this->input->post('sender_address');
+				$sender_city = $this->input->post('sender_city');
+				$sender_pin = $this->input->post('sender_pin');
+				$sender_state = $this->input->post('sender_state');
+				
+				$receiver_name = $this->input->post('receiver_name');
+				$receiver_company = $this->input->post('receiver_company');
+				$receiver_address = $this->input->post('receiver_address');
+				$receiver_email = $this->input->post('receiver_email');
+				$receiver_phone = $this->input->post('receiver_phone');
+				$receiver_city = $this->input->post('receiver_city');
+				$receiver_pin = $this->input->post('receiver_pin');
+				$receiver_state = $this->input->post('receiver_state');
+				
+				$ship_total = $this->input->post('ship_total');
+				$ship_weight = $this->input->post('ship_weight');
+				$ship_length = $this->input->post('ship_length');
+				$ship_width = $this->input->post('ship_width');
+				$ship_height = $this->input->post('ship_height');
+				
+				
 				$customerCode= $this->input->post('customerCode');
 				//$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 				$contentDescription= $this->input->post('contentDescription');	
@@ -591,6 +617,99 @@
 				$scheduleCollectionPickupLocation =$this->input->post('scheduleCollectionPickupLocation');
                 $scheduleCollectionLocationCodeId= $this->input->post('scheduleCollectionLocationCodeId');
 				$scheduleCollectionDescription= $this->input->post('scheduleCollectionDescription');
+				
+				
+				
+				$curl = curl_init();
+
+				curl_setopt_array($curl, array(
+				  CURLOPT_URL => "https://digitalapi.auspost.com.au/test/shipping/v1/shipments",
+				  CURLOPT_RETURNTRANSFER => true,
+				  CURLOPT_ENCODING => "",
+				  CURLOPT_MAXREDIRS => 10,
+				  CURLOPT_TIMEOUT => 30,
+				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				  CURLOPT_CUSTOMREQUEST => "POST",
+				  CURLOPT_POSTFIELDS => '
+				  {
+					"shipments":[
+						{
+							"shipment_reference":"'.$shipmentReference.'",
+							"customer_reference_1":"'.$collectionReference.'",
+							"email_tracking_enabled":true,
+							
+							"from":{
+								"name":"'.$sender_name.'",
+								"lines": [
+									"'.$sender_address.'"
+								],
+								"suburb": "'.$sender_city.'",
+								"state": "'.$sender_state.'",
+								"postcode": "'.$sender_pin.'",
+								"phone": "'.$sender_phone.'",
+								"email":"'.$sender_email.'"
+							},
+							"to":{
+								"name":"'.$receiver_name.'",
+								"business_name":"'.$receiver_company.'",
+								"lines":[
+									"'.$receiver_address.'"
+								],
+								"suburb":"'.$receiver_city.'",
+								"state":"'.$receiver_state.'",
+								"postcode":"'.$receiver_pin.'",
+								"phone":"'.$receiver_phone.'",
+								"email":"'.$receiver_email.'"
+							},
+							"items":[
+												{
+													"packaging_type":"CTN",
+													"item_reference":"SKU-1",
+													"product_id":"FPP",
+													"length":"'.$ship_length.'",
+													"height":"'.$ship_height.'",
+													"width":"'.$ship_weight.'",
+													"weight":"'.$ship_width.'",
+													"authority_to_leave":false,
+													"allow_partial_delivery":false,
+													"features":{
+														"TRANSIT_COVER":{
+															 "attributes":{
+																 "cover_amount":'.$ship_total.'
+															  }
+														 }
+													 }
+												}
+												
+											]
+						}
+					]
+				}',
+				  CURLOPT_HTTPHEADER => array(
+					"accept: application/json",
+					"account-number: 05028762",
+					"authorization: Basic MjdjNDlhYzMtNGRlYi00OTExLTliMjgtZWY0NmIxNjRiYmNmOngxODFiN2RkMjFjMDhkMjFjZTdi",
+					"cache-control: no-cache",
+					"content-type: application/json",
+					"postman-token: b88ec344-008f-4570-97af-c7436cf64b4f"
+				  ),
+				));
+
+				$response = curl_exec($curl);
+				$err = curl_error($curl);
+
+
+
+				if ($err) {
+				  echo "cURL Error #:" . $err;
+				} else {
+					$result = json_decode($response);
+					$shipment_id = $result->shipments[0]->shipment_id;
+				}
+
+				curl_close($curl);
+				
+			
 	
 				$array = array(
 					'customer_id' =>$customerCode,
@@ -613,13 +732,18 @@
 					'collect_pickup_location'=>$scheduleCollectionPickupLocation,
 					'collect_location_code'=>$scheduleCollectionLocationCodeId,
 					'collect_location_description'=>$scheduleCollectionDescription,
+					'shipapi_res' => $response,
 					
 			  );
 				$this->user_model->add_booking($array);
-			//	$this->session->set_flashdata('address_msg', 'Booking Added Succesfully.');
+				echo $shipment_id;
+				exit;
+				
+				//$this->session->set_flashdata('address_msg', 'Booking Added Succesfully.');
 				$data['view'] = 'customers/booking';
 				$this->load->view('customers/layout', $data);
 			}
+
 
 
 			public function update_address_book()
