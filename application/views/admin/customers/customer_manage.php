@@ -633,16 +633,8 @@ if(isset($submit_id))
                             <td class="td1" data-label="Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2">
                             <select name="country" required="required" id="saveManageCustomer_customerAddress_address_country" class="form-control uppercase" group="address">
-                            <option value="<?php echo $customer_data->country;?>" <?php echo "selected" ?>><?php echo $customer_data->country;?></option>
-                            
-                            <?php  for($c=0;$c<count($country);$c++) 
-                                                            { 
-                                                                                      
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
+                            <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
 
                             </select>
 

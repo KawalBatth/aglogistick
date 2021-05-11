@@ -29,6 +29,13 @@
 			$this->load->view('admin/layout', $data);
 		}
 
+		public function webship_log()
+		{
+			$data['view'] = 'admin/customers/webship_log';
+			$this->load->view('admin/layout', $data);
+		}
+
+
         public function customer_list()
 		{
 			$data['all_users'] =  $this->user_model->get_all_users();

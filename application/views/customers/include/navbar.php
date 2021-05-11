@@ -604,6 +604,19 @@ input#addressemail {
 input#address_book_add_addressBookModel_email {
     text-transform: lowercase;
 }
+
+tr.upper {
+    float: right;
+    margin-left: 1084px;
+    margin-top: 13px;
+    margin-bottom: -61px;
+}
+
+tr.buttons {
+    margin-left: 177px;
+    float: left;
+    margin-bottom: -10px;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->

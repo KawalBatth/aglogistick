@@ -398,15 +398,8 @@
                             <td class="td1" data-label="Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2">
                             <select name="country" id="address_address_country" required="required" class="form-control uppercase" data-group="address">
-                            <option value="0">Select a Country</option>
-                            <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
-                                                           </select>
+                            <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
 
 </td>
                         </tr>
@@ -490,15 +483,8 @@
                             <td class="td1" data-label="Billing Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2">
                             <select name="billingCountry" required="required" id="address_billingAddress_billingCountry" class="form-control uppercase" data-group="billing-address" readonly="readonly">
-                           <option value="0">Select a Country</option>
-                            <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
-                               </select>
+                            <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
 
                              </td>
                         </tr>

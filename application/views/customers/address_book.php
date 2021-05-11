@@ -86,14 +86,7 @@
                                                     </label>
                                                     <select name="addressCountry" id="addressCountryId" class="form-control">
                                                     
-                                           <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['country_name'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
- 
+                                          <option value="Australia" selected> Australia</option>
                                                   </select>
 
                                                   <div id="error3"></div>
@@ -411,7 +404,7 @@ document.address_book_add.addressPhone.onchange = function() {
 }
 
 </script>
-<script type="text/javascript">
+<script>
        /* $("body").on("click", "#btnExport", function () {
             html2canvas($('#address-book-table')[0], {
                 onrendered: function (canvas) {
@@ -526,7 +519,8 @@ $('#create_excel').click(function() {
     var addressAccountNumber = $('.selected-row td:eq(15)').html();
     var isResidential = $('.selected-row td:eq(16)').html();
 
-
+    //validate_form();
+    //if(valid == true){
     $('#exampleModal #addressCountryId option').each(function()
     {
         if($(this).html()==addressCountry)
@@ -555,7 +549,7 @@ $('#create_excel').click(function() {
             $(this).prop('selected',true);
         } 
     });   
-   
+   // }
      $('#exampleModal #addresscontactName').val(addressContactName);
      $('#exampleModal #addresscompanyName').val(addressCompanyName);
      $('#exampleModal #address1').val(addressAddress1);

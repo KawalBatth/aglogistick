@@ -77,6 +77,7 @@
                                                     <label class="control-label" for="inputName"> Email Address
                                                     </label>
                                                     <input type="text" name="shipmentPage.senderAddress.email" maxlength="50" value="<?php echo $customers->email;?>" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email" onfocus="this.value=''">
+                                                    <div id="error14"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -86,16 +87,10 @@
                                                     <label class="control-label" for="inputName"> Country <span class="s30"> *</span>
                                                     </label>
                                                     <select name="shipmentPage.senderAddress.country" required id="shipmentPage_senderAddress_country" class="form-control">
-                                                    <option value="<?php echo $customers->country;?>" <?php echo "selected"; ?>><?php echo $customers->country;?></option>
-                                                  <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?>  
+                                                    <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
  
-</select>
+
 <div id="error3"></div>
 
 
@@ -243,6 +238,7 @@
                                                     </label>
                                                     <input type="text" name="shipmentPage.receiverAddress.email" maxlength="50" value="<?php if(isset($addres->email)){ echo $addres->email; } elseif(isset($quotes->receiver_email)){ echo $quotes->receiver_email; }
                                                 ?>" id="shipment-info-form_shipmentPage_receiverAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email" onfocus="this.value=''">
+                                                 <div id="error15"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -255,18 +251,10 @@
                                                  
                                                  
                                                   <option value="<?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; } ?>"><?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; } ?></option>
-                                               <option value="0">Select a Country</option>
-                                             
-                                                   <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['country_name'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
+                                               
+                                           <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
 
-
-</select>
 <div id="error9"></div>
    </div>
     </div>
@@ -534,6 +522,7 @@
                                                                 
                                                                 <td width="10%"><input type="number" name="shipmentPage.pieces.weight" id="shipment-weight" maxlength="6" value="<?php if(isset($quotes->quote_weight)){ echo $quotes->quote_weight; } ?>" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > 
                                                                 <div id="error12"></div>
+                                                                <div id="error13"></div>
                                                                 <input type="hidden" name="total_weight" id="total_weight_input" value="">
                                                                      <input type="hidden" name="service_kg" id="service_kg" value="">
                                                                 </td>
@@ -876,6 +865,8 @@ function validate_form()
  var receiverAddress = document.getElementById("shipment-info-form_shipmentPage_receiverAddress_address").value;
  var receiverCity = document.getElementById("receiverAddress_city").value;
  var receiverPhone = document.getElementById("shipment-info-form_shipmentPage_receiverAddress_phone").value;
+ var senderEmail = document.getElementById("shipment-info-form_shipmentPage_senderAddress_email").value;
+ var receiverEmail = document.getElementById("shipment-info-form_shipmentPage_receiverAddress_email").value;
 
  var serviceId = document.getElementById("shipmentPage_serviceId").value;
  var shipmentType = document.getElementById("shipmentPage_shipmentTypeId").value;
@@ -985,7 +976,23 @@ function validate_form()
       $("#error7").css("font-size", "11px");
       valid = false;
      }
+
+     if(senderEmail == ""){
+      //alert("Please enter Receiver Phone");
+      document.getElementById('error14').innerHTML="*Sender Email is empty";
+      $("#error14").css("color", "red");
+      $("#error14").css("font-size", "11px");
+      valid = false;
+     }
     
+     if(receiverEmail == ""){
+      //alert("Please enter Receiver Phone");
+      document.getElementById('error15').innerHTML="*Receiver Email is empty";
+      $("#error15").css("color", "red");
+      $("#error15").css("font-size", "11px");
+      valid = false;
+     }
+
      /*if(serviceId == ""){
      // alert("Please choose a Carrier");
      document.getElementById('error').innerHTML="*Field is empty";
@@ -1005,13 +1012,13 @@ function validate_form()
      $("#error12").css("font-size", "11px");
       valid = false;
      }
-      else if(shipmentWeight > kg){
+     /* else if(shipmentWeight > kg){
         //alert('Weight should be less than or equal to' + kg);
-        document.getElementById('error12').innerHTML='Weight should be less than or equal to' + kg;
-        $("#error12").css("color", "red");
-        $("#error12").css("font-size", "11px");
+        document.getElementById('error13').innerHTML='Weight should be less than or equal to' + kg;
+        $("#error13").css("color", "red");
+        $("#error13").css("font-size", "11px");
       valid = false;
-     }
+     }*/
     
      else
      {

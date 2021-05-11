@@ -141,6 +141,91 @@ public function fetch_customer($id)
             return $query->row();			
 	}
 
+	public function get_history_by_id($id)
+	{
+		$this->db->select('*');
+		$this->db->from('additional_details');
+		$this->db->where('id', $id);
+		$query = $this->db->get();
+		return $query->row();
+		
+	}
+	
+
+	public function get_histroy_detail($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('customer_id', $id);
+		$quary = $this->db->get();
+		$result = $quary->result_array();
+		return $result;
+	}
+
+
+	public function get_history($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('id', $id);
+		$quary = $this->db->get();
+		$history = $quary->result_array();
+		foreach ($history as $his) {
+			$datas = json_decode($his['shipapi_res'], True);
+		}
+
+		foreach ($datas['shipments'] as $data) {
+			$b = $data['shipment_id'];
+		}
+		return $b;
+	}
+
+	public function get_iteam_weight($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('id', $id);
+		$quary = $this->db->get();
+		$history = $quary->result_array();
+		foreach ($history as $his) {
+			$datas = json_decode($his['shipapi_res'], True);
+		}
+		foreach ($datas['shipments'] as $data) {
+
+			foreach ($data['items'] as $a) {
+				$b = $a['weight'];
+			}
+		}
+		return $b;
+	}
+
+	public function get_sechdule_date($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('id', $id);
+		$quary = $this->db->get();
+		$history = $quary->result_array();
+		foreach ($history as $his) {
+			$datas = json_decode($his['shipapi_res'], True);
+		}
+		foreach ($datas['shipments'] as $data) {
+			$b = $data['shipment_creation_date'];
+		}
+		return $b;
+	}
+	public function get_price($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('id', $id);
+		$quary = $this->db->get();
+		$history = $quary->result_array();
+		foreach ($history as $his) {
+			$datas = json_decode($his['shipapi_res'], True);
+		}
+		foreach ($datas['shipments'] as $data) {
+			$a = $data['shipment_summary'];
+		}
+		$b = $a['total_cost'] + $a['total_cost_ex_gst'] + $a['shipping_cost'] + $a['total_gst'] + $a['freight_charge'];
+		return $b;
+	}
+
 	}
 
 ?>
