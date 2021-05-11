@@ -93,6 +93,16 @@ $cur_tab = $this->uri->segment(2)==''?'dashboard': $this->uri->segment(2);
           </ul>
         </li>
       </ul>
+
+
+      <ul class="sidebar-menu">
+        <li id="admin" class="treeview">
+           <a href="<?= base_url('admin/webship_log'); ?>"><i class="fa fa-user fa-fw"></i>Webship Log
+            
+           </a>
+         
+        </li>
+      </ul>
     
 
          <!--li id="widgets">

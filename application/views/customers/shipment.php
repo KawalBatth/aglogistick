@@ -5,7 +5,7 @@
                 <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;"></div>
             </div>
         </div>
-        <form id="shipment-info-form" name="shipment-info-form" action="/crm-webship/webship.ix" method="post">
+        <form id="shipment-info-form" name="shipment_form" action="" method="post" onsubmit="return validate_form();">
 			<input type="hidden" name="customerCode" id="<?php echo $customers->customer_id;?>">
 			<input type="hidden" name="total_charge" id="total_charge" value="">
             <input type="hidden" name="final_charge" id="final_charge" value="">
@@ -42,20 +42,24 @@
                                              // foreach($customer as $row){ 
                                             //echo form_open(base_url('customer/country_list'), 'class="get_shipment-form" '); ?>
                                                 <div class="form-group">
-                                                    <label class="control-label" for="inputName"> Company <span class="s30"> *</span>
+                                                    <label class="control-label shipment" for="inputName"> Company <span class="s30"> *</span>
                                                     </label>
 
-                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="sender-companyName" class="form-control alloptions" required onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off" onfocus="this.value=''">
-                                                    
-                                                    <div id="sender-search-result"></div>
+                                                    <input type="text" name="shipmentPage.senderAddress.companyName" maxlength="35" value="<?php echo $customers->customerName;?>" id="sender-companyName" class="form-control alloptions" onkeyup="searchSenderAddress(true)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off" onfocus="this.value=''" required>
+                                                    <div id="error"></div>
+                                                 <div id="sender-search-result"></div>
+                                                
                                                 </div>
-                                              <?php  // }?>
+                                                
+                                             
                                             </div>
+                                            
                                             <div class="col-md-6">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
-                                                    <input type="text" name="shipmentPage.senderAddress.phone" maxlength="25" pattern="08\d{8}" value="<?php echo $customers->phone;?>" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" required data-placement="top" data-original-title="TOOLTIP:Phone" onfocus="this.value=''">
+                                                    <input type="text" name="shipmentPage.senderAddress.phone" maxlength="12" pattern="08\d{8}" value="<?php echo $customers->phone;?>" id="shipment-info-form_shipmentPage_senderAddress_phone" class="form-control alloptions" data-toggle="tooltip" required data-placement="top" data-original-title="TOOLTIP:Phone" onfocus="this.value=''">
+                                                    <div id="error1"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -63,7 +67,9 @@
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
                                                     <input type="text" name="shipmentPage.senderAddress.contactName" maxlength="35" value="<?php echo $customers->contact_name;?>" id="sender_contactName" class="form-control alloptions" required onkeyup="searchSenderAddress(false)" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name" autocomplete="off" onfocus="this.value=''">
+                                                    <div id="error2"></div>
                                                     <div id="sender-contact-result"></div>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -71,6 +77,7 @@
                                                     <label class="control-label" for="inputName"> Email Address
                                                     </label>
                                                     <input type="text" name="shipmentPage.senderAddress.email" maxlength="50" value="<?php echo $customers->email;?>" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email" onfocus="this.value=''">
+                                                    <div id="error14"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -80,16 +87,11 @@
                                                     <label class="control-label" for="inputName"> Country <span class="s30"> *</span>
                                                     </label>
                                                     <select name="shipmentPage.senderAddress.country" required id="shipmentPage_senderAddress_country" class="form-control">
-                                                    <option value="<?php echo $customers->country;?>" <?php echo "selected"; ?>><?php echo $customers->country;?></option>
-                                                  <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?>  
+                                                    <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
  
-</select>
+
+<div id="error3"></div>
 
 
 
@@ -101,6 +103,7 @@
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
                                                     <input type="text" name="shipmentPage.senderAddress.address" maxlength="35" required value="<?php echo $customers->address;?>" id="shipment-info-form_shipmentPage_senderAddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1" onfocus="this.value=''">
+                                                    <div id="error4"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -129,7 +132,7 @@
                                             </div>
                                             <div class="col-md-4">
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input tabindex="5" type="checkbox" value="true" name="shipmentPage.residentialPickup">
+                                                    <label class="fw0"> <input tabindex="5" type="checkbox" value="0" name="shipmentPage.residentialPickup">
                                                         &nbsp; Residence
                                                     </label>
                                                 </div>
@@ -153,6 +156,7 @@
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
                                                     <input type="text" name="shipmentPage.senderAddress.city" maxlength="35" value="<?php echo $customers->city;?>" id="senderAddress_city" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City" autocomplete="off" onfocus="this.value=''">
+                                                    <div id="error5"></div>
                                                     <div id="suggesstion-box1"></div>
 
                                                 </div>
@@ -206,6 +210,7 @@
                                                     <input type="text" name="shipmentPage.receiverAddress.companyName" maxlength="35" value="<?php if(isset($addres->company_name)){ echo $addres->company_name; } elseif(isset($quotes->receiver_company)){ echo $quotes->receiver_company; }
                                                 ?>" id="receiver_companyName" required class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company" autocomplete="off" onfocus="this.value=''">
                                                     <div id="receiver-search-result"></div>
+                                                    <div id="error6"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -213,6 +218,7 @@
                                                     <label class="control-label" for="inputName"> Phone <span class="s30"> *</span>
                                                     </label>
                                          <input type="text" name="shipmentPage.receiverAddress.phone" maxlength="25" value="<?php if(isset($addres->phone)){ echo $addres->phone; } elseif(isset($quotes->receiver_phone)){ echo $quotes->receiver_phone; } ?>" pattern="08\d{8}" id="shipment-info-form_shipmentPage_receiverAddress_phone" required class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone" onfocus="this.value=''">
+                                         <div id="error7"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -221,7 +227,9 @@
                                                     </label>
                                                     <input type="text" name="shipmentPage.receiverAddress.contactName" maxlength="35" value="<?php if(isset($addres->contact_name)){ echo $addres->contact_name; } elseif(isset($quotes->receiver_contact)){ echo $quotes->receiver_contact; }
                                                 ?>" id="receiver_contactName" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact Name" autocomplete="off" onfocus="this.value=''">
-                                                    <div id="receiver-contact-result"></div>
+                                                    <div id="receiver-contact-result">
+                                                    <div id="error8"></div></div>
+
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -230,6 +238,7 @@
                                                     </label>
                                                     <input type="text" name="shipmentPage.receiverAddress.email" maxlength="50" value="<?php if(isset($addres->email)){ echo $addres->email; } elseif(isset($quotes->receiver_email)){ echo $quotes->receiver_email; }
                                                 ?>" id="shipment-info-form_shipmentPage_receiverAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email" onfocus="this.value=''">
+                                                 <div id="error15"></div>
                                                 </div>
                                             </div>
                                         </div>
@@ -242,19 +251,11 @@
                                                  
                                                  
                                                   <option value="<?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; } ?>"><?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; } ?></option>
-                                               <option value="0">Select a Country</option>
-                                             
-                                                   <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['country_name'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
+                                               
+                                           <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
 
-
-</select>
-
+<div id="error9"></div>
    </div>
     </div>
                                              <div class="col-md-6">
@@ -262,6 +263,7 @@
                                                     <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
                                                     </label>
                                                     <input type="text" name="shipmentPage.receiverAddress.address" maxlength="35" value="<?php if(isset($addres->address)){ echo $addres->address; } elseif(isset($quotes->receiver_address)){ echo $quotes->receiver_address; } ?>" id="shipment-info-form_shipmentPage_receiverAddress_address" class="form-control alloptions" required data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 1" onfocus="this.value=''">
+                                                    <div id="error10"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-6">
@@ -289,7 +291,7 @@
                                             </div>
                                             <div class="col-md-6">
                                                 <div class="form-group">
-                                                    <label class="fw0"> <input tabindex="5" type="checkbox" value="true" name="shipmentPage.residentialDelivery">
+                                                    <label class="fw0"> <input tabindex="5" type="checkbox" value="0" name="shipmentPage.residentialDelivery">
                                                         &nbsp; Residence
                                                     </label>
                                                 </div>
@@ -301,7 +303,8 @@
                                                     <label class="control-label" for="inputName"> City <span class="s30"> *</span>
                                                     </label>
                                                     <input type="text" name="shipmentPage.receiverAddress.city" maxlength="35" value="<?php if(isset($addres->city)){ echo $addres->city; } elseif(isset($quotes->receiver_suburb)){ echo $quotes->receiver_suburb; } ?>" id="receiverAddress_city" class="form-control alloptions" required  data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City"  autocomplete="off" onfocus="this.value=''">
-                                                        <div id="suggesstion-box"></div>
+                                                    <div id="error11"></div>
+                                                    <div id="suggesstion-box"></div>
                                                 </div>
                                             </div>
                                             <div class="col-md-4">
@@ -517,7 +520,10 @@
                                                             <td class="sno"><input type="hidden" name="peice" id="peice" value="">1</td>
                                                             
                                                                 
-                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" id="shipment-weight" maxlength="6" value="<?php if(isset($quotes->quote_weight)){ echo $quotes->quote_weight; } ?>" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > <input type="hidden" name="total_weight" id="total_weight_input" value="">
+                                                                <td width="10%"><input type="number" name="shipmentPage.pieces.weight" id="shipment-weight" maxlength="6" value="<?php if(isset($quotes->quote_weight)){ echo $quotes->quote_weight; } ?>" required id="shipment-info-form_shipmentPage_pieces_0__weight" class="form-control alloptions weight" onkeypress="return isNum(event)" oninput="maxLengthCheck(this)" min="1" > 
+                                                                <div id="error12"></div>
+                                                                <div id="error13"></div>
+                                                                <input type="hidden" name="total_weight" id="total_weight_input" value="">
                                                                      <input type="hidden" name="service_kg" id="service_kg" value="">
                                                                 </td>
                                                                 <td width="40%">
@@ -840,9 +846,190 @@
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/pages/webship.js"></script>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/common/common.js"></script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.14.0/jquery.validate.min.js"></script>
+
+<script type="text/javascript">
+function validate_form()
+{
+    valid = true;
+
+ var companyName = document.getElementById("sender-companyName").value;
+ var contactName = document.getElementById("sender_contactName").value;
+ var senderCountry = document.getElementById("shipmentPage_senderAddress_country").value;
+ var senderAddress = document.getElementById("shipment-info-form_shipmentPage_senderAddress_address").value;
+ var senderPhone = document.getElementById("shipment-info-form_shipmentPage_senderAddress_phone").value;
+ var senderCity = document.getElementById("senderAddress_city").value;
+ var receiverCompanyName = document.getElementById("receiver_companyName").value;
+ var receiverContactName = document.getElementById("receiver_contactName").value;
+ var receiverCountry = document.getElementById("shipmentPage_receiverAddress_country").value;
+ var receiverAddress = document.getElementById("shipment-info-form_shipmentPage_receiverAddress_address").value;
+ var receiverCity = document.getElementById("receiverAddress_city").value;
+ var receiverPhone = document.getElementById("shipment-info-form_shipmentPage_receiverAddress_phone").value;
+ var senderEmail = document.getElementById("shipment-info-form_shipmentPage_senderAddress_email").value;
+ var receiverEmail = document.getElementById("shipment-info-form_shipmentPage_receiverAddress_email").value;
+
+ var serviceId = document.getElementById("shipmentPage_serviceId").value;
+ var shipmentType = document.getElementById("shipmentPage_shipmentTypeId").value;
+ var shipmentWeight = document.getElementById("shipment-weight").value;
+ var kg= $('#service_kg').val();
+ 
+ //var = $('#shipment-weight').val();
+
+
+
+    /*if ( companyName == "" || contactName == "" || senderCountry == "" || senderAddress == "" || senderPhone == "" || senderCity == "" || receiverCompanyName == "" || receiverContactName =="" || receiverCountry == "" || receiverAddress == "" || receiverCity == "" || receiverPhone == "" || serviceId == "" || shipmentType == "" || shipmentWeight == "")
+    {
+        alert ( "Please fill the required field." );
+        valid = false;
+    }*/
+    if(companyName == ""){
+     // alert("Please enter Sender Company Name");
+     document.getElementById('error').innerHTML="*Sender Company Name is empty";
+     $("#error").css("color", "red");
+     $("#error").css("font-size", "11px");
+      valid = false;
+     }
+
+     if(contactName == ""){
+     // alert("Please enter Sender Contact Name");
+     document.getElementById('error2').innerHTML="*Sender Contact Name is empty";
+     $("#error2").css("color", "red");
+     $("#error2").css("font-size", "11px");
+      valid = false;
+     }
+
+     if(senderCountry == ""){
+     // alert("Please choose a Sender Country Name");
+     document.getElementById('error3').innerHTML="*Sender Country Name is empty";
+     $("#error3").css("color", "red");
+     $("#error3").css("font-size", "11px");
+      valid = false;
+     }
+
+     if(senderAddress == ""){
+      //alert("Please enter Sender Address");
+      document.getElementById('error4').innerHTML="*Sender Address is empty";
+      $("#error4").css("color", "red");
+      $("#error4").css("font-size", "11px");
+      valid = false;
+     } 
+     
+     if(senderPhone == ""){
+     // alert("Please enter Sender Phone");
+     document.getElementById('error1').innerHTML="*Sender Phone is empty";
+     $("#error1").css("color", "red");
+     $("#error1").css("font-size", "11px");
+      valid = false;
+     }
+     
+      if(senderCity == ""){
+      //alert("Please enter Sender City");
+      document.getElementById('error5').innerHTML="*Sender City is empty";
+      $("#error5").css("color", "red");
+      $("#error5").css("font-size", "11px");
+      valid = false;
+     }
+     
+      if(receiverCompanyName == ""){
+      //alert("Please enter Receiver Company Name");
+      document.getElementById('error6').innerHTML="*Receiver Company Name is empty";
+      $("#error6").css("color", "red");
+      $("#error6").css("font-size", "11px");
+      valid = false;
+     }
+
+     if(receiverContactName == ""){
+      //alert("Please enter Receiver Contact Name");
+      document.getElementById('error8').innerHTML="*Receiver Contact Name is empty";
+      $("#error8").css("color", "red");
+      $("#error8").css("font-size", "11px");
+      valid = false;
+     }
+      
+     if(receiverCountry == ""){
+      //alert("Please choose a Receiver Country");
+      document.getElementById('error9').innerHTML="*Receiver Country is empty";
+      $("#error9").css("color", "red");
+      $("#error9").css("font-size", "11px");
+      valid = false;
+     }
+     
+      if(receiverAddress == ""){
+      //alert("Please enter Receiver Address");
+      document.getElementById('error10').innerHTML="*Receiver Address is empty";
+      $("#error10").css("color", "red");
+      $("#error10").css("font-size", "11px");
+      valid = false;
+     }
+     if(receiverCity == ""){
+      //alert("Please enter Receiver City");
+      document.getElementById('error11').innerHTML="*Receiver City is empty";
+      $("#error11").css("color", "red");
+      $("#error11").css("font-size", "11px");
+      valid = false;
+     }
+
+     if(receiverPhone == ""){
+      //alert("Please enter Receiver Phone");
+      document.getElementById('error7').innerHTML="*Receiver Phone is empty";
+      $("#error7").css("color", "red");
+      $("#error7").css("font-size", "11px");
+      valid = false;
+     }
+
+     if(senderEmail == ""){
+      //alert("Please enter Receiver Phone");
+      document.getElementById('error14').innerHTML="*Sender Email is empty";
+      $("#error14").css("color", "red");
+      $("#error14").css("font-size", "11px");
+      valid = false;
+     }
+    
+     if(receiverEmail == ""){
+      //alert("Please enter Receiver Phone");
+      document.getElementById('error15').innerHTML="*Receiver Email is empty";
+      $("#error15").css("color", "red");
+      $("#error15").css("font-size", "11px");
+      valid = false;
+     }
+
+     /*if(serviceId == ""){
+     // alert("Please choose a Carrier");
+     document.getElementById('error').innerHTML="*Field is empty";
+      valid = false;
+     }
+
+     if(shipmentType == ""){
+      //alert("Please choose a Service Type");
+      document.getElementById('error').innerHTML="*Field is empty";
+      valid = false;
+     }*/
+    
+     if(shipmentWeight == ""){
+     // alert("Please enter a Weight");
+     document.getElementById('error12').innerHTML="*Weight is empty";
+     $("#error12").css("color", "red");
+     $("#error12").css("font-size", "11px");
+      valid = false;
+     }
+     /* else if(shipmentWeight > kg){
+        //alert('Weight should be less than or equal to' + kg);
+        document.getElementById('error13').innerHTML='Weight should be less than or equal to' + kg;
+        $("#error13").css("color", "red");
+        $("#error13").css("font-size", "11px");
+      valid = false;
+     }*/
+    
+     else
+     {
+        return valid;
+     }
+
+   
+}
+
+</script>
 <script>
-
-
  function onChangeServiceType(isReturn) {
         var defaultAddressJs = JSON.parse($("#defaultAddressJson").val());
         if (isReturn) {
@@ -1105,7 +1292,8 @@ function continuewbooking()
 
 }
 
- $("input[name='isdangerous']").change(function() {
+ $("input[name='isdangerous']").change(function() 
+ {
         if(this.checked) {
         $("input[name='isdangerous']").val(1);        
         }
@@ -1114,7 +1302,8 @@ function continuewbooking()
         }
     });
 
-    $("input[name='shipmentPage.isSaveSenderAddressBook']").change(function() {
+    $("input[name='shipmentPage.isSaveSenderAddressBook']").change(function() 
+    {
         if(this.checked) {
         $("input[name='shipmentPage.isSaveSenderAddressBook']").val(1);        
         }
@@ -1123,7 +1312,8 @@ function continuewbooking()
         }
     });
 
-    $("input[name='shipmentPage.isSaveRecipientAddressBook']").change(function() {
+    $("input[name='shipmentPage.isSaveRecipientAddressBook']").change(function() 
+    {
         if(this.checked) {
         $("input[name='shipmentPage.isSaveRecipientAddressBook']").val(1);        
         }
@@ -1132,6 +1322,29 @@ function continuewbooking()
         }
     });
     
+
+    $("input[name='shipmentPage.residentialPickup']").change(function() 
+    {
+        if(this.checked) {
+        $("input[name='shipmentPage.residentialPickup']").val(1);        
+        }
+        else {
+           $("input[name='shipmentPage.residentialPickup']").val(0);        
+        }
+    });
+
+
+    $("input[name='shipmentPage.residentialDelivery']").change(function() 
+    {
+        if(this.checked) {
+        $("input[name='shipmentPage.residentialDelivery']").val(1);        
+        }
+        else {
+           $("input[name='shipmentPage.residentialDelivery']").val(0);        
+        }
+    });
+
+
     function saveqoute()
 {
     var quote_date =  new Date();
@@ -1194,7 +1407,8 @@ function continuewbooking()
 
 
 function openForm() {
-
+    validate_form();
+    if(valid == true){
 document.getElementById("myForm").style.display = "block";
 var sender_postcode= $("input[name='shipmentPage.senderAddress.postalCode']").val();
 var sender_city= $("input[name='shipmentPage.senderAddress.city']").val();
@@ -1227,7 +1441,8 @@ var get_volume_input = $("#get_volume_input").val();
 var get_weight = $("#shipment-weight").val();
    get_weight = get_weight;
 
-
+ 
+		
 //alert(get_volume_input);
 setTimeout(function()
 {    
@@ -1252,7 +1467,7 @@ setTimeout(function()
             //$("#search-box").css("background","#FFF url(LoaderIcon.gif) no-repeat 165px");
         },
         success: function(data){
-            var result= JSON.parse(data);
+           var result= JSON.parse(data);
 				console.log(result);
 				if(result.base_charge)
 				{
@@ -1413,8 +1628,10 @@ setTimeout(function()
 			
 		});
     }, 1000);
-
+      
 }
+}
+
 
 
 
@@ -1929,7 +2146,7 @@ var numRows = 1, ti = 5;
                 {
                     $('.myerror').remove();
                     $(this).find('input.weight').css({ "border": "1px solid red" });
-                    $(this).find('input.weight').parent().append('<span class="myerror">Weight must be less then fixed service weight');
+                    $(this).find('input.weight').parent().append('<span class="myerror">Weight must be less than or equal to' + kg);
             
                 }
                 else {
@@ -2190,6 +2407,5 @@ margin-top: 0px !important;
 
 #contact-list li{background: #f0f0f0; border-bottom: #bbb9b9 1px solid; font-size: 11px; padding: 4px 0px 10px 6px}
 #contact-list li:hover{background:#ece3d2;cursor: pointer;}
-
 
 </style>

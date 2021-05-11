@@ -349,7 +349,6 @@
 				</div>
 			</div>
 		</div>
-
         <!---Notes tab--->
         <div id="notes-tab" class="tab-pane fade">
            <p><b>Note:</b><br>
@@ -399,15 +398,8 @@
                             <td class="td1" data-label="Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2">
                             <select name="country" id="address_address_country" required="required" class="form-control uppercase" data-group="address">
-                            <option value="0">Select a Country</option>
-                            <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
-                                                           </select>
+                            <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
 
 </td>
                         </tr>
@@ -491,15 +483,8 @@
                             <td class="td1" data-label="Billing Country">Country:<span class="s30">*</span></td>
                             <td class="td2" colspan="2">
                             <select name="billingCountry" required="required" id="address_billingAddress_billingCountry" class="form-control uppercase" data-group="billing-address" readonly="readonly">
-                           <option value="0">Select a Country</option>
-                            <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
-                               </select>
+                            <option value="Australia" selected="selected"> Australia</option>
+                                                            </select>
 
                              </td>
                         </tr>
@@ -1146,16 +1131,17 @@ foreach($services as $key => $value)
 
 	function readFile() {
 
-        if (this.files && this.files[0]) {
-            var FR = new FileReader();
-            FR.addEventListener("load", function(e) {
-                document.getElementById("image_b64").value = e.target.result;
-            });
-            FR.readAsDataURL(this.files[0]);
-        }
-    }
-	
-    document.getElementById("profile_image_upload").addEventListener("change", readFile);
+if (this.files && this.files[0]) {
+    var FR = new FileReader();
+    FR.addEventListener("load", function(e) {
+        document.getElementById("image_b64").value = e.target.result;
+    });
+    FR.readAsDataURL(this.files[0]);
+}
+}
+
+document.getElementById("profile_image_upload").addEventListener("change", readFile);
+
 
     function saveNewCustomer() {
       

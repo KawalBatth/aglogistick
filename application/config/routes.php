@@ -121,6 +121,10 @@ $route['customer/save_quote'] = 'customer/customers/save_quote';
 $route['customer/update_address_book'] = 'customer/customers/update_address_book';
 
 
+$route['customer/history_void'] = 'customer/customers/history_void';
+$route['admin/webship_log'] = 'admin/customers/webship_log';
+
+
 $route['user/login'] = 'user';
 $route['user/logout'] = 'user/logout';
 $route['user/login/process'] = 'user/process';

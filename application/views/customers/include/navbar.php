@@ -570,8 +570,8 @@ img.image {
 
 button#shipto {
     float: right;
-    margin-top: 0px;
-    margin-left: 410px;
+    margin-top: 18px;
+    margin-left: 1181px;
 }
 
 .form-group.flr.mgb {
@@ -589,6 +589,34 @@ table.address_button td {
     padding: 14px 6px 0px 0px;
 }
 
+table.address_button {
+    margin-bottom: 10px;
+}
+
+button#remove {
+    float: left;
+}
+
+input#addressemail {
+    text-transform: lowercase;
+}
+
+input#address_book_add_addressBookModel_email {
+    text-transform: lowercase;
+}
+
+tr.upper {
+    float: right;
+    margin-left: 1084px;
+    margin-top: 13px;
+    margin-bottom: -61px;
+}
+
+tr.buttons {
+    margin-left: 177px;
+    float: left;
+    margin-bottom: -10px;
+}
     </style>
   <header class="main-header">
     <!-- Logo -->

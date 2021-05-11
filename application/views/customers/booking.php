@@ -497,6 +497,10 @@
 <input type="hidden" name="ship_height" id="ship_height" value="<?php echo $result['shipmentPage.pieces.dimensionH1']; ?>">
 
 
+<input type="hidden" name="serviceId" id="serviceId" value="<?php echo $result['shipmentPage.serviceId'];?>">
+
+
+
 </form>
 <div id="alert-dialog" title="Error"></div>
 <div id="message-dialog" title="Message"></div>

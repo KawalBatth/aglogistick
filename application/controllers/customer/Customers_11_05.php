@@ -132,6 +132,7 @@
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 				$data['address_book']  = $this->user_model->get_address_book($data['customers']->customer_id);
+				$data['country']=$this->user_model->get_country();
 				$data['view'] = 'customers/address_book';
 				$this->load->view('customers/layout', $data);
 			} else {	
@@ -145,6 +146,7 @@
 			{
 				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
 				$data['address_book']  = $this->user_model->get_address_book($this->session->userdata('customer_user_id'));
+				$data['country']=$this->user_model->get_country();
 				$data['view'] = 'customers/address_book_add';
 				$this->load->view('customers/layout', $data);
 			}
@@ -152,6 +154,28 @@
 				redirect('user/login');
 			}
 		}
+
+
+		public function history_void()
+		{
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+				$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+			
+			//	$id = $this->session->userdata();
+				//$data['historys'] = $this->user_model->get_histroy_detail($id['customer_id']);
+				$data['history_id']="";
+				if(isset($_GET['history_id'])){
+					$data['history_data'] = $this->user_model->get_history_by_id($data['history_id']);
+				}
+				$data['view'] = 'customers/history_void';
+				$this->load->view('customers/layout', $data);
+			}
+			else {	
+				redirect('user/login');
+			}
+		}
+
 
 		public function import_excel()
 		{
@@ -168,18 +192,18 @@
 		}
 
 		public function history()
-		{
-			if ($this->session->has_userdata('is_customer_user_login')) {
-				$data['view'] = 'customers/history';
-				$id = $this->session->userdata();
-				$data['historys'] = $this->user_model->get_histroy_detail($id['customer_id']);
-	
-	
-				$this->load->view('customers/layout', $data);
-			} else {
-				redirect('user/login');
-			}
+	{
+		if ($this->session->has_userdata('is_customer_user_login')) {
+			$data['view'] = 'customers/history';
+			$id = $this->session->userdata();
+			$data['historys'] = $this->user_model->get_histroy_detail($id['customer_id']);
+
+
+			$this->load->view('customers/layout', $data);
+		} else {
+			redirect('user/login');
 		}
+	}
 
 		public function quote()
 		{
@@ -233,8 +257,8 @@
 
 		public function get_receiver()
 		{
-			$companyName = $this->input->post('keyword');
-		    $customer_id = $this->session->userdata('customer_id');
+			$companyName = $this->input->post('keyword');	
+			$customer_id = $this->session->userdata('customer_id');
 			$data['receiver'] = $this->user_model->get_receiver_data($companyName,$customer_id);
 			echo json_encode($data['receiver']);
 		}
@@ -242,7 +266,8 @@
 
 		public function get_contact_name()
 		{
-			$contactName = $this->input->post('keyword');	
+			$contactName = $this->input->post('keyword');
+		
 			$customer_id = $this->session->userdata('customer_id');	
 			$data['contact'] = $this->user_model->get_contact_data($contactName,$customer_id);
 			echo json_encode($data['contact']);
@@ -571,127 +596,113 @@
 
 
 			public function add_booking()
-			
-	{
-		/********************** Ship API ***********************************/
+			{
+				/********************** Ship API ***********************************/
+				
+				$sender_name = $this->input->post('sender_name');
+				$sender_email = $this->input->post('sender_email');
+				$sender_phone = $this->input->post('sender_phone');
+				$sender_address = $this->input->post('sender_address');
+				$sender_city = $this->input->post('sender_city');
+				$sender_pin = $this->input->post('sender_pin');
+				$sender_state = $this->input->post('sender_state');
+				
+				$receiver_name = $this->input->post('receiver_name');
+				$receiver_company = $this->input->post('receiver_company');
+				$receiver_address = $this->input->post('receiver_address');
+				$receiver_email = $this->input->post('receiver_email');
+				$receiver_phone = $this->input->post('receiver_phone');
+				$receiver_city = $this->input->post('receiver_city');
+				$receiver_pin = $this->input->post('receiver_pin');
+				$receiver_state = $this->input->post('receiver_state');
+				
+				$ship_total = $this->input->post('ship_total');
+				$ship_weight = $this->input->post('ship_weight');
+				$ship_length = $this->input->post('ship_length');
+				$ship_width = $this->input->post('ship_width');
+				$ship_height = $this->input->post('ship_height');
+				
+				
+				$customerCode= $this->input->post('customerCode');
+				//$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
+				$contentDescription= $this->input->post('contentDescription');	
+				$shipmentReference= $this->input->post('shipmentReference');	
+				$specialDelivery= $this->input->post('specialDelivery');
+				$collectionReference= $this->input->post('collectionReference');			
+				$scheduleCollectionSelect = $this->input->post('scheduleCollectionSelect');
+				$scheduleCollectioncompanyName = $this->input->post('scheduleCollectioncompanyName');
+				$scheduleCollectionContactName= $this->input->post('scheduleCollectionContactName');
+				$scheduleCollectionAddress= $this->input->post('scheduleCollectionAddress');
+				$scheduleCollectionAddress2= $this->input->post('scheduleCollectionAddress2');
+				$scheduleCollectionCity= $this->input->post('scheduleCollectionCity');
+				$scheduleCollectionPhone =$this->input->post('scheduleCollectionPhone');
+				$scheduleCollectionpostalCode= $this->input->post('scheduleCollectionpostalCode');
+				$scheduleCollectionstate= $this->input->post('scheduleCollectionstate');
+				$scheduleCollectionPickupDate= $this->input->post('scheduleCollectionPickupDate');
+				$scheduleCollectionPickupTime =$this->input->post('scheduleCollectionPickupTime');
+				$scheduleCollectionPickupTimeNoLater =$this->input->post('scheduleCollectionPickupTimeNoLater');
+				$scheduleCollectionPickupLocation =$this->input->post('scheduleCollectionPickupLocation');
+                $scheduleCollectionLocationCodeId= $this->input->post('scheduleCollectionLocationCodeId');
+				$scheduleCollectionDescription= $this->input->post('scheduleCollectionDescription');
+				
+				
+				
+				$curl = curl_init();
 
-		$sender_name = $this->input->post('sender_name');
-		$sender_email = $this->input->post('sender_email');
-		$sender_phone = $this->input->post('sender_phone');
-		$sender_address = $this->input->post('sender_address');
-		$sender_city = $this->input->post('sender_city');
-		$sender_pin = $this->input->post('sender_pin');
-		$sender_state = $this->input->post('sender_state');
-		$serviceId = $this->input->post('serviceId');
-
-		$receiver_name = $this->input->post('receiver_name');
-		$receiver_company = $this->input->post('receiver_company');
-		$receiver_address = $this->input->post('receiver_address');
-		$receiver_email = $this->input->post('receiver_email');
-		$receiver_phone = $this->input->post('receiver_phone');
-		$receiver_city = $this->input->post('receiver_city');
-		$receiver_pin = $this->input->post('receiver_pin');
-		$receiver_state = $this->input->post('receiver_state');
-
-		$ship_total = $this->input->post('ship_total');
-		$ship_weight = $this->input->post('ship_weight');
-		$ship_length = $this->input->post('ship_length');
-		$ship_width = $this->input->post('ship_width');
-		$ship_height = $this->input->post('ship_height');
-
-
-		$customerCode = $this->input->post('customerCode');
-		//$data['customers']=$this->user_model->fetch_customer($this->session->userdata('customer_user_id'));
-		$contentDescription = $this->input->post('contentDescription');
-		$shipmentReference = $this->input->post('shipmentReference');
-		$specialDelivery = $this->input->post('specialDelivery');
-		$collectionReference = $this->input->post('collectionReference');
-		$scheduleCollectionSelect = $this->input->post('scheduleCollectionSelect');
-		$scheduleCollectioncompanyName = $this->input->post('scheduleCollectioncompanyName');
-		$scheduleCollectionContactName = $this->input->post('scheduleCollectionContactName');
-		$scheduleCollectionAddress = $this->input->post('scheduleCollectionAddress');
-		$scheduleCollectionAddress2 = $this->input->post('scheduleCollectionAddress2');
-		$scheduleCollectionCity = $this->input->post('scheduleCollectionCity');
-		$scheduleCollectionPhone = $this->input->post('scheduleCollectionPhone');
-		$scheduleCollectionpostalCode = $this->input->post('scheduleCollectionpostalCode');
-		$scheduleCollectionstate = $this->input->post('scheduleCollectionstate');
-		$scheduleCollectionPickupDate = $this->input->post('scheduleCollectionPickupDate');
-		$scheduleCollectionPickupTime = $this->input->post('scheduleCollectionPickupTime');
-		$scheduleCollectionPickupTimeNoLater = $this->input->post('scheduleCollectionPickupTimeNoLater');
-		$scheduleCollectionPickupLocation = $this->input->post('scheduleCollectionPickupLocation');
-		$scheduleCollectionLocationCodeId = $this->input->post('scheduleCollectionLocationCodeId');
-		$scheduleCollectionDescription = $this->input->post('scheduleCollectionDescription');
-
-
-
-		$curl = curl_init();
-
-		curl_setopt_array($curl, array(
-			CURLOPT_URL => "https://digitalapi.auspost.com.au/test/shipping/v1/shipments",
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_ENCODING => "",
-			CURLOPT_MAXREDIRS => 10,
-			CURLOPT_TIMEOUT => 30,
-			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => '
+				curl_setopt_array($curl, array(
+				  CURLOPT_URL => "https://digitalapi.auspost.com.au/test/shipping/v1/shipments",
+				  CURLOPT_RETURNTRANSFER => true,
+				  CURLOPT_ENCODING => "",
+				  CURLOPT_MAXREDIRS => 10,
+				  CURLOPT_TIMEOUT => 30,
+				  CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
+				  CURLOPT_CUSTOMREQUEST => "POST",
+				  CURLOPT_POSTFIELDS => '
 				  {
 					"shipments":[
 						{
-							"shipment_reference":"' . $shipmentReference . '",
-							"customer_reference_1":"' . $collectionReference . '",
+							"shipment_reference":"'.$shipmentReference.'",
+							"customer_reference_1":"'.$collectionReference.'",
 							"email_tracking_enabled":true,
 							
 							"from":{
-								"name":"' . $sender_name . '",
+								"name":"'.$sender_name.'",
 								"lines": [
-									"' . $sender_address . '"
+									"'.$sender_address.'"
 								],
-								"suburb": "' . $sender_city . '",
-								"state": "' . $sender_state . '",
-								"postcode": "' . $sender_pin . '",
-								"phone": "' . $sender_phone . '",
-								"email":"' . $sender_email . '"
+								"suburb": "'.$sender_city.'",
+								"state": "'.$sender_state.'",
+								"postcode": "'.$sender_pin.'",
+								"phone": "'.$sender_phone.'",
+								"email":"'.$sender_email.'"
 							},
 							"to":{
-								"name":"' . $receiver_name . '",
-								"business_name":"' . $receiver_company . '",
+								"name":"'.$receiver_name.'",
+								"business_name":"'.$receiver_company.'",
 								"lines":[
-									"' . $receiver_address . '"
+									"'.$receiver_address.'"
 								],
-								"suburb":"' . $receiver_city . '",
-								"state":"' . $receiver_state . '",
-								"postcode":"' . $receiver_pin . '",
-								"phone":"' . $receiver_phone . '",
-								"email":"' . $receiver_email . '"
-
+								"suburb":"'.$receiver_city.'",
+								"state":"'.$receiver_state.'",
+								"postcode":"'.$receiver_pin.'",
+								"phone":"'.$receiver_phone.'",
+								"email":"'.$receiver_email.'"
 							},
 							"items":[
 												{
 													"packaging_type":"CTN",
 													"item_reference":"SKU-1",
 													"product_id":"FPP",
-
 													"length":"'.$ship_length.'",
 													"height":"'.$ship_height.'",
 													"width":"'.$ship_weight.'",
 													"weight":"'.$ship_width.'",
-
-													"length":"' . $ship_length . '",
-													"height":"' . $ship_height . '",
-													"width":"' . $ship_weight . '",
-													"weight":"' . $ship_width . '",
-
 													"authority_to_leave":false,
 													"allow_partial_delivery":false,
 													"features":{
 														"TRANSIT_COVER":{
 															 "attributes":{
-
 																 "cover_amount":'.$ship_total.'
-
-																 "cover_amount":' . $ship_total . '
-
 															  }
 														 }
 													 }
@@ -701,7 +712,6 @@
 						}
 					]
 				}',
-
 				  CURLOPT_HTTPHEADER => array(
 					"accept: application/json",
 					"account-number: 05028762",
@@ -761,68 +771,6 @@
 				$this->load->view('customers/layout', $data);
 			}
 
-			CURLOPT_HTTPHEADER => array(
-				"accept: application/json",
-				"account-number: 05028762",
-				"authorization: Basic MjdjNDlhYzMtNGRlYi00OTExLTliMjgtZWY0NmIxNjRiYmNmOngxODFiN2RkMjFjMDhkMjFjZTdi",
-				"cache-control: no-cache",
-				"content-type: application/json",
-				"postman-token: b88ec344-008f-4570-97af-c7436cf64b4f"
-			),
-		));
-
-		$response = curl_exec($curl);
-		$err = curl_error($curl);
-
-
-
-		if ($err) {
-			echo "cURL Error #:" . $err;
-		} else {
-			$result = json_decode($response);
-			$shipment_id = $result->shipments[0]->shipment_id;
-		}
-
-		curl_close($curl);
-
-
-
-		$array = array(
-			'customer_id' => $customerCode,
-			'carrier_id' => $serviceId,
-			'content_desc' => $contentDescription,
-			'billing_ref' => $shipmentReference,
-			'special_delivery' => $specialDelivery,
-			'collection_ref' => $collectionReference,
-			'schedule_select' => $scheduleCollectionSelect,
-			'collect_company' => $scheduleCollectioncompanyName,
-			'collect_Contact_name' => $scheduleCollectionContactName,
-			'collect_address' => $scheduleCollectionAddress,
-			'collect_address1' => $scheduleCollectionAddress2,
-			'collect_city' => $scheduleCollectionCity,
-			'collect_phone' => $scheduleCollectionPhone,
-			'contact_postal_code' => $scheduleCollectionpostalCode,
-			'collect_state' => $scheduleCollectionstate,
-			'ready_date' => $scheduleCollectionPickupDate,
-			'collect_ready_time' => $scheduleCollectionPickupTime,
-			'collect_close_time' => $scheduleCollectionPickupTimeNoLater,
-			'collect_pickup_location' => $scheduleCollectionPickupLocation,
-			'collect_location_code' => $scheduleCollectionLocationCodeId,
-			'collect_location_description' => $scheduleCollectionDescription,
-			'shipapi_res' => $response,
-
-		);
-		$this->user_model->add_booking($array);
-		echo $shipment_id;
-		exit;
-
-		//$this->session->set_flashdata('address_msg', 'Booking Added Succesfully.');
-		$data['view'] = 'customers/booking';
-		$this->load->view('customers/layout', $data);
-	}
-
-
-
 
 			public function update_address_book()
 			{
@@ -853,72 +801,7 @@
 	
 			}
 
-			public function track()
-	{
-		$curl = curl_init();
-		$id = $this->input->post('id');
-
-
-		curl_setopt_array($curl, array(
-			CURLOPT_URL => "https://digitalapi.auspost.com.au/test/shipping/v1/labels",
-			CURLOPT_RETURNTRANSFER => true,
-			CURLOPT_ENCODING => "",
-			CURLOPT_MAXREDIRS => 10,
-			CURLOPT_TIMEOUT => 30,
-			CURLOPT_HTTP_VERSION => CURL_HTTP_VERSION_1_1,
-			CURLOPT_CUSTOMREQUEST => "POST",
-			CURLOPT_POSTFIELDS => '
-								{
-								"wait_for_label_url": true,
-								"unlabelled_articles_only": false,
-								"preferences": [
-								{
-							"type": "PRINT",
-							"groups": [
-{
-"group": "Startrack",
-"layout": "A4-1pp",
-"branded": true,
-"left_offset": 0,
-"top_offset": 0
-}
-]
-}
-],
-"shipments": [
-{
-"shipment_id":"' . $id . ' "
-}
-]
-}',
-			CURLOPT_HTTPHEADER => array(
-				"accept: application/json",
-				"account-number: 05028762",
-				"authorization: Basic MjdjNDlhYzMtNGRlYi00OTExLTliMjgtZWY0NmIxNjRiYmNmOngxODFiN2RkMjFjMDhkMjFjZTdi",
-				"cache-control: no-cache",
-				"content-type: application/json",
-				"postman-token: b88ec344-008f-4570-97af-c7436cf64b4f"
-			),
-		));
-
-		$response = curl_exec($curl);
-		$err = curl_error($curl);
-
-		curl_close($curl);
-
-		if ($err) {
-			echo "cURL Error #:" . $err;
-		} else {
-			$datas = (json_decode($response, True));
-
-			foreach ($datas as $data) {
-				foreach ($data as $da) {
-					echo $da['url'];
-				}
-			}
-		}
-	}
-
+			
 			
 	}
 
