@@ -438,6 +438,32 @@
 		return $b;
 	}
 
+	public function get_tracking_id($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('id', $id);
+		$quary = $this->db->get();
+		$history = $quary->result_array();
+		foreach ($history as $his) {
+			$datas = json_decode($his['shipapi_res'], True);
+		}
+		foreach ($datas['shipments'] as $data) {
+			foreach ($data['items'] as $iteam) {
+				$tracking = $iteam['tracking_details'];
+			}
+		}
+		return $tracking['consignment_id'];
+	}
+
+	public function get_history_data($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('id', $id);
+		$quary = $this->db->get();
+		$history = $quary->row_array();
+		return $history;
+	}
+
 	public function get_history_by_id($id)
 	{
 		$this->db->select('*');

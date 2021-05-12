@@ -1,6 +1,5 @@
-
 <form id="form_booking" name="form_booking">
-<input type="hidden" name="customerCode" id="customerCode" value="<?php echo $customers->customer_id;?>">
+    <input type="hidden" name="customerCode" id="customerCode" value="<?php echo $customers->customer_id; ?>">
 
     <input type="hidden" name="shipmentRequestModelGson" value="{&quot;shipmentInfo&quot;:{&quot;senderAddress&quot;:{&quot;companyName&quot;:&quot;AGL SPECIALISED LOGISTICS&quot;,&quot;phone&quot;:&quot;0894793399&quot;,&quot;contactName&quot;:&quot;WAYNE ENNIS&quot;,&quot;email&quot;:&quot;wayne@agllogistics.com&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;UNIT 1 / 11 FRICKER ROAD&quot;,&quot;address2&quot;:&quot;PERTH AIRPORT&quot;,&quot;address3&quot;:&quot;&quot;,&quot;alternateUserName&quot;:&quot;&quot;,&quot;city&quot;:&quot;PERTH airport&quot;,&quot;postalCode&quot;:&quot;6105&quot;,&quot;state&quot;:&quot;WA&quot;},&quot;receiverAddress&quot;:{&quot;companyName&quot;:&quot;toll&quot;,&quot;phone&quot;:&quot;8888888888&quot;,&quot;contactName&quot;:&quot;toll&quot;,&quot;email&quot;:&quot;&quot;,&quot;country&quot;:&quot;12&quot;,&quot;address&quot;:&quot;88&quot;,&quot;address2&quot;:&quot;&quot;,&quot;address3&quot;:&quot;&quot;,&quot;city&quot;:&quot;MELBOURNE&quot;,&quot;postalCode&quot;:&quot;8001&quot;,&quot;state&quot;:&quot;&quot;},&quot;serviceId&quot;:&quot;72&quot;,&quot;shipmentTypeId&quot;:&quot;229&quot;,&quot;contentType&quot;:&quot;WPX&quot;,&quot;pieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;67.00&quot;,&quot;dimensionH&quot;:&quot;67.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;bound&quot;:&quot;15&quot;,&quot;isAddPiece&quot;:&quot;true&quot;,&quot;addCons&quot;:[{&quot;addConName&quot;:&quot;Dangerous Goods&quot;,&quot;addConCode&quot;:&quot;dangerousgoods&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;UN Number (4Digits)&quot;,&quot;addConDetailCode&quot;:&quot;unnumber&quot;,&quot;value&quot;:&quot;&quot;},{&quot;addConDetailName&quot;:&quot;Packing Group&quot;,&quot;addConDetailCode&quot;:&quot;packinggroup&quot;,&quot;value&quot;:&quot;1&quot;},{&quot;addConDetailName&quot;:&quot;I have a MSDS(Material Safety Data Sheet). Dangerous Goods attracts an additional surcharge.&quot;,&quot;addConDetailCode&quot;:&quot;msda&quot;}]},{&quot;addConName&quot;:&quot;Authorized to Leave (ATL)&quot;,&quot;addConCode&quot;:&quot;atl&quot;,&quot;listProperties&quot;:[{&quot;addConDetailName&quot;:&quot;Where to leave&quot;,&quot;addConDetailCode&quot;:&quot;atltoleave&quot;,&quot;value&quot;:&quot;&quot;}]},{&quot;addConName&quot;:&quot;agl Warranty&quot;,&quot;addConCode&quot;:&quot;aglWarranty&quot;,&quot;value&quot;:&quot;0&quot;}],&quot;shipperAccount&quot;:&quot;963374666&quot;,&quot;totalWeight&quot;:&quot;76.0&quot;,&quot;weightType&quot;:&quot;Dimensional&quot;,&quot;shipmentRequestPieces&quot;:[{&quot;weight&quot;:&quot;67.00&quot;,&quot;dimensionL&quot;:&quot;67.00&quot;,&quot;dimensionW&quot;:&quot;67.00&quot;,&quot;dimensionH&quot;:&quot;67.00&quot;,&quot;customValue&quot;:&quot;0.00&quot;,&quot;deadWeight&quot;:&quot;75.19&quot;,&quot;quantity&quot;:&quot;1&quot;}],&quot;dutiesBillTo&quot;:&quot;0&quot;,&quot;dutiesAccount&quot;:&quot;&quot;,&quot;billingParty&quot;:&quot;0&quot;,&quot;packageId&quot;:&quot;3&quot;,&quot;shipmentDate&quot;:&quot;21-04-2021&quot;,&quot;contents&quot;:&quot;1&quot;,&quot;weightUnit&quot;:&quot;KG&quot;,&quot;dimensionUnit&quot;:&quot;CM&quot;,&quot;currencyCode&quot;:&quot;AUD&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;zone&quot;:&quot;&quot;},&quot;quote&quot;:{&quot;baseCharge&quot;:&quot;414.22&quot;,&quot;carrierCharge&quot;:&quot;414.22&quot;,&quot;accessorial&quot;:[{&quot;accessorialId&quot;:&quot;526&quot;,&quot;code&quot;:&quot;Security Surcharge&quot;,&quot;description&quot;:&quot;Security Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;15.95&quot;,&quot;valueCurrency&quot;:&quot;$ 15.95&quot;},{&quot;accessorialId&quot;:&quot;528&quot;,&quot;code&quot;:&quot;Fuel Surcharge&quot;,&quot;description&quot;:&quot;Fuel Surcharge&quot;,&quot;typeId&quot;:&quot;2&quot;,&quot;value&quot;:&quot;57.99&quot;,&quot;valueCurrency&quot;:&quot;$ 57.99&quot;},{&quot;code&quot;:&quot;GST&quot;,&quot;description&quot;:&quot;GST&quot;,&quot;value&quot;:&quot;48.82&quot;,&quot;valueCurrency&quot;:&quot;$ 48.82&quot;}],&quot;totalCharge&quot;:&quot;536.98&quot;,&quot;totalCustomValue&quot;:&quot;0.00&quot;,&quot;weight&quot;:&quot;76.00 kgs&quot;,&quot;weightType&quot;:&quot;Dimensional&quot;,&quot;nonStandardCharge&quot;:&quot;0.00&quot;,&quot;manualHandlingSurcharge&quot;:0.0,&quot;insuranceValue&quot;:&quot;0.00&quot;,&quot;baseChargeUnit&quot;:&quot;$ 414.22&quot;,&quot;totalChargeUnit&quot;:&quot;$ 536.98&quot;},&quot;shipmentReference&quot;:&quot;&quot;}" id="shipmentRequestModelGson">
     <div class="row mbl">
@@ -9,7 +8,7 @@
                 <div id="area-chart-spline" style="width: 100%; height: 300px; display: none;"></div>
             </div>
         </div>
-		<div id="ship_id"></div>
+        <div id="ship_id"></div>
         <div class="col-lg-12">
             <div class="row">
                 <div class="col-lg-12">
@@ -28,73 +27,90 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <table class="table s99" style="font-size: 13px; margin-bottom: 0px">
-                                                <tbody><tr>
-                                                    <td class="td1">Carrier Name</td>
-                                                    <td class="td2"><?php echo $get_carrier->carrier_name; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td1">Service Type</td>
-                                                    <td class="td2"><?php echo $get_service->service_name; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td1">Package Type</td>
-                                                    <td class="td2">Customer packaging</td>
-                                                </tr>
-                                            </tbody></table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td1">Carrier Name</td>
+                                                        <td class="td2"><?php echo $get_carrier->carrier_name; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td1">Service Type</td>
+                                                        <td class="td2"><?php echo $get_service->service_name; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td1">Package Type</td>
+                                                        <td class="td2">Customer packaging</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                         <div class="col-md-4">
                                             <table class="table s99" style="font-size: 13px;">
-                                                <tbody><tr>
-                                                    <td class="td1">Weight</td>
-                                                    <td class="td2"><?php echo $result['total_weight']; ?> <?php echo $result['shipmentPage.weightUnit']; ?></td>
-                                                </tr>
-                                                <tr>
-                                                    <td class="td1">Dimensions</td>
-                                                    <td class="td2"> 
-                                                    
-                                                  
-                                                    <?php if(!empty($result['shipmentPage.pieces.dimensionL1'])){ echo $result['shipmentPage.pieces.dimensionL1']; }else{ echo 0; } ?> x <?php if(!empty($result['shipmentPage.pieces.dimensionW1'])){ echo $result['shipmentPage.pieces.dimensionW1']; }else{ echo 0; } ?> x   <?php if(!empty($result['shipmentPage.pieces.dimensionH1'])){ echo $result['shipmentPage.pieces.dimensionH1']; }else{ echo 0; } ?>
-                                                         <br>
-                                                       
-                                                   </td>
-                                                </tr>
-                                            </tbody></table>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td1">Weight</td>
+                                                        <td class="td2"><?php echo $result['total_weight']; ?> <?php echo $result['shipmentPage.weightUnit']; ?></td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="td1">Dimensions</td>
+                                                        <td class="td2">
+
+
+                                                            <?php if (!empty($result['shipmentPage.pieces.dimensionL1'])) {
+                                                                echo $result['shipmentPage.pieces.dimensionL1'];
+                                                            } else {
+                                                                echo 0;
+                                                            } ?> x <?php if (!empty($result['shipmentPage.pieces.dimensionW1'])) {
+                                                                        echo $result['shipmentPage.pieces.dimensionW1'];
+                                                                    } else {
+                                                                        echo 0;
+                                                                    } ?> x <?php if (!empty($result['shipmentPage.pieces.dimensionH1'])) {
+                                                                                                                                                                                                                echo $result['shipmentPage.pieces.dimensionH1'];
+                                                                                                                                                                                                            } else {
+                                                                                                                                                                                                                echo 0;
+                                                                                                                                                                                                            } ?>
+                                                            <br>
+
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
-										
+
                                         <div class="col-md-4">
-											<?php $base_charge = 0; $quote_value = 0;
-											if(!empty($surcharge['base_charge'])){ 
-											
-												$basic_charge = $surcharge['base_charge'][0]['basic_charge'];
-												$per_kg       = $surcharge['base_charge'][0]['per_kg'];
-												$base_charge  = $result['total_weight']*$per_kg+$basic_charge;
-												if(!empty($margin)){
-													$base_charge  = $base_charge + ($base_charge*$margin/100);
-												}
-												$quote_value  = $result['total_weight']*$per_kg+$basic_charge;
-												if(!empty($margin)){
-													$quote_value  = $quote_value + ($quote_value*$margin/100);
-												}
-											} 
-                                           
-											?>
-											<table class="table s99" style="font-size: 13px;">
-												<?php 
-													if(!empty($surcharge['charges'])){
-														foreach($surcharge['charges'] as $char){ 
-															$quote_value += $char['surcharge_price'];
-														}
-													}
-												?>
-												<tbody>
-													<tr>
-														<td class="td1">Quote</td>
-														<td class="td2">$ <?php echo $quote_value; ?><br>
-															<i><u> (Quote is an estimate. Additional fees may apply.)</u></i>
-														</td>
-													</tr>
-												</tbody>
-											</table>
+                                            <?php $base_charge = 0;
+                                            $quote_value = 0;
+                                            if (!empty($surcharge['base_charge'])) {
+
+                                                $basic_charge = $surcharge['base_charge'][0]['basic_charge'];
+                                                $per_kg       = $surcharge['base_charge'][0]['per_kg'];
+                                                $base_charge  = $result['total_weight'] * $per_kg + $basic_charge;
+                                                if (!empty($margin)) {
+                                                    $base_charge  = $base_charge + ($base_charge * $margin / 100);
+                                                }
+                                                $quote_value  = $result['total_weight'] * $per_kg + $basic_charge;
+                                                if (!empty($margin)) {
+                                                    $quote_value  = $quote_value + ($quote_value * $margin / 100);
+                                                }
+                                            }
+
+                                            ?>
+                                            <table class="table s99" style="font-size: 13px;">
+                                                <?php
+                                                if (!empty($surcharge['charges'])) {
+                                                    foreach ($surcharge['charges'] as $char) {
+                                                        $quote_value += $char['surcharge_price'];
+                                                    }
+                                                }
+                                                ?>
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="td1">Quote</td>
+                                                        <td class="td2">$ <?php echo $quote_value; ?><br>
+                                                            <i><u> (Quote is an estimate. Additional fees may apply.)</u></i>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
                                         </div>
                                         <div class="col-md-12 pd0">
                                             <div class="col-md-12">
@@ -103,68 +119,70 @@
                                                 </h4>
                                             </div>
                                             <div class="col-md-6 sd1 div_more_detail" style="display: none;">
-                                                
-                                                    <table class="table s99" style="font-size: 13px;">
-                                                        <tbody>
-															<tr>
-																<td class="td1 s39" style="font-style: italic; text-decoration: underline;">
-																	Quote Details:</td>
-																<td class="td2"></td>
-															</tr>
-															<tr>
-																<td class="td1 s40 ncl">- Base Charge</td>
-																<td class="td2">$ <?php echo $base_charge; ?></td>
-															</tr>
-															<?php if(!empty($surcharge['charges'])){
-																	foreach($surcharge['charges'] as $charges){ 
-																	$base_charge += $charges['surcharge_price'];
-																?>
-																	<tr>
-                                                               
-																		<td class="td1 s40 ncl">- <?php echo $charges['surcharge_name']; ?></td>
-																		<td class="td2">$ <?php echo $charges['surcharge_price']; ?></td>
-																	</tr>	
-																<?php	}
-																}
-															?>
-															
-															<tr>
-																<td class="td1 s41 ncl">- Total Charge</td>
-																<td class="td2">$ <?php echo $base_charge; ?></td>
-															</tr>
-                                                        </tbody>
-                                                    </table>
-                                                
+
+                                                <table class="table s99" style="font-size: 13px;">
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="td1 s39" style="font-style: italic; text-decoration: underline;">
+                                                                Quote Details:</td>
+                                                            <td class="td2"></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="td1 s40 ncl">- Base Charge</td>
+                                                            <td class="td2">$ <?php echo $base_charge; ?></td>
+                                                        </tr>
+                                                        <?php if (!empty($surcharge['charges'])) {
+                                                            foreach ($surcharge['charges'] as $charges) {
+                                                                $base_charge += $charges['surcharge_price'];
+                                                        ?>
+                                                                <tr>
+
+                                                                    <td class="td1 s40 ncl">- <?php echo $charges['surcharge_name']; ?></td>
+                                                                    <td class="td2">$ <?php echo $charges['surcharge_price']; ?></td>
+                                                                </tr>
+                                                        <?php    }
+                                                        }
+                                                        ?>
+
+                                                        <tr>
+                                                            <td class="td1 s41 ncl">- Total Charge</td>
+                                                            <td class="td2">$ <?php echo $base_charge; ?></td>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
+
                                             </div>
                                             <div class="col-md-6 sd1 div_more_detail" style="display: none;">
                                                 <table class="table s99" style="font-size: 13px;">
                                                     <tbody>
-                                                    <tr>
-                                                        <td class="td1" style="font-style: italic; text-decoration: underline;">
-                                                            Sender Address:</td>
-                                                        <td class="td2"><?php echo $result['shipmentPage.senderAddress.companyName']; ?>
-                                                        <?php echo $result['shipmentPage.senderAddress.contactName']; ?>
-                                                        <?php echo $result['shipmentPage.senderAddress.address']; ?>
-                                                        <?php echo $result['shipmentPage.senderAddress.address2']; ?>
-                                                            
-                                                        <?php echo $result['shipmentPage.senderAddress.postalCode']; ?>  
-                                                        <?php echo $result['shipmentPage.senderAddress.city']; ?></td>
-                                                    </tr>
+                                                        <tr>
+                                                            <td class="td1" style="font-style: italic; text-decoration: underline;">
+                                                                Sender Address:</td>
+                                                            <td class="td2"><?php echo $result['shipmentPage.senderAddress.companyName']; ?>
+                                                                <?php echo $result['shipmentPage.senderAddress.contactName']; ?>
+                                                                <?php echo $result['shipmentPage.senderAddress.address']; ?>
+                                                                <?php echo $result['shipmentPage.senderAddress.address2']; ?>
+
+                                                                <?php echo $result['shipmentPage.senderAddress.postalCode']; ?>
+                                                                <?php echo $result['shipmentPage.senderAddress.city']; ?></td>
+                                                        </tr>
                                                     </tbody>
                                                 </table>
                                                 <table class="table s99" style="font-size: 13px; margin-bottom: 0px">
-                                                    <tbody><tr>
-                                                        <td class="td1" style="font-style: italic; text-decoration: underline;">
-                                                            Receiver Address:</td>
-                                                        <td class="td2"><?php echo $result['shipmentPage.receiverAddress.companyName']; ?>
-                                                        <?php echo $result['shipmentPage.receiverAddress.contactName']; ?>
-                                                        <?php echo $result['shipmentPage.receiverAddress.address']; ?>
-                                                        <?php echo $result['shipmentPage.receiverAddress.address2']; ?>
-                                                        <?php echo $result['shipmentPage.receiverAddress.postalCode']; ?>  
-                                                        <?php echo $result['shipmentPage.receiverAddress.city']; ?>
+                                                    <tbody>
+                                                        <tr>
+                                                            <td class="td1" style="font-style: italic; text-decoration: underline;">
+                                                                Receiver Address:</td>
+                                                            <td class="td2"><?php echo $result['shipmentPage.receiverAddress.companyName']; ?>
+                                                                <?php echo $result['shipmentPage.receiverAddress.contactName']; ?>
+                                                                <?php echo $result['shipmentPage.receiverAddress.address']; ?>
+                                                                <?php echo $result['shipmentPage.receiverAddress.address2']; ?>
+                                                                <?php echo $result['shipmentPage.receiverAddress.postalCode']; ?>
+                                                                <?php echo $result['shipmentPage.receiverAddress.city']; ?>
                                                             </td>
-                                                    </tr>
-                                                </tbody></table>
+                                                        </tr>
+                                                    </tbody>
+                                                </table>
                                             </div>
                                         </div>
                                     </div>
@@ -191,8 +209,8 @@
                                             <div class="form-group">
                                                 <label class="control-label tdd" for="inputName" data-label="Content Description"> Content Description <span class="s30"> *</span>
                                                 </label>
-                                                  <input type="text" name="contentDescription" maxlength="30" value="" id="form_booking_shipmentRequestModel_contentDetail_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Please limit content descriptions to 30 characters." required="required">
-                                             </div>
+                                                <input type="text" name="contentDescription" maxlength="30" value="" id="form_booking_shipmentRequestModel_contentDetail_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Please limit content descriptions to 30 characters." required="required">
+                                            </div>
                                             <div class="form-group">
                                                 <label class="control-label tdd" for="inputName" data-label="Billing/Customer Reference"> Billing/Customer Reference <span class="s30"> *</span>
                                                 </label>
@@ -203,11 +221,11 @@
                                                 </label>
                                                 <textarea name="specialDelivery" cols="" rows="" id="form_booking_shipmentRequestModel_shipmentInfo_specialDelivery" class="form-control"></textarea>
                                             </div>
-											<div class="form-group">
-												<label class="control-label tdd" for="inputName" data-label="Collection Reference No."> Collection Reference No. <span class="s30"> *</span>
-												</label>
-												<input type="text" name="collectionReference" required value="" id="form_booking_shipmentRequestModel_collectionReference" class="form-control" required="required">
-											</div>
+                                            <div class="form-group">
+                                                <label class="control-label tdd" for="inputName" data-label="Collection Reference No."> Collection Reference No. <span class="s30"> *</span>
+                                                </label>
+                                                <input type="text" name="collectionReference" required value="" id="form_booking_shipmentRequestModel_collectionReference" class="form-control" required="required">
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -227,239 +245,246 @@
                         </div>
                         <div class="portlet-body">
                             <div class="panel-body pan">
-                                
 
 
 
 
-<div class="form-body pal">
-    <div class="row">
-        <div class="col-lg-12">
-            <div class="form-group">
-                <label class="control-label" for="inputName"> Option <span class="s30">*</span>
-                </label>
-                <select name="scheduleCollectionSelect" id="ws-schedule-collection-select" class="form-control" onchange="onScheduleCollectionChange()" required="required">
-    <option value="0">Select a Collection Option</option>
-    <option value="1">Book this collection now</option>
-    <option value="2">I already have a collection scheduled.</option>
-    <option value="3">I will book my collection later.</option>
-    <option value="4">I have a daily collection.</option>
-    <option value="5">I am going to drop off my package(s).</option>
+
+                                <div class="form-body pal">
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="form-group">
+                                                <label class="control-label" for="inputName"> Option <span class="s30">*</span>
+                                                </label>
+                                                <select name="scheduleCollectionSelect" id="ws-schedule-collection-select" class="form-control" onchange="onScheduleCollectionChange()" required="required">
+                                                    <option value="0">Select a Collection Option</option>
+                                                    <option value="1">Book this collection now</option>
+                                                    <option value="2">I already have a collection scheduled.</option>
+                                                    <option value="3">I will book my collection later.</option>
+                                                    <option value="4">I have a daily collection.</option>
+                                                    <option value="5">I am going to drop off my package(s).</option>
 
 
-</select>
+                                                </select>
 
-            </div>
-        </div>
-        <div id="ws-schedule-collection-div" style="display: none;">
-            <div class="col-lg-5">
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Company <span class="s30">*</span>
-                    </label>
-                    <input type="text" name="scheduleCollectioncompanyName" required maxlength="25" value="<?php echo $customers->customerName;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_companyName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company name">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Contact Name <span class="s30">*</span>
-                    </label>
-                    <input type="text" name="scheduleCollectionContactName" maxlength="25" required value="<?php echo $customers->contact_name;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_contactName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact name">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
-                    </label>
-                    <input type="text" name="scheduleCollectionAddress" maxlength="25" required value="<?php echo $customers->address;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 1">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Address 2
-                    </label>
-                    <input type="text" name="scheduleCollectionAddress2" maxlength="25" value="<?php //echo $customers->customerName;?>T" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 2">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> City <span class="s30">*</span>
-                    </label>
-                    <input type="text" name="scheduleCollectionCity" maxlength="25" required value="<?php echo $customers->city;?>" id="city" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
-               </div>
-            </div>
-          
-            <div class="col-lg-7">
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Phone<span class="s30"> *</span>
-                    </label>
-                    <input type="text" name="scheduleCollectionPhone" maxlength="25" required value="<?php echo $customers->phone;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Postal Code
-                    </label>
-                    <input type="text" name="scheduleCollectionpostalCode" maxlength="25" required value="<?php echo $customers->postal_code;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_postalCode" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal code">
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> State/Province
-                    </label>
-                    <input type="text" name="scheduleCollectionstate" maxlength="25" value="<?php echo $customers->state_code;?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_state" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:State\/Province">
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <label class="control-label" for="inputName"> Ready Time (DD-MM-YYYY)
-                        </label>
+                                            </div>
+                                        </div>
+                                        <div id="ws-schedule-collection-div" style="display: none;">
+                                            <div class="col-lg-5">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Company <span class="s30">*</span>
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectioncompanyName" required maxlength="25" value="<?php echo $customers->customerName; ?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_companyName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Company name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Contact Name <span class="s30">*</span>
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionContactName" maxlength="25" required value="<?php echo $customers->contact_name; ?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_contactName" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Contact name">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Address <span class="s30"> *</span>
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionAddress" maxlength="25" required value="<?php echo $customers->address; ?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 1">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Address 2
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionAddress2" maxlength="25" value="<?php //echo $customers->customerName;
+                                                                                                                                ?>T" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address line 2">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> City <span class="s30">*</span>
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionCity" maxlength="25" required value="<?php echo $customers->city; ?>" id="city" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:City">
+                                                </div>
+                                            </div>
 
-                        <div class="form-group input-group">
-							<span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
-							</span>
-                            <input type="text" name="scheduleCollectionPickupDate" value="<?php echo date('Y-m-d');?>" readonly="readonly" id="form_booking_shipmentRequestModel_scheduleCollection_pickupDate" class="form-control form_datetime schedule-time" data-date-format="dd MM yyyy">
-                     </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                        <div class="sa"><a href="//24timezones.com/South-Australia/time" style="text-decoration: none" class="clock24" id="tz24-1619079550-ad16135-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Current time in South Australia" target="_blank" rel="nofollow">South Australia</a>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+                                            <div class="col-lg-7">
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Phone<span class="s30"> *</span>
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionPhone" maxlength="25" required value="<?php echo $customers->phone; ?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_phone" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Phone">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Postal Code
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionpostalCode" maxlength="25" required value="<?php echo $customers->postal_code; ?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_postalCode" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Postal code">
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> State/Province
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionstate" maxlength="25" value="<?php echo $customers->state_code; ?>" id="form_booking_shipmentRequestModel_scheduleCollection_saddress_state" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:State\/Province">
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <label class="control-label" for="inputName"> Ready Time (DD-MM-YYYY)
+                                                        </label>
 
-<div class="nsw"><a href="//24timezones.com/Sydney/time" style="text-decoration: none" class="clock24" id="tz24-1619079518-c1240-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Clock - Sydney" target="_blank" rel="nofollow">Sydney</a>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+                                                        <div class="form-group input-group">
+                                                            <span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
+                                                            </span>
+                                                            <input type="text" name="scheduleCollectionPickupDate" value="<?php echo date('Y-m-d'); ?>" readonly="readonly" id="form_booking_shipmentRequestModel_scheduleCollection_pickupDate" class="form-control form_datetime schedule-time" data-date-format="dd MM yyyy">
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <div class="sa"><a href="//24timezones.com/South-Australia/time" style="text-decoration: none" class="clock24" id="tz24-1619079550-ad16135-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Current time in South Australia" target="_blank" rel="nofollow">South Australia</a>
+                                                                <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+                                                            </div>
 
-<div class="wa"><a href="//24timezones.com/Perth/time" style="text-decoration: none" class="clock24" id="tz24-1619079574-c1196-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Perth local time" target="_blank" rel="nofollow">Perth</a>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+                                                            <div class="nsw"><a href="//24timezones.com/Sydney/time" style="text-decoration: none" class="clock24" id="tz24-1619079518-c1240-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Clock - Sydney" target="_blank" rel="nofollow">Sydney</a>
+                                                                <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+                                                            </div>
 
-<div class="tas"><a href="//24timezones.com/Tasmania/time" style="text-decoration: none" class="clock24" id="tz24-1619079654-ad16138-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="timezone - Tasmania" target="_blank" rel="nofollow">Tasmania</a>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+                                                            <div class="wa"><a href="//24timezones.com/Perth/time" style="text-decoration: none" class="clock24" id="tz24-1619079574-c1196-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Perth local time" target="_blank" rel="nofollow">Perth</a>
+                                                                <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+                                                            </div>
 
-<div class="vic"><a href="//24timezones.com/State-of-Victoria/time" style="text-decoration: none" class="clock24" id="tz24-1619078892-ad16137-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="local time in Victoria" target="_blank" rel="nofollow">Victoria</a>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
+                                                            <div class="tas"><a href="//24timezones.com/Tasmania/time" style="text-decoration: none" class="clock24" id="tz24-1619079654-ad16138-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="timezone - Tasmania" target="_blank" rel="nofollow">Tasmania</a>
+                                                                <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+                                                            </div>
 
-<div class="qld"><a href="//24timezones.com/Queensland/time" style="text-decoration: none" class="clock24" id="tz24-1619079735-ad16139-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Queensland time zone" target="_blank" rel="nofollow">Queensland</a>
-<script type="text/javascript" src="//w.24timezones.com/l.js" async></script></div>
-                            <select name="scheduleCollectionPickupTime" id="sel-pickup-time" class="form-control">
-    <option value="06:00:00">6:00 AM</option>
-    <option value="06:30:00">6:30 AM</option>
-    <option value="07:00:00">7:00 AM</option>
-    <option value="07:30:00">7:30 AM</option>
-    <option value="08:00:00">8:00 AM</option>
-    <option value="08:30:00">8:30 AM</option>
-    <option value="09:00:00">9:00 AM</option>
-    <option value="09:30:00">9:30 AM</option>
-    <option value="10:00:00">10:00 AM</option>
-    <option value="10:30:00">10:30 AM</option>
-    <option value="11:00:00">11:00 AM</option>
-    <option value="11:30:00">11:30 AM</option>
-    <option value="12:00:00">12:00 PM</option>
-    <option value="12:30:00">12:30 PM</option>
-    <option value="13:00:00">1:00 PM</option>
-    <option value="13:30:00">1:30 PM</option>
-    <option value="14:00:00">2:00 PM</option>
-    <option value="14:30:00">2:30 PM</option>
-    <option value="15:00:00">3:00 PM</option>
-    <option value="15:30:00">3:30 PM</option>
-    <option value="16:00:00">4:00 PM</option>
-    <option value="16:30:00">4:30 PM</option>
-    <option value="17:00:00">5:00 PM</option>
-    <option value="17:30:00">5:30 PM</option>
-    <option value="18:00:00">6:00 PM</option>
-    <option value="18:30:00">6:30 PM</option>
-    <option value="19:00:00">7:00 PM</option>
-    <option value="19:30:00">7:30 PM</option>
-    <option value="20:00:00">8:00 PM</option>
-    <option value="20:30:00">8:30 PM</option>
-    <option value="21:00:00">9:00 PM</option>
-    <option value="21:30:00">9:30 PM</option>
-    <option value="22:00:00">10:00 PM</option>
-    <option value="22:30:00">10:30 PM</option>
-    <option value="23:00:00">11:00 PM</option>
-    <option value="23:30:00">11:30 PM</option>
+                                                            <div class="vic"><a href="//24timezones.com/State-of-Victoria/time" style="text-decoration: none" class="clock24" id="tz24-1619078892-ad16137-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="local time in Victoria" target="_blank" rel="nofollow">Victoria</a>
+                                                                <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+                                                            </div>
 
-
-</select>
-
-
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="control-label" for="inputName"> Close Time
-                            </label>
-                            <select name="scheduleCollectionPickupTimeNoLater" id="sel-pickup-nolater" class="form-control">
-    <option value="06:00:00">6:00 AM</option>
-    <option value="06:30:00">6:30 AM</option>
-    <option value="07:00:00">7:00 AM</option>
-    <option value="07:30:00">7:30 AM</option>
-    <option value="08:00:00">8:00 AM</option>
-    <option value="08:30:00">8:30 AM</option>
-    <option value="09:00:00">9:00 AM</option>
-    <option value="09:30:00">9:30 AM</option>
-    <option value="10:00:00">10:00 AM</option>
-    <option value="10:30:00">10:30 AM</option>
-    <option value="11:00:00">11:00 AM</option>
-    <option value="11:30:00">11:30 AM</option>
-    <option value="12:00:00">12:00 PM</option>
-    <option value="12:30:00">12:30 PM</option>
-    <option value="13:00:00">1:00 PM</option>
-    <option value="13:30:00">1:30 PM</option>
-    <option value="14:00:00">2:00 PM</option>
-    <option value="14:30:00">2:30 PM</option>
-    <option value="15:00:00">3:00 PM</option>
-    <option value="15:30:00">3:30 PM</option>
-    <option value="16:00:00">4:00 PM</option>
-    <option value="16:30:00">4:30 PM</option>
-    <option value="17:00:00">5:00 PM</option>
-    <option value="17:30:00">5:30 PM</option>
-    <option value="18:00:00">6:00 PM</option>
-    <option value="18:30:00">6:30 PM</option>
-    <option value="19:00:00">7:00 PM</option>
-    <option value="19:30:00">7:30 PM</option>
-    <option value="20:00:00">8:00 PM</option>
-    <option value="20:30:00">8:30 PM</option>
-    <option value="21:00:00">9:00 PM</option>
-    <option value="21:30:00">9:30 PM</option>
-    <option value="22:00:00">10:00 PM</option>
-    <option value="22:30:00">10:30 PM</option>
-    <option value="23:00:00">11:00 PM</option>
-    <option value="23:30:00">11:30 PM</option>
+                                                            <div class="qld"><a href="//24timezones.com/Queensland/time" style="text-decoration: none" class="clock24" id="tz24-1619079735-ad16139-eyJob3VydHlwZSI6IjEyIiwic2hvd2RhdGUiOiIwIiwic2hvd3NlY29uZHMiOiIwIiwic2hvd3RpbWV6b25lIjoiMSIsInR5cGUiOiJkIiwibGFuZyI6ImVuIn0=" title="Queensland time zone" target="_blank" rel="nofollow">Queensland</a>
+                                                                <script type="text/javascript" src="//w.24timezones.com/l.js" async></script>
+                                                            </div>
+                                                            <select name="scheduleCollectionPickupTime" id="sel-pickup-time" class="form-control">
+                                                                <option value="06:00:00">6:00 AM</option>
+                                                                <option value="06:30:00">6:30 AM</option>
+                                                                <option value="07:00:00">7:00 AM</option>
+                                                                <option value="07:30:00">7:30 AM</option>
+                                                                <option value="08:00:00">8:00 AM</option>
+                                                                <option value="08:30:00">8:30 AM</option>
+                                                                <option value="09:00:00">9:00 AM</option>
+                                                                <option value="09:30:00">9:30 AM</option>
+                                                                <option value="10:00:00">10:00 AM</option>
+                                                                <option value="10:30:00">10:30 AM</option>
+                                                                <option value="11:00:00">11:00 AM</option>
+                                                                <option value="11:30:00">11:30 AM</option>
+                                                                <option value="12:00:00">12:00 PM</option>
+                                                                <option value="12:30:00">12:30 PM</option>
+                                                                <option value="13:00:00">1:00 PM</option>
+                                                                <option value="13:30:00">1:30 PM</option>
+                                                                <option value="14:00:00">2:00 PM</option>
+                                                                <option value="14:30:00">2:30 PM</option>
+                                                                <option value="15:00:00">3:00 PM</option>
+                                                                <option value="15:30:00">3:30 PM</option>
+                                                                <option value="16:00:00">4:00 PM</option>
+                                                                <option value="16:30:00">4:30 PM</option>
+                                                                <option value="17:00:00">5:00 PM</option>
+                                                                <option value="17:30:00">5:30 PM</option>
+                                                                <option value="18:00:00">6:00 PM</option>
+                                                                <option value="18:30:00">6:30 PM</option>
+                                                                <option value="19:00:00">7:00 PM</option>
+                                                                <option value="19:30:00">7:30 PM</option>
+                                                                <option value="20:00:00">8:00 PM</option>
+                                                                <option value="20:30:00">8:30 PM</option>
+                                                                <option value="21:00:00">9:00 PM</option>
+                                                                <option value="21:30:00">9:30 PM</option>
+                                                                <option value="22:00:00">10:00 PM</option>
+                                                                <option value="22:30:00">10:30 PM</option>
+                                                                <option value="23:00:00">11:00 PM</option>
+                                                                <option value="23:30:00">11:30 PM</option>
 
 
-</select>
+                                                            </select>
 
 
-                        </div>
-                    </div>
-                    <div class="col-lg-6">
-                        <div class="form-group">
-                            <label class="control-label" for="inputName"> Pickup Location
-                            </label> <select name="scheduleCollectionPickupLocation" class="form-control">
-                            <option value="1">Front</option>
-                            <option value="2">Rear</option>
-                            <option value="3">Side</option>
-                        </select>
-                        </div>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Location Code
-                    </label>
-                    <select name="scheduleCollectionLocationCodeId" id="form_booking_shipmentRequestModel_scheduleCollection_locationCodeId" class="form-control">
-    <option value="1">Business</option>
-    <option value="2">Residence</option>
-    <option value="3">Business/Residence</option>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label" for="inputName"> Close Time
+                                                            </label>
+                                                            <select name="scheduleCollectionPickupTimeNoLater" id="sel-pickup-nolater" class="form-control">
+                                                                <option value="06:00:00">6:00 AM</option>
+                                                                <option value="06:30:00">6:30 AM</option>
+                                                                <option value="07:00:00">7:00 AM</option>
+                                                                <option value="07:30:00">7:30 AM</option>
+                                                                <option value="08:00:00">8:00 AM</option>
+                                                                <option value="08:30:00">8:30 AM</option>
+                                                                <option value="09:00:00">9:00 AM</option>
+                                                                <option value="09:30:00">9:30 AM</option>
+                                                                <option value="10:00:00">10:00 AM</option>
+                                                                <option value="10:30:00">10:30 AM</option>
+                                                                <option value="11:00:00">11:00 AM</option>
+                                                                <option value="11:30:00">11:30 AM</option>
+                                                                <option value="12:00:00">12:00 PM</option>
+                                                                <option value="12:30:00">12:30 PM</option>
+                                                                <option value="13:00:00">1:00 PM</option>
+                                                                <option value="13:30:00">1:30 PM</option>
+                                                                <option value="14:00:00">2:00 PM</option>
+                                                                <option value="14:30:00">2:30 PM</option>
+                                                                <option value="15:00:00">3:00 PM</option>
+                                                                <option value="15:30:00">3:30 PM</option>
+                                                                <option value="16:00:00">4:00 PM</option>
+                                                                <option value="16:30:00">4:30 PM</option>
+                                                                <option value="17:00:00">5:00 PM</option>
+                                                                <option value="17:30:00">5:30 PM</option>
+                                                                <option value="18:00:00">6:00 PM</option>
+                                                                <option value="18:30:00">6:30 PM</option>
+                                                                <option value="19:00:00">7:00 PM</option>
+                                                                <option value="19:30:00">7:30 PM</option>
+                                                                <option value="20:00:00">8:00 PM</option>
+                                                                <option value="20:30:00">8:30 PM</option>
+                                                                <option value="21:00:00">9:00 PM</option>
+                                                                <option value="21:30:00">9:30 PM</option>
+                                                                <option value="22:00:00">10:00 PM</option>
+                                                                <option value="22:30:00">10:30 PM</option>
+                                                                <option value="23:00:00">11:00 PM</option>
+                                                                <option value="23:30:00">11:30 PM</option>
 
 
-</select>
+                                                            </select>
 
 
-                </div>
-                <div class="form-group">
-                    <label class="control-label" for="inputName"> Location Description <span class="s30"> *</span>
-                    </label>
-                    <input type="text" name="scheduleCollectionDescription" required maxlength="25" value="Front Desk" id="form_booking_shipmentRequestModel_scheduleCollection_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Location description">
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-6">
+                                                        <div class="form-group">
+                                                            <label class="control-label" for="inputName"> Pickup Location
+                                                            </label> <select name="scheduleCollectionPickupLocation" class="form-control">
+                                                                <option value="1">Front</option>
+                                                                <option value="2">Rear</option>
+                                                                <option value="3">Side</option>
+                                                            </select>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Location Code
+                                                    </label>
+                                                    <select name="scheduleCollectionLocationCodeId" id="form_booking_shipmentRequestModel_scheduleCollection_locationCodeId" class="form-control">
+                                                        <option value="1">Business</option>
+                                                        <option value="2">Residence</option>
+                                                        <option value="3">Business/Residence</option>
+
+
+                                                    </select>
+
+
+                                                </div>
+                                                <div class="form-group">
+                                                    <label class="control-label" for="inputName"> Location Description <span class="s30"> *</span>
+                                                    </label>
+                                                    <input type="text" name="scheduleCollectionDescription" required maxlength="25" value="Front Desk" id="form_booking_shipmentRequestModel_scheduleCollection_description" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Location description">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                                 <div class="text-right pal pdt10">
-                                <a href="<?php echo base_url('customer/shipment'); ?>" class="back"> <button class="btn s33" type="button">
-                                        Back
-                                    </button>
-                                    <button class="btn s33 " type="button" onclick="saveNewBooking()">
-                                        Ship
-                                    </button>
+                                    <a href="<?php echo base_url('customer/shipment'); ?>" class="back"> <button class="btn s33" type="button">
+                                            Back
+                                        </button>
+                                        <button class="btn s33 " type="button" onclick="saveNewBooking()">
+                                            Ship
+                                        </button>
                                 </div>
                             </div>
                             <div class="chat-form s11"></div>
@@ -469,50 +494,53 @@
             </div>
         </div>
     </div>
-	<!---------------------- sender info ---------------------->
-<input type="hidden" name="sender_name" id="sender_name" value="<?php echo $result['shipmentPage.senderAddress.contactName']; ?>">
-<input type="hidden" name="sender_email" id="sender_email" value="<?php echo $result['shipmentPage.senderAddress.email']; ?>">
-<input type="hidden" name="sender_phone" id="sender_phone" value="<?php echo $result['shipmentPage.senderAddress.phone']; ?>">
-<input type="hidden" name="sender_city" id="sender_city" value="<?php echo $result['shipmentPage.senderAddress.city']; ?>">
-<input type="hidden" name="sender_pin" id="sender_pin" value="<?php echo $result['shipmentPage.senderAddress.postalCode']; ?>">
-<input type="hidden" name="sender_state" id="sender_state" value="<?php echo $result['shipmentPage.senderAddress.state']; ?>">
-<input type="hidden" name="sender_address" id="sender_address" value="<?php echo $result['shipmentPage.senderAddress.address'].' '.$result['shipmentPage.senderAddress.address2'].' '.$result['shipmentPage.senderAddress.address3']; ?>">
+    <!---------------------- sender info ---------------------->
+    <input type="hidden" name="sender_company" id="sender_company" value="<?php echo $result['shipmentPage.senderAddress.companyName']; ?>">
+    <input type="hidden" name="sender_country" id="sender_country" value="<?php echo $result['shipmentPage.senderAddress.country']; ?>">
+
+    <input type="hidden" name="sender_name" id="sender_name" value="<?php echo $result['shipmentPage.senderAddress.contactName']; ?>">
+    <input type="hidden" name="sender_email" id="sender_email" value="<?php echo $result['shipmentPage.senderAddress.email']; ?>">
+    <input type="hidden" name="sender_phone" id="sender_phone" value="<?php echo $result['shipmentPage.senderAddress.phone']; ?>">
+    <input type="hidden" name="sender_city" id="sender_city" value="<?php echo $result['shipmentPage.senderAddress.city']; ?>">
+    <input type="hidden" name="sender_pin" id="sender_pin" value="<?php echo $result['shipmentPage.senderAddress.postalCode']; ?>">
+    <input type="hidden" name="sender_state" id="sender_state" value="<?php echo $result['shipmentPage.senderAddress.state']; ?>">
+    <input type="hidden" name="sender_address" id="sender_address" value="<?php echo $result['shipmentPage.senderAddress.address'] . ' ' . $result['shipmentPage.senderAddress.address2'] . ' ' . $result['shipmentPage.senderAddress.address3']; ?>">
 
 
-<!---------------------- receiver info ---------------------->
-<input type="hidden" name="receiver_name" id="receiver_name" value="<?php echo $result['shipmentPage.receiverAddress.contactName']; ?>">
-<input type="hidden" name="receiver_company" id="receiver_company" value="<?php echo $result['shipmentPage.receiverAddress.companyName']; ?>">
-<input type="hidden" name="receiver_email" id="receiver_email" value="<?php echo $result['shipmentPage.receiverAddress.email']; ?>">
-<input type="hidden" name="receiver_phone" id="receiver_phone" value="<?php echo $result['shipmentPage.receiverAddress.phone']; ?>">
-<input type="hidden" name="receiver_city" id="receiver_city" value="<?php echo $result['shipmentPage.receiverAddress.city']; ?>">
-<input type="hidden" name="receiver_pin" id="receiver_pin" value="<?php echo $result['shipmentPage.receiverAddress.postalCode']; ?>">
-<input type="hidden" name="receiver_state" id="receiver_state" value="<?php echo $result['shipmentPage.receiverAddress.state']; ?>">
-<input type="hidden" name="receiver_address" id="receiver_address" value="<?php echo $result['shipmentPage.receiverAddress.address'].' '.$result['shipmentPage.senderAddress.address2'].' '.$result['shipmentPage.receiverAddress.address3']; ?>">
+    <!---------------------- receiver info ---------------------->
+    <input type="hidden" name="receiver_name" id="receiver_name" value="<?php echo $result['shipmentPage.receiverAddress.contactName']; ?>">
+    <input type="hidden" name="receiver_company" id="receiver_company" value="<?php echo $result['shipmentPage.receiverAddress.companyName']; ?>">
+    <input type="hidden" name="receiver_email" id="receiver_email" value="<?php echo $result['shipmentPage.receiverAddress.email']; ?>">
+    <input type="hidden" name="receiver_phone" id="receiver_phone" value="<?php echo $result['shipmentPage.receiverAddress.phone']; ?>">
+    <input type="hidden" name="receiver_city" id="receiver_city" value="<?php echo $result['shipmentPage.receiverAddress.city']; ?>">
+    <input type="hidden" name="receiver_pin" id="receiver_pin" value="<?php echo $result['shipmentPage.receiverAddress.postalCode']; ?>">
+    <input type="hidden" name="receiver_state" id="receiver_state" value="<?php echo $result['shipmentPage.receiverAddress.state']; ?>">
+    <input type="hidden" name="receiver_address" id="receiver_address" value="<?php echo $result['shipmentPage.receiverAddress.address'] . ' ' . $result['shipmentPage.senderAddress.address2'] . ' ' . $result['shipmentPage.receiverAddress.address3']; ?>">
+    <input type="hidden" name="receiver_country" id="receiver_country" value="<?php echo $result['shipmentPage.receiverAddress.country']; ?>">
 
-
-<input type="hidden" name="ship_total" id="ship_total" value="<?php echo $quote_value;//result['total_weight']; ?>">
-<input type="hidden" name="ship_weight" id="ship_weight" value="<?php echo $result['shipmentPage.pieces.weight']; ?>">
-<input type="hidden" name="ship_length" id="ship_length" value="<?php echo $result['shipmentPage.pieces.dimensionL1']; ?>">
-<input type="hidden" name="ship_width" id="ship_width" value="<?php echo $result['shipmentPage.pieces.dimensionW1']; ?>">
-<input type="hidden" name="ship_height" id="ship_height" value="<?php echo $result['shipmentPage.pieces.dimensionH1']; ?>">
-<input type="hidden" name="serviceId" id="serviceId" value="<?php echo $result['shipmentPage.serviceId'];?>">
+    <input type="hidden" name="ship_total" id="ship_total" value="<?php echo $quote_value; //result['total_weight']; ?>">
+    <input type="hidden" name="ship_weight" id="ship_weight" value="<?php echo $result['shipmentPage.pieces.weight']; ?>">
+    <input type="hidden" name="ship_length" id="ship_length" value="<?php echo $result['shipmentPage.pieces.dimensionL1']; ?>">
+    <input type="hidden" name="ship_width" id="ship_width" value="<?php echo $result['shipmentPage.pieces.dimensionW1']; ?>">
+    <input type="hidden" name="ship_height" id="ship_height" value="<?php echo $result['shipmentPage.pieces.dimensionH1']; ?>">
+    <input type="hidden" name="serviceId" id="serviceId" value="<?php echo $result['shipmentPage.serviceId']; ?>">
 
 
 </form>
 <div id="alert-dialog" title="Error"></div>
 <div id="message-dialog" title="Message"></div>
 <style>
-#ship_id{
-	display:none;
-	padding: 6px;
-    width: 95%;
-    margin: 0 auto;
-    background: #d4ecd4;
-    margin-bottom: 13px;
-    font-size: 16px;
-    font-weight: 600;
-    text-align: center;
-}
+    #ship_id {
+        display: none;
+        padding: 6px;
+        width: 95%;
+        margin: 0 auto;
+        background: #d4ecd4;
+        margin-bottom: 13px;
+        font-size: 16px;
+        font-weight: 600;
+        text-align: center;
+    }
 </style>
 <script type="text/javascript">
     // init common dialog
@@ -531,7 +559,7 @@
     var alertDialog = $("#alert-dialog").dialog({
         autoOpen: false,
         modal: true,
-        close: function (e) {
+        close: function(e) {
             $("#message-dialog").html("");
         }
     });
@@ -542,7 +570,7 @@
             duration: 300
         },
         modal: true,
-        close: function (e) {
+        close: function(e) {
             $("#message-dialog").html("");
         }
     });
@@ -551,7 +579,7 @@
 <div id="webship_booking_send_airbill_dialog" title="Send Airbill"></div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 <script type="text/javascript">
-    $(document).ready(function () {
+    $(document).ready(function() {
         $('.schedule-time').datetimepicker({
             weekStart: 1,
             todayBtn: 1,
@@ -575,132 +603,123 @@
             $("#ws-schedule-collection-div").hide();
         }
     }
-
-
 </script>
 
 
 
 
-    <script>  
-
+<script>
     function saveNewBooking() {
 
-     var formdata = $("#form_booking").serialize();
-     //var customer = '<?php //echo $customers->customer_id;?>';
-    //console.log(formdata);
-    $.ajax({
-      /*var isfromsubmitvalue = true;
-      var html='';
-      $('#address_book_add input').each(function()
-      {
+        var formdata = $("#form_booking").serialize();
+        //var customer = '<?php //echo $customers->customer_id;
+                            ?>';
+        //console.log(formdata);
+        $.ajax({
+            /*var isfromsubmitvalue = true;
+            var html='';
+            $('#address_book_add input').each(function()
+            {
 
-              if($(this).prop('required') && $(this).val()=='')
-              {
-                    alertDialog.dialog("open");  
-                    
-                if(!$(this).parent().parent().find('.control-label').attr('data-label'))
+                    if($(this).prop('required') && $(this).val()=='')
                     {
-                        html +=$(this).parent().parent().find('.control-label').html()+' cannot be empty <br/>';  
+                          alertDialog.dialog("open");  
+                          
+                      if(!$(this).parent().parent().find('.control-label').attr('data-label'))
+                          {
+                              html +=$(this).parent().parent().find('.control-label').html()+' cannot be empty <br/>';  
+                          }
+                          else {
+                            html +=$(this).parent().parent().find('.control-label').attr('data-label')+' cannot be empty <br/>';
+                          }
+                          isfromsubmit = false;
+                          alertDialog.html(html);               
                     }
-                    else {
-                      html +=$(this).parent().parent().find('.control-label').attr('data-label')+' cannot be empty <br/>';
-                    }
-                    isfromsubmit = false;
-                    alertDialog.html(html);               
-              }
-             
-      });*/
-     
-             url: 'customers/add_booking',
-             type: 'POST',
-             data:formdata,
+                   
+            });*/
+
+            url: 'customers/add_booking',
+            type: 'POST',
+            data: formdata,
             // data:{customer:customer,formdata},
-    
-             error: function() {
+
+            error: function() {
                 alert('Something is wrong');
-             },
-             success: function(res) {
-				alert('Shipment ID: '+res);
-				$('#ship_id').html('Shipment ID: '+res);
-				$('#ship_id').show();
-				location.reload();
-             }
-          });
-      }
- 
+            },
+            success: function(res) {
+                alert('Shipment ID: ' + res);
+                $('#ship_id').html('Shipment ID: ' + res);
+                $('#ship_id').show();
+                location.reload();
+            }
+        });
+    }
 
 
-$('#city').keyup(function() {
-  
-  // If value is not empty
-  if ($(this).val() == "NT") {
-    // Hide the element
-    $('.sa').show();
-      $('.nsw').hide();
-        $('.wa').hide();
-          $('.tas').hide();
+
+    $('#city').keyup(function() {
+
+        // If value is not empty
+        if ($(this).val() == "NT") {
+            // Hide the element
+            $('.sa').show();
+            $('.nsw').hide();
+            $('.wa').hide();
+            $('.tas').hide();
             $('.qld').hide();
-              $('.vic').hide();
-   
-  }
- else if ($(this).val() == "NSW") {
-    // Hide the element
-    $('.nsw').show();
-      $('.sa').hide();
-        $('.wa').hide();
-          $('.tas').hide();
+            $('.vic').hide();
+
+        } else if ($(this).val() == "NSW") {
+            // Hide the element
+            $('.nsw').show();
+            $('.sa').hide();
+            $('.wa').hide();
+            $('.tas').hide();
             $('.qld').hide();
-              $('.vic').hide();
-  }
-  else if ($(this).val() == "WA") {
-    // Hide the element
-    $('.wa').show();
-      $('.sa').hide();
-       $('.syd').hide();
-         $('.tas').hide();
-           $('.qld').hide();
-             $('.vic').hide();
-  }
-    else if ($(this).val() == "TAS") {
-    // Hide the element
-    $('.tas').show();
-      $('.sa').hide();
-       $('.nsw').hide();
-         $('.wa').hide();
-           $('.qld').hide();
-             $('.vic').hide();
-  }
-  
-  else if ($(this).val() == "VIC") {
-    // Hide the element
-     $('.vic').show();
-      $('.sa').hide();
-       $('.nsw').hide();
-         $('.wa').hide();
-          $('.tas').hide();
-           $('.qld').hide();
-  }
-  
-    else if ($(this).val() == "QLD") {
-    // Hide the element
-     $('.qld').show();
-      $('.vic').hide();
-       $('.sa').hide();
-        $('.nsw').hide();
-         $('.wa').hide();
-          $('.tas').hide();
-  }
-  else {
-    // Otherwise show it
-    $('.nsw').hide();
-     $('.sa').hide();
-      $('.wa').show();
-       $('.tas').hide();
-        $('.vic').hide();
-        $('.qld').hide();
-  } 
-}).keyup();
+            $('.vic').hide();
+        } else if ($(this).val() == "WA") {
+            // Hide the element
+            $('.wa').show();
+            $('.sa').hide();
+            $('.syd').hide();
+            $('.tas').hide();
+            $('.qld').hide();
+            $('.vic').hide();
+        } else if ($(this).val() == "TAS") {
+            // Hide the element
+            $('.tas').show();
+            $('.sa').hide();
+            $('.nsw').hide();
+            $('.wa').hide();
+            $('.qld').hide();
+            $('.vic').hide();
+        } else if ($(this).val() == "VIC") {
+            // Hide the element
+            $('.vic').show();
+            $('.sa').hide();
+            $('.nsw').hide();
+            $('.wa').hide();
+            $('.tas').hide();
+            $('.qld').hide();
+        } else if ($(this).val() == "QLD") {
+            // Hide the element
+            $('.qld').show();
+            $('.vic').hide();
+            $('.sa').hide();
+            $('.nsw').hide();
+            $('.wa').hide();
+            $('.tas').hide();
+        } else {
+            // Otherwise show it
+            $('.nsw').hide();
+            $('.sa').hide();
+            $('.wa').show();
+            $('.tas').hide();
+            $('.vic').hide();
+            $('.qld').hide();
+        }
+    }).keyup();
+
     function changeCollectionType(type) {
         var data = {
             'shipmentRequestModelGson': $("#shipmentRequestModelGson").val(),
@@ -708,7 +727,7 @@ $('#city').keyup(function() {
         };
         doPostDataByParameters("get-schedule-collection-input.ix?reqType=json", data, "", "schedule-collection-input", true);
     }
-    $(document).ready(function () {
+    $(document).ready(function() {
         $(".div_more_detail").hide();
         $(".civ_generate").hide();
         $("#pickup-date").datetimepicker({
@@ -732,6 +751,7 @@ $('#city').keyup(function() {
 
         });
     });
+
     function doShip() {
         var captionList = [];
         captionList.push('View Waybill');
@@ -752,42 +772,44 @@ $('#city').keyup(function() {
         var actionPost = "webship_do_ship.ix?reqType=json";
         loadDialogResultBooking(actionPost, captionList);
     }
-    $(".a_more_detail").click(function () {
+    $(".a_more_detail").click(function() {
         $(".div_more_detail").toggle("slow");
     });
-
-
-</script></div>
+</script>
+</div>
 
 <div id="session_time_out_dialog" title="Message"></div>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/webship/customer/pages/webship.js"></script>
 <script src="https://webfreight.agllogistics.com:443/crm-webship/script/common/common.js"></script>
 <script type="text/javascript">
     var defaultCurrencyCode = "AUD";
-    $(document).ready(function () {
+    $(document).ready(function() {
         loadAdditionalConfig();
         loadState('sender');
         loadState('receiver');
     });
-    $('body').click(function () {
+    $('body').click(function() {
         $('.sss1').hide();
     });
+
     function createNewShipment() {
         window.location.reload();
     }
+
     function getQuote() {
         $(".nonStandardPackage input[type=checkbox]").each(function() {
             $(this).val(this.checked);
         });
         loadDialogQuoteWithSessionTimeout("webship_get_quote.ix?reqType=json", "webship_save_quote.ix?reqType=json", "get-quote-dialog", "shipment-info-form", "saveQuoteLog", "Save quote", "Ok", "session_time_out_dialog",
-                "Ok");
+            "Ok");
 
         var senderId = $("select[name='shipmentPage.senderAddress.country']").val();
         var receiverId = $("select[name='shipmentPage.receiverAddress.country']").val();
-        if (senderId != 12 &&  receiverId != 12) {
+        if (senderId != 12 && receiverId != 12) {
             $('.ui-dialog-buttonset button:contains("Save quote")').button().hide();
         }
     }
+
     function changeCurrency(code) {
         if (code != defaultCurrencyCode) {
             $(".fw0:contains('Insurance')").find("input[type='checkbox']").attr("disabled", "disabled");
@@ -795,12 +817,13 @@ $('#city').keyup(function() {
             $(".fw0:contains('Insurance')").find("input[type='checkbox']").attr("disabled", false);
         }
     }
+
     function changeDimensionList(val, no) {
         if (val > 0) {
             var data = {
                 "dimensionId": val
             };
-            $.post("webship_change_dimension_type.ix?reqType=json", data, function (res) {
+            $.post("webship_change_dimension_type.ix?reqType=json", data, function(res) {
                 if (res.errorCode == "SUCCESS") {
                     var json = res.content.trim();
                     var obj = JSON.parse(json);
@@ -811,7 +834,7 @@ $('#city').keyup(function() {
                     alertDialog.html(res.errorMsg);
                     alertDialog.dialog("open");
                 }
-            }).fail(function () {
+            }).fail(function() {
                 alertDialog.html('System internal error, please contact administrator.');
                 alertDialog.dialog("open");
             });
@@ -822,7 +845,7 @@ $('#city').keyup(function() {
         }
     }
 
-    
+
     // Prepare for return service
 
     function onChangeServiceType(isReturn) {
@@ -931,6 +954,7 @@ $('#city').keyup(function() {
             }
         }
     }
+
     function setdefaulttime() {
         var nowdate = new Date();
         var nh = nowdate.getHours();
@@ -960,6 +984,7 @@ $('#city').keyup(function() {
             $('#sel-pickup-time').val("17:30:00");
         }
     }
+
     function setRequireLabel(labelId, isRequired) {
         if (isRequired) {
             $("#" + labelId + " span.s30").remove();
@@ -969,6 +994,7 @@ $('#city').keyup(function() {
         }
 
     }
+
     function checkSavaAddressBook(nameCheck) {
         if ($('input[name="' + nameCheck + '"]').is(":checked")) {
             $('input[name="' + nameCheck + '"]').val(1);
@@ -976,6 +1002,5 @@ $('#city').keyup(function() {
             $('input[name="' + nameCheck + '"]').val(0);
         }
     }
-
 </script>
-            </div>
+</div>

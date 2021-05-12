@@ -220,18 +220,22 @@
                             <div class="form-group mgb">
                                 <table class="s36">
                                     <tbody>
-                                        <tr class="upper">
+                                        <tr>
                                             <td>
                                                 <button class="btn s33 s44" type="button" onClick="window.location.reload()">
                                                     Refresh
                                                 </button>
                                             </td>
                                             <td>
-                                                 <button name="create_excel" id="create_excel" class="btn s33">Export to Excel</button> 
-                                                   
+                                                <button class="btn s33" type="button" onclick="javascript:exportToExcel();">
+                                                    Export to Excel
+                                                </button>
                                             </td>
                                             <td>
-                                            <input type="button" id="btnExport" class="btn s33 export_pdf" value="Export to Pdf" />
+                                                <!--button class="btn s33" type="button" onclick="javascript:exportToPdf();">
+                                                                        Export to PDF
+                                                                    </button-->
+                                                <input type="button" id="btnExport" class="btn s33 xport_pdf" value="Export to Pdf" />
                                             </td>
                                             <td id="btngenerate_manifest" style="display: none">
                                                 <button class="btn s33" type="button" onclick="javascript:generateManifest();">
@@ -280,9 +284,58 @@
                             </div>
                         </div>
 
-                       
+                        <div class="col-lg-12 " id="button_actions" style="margin-top: 10px">
+
+                            <button class="btn s33 s44" type="button" onclick="reshipHistory();" disabled="disabled">
+                                Re-Ship Same Package
+                            </button>
+                            <button class="btn s33 s44" type="button" data-toggle="modal" id="view" data-target="#exampleModal" disabled="disabled">
+                                View Details
+                            </button>
+                            <button class="btn s33 s44" type="button" id="btn_view_shipment_receipt" onclick="shipmentReceipt();" disabled="disabled">
+                                Shipment Receipt
+                            </button>
+
+                            <button class="btn s33 s44" type="button" id="btnViewAirbill" onclick="viewAirbill();" disabled="disabled">
+                                View Airbill
+                            </button>
+                            <button class="btn s33 s44" type="button" id="btnViewThermalLabel" onclick="viewThermalLabel()" disabled="disabled">
+                                Thermal Label
+                            </button>
+                            <button class="btn s33 s44" type="button" id="btnviewmanifest" onclick="viewManifest()" disabled="disabled">
+                                View Manifest
+                            </button>
+
+                            <button class="btn s33 s44" type="button" onclick="viewPackingList()" id="btn_packing_list" disabled="disabled">
+                                View Packing List
+                            </button>
+                            <button class="btn s33 s44" type="button" onclick="viewTntConnote()" id="btn_tnt_connote" style="display: none" disabled="disabled">
+                                Consignment Note
+                            </button>
+                            <button class="btn s33 s44" type="button" id="btnSendAirbill" onclick="sendAirbill();" disabled="disabled">
+                                Send Airbill
+                            </button>
+
+
+                            <button class="btn s33 s44" type="button" onclick="trackAirbill();" id="trackAirbill" disabled="disabled">
+                                Track
+                            </button>
+
+                            <button class="btn s33 s44" type="button" id="btn_void" onclick="voidAirbill();" disabled="disabled">
+                                Void
+                            </button>
+
+
+
+                            <!-- Note -->
+
+                            <!-- End AddNote -->
+                        </div>
+
                         <div id="div_history_data">
                             <input type="hidden" name="" value="" id="hid_shipment_id">
+                            <input type="hidden" name="" value="" id="hid_tracking_id">
+                            <input type="hidden" name="" value="" id="hid_table_id">
                             <input type="hidden" name="" value="" id="hid_service_id">
                             <input type="hidden" id="hid_history_records" value="25">
 
@@ -331,13 +384,16 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach ($historys as $history) { ?>
-                                        <tr class="tr_no_record" id="<?php echo $history['id']; ?>">
-                                   <?php     $history_id = $history['id']; ?>
-                                   
+                                        <tr class="tr_no_record">
+                                            <!--td>
+                                                                            <input type="checkbox" name="chk_multivoid[]" value="25569" id="form_history_chk_multivoid__" class="chk_multivoid chk_multivoid_NO" style="display: none;"><input type="hidden" id="__checkbox_form_history_chk_multivoid__" name="__checkbox_chk_multivoid[]" value="25569">
+                                                                            <input type="hidden" name="" value="0" id="is_void">
+                                                                         </td-->
                                             <?php $carrier = $this->db->where('id', $history['carrier_id'])->get('carriers')->row(); ?>
                                             <td><?php print_r($carrier->carrier_name); ?><input type="hidden" name="" value="<?php echo $this->user_model->get_history($history['id']); ?>" id="shipmentId">
-                                                <input type="hidden" name="" value="0" id="commercialInvoiceId">
+                                                <input type="hidden" name="" value="<?php //echo $this->user_model->get_tracking_id($history['id']); ?>" id="trackingID">
                                                 <input type="hidden" name="" value="13142" id="schedule_collection_id">
+                                                <input type="hidden" name="" value="<?php echo $history['id'] ?>" id="userId">
                                                 <input type="hidden" name="" value="1" id="service_id"> <input type="hidden" name="" value="0" id="packingList">
                                             </td>
                                             <td class="td_void_status">NO</td>
@@ -384,52 +440,6 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-12 " id="button_actions" style="margin-top: 10px">
-
-<table>
-<tbody>
-    <?php if(!empty($history_id)){ ?>
-<tr class="buttons">
-<td><button class="btn s33 s44" type="button" data-toggle="modal" id="view" data-target="#exampleModal" disabled="disabled">
-     View Details
- </button></td>
-
- <td> <button class="btn s33 s44" type="button" id="btnViewAirbill" onclick="viewAirbill();" disabled="disabled">
-                               Freight Label
-                            </button></td>
- 
- <td> <button class="btn s33 s44" type="button" id="btnviewmanifest" onclick="viewManifest()" disabled="disabled">
-     View Manifest
- </button></td>
- 
- <td>  <button class="btn s33 s44" type="button" onclick="viewTntConnote()" id="btn_tnt_connote" style="display: none" disabled="disabled">
-     Consignment Note
- </button></td>
-
- <td>  <button class="btn s33 s44" type="button" id="btnSendAirbill" onclick="sendAirbill();" disabled="disabled">
-     Send Airbill
- </button></td>
-
-
- <td>  <button class="btn s33 s44" type="button" id="track" onclick="trackAirbill();" disabled="disabled">
-     Track
- </button></td>
-
- <td> <button class="btn s33 s44" type="button" id="btn_void" onclick="voidHistory();" disabled="disabled">
-     Void
- </button></td>
-</tr>
-<?php } ?>
-</tbody>
-</table>
-
-
- <!-- Note -->
-
- <!-- End AddNote -->
-</div>
-
                 <button class="btn s33 s44 multivoid" type="button" onclick="proceedToVoid();" style="display: none;">
                     Proceed to Void
                 </button>
@@ -511,34 +521,7 @@
     </ul>
 </div>
 <!--END CONTENT-->
-
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
- 
-	<script type="text/javascript">
-		$("body").on("click", "#btnExport", function () {
-			html2canvas($('#datatable1')[0], {
-				onrendered: function (canvas) {
-					var data = canvas.toDataURL();
-					var docDefinition = {
-						content: [{
-							image: data,
-							width: 550
-						}]
-					};
-					pdfMake.createPdf(docDefinition).download("ShippingHistoryReport.pdf");
-				}
-			});
-		});
-
-
-
-        function voidHistory(){
-			var row_id = $('tr.selected-row').attr('id');
-			window.location.href = "<?php echo base_url('customer/history_void/?history_id='); ?>"+row_id;
-		}
-
-
+<script type="text/javascript">
     new_aae_manifest = false;
     toll_view_gen_manifest = false;
     toll_ipec_view_gen_manifest = false;
@@ -583,11 +566,9 @@
                 $('#datatable1 tbody tr').removeClass('selected-row');
                 $(this).toggleClass('selected-row');
                 $("#view").prop('disabled', false);
-                $("#btnSendAirbill").prop('disabled', false);
                 $("#btnViewAirbill").prop('disabled', false);
-                $("#btnviewmanifest").prop('disabled', false);
-                $("#track").prop('disabled', false);
-                $("#btn_void").prop('disabled', false);
+                $("#btnViewThermalLabel").prop('disabled', false);
+                $("#trackAirbill").prop('disabled', false);
             });
 
         }
@@ -685,20 +666,28 @@
     }
 
     function viewThermalLabel() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("view_thermal_label.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
+        var id = $('#hid_shipment_id').val();
+        $.ajax({
+            url: "<?php echo base_url(); ?>track",
+            method: "POST",
+            data: {
+                "_token": "{{csrf_token() }}",
+                'id': id
+            },
+            success: function(data) {
+
+                window.open(data);
+
+
+            }
+
+        });
     }
 
     function updateCollectionNo() {
         doPostDataNonError('history_search.ix?reqType=json', 'form_history', '', 'div_history_data');
     }
 
-    function trackAirbill() {
-        var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("history_tracking.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
-    }
 
 
 
@@ -818,14 +807,19 @@
     $('table#datatable1 tbody tr').dblclick(function() {
         $(this).addClass('selected-row').siblings().removeClass('selected-row');
         var shipmentId = $(this).find('#shipmentId').val();
+        var trackingId = $(this).find('#trackingID').val();
+        var userId = $(this).find('#userId').val();
         $("#hid_shipment_id").val(shipmentId);
+        $("#hid_tracking_id").val(trackingId);
+        $("#hid_table_id").val(userId);
         viewDetail();
     });
 
     function viewAirbill() {
         var id = $('#hid_shipment_id').val();
         $.ajax({
-            url: "<?php echo base_url(); ?>track",
+            //url: "<?php echo base_url(); ?>track",
+            url: "customers/track",
             method: "POST",
             data: {
                 "_token": "{{csrf_token() }}",
@@ -839,6 +833,14 @@
             }
 
         });
+
+    }
+
+    function trackAirbill() {
+        var id = $("#hid_tracking_id").val();
+        var tableId = $("#hid_table_id").val();
+        window.location.href = "<?php echo base_url('customer/history_tracking'); ?>?trackingId=" + id + "&id=" + tableId;
+
 
 
     }
@@ -856,65 +858,4 @@
         var win = window.open("view_tnt_connote.ix?shipmentId=" + shipment_id, '_blank');
         win.focus();
     }
-
-    $(document).ready(function() {
-    $('#datatable1').DataTable( {
-    } );
-} );
-
-$('#create_excel').click(function() {
-	  var titles = [];
-	  var data = [];
-
-	  $('.datatable1 th').each(function() {
-		titles.push($(this).text());
-	  });
-
-	  $('.datatable1 td').each(function() {
-		data.push($(this).text());
-	  });
-
-	  var CSVString = prepCSVRow(titles, titles.length, '');
-	  CSVString = prepCSVRow(data, titles.length, CSVString);
-
-	  var downloadLink = document.createElement("a");
-	  var blob = new Blob(["\ufeff", CSVString]);
-	  var url = URL.createObjectURL(blob);
-	  downloadLink.href = url;
-	  downloadLink.download = "data.csv";
-
-	  document.body.appendChild(downloadLink);
-	  downloadLink.click();
-	  document.body.removeChild(downloadLink);
-	});
-
-	function prepCSVRow(arr, columnCount, initial) {
-	  var row = ''; // this will hold data
-	  var delimeter = ','; // data slice separator, in excel it's `;`, in usual CSv it's `,`
-	  var newLine = '\r\n'; // newline separator for CSV row
-
-	  function splitArray(_arr, _count) {
-		var splitted = [];
-		var result = [];
-		_arr.forEach(function(item, idx) {
-		  if ((idx + 1) % _count === 0) {
-			splitted.push(item);
-			result.push(splitted);
-			splitted = [];
-		  } else {
-			splitted.push(item);
-		  }
-		});
-		return result;
-	  }
-	  var plainArr = splitArray(arr, columnCount);
-	  plainArr.forEach(function(arrItem) {
-		arrItem.forEach(function(item, idx) {
-		  row += item + ((idx + 1) === arrItem.length ? '' : delimeter);
-		});
-		row += newLine;
-	  });
-	  return initial + row;
-	}
-
 </script>

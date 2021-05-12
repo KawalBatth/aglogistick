@@ -467,6 +467,10 @@
         </div>
     </div>
 
+</form>
+<div id="alert-dialog" title="Error"></div>
+<div id="message-dialog" title="Message"></div>
+
     <!---------------------- sender info ---------------------->
 <input type="hidden" name="sender_name" id="sender_name" value="<?php echo $result['shipmentPage.senderAddress.contactName']; ?>">
 <input type="hidden" name="sender_email" id="sender_email" value="<?php echo $result['shipmentPage.senderAddress.email']; ?>">
@@ -510,6 +514,7 @@
     text-align: center;
 }
 </style>
+
 <script type="text/javascript">
     // init common dialog
     var loadingDialog = $("#loading-dialog").dialog({
@@ -580,6 +585,48 @@
 
     <script>  
 
+    function saveNewBooking() {
+      
+     var formdata = $("#form_booking").serialize();
+     //var customer = '<?php //echo $customers->customer_id;?>';
+    console.log(formdata);
+    $.ajax({
+      /*var isfromsubmitvalue = true;
+      var html='';
+      $('#address_book_add input').each(function()
+      {
+
+              if($(this).prop('required') && $(this).val()=='')
+              {
+                    alertDialog.dialog("open");  
+                    
+                if(!$(this).parent().parent().find('.control-label').attr('data-label'))
+                    {
+                        html +=$(this).parent().parent().find('.control-label').html()+' cannot be empty <br/>';  
+                    }
+                    else {
+                      html +=$(this).parent().parent().find('.control-label').attr('data-label')+' cannot be empty <br/>';
+                    }
+                    isfromsubmit = false;
+                    alertDialog.html(html);               
+              }
+             
+      });*/
+     
+             url: 'customers/add_booking',
+             type: 'POST',
+             data:formdata,
+            // data:{customer:customer,formdata},
+    
+             error: function() {
+                alert('Something is wrong');
+             },
+             success: function(res) {
+                location.reload();
+             }
+          });
+      }
+
 function saveNewBooking() {
 
 var formdata = $("#form_booking").serialize();
@@ -624,6 +671,7 @@ $.ajax({
         }
      });
  }
+
 
  
 
