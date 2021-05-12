@@ -336,7 +336,7 @@ function validate_form()
     
      if(addressContactName == "")
      {
-     document.getElementById('error').innerHTML="*Contact Name is empty";
+     document.getElementById('error').innerHTML="*Contact Name is required";
      $("#error").css("color", "red");
      $("#error").css("font-size", "11px");
       valid = false;
@@ -344,7 +344,7 @@ function validate_form()
      
 
       if(address == ""){
-       document.getElementById('error1').innerHTML="*Address is empty";
+       document.getElementById('error1').innerHTML="*Address is required";
         $("#error1").css("color", "red");
         $("#error1").css("font-size", "11px");
          valid = false;
@@ -353,7 +353,7 @@ function validate_form()
    
 
      if(addressCity == ""){
-     document.getElementById('error2').innerHTML="*City is empty";
+     document.getElementById('error2').innerHTML="*City is required";
      $("#error2").css("color", "red");
      $("#error2").css("font-size", "11px");
       valid = false;

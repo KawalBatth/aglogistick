@@ -252,6 +252,7 @@
                                         <div class="row">
                                        
                                           <div class="col-lg-12 text-right">
+                                          <button type="button" onclick="editsurcharge()" id="EditButton" class="btn edit_sur" disabled>Edit</button>
                                           <?php if(!empty($surchargeId)){ ?>
                                           <button type="button" class="btn remove" id="remove" onclick="deleteSurcharge()" disabled> Delete</button>
                                           <?php } ?>
@@ -261,7 +262,7 @@
                                             </button>
                                             
                                              <button type="button" class="btn btn-primary add_sur" data-toggle="modal" data-target="#exampleModal">Add New Surcharge</button>
-                                             <button type="button" onclick="editsurcharge()" id="EditButton" class="btn edit_sur" disabled>Edit Surcharge Details</button>
+                                             
                                            
                                              <div align="right">  
                      <button name="create_excel" id="create_excel" class="btn export">Export Excel</button>  

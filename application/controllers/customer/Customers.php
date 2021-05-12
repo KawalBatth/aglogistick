@@ -25,7 +25,7 @@
 				}
 				$data['carriers']=$this->auth_model->get_carrier();
 				$data['services']=$this->auth_model->get_services();
-				$data['country']=$this->user_model->get_country();
+				//$data['country']=$this->user_model->get_country();
 				$data['view'] = 'customers/shipment';
 				$this->load->view('customers/layout', $data);
 				

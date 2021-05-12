@@ -255,8 +255,10 @@ input.form-control.old_pass {
 
 p.note {
     color: red;
-    font-size: 14px;
-    border-left:none;
+    font-size: 13px;
+    border-left: none;
+    margin-top: -5px;
+    margin-bottom: 7px;
 }
 
 button.btn.s33.s44.save {
@@ -455,7 +457,7 @@ img.logo_img {
     width: 2%;
     height: -21%;
     margin-top: 11px;
-    margin-right: -163px;
+    margin-right: -149px;
     background: aliceblue;
 }
 
@@ -616,6 +618,39 @@ tr.buttons {
     margin-left: 177px;
     float: left;
     margin-bottom: -10px;
+}
+
+.col-md-6.address3 {
+    margin-left: 1px;
+}
+
+.col-md-4.save {
+    margin-top: -67px;
+}
+
+.col-md-4.residence {
+    margin-top: -28px;
+}
+
+.col-md-6.residences {
+    margin-top: -20px;
+}
+
+.col-md-6.saves {
+    margin-top: -61px;
+}
+
+.col-md-6.send_contact {
+    margin-left: 1px;
+}
+
+.col-md-6.send_email {
+    float: right;
+    margin-top: -62px;
+}
+
+input#shipment-info-form_shipmentPage_receiverAddress_email {
+    text-transform: lowercase;
 }
     </style>
   <header class="main-header">

@@ -51,7 +51,7 @@
 				$data['data']     = $this->auth_model->get_customer();
 				$data['users']    = $this->auth_model->get_users();
 				$data['services'] = $this->auth_model->get_services();
-				$data['country']=$this->user_model->get_country();
+				//$data['country']=$this->user_model->get_country();
 				$data['margin']   = $this->auth_model->get_margin($_GET['id']);
 				$data['view']     = 'admin/customers/customer_manage';
 				$this->load->view('admin/layout', $data);
@@ -75,7 +75,7 @@
 			$data['customer_id'] =$this->auth_model->get_customer_id();
 			$data['customers'] =$this->auth_model->get_customer();
 			$data['services'] =  $this->auth_model->get_services();
-			$data['country']=$this->user_model->get_country();
+			//$data['country']=$this->user_model->get_country();
 			$data['view'] = 'admin/customers/customer_add';
 			$this->load->view('admin/layout', $data);
 		}

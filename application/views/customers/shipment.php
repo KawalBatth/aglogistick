@@ -62,7 +62,7 @@
                                                     <div id="error1"></div>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 send_contact">
                                                 <div class="form-group">
                                                     <label class="control-label" for="inputName"> Contact Name <span class="s30"> *</span>
                                                     </label>
@@ -72,9 +72,9 @@
 
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 send_email">
                                                 <div class="form-group">
-                                                    <label class="control-label" for="inputName"> Email Address
+                                                    <label class="control-label" for="inputName"> Email Address<span class="s30"> *</span>
                                                     </label>
                                                     <input type="text" name="shipmentPage.senderAddress.email" maxlength="50" value="<?php echo $customers->email;?>" id="shipment-info-form_shipmentPage_senderAddress_email" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Email" onfocus="this.value=''">
                                                     <div id="error14"></div>
@@ -113,7 +113,7 @@
                                                     <input type="text" name="shipmentPage.senderAddress.address2" maxlength="35" value="" id="shipment-info-form_shipmentPage_senderAddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 2" onfocus="this.value=''">
                                                 </div>
                                             </div>
-												 <div class="col-md-6">
+												 <div class="col-md-6 address3">
 													<div class="form-group">
 														<label class="control-label" for="inputName"> Address 3
 														</label>
@@ -123,14 +123,14 @@
 												
 												<div class="col-md-6"></div>
 												
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 save">
                                                 <div class="form-group">
                                                     <label class="fw0"> <input name="shipmentPage.isSaveSenderAddressBook" value="0" tabindex="5" type="checkbox">
                                                         &nbsp; Save to Address Book
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-4">
+                                            <div class="col-md-4 residence">
                                                 <div class="form-group">
                                                     <label class="fw0"> <input tabindex="5" type="checkbox" value="0" name="shipmentPage.residentialPickup">
                                                         &nbsp; Residence
@@ -250,9 +250,9 @@
                                                     <select name="shipmentPage.receiverAddress.country" id="shipmentPage_receiverAddress_country" class="form-control" onchange="changeCountry('receiver')">
                                                  
                                                  
-                                                  <option value="<?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; } ?>"><?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; } ?></option>
-                                               
-                                           <option value="Australia" selected="selected"> Australia</option>
+                                                  <option value="<?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; } else { echo "Australia";} ?>" selected="selected"><?php if(isset($addres->country)){ echo $addres->country; } elseif(isset($quotes->receiver_country)){ echo $quotes->receiver_country; }  else { echo "Australia";} ?></option>
+                                            
+                                           
                                                             </select>
 
 <div id="error9"></div>
@@ -273,7 +273,7 @@
                                                     <input type="text" name="shipmentPage.receiverAddress.address2" maxlength="35" value="<?php if(isset($addres->address1)){ echo $addres->address1; } elseif(isset($quotes->	receiver_address1)){ echo $quotes->receiver_address1; } ?>" id="shipment-info-form_shipmentPage_receiverAddress_address2" class="form-control alloptions" data-toggle="tooltip" data-placement="top" data-original-title="TOOLTIP:Address 2" onfocus="this.value=''">
                                                 </div>
                                             </div>
-												 <div class="col-md-6">
+												 <div class="col-md-6 address3">
 													<div class="form-group">
 														<label class="control-label" for="inputName"> Address 3
 														</label>
@@ -282,14 +282,14 @@
 												</div>
 												
 												<div class="col-md-6"></div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 saves">
                                                 <div class="form-group">
                                                     <label class="fw0"> <input name="shipmentPage.isSaveRecipientAddressBook" value="0" tabindex="5" type="checkbox">
                                                         &nbsp; Save to Address Book
                                                     </label>
                                                 </div>
                                             </div>
-                                            <div class="col-md-6">
+                                            <div class="col-md-6 residences">
                                                 <div class="form-group">
                                                     <label class="fw0"> <input tabindex="5" type="checkbox" value="0" name="shipmentPage.residentialDelivery">
                                                         &nbsp; Residence
@@ -884,7 +884,7 @@ function validate_form()
     }*/
     if(companyName == ""){
      // alert("Please enter Sender Company Name");
-     document.getElementById('error').innerHTML="*Sender Company Name is empty";
+     document.getElementById('error').innerHTML="*Sender Company Name is required";
      $("#error").css("color", "red");
      $("#error").css("font-size", "11px");
       valid = false;
@@ -892,7 +892,7 @@ function validate_form()
 
      if(contactName == ""){
      // alert("Please enter Sender Contact Name");
-     document.getElementById('error2').innerHTML="*Sender Contact Name is empty";
+     document.getElementById('error2').innerHTML="*Sender Contact Name is required";
      $("#error2").css("color", "red");
      $("#error2").css("font-size", "11px");
       valid = false;
@@ -900,7 +900,7 @@ function validate_form()
 
      if(senderCountry == ""){
      // alert("Please choose a Sender Country Name");
-     document.getElementById('error3').innerHTML="*Sender Country Name is empty";
+     document.getElementById('error3').innerHTML="*Sender Country Name is required";
      $("#error3").css("color", "red");
      $("#error3").css("font-size", "11px");
       valid = false;
@@ -908,7 +908,7 @@ function validate_form()
 
      if(senderAddress == ""){
       //alert("Please enter Sender Address");
-      document.getElementById('error4').innerHTML="*Sender Address is empty";
+      document.getElementById('error4').innerHTML="*Sender Address is required";
       $("#error4").css("color", "red");
       $("#error4").css("font-size", "11px");
       valid = false;
@@ -916,7 +916,7 @@ function validate_form()
      
      if(senderPhone == ""){
      // alert("Please enter Sender Phone");
-     document.getElementById('error1').innerHTML="*Sender Phone is empty";
+     document.getElementById('error1').innerHTML="*Sender Phone is required";
      $("#error1").css("color", "red");
      $("#error1").css("font-size", "11px");
       valid = false;
@@ -924,7 +924,7 @@ function validate_form()
      
       if(senderCity == ""){
       //alert("Please enter Sender City");
-      document.getElementById('error5').innerHTML="*Sender City is empty";
+      document.getElementById('error5').innerHTML="*Sender City is required";
       $("#error5").css("color", "red");
       $("#error5").css("font-size", "11px");
       valid = false;
@@ -932,7 +932,7 @@ function validate_form()
      
       if(receiverCompanyName == ""){
       //alert("Please enter Receiver Company Name");
-      document.getElementById('error6').innerHTML="*Receiver Company Name is empty";
+      document.getElementById('error6').innerHTML="*Receiver Company Name is required";
       $("#error6").css("color", "red");
       $("#error6").css("font-size", "11px");
       valid = false;
@@ -940,7 +940,7 @@ function validate_form()
 
      if(receiverContactName == ""){
       //alert("Please enter Receiver Contact Name");
-      document.getElementById('error8').innerHTML="*Receiver Contact Name is empty";
+      document.getElementById('error8').innerHTML="*Receiver Contact Name is required";
       $("#error8").css("color", "red");
       $("#error8").css("font-size", "11px");
       valid = false;
@@ -948,7 +948,7 @@ function validate_form()
       
      if(receiverCountry == ""){
       //alert("Please choose a Receiver Country");
-      document.getElementById('error9').innerHTML="*Receiver Country is empty";
+      document.getElementById('error9').innerHTML="*Receiver Country is required";
       $("#error9").css("color", "red");
       $("#error9").css("font-size", "11px");
       valid = false;
@@ -956,14 +956,14 @@ function validate_form()
      
       if(receiverAddress == ""){
       //alert("Please enter Receiver Address");
-      document.getElementById('error10').innerHTML="*Receiver Address is empty";
+      document.getElementById('error10').innerHTML="*Receiver Address is required";
       $("#error10").css("color", "red");
       $("#error10").css("font-size", "11px");
       valid = false;
      }
      if(receiverCity == ""){
       //alert("Please enter Receiver City");
-      document.getElementById('error11').innerHTML="*Receiver City is empty";
+      document.getElementById('error11').innerHTML="*Receiver City is required";
       $("#error11").css("color", "red");
       $("#error11").css("font-size", "11px");
       valid = false;
@@ -971,7 +971,7 @@ function validate_form()
 
      if(receiverPhone == ""){
       //alert("Please enter Receiver Phone");
-      document.getElementById('error7').innerHTML="*Receiver Phone is empty";
+      document.getElementById('error7').innerHTML="*Receiver Phone is required";
       $("#error7").css("color", "red");
       $("#error7").css("font-size", "11px");
       valid = false;
@@ -979,7 +979,7 @@ function validate_form()
 
      if(senderEmail == ""){
       //alert("Please enter Receiver Phone");
-      document.getElementById('error14').innerHTML="*Sender Email is empty";
+      document.getElementById('error14').innerHTML="*Sender Email is required";
       $("#error14").css("color", "red");
       $("#error14").css("font-size", "11px");
       valid = false;
@@ -987,7 +987,7 @@ function validate_form()
     
      if(receiverEmail == ""){
       //alert("Please enter Receiver Phone");
-      document.getElementById('error15').innerHTML="*Receiver Email is empty";
+      document.getElementById('error15').innerHTML="*Receiver Email is required";
       $("#error15").css("color", "red");
       $("#error15").css("font-size", "11px");
       valid = false;
@@ -1007,7 +1007,7 @@ function validate_form()
     
      if(shipmentWeight == ""){
      // alert("Please enter a Weight");
-     document.getElementById('error12').innerHTML="*Weight is empty";
+     document.getElementById('error12').innerHTML="*Weight is required";
      $("#error12").css("color", "red");
      $("#error12").css("font-size", "11px");
       valid = false;

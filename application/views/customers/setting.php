@@ -27,7 +27,7 @@
                             <div class="alert alert-success" role="alert" style="display: none">
                                 <i class="fa fa-check fa-fw"></i><span></span>
                             </div>
-                            <p style="color: red">
+                            <p class="note">
                                 <b>Note:</b> <br> - Password should contain minimum 8 characters, with at least one letter and one number.
                             </p>
 <!--pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"-->
@@ -38,12 +38,12 @@
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputName">New Password</label>
-                                 <input name="newPassword" value="" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" type="password" placeholder="Enter the new password"  class="form-control alloptions old_pass" id="newPassword" required> <span class="s30"></span>
+                                 <input name="newPassword" value="" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" type="password" placeholder="Enter new password"  class="form-control alloptions old_pass" id="newPassword" required> <span class="s30"></span>
                                  <?php echo form_error('newPassword', '<div class="error">', '</div>')?>
                             </div>
                             <div class="form-group">
                                 <label class="control-label" for="inputName">Confirm New</label>
-                                 <input name="confirmPassword" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" type="password" required placeholder="Re-enter the new password" class="form-control alloptions old_pass" id="confirmPassword" required>
+                                 <input name="confirmPassword" pattern="^(?=(.*[a-z]){3,})(?=(.*[A-Z]){1,})(?=(.*[0-9]){1,})(?=(.*[!@#$%^&*()\-__+.]){1,}).{8,}$" type="password" required placeholder="Re-enter new password" class="form-control alloptions old_pass" id="confirmPassword" required>
                                  <span id="message"></span>
                             </div>
                         </div>

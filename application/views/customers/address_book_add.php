@@ -59,7 +59,7 @@
                                                     <input type="text" name="addressPostalCode" value="" id="address_book_add_addressBookModel_postalCode" class="form-control">
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="control-label address_imp" for="inputName" data-label="Country"> Country <span class="s30"> *</span>
+                                                    <label class="control-label address_imp" for="inputName" data-label="Country"> Country 
                                                     </label>
                                                     <select name="addressCountry" id="addressCountryId" class="form-control" required="required">
                                                     <option value="Australia" selected="selected"> Australia</option>
@@ -189,47 +189,38 @@ function validate_form()
  var addressContactName = document.getElementById("address_book_add_addressBookModel_contactName").value;
  var address = document.getElementById("address_book_add_addressBookModel_address1").value;
  var addressCity = document.getElementById("address_book_add_addressBookModel_city").value;
- var addressCountry = document.getElementById("addressCountryId").value;
  var addressPhone = document.getElementById("address_book_add_addressBookModel_phone").value;
     
      if(addressContactName == "")
      {
-     document.getElementById('error').innerHTML="*Contact Name is empty";
+     document.getElementById('error').innerHTML="*Name is required";
      $("#error").css("color", "red");
-     $("#error").css("font-size", "11px");
+     $("#error").css("font-size", "12px");
       valid = false;
      }
      
 
       if(address == ""){
-       document.getElementById('error1').innerHTML="*Address is empty";
+       document.getElementById('error1').innerHTML="*Address is required";
         $("#error1").css("color", "red");
-        $("#error1").css("font-size", "11px");
+        $("#error1").css("font-size", "12px");
          valid = false;
      }
      
    
 
      if(addressCity == ""){
-     document.getElementById('error6').innerHTML="*City is empty";
+     document.getElementById('error6').innerHTML="*City is required";
      $("#error6").css("color", "red");
-     $("#error6").css("font-size", "11px");
+     $("#error6").css("font-size", "12px");
       valid = false;
      }
     
 
-    if(addressCountry == ""){
-       document.getElementById('error2').innerHTML="*Country is empty";
-        $("#error2").css("color", "red");
-        $("#error2").css("font-size", "11px");
-        valid = false;
-     }
-    
-
      if(addressPhone == ""){
-       document.getElementById('error3').innerHTML="*Phone number is empty";
+       document.getElementById('error3').innerHTML="*Phone number is required";
         $("#error3").css("color", "red");
-        $("#error3").css("font-size", "11px");
+        $("#error3").css("font-size", "12px");
         valid = false;
      }
 

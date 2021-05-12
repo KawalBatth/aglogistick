@@ -636,8 +636,7 @@ if(isset($submit_id))
                             <option value="Australia" selected="selected"> Australia</option>
                                                             </select>
 
-                            </select>
-
+                           
                         </td>
                         </tr>
                         <tr>
@@ -718,13 +717,7 @@ if(isset($submit_id))
                             <td class="td2" colspan="2">
                             <select name="billingCountry" required="required" id="saveManageCustomer_customerAddress_billingAddress_billingCountry" class="form-control uppercase" group="billing-address" readonly="readonly">
                             <option value="<?php echo $customer_data->billing_country;?>" <?php echo "selected" ?>><?php echo $customer_data->billing_country;?></option>
-                            <?php  for($c=0;$c<count($country);$c++) 
-                                                            {                                                                
-                                                                ?>  
-                                                                <option value="<?php echo $country[$c]['id'];?>" ><?php echo $country[$c]['country_name'];?></option>
-                                                               
-                                                            <?php
-                                                           }   ?> 
+                            
                                 </select>
 
                         </td>
@@ -4788,7 +4781,7 @@ if(isset($submit_id))
                           </td>
                           <td><button type="button" class="btn" onclick="edituser()" id="edit" disabled>Edit User</button></td>  
                           <?php if(!empty($userId))  ?>
-                          <td> <button type="button" class="btn remove" id="remove" disabled onclick="deleteUser()"> Delete</button> </td>
+                          <td> <button type="button" class="btn del" id="remove" disabled onclick="deleteUser()"> Delete</button> </td>
                           
                          </tr>
                                     </tbody></table>

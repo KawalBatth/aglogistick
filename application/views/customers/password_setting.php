@@ -17,7 +17,7 @@
                             <div class="alert alert-success" role="alert" style="display: none">
                                 <i class="fa fa-check fa-fw"></i><span></span>
                             </div>
-                            <p style="color: red">
+                            <p class="note">
                                 <b>Note:</b> <br> - Password should contain minimum 8 characters, with at least one letter and one number.
                             </p>
 <!--pattern="^(?=.*[A-Za-z])(?=.*\d)[A-Za-z\d]{8,}$"-->

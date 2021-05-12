@@ -24,9 +24,11 @@
         margin-top: 40px;
         }
 		
-		.col-lg-12.text-right {
-            margin-top: 15px;
-            margin-bottom: -33px;
+    .col-lg-12.text-right {
+    margin-top: 15px;
+    float: left;
+    margin-bottom: -33px;
+    margin-left: -583px;
 }
 
 button.btn.ref {
@@ -575,25 +577,26 @@ label.add_carrier {
 }
 
 button.btn.btn-primary.add_sur {
-    margin-right: 194px;
-    margin-top: -56px;
+    margin-right: -269px;
+    margin-top: -30px;
+    float: right;
 }
 
 button#EditButton {
-    margin-top: -55px;
-    margin-right: 268px;
-    margin-left: -194px;
+    margin-top: -7px;
+    margin-right: 923px;
 }
 
 button#create_excel {
-    margin-top: -95px;
-    margin-right: 13px;
+    margin-top: -63px;
+    margin-right: -399px;
+    float: right;
 }
 
 input#btnExport {
-    margin-top: -95px;
-    margin-right: 9px;
-    margin-left: -14px;
+    margin-top: -63px;
+    margin-right: -516px;
+    float: right;
 }
 
 
@@ -708,7 +711,9 @@ button#edit {
     margin-left: 5px;
 }
 button#remove {
-    margin-left: 6px;
+    margin-left: 695px;
+    float: left;
+    margin-top: -32px;
 }
 
 .modal-content.carrier {
@@ -737,6 +742,12 @@ button#remove {
 select 
 {
     font-weight:100;
+}
+
+button#remove {
+    float: left;
+    margin-left: 5px;
+    margin-top: 0px;
 }
 
     </style>
