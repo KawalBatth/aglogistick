@@ -1528,8 +1528,8 @@ setTimeout(function()
 				
 				html +='<tr>';
 						html +='<td class="td1">Base Charge</td>';
-						//html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
-					    html +='<td class="td2">$ '+total+'</td>';
+						html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
+					    //html +='<td class="td2">$ '+total+'</td>';
 						html +='</tr>';
 				if(service_type_Id == 1 || service_type_Id == 2){
 					
@@ -1612,8 +1612,8 @@ setTimeout(function()
 				html +='</tr>';
 				html +='<tr>';
 						html +='<td class="td1"><b>Total Charge</b></td>';
-						//html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
-                        html +='<td class="td2">$ '+total+'</td>';
+						html +='<td class="td2">$ '+parseFloat(total.toFixed(2))+'</td>';
+                        //html +='<td class="td2">$ '+total+'</td>';
 				html +='</tr>';
 				html +='<tr>';
 						html +='<td colspan="2" style="background: #005786;padding: 1px;"></td>';

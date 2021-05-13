@@ -1,207 +1,3 @@
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Shipment Detail</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="col-lg-6">
-                    <table class="table" style="font-size: 11px; margin-bottom: 0px">
-                        <tbody>
-                            <tr>
-                                <td class="td1">Service Type</td>
-                                <td class="td2">Fixed Price Premium 5kg</td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Shipment Date</td>
-                                <td class="td2">20-04-2021</td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Package Type</td>
-                                <td class="td2">Satchel</td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Tracking#</td>
-                                <td class="td2">95AZ00020632</td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Contents Description#</td>
-                                <td class="td2">Spare Parts</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-lg-6">
-                    <table class="table" style="font-size: 11px; margin-bottom: 0px">
-                        <tbody>
-                            <tr>
-                                <td class="td1">Reference#</td>
-                                <td class="td2">84005-MMN-046 </td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Collection Reference#</td>
-                                <td class="td2"></td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Confirmation#</td>
-                                <td class="td2">9898177</td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Zone</td>
-                                <td class="td2">1</td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Cubic. Weight</td>
-                                <td class="td2">0.00 kg(s)</td>
-                            </tr>
-                            <tr>
-                                <td class="td1">Total. Dead. Weight</td>
-                                <td class="td2">3.0 kg(s)</td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="col-lg-12">
-                    <br> <label> <b><u>Package Information:</u></b>
-                    </label>
-                    <hr class="w11">
-                    <table class="table table-hover table-bordeed mg0" id="datatable12">
-                        <thead>
-                            <tr>
-                                <th>Piece</th>
-                                <th>Dead weight</th>
-                                <th>Cubic weight</th>
-                                <th>Dimension</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-
-                            <tr>
-                                <td>1</td>
-                                <td>3.00 kg(s)<br></td>
-                                <td>0.00 kg(s)</td>
-                                <td>0 x 0 x 0 cm(s)</td>
-                            </tr>
-
-                        </tbody>
-                    </table>
-                    <hr class="w11">
-                    <div class="row">
-                        <div class="text-right pal pdt10 w6">
-                            <button type="button" class="btn s33" onclick="javascript:viewAirbill();">View</button>
-                            <button type="button" class="btn s33" onclick="javascript:trackAirbill();">Track</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-12">
-                    <hr class="w11">
-                    <div class="col-lg-6">
-                        <table class="table table-hover  mg0" id="">
-                            <thead>
-                                <tr>
-                                    <th>Shipper Address</th>
-                                    <th>Receiver Address</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <tr>
-                                    <td>CEVA LOGISTICS </td>
-                                    <td>BHP SOUTH FLANK PROJECT</td>
-                                </tr>
-                                <tr>
-                                    <td>DAVID ROBERTS</td>
-                                    <td>ZIGGY / MICHAEL</td>
-                                </tr>
-                                <tr>
-                                    <td>GATE 6, 1203 ABERNETHY RD </td>
-                                    <td>MINING AREA C GATEHSE DROP 40</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td>GREAT NORTHERN HIGHWAY</td>
-                                </tr>
-                                <tr>
-                                    <td></td>
-                                    <td></td>
-                                </tr>
-                                <tr>
-                                    <td>HAZELMERE 6055 WA</td>
-                                    <td>NEWMAN 6753 WA</td>
-                                </tr>
-                                <tr>
-                                    <td>Australia</td>
-                                    <td>Australia</td>
-                                </tr>
-                                <tr>
-                                    <td>Ph: 08 6218 6813</td>
-                                    <td>Ph: 0436 848 566 </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                    <div class="col-lg-6">
-                        <table class="table table-hover  mg0" id="">
-                            <thead>
-                                <tr>
-                                    <th colspan="2">Quote Detail</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-
-                                <tr>
-                                    <td>- Base Charge:
-                                    </td>
-                                    <td>16.90</td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>- Security Surcharge:
-                                    </td>
-                                    <td>0.65</td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>- Fuel Surcharge:
-                                    </td>
-                                    <td>2.37</td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>- GST:
-                                    </td>
-                                    <td>1.99</td>
-                                </tr>
-
-                                <tr>
-
-                                    <td>- Total Charges:
-                                    </td>
-                                    <td>21.91</td>
-                                </tr>
-                                <tr>
-                                    <td colspan="2"><i>Quote is an estimate. Additional fees may apply.</i></td>
-                                </tr>
-                            </tbody>
-                        </table>
-                    </div>
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn s33" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-
 <div class="portlet box">
     <div class="portlet-header">
         <div class="caption">
@@ -219,119 +15,28 @@
                         <div class="col-lg-12 pd0">
                             <div class="form-group mgb">
                                 <table class="s36">
-                                    <tbody>
-                                        <tr>
+                                <tbody>
+                                        <tr class="upper">
                                             <td>
                                                 <button class="btn s33 s44" type="button" onClick="window.location.reload()">
                                                     Refresh
                                                 </button>
                                             </td>
                                             <td>
-                                                <button class="btn s33" type="button" onclick="javascript:exportToExcel();">
-                                                    Export to Excel
-                                                </button>
+                                                 <button name="create_excel" id="create_excel" class="btn s33">Export to Excel</button> 
+                                                   
                                             </td>
                                             <td>
-                                                <!--button class="btn s33" type="button" onclick="javascript:exportToPdf();">
-                                                                        Export to PDF
-                                                                    </button-->
-                                                <input type="button" id="btnExport" class="btn s33 xport_pdf" value="Export to Pdf" />
+                                            <input type="button" id="btnExport" class="btn s33 export_pdf" value="Export to Pdf" />
                                             </td>
-                                            <td id="btngenerate_manifest" style="display: none">
-                                                <button class="btn s33" type="button" onclick="javascript:generateManifest();">
-                                                    Generate Manifest
-                                                </button>
-                                            </td>
-                                            <td id="btntollprioritygenerate_manifest" style="display: none">
-                                                <button class="btn s33" type="button" onclick="javascript:generateTollPriorityManifest();">
-                                                    Generate Manifest(Toll)
-                                                </button>
-                                            </td>
-                                            <td id="btntollipecgenerate_manifest" style="display: none">
-                                                <button class="btn s33" type="button" onclick="javascript:generateTollIpecManifest();">
-                                                    Generate Manifest(Toll Ipec)
-                                                </button>
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-lg-12 pd0" style="margin-top: 5px; display: none;" id="div_range_date">
-                            <div class="form-group mgb">
-                                <table class="s36">
-                                    <tbody>
-                                        <tr>
-                                            <td><label> From :
-                                                </label></td>
-                                            <td>
-                                                <div class="form-group input-group mg0">
-                                                    <span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
-                                                    </span> <input class="form-control form_datetime" id="txtFromDate" type="text" name="filterModel.fromDate" data-date-format="dd MM yyyy">
-                                                </div>
-                                            </td>
-                                            <td><label> To :
-                                                </label></td>
-                                            <td>
-                                                <div class="form-group input-group mg0">
-                                                    <span class="input-group-addon s31"> <i class="fa fa-calendar"></i>
-                                                    </span> <input class="form-control form_datetime" id="txtToDate" name="filterModel.toDate" type="text" data-date-format="dd MM yyyy">
-                                                </div>
-                                            </td>
+                                       
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         </div>
 
-                        <div class="col-lg-12 " id="button_actions" style="margin-top: 10px">
-
-                            <button class="btn s33 s44" type="button" onclick="reshipHistory();" disabled="disabled">
-                                Re-Ship Same Package
-                            </button>
-                            <button class="btn s33 s44" type="button" data-toggle="modal" id="view" data-target="#exampleModal" disabled="disabled">
-                                View Details
-                            </button>
-                            <button class="btn s33 s44" type="button" id="btn_view_shipment_receipt" onclick="shipmentReceipt();" disabled="disabled">
-                                Shipment Receipt
-                            </button>
-
-                            <button class="btn s33 s44" type="button" id="btnViewAirbill" onclick="viewAirbill();" disabled="disabled">
-                                View Airbill
-                            </button>
-                            <button class="btn s33 s44" type="button" id="btnViewThermalLabel" onclick="viewThermalLabel()" disabled="disabled">
-                                Thermal Label
-                            </button>
-                            <button class="btn s33 s44" type="button" id="btnviewmanifest" onclick="viewManifest()" disabled="disabled">
-                                View Manifest
-                            </button>
-
-                            <button class="btn s33 s44" type="button" onclick="viewPackingList()" id="btn_packing_list" disabled="disabled">
-                                View Packing List
-                            </button>
-                            <button class="btn s33 s44" type="button" onclick="viewTntConnote()" id="btn_tnt_connote" style="display: none" disabled="disabled">
-                                Consignment Note
-                            </button>
-                            <button class="btn s33 s44" type="button" id="btnSendAirbill" onclick="sendAirbill();" disabled="disabled">
-                                Send Airbill
-                            </button>
-
-
-                            <button class="btn s33 s44" type="button" onclick="trackAirbill();" id="trackAirbill" disabled="disabled">
-                                Track
-                            </button>
-
-                            <button class="btn s33 s44" type="button" id="btn_void" onclick="voidAirbill();" disabled="disabled">
-                                Void
-                            </button>
-
-
-
-                            <!-- Note -->
-
-                            <!-- End AddNote -->
-                        </div>
-
+                      
                         <div id="div_history_data">
                             <input type="hidden" name="" value="" id="hid_shipment_id">
                             <input type="hidden" name="" value="" id="hid_tracking_id">
@@ -384,28 +89,31 @@
                                 </thead>
                                 <tbody>
                                     <?php foreach ($historys as $history) { ?>
-                                        <tr class="tr_no_record">
+                                        <tr class="tr_no_record" id="<?php echo $history['id']; ?>">
+                                   <?php     $history_id = $history['id']; ?>
                                             <!--td>
                                                                             <input type="checkbox" name="chk_multivoid[]" value="25569" id="form_history_chk_multivoid__" class="chk_multivoid chk_multivoid_NO" style="display: none;"><input type="hidden" id="__checkbox_form_history_chk_multivoid__" name="__checkbox_chk_multivoid[]" value="25569">
                                                                             <input type="hidden" name="" value="0" id="is_void">
                                                                          </td-->
                                             <?php $carrier = $this->db->where('id', $history['carrier_id'])->get('carriers')->row(); ?>
                                             <td><?php print_r($carrier->carrier_name); ?><input type="hidden" name="" value="<?php echo $this->user_model->get_history($history['id']); ?>" id="shipmentId">
-                                                <input type="hidden" name="" value="<?php //echo $this->user_model->get_tracking_id($history['id']); ?>" id="trackingID">
+                                                <input type="hidden" name="" value="<?php echo $this->user_model->get_tracking_id($history['id']); ?>" id="trackingID">
                                                 <input type="hidden" name="" value="13142" id="schedule_collection_id">
                                                 <input type="hidden" name="" value="<?php echo $history['id'] ?>" id="userId">
                                                 <input type="hidden" name="" value="1" id="service_id"> <input type="hidden" name="" value="0" id="packingList">
                                             </td>
                                             <td class="td_void_status">NO</td>
-                                            <td id="td_airbillNumber"><?php echo $this->user_model->get_history($history['id']); ?></td>
-                                            <td><?php echo $history['ready_date']; ?></td>
+                                            <td id="td_airbillNumber"><?php echo $this->user_model->get_tracking_id($history['id']); ?></td>
+                                            <?php  $date = $history['ready_date'];
+                                                $ship_date= date('d-m-Y', strtotime($date)); ?>
+                                            <td><?php echo $ship_date; ?></td>
                                             <td><?php echo $history['collect_ready_time'] ?></td>
-                                            <td><?php echo $history['ready_date']; ?></td>
+                                            <td><?php echo $ship_date; ?></td>
                                             <td>1</td>
-                                            <td>DHL Worldwide Express</td>
+                                            <td><?php echo $history['service_name'] ?></td>
                                             <td class="col_hidden th_package" style="display: none;">Customer packaging</td>
                                             <td><?php echo $this->user_model->get_iteam_weight($history['id']); ?> kg(s)</td>
-                                            <td class="col_hidden th_dimensions" style="display: none;">31 X 31 X 42 cm</td>
+                                            <td class="col_hidden th_dimensions" style="display: none;"><?php echo $history['ship_length']. "X" . $history['ship_width']. "X" .$history['ship_height'];?> cm</td>
 
                                             <td>
                                                 <?php echo $this->user_model->get_price($history['id']); ?>
@@ -413,24 +121,24 @@
 
 
                                             <td class="td_schedule" id="is_scheduled">YES</td>
-                                            <td><?php echo $this->user_model->get_sechdule_date($history['id']); ?></td>
+                                            <td><?php //echo $this->user_model->get_sechdule_date($history['id']); ?><?php echo $ship_date . " " .$history['collect_ready_time'];?></td>
                                             <td><?php echo $history['billing_ref']; ?></td>
                                             <td class="col_hidden th_shipment_reference" style="display: none;">
-                                                62015859 - Thomas </td>
+                                            <?php echo $history['billing_ref']; ?> </td>
                                             <td class="col_hidden th_billing_party" style="display: none;">
                                             </td>
                                             <td class="col_hidden th_sender_company" style="display: none;">
-                                                Woodside Energy c/- AGL</td>
+                                            <?php echo $history['sender_company']; ?></td>
                                             <td class="col_hidden th_sender_contact" style="display: none;">
-                                                DESPATCH</td>
+                                            <?php echo $history['sender_contact']; ?></td>
                                             <td class="col_hidden th_sender_location" style="display: none;">
-                                                PERTH AIRPORT, 6105</td>
+                                            <?php echo $history['sender_city'] . ", " . $history['sender_pin'];?></td>
                                             <td class="col_hidden th_receiver_company" style="display: none;">
-                                                Woodside Energy Ltd </td>
+                                            <?php echo $history['receiver_company']; ?></td>
                                             <td class="col_hidden th_receiver_contact" style="display: none;">
-                                                Antonio Dos Santos </td>
-                                            <td><?php echo $history['collect_address']; ?></td>
-                                            <td><?php echo $history['collect_city']; ?></td>
+                                            <?php echo $history['receiver_contact']; ?> </td>
+                                            <td><?php echo $history['receiver_city'] . " , " . $history['receiver_pin'];?></td>
+                                            <td><?php echo $history['receiver_country']; ?></td>
                                         </tr>
                                     <?php } ?>
                                 </tbody>
@@ -440,6 +148,64 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="col-lg-12 " id="button_actions" style="margin-top: 10px">
+                <table class="s36">
+<tbody>
+    <?php if(!empty($history_id)){ ?>
+<tr class="buttons">
+
+<td><button class="btn s33 s44" type="button" data-toggle="modal" id="view" data-target="#exampleModal" disabled="disabled">
+    View Details
+</button></td>
+<button class="btn s33" type="button" id="view" onclick="fecth_hstory()" disabled>View Details
+                                                                </button>
+
+<td><button class="btn s33 s44" type="button" id="btnViewAirbill" onclick="viewAirbill();" disabled="disabled">
+    Freight Label
+</button></td>
+<!--td><button class="btn s33 s44" type="button" id="btnViewThermalLabel" onclick="viewThermalLabel()" disabled="disabled">
+    Thermal Label
+</button></td-->
+<td>  <button class="btn s33 s44" type="button" id="btnviewmanifest" onclick="viewManifest()" disabled="disabled">
+                                View Manifest
+                            </button></td>
+
+<td><button class="btn s33 s44" type="button" id="btnSendAirbill" onclick="sendAirbill();" disabled="disabled">
+    Send Airbill
+</button></td>
+
+
+<td><button class="btn s33 s44" type="button" onclick="trackAirbill();" id="trackAirbill" disabled="disabled">
+    Track
+</button></td>
+
+<td><button class="btn s33 s44" type="button" id="btn_void" onclick="voidHistory();" disabled="disabled">
+    Void
+</button></td>
+</tr>
+<?php } ?>
+</tbody>
+</table>
+
+<div class="form-popup history-form" id="myForm">
+<form id="saveQuoteLog history" name="saveQuoteLog">
+<h3 class="history-title">Quote</h3>
+<hr>
+<table class="table">
+   
+   <tbody></table>
+<div class="history-button">
+
+   
+    </div>
+  </form>
+</div>    
+<!-- Note -->
+
+<!-- End AddNote -->
+</div>
+
                 <button class="btn s33 s44 multivoid" type="button" onclick="proceedToVoid();" style="display: none;">
                     Proceed to Void
                 </button>
@@ -520,8 +286,38 @@
         <li style="color: #F00;"></li>
     </ul>
 </div>
-<!--END CONTENT-->
-<script type="text/javascript">
+
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.22/pdfmake.min.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.min.js"></script>
+ 
+	<script type="text/javascript">
+		$("body").on("click", "#btnExport", function () {
+			html2canvas($('#datatable1')[0], {
+				onrendered: function (canvas) {
+					var data = canvas.toDataURL();
+					var docDefinition = {
+						content: [{
+							image: data,
+							width: 550
+						}]
+					};
+					pdfMake.createPdf(docDefinition).download("ShippingHistoryReport.pdf");
+				}
+			});
+		});
+
+
+
+        function voidHistory(){
+			var row_id = $('tr.selected-row').attr('id');
+			window.location.href = "<?php echo base_url('customer/history_void/?history_id='); ?>"+row_id;
+		}
+
+        $(document).ready(function() {
+    $('#datatable1').DataTable( {
+    } );
+} );
+
     new_aae_manifest = false;
     toll_view_gen_manifest = false;
     toll_ipec_view_gen_manifest = false;
@@ -567,7 +363,9 @@
                 $(this).toggleClass('selected-row');
                 $("#view").prop('disabled', false);
                 $("#btnViewAirbill").prop('disabled', false);
-                $("#btnViewThermalLabel").prop('disabled', false);
+                $("#btnviewmanifest").prop('disabled', false);
+                $("#btnSendAirbill").prop('disabled', false);
+                $("#btn_void").prop('disabled', false);
                 $("#trackAirbill").prop('disabled', false);
             });
 
@@ -804,11 +602,13 @@
 
 
 
-    $('table#datatable1 tbody tr').dblclick(function() {
+    $('table#datatable1 tbody tr').click(function() {
+        
         $(this).addClass('selected-row').siblings().removeClass('selected-row');
         var shipmentId = $(this).find('#shipmentId').val();
         var trackingId = $(this).find('#trackingID').val();
         var userId = $(this).find('#userId').val();
+        console.log(shipmentId);
         $("#hid_shipment_id").val(shipmentId);
         $("#hid_tracking_id").val(trackingId);
         $("#hid_table_id").val(userId);
@@ -818,8 +618,7 @@
     function viewAirbill() {
         var id = $('#hid_shipment_id').val();
         $.ajax({
-            //url: "<?php echo base_url(); ?>track",
-            url: "customers/track",
+            url: "<?php echo base_url(); ?>track",
             method: "POST",
             data: {
                 "_token": "{{csrf_token() }}",
@@ -849,13 +648,242 @@
 
     function viewManifest() {
         var shipment_id = $("#hid_shipment_id").val();
-        var win = window.open("view_manifest.ix?shipmentId=" + shipment_id, '_blank');
-        win.focus();
+        var id = $("#hid_table_id").val();
+        $.ajax({
+            url: "<?php echo base_url(); ?>order",
+            method: "POST",
+            data: {
+                "_token": "{{csrf_token() }}",
+                'id': id,
+                'shipment_id': shipment_id
+            },
+            success: function(data) {
+
+                window.open(data);
+
+
+            }
+
+        });
     }
+
 
     function viewTntConnote() {
         var shipment_id = $("#hid_shipment_id").val();
         var win = window.open("view_tnt_connote.ix?shipmentId=" + shipment_id, '_blank');
         win.focus();
     }
+
+    function fecth_hstory()
+      {
+        document.getElementById("myForm").style.display = "block";
+          var historyId =  $('.selected-row').attr('id'); ;
+          //alert(zone);
+         // $('#exampleModal .caption').html('Rate Sheet For: Star Track');
+          var html ='';
+          var x=0;
+          var result='';
+         
+           $.ajax({
+               url: 'customers/gets_history',
+              // url: 'get_rates',
+               type: 'POST',
+               data:{historyId:historyId},
+               error: function() {
+                  alert('Something is wrong');
+               },
+               success: function(res) {
+                var data= JSON.parse(res);              
+                console.log(data);    
+                jQuery.each(data, function( i, val ) {
+                  result = val;
+                
+                  html +='<button type="button" class="btn s33 ok" onclick="closeForm()">x</button>';
+                  html +='<div class="col-lg-6">';
+                  html +='<table class="table" style="font-size: 11px; margin-bottom: 0px">';
+                  html +='<tbody>';
+                  html +='<tr>';
+                  html +='<td class="td1">Service Type</td>';
+                  html +='<td class="td2">'+'</td>';
+                  html +='</tr>';
+                  html +='<tr>';
+                  html +='<td class="td1">Shipment Date</td>';
+                  html +=' <td class="td2">'+val.ready_date+'</td>';
+                  html +='    </tr>';
+                  html +='    <tr>';
+                            html +=' <td class="td1">Package Type</td>';
+                            html +='<td class="td2">Customer packaging</td>';
+                            html +='     </tr>';
+                            html +='      <tr>';
+                            html +='       <td class="td1">Tracking#</td>';
+                            html +='     <td class="td2">95AZ00020632</td>';
+                            html +='   </tr>';
+                            html +='   <tr>';
+                            html +='     <td class="td1">Contents Description#</td>';
+                            html +='    <td class="td2">Spare Parts</td>';
+                            html +='  </tr>';
+
+                            html +=' </tbody>';
+                            html +=' </table>';
+                            html +='</div>';
+                            html +='  <div class="col-lg-6">';
+                            html +='  <table class="table" style="font-size: 11px; margin-bottom: 0px">';
+                            html +='   <tbody>';
+                            html +='      <tr>';
+                            html +='         <td class="td1">Reference#</td>';
+                            html +='        <td class="td2">84005-MMN-046 </td>';
+                            html +='    </tr>';
+                            html +='   <tr>';
+                            html +='     <td class="td1">Collection Reference#</td>';
+                            html +='<td class="td2">'+val.ready_date+'</td>';
+                            html +='  </tr>';
+                            html +='  <tr>';
+                            html +='    <td class="td1">Confirmation#</td>';
+                            html +='     <td class="td2">9898177</td>';
+                            html +='  </tr>';
+                            html +='   <tr>';
+                            html +='    <td class="td1">Zone</td>';
+                            html +='    <td class="td2">1</td>';
+                            html +='  </tr>';
+                            html +='  <tr>';
+                            html +='      <td class="td1">Cubic. Weight</td>';
+                            html +='       <td class="td2">0.00 kg(s)</td>';
+                            html +='    </tr>';
+                            html +='    <tr>';
+                            html +='      <td class="td1">Total. Dead. Weight</td>';
+                            html +='     <td class="td2">3.0 kg(s)</td>';
+                            html +='    </tr>';
+                            html +='        </tbody>';
+                            html +='     </table>';
+                            html +='  </div>';
+                            html +=' <div class="col-lg-12">';
+                            html +='   <br> <label> <b><u>Package Information:</u></b>';
+                   html +='   </label>';
+                   html +=' <hr class="w11">';
+                   html +='    <table class="table table-hover table-bordeed mg0" id="datatable12">';
+                   html +='   <thead>';
+                   html +='     <tr>';
+                   html +='       <th>Piece</th>';
+                   html +='     <th>Dead weight</th>';
+                   html +='   <th>Cubic weight</th>';
+                   html +='   <th>Dimension</th>';
+                   html +='  </tr>';
+                   html +=' </thead>';
+                   html +='  <tbody>';
+
+                   html +='      <tr>';
+                   html +='            <td>1</td>';
+                                html +='          <td>0.00 kg(s)</td>';
+                                html +='        <td>0 x 0 x 0 cm(s)</td>';
+                                html +='     </tr>';
+
+                                html +='    </tbody>';
+                                html +=' </table>';
+                                html +=' <hr class="w11">';
+                                html +=' <div class="row">';
+                                html +='     <div class="text-right pal pdt10 w6">';
+                                html +='         <button type="button" class="btn s33" onclick="javascript:viewAirbill();">View</button>';
+                                html +=' <button type="button" class="btn s33" onclick="javascript:trackAirbill();">Track</button>';
+                                html +='  </div>';
+                                html +='  </div>';
+                                html +='</div>';
+                html +=' <div class="col-lg-12">';
+                html +='   <hr class="w11">';
+                html +='  <div class="col-lg-6">';
+                html +='  <table class="table table-hover  mg0" id="">';
+                        html +='<thead>';
+                        html +='<tr>';
+                        html +='<th>Shipper Address</th>';
+                        html +='<th>Receiver Address</th>';
+                        html +='</tr>';
+                        html +='</thead>';
+                        html +='<tbody>';
+                        html +='<tr>';
+                        html +='<td>CEVA LOGISTICS </td>';
+                                    html +='<td>'+val.ready_date+'</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td>'+val.ready_date+'</td>';
+                                    html +='<td>'+val.ready_date+'</td>';
+                                    html +='</tr>';
+                                    html +=' <tr>';
+                                    html +='<td>'+val.ready_date+' </td>';
+                                    html +='<td>'+val.ready_date+'</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td></td>';
+                                    html +='<td>'+val.ready_date+'</td>';
+                                    html +='</tr>';
+                                html +='<tr>';
+                                html +='<td></td>';
+                                html +='<td></td>';
+                                html +='</tr>';
+                                html +='<tr>';
+                                html +='<td>'+val.ready_date+'</td>';
+                                html +='<td>'+val.ready_date+'</td>';
+                                html +='</tr>';
+                                html +='<tr>';
+                                html +='<td>Australia</td>';
+                                    html +='<td>Australia</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td>Ph: 08 6218 6813</td>';
+                                    html +='<td>Ph: 0436 848 566 </td>';
+                                    html +='</tr>';
+                                    html +='</tbody>';
+                                    html +='</table>';
+                                    html +='</div>';
+                                    html +=' <div class="col-lg-6">';
+                                    html +='<table class="table table-hover  mg0" id="">';
+                                    html +='<thead>';
+                                    html +='<tr>';
+                                    html +='<th colspan="2">Quote Detail</th>';
+                                    html +='</tr>';
+                                    html +=' </thead>';
+                                    html +='<tbody>';
+                                    html +=' <tr>';
+                                    html +='<td>- Base Charge:';
+                                    html +='</td>';
+                                    html +='<td>16.90</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td>- Security Surcharge:';
+                                    html +='</td>';
+                                    html +='<td>0.65</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td>- Fuel Surcharge:';
+                                    html +='</td>';
+                                    html +='<td>2.37</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td>- GST:';
+                                    html +='</td>';
+                                    html +='<td>1.99</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td>- Total Charges:';
+                                    html +='</td>';
+                                    html +='<td>21.91</td>';
+                                    html +='</tr>';
+                                    html +='<tr>';
+                                    html +='<td colspan="2"><i>Quote is an estimate. Additional fees may apply.</i></td>';
+                                    html +='</tr>';
+                                    html +='  </tbody>';
+                                    html +='  </table>';
+                               
+
+                });
+            	$('#myForm').html(html);
+              }
+            });
+          }
+
+          function openDetail() {
+  document.getElementById("myForm").style.display = "block";
+}
+
+function closeForm() {
+  document.getElementById("myForm").style.display = "none";
+}
 </script>

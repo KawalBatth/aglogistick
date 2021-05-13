@@ -374,6 +374,15 @@
 		return $result;
 	}
 
+	public function get_void_detail($id)
+	{
+		$this->db->from('additional_details');
+		$this->db->where('customer_id', $id);
+		$quary = $this->db->get();
+		$result = $quary->row();
+		return $result;
+	}
+
 	public function get_history($id)
 	{
 		$this->db->from('additional_details');
@@ -385,9 +394,9 @@
 		}
 
 		foreach ($datas['shipments'] as $data) {
-			$b = $data['shipment_id'];
+			$shipmentID = $data['shipment_id'];
 		}
-		return $b;
+		return $shipmentID;
 	}
 
 	public function get_iteam_weight($id)
@@ -402,10 +411,10 @@
 		foreach ($datas['shipments'] as $data) {
 
 			foreach ($data['items'] as $a) {
-				$b = $a['weight'];
+				$weight = $a['weight'];
 			}
 		}
-		return $b;
+		return $weight;
 	}
 
 	public function get_sechdule_date($id)
@@ -434,8 +443,8 @@
 		foreach ($datas['shipments'] as $data) {
 			$a = $data['shipment_summary'];
 		}
-		$b = $a['total_cost'] + $a['total_cost_ex_gst'] + $a['shipping_cost'] + $a['total_gst'] + $a['freight_charge'];
-		return $b;
+		$price = $a['total_cost'] + $a['total_cost_ex_gst'] + $a['shipping_cost'] + $a['total_gst'] + $a['freight_charge'];
+		return $price;
 	}
 
 	public function get_tracking_id($id)
@@ -456,14 +465,15 @@
 	}
 
 	public function get_history_data($id)
-	{
-		$this->db->from('additional_details');
-		$this->db->where('id', $id);
-		$quary = $this->db->get();
-		$history = $quary->row_array();
-		return $history;
-	}
+		{
+			
+			$this->db->select('*');
+			$this->db->from('additional_details');
+			$this->db->where('id', $id);
+			return $query = $this->db->get()->result_array();
 
+		}
+	
 	public function get_history_by_id($id)
 	{
 		$this->db->select('*');
@@ -473,6 +483,8 @@
 		$result = $quary->row();
 		return $result;
 	}
+
+	
 }
 
 ?>

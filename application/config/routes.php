@@ -116,6 +116,7 @@ $route['customer/continue_booking'] = 'customer/customers/continuewbooking';
 $route['customer/continue_bookingnew'] = 'customer/customers/continue_booking_new';
 $route['customer/save_quote'] = 'customer/customers/save_quote';
 $route['customer/history_tracking?(:any)'] = 'customer/customers/histroy_tracking';
+$route['track'] = 'customer/customers/track';
 
 //$route['customer/add_address_book'] = 'customer/customers/add_address_book';
 

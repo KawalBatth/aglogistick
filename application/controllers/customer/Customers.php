@@ -162,6 +162,21 @@
 			$this->load->view('customers/layout', $data);
 		}
 
+		public function history_void()
+		{
+			if($this->session->has_userdata('is_customer_user_login'))
+			{
+			$history_id = $this->input->get('history_id');
+			$data['void'] = $this->user_model->get_void_detail($history_id);
+			$data['view'] = 'customers/history_void';
+			$this->load->view('customers/layout', $data);
+		}
+		else 
+		  {	
+			redirect('user/login');
+	      }
+		}
+
 
 		public function password_setting()
 		{
@@ -175,6 +190,7 @@
 			
 			$id = $this->session->userdata();
 			$data['historys'] = $this->user_model->get_histroy_detail($id['customer_id']);
+			//$data['historys'] = $this->user_model->get_history_data($id['customer_id']);
 
 			$data['view'] = 'customers/history';
 			$this->load->view('customers/layout', $data);
@@ -203,6 +219,12 @@
 	        	echo json_encode($data);
             }
 
+			public function gets_history()
+           {	
+		         $id = $this->input->post('historyId');	
+		         $data=  $this->user_model->get_history_data($id);
+	        	echo json_encode($data);
+            }
 		
 		public function setting()
 		{
@@ -586,6 +608,7 @@
 		$sender_company = $this->input->post('sender_company');
 		$sender_country = $this->input->post('sender_country');
 		$serviceId = $this->input->post('serviceId');
+		$shipmentTypeId = $this->input->post('shipmentTypeId');
 		
 
 		$receiver_name = $this->input->post('receiver_name');
@@ -761,7 +784,13 @@
 			'receiver_pin' => $receiver_pin,
 			'receiver_state' => $receiver_state,
 			'receiver_country' => $receiver_country,
-            'shipapi_res' => $response,
+			'service_name' => $shipmentTypeId,
+
+			'ship_length' => $ship_length,
+			'ship_height' => $ship_height,
+			'ship_weight' => $ship_weight,
+			'ship_width' => $ship_width,
+			 'shipapi_res' => $response,
 
 		);
 		$this->user_model->add_booking($array);
@@ -915,7 +944,12 @@
 		} else {
 			redirect('user/login');
 		}
-	}		
+	}
+
+
+	
+	
+	
 	}
 
 ?>	

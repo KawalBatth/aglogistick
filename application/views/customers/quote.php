@@ -94,15 +94,18 @@
 												<button class="btn s33 s44" type="button" id="bookTo" onclick="bookTo()" disabled>
 													Book this shipment
 												</button>
+                                                <button class="btn s33" type="button" id="btn-view-detail" onclick="fecth_quote()" disabled>View Details
+                                                                </button>
 											<?php } 
 											else { ?>
-												<button class="btn s33 s44" type="button" id="bookTo" onclick="myFunction()" disabled>Book this shipment </button>
+												<button class="btn s33 s44" type="button" id="book" disabled>Book this shipment </button>
+                                                <button class="btn s33" type="button" id="btn-view" disabled>View Details
+                                                                </button>
 											<?php } ?></td>
                                                               <td>
                                                                 <!--button class="btn s33" type="button" disabled="disabled" id="btn-view-detail" onclick="openDetail()"-->
                                                                 <!-- Button trigger modal -->
-                                                                 <button class="btn s33" type="button" id="btn-view-detail" onclick="fecth_quote()" disabled>View Details
-                                                                </button>
+                                                              
                                                               
 
                                                           </td>

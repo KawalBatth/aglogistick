@@ -524,6 +524,8 @@
     <input type="hidden" name="ship_width" id="ship_width" value="<?php echo $result['shipmentPage.pieces.dimensionW1']; ?>">
     <input type="hidden" name="ship_height" id="ship_height" value="<?php echo $result['shipmentPage.pieces.dimensionH1']; ?>">
     <input type="hidden" name="serviceId" id="serviceId" value="<?php echo $result['shipmentPage.serviceId']; ?>">
+    <input type="hidden" name="shipmentTypeId" id="shipmentTypeId" value="<?php echo $result['shipmentPage.shipmentTypeId']; ?>">
+    
 
 
 </form>
@@ -612,33 +614,11 @@
     function saveNewBooking() {
 
         var formdata = $("#form_booking").serialize();
-        //var customer = '<?php //echo $customers->customer_id;
-                            ?>';
-        //console.log(formdata);
+    
         $.ajax({
-            /*var isfromsubmitvalue = true;
-            var html='';
-            $('#address_book_add input').each(function()
-            {
-
-                    if($(this).prop('required') && $(this).val()=='')
-                    {
-                          alertDialog.dialog("open");  
-                          
-                      if(!$(this).parent().parent().find('.control-label').attr('data-label'))
-                          {
-                              html +=$(this).parent().parent().find('.control-label').html()+' cannot be empty <br/>';  
-                          }
-                          else {
-                            html +=$(this).parent().parent().find('.control-label').attr('data-label')+' cannot be empty <br/>';
-                          }
-                          isfromsubmit = false;
-                          alertDialog.html(html);               
-                    }
-                   
-            });*/
-
+   
             url: 'customers/add_booking',
+         // url: 'add_booking',
             type: 'POST',
             data: formdata,
             // data:{customer:customer,formdata},

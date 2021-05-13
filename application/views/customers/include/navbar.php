@@ -610,14 +610,15 @@ input#address_book_add_addressBookModel_email {
 tr.upper {
     float: right;
     margin-left: 1084px;
-    margin-top: 13px;
-    margin-bottom: -61px;
+    margin-top: 0px;
+    margin-bottom: -14px;
 }
 
 tr.buttons {
-    margin-left: 177px;
+    margin-left: -4px;
     float: left;
-    margin-bottom: -10px;
+    margin-bottom: 12px;
+    margin-top: 18px;
 }
 
 .col-md-6.address3 {
@@ -651,6 +652,25 @@ tr.buttons {
 
 input#shipment-info-form_shipmentPage_receiverAddress_email {
     text-transform: lowercase;
+}
+
+.checkbox input[type=checkbox], .checkbox-inline input[type=checkbox], .radio input[type=radio], .radio-inline input[type=radio]{
+    margin-left: -9px !important;
+    margin-top: -1px;
+}
+
+.checkbox-inline{
+    padding-left: 1px !important;
+    padding-right: 5px;
+}
+
+div#div_list_chk_option {
+    margin-left: 18px;
+}
+
+.history-form {
+    width: 45%;
+    margin-top:10px;
 }
     </style>
   <header class="main-header">
